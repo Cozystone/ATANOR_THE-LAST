@@ -1,0 +1,561 @@
+{
+  "env": {
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "ANSEOK-9950X3D",
+    "cpus": 32,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "steps": 300,
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "split": "test",
+    "adapt": false,
+    "source_sha256": "83947f41b9fc6dce",
+    "source_files": 28,
+    "git_head": "a812362",
+    "git_atanor_os_untracked_or_modified": true
+  },
+  "checks": {
+    "label": "pre-registered",
+    "semantics_ok": true,
+    "semantics_seed": 3244639667,
+    "semantics_cells": {
+      "mkdir:success": 20,
+      "mkdir:failure": 20,
+      "copy:success": 20,
+      "copy:failure": 20,
+      "move:success": 20,
+      "move:failure": 20,
+      "delete:success": 20,
+      "delete:failure": 20,
+      "convert:success": 20,
+      "convert:failure": 20
+    },
+    "semantics_mismatch": 0,
+    "tests_passed": true,
+    "learner_tests_passed": true,
+    "unreachable": 0
+  },
+  "learn_cost_s": {
+    "1": {
+      "A": 9.399984264746308e-06,
+      "B": 0.004233599989674985,
+      "C": 0.007529900001827627,
+      "D": 0.0067199000041000545,
+      "ORACLE": 6.300018867477775e-06
+    },
+    "2": {
+      "A": 5.1000097300857306e-06,
+      "B": 0.005798900005174801,
+      "C": 0.009452399972360581,
+      "D": 0.010398699989309534
+    },
+    "3": {
+      "A": 7.299997378140688e-06,
+      "B": 0.006158700009109452,
+      "C": 0.009703999996418133,
+      "D": 0.011265000008279458
+    },
+    "4": {
+      "A": 9.299983503296971e-06,
+      "B": 0.003950100013753399,
+      "C": 0.007567799999378622,
+      "D": 0.006784099998185411
+    },
+    "5": {
+      "A": 6.700021913275123e-06,
+      "B": 0.004965800006175414,
+      "C": 0.007880099990870804,
+      "D": 0.008127800014335662
+    }
+  },
+  "storage": {
+    "1": {
+      "A": {
+        "journal_bytes": 1302528,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 1261568,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 434176,
+        "model_json_bytes": 3502
+      },
+      "D": {
+        "journal_bytes": 651264,
+        "model_json_bytes": 10138
+      },
+      "ORACLE": {
+        "journal_bytes": 405504,
+        "model_json_bytes": 28
+      }
+    },
+    "2": {
+      "A": {
+        "journal_bytes": 1302528,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 1269760,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 917504,
+        "model_json_bytes": 2836
+      },
+      "D": {
+        "journal_bytes": 917504,
+        "model_json_bytes": 8921
+      }
+    },
+    "3": {
+      "A": {
+        "journal_bytes": 1302528,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 1286144,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 307200,
+        "model_json_bytes": 2770
+      },
+      "D": {
+        "journal_bytes": 311296,
+        "model_json_bytes": 9332
+      }
+    },
+    "4": {
+      "A": {
+        "journal_bytes": 1302528,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 1269760,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 434176,
+        "model_json_bytes": 3524
+      },
+      "D": {
+        "journal_bytes": 585728,
+        "model_json_bytes": 8496
+      }
+    },
+    "5": {
+      "A": {
+        "journal_bytes": 1302528,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 1245184,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 409600,
+        "model_json_bytes": 3458
+      },
+      "D": {
+        "journal_bytes": 479232,
+        "model_json_bytes": 10206
+      }
+    }
+  },
+  "protocol": {
+    "version": 2.1,
+    "frozen_at": "2026-10-24T02:56:13",
+    "supersedes": "v1 (frozen 2026-10-24T01:58:40; kept verbatim as results/p1-test-01/metrics.json['protocol']). v1 results are preserved and reported together with the review findings that motivated v2.",
+    "primary": "C-B strict completion (real end state AND no keep violation on the way) on split=test, learning state frozen",
+    "min_gain_pp": 10.0,
+    "seeds_ge": 4,
+    "max_cost_ratio": 3.0,
+    "secondary": "D-C with the same thresholds, recorded only. D (v2): members vote only when they have evidence; tie = fail; docs fallback only when no member has evidence",
+    "split": "test",
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explore_steps": 300,
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "changes_from_v1": [
+      "convert tasks: output must be content-distinct from every observable file (copy/move cannot satisfy); partial is over literals false at the start",
+      "test split rotates its extension list so md/log/json all occur (v1 never generated json)",
+      "binding search budget = 100000 predictions per plan call (deterministic, identical for all conditions); seconds=180 is a safety guard; stop reason recorded; planner budget exhaustion is reported separately from abstention",
+      "D vote rule: documented-only members abstain (v1 let them vote 'success')",
+      "validity gate: semantics check stratified per (tool, outcome) with >=20 each and a run-derived seed; tests gate excludes learner-performance tests; tests must have run; label must be 'pre-registered'",
+      "primary metric is strict completion; storage per condition; reachability once per task; records written per seed; source sha256 + git state recorded",
+      "v2.1 (before any v2 learner run): prediction cap 100k -> 400k because the evaluator's ORACLE solved only 16/20 test tasks at 100k (depth-2 sort tasks need ~750 actions per expansion); at 400k ORACLE solves 20/20 with 0 budget stops"
+    ],
+    "invalid_if": [
+      "env_errors > 0",
+      "ORACLE completion < 1.0",
+      "semantics check not ok",
+      "validity tests not run or failed",
+      "unreachable task",
+      "label != pre-registered"
+    ],
+    "known_limits": [
+      "blocked is structurally 0 (the planner never proposes capability-gated tools)",
+      "B is exact-signature retrieval and therefore coverage-limited; C-B mixes rule induction with generalization beyond the explored signatures (docs_share column makes this visible)",
+      "md objects already occur during exploration (POOL); what is new in test: object and directory names, 3-4 files, extensions log/json, depth-2 target chains, more required steps"
+    ]
+  },
+  "conditions": {
+    "A": {
+      "episodes": 100,
+      "completion": 0.2,
+      "completion_end_state_only": 0.2,
+      "partial": 0.2,
+      "keep_violated": 0,
+      "actions": 19.2,
+      "noops": 18.7,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 80,
+      "env_errors": 0,
+      "pred_errors": 1890,
+      "pred_total": 1920,
+      "docs_share": 1.0,
+      "wall_s": 3.938581194998114,
+      "cpu_s": 3.81078125,
+      "plan_expanded": 66.05,
+      "plan_predicted": 23708.5,
+      "peak_mem_mb": 8.973937,
+      "status_counts": {
+        "documented": 1920
+      },
+      "plan_stops": {
+        "found": 1920
+      },
+      "by_template": {
+        "backup": 0.0,
+        "convert": 0.6666666666666666,
+        "sort": 0.0
+      },
+      "council": null
+    },
+    "B": {
+      "episodes": 100,
+      "completion": 0.21,
+      "completion_end_state_only": 0.21,
+      "partial": 0.2286111111111111,
+      "keep_violated": 0,
+      "actions": 18.37,
+      "noops": 17.63,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 79,
+      "env_errors": 0,
+      "pred_errors": 1784,
+      "pred_total": 1837,
+      "docs_share": 0.9640718562874252,
+      "wall_s": 3.57845649600029,
+      "cpu_s": 3.45796875,
+      "plan_expanded": 66.73,
+      "plan_predicted": 24468.98,
+      "peak_mem_mb": 9.096608,
+      "status_counts": {
+        "documented": 1771,
+        "retrieved": 66
+      },
+      "plan_stops": {
+        "found": 1837
+      },
+      "by_template": {
+        "backup": 0.0,
+        "convert": 0.7,
+        "sort": 0.0
+      },
+      "council": null
+    },
+    "C": {
+      "episodes": 100,
+      "completion": 0.84,
+      "completion_end_state_only": 0.84,
+      "partial": 0.8463888888888889,
+      "keep_violated": 0,
+      "actions": 7.04,
+      "noops": 2.96,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 8,
+      "budget_exceeded": 8,
+      "env_errors": 0,
+      "pred_errors": 320,
+      "pred_total": 704,
+      "docs_share": 0.17755681818181818,
+      "wall_s": 5.255354126000311,
+      "cpu_s": 5.17671875,
+      "plan_expanded": 283.94,
+      "plan_predicted": 140850.59,
+      "peak_mem_mb": 77.508663,
+      "status_counts": {
+        "learned": 579,
+        "documented": 125
+      },
+      "plan_stops": {
+        "found": 704,
+        "nodes": 8
+      },
+      "by_template": {
+        "backup": 0.9142857142857143,
+        "convert": 1.0,
+        "sort": 0.6285714285714286
+      },
+      "council": null
+    },
+    "D": {
+      "episodes": 100,
+      "completion": 0.61,
+      "completion_end_state_only": 0.61,
+      "partial": 0.6163888888888889,
+      "keep_violated": 0,
+      "actions": 8.85,
+      "noops": 6.34,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 22,
+      "budget_exceeded": 17,
+      "env_errors": 0,
+      "pred_errors": 658,
+      "pred_total": 885,
+      "docs_share": 0.14124293785310735,
+      "wall_s": 51.928184309001956,
+      "cpu_s": 51.52125,
+      "plan_expanded": 583.33,
+      "plan_predicted": 238533.73,
+      "peak_mem_mb": 122.616067,
+      "status_counts": {
+        "council_learned": 760,
+        "council_documented": 125
+      },
+      "plan_stops": {
+        "found": 885,
+        "nodes": 22
+      },
+      "by_template": {
+        "backup": 0.6571428571428571,
+        "convert": 1.0,
+        "sort": 0.22857142857142856
+      },
+      "council": {
+        "disagreement": 0.07101601400231482,
+        "no_evidence": 0.07561381806122519
+      }
+    },
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 5.25,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 105,
+      "docs_share": 0.0,
+      "wall_s": 1.433915709995199,
+      "cpu_s": 1.39921875,
+      "plan_expanded": 172.55,
+      "plan_predicted": 102426.1,
+      "peak_mem_mb": 36.03749,
+      "status_counts": {
+        "oracle": 105
+      },
+      "plan_stops": {
+        "found": 105
+      },
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 1.0
+      },
+      "council": null
+    }
+  },
+  "paired": {
+    "C-B": {
+      "mean_pp": 63.0,
+      "tasks_pos": 16,
+      "tasks_neg": 0,
+      "tasks_zero": 4,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 80.0,
+        "1": 60.0,
+        "2": 80.0,
+        "3": 100.0,
+        "4": 60.0,
+        "5": 0.0,
+        "6": 100.0,
+        "7": 60.0,
+        "8": 0.0,
+        "9": 100.0,
+        "10": 60.0,
+        "11": 100.0,
+        "12": 80.0,
+        "13": 80.0,
+        "14": 0.0,
+        "15": 80.0,
+        "16": 60.0,
+        "17": 0.0,
+        "18": 100.0,
+        "19": 60.0
+      },
+      "per_seed_pp": {
+        "1": 80.0,
+        "2": 30.0,
+        "3": 49.99999999999999,
+        "4": 80.0,
+        "5": 75.0
+      }
+    },
+    "B-A": {
+      "mean_pp": 0.9999999999999981,
+      "tasks_pos": 1,
+      "tasks_neg": 0,
+      "tasks_zero": 19,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 20.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 0.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 0.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 0.0,
+        "18": 0.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 4.999999999999999
+      }
+    },
+    "C-A": {
+      "mean_pp": 63.99999999999999,
+      "tasks_pos": 16,
+      "tasks_neg": 0,
+      "tasks_zero": 4,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 80.0,
+        "1": 60.0,
+        "2": 100.0,
+        "3": 100.0,
+        "4": 60.0,
+        "5": 0.0,
+        "6": 100.0,
+        "7": 60.0,
+        "8": 0.0,
+        "9": 100.0,
+        "10": 60.0,
+        "11": 100.0,
+        "12": 80.0,
+        "13": 80.0,
+        "14": 0.0,
+        "15": 80.0,
+        "16": 60.0,
+        "17": 0.0,
+        "18": 100.0,
+        "19": 60.0
+      },
+      "per_seed_pp": {
+        "1": 80.0,
+        "2": 30.0,
+        "3": 49.99999999999999,
+        "4": 80.0,
+        "5": 80.0
+      }
+    },
+    "D-C": {
+      "mean_pp": -23.0,
+      "tasks_pos": 0,
+      "tasks_neg": 13,
+      "tasks_zero": 7,
+      "seeds_ge": 3,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": -40.0,
+        "1": -40.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": -40.0,
+        "5": 0.0,
+        "6": -19.999999999999996,
+        "7": -40.0,
+        "8": 0.0,
+        "9": -19.999999999999996,
+        "10": -40.0,
+        "11": 0.0,
+        "12": -40.0,
+        "13": -40.0,
+        "14": 0.0,
+        "15": -40.0,
+        "16": -40.0,
+        "17": 0.0,
+        "18": -19.999999999999996,
+        "19": -40.0
+      },
+      "per_seed_pp": {
+        "1": -65.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": -50.0,
+        "5": 0.0
+      }
+    }
+  },
+  "verdict": "VALID_BOUNDED_GAIN"
+}

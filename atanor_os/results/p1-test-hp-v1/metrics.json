@@ -1,0 +1,411 @@
+{
+  "env": {
+    "python": "3.13.17",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "machine": "DESKTOP-N6RR73M",
+    "cpus": 8,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 10.0
+    },
+    "steps": 300,
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "split": "test",
+    "adapt": false
+  },
+  "checks": {
+    "semantics_checked": 300,
+    "semantics_mismatch": 0,
+    "tests_passed": true,
+    "unreachable": 0,
+    "label": "replication-hp"
+  },
+  "learn_cost_s": {
+    "1": {
+      "A": 6.100000973674469e-06,
+      "B": 0.007559900001069764,
+      "C": 0.015722699999969336,
+      "D": 0.01641410000047472,
+      "ORACLE": 2.5000008463393897e-06
+    },
+    "2": {
+      "A": 5.40000110049732e-06,
+      "B": 0.007419300000037765,
+      "C": 0.01529859999936889,
+      "D": 0.015287900001567323
+    },
+    "3": {
+      "A": 5.399999281507917e-06,
+      "B": 0.007782599999700324,
+      "C": 0.0156635000003007,
+      "D": 0.015340500000093016
+    },
+    "4": {
+      "A": 5.300000339047983e-06,
+      "B": 0.00769399999990128,
+      "C": 0.015222999998513842,
+      "D": 0.015301900000849855
+    },
+    "5": {
+      "A": 5.29999852005858e-06,
+      "B": 0.007607800000187126,
+      "C": 0.014002100000652717,
+      "D": 0.015730899998743553
+    }
+  },
+  "storage": {
+    "1": {
+      "journal_bytes": 3637248
+    },
+    "2": {
+      "journal_bytes": 3543040
+    },
+    "3": {
+      "journal_bytes": 3620864
+    },
+    "4": {
+      "journal_bytes": 3661824
+    },
+    "5": {
+      "journal_bytes": 2973696
+    }
+  },
+  "protocol": {
+    "frozen_at": "2026-10-24T01:58:40",
+    "primary": "C-B completion rate on split=test, learning state frozen (no online adaptation)",
+    "min_gain_pp": 10.0,
+    "seeds_ge": 4,
+    "max_cost_ratio": 3.0,
+    "secondary": "D-C with the same thresholds (recorded, no effect on verdict); B-A and C-A reported",
+    "split": "test",
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explore_steps": 300,
+    "budget": {
+      "actions": 20,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 10.0
+    },
+    "dev_reference": "atanor_os/runs/dev1: 2 seeds x 12 dev tasks -> A 0.083, B 0.375, C 1.000, D 0.375, ORACLE 1.000",
+    "changes_after_dev": [
+      "planner time cap 5 -> 10 s for all conditions (D hit the cap; cost is still reported)",
+      "council shares one signature computation per prediction (cost only, no semantic change)",
+      "exploration 200 -> 300 steps, signature repeat limit 2 (rare successes were missing at 200)"
+    ],
+    "invalid_if": [
+      "env_errors > 0",
+      "ORACLE completion < 1.0",
+      "semantics mismatch > 0",
+      "tests fail",
+      "unreachable task"
+    ]
+  },
+  "conditions": {
+    "A": {
+      "episodes": 100,
+      "completion": 0.1,
+      "partial": 0.2,
+      "keep_violated": 0,
+      "actions": 19.7,
+      "noops": 19.3,
+      "blocked": 0,
+      "abstained": 0,
+      "budget_exceeded": 90,
+      "env_errors": 0,
+      "pred_errors": 1930,
+      "pred_total": 1970,
+      "wall_s": 9.764817225999904,
+      "cpu_s": 9.648125,
+      "plan_expanded": 66.55,
+      "peak_mem_mb": 9.479035,
+      "status_counts": {
+        "documented": 1970
+      },
+      "by_template": {
+        "backup": 0.0,
+        "convert": 0.3333333333333333,
+        "sort": 0.0
+      },
+      "council_disagreement": null
+    },
+    "B": {
+      "episodes": 100,
+      "completion": 0.19,
+      "partial": 0.3219444444444444,
+      "keep_violated": 0,
+      "actions": 18.26,
+      "noops": 17.09,
+      "blocked": 0,
+      "abstained": 2,
+      "budget_exceeded": 79,
+      "env_errors": 0,
+      "pred_errors": 1709,
+      "pred_total": 1826,
+      "wall_s": 14.376542087000034,
+      "cpu_s": 14.25640625,
+      "plan_expanded": 118.15,
+      "peak_mem_mb": 15.849863,
+      "status_counts": {
+        "documented": 1743,
+        "retrieved": 83
+      },
+      "by_template": {
+        "backup": 0.2571428571428571,
+        "convert": 0.3333333333333333,
+        "sort": 0.0
+      },
+      "council_disagreement": null
+    },
+    "C": {
+      "episodes": 100,
+      "completion": 0.71,
+      "partial": 0.71,
+      "keep_violated": 0,
+      "actions": 4.73,
+      "noops": 1.8,
+      "blocked": 0,
+      "abstained": 29,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 180,
+      "pred_total": 473,
+      "wall_s": 3.836716942999974,
+      "cpu_s": 3.81078125,
+      "plan_expanded": 101.51,
+      "peak_mem_mb": 38.41987,
+      "status_counts": {
+        "learned": 377,
+        "documented": 96
+      },
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 0.17142857142857143
+      },
+      "council_disagreement": null
+    },
+    "D": {
+      "episodes": 100,
+      "completion": 0.37,
+      "partial": 0.4227777777777778,
+      "keep_violated": 0,
+      "actions": 9.47,
+      "noops": 8.0,
+      "blocked": 0,
+      "abstained": 41,
+      "budget_exceeded": 22,
+      "env_errors": 0,
+      "pred_errors": 800,
+      "pred_total": 947,
+      "wall_s": 16.993508143000053,
+      "cpu_s": 16.93375,
+      "plan_expanded": 82.92,
+      "peak_mem_mb": 13.757514,
+      "status_counts": {
+        "council_learned": 585,
+        "council_documented": 362
+      },
+      "by_template": {
+        "backup": 0.42857142857142855,
+        "convert": 0.7333333333333333,
+        "sort": 0.0
+      },
+      "council_disagreement": 0.42031264912675825
+    },
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 5.55,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 111,
+      "wall_s": 5.056113085000016,
+      "cpu_s": 5.0125,
+      "plan_expanded": 240.85,
+      "peak_mem_mb": 38.749837,
+      "status_counts": {
+        "oracle": 111
+      },
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 1.0
+      },
+      "council_disagreement": null
+    }
+  },
+  "paired": {
+    "C-B": {
+      "mean_pp": 52.0,
+      "tasks_pos": 13,
+      "tasks_neg": 0,
+      "tasks_zero": 7,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 100.0,
+        "1": 0.0,
+        "2": 100.0,
+        "3": 100.0,
+        "4": 60.0,
+        "5": 0.0,
+        "6": 40.0,
+        "7": 0.0,
+        "8": 100.0,
+        "9": 40.0,
+        "10": 0.0,
+        "11": 100.0,
+        "12": 100.0,
+        "13": 60.0,
+        "14": 0.0,
+        "15": 100.0,
+        "16": 0.0,
+        "17": 100.0,
+        "18": 40.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 65.0,
+        "2": 50.0,
+        "3": 65.0,
+        "4": 40.0,
+        "5": 40.0
+      }
+    },
+    "B-A": {
+      "mean_pp": 9.0,
+      "tasks_pos": 3,
+      "tasks_neg": 0,
+      "tasks_zero": 17,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 60.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 60.0,
+        "10": 0.0,
+        "11": 0.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 0.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 0.0,
+        "18": 60.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 0.0,
+        "2": 15.0,
+        "3": 0.0,
+        "4": 15.0,
+        "5": 15.0
+      }
+    },
+    "C-A": {
+      "mean_pp": 61.0,
+      "tasks_pos": 13,
+      "tasks_neg": 0,
+      "tasks_zero": 7,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 100.0,
+        "1": 0.0,
+        "2": 100.0,
+        "3": 100.0,
+        "4": 60.0,
+        "5": 0.0,
+        "6": 100.0,
+        "7": 0.0,
+        "8": 100.0,
+        "9": 100.0,
+        "10": 0.0,
+        "11": 100.0,
+        "12": 100.0,
+        "13": 60.0,
+        "14": 0.0,
+        "15": 100.0,
+        "16": 0.0,
+        "17": 100.0,
+        "18": 100.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 65.0,
+        "2": 65.0,
+        "3": 65.0,
+        "4": 55.00000000000001,
+        "5": 55.00000000000001
+      }
+    },
+    "D-C": {
+      "mean_pp": -34.0,
+      "tasks_pos": 0,
+      "tasks_neg": 13,
+      "tasks_zero": 7,
+      "seeds_ge": 1,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": -40.0,
+        "1": 0.0,
+        "2": -40.0,
+        "3": -80.0,
+        "4": -60.0,
+        "5": 0.0,
+        "6": -40.0,
+        "7": 0.0,
+        "8": -40.0,
+        "9": -40.0,
+        "10": 0.0,
+        "11": -40.0,
+        "12": -80.0,
+        "13": -60.0,
+        "14": 0.0,
+        "15": -80.0,
+        "16": 0.0,
+        "17": -40.0,
+        "18": -40.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": -65.0,
+        "2": -65.0,
+        "3": -25.0,
+        "4": -15.000000000000002,
+        "5": 0.0
+      }
+    }
+  },
+  "verdict": "VALID_BOUNDED_GAIN"
+}

@@ -1,0 +1,239 @@
+{
+ "condition": "C",
+ "signatures": 196,
+ "operators": {
+  "mkdir": {
+   "tool": "mkdir",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "dir"
+     ]
+    ]
+   ],
+   "support": 17,
+   "failures": 41,
+   "counter": [],
+   "status": "supported",
+   "dropped": []
+  },
+  "copy": {
+   "tool": "copy",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      1
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     1,
+     "hash",
+     [
+      "copy",
+      0
+     ]
+    ],
+    [
+     1,
+     "kind",
+     [
+      "const",
+      "file"
+     ]
+    ]
+   ],
+   "support": 5,
+   "failures": 63,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ],
+    [
+     "same_content",
+     [
+      0,
+      1
+     ],
+     false
+    ]
+   ]
+  },
+  "move": {
+   "tool": "move",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      1
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "hash",
+     [
+      "const",
+      "-"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "absent"
+     ]
+    ],
+    [
+     1,
+     "hash",
+     [
+      "copy",
+      0
+     ]
+    ],
+    [
+     1,
+     "kind",
+     [
+      "const",
+      "file"
+     ]
+    ]
+   ],
+   "support": 7,
+   "failures": 58,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ],
+    [
+     "same_content",
+     [
+      0,
+      1
+     ],
+     false
+    ]
+   ]
+  },
+  "delete": {
+   "tool": "delete",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "hash",
+     [
+      "const",
+      "-"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "absent"
+     ]
+    ]
+   ],
+   "support": 11,
+   "failures": 32,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ]
+   ]
+  },
+  "convert": {
+   "tool": "convert",
+   "pre": null,
+   "effects": [],
+   "support": 0,
+   "failures": 66,
+   "counter": [],
+   "status": "no_success",
+   "dropped": []
+  }
+ }
+}
