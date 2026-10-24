@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "name": "P8b - evidence-preserving revision of internal concepts",
+  "frozen_at": "2026-10-24T22:40:00",
+  "design": "P8B_DESIGN.md",
+  "preserved": "P8 verdict INCONCLUSIVE and its R1/R2 numbers unchanged; c0/c2 described as useful anonymous concepts in two narrow bodies, not as a self-made language",
+  "scenarios": {
+    "stable": "R1 (E1) revised with E2 from the same world",
+    "drift": "world rule changed (fs: move accepts directories; view: grp:ext allowed on a filtered panel), E3 = 600 new exploration steps per body in the changed world; drift starts from each condition's stable-scenario state"
+  },
+  "conditions": [
+    "R1_KEEP",
+    "R2_P8 (P8 revision)",
+    "P8B (evidence + revise/hold/re-verify)",
+    "P8B_NOVERIFY",
+    "FULL_RAW (all records, flat atoms)",
+    "FULL_STRUCT (all records, composed atoms)",
+    "CASE (all records)",
+    "FIXED (all records, human concepts + learner v4)"
+  ],
+  "budget_bytes": 8192,
+  "measures": [
+    "bytes",
+    "prediction on unseen situations (stable: original world; drift: changed world, changed tool vs other tools)",
+    "new-task completion (stable: fs 60 / view 20 test tasks; drift: 20 drift tasks per body needing the changed capability)",
+    "past-task retention = share of tasks solved by R1 that remain solved after the update (stable: original world; drift: changed world, tasks not relying on the changed tool)",
+    "decisions: revise / hold / re-verify counts, verification experiments, wrong revisions"
+  ],
+  "decision_per_body": {
+    "PASS": {
+      "stable": [
+        "P8B prediction >= R1 - 1 pp",
+        "new-task completion >= R1 - 2 pp",
+        "past-task retention >= 0.95",
+        "wrong revisions <= 1"
+      ],
+      "drift": [
+        "changed-tool prediction >= 0.90 and >= R1_KEEP + 20 pp",
+        "other-tool prediction >= 0.95",
+        "drift-task completion >= 0.80",
+        "past-task retention >= 0.95"
+      ],
+      "common": [
+        "representation <= 8 KB",
+        "test process did not access experience logs"
+      ]
+    }
+  },
+  "overall": {
+    "MEMORY_UPDATE_OK": "both bodies PASS",
+    "PARTIAL": "one body PASS",
+    "FAIL": "neither; analyse and record the cause"
+  },
+  "qwen_teacher": "not used in any condition",
+  "known_limits": [
+    "two hand-chosen drifts",
+    "re-verification experiments run in a sandbox of the current world",
+    "evidence compressed to per-condition counts"
+  ]
+}
