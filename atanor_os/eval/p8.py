@@ -117,7 +117,8 @@ def _accuracy(ag):
 
 def make_model(cond, body, rep_dir):
     if cond.startswith('INTERNAL'):
-        rep = Representation.loads((Path(rep_dir) / f'{cond}_{body}.json').read_text(encoding='utf-8'))
+        fname = f'{cond[:-3]}_{body}_R1.json' if cond.endswith('_R1') else f'{cond}_{body}.json'
+        rep = Representation.loads((Path(rep_dir) / fname).read_text(encoding='utf-8'))
         return ConceptModel(rep, cond), rep.size()
     exp, _ = load_experience()
     es = exp[body]

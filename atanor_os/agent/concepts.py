@@ -317,13 +317,18 @@ class ConceptModel:
     def __init__(self, rep, name='INTERNAL'):
         self.rep, self.name = rep, name
         self.concepts = {n: [tuple(a) for a in d] for n, d in rep.dictionary.items()}
+        self._cache = {}
 
     def predict(self, state, tool, args, sig=None):
         at = atoms(self.rep.body, state, args, self.rep.families, self.concepts)
-        for g in sorted(self.rep.rules.get(tool, []), key=lambda g: -g['support']):
-            if all(tuple(a) in at for a in g['pre']):
-                return apply_raw(self.rep.body, state, args, g['eff']), 'learned'
-        return None, 'learned_fail'
+        key = (tool, at)
+        if key not in self._cache:                                   # the chosen rule depends only on the atoms
+            self._cache[key] = next((g for g in sorted(self.rep.rules.get(tool, []), key=lambda g: -g['support'])
+                                     if all(tuple(a) in at for a in g['pre'])), None)
+        g = self._cache[key]
+        if g is None:
+            return None, 'learned_fail'
+        return apply_raw(self.rep.body, state, args, g['eff']), 'learned'
 
     def update(self, exp):
         pass
@@ -357,6 +362,7 @@ class CaseModel:
 
     def __init__(self, body, exps, k=5):
         self.body, self.k = body, k
+        self._cache = {}
         self.cases = defaultdict(list)
         for e in exps:
             if not e.blocked:
@@ -364,14 +370,16 @@ class CaseModel:
 
     def predict(self, state, tool, args, sig=None):
         at = atoms(self.body, state, args)
-        cs = self.cases.get(tool, [])
-        if not cs:
+        key = (tool, at)
+        if key not in self._cache:                                   # the retrieved neighbours depend only on the atoms
+            cs = self.cases.get(tool, [])
+            scored = sorted(cs, key=lambda c: -len(at & c[0]) / max(1, len(at | c[0])))[:self.k] if cs else []
+            ok = bool(scored) and sum(c[1].succeeded for c in scored) * 2 > len(scored)
+            self._cache[key] = _effects(self.body, [next(c[1] for c in scored if c[1].succeeded)]) if ok else None
+        eff = self._cache[key]
+        if eff is None:
             return None, 'retrieved_fail'
-        scored = sorted(cs, key=lambda c: -len(at & c[0]) / max(1, len(at | c[0])))[:self.k]
-        if sum(c[1].succeeded for c in scored) * 2 <= len(scored):
-            return None, 'retrieved_fail'
-        best = next(c[1] for c in scored if c[1].succeeded)
-        return apply_raw(self.body, state, args, _effects(self.body, [best])), 'retrieved'
+        return apply_raw(self.body, state, args, eff), 'retrieved'
 
     def update(self, exp):
         pass

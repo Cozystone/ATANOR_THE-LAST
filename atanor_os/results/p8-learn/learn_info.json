@@ -1,0 +1,287 @@
+{
+ "raw_actions": {
+  "fs": 13500,
+  "view": 9000
+ },
+ "dedup": {
+  "fs": 3578,
+  "view": 1195
+ },
+ "internal": {
+  "INTERNAL_2KB_fs": {
+   "bytes_R1": 1938,
+   "bytes": 2009,
+   "concepts_R1": 5,
+   "concepts": 5,
+   "change": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4"
+    ],
+    "removed": [],
+    "added": [
+     "c4"
+    ],
+    "edited": [],
+    "old_rules_kept": 14,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {
+    "c3": [
+     "convert"
+    ],
+    "c5": [
+     "convert"
+    ],
+    "c1": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c0": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "c2": [
+     "copy",
+     "mkdir",
+     "move"
+    ]
+   },
+   "seconds": 0.1
+  },
+  "INTERNAL_8KB_fs": {
+   "bytes_R1": 1938,
+   "bytes": 2847,
+   "concepts_R1": 5,
+   "concepts": 6,
+   "change": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4"
+    ],
+    "removed": [],
+    "added": [
+     "c4"
+    ],
+    "edited": [],
+    "old_rules_kept": 14,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {
+    "c3": [
+     "convert"
+    ],
+    "c5": [
+     "convert"
+    ],
+    "c1": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c0": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "c2": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c4": [
+     "copy",
+     "move"
+    ]
+   },
+   "seconds": 0.1
+  },
+  "INTERNAL_32KB_fs": {
+   "bytes_R1": 1938,
+   "bytes": 2847,
+   "concepts_R1": 5,
+   "concepts": 6,
+   "change": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4"
+    ],
+    "removed": [],
+    "added": [
+     "c4"
+    ],
+    "edited": [],
+    "old_rules_kept": 14,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {
+    "c3": [
+     "convert"
+    ],
+    "c5": [
+     "convert"
+    ],
+    "c1": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c0": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "c2": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c4": [
+     "copy",
+     "move"
+    ]
+   },
+   "seconds": 0.1
+  },
+  "INTERNAL_INF_fs": {
+   "bytes_R1": 1920,
+   "bytes": 2811,
+   "concepts_R1": 5,
+   "concepts": 6,
+   "change": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4"
+    ],
+    "removed": [],
+    "added": [
+     "c4"
+    ],
+    "edited": [],
+    "old_rules_kept": 14,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {
+    "c3": [
+     "convert"
+    ],
+    "c5": [
+     "convert"
+    ],
+    "c1": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c0": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "c2": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "c4": [
+     "copy",
+     "move"
+    ]
+   },
+   "seconds": 0.1
+  },
+  "INTERNAL_2KB_view": {
+   "bytes_R1": 1147,
+   "bytes": 1676,
+   "concepts_R1": 0,
+   "concepts": 0,
+   "change": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "edited": [],
+    "old_rules_kept": 7,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {},
+   "seconds": 0.0
+  },
+  "INTERNAL_8KB_view": {
+   "bytes_R1": 1147,
+   "bytes": 1676,
+   "concepts_R1": 0,
+   "concepts": 0,
+   "change": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "edited": [],
+    "old_rules_kept": 7,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {},
+   "seconds": 0.0
+  },
+  "INTERNAL_32KB_view": {
+   "bytes_R1": 1147,
+   "bytes": 1676,
+   "concepts_R1": 0,
+   "concepts": 0,
+   "change": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "edited": [],
+    "old_rules_kept": 7,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {},
+   "seconds": 0.0
+  },
+  "INTERNAL_INF_view": {
+   "bytes_R1": 1129,
+   "bytes": 1640,
+   "concepts_R1": 0,
+   "concepts": 0,
+   "change": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "edited": [],
+    "old_rules_kept": 7,
+    "old_rules_dropped": 1
+   },
+   "concept_use": {},
+   "seconds": 0.0
+  }
+ },
+ "fs_halves": [
+  1789,
+  1789
+ ],
+ "view_halves": [
+  597,
+  598
+ ],
+ "learn_seconds": 1.4,
+ "source": {
+  "source_sha256": "9449dc5bdb3512f6",
+  "source_files": 60,
+  "git_head": "a029523",
+  "git_atanor_os_untracked_or_modified": true
+ }
+}
