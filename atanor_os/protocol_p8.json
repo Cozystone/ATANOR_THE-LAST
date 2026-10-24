@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "name": "P8 - internal concepts from experience, reused after restart",
+  "frozen_at": "2026-10-24T21:00:00",
+  "design": "P8_P9_DESIGN.md",
+  "question": "Does a bounded internal representation (concept dictionary + rules over concepts) that ATANOR forms from today's experience log let it predict and act better in unseen situations after a restart, without the log, than keeping the full log or retrieving cases?",
+  "experience": {
+    "source": "results/*/explore/experiences_s*.jsonl recorded on 2026-10-24 (22,500 actions: fs 13,500, view 9,000)",
+    "dedup": "by (tool, role signature, outcome)",
+    "split": "chronological halves E1 (first) and E2 (second)"
+  },
+  "raw_observation": {
+    "fs": "a0 exists, a1 is_dir, a2 name-suffix token, a3 content digest (equality only); relation r0(o,p): id(o) is id(p) minus its last segment; no kind / parent_kind / same_content",
+    "view": "a0..a4 anonymized (object kind, filter, sort, group, value tokens); no relations",
+    "inverse": "deterministic raw->human state mapping for planning and judging (perception/action interface, not concept learning)"
+  },
+  "conditions": {
+    "INTERNAL_B": "invented concepts + rules, serialized <= B bytes, test process sees only that file (B = 8 KB primary; 2 KB and 32 KB secondary)",
+    "FULL_RAW": "full log, rules over unary + equality raw atoms only (no composed structural atoms, no dictionary)",
+    "CASE": "full log, nearest-case retrieval over raw atom sets (majority outcome)",
+    "FIXED": "full log, human-fixed concepts (lifted literals kind/ext/parent_kind/same_content, type groups) + learner v4",
+    "INTERNAL_INF": "unbounded internal representation (reference)"
+  },
+  "unseen_situations": {
+    "fs": "test-split layouts (new names, extensions, depth-2 targets) in fresh workspaces",
+    "view": "test start screens (p3, two open panels, filtered list)",
+    "overlap_check": "no unseen situation signature may equal a training-log situation (exact pre-state + action)"
+  },
+  "measures": [
+    "prediction accuracy on real executions in unseen situations, stratified by (tool, true outcome) with near-miss failures, >= 20 per cell; fp / fn / effect errors",
+    "strict task completion: P1 fs test tasks (20 x seeds 1-3) and view test tasks (20)",
+    "representation bytes and number of concepts",
+    "reuse: invented concepts used by >= 2 tools or both bodies",
+    "revision R1 -> R2: dictionary additions / merges / edits / deletions and accuracy change",
+    "learning and test cost (seconds)"
+  ],
+  "decision": {
+    "USEFUL_CONCEPTS": [
+      "INTERNAL_8KB fs prediction accuracy >= FULL_RAW + 5 pp AND >= CASE + 5 pp",
+      "fs and view task completion each >= FULL_RAW and >= CASE",
+      ">= 1 invented concept used by >= 2 tools",
+      "R1 -> R2 changes the dictionary at least once and prediction accuracy does not drop by more than 2 pp",
+      "representation <= B and the test process ran without the log"
+    ],
+    "WEAK": "INTERNAL_8KB prediction <= FULL_RAW or <= CASE",
+    "INCONCLUSIVE": "otherwise",
+    "INVALID": [
+      "test process accessed the experience log",
+      "representation larger than B",
+      "unseen situations overlap the training log"
+    ]
+  },
+  "not_claimed_even_if_useful": [
+    "that a language emerged",
+    "consciousness",
+    "a self-made grammar"
+  ],
+  "known_limits": [
+    "raw attributes and relations are chosen senses (perception)",
+    "atom generators (depth-1 composition) are provided",
+    "experience was collected by fixed exploration policies",
+    "concepts are bounded to the two bodies' tools"
+  ],
+  "qwen": "not used in P8 in any condition"
+}
