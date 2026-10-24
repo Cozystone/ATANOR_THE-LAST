@@ -1,0 +1,1582 @@
+{
+  "env": {
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "ANSEOK-9950X3D",
+    "cpus": 32,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "steps": 600,
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "split": "test",
+    "adapt": false,
+    "policy": "contrast-pair",
+    "body": "view",
+    "learner_version": 4,
+    "source_sha256": "0d580bbad1819684",
+    "source_files": 41,
+    "git": "not a repository (snapshot copy)",
+    "source_sha256_at_start": "0d580bbad1819684"
+  },
+  "checks": {
+    "label": "pre-registered",
+    "policy": "contrast-pair",
+    "body": "view",
+    "semantics_ok": true,
+    "semantics_seed": 3244639667,
+    "semantics_cells": {
+      "open:success": 20,
+      "open:failure": 20,
+      "close:success": 20,
+      "close:failure": 20,
+      "filter:success": 20,
+      "filter:failure": 20,
+      "sort:success": 20,
+      "sort:failure": 20,
+      "group:success": 20,
+      "group:failure": 20,
+      "compare:success": 20,
+      "compare:failure": 20
+    },
+    "semantics_mismatch": 0,
+    "tests_passed": true,
+    "tests_gate": "not learning and not timing and not fs",
+    "learner_tests_passed": true,
+    "protocol_mismatch": [],
+    "unreachable": 0,
+    "source_changed_during_run": false,
+    "protocol_file": "atanor_os\\protocol_h4_view_target.json"
+  },
+  "learn_cost_s": {
+    "1": {
+      "B": {
+        "build_s": 0.01382940000621602,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 21,
+            "filter:success": 20,
+            "filter:failure": 22,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 22,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 9,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 42,
+              "fp": 15,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 28,
+              "near_checks": 20,
+              "near_fp": 13
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 4,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 19,
+              "near_checks": 20,
+              "near_fp": 3
+            },
+            "group": {
+              "checks": 42,
+              "fp": 5,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 18,
+              "near_checks": 20,
+              "near_fp": 3
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 5,
+              "fn": 0,
+              "eff": 7,
+              "unk": 0,
+              "docs": 12,
+              "near_checks": 20,
+              "near_fp": 5
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "close",
+            "open"
+          ],
+          "n_strict": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.034757900022668764,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 21,
+            "filter:success": 20,
+            "filter:failure": 22,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 22,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "group": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "strict_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_strict": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "ORACLE": {
+        "build_s": 6.799993570894003e-06,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 21,
+            "filter:success": 20,
+            "filter:failure": 22,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 22,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "group": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "strict_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_strict": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 6.1770258999895304,
+        "targeted_steps": 27,
+        "steps": 600,
+        "first_success": {
+          "sort": 7,
+          "filter": 15,
+          "open": 16,
+          "close": 17,
+          "group": 25,
+          "compare": 110
+        }
+      }
+    },
+    "2": {
+      "B": {
+        "build_s": 0.01613779997569509,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 21,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 21,
+            "compare:success": 20,
+            "compare:failure": 21
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 11,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 8,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 24,
+              "near_checks": 20,
+              "near_fp": 8
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 5,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 17,
+              "near_checks": 20,
+              "near_fp": 5
+            },
+            "group": {
+              "checks": 41,
+              "fp": 7,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 14,
+              "near_checks": 20,
+              "near_fp": 6
+            },
+            "compare": {
+              "checks": 41,
+              "fp": 2,
+              "fn": 0,
+              "eff": 1,
+              "unk": 0,
+              "docs": 3,
+              "near_checks": 20,
+              "near_fp": 1
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "close",
+            "open"
+          ],
+          "n_strict": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.04207660001702607,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 21,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 21,
+            "compare:success": 20,
+            "compare:failure": 21
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "group": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "compare": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "strict_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_strict": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.594999199995073,
+        "targeted_steps": 23,
+        "steps": 600,
+        "first_success": {
+          "close": 9,
+          "open": 38,
+          "filter": 39,
+          "sort": 61,
+          "group": 131,
+          "compare": 151
+        }
+      }
+    },
+    "3": {
+      "B": {
+        "build_s": 0.017324999993434176,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 24,
+            "sort:success": 20,
+            "sort:failure": 24,
+            "group:success": 20,
+            "group:failure": 22,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 5,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 44,
+              "fp": 15,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 30,
+              "near_checks": 20,
+              "near_fp": 11
+            },
+            "sort": {
+              "checks": 44,
+              "fp": 10,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 30,
+              "near_checks": 20,
+              "near_fp": 6
+            },
+            "group": {
+              "checks": 42,
+              "fp": 4,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 11,
+              "near_checks": 20,
+              "near_fp": 2
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 3,
+              "fn": 0,
+              "eff": 3,
+              "unk": 0,
+              "docs": 6,
+              "near_checks": 20,
+              "near_fp": 3
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "close",
+            "open"
+          ],
+          "n_strict": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.038814500003354624,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 24,
+            "sort:success": 20,
+            "sort:failure": 24,
+            "group:success": 20,
+            "group:failure": 22,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 44,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "sort": {
+              "checks": 44,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "group": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "strict_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_strict": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.517032000003383,
+        "targeted_steps": 23,
+        "steps": 600,
+        "first_success": {
+          "close": 12,
+          "sort": 20,
+          "open": 29,
+          "filter": 85,
+          "compare": 162,
+          "group": 202
+        }
+      }
+    },
+    "4": {
+      "B": {
+        "build_s": 0.011801500018918887,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 22,
+            "filter:success": 20,
+            "filter:failure": 21,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 24,
+            "compare:success": 20,
+            "compare:failure": 23
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 4,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 41,
+              "fp": 8,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 24,
+              "near_checks": 20,
+              "near_fp": 8
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 3,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 13,
+              "near_checks": 20,
+              "near_fp": 2
+            },
+            "group": {
+              "checks": 44,
+              "fp": 7,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 17,
+              "near_checks": 20,
+              "near_fp": 5
+            },
+            "compare": {
+              "checks": 43,
+              "fp": 5,
+              "fn": 0,
+              "eff": 3,
+              "unk": 0,
+              "docs": 8,
+              "near_checks": 20,
+              "near_fp": 3
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "close",
+            "open"
+          ],
+          "n_strict": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.04121999998460524,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 22,
+            "filter:success": 20,
+            "filter:failure": 21,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 24,
+            "compare:success": 20,
+            "compare:failure": 23
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 42,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "group": {
+              "checks": 44,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "compare": {
+              "checks": 43,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "strict_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_strict": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.034233800019138,
+        "targeted_steps": 21,
+        "steps": 600,
+        "first_success": {
+          "close": 11,
+          "open": 53,
+          "sort": 54,
+          "compare": 69,
+          "group": 98,
+          "filter": 101
+        }
+      }
+    },
+    "5": {
+      "B": {
+        "build_s": 0.01694809997570701,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 21,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 3,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 6,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 25,
+              "near_checks": 20,
+              "near_fp": 6
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 7,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 20,
+              "near_checks": 20,
+              "near_fp": 7
+            },
+            "group": {
+              "checks": 41,
+              "fp": 9,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 14,
+              "near_checks": 20,
+              "near_fp": 9
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 3,
+              "fn": 0,
+              "eff": 1,
+              "unk": 0,
+              "docs": 4,
+              "near_checks": 20,
+              "near_fp": 3
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "close",
+            "open"
+          ],
+          "n_strict": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.040393899980699643,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 21,
+            "group:success": 20,
+            "group:failure": 21,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "near_cells": {
+            "open": 20,
+            "close": 20,
+            "filter": 20,
+            "sort": 20,
+            "group": 20,
+            "compare": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "sort": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "group": {
+              "checks": 41,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "strict_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_strict": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.729985199985094,
+        "targeted_steps": 29,
+        "steps": 600,
+        "first_success": {
+          "close": 5,
+          "open": 6,
+          "sort": 85,
+          "filter": 92,
+          "compare": 112,
+          "group": 170
+        }
+      }
+    }
+  },
+  "storage": {
+    "1": {
+      "B": {
+        "journal_bytes": 733184,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 258048,
+        "model_json_bytes": 13754
+      },
+      "ORACLE": {
+        "journal_bytes": 258048,
+        "model_json_bytes": 46
+      }
+    },
+    "2": {
+      "B": {
+        "journal_bytes": 704512,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 258048,
+        "model_json_bytes": 14832
+      }
+    },
+    "3": {
+      "B": {
+        "journal_bytes": 434176,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 258048,
+        "model_json_bytes": 14847
+      }
+    },
+    "4": {
+      "B": {
+        "journal_bytes": 573440,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 258048,
+        "model_json_bytes": 14377
+      }
+    },
+    "5": {
+      "B": {
+        "journal_bytes": 733184,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 258048,
+        "model_json_bytes": 13299
+      }
+    }
+  },
+  "protocol": {
+    "version": 1,
+    "part_of": "protocol_h4.json",
+    "role": "target",
+    "body": "view",
+    "frozen_at": "2026-10-24T12:40:00",
+    "hypothesis": "H4 target run on the view body: policy contrast-pair",
+    "primary": "per-run verdict = C vs B strict completion (unchanged harness rule); the H4 decision is cross-run, see protocol_h4.json",
+    "primary_pair": [
+      "C",
+      "B"
+    ],
+    "primary_metric": "completion",
+    "min_gain_pp": 10.0,
+    "seeds_ge": 4,
+    "max_cost_ratio": 3.0,
+    "split": "test",
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explore_steps": 600,
+    "policy": "contrast-pair",
+    "conditions_list": [
+      "B",
+      "C"
+    ],
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "invalid_if": [
+      "env_errors > 0",
+      "ORACLE completion < 1.0",
+      "semantics check not ok",
+      "validity gate not run or failed",
+      "unreachable task",
+      "label != pre-registered",
+      "source changed during the run",
+      "protocol parameter mismatch"
+    ]
+  },
+  "conditions": {
+    "B": {
+      "episodes": 100,
+      "completion": 0.76,
+      "completion_end_state_only": 0.76,
+      "partial": 0.94,
+      "keep_violated": 0,
+      "actions": 7.09,
+      "noops": 3.16,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 24,
+      "env_errors": 0,
+      "pred_errors": 316,
+      "pred_total": 709,
+      "docs_share": 0.5712270803949224,
+      "wall_s": 1.2883571399986977,
+      "cpu_s": 1.25,
+      "plan_expanded": 15.35,
+      "plan_predicted": 8381.99,
+      "peak_mem_mb": 56.655048,
+      "status_counts": {
+        "retrieved": 304,
+        "documented": 405
+      },
+      "plan_stops": {
+        "found": 709
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 0.2,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    },
+    "C": {
+      "episodes": 100,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 2.65,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 265,
+      "docs_share": 0.0,
+      "wall_s": 0.14528804999776185,
+      "cpu_s": 0.133125,
+      "plan_expanded": 5.75,
+      "plan_predicted": 4125.05,
+      "peak_mem_mb": 8.58835,
+      "status_counts": {
+        "learned": 265
+      },
+      "plan_stops": {
+        "found": 265
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 1.0,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    },
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 2.65,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 53,
+      "docs_share": 0.0,
+      "wall_s": 0.09850373499793932,
+      "cpu_s": 0.0828125,
+      "plan_expanded": 5.75,
+      "plan_predicted": 4125.05,
+      "peak_mem_mb": 7.225859,
+      "status_counts": {
+        "oracle": 53
+      },
+      "plan_stops": {
+        "found": 53
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 1.0,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    }
+  },
+  "paired": {
+    "C-B": {
+      "mean_pp": 24.0,
+      "tasks_pos": 6,
+      "tasks_neg": 0,
+      "tasks_zero": 14,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 80.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 80.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 80.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 80.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 80.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 80.0,
+        "18": 0.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 30.000000000000004,
+        "2": 30.000000000000004,
+        "3": 9.999999999999998,
+        "4": 19.999999999999996,
+        "5": 30.000000000000004
+      },
+      "pred_ratio": 0.4921325365456175,
+      "per_seed_pred_ratio": {
+        "1": 0.4141803595543976,
+        "2": 0.5036445106466108,
+        "3": 0.6541572178436068,
+        "4": 0.5681065410649975,
+        "5": 0.4046924129676594
+      }
+    }
+  },
+  "verdict": "VALID_BOUNDED_GAIN"
+}

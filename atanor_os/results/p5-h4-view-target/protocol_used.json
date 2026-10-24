@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "part_of": "protocol_h4.json",
+  "role": "target",
+  "body": "view",
+  "frozen_at": "2026-10-24T12:40:00",
+  "hypothesis": "H4 target run on the view body: policy contrast-pair",
+  "primary": "per-run verdict = C vs B strict completion (unchanged harness rule); the H4 decision is cross-run, see protocol_h4.json",
+  "primary_pair": [
+    "C",
+    "B"
+  ],
+  "primary_metric": "completion",
+  "min_gain_pp": 10.0,
+  "seeds_ge": 4,
+  "max_cost_ratio": 3.0,
+  "split": "test",
+  "tasks": 20,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "explore_steps": 600,
+  "policy": "contrast-pair",
+  "conditions_list": [
+    "B",
+    "C"
+  ],
+  "budget": {
+    "actions": 20,
+    "predictions": 400000,
+    "nodes": 600,
+    "depth": 12,
+    "seconds": 180.0
+  },
+  "invalid_if": [
+    "env_errors > 0",
+    "ORACLE completion < 1.0",
+    "semantics check not ok",
+    "validity gate not run or failed",
+    "unreachable task",
+    "label != pre-registered",
+    "source changed during the run",
+    "protocol parameter mismatch"
+  ]
+}

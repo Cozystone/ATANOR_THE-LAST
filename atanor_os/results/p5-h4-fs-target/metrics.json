@@ -1,0 +1,1408 @@
+{
+  "env": {
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "ANSEOK-9950X3D",
+    "cpus": 32,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "steps": 300,
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "split": "test",
+    "adapt": false,
+    "policy": "contrast-pair",
+    "body": "fs",
+    "learner_version": 4,
+    "source_sha256": "0d580bbad1819684",
+    "source_files": 41,
+    "git": "not a repository (snapshot copy)",
+    "source_sha256_at_start": "0d580bbad1819684"
+  },
+  "checks": {
+    "label": "pre-registered",
+    "policy": "contrast-pair",
+    "body": "fs",
+    "semantics_ok": true,
+    "semantics_seed": 3244639667,
+    "semantics_cells": {
+      "mkdir:success": 20,
+      "mkdir:failure": 20,
+      "copy:success": 20,
+      "copy:failure": 20,
+      "move:success": 20,
+      "move:failure": 20,
+      "delete:success": 20,
+      "delete:failure": 20,
+      "convert:success": 20,
+      "convert:failure": 20
+    },
+    "semantics_mismatch": 0,
+    "tests_passed": true,
+    "tests_gate": "not learning and not timing and not view",
+    "learner_tests_passed": true,
+    "protocol_mismatch": [],
+    "unreachable": 0,
+    "source_changed_during_run": false,
+    "protocol_file": "atanor_os\\protocol_h4_fs_target.json"
+  },
+  "learn_cost_s": {
+    "1": {
+      "B": {
+        "build_s": 0.005539099976886064,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 12,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 20,
+              "near_checks": 20,
+              "near_fp": 12
+            },
+            "move": {
+              "checks": 40,
+              "fp": 10,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 23,
+              "near_checks": 20,
+              "near_fp": 10
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 3,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 10,
+              "fn": 0,
+              "eff": 20,
+              "unk": 0,
+              "docs": 30,
+              "near_checks": 20,
+              "near_fp": 10
+            }
+          },
+          "exact_tools": [
+            "delete",
+            "mkdir"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "delete",
+            "mkdir"
+          ],
+          "n_strict": 2,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.012077099992893636,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 10,
+              "fn": 0,
+              "eff": 20,
+              "unk": 0,
+              "docs": 30,
+              "near_checks": 20,
+              "near_fp": 10
+            }
+          },
+          "exact_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 4,
+          "strict_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_strict": 4,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "ORACLE": {
+        "build_s": 6.299989763647318e-06,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 20,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "strict_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_strict": 4,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.315107899979921,
+        "targeted_steps": 10,
+        "steps": 300,
+        "first_success": {
+          "mkdir": 11,
+          "delete": 13,
+          "move": 15,
+          "copy": 27
+        }
+      }
+    },
+    "2": {
+      "B": {
+        "build_s": 0.006839400011813268,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 13,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 28,
+              "near_checks": 20,
+              "near_fp": 13
+            },
+            "move": {
+              "checks": 40,
+              "fp": 7,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 16,
+              "near_checks": 20,
+              "near_fp": 7
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 4,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 4,
+              "near_checks": 20,
+              "near_fp": 4
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 20,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "mkdir"
+          ],
+          "n_exact": 1,
+          "strict_tools": [
+            "mkdir"
+          ],
+          "n_strict": 1,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.016311399987898767,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 20,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "strict_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_strict": 4,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.167446899984498,
+        "targeted_steps": 16,
+        "steps": 300,
+        "first_success": {
+          "move": 1,
+          "delete": 2,
+          "mkdir": 3,
+          "copy": 45,
+          "convert": 91
+        }
+      }
+    },
+    "3": {
+      "B": {
+        "build_s": 0.0067337999935261905,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 13,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 24,
+              "near_checks": 20,
+              "near_fp": 13
+            },
+            "move": {
+              "checks": 40,
+              "fp": 11,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 17,
+              "near_checks": 20,
+              "near_fp": 11
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 3,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 3,
+              "near_checks": 20,
+              "near_fp": 3
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 5,
+              "fn": 0,
+              "eff": 15,
+              "unk": 0,
+              "docs": 5,
+              "near_checks": 20,
+              "near_fp": 5
+            }
+          },
+          "exact_tools": [
+            "mkdir"
+          ],
+          "n_exact": 1,
+          "strict_tools": [
+            "mkdir"
+          ],
+          "n_strict": 1,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.012468300003092736,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 20,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "strict_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_strict": 4,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 6.466846499999519,
+        "targeted_steps": 11,
+        "steps": 300,
+        "first_success": {
+          "delete": 8,
+          "mkdir": 24,
+          "copy": 46,
+          "move": 88,
+          "convert": 120
+        }
+      }
+    },
+    "4": {
+      "B": {
+        "build_s": 0.006461799988755956,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 14,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 22,
+              "near_checks": 20,
+              "near_fp": 14
+            },
+            "move": {
+              "checks": 40,
+              "fp": 9,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 24,
+              "near_checks": 20,
+              "near_fp": 9
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 3,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 20,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "delete",
+            "mkdir"
+          ],
+          "n_exact": 2,
+          "strict_tools": [
+            "delete",
+            "mkdir"
+          ],
+          "n_strict": 2,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.015894199983449653,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 20,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "strict_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_strict": 4,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 6.643004299985478,
+        "targeted_steps": 14,
+        "steps": 300,
+        "first_success": {
+          "mkdir": 0,
+          "delete": 4,
+          "move": 9,
+          "copy": 19,
+          "convert": 87
+        }
+      }
+    },
+    "5": {
+      "B": {
+        "build_s": 0.006842799979494885,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 11,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 22,
+              "near_checks": 20,
+              "near_fp": 11
+            },
+            "move": {
+              "checks": 40,
+              "fp": 11,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 27,
+              "near_checks": 20,
+              "near_fp": 11
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 1,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 1,
+              "near_checks": 20,
+              "near_fp": 1
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 3,
+              "fn": 0,
+              "eff": 20,
+              "unk": 0,
+              "docs": 3,
+              "near_checks": 20,
+              "near_fp": 3
+            }
+          },
+          "exact_tools": [
+            "mkdir"
+          ],
+          "n_exact": 1,
+          "strict_tools": [
+            "mkdir"
+          ],
+          "n_strict": 1,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.015203199989628047,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "near_cells": {
+            "mkdir": 20,
+            "copy": 20,
+            "move": 20,
+            "delete": 20,
+            "convert": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 0,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "unk": 20,
+              "docs": 0,
+              "near_checks": 20,
+              "near_fp": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "strict_tools": [
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_strict": 4,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "explore": {
+        "explore_s": 7.001079400011804,
+        "targeted_steps": 7,
+        "steps": 300,
+        "first_success": {
+          "mkdir": 0,
+          "delete": 5,
+          "copy": 41,
+          "move": 78,
+          "convert": 262
+        }
+      }
+    }
+  },
+  "storage": {
+    "1": {
+      "B": {
+        "journal_bytes": 1253376,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 241664,
+        "model_json_bytes": 5168
+      },
+      "ORACLE": {
+        "journal_bytes": 413696,
+        "model_json_bytes": 28
+      }
+    },
+    "2": {
+      "B": {
+        "journal_bytes": 1167360,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 409600,
+        "model_json_bytes": 6620
+      }
+    },
+    "3": {
+      "B": {
+        "journal_bytes": 1191936,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 409600,
+        "model_json_bytes": 6616
+      }
+    },
+    "4": {
+      "B": {
+        "journal_bytes": 1130496,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 409600,
+        "model_json_bytes": 6618
+      }
+    },
+    "5": {
+      "B": {
+        "journal_bytes": 1146880,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 409600,
+        "model_json_bytes": 6616
+      }
+    }
+  },
+  "protocol": {
+    "version": 1,
+    "part_of": "protocol_h4.json",
+    "role": "target",
+    "body": "fs",
+    "frozen_at": "2026-10-24T12:40:00",
+    "hypothesis": "H4 target run on the fs body: policy contrast-pair",
+    "primary": "per-run verdict = C vs B strict completion (unchanged harness rule); the H4 decision is cross-run, see protocol_h4.json",
+    "primary_pair": [
+      "C",
+      "B"
+    ],
+    "primary_metric": "completion",
+    "min_gain_pp": 10.0,
+    "seeds_ge": 4,
+    "max_cost_ratio": 3.0,
+    "split": "test",
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explore_steps": 300,
+    "policy": "contrast-pair",
+    "conditions_list": [
+      "B",
+      "C"
+    ],
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "invalid_if": [
+      "env_errors > 0",
+      "ORACLE completion < 1.0",
+      "semantics check not ok",
+      "validity gate not run or failed",
+      "unreachable task",
+      "label != pre-registered",
+      "source changed during the run",
+      "protocol parameter mismatch"
+    ]
+  },
+  "conditions": {
+    "B": {
+      "episodes": 100,
+      "completion": 0.41,
+      "completion_end_state_only": 0.41,
+      "partial": 0.4419444444444444,
+      "keep_violated": 0,
+      "actions": 16.28,
+      "noops": 14.58,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 59,
+      "env_errors": 0,
+      "pred_errors": 1481,
+      "pred_total": 1628,
+      "docs_share": 0.9164619164619164,
+      "wall_s": 14.617081335001275,
+      "cpu_s": 14.4771875,
+      "plan_expanded": 149.62,
+      "plan_predicted": 57446.14,
+      "peak_mem_mb": 35.688783,
+      "status_counts": {
+        "documented": 1492,
+        "retrieved": 136
+      },
+      "plan_stops": {
+        "found": 1628
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "backup": 0.45714285714285713,
+        "convert": 0.8333333333333334,
+        "sort": 0.0
+      },
+      "council": null
+    },
+    "C": {
+      "episodes": 100,
+      "completion": 0.94,
+      "completion_end_state_only": 0.94,
+      "partial": 0.94,
+      "keep_violated": 0,
+      "actions": 5.01,
+      "noops": 0.28,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 6,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 34,
+      "pred_total": 501,
+      "docs_share": 0.06786427145708583,
+      "wall_s": 6.214952125000127,
+      "cpu_s": 6.16125,
+      "plan_expanded": 179.44,
+      "plan_predicted": 105342.9,
+      "peak_mem_mb": 126.266064,
+      "status_counts": {
+        "learned": 467,
+        "documented": 34
+      },
+      "plan_stops": {
+        "found": 501,
+        "nodes": 6
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 0.8285714285714286
+      },
+      "council": null
+    },
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 5.25,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 105,
+      "docs_share": 0.0,
+      "wall_s": 3.374325024995778,
+      "cpu_s": 3.328125,
+      "plan_expanded": 172.55,
+      "plan_predicted": 102426.1,
+      "peak_mem_mb": 58.228163,
+      "status_counts": {
+        "oracle": 105
+      },
+      "plan_stops": {
+        "found": 105
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 1.0
+      },
+      "council": null
+    }
+  },
+  "paired": {
+    "C-B": {
+      "mean_pp": 53.0,
+      "tasks_pos": 16,
+      "tasks_neg": 0,
+      "tasks_zero": 4,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 100.0,
+        "1": 80.0,
+        "2": 40.0,
+        "3": 19.999999999999996,
+        "4": 80.0,
+        "5": 0.0,
+        "6": 19.999999999999996,
+        "7": 80.0,
+        "8": 0.0,
+        "9": 19.999999999999996,
+        "10": 80.0,
+        "11": 60.0,
+        "12": 100.0,
+        "13": 100.0,
+        "14": 0.0,
+        "15": 100.0,
+        "16": 80.0,
+        "17": 0.0,
+        "18": 19.999999999999996,
+        "19": 80.0
+      },
+      "per_seed_pp": {
+        "1": 40.0,
+        "2": 60.0,
+        "3": 60.0,
+        "4": 50.0,
+        "5": 55.00000000000001
+      },
+      "pred_ratio": 1.8337681174052773,
+      "per_seed_pred_ratio": {
+        "1": 3.7898805966765297,
+        "2": 1.4028042087098245,
+        "3": 1.6111901994126319,
+        "4": 1.6151536606865493,
+        "5": 1.8175576758935086
+      }
+    }
+  },
+  "verdict": "VALID_BOUNDED_GAIN"
+}
