@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "name": "P9 - internal concepts linked to English commands (file body)",
+  "frozen_at": "2026-10-24T23:59:00",
+  "design": "P9_DESIGN.md",
+  "base_representation": "P8b R1_KEEP stable_fs (R1 from E1, 2107 bytes), frozen; concept identity = sha256 of the definition",
+  "bodies": ["fs"],
+  "view_body": "not tested in P9 v1 (no internal concepts)",
+  "task": "one English command over a file workspace -> (tool in {copy, move, delete}, selected objects, destination folder) -> act through R1",
+  "teacher": "Claude (this session), training only; ATANOR interprets and acts before each feedback",
+  "evaluation": {
+    "teacher": "off (import guard)",
+    "qwen_or_any_model": "off (LLM and localhost hosts blocked)",
+    "immediate_set": "30 sentences, written outside the repository by an agent without teacher context; sha256 published before the run",
+    "delayed_set": "30 sentences, same author and instructions, opened only at the delayed run (>= 72 h after the lexicon freeze)",
+    "truth": "author's structured label (tool, selector {kind, ext}, destination); truth set = scene objects satisfying the selector; never changed after the run"
+  },
+  "conditions": ["CONCEPT (primary)", "FLAT (raw atoms only)", "NONE (no linking)", "ORACLE (true interpretation, same action path)"],
+  "measures": [
+    "interpretation: tool, object set and destination all correct (components reported separately; seen vs unseen extension sentences)",
+    "action success: evaluator truth goal holds at the end and unselected objects unchanged",
+    "delayed reuse: interpretation on the delayed set with the frozen lexicon (sha checked) after >= 72 h",
+    "validity: teacher imports, model requests, sealed files outside the repository, exact sentence overlap count"
+  ],
+  "decision": {
+    "LINKED": "CONCEPT interpretation >= 0.60 and >= NONE + 30 pp and action success >= 0.60",
+    "WEAK": "valid run below LINKED",
+    "INVALID": "any teacher import or model request, or a broken seal",
+    "concept_contribution": "claimed only if CONCEPT - FLAT interpretation >= +10 pp",
+    "delayed": "REUSED if delayed interpretation >= 0.8 x immediate and lexicon sha unchanged, else NOT_REUSED"
+  },
+  "expectation_before_run": "WEAK; CONCEPT ~ FLAT",
+  "naming": "'own language ability' only for what is reproduced with teacher and Qwen off: narrow three-tool command interpretation"
+}
