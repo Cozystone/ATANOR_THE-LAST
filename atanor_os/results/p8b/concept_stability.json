@@ -1,0 +1,265 @@
+{
+ "fs": {
+  "(('U', 'x', 'a0', 1), ('U', 'x', 'a1', 0))": {
+   "R1": {
+    "name": "c0",
+    "tools": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "max_ev": 29,
+    "uses": 10
+   },
+   "P8B_stable": {
+    "name": "c0",
+    "tools": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "max_ev": 29,
+    "uses": 11
+   },
+   "P8B_drift": {
+    "name": "c0",
+    "tools": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "max_ev": 35,
+    "uses": 15
+   },
+   "R2_stable": {
+    "name": "c0",
+    "tools": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "max_ev": 2,
+    "uses": 11
+   },
+   "R2_drift": {
+    "name": "c0",
+    "tools": [
+     "copy",
+     "delete",
+     "move"
+    ],
+    "max_ev": 35,
+    "uses": 15
+   }
+  },
+  "(('N', 'x'), ('U', 'x', 'a0', 0))": {
+   "R1": {
+    "name": "c1",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 102,
+    "uses": 5
+   },
+   "P8B_stable": {
+    "name": "c1",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 146,
+    "uses": 7
+   },
+   "P8B_drift": {
+    "name": "c1",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 146,
+    "uses": 11
+   },
+   "R2_stable": {
+    "name": "c1",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 146,
+    "uses": 7
+   },
+   "R2_drift": {
+    "name": "c1",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 28,
+    "uses": 11
+   }
+  },
+  "(('S', 'x', 'a1', 1), ('U', 'x', 'a0', 0))": {
+   "R1": {
+    "name": "c2",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 53,
+    "uses": 5
+   },
+   "P8B_stable": {
+    "name": "c2",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 75,
+    "uses": 7
+   },
+   "P8B_drift": {
+    "name": "c2",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 75,
+    "uses": 10
+   },
+   "R2_stable": {
+    "name": "c2",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 75,
+    "uses": 7
+   },
+   "R2_drift": {
+    "name": "c2",
+    "tools": [
+     "copy",
+     "mkdir",
+     "move"
+    ],
+    "max_ev": 15,
+    "uses": 10
+   }
+  },
+  "(('N', 'x'), ('U', 'x', 'a0', 0), ('U', 'x', 'a2', 'md'))": {
+   "R1": {
+    "name": "c3",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 26,
+    "uses": 2
+   },
+   "P8B_stable": {
+    "name": "c3",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 51,
+    "uses": 3
+   },
+   "P8B_drift": {
+    "name": "c3",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 26,
+    "uses": 3
+   },
+   "R2_stable": {
+    "name": "c3",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 51,
+    "uses": 3
+   },
+   "R2_drift": {
+    "name": "c3",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 5,
+    "uses": 3
+   }
+  },
+  "(('U', 'x', 'a0', 1), ('U', 'x', 'a1', 0), ('U', 'x', 'a2', 'txt'))": {
+   "R1": {
+    "name": "c4",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 12,
+    "uses": 2
+   },
+   "P8B_stable": {
+    "name": "c5",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 12,
+    "uses": 2
+   },
+   "P8B_drift": {
+    "name": "c4",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 12,
+    "uses": 3
+   },
+   "R2_stable": {
+    "name": "c5",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 0,
+    "uses": 2
+   },
+   "R2_drift": {
+    "name": "c4",
+    "tools": [
+     "convert"
+    ],
+    "max_ev": 4,
+    "uses": 3
+   }
+  },
+  "(('S', 'x', 'a2', '-'), ('U', 'x', 'a0', 1))": {
+   "P8B_stable": {
+    "name": "c4",
+    "tools": [
+     "copy",
+     "move"
+    ],
+    "max_ev": 75,
+    "uses": 2
+   },
+   "R2_stable": {
+    "name": "c4",
+    "tools": [
+     "copy",
+     "move"
+    ],
+    "max_ev": 75,
+    "uses": 2
+   }
+  }
+ },
+ "view": {}
+}

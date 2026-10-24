@@ -1,0 +1,1917 @@
+{
+ "cond": "FULL_RAW",
+ "stable_fs": {
+  "bytes": null,
+  "prediction": 0.9528795811518325,
+  "checks": 191,
+  "fp": 9,
+  "fn": 0,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 0.925,
+  "other_tools_prediction": 0.9602649006622517,
+  "excluded_training_situations": 0,
+  "per_tool": {
+   "mkdir": {
+    "checks": 40,
+    "fp": 3,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "copy": {
+    "checks": 40,
+    "fp": 3,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "move": {
+    "checks": 40,
+    "fp": 3,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "delete": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "convert": {
+    "checks": 31,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 1,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 2,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 3,
+    "template": "backup",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 4,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 5,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 6,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 7,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 8,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 9,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 10,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 11,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 12,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 19
+   },
+   {
+    "task": 13,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 14,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 15,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 16,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 17,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 18,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 19,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 20,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 21,
+    "template": "backup",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 22,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 23,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 24,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 25,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 26,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 27,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 28,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 29,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 30,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 31,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 32,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 33,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 19
+   },
+   {
+    "task": 34,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 35,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 36,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 37,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 38,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 39,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 40,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 41,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 42,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 19
+   },
+   {
+    "task": 43,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 44,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 45,
+    "template": "backup",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 46,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 47,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 48,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 49,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 50,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 51,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 52,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 53,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 54,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 55,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 56,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 57,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 58,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 59,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   }
+  ],
+  "seconds": 131.1
+ },
+ "stable_view": {
+  "bytes": null,
+  "prediction": 1.0,
+  "checks": 240,
+  "fp": 0,
+  "fn": 0,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 1.0,
+  "other_tools_prediction": 1.0,
+  "excluded_training_situations": 3278,
+  "per_tool": {
+   "open": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "close": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "filter": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "sort": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "group": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "compare": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   }
+  ],
+  "seconds": 7.4
+ },
+ "drift_fs": {
+  "bytes": null,
+  "prediction": 0.8974358974358975,
+  "checks": 195,
+  "fp": 20,
+  "fn": 0,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 0.875,
+  "other_tools_prediction": 0.9032258064516129,
+  "excluded_training_situations": 0,
+  "per_tool": {
+   "mkdir": {
+    "checks": 40,
+    "fp": 6,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "copy": {
+    "checks": 40,
+    "fp": 8,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "move": {
+    "checks": 40,
+    "fp": 5,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "delete": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "convert": {
+    "checks": 35,
+    "fp": 1,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 1,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 2,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 3,
+    "template": "backup",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 4,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 5,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 6,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 7,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 8,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 9,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 10,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 11,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 12,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 19
+   },
+   {
+    "task": 13,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 14,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 15,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 16,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 17,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 18,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 19,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 20,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 21,
+    "template": "backup",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 22,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 23,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 24,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 25,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 26,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 27,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 28,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 29,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 30,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 31,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 32,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 33,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 19
+   },
+   {
+    "task": 34,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 35,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 36,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 37,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 38,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 39,
+    "template": "backup",
+    "completed": true,
+    "actions": 18,
+    "noops": 14
+   },
+   {
+    "task": 40,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 41,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 42,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 19
+   },
+   {
+    "task": 43,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 44,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 45,
+    "template": "backup",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 46,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 47,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 48,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 49,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 50,
+    "template": "convert",
+    "completed": true,
+    "actions": 7,
+    "noops": 4
+   },
+   {
+    "task": 51,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 52,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 53,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 54,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 55,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 56,
+    "template": "convert",
+    "completed": true,
+    "actions": 16,
+    "noops": 12
+   },
+   {
+    "task": 57,
+    "template": "backup",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 58,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 20
+   },
+   {
+    "task": 59,
+    "template": "convert",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   }
+  ],
+  "changed_situations": {
+   "checks": 20,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 0,
+   "cells": {
+    "success": 20,
+    "failure": 0
+   },
+   "accuracy": 1.0
+  },
+  "changed_tool_unchanged_situations": {
+   "checks": 40,
+   "fp": 3,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 0,
+   "cells": {
+    "success": 20,
+    "failure": 20
+   },
+   "accuracy": 0.925
+  },
+  "drift_tasks": [
+   {
+    "task": 0,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 1,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 2,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 3,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 4,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 5,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 6,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 7,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 8,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 9,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 10,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 11,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 12,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 13,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 14,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 15,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 16,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 17,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 18,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 19,
+    "template": "move_folder",
+    "completed": true,
+    "actions": 4,
+    "noops": 2
+   }
+  ],
+  "seconds": 135.0
+ },
+ "drift_view": {
+  "bytes": null,
+  "prediction": 1.0,
+  "checks": 240,
+  "fp": 0,
+  "fn": 0,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 1.0,
+  "other_tools_prediction": 1.0,
+  "excluded_training_situations": 2461,
+  "per_tool": {
+   "open": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "close": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "filter": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "sort": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "group": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "compare": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   }
+  ],
+  "changed_situations": {
+   "checks": 20,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 0,
+   "cells": {
+    "success": 20,
+    "failure": 0
+   },
+   "accuracy": 1.0
+  },
+  "changed_tool_unchanged_situations": {
+   "checks": 40,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 15,
+   "cells": {
+    "success": 20,
+    "failure": 20
+   },
+   "accuracy": 1.0
+  },
+  "drift_tasks": [
+   {
+    "task": 0,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   }
+  ],
+  "seconds": 8.3
+ },
+ "log_open_attempts": [
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p8b\\E3_fs.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-02-adapt\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-contrast\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p1-test-03-scarce-rerun\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p2-h2-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p3-view-01\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-fs-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-control\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s1.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s2.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s3.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s4.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p5-h4-view-target\\explore\\experiences_s5.jsonl",
+  "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\results\\p8b\\E3_view.jsonl"
+ ]
+}

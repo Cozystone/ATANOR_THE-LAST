@@ -1,0 +1,205 @@
+{
+ "raw": {
+  "fs": 13500,
+  "view": 9000
+ },
+ "decisions": {
+  "P8B_fs": {
+   "stable": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4"
+    ],
+    "removed": [],
+    "added": [
+     "c4"
+    ],
+    "old_rules_kept": 14,
+    "old_rules_dropped": 1,
+    "decisions": [],
+    "counts": {},
+    "experiments": 0
+   },
+   "drift": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c5"
+    ],
+    "removed": [
+     "c4"
+    ],
+    "added": [],
+    "old_rules_kept": 17,
+    "old_rules_dropped": 4,
+    "decisions": [],
+    "counts": {},
+    "experiments": 0
+   },
+   "experiments_stable": [],
+   "experiments_drift": []
+  },
+  "P8B_NOVERIFY_fs": {
+   "stable": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4"
+    ],
+    "removed": [],
+    "added": [
+     "c4"
+    ],
+    "old_rules_kept": 14,
+    "old_rules_dropped": 1,
+    "decisions": [],
+    "counts": {},
+    "experiments": 0
+   },
+   "drift": {
+    "kept": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c5"
+    ],
+    "removed": [
+     "c4"
+    ],
+    "added": [],
+    "old_rules_kept": 17,
+    "old_rules_dropped": 4,
+    "decisions": [],
+    "counts": {},
+    "experiments": 0
+   },
+   "experiments_stable": [],
+   "experiments_drift": []
+  },
+  "P8B_view": {
+   "stable": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "old_rules_kept": 1,
+    "old_rules_dropped": 1,
+    "decisions": [],
+    "counts": {},
+    "experiments": 0
+   },
+   "drift": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "old_rules_kept": 0,
+    "old_rules_dropped": 0,
+    "decisions": [
+     {
+      "tool": "compare",
+      "atom": [
+       "U",
+       0,
+       "a0",
+       "absent"
+      ],
+      "evidence": 139,
+      "conflicting_successes": 5,
+      "decision": "hold",
+      "why": "could not re-verify; keep the evidence, condition marked uncertain",
+      "verified": null
+     }
+    ],
+    "counts": {
+     "hold": 1
+    },
+    "experiments": 0
+   },
+   "experiments_stable": [],
+   "experiments_drift": [
+    {
+     "body": "view",
+     "tool": "compare",
+     "args": null,
+     "ok": null
+    }
+   ]
+  },
+  "P8B_NOVERIFY_view": {
+   "stable": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "old_rules_kept": 1,
+    "old_rules_dropped": 1,
+    "decisions": [],
+    "counts": {},
+    "experiments": 0
+   },
+   "drift": {
+    "kept": [],
+    "removed": [],
+    "added": [],
+    "old_rules_kept": 0,
+    "old_rules_dropped": 0,
+    "decisions": [
+     {
+      "tool": "compare",
+      "atom": [
+       "U",
+       0,
+       "a0",
+       "absent"
+      ],
+      "evidence": 139,
+      "conflicting_successes": 5,
+      "decision": "hold",
+      "why": "could not re-verify; keep the evidence, condition marked uncertain",
+      "verified": null
+     }
+    ],
+    "counts": {
+     "hold": 1
+    },
+    "experiments": 0
+   },
+   "experiments_stable": [],
+   "experiments_drift": []
+  }
+ },
+ "sizes": {
+  "stable_R1_KEEP_fs": 2107,
+  "drift_R1_KEEP_fs": 2107,
+  "stable_R2_P8_fs": 3063,
+  "drift_R2_P8_fs": 4006,
+  "stable_P8B_fs": 3004,
+  "drift_P8B_fs": 3871,
+  "stable_P8B_NOVERIFY_fs": 3004,
+  "drift_P8B_NOVERIFY_fs": 3871,
+  "stable_R1_KEEP_view": 1233,
+  "drift_R1_KEEP_view": 1233,
+  "stable_R2_P8_view": 1778,
+  "drift_R2_P8_view": 1766,
+  "stable_P8B_view": 1346,
+  "drift_P8B_view": 1635,
+  "stable_P8B_NOVERIFY_view": 1346,
+  "drift_P8B_NOVERIFY_view": 1635
+ },
+ "fs_n": [
+  1789,
+  1789,
+  600
+ ],
+ "view_n": [
+  597,
+  598,
+  600
+ ]
+}

@@ -1,0 +1,1674 @@
+{
+ "cond": "P8B_NOVERIFY",
+ "stable_fs": {
+  "bytes": 3004,
+  "prediction": 0.9790575916230366,
+  "checks": 191,
+  "fp": 2,
+  "fn": 2,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 0.975,
+  "other_tools_prediction": 0.9801324503311258,
+  "excluded_training_situations": 0,
+  "per_tool": {
+   "mkdir": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "copy": {
+    "checks": 40,
+    "fp": 1,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "move": {
+    "checks": 40,
+    "fp": 1,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "delete": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "convert": {
+    "checks": 31,
+    "fp": 0,
+    "fn": 2,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "sort",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 2,
+    "template": "convert",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 3,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "sort",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 5,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 6,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 8,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 9,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 11,
+    "template": "convert",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 12,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 17
+   },
+   {
+    "task": 14,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 15,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "sort",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 17,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 18,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "sort",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 20,
+    "template": "convert",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 21,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 22,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 23,
+    "template": "convert",
+    "completed": false,
+    "actions": 12,
+    "noops": 9
+   },
+   {
+    "task": 24,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 25,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 26,
+    "template": "convert",
+    "completed": false,
+    "actions": 12,
+    "noops": 9
+   },
+   {
+    "task": 27,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 28,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 29,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 30,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 31,
+    "template": "sort",
+    "completed": false,
+    "actions": 15,
+    "noops": 12
+   },
+   {
+    "task": 32,
+    "template": "convert",
+    "completed": false,
+    "actions": 12,
+    "noops": 9
+   },
+   {
+    "task": 33,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 34,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 35,
+    "template": "convert",
+    "completed": false,
+    "actions": 12,
+    "noops": 9
+   },
+   {
+    "task": 36,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 37,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 16
+   },
+   {
+    "task": 38,
+    "template": "convert",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 39,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 40,
+    "template": "sort",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 41,
+    "template": "convert",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 42,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 43,
+    "template": "sort",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 44,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 45,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 46,
+    "template": "sort",
+    "completed": false,
+    "actions": 20,
+    "noops": 16
+   },
+   {
+    "task": 47,
+    "template": "convert",
+    "completed": false,
+    "actions": 12,
+    "noops": 9
+   },
+   {
+    "task": 48,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 49,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 50,
+    "template": "convert",
+    "completed": false,
+    "actions": 5,
+    "noops": 3
+   },
+   {
+    "task": 51,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 52,
+    "template": "sort",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 53,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 54,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 55,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 56,
+    "template": "convert",
+    "completed": false,
+    "actions": 12,
+    "noops": 9
+   },
+   {
+    "task": 57,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 58,
+    "template": "sort",
+    "completed": false,
+    "actions": 3,
+    "noops": 1
+   },
+   {
+    "task": 59,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   }
+  ],
+  "seconds": 474.7
+ },
+ "stable_view": {
+  "bytes": 1346,
+  "prediction": 1.0,
+  "checks": 240,
+  "fp": 0,
+  "fn": 0,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 1.0,
+  "other_tools_prediction": 1.0,
+  "excluded_training_situations": 3278,
+  "per_tool": {
+   "open": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "close": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "filter": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "sort": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "group": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "compare": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   }
+  ],
+  "seconds": 6.6
+ },
+ "drift_fs": {
+  "bytes": 3871,
+  "prediction": 0.9743589743589743,
+  "checks": 195,
+  "fp": 0,
+  "fn": 2,
+  "eff": 3,
+  "changed_tool_prediction_mixed": 0.925,
+  "other_tools_prediction": 0.9870967741935484,
+  "excluded_training_situations": 0,
+  "per_tool": {
+   "mkdir": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "copy": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "move": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 3,
+    "near_checks": 20
+   },
+   "delete": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "convert": {
+    "checks": 35,
+    "fp": 0,
+    "fn": 2,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "sort",
+    "completed": true,
+    "actions": 8,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "convert",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 3,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "sort",
+    "completed": true,
+    "actions": 8,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 6,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 9,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "convert",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 12,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "sort",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 15,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 18,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 20,
+    "template": "convert",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 21,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 22,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 23,
+    "template": "convert",
+    "completed": false,
+    "actions": 20,
+    "noops": 4
+   },
+   {
+    "task": 24,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 25,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 26,
+    "template": "convert",
+    "completed": false,
+    "actions": 20,
+    "noops": 4
+   },
+   {
+    "task": 27,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 28,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 29,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 30,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 31,
+    "template": "sort",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 32,
+    "template": "convert",
+    "completed": false,
+    "actions": 20,
+    "noops": 4
+   },
+   {
+    "task": 33,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 34,
+    "template": "sort",
+    "completed": true,
+    "actions": 10,
+    "noops": 0
+   },
+   {
+    "task": 35,
+    "template": "convert",
+    "completed": false,
+    "actions": 20,
+    "noops": 4
+   },
+   {
+    "task": 36,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 37,
+    "template": "sort",
+    "completed": true,
+    "actions": 7,
+    "noops": 0
+   },
+   {
+    "task": 38,
+    "template": "convert",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 39,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 40,
+    "template": "sort",
+    "completed": true,
+    "actions": 8,
+    "noops": 0
+   },
+   {
+    "task": 41,
+    "template": "convert",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 42,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 43,
+    "template": "sort",
+    "completed": true,
+    "actions": 8,
+    "noops": 0
+   },
+   {
+    "task": 44,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 45,
+    "template": "backup",
+    "completed": true,
+    "actions": 4,
+    "noops": 0
+   },
+   {
+    "task": 46,
+    "template": "sort",
+    "completed": true,
+    "actions": 7,
+    "noops": 0
+   },
+   {
+    "task": 47,
+    "template": "convert",
+    "completed": false,
+    "actions": 20,
+    "noops": 4
+   },
+   {
+    "task": 48,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 49,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 50,
+    "template": "convert",
+    "completed": false,
+    "actions": 4,
+    "noops": 2
+   },
+   {
+    "task": 51,
+    "template": "backup",
+    "completed": true,
+    "actions": 6,
+    "noops": 0
+   },
+   {
+    "task": 52,
+    "template": "sort",
+    "completed": true,
+    "actions": 8,
+    "noops": 0
+   },
+   {
+    "task": 53,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   },
+   {
+    "task": 54,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 55,
+    "template": "sort",
+    "completed": true,
+    "actions": 10,
+    "noops": 0
+   },
+   {
+    "task": 56,
+    "template": "convert",
+    "completed": false,
+    "actions": 20,
+    "noops": 4
+   },
+   {
+    "task": 57,
+    "template": "backup",
+    "completed": true,
+    "actions": 5,
+    "noops": 0
+   },
+   {
+    "task": 58,
+    "template": "sort",
+    "completed": true,
+    "actions": 9,
+    "noops": 0
+   },
+   {
+    "task": 59,
+    "template": "convert",
+    "completed": false,
+    "actions": 2,
+    "noops": 1
+   }
+  ],
+  "changed_situations": {
+   "checks": 20,
+   "fp": 0,
+   "fn": 0,
+   "eff": 20,
+   "excluded_training_situations": 0,
+   "cells": {
+    "success": 20,
+    "failure": 0
+   },
+   "accuracy": 0.0
+  },
+  "changed_tool_unchanged_situations": {
+   "checks": 40,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 0,
+   "cells": {
+    "success": 20,
+    "failure": 20
+   },
+   "accuracy": 1.0
+  },
+  "drift_tasks": [
+   {
+    "task": 0,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "move_folder",
+    "completed": false,
+    "actions": 0,
+    "noops": 0
+   }
+  ],
+  "seconds": 190.9
+ },
+ "drift_view": {
+  "bytes": 1635,
+  "prediction": 1.0,
+  "checks": 240,
+  "fp": 0,
+  "fn": 0,
+  "eff": 0,
+  "changed_tool_prediction_mixed": 1.0,
+  "other_tools_prediction": 1.0,
+  "excluded_training_situations": 2461,
+  "per_tool": {
+   "open": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "close": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "filter": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "sort": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "group": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   },
+   "compare": {
+    "checks": 40,
+    "fp": 0,
+    "fn": 0,
+    "eff": 0,
+    "near_checks": 20
+   }
+  },
+  "test_tasks": [
+   {
+    "task": 0,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "compare",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "focus",
+    "completed": true,
+    "actions": 3,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "regroup",
+    "completed": true,
+    "actions": 2,
+    "noops": 0
+   }
+  ],
+  "changed_situations": {
+   "checks": 20,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 0,
+   "cells": {
+    "success": 20,
+    "failure": 0
+   },
+   "accuracy": 1.0
+  },
+  "changed_tool_unchanged_situations": {
+   "checks": 40,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "excluded_training_situations": 15,
+   "cells": {
+    "success": 20,
+    "failure": 20
+   },
+   "accuracy": 1.0
+  },
+  "drift_tasks": [
+   {
+    "task": 0,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 1,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 2,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 3,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 4,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 5,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 6,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 7,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 8,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 9,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 10,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 11,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 12,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 13,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 14,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 15,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 16,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 17,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 18,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   },
+   {
+    "task": 19,
+    "template": "compare_replace",
+    "completed": true,
+    "actions": 1,
+    "noops": 0
+   }
+  ],
+  "seconds": 7.6
+ },
+ "log_open_attempts": []
+}

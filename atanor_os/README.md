@@ -1,6 +1,6 @@
 # ATANOR OS — 최소 수직 구현 (P1 → P4)
 
-**보고서: [P1_REPORT.md](P1_REPORT.md)** (v1·v2 사전등록 결과, HP 복제, 독립 검토) · **[P2_P4_REPORT.md](P2_P4_REPORT.md)** (획득 정책 H1/H4, 스킬 H2, 화면 몸 H3, 감독 루프 P4) · **[P6_REPORT.md](P6_REPORT.md)** (자율 과제 수행: 공개 웹 읽기 전용, 교사는 훈련에서만 — 판정 NO_GAIN) · **[H6_DEV_REPORT.md](H6_DEV_REPORT.md)** (읽기 능력 단계별 개발 실험 — WEAK, 가정 재검토) · **[P7_REPORT.md](P7_REPORT.md)** (언어 모델을 읽기 도구로 둔 결정층 평가 — 도구 포함·모델 끔 모두 NO_GAIN) · **[P8_REPORT.md](P8_REPORT.md)** (경험에서 만든 내부 개념, 재시작 뒤 재사용 — INCONCLUSIVE) · [HISTORY_REWRITE.md](HISTORY_REWRITE.md). 결과 원본은 `results/`, 모든 결정과 이유는 `DECISIONS.md`.
+**보고서: [P1_REPORT.md](P1_REPORT.md)** (v1·v2 사전등록 결과, HP 복제, 독립 검토) · **[P2_P4_REPORT.md](P2_P4_REPORT.md)** (획득 정책 H1/H4, 스킬 H2, 화면 몸 H3, 감독 루프 P4) · **[P6_REPORT.md](P6_REPORT.md)** (자율 과제 수행: 공개 웹 읽기 전용, 교사는 훈련에서만 — 판정 NO_GAIN) · **[H6_DEV_REPORT.md](H6_DEV_REPORT.md)** (읽기 능력 단계별 개발 실험 — WEAK, 가정 재검토) · **[P7_REPORT.md](P7_REPORT.md)** (언어 모델을 읽기 도구로 둔 결정층 평가 — 도구 포함·모델 끔 모두 NO_GAIN) · **[P8_REPORT.md](P8_REPORT.md)** (경험에서 만든 내부 개념, 재시작 뒤 재사용 — INCONCLUSIVE) · **[P8B_REPORT.md](P8B_REPORT.md)** (근거를 보존하는 수정, 안정·드리프트 — PARTIAL: 화면 PASS, 파일 FAIL) · [HISTORY_REWRITE.md](HISTORY_REWRITE.md). 결과 원본은 `results/`, 모든 결정과 이유는 `DECISIONS.md`.
 
 상태 표기: **구현됨** = 코드가 있고 실행된다 · **시험됨** = 명세 테스트 또는 실측 결과가 있다 · **가설** = 아직 증거 없음 · **막힘** = 승인/자원 필요.
 이 디렉터리의 어떤 것도 AGI·의식·일반 지능의 증거가 아니다.
