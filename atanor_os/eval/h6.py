@@ -58,7 +58,7 @@ def _ok(ref, ext, name):
     return norm(name) in {norm(n) for n in ref[ext]['names']}
 
 
-def measure(state_path, sentences_path, out, tag):
+def measure(state_path, sentences_path, out, tag, perception=None):
     """Teacher off, live web. Writes stage-wise measures to out/<tag>.json."""
     teacher_off()
     out = Path(out)
@@ -69,7 +69,7 @@ def measure(state_path, sentences_path, out, tag):
     # 1. interpretation
     sents = json.loads(Path(sentences_path).read_text(encoding='utf-8'))['sentences']
     web = WebSession(out / f'web_{tag}', min_interval=1.0, blocked_hosts=LLM_HOSTS)
-    agent = Agent(fs_model(), web, 'F', {}, lex, rd)
+    agent = Agent(fs_model(), web, 'F', {}, lex, rd, perception=perception)
     rows = []
     for x in sents:
         it = agent.interpret(x['sentence'])
@@ -105,10 +105,14 @@ def measure(state_path, sentences_path, out, tag):
             p = web.open(url)
             if p.get('ok'):
                 cs = rd.all_candidates(p['text'], ext, arts[0])
-                b = rd.best(p['text'], ext, arts[0])
+                if perception is not None:                        # model on: ATANOR-chosen excerpts -> model candidates
+                    b, _ = agent._perceive(p, ext)
+                    cs = cs + ([(b['name'], {})] if b else [])
+                else:
+                    b = rd.best(p['text'], ext, arts[0])
                 per[ext]['given_page'] = {'url': url, 'candidate_present': any(_ok(ref, ext, n) for n, _ in cs),
                                           'ranked_first': bool(b) and _ok(ref, ext, b['name']), 'top': None if not b else b['name'],
-                                          'trusted': bool(b) and b['score'] > rd.threshold}
+                                          'trusted': bool(b) and b['score'] > (rd.threshold if perception is None else 0.0)}
     n = len(per)
     gp = [v['given_page'] for v in per.values() if 'given_page' in v]
     dec = [v['decision'] for v in per.values()]
@@ -122,6 +126,7 @@ def measure(state_path, sentences_path, out, tag):
     res['evidence_judgement'] = {'n': n, 'correct': dec.count('correct'), 'wrong': dec.count('wrong'), 'abstain': dec.count('abstain'),
                                  'precision': dec.count('correct') / max(1, dec.count('correct') + dec.count('wrong')), 'recall': dec.count('correct') / n}
     res['web'] = web.stats()
+    res['model_calls'] = None if perception is None else perception.calls
     res['teacher_import_attempts'] = list(_NoTeacher.attempts)
     res['teacher_module_loaded'] = any(m.startswith('atanor_os.teach') for m in sys.modules)
     (out / f'{tag}.json').write_text(json.dumps({'result': res, 'per_format': per, 'interpretation_rows': rows}, indent=1, ensure_ascii=False, default=str),

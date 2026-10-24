@@ -72,7 +72,8 @@ class Perception:
         for c in cands[:3] if isinstance(cands, list) else []:
             v = str(c.get('value', '')).strip() if isinstance(c, dict) else ''
             q = str(c.get('quote', '')).strip() if isinstance(c, dict) else ''
-            ok = bool(v) and bool(q) and q.lower() in low and v.lower() in q.lower() and len(v) <= 80
+            is_ext = v.startswith('.') or v.lower().strip('.') == ext.lower()      # an extension is not a name
+            ok = bool(v) and bool(q) and q.lower() in low and v.lower() in q.lower() and len(v) <= 80 and not is_ext
             (accepted if ok else rejected).append({'value': v, 'quote': q[:300]})
         rec.update(seconds=round(time.time() - t0, 3), accepted=accepted, rejected=rejected)
         with open(self.log_path, 'a', encoding='utf-8') as f:

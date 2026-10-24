@@ -256,13 +256,16 @@ def teacher_off():
     sys.meta_path.insert(0, _NoTeacher())
 
 
-def run_condition(cond, tasks_spec, state_path, out, snapshot, sentences, split_name, seed):
+def run_condition(cond, tasks_spec, state_path, out, snapshot, sentences, split_name, seed, perception_factory=None):
+    """cond: F, S, M, N, ORACLE, or F_LM / S_LM (P7: same agent with the language model as its reading tool)."""
     out = Path(out)
     lex, rd, mem = load_state(state_path)
     fs = fs_model()
-    web = WebSession(out / 'web', min_interval=1.0, blocked_hosts=LLM_HOSTS) if cond in ('F', 'S') else None
-    memory = {} if cond == 'N' else copy.deepcopy(mem)
-    agent = None if cond == 'ORACLE' else Agent(fs, web, cond, memory, lex, rd)
+    base = cond[:-3] if cond.endswith('_LM') else cond
+    web = WebSession(out / 'web', min_interval=1.0, blocked_hosts=LLM_HOSTS) if base in ('F', 'S') else None
+    memory = {} if base == 'N' else copy.deepcopy(mem)
+    perception = perception_factory(out) if cond.endswith('_LM') else None
+    agent = None if cond == 'ORACLE' else Agent(fs, web, base, memory, lex, rd, perception=perception)
     rows = []
     for spec in tasks_spec:
         ws, task = make_task(spec['index'], split_name, out / 'ws' / f't{spec["index"]}', snapshot, spec['exts'], sentences, seed,
@@ -283,7 +286,7 @@ def run_condition(cond, tasks_spec, state_path, out, snapshot, sentences, split_
     blocked = 0
     if web and (out / 'web' / 'fetch_log.jsonl').exists():
         blocked = sum('blocked_host' in l for l in (out / 'web' / 'fetch_log.jsonl').read_text(encoding='utf-8').splitlines())
-    return rows, {'web': stats, 'llm_or_local_host_attempts': blocked,
+    return rows, {'web': stats, 'llm_or_local_host_attempts': blocked, 'model_calls': None if agent is None or agent.perception is None else agent.perception.calls,
                   'memory_after': None if agent is None else {e: v['name'] for e, v in agent.memory.items()},
                   'self_learned_words': [] if agent is None else agent.lex.learned_from_pages}
 

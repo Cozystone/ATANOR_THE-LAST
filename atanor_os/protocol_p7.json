@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "name": "P7 - ATANOR decision layer with a language model as reading tool",
+  "frozen_at": "2026-10-24T20:10:00",
+  "design": "P7_DESIGN.md",
+  "user_decisions": "direction (b); the model only extracts quote-backed fact candidates from excerpts ATANOR chose; goal interpretation, next search/visit, source trust, adopt/hold and actions are ATANOR decisions; model-on and model-off evaluated together; model-read results are not counted as ATANOR learning language; report model version/digest, calls and cost; if results are low, do not widen the model role - report the failure point",
+  "model": {
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "params": "7.6B",
+    "quantization": "Q4_K_M",
+    "license": "Apache-2.0",
+    "runtime": "Ollama 0.40.3, separate server on 127.0.0.1:11435 with its own model folder (the existing user Ollama store reports every manifest as unreadable; left untouched)",
+    "options": {
+      "temperature": 0,
+      "seed": 7,
+      "num_predict": 300
+    },
+    "prompt_version": "p7-extract-v1",
+    "interface": "agent/perception.py extract(excerpt, ext) -> quote-verified candidates"
+  },
+  "atanor_state": {
+    "file": "results/h6-train/state.json",
+    "sha256": "cb96308cd4ca381fcc47d11507ce225d437df22c3d8d523df0b141df4ae1e8f6",
+    "note": "H6-1 trained state; no new training in P7; teacher off"
+  },
+  "pool": {
+    "file": "results/p7-truth/pool.json",
+    "sha256": "30d195849b3aa23bb7217ed624e94d4c1bb6a02b4afa7ef88fdde8b3658ad526",
+    "n": 267,
+    "rule": "Wikidata file formats with one English label, unused in P6 training/dev, H6 transfer and P6 pools"
+  },
+  "draw": "32 evaluation formats = random.Random(int(sha256(public freeze commit hash)) mod 2^31).sample(sorted(pool), 32)",
+  "sealed_sentences": {
+    "location": "outside the repository: D:/ATANOR-experiments/2026-09-19/sealed/p7_eval_sentences.json",
+    "sha256": "4c7b67bb96473e06d48aa71a6ee253960cd9009ce970942589dc1211af95b076",
+    "written_by": "agent without the teacher context; original published after the run"
+  },
+  "tasks": {
+    "possible": 30,
+    "impossible": 6,
+    "files_per_task": 3,
+    "forms": [
+      "folder",
+      "rename",
+      "copy"
+    ]
+  },
+  "conditions": {
+    "F_LM": "ATANOR + model (two agreeing pages)",
+    "S_LM": "ATANOR + model, first trusted page (no agreement)",
+    "F": "ATANOR, model off",
+    "N": "no web",
+    "ORACLE": "truth names + given form"
+  },
+  "primary": "strict completion on possible tasks; F_LM vs N (with tool) and F vs N (model off), paired by task",
+  "decision_values": {
+    "min_gain_pp": 30,
+    "min_completion": 0.5,
+    "min_correct_stops_frac": 0.6667,
+    "max_wrong_per_task": 0.5,
+    "no_gain_completion": 0.2
+  },
+  "verdicts": {
+    "verdict_with_tool": "computed for F_LM; credited to ATANOR + reading tool, NOT to ATANOR language",
+    "verdict_model_off": "computed for F; the only one that can support a claim that ATANOR learned something"
+  },
+  "invalid_if": [
+    "teacher import attempted",
+    "any model call in a model-off condition",
+    "LLM/localhost host requested through the web body",
+    "sentence overlap with training/dev material",
+    "ORACLE completion < 1.0",
+    "sealed file inside the repository"
+  ],
+  "secondary": [
+    "per-file success rate",
+    "adoption precision/recall per condition",
+    "stop reasons (no evidence / single source / contradiction)",
+    "F_LM vs S_LM (value of the agreement rule)",
+    "trigger validity",
+    "rehearsal (sandbox) outcomes vs real outcomes",
+    "model calls, tokens, GPU seconds, verification rejections",
+    "goal interpretation accuracy (model-free)"
+  ],
+  "expectation_before_run": "From the model-on dev check (44 never-taught formats): adoption recall 0.20 at precision 1.0 (9 correct, 0 wrong), interpretation 0.82, 669 model calls. Whole-task completion needs all 3 files correct, so expected F_LM completion is near 0: verdict_with_tool NO_GAIN expected; verdict_model_off NO_GAIN expected. Wrong placements expected near 0 for F_LM; S_LM may misplace.",
+  "known_limits": [
+    "7B model, 4-bit; single prompt version; no retries",
+    "excerpt choice is a fixed ATANOR rule",
+    "search entry points remain Wikimedia/Wiby/direct pages",
+    "accepted names are single Wikidata labels"
+  ]
+}
