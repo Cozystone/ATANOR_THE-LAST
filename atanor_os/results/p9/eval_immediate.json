@@ -1,0 +1,2544 @@
+{
+ "which": "immediate",
+ "hours_since_freeze": 0.0,
+ "n": 30,
+ "exact_overlap_with_training": 0,
+ "teacher_import_attempts": [],
+ "network_events": [],
+ "network_event_count": 0,
+ "summary": {
+  "CONCEPT": {
+   "interpretation": 0.6,
+   "tool": 0.667,
+   "set": 0.933,
+   "dest": 1.0,
+   "action_success": 0.633,
+   "interpretation_seen_ext": 0.667,
+   "interpretation_unseen_ext": 0.5,
+   "by_tool": {
+    "copy": 0.6,
+    "move": 0.9,
+    "delete": 0.3
+   }
+  },
+  "FLAT": {
+   "interpretation": 0.6,
+   "tool": 0.667,
+   "set": 0.933,
+   "dest": 1.0,
+   "action_success": 0.633,
+   "interpretation_seen_ext": 0.667,
+   "interpretation_unseen_ext": 0.5,
+   "by_tool": {
+    "copy": 0.6,
+    "move": 0.9,
+    "delete": 0.3
+   }
+  },
+  "NONE": {
+   "interpretation": 0.033,
+   "tool": 0.333,
+   "set": 0.2,
+   "dest": 0.533,
+   "action_success": 0.267,
+   "interpretation_seen_ext": 0.056,
+   "interpretation_unseen_ext": 0.0,
+   "by_tool": {
+    "copy": 0.1,
+    "move": 0.0,
+    "delete": 0.0
+   }
+  },
+  "ORACLE": {
+   "interpretation": 1.0,
+   "tool": 1.0,
+   "set": 1.0,
+   "dest": 1.0,
+   "action_success": 1.0,
+   "interpretation_seen_ext": 1.0,
+   "interpretation_unseen_ext": 1.0,
+   "by_tool": {
+    "copy": 1.0,
+    "move": 1.0,
+    "delete": 1.0
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "imm-01",
+   "tool": "copy",
+   "ext": "csv",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "coral.csv",
+      "ivory.csv",
+      "mint.csv"
+     ],
+     "dest": "archive"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "coral.csv",
+      "ivory.csv",
+      "mint.csv"
+     ],
+     "dest": "archive"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.txt",
+      "coral.csv",
+      "grove.md",
+      "ivory.csv",
+      "lotus.txt",
+      "mint.csv"
+     ],
+     "dest": "archive"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "coral.csv",
+      "ivory.csv",
+      "mint.csv"
+     ],
+     "dest": "archive"
+    }
+   }
+  },
+  {
+   "id": "imm-02",
+   "tool": "delete",
+   "ext": "log",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "zephyr.log"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "zephyr.log"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "grove.txt",
+      "hazel.csv",
+      "juniper.md",
+      "kite.csv",
+      "zephyr.log"
+     ],
+     "dest": "file"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 1,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "zephyr.log"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-03",
+   "tool": "move",
+   "ext": "json",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "grove.json"
+     ],
+     "dest": "vault"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "grove.json"
+     ],
+     "dest": "vault"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.txt",
+      "basil.md",
+      "elm.txt",
+      "grove.json",
+      "ivory.txt",
+      "zephyr.csv"
+     ],
+     "dest": "vault"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "grove.json"
+     ],
+     "dest": "vault"
+    }
+   }
+  },
+  {
+   "id": "imm-04",
+   "tool": "copy",
+   "ext": "any",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "elm.txt",
+      "hazel.txt",
+      "juniper.json",
+      "umber.log",
+      "violet.md",
+      "willow.json"
+     ],
+     "dest": "backup"
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "elm.txt",
+      "hazel.txt",
+      "juniper.json",
+      "umber.log",
+      "violet.md",
+      "willow.json"
+     ],
+     "dest": "backup"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": true,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "elm.txt",
+      "hazel.txt",
+      "juniper.json",
+      "umber.log",
+      "violet.md",
+      "willow.json"
+     ],
+     "dest": "are"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "elm.txt",
+      "hazel.txt",
+      "juniper.json",
+      "umber.log",
+      "violet.md",
+      "willow.json"
+     ],
+     "dest": "backup"
+    }
+   }
+  },
+  {
+   "id": "imm-05",
+   "tool": "delete",
+   "ext": "txt",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.txt",
+      "lotus.txt",
+      "willow.txt"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.txt",
+      "lotus.txt",
+      "willow.txt"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.txt",
+      "lotus.txt",
+      "willow.txt",
+      "yarrow.csv"
+     ],
+     "dest": "please"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.txt",
+      "lotus.txt",
+      "willow.txt"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-06",
+   "tool": "move",
+   "ext": "md",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "amber.md"
+     ],
+     "dest": "notes"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "amber.md"
+     ],
+     "dest": "notes"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.md",
+      "dune.csv",
+      "juniper.csv",
+      "kite.json"
+     ],
+     "dest": "notes"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "amber.md"
+     ],
+     "dest": "notes"
+    }
+   }
+  },
+  {
+   "id": "imm-07",
+   "tool": "copy",
+   "ext": "log",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.log",
+      "kite.md",
+      "lotus.md",
+      "umber.txt",
+      "yarrow.csv",
+      "zephyr.log"
+     ],
+     "dest": "records"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.log",
+      "kite.md",
+      "lotus.md",
+      "umber.txt",
+      "yarrow.csv",
+      "zephyr.log"
+     ],
+     "dest": "records"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.log",
+      "kite.md",
+      "lotus.md",
+      "umber.txt",
+      "yarrow.csv",
+      "zephyr.log"
+     ],
+     "dest": "records"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.log",
+      "zephyr.log"
+     ],
+     "dest": "records"
+    }
+   }
+  },
+  {
+   "id": "imm-08",
+   "tool": "delete",
+   "ext": "any",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "grove.md",
+      "juniper.log",
+      "kite.csv",
+      "nectar.md",
+      "umber.json",
+      "yarrow.csv"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "grove.md",
+      "juniper.log",
+      "kite.csv",
+      "nectar.md",
+      "umber.json",
+      "yarrow.csv"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": true,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "grove.md",
+      "juniper.log",
+      "kite.csv",
+      "nectar.md",
+      "umber.json",
+      "yarrow.csv"
+     ],
+     "dest": "files"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "grove.md",
+      "juniper.log",
+      "kite.csv",
+      "nectar.md",
+      "umber.json",
+      "yarrow.csv"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-09",
+   "tool": "move",
+   "ext": "txt",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "zephyr.txt"
+     ],
+     "dest": "pantry"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "zephyr.txt"
+     ],
+     "dest": "pantry"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "ivory.log",
+      "kite.md",
+      "nectar.csv",
+      "umber.log",
+      "willow.csv",
+      "zephyr.txt"
+     ],
+     "dest": "pantry"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "zephyr.txt"
+     ],
+     "dest": "pantry"
+    }
+   }
+  },
+  {
+   "id": "imm-10",
+   "tool": "copy",
+   "ext": "json",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "juniper.json",
+      "violet.json",
+      "willow.json"
+     ],
+     "dest": "spare"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "juniper.json",
+      "violet.json",
+      "willow.json"
+     ],
+     "dest": "spare"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "juniper.json",
+      "umber.txt",
+      "violet.json",
+      "willow.json"
+     ],
+     "dest": "spare"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "juniper.json",
+      "violet.json",
+      "willow.json"
+     ],
+     "dest": "spare"
+    }
+   }
+  },
+  {
+   "id": "imm-11",
+   "tool": "delete",
+   "ext": "csv",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.csv"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.csv"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.csv",
+      "coral.log",
+      "dune.log",
+      "ivory.md",
+      "nectar.txt",
+      "umber.md"
+     ],
+     "dest": "spreadsheets"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 1,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.csv"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-12",
+   "tool": "move",
+   "ext": "log",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "coral.log",
+      "xenon.log"
+     ],
+     "dest": "history"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "coral.log",
+      "xenon.log"
+     ],
+     "dest": "history"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "coral.log",
+      "dune.json",
+      "fern.csv",
+      "ivory.json",
+      "nectar.md",
+      "xenon.log"
+     ],
+     "dest": "here"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "coral.log",
+      "xenon.log"
+     ],
+     "dest": "history"
+    }
+   }
+  },
+  {
+   "id": "imm-13",
+   "tool": "copy",
+   "ext": "md",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.md",
+      "coral.md",
+      "mint.md"
+     ],
+     "dest": "journal"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.md",
+      "coral.md",
+      "mint.md"
+     ],
+     "dest": "journal"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.md",
+      "coral.md",
+      "hazel.csv",
+      "mint.md",
+      "violet.json",
+      "yarrow.csv"
+     ],
+     "dest": "journal"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.md",
+      "coral.md",
+      "mint.md"
+     ],
+     "dest": "journal"
+    }
+   }
+  },
+  {
+   "id": "imm-14",
+   "tool": "delete",
+   "ext": "json",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "ivory.json",
+      "juniper.json"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "ivory.json",
+      "juniper.json"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "coral.md",
+      "dune.md",
+      "ivory.json",
+      "juniper.json",
+      "kite.log"
+     ],
+     "dest": "here"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "ivory.json",
+      "juniper.json"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-15",
+   "tool": "move",
+   "ext": "any",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.log",
+      "coral.json",
+      "ivory.txt",
+      "violet.csv",
+      "yarrow.json",
+      "zephyr.csv"
+     ],
+     "dest": "storage"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.log",
+      "coral.json",
+      "ivory.txt",
+      "violet.csv",
+      "yarrow.json",
+      "zephyr.csv"
+     ],
+     "dest": "storage"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.log",
+      "coral.json",
+      "ivory.txt",
+      "violet.csv",
+      "yarrow.json",
+      "zephyr.csv"
+     ],
+     "dest": "storage"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.log",
+      "coral.json",
+      "ivory.txt",
+      "violet.csv",
+      "yarrow.json",
+      "zephyr.csv"
+     ],
+     "dest": "storage"
+    }
+   }
+  },
+  {
+   "id": "imm-16",
+   "tool": "copy",
+   "ext": "txt",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.txt",
+      "zephyr.txt"
+     ],
+     "dest": "extras"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.txt",
+      "zephyr.txt"
+     ],
+     "dest": "extras"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.txt",
+      "ivory.csv",
+      "kite.md",
+      "willow.csv",
+      "yarrow.log",
+      "zephyr.txt"
+     ],
+     "dest": "originals"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "fern.txt",
+      "zephyr.txt"
+     ],
+     "dest": "extras"
+    }
+   }
+  },
+  {
+   "id": "imm-17",
+   "tool": "delete",
+   "ext": "md",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.md",
+      "dune.md",
+      "hazel.md",
+      "zephyr.md"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.md",
+      "dune.md",
+      "hazel.md",
+      "zephyr.md"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.md",
+      "dune.md",
+      "hazel.md",
+      "violet.csv",
+      "zephyr.md"
+     ],
+     "dest": "files"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.md",
+      "dune.md",
+      "hazel.md",
+      "zephyr.md"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-18",
+   "tool": "move",
+   "ext": "csv",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "elm.csv",
+      "violet.csv",
+      "yarrow.csv"
+     ],
+     "dest": "cabinet"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "elm.csv",
+      "violet.csv",
+      "yarrow.csv"
+     ],
+     "dest": "cabinet"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "elm.csv",
+      "kite.log",
+      "lotus.log",
+      "violet.csv",
+      "yarrow.csv"
+     ],
+     "dest": "cabinet"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "elm.csv",
+      "violet.csv",
+      "yarrow.csv"
+     ],
+     "dest": "cabinet"
+    }
+   }
+  },
+  {
+   "id": "imm-19",
+   "tool": "copy",
+   "ext": "log",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "hazel.log"
+     ],
+     "dest": "holding"
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "hazel.log"
+     ],
+     "dest": "holding"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "basil.md",
+      "dune.json",
+      "hazel.log"
+     ],
+     "dest": "holding"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "hazel.log"
+     ],
+     "dest": "holding"
+    }
+   }
+  },
+  {
+   "id": "imm-20",
+   "tool": "delete",
+   "ext": "json",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "juniper.json"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "juniper.json"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "hazel.md",
+      "juniper.json",
+      "lotus.md",
+      "xenon.log"
+     ],
+     "dest": "files"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "amber.json",
+      "juniper.json"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-21",
+   "tool": "move",
+   "ext": "json",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "dune.json",
+      "fern.json",
+      "hazel.json"
+     ],
+     "dest": "library"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "dune.json",
+      "fern.json",
+      "hazel.json"
+     ],
+     "dest": "library"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "dune.json",
+      "fern.json",
+      "hazel.json",
+      "lotus.md",
+      "willow.log"
+     ],
+     "dest": "now"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "dune.json",
+      "fern.json",
+      "hazel.json"
+     ],
+     "dest": "library"
+    }
+   }
+  },
+  {
+   "id": "imm-22",
+   "tool": "copy",
+   "ext": "any",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.csv",
+      "dune.md",
+      "umber.txt",
+      "willow.log"
+     ],
+     "dest": "shelf"
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "basil.csv",
+      "dune.md",
+      "umber.txt",
+      "willow.log"
+     ],
+     "dest": "shelf"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.csv",
+      "dune.md",
+      "umber.txt",
+      "willow.log"
+     ],
+     "dest": "shelf"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.csv",
+      "dune.md",
+      "umber.txt",
+      "willow.log"
+     ],
+     "dest": "shelf"
+    }
+   }
+  },
+  {
+   "id": "imm-23",
+   "tool": "delete",
+   "ext": "any",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "ivory.txt",
+      "nectar.json",
+      "xenon.log",
+      "yarrow.txt"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "ivory.txt",
+      "nectar.json",
+      "xenon.log",
+      "yarrow.txt"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": true,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "ivory.txt",
+      "nectar.json",
+      "xenon.log",
+      "yarrow.txt"
+     ],
+     "dest": "file"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "ivory.txt",
+      "nectar.json",
+      "xenon.log",
+      "yarrow.txt"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-24",
+   "tool": "move",
+   "ext": "md",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "violet.md"
+     ],
+     "dest": "attic"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "violet.md"
+     ],
+     "dest": "attic"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "dune.json",
+      "lotus.log",
+      "mint.csv",
+      "violet.md"
+     ],
+     "dest": "attic"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "violet.md"
+     ],
+     "dest": "attic"
+    }
+   }
+  },
+  {
+   "id": "imm-25",
+   "tool": "copy",
+   "ext": "csv",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "hazel.csv"
+     ],
+     "dest": "ledger"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "hazel.csv"
+     ],
+     "dest": "ledger"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "grove.log",
+      "hazel.csv",
+      "kite.md",
+      "mint.txt",
+      "nectar.json",
+      "xenon.txt"
+     ],
+     "dest": "ledger"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "hazel.csv"
+     ],
+     "dest": "ledger"
+    }
+   }
+  },
+  {
+   "id": "imm-26",
+   "tool": "delete",
+   "ext": "log",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.txt",
+      "lotus.log",
+      "mint.csv",
+      "umber.log"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 4,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "basil.txt",
+      "lotus.log",
+      "mint.csv",
+      "umber.log"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.txt",
+      "lotus.log",
+      "mint.csv",
+      "umber.log"
+     ],
+     "dest": "logs"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "lotus.log",
+      "umber.log"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-27",
+   "tool": "move",
+   "ext": "log",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "hazel.log"
+     ],
+     "dest": "harvest"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "hazel.log"
+     ],
+     "dest": "harvest"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 6,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "hazel.log",
+      "mint.md",
+      "umber.md",
+      "willow.txt",
+      "yarrow.csv"
+     ],
+     "dest": "harvest"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 2,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "hazel.log"
+     ],
+     "dest": "harvest"
+    }
+   }
+  },
+  {
+   "id": "imm-28",
+   "tool": "copy",
+   "ext": "json",
+   "seen_ext": false,
+   "CONCEPT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "nectar.json",
+      "xenon.json"
+     ],
+     "dest": "mirror"
+    }
+   },
+   "FLAT": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "nectar.json",
+      "xenon.json"
+     ],
+     "dest": "mirror"
+    }
+   },
+   "NONE": {
+    "tool": true,
+    "set": false,
+    "dest": true,
+    "all": false,
+    "success": true,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.txt",
+      "ivory.md",
+      "nectar.json",
+      "xenon.json"
+     ],
+     "dest": "mirror"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 3,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "nectar.json",
+      "xenon.json"
+     ],
+     "dest": "mirror"
+    }
+   }
+  },
+  {
+   "id": "imm-29",
+   "tool": "delete",
+   "ext": "txt",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "kite.txt"
+     ],
+     "dest": null
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": false,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "kite.txt"
+     ],
+     "dest": null
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": false,
+    "dest": false,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 5,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "basil.csv",
+      "kite.txt",
+      "mint.log",
+      "yarrow.json"
+     ],
+     "dest": "file"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 1,
+    "believes_done": true,
+    "interp": {
+     "tool": "delete",
+     "selected": [
+      "kite.txt"
+     ],
+     "dest": null
+    }
+   }
+  },
+  {
+   "id": "imm-30",
+   "tool": "move",
+   "ext": "any",
+   "seen_ext": true,
+   "CONCEPT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "fern.log",
+      "kite.md",
+      "mint.md",
+      "umber.md",
+      "yarrow.md"
+     ],
+     "dest": "reports"
+    }
+   },
+   "FLAT": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "fern.log",
+      "kite.md",
+      "mint.md",
+      "umber.md",
+      "yarrow.md"
+     ],
+     "dest": "reports"
+    }
+   },
+   "NONE": {
+    "tool": false,
+    "set": true,
+    "dest": true,
+    "all": false,
+    "success": false,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "copy",
+     "selected": [
+      "amber.json",
+      "fern.log",
+      "kite.md",
+      "mint.md",
+      "umber.md",
+      "yarrow.md"
+     ],
+     "dest": "reports"
+    }
+   },
+   "ORACLE": {
+    "tool": true,
+    "set": true,
+    "dest": true,
+    "all": true,
+    "success": true,
+    "acted": true,
+    "actions": 7,
+    "believes_done": true,
+    "interp": {
+     "tool": "move",
+     "selected": [
+      "amber.json",
+      "fern.log",
+      "kite.md",
+      "mint.md",
+      "umber.md",
+      "yarrow.md"
+     ],
+     "dest": "reports"
+    }
+   }
+  }
+ ]
+}
