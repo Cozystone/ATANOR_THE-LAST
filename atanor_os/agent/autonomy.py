@@ -40,7 +40,8 @@ def title_of(url):
 
 
 class Agent:
-    def __init__(self, fs_model, web=None, condition='F', memory=None, lexicon=None, reader=None):
+    def __init__(self, fs_model, web=None, condition='F', memory=None, lexicon=None, reader=None, perception=None):
+        self.perception = perception                      # P7: language model as a reading tool (None = model off)
         cfg = {'F': (True, 2), 'S': (True, 1), 'M': (False, 2), 'N': (False, 2)}[condition]
         self.use_web, self.agree = cfg
         self.condition, self.web, self.fs_model = condition, web, fs_model
@@ -113,14 +114,17 @@ class Agent:
                 if not p.get('ok'):
                     self.log('open', f'candidate source for .{ext}', ext=ext, url=url, ok=False, error=p.get('error'))
                     continue
-                b = self.reader.best(p['text'], ext, title_of(p['url']))
-                snippet = None
-                if b:
-                    i = p['text'].find(b['name'])
-                    snippet = p['text'][max(0, i - 80): i + len(b['name']) + 80] if i >= 0 else None
+                if self.perception is not None:                    # P7: the model reads excerpts ATANOR chose
+                    b, snippet = self._perceive(p, ext)
+                else:
+                    b = self.reader.best(p['text'], ext, title_of(p['url']))
+                    snippet = None
+                    if b:
+                        i = p['text'].find(b['name'])
+                        snippet = p['text'][max(0, i - 80): i + len(b['name']) + 80] if i >= 0 else None
                 self.log('open', f'candidate source for .{ext}', ext=ext, url=p['url'], ok=True, sha256=p.get('sha256'),
                          best=None if not b else {'name': b['name'], 'score': round(b['score'], 3)}, snippet=snippet)
-                if b and b['score'] > self.reader.threshold:
+                if b and b['score'] > (self.reader.threshold if self.perception is None else 0.0):
                     evidence.append({'url': p['url'], 'name': b['name'], 'score': b['score'], 'sha256': p.get('sha256'),
                                      'snippet': snippet, 'text': p['text'], 'title': title_of(p['url'])})
                     groups = {}
@@ -154,6 +158,43 @@ class Agent:
         self.log('stop_fact', f'no agreeing sources for .{ext}', ext=ext, reason=reason,
                  seen=[(e['url'], e['name']) for e in evidence], pages=len(opened), searches=searches)
         return None, reason
+
+    def excerpts(self, text, ext, width=700, max_n=3):
+        """ATANOR's own choice of what the model may read: the page's first paragraph and windows around the
+        first mentions of the extension (fixed rule, no model involved)."""
+        out = []
+        para = next((l for l in text.split('\n') if len(l.split()) >= 8), '')
+        if para:
+            out.append(para[:width * 2])
+        low = text.lower()
+        pos, start = [], 0
+        for tok in ('.' + ext.lower(), ' ' + ext.lower() + ' ', ext.upper()):
+            i = low.find(tok.lower(), start) if tok != ext.upper() else text.find(tok)
+            if i >= 0:
+                pos.append(i)
+        for i in sorted(set(pos))[:max_n]:
+            w = text[max(0, i - width): i + width]
+            if all(w not in o for o in out):
+                out.append(w)
+        return out[:max_n]
+
+    def _perceive(self, p, ext):
+        """Model-extracted, quote-verified candidates for one page. ATANOR keeps the most supported value
+        (most excerpts agreeing; ties: first excerpt); the model's own confidence is never used."""
+        votes, quotes = {}, {}
+        chosen = self.excerpts(p['text'], ext)
+        for ex in chosen:
+            for c in self.perception.extract(ex, ext):
+                k = norm(c['value'])
+                if k:
+                    votes[k] = votes.get(k, 0) + 1
+                    quotes.setdefault(k, (c['value'], c['quote']))
+        self.log('perceive', f'read excerpts of {p["url"]} for .{ext}', ext=ext, url=p['url'], excerpts=len(chosen),
+                 candidates={quotes[k][0]: v for k, v in votes.items()})
+        if not votes:
+            return None, None
+        k = max(votes, key=lambda x: (votes[x], -list(quotes).index(x)))
+        return {'name': quotes[k][0], 'score': float(votes[k])}, quotes[k][1]
 
     # ---- 3/4. acting ----
     def _goal_for(self, form, src, name, ext, state, others):
