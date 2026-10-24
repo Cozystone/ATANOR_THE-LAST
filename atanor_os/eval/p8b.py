@@ -261,6 +261,20 @@ def learn(out=OUT):
 
 
 # ---------------- test process ----------------
+class Audit:
+    """Records every attempt to open an experience log (P8 logs, exploration folders, E3) during a test process."""
+    attempts = []
+
+    @staticmethod
+    def hook(event, args):
+        import os
+        if event == 'open' and args and isinstance(args[0], (str, bytes, os.PathLike)):
+            p = os.fspath(args[0])
+            p = p.decode(errors='ignore') if isinstance(p, bytes) else p
+            if 'experiences_s' in p or 'E3_' in p or os.sep + 'explore' in p or '/explore' in p:
+                Audit.attempts.append(p)
+
+
 def _model(cond, scen, body, rep_dir):
     if cond in INTERNAL:
         rep = Representation.loads((Path(rep_dir) / cond / f'{scen}_{body}.json').read_text(encoding='utf-8'))
@@ -304,7 +318,7 @@ def _run(ws, goal, model, jpath, t, meta):
 
 
 def test(cond, rep_dir, out, k=20):
-    sys.addaudithook(LogAudit.hook)
+    sys.addaudithook(Audit.hook)
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
     keys = set(json.loads((Path(rep_dir) / 'training_keys.json').read_text(encoding='utf-8')))
@@ -334,7 +348,7 @@ def test(cond, rep_dir, out, k=20):
                 r['drift_tasks'] = _tasks(model, body, scen, out / scen, 'drift')
             r['seconds'] = round(time.time() - t0, 1)
             res[f'{scen}_{body}'] = r
-    res['log_open_attempts'] = list(LogAudit.attempts)
+    res['log_open_attempts'] = list(Audit.attempts)
     (out / f'test_{cond}.json').write_text(json.dumps(res, indent=1, default=str), encoding='utf-8')
     return res
 
