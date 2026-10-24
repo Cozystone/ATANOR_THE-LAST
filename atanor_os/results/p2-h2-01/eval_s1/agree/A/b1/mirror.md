@@ -1,2 +1,0 @@
-# converted
-lumen 0.233968
