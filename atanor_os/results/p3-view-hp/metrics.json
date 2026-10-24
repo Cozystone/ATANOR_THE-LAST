@@ -1,0 +1,1645 @@
+{
+  "env": {
+    "python": "3.13.17",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "machine": "DESKTOP-N6RR73M",
+    "cpus": 8,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "steps": 600,
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "split": "test",
+    "adapt": false,
+    "policy": "contrast-kind",
+    "body": "view",
+    "learner_version": 4,
+    "source_sha256": "6ac1457be2fcf22c",
+    "source_files": 37,
+    "git": "unavailable: FileNotFoundError",
+    "source_sha256_at_start": "6ac1457be2fcf22c"
+  },
+  "checks": {
+    "label": "replication-hp",
+    "policy": "contrast-kind",
+    "body": "view",
+    "semantics_ok": true,
+    "semantics_seed": 4189725752,
+    "semantics_cells": {
+      "open:success": 20,
+      "open:failure": 20,
+      "close:success": 20,
+      "close:failure": 20,
+      "filter:success": 20,
+      "filter:failure": 20,
+      "sort:success": 20,
+      "sort:failure": 20,
+      "group:success": 20,
+      "group:failure": 20,
+      "compare:success": 20,
+      "compare:failure": 20
+    },
+    "semantics_mismatch": 0,
+    "tests_passed": true,
+    "learner_tests_passed": true,
+    "unreachable": 0,
+    "source_changed_during_run": false,
+    "protocol_file": "C:\\Users\\test\\ATANOR\\dev4\\atanor_os\\protocol_view.json"
+  },
+  "learn_cost_s": {
+    "1": {
+      "A": {
+        "build_s": 2.2300002456177026e-05,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "close": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "group": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 20,
+              "docs": 40
+            }
+          },
+          "exact_tools": [],
+          "n_exact": 0,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "B": {
+        "build_s": 0.02465469999879133,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 6
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 14,
+              "fn": 0,
+              "eff": 0,
+              "docs": 29
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 8,
+              "fn": 0,
+              "eff": 0,
+              "docs": 25
+            },
+            "group": {
+              "checks": 40,
+              "fp": 15,
+              "fn": 0,
+              "eff": 0,
+              "docs": 17
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 15,
+              "fn": 0,
+              "eff": 2,
+              "docs": 17
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.0643357000008109,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "group": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "ORACLE": {
+        "build_s": 6.800000846851617e-06,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "group": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      }
+    },
+    "2": {
+      "A": {
+        "build_s": 2.179999864893034e-05,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "close": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "group": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 20,
+              "docs": 40
+            }
+          },
+          "exact_tools": [],
+          "n_exact": 0,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "B": {
+        "build_s": 0.02377659999910975,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 8
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 13,
+              "fn": 0,
+              "eff": 0,
+              "docs": 26
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 15,
+              "fn": 0,
+              "eff": 0,
+              "docs": 26
+            },
+            "group": {
+              "checks": 40,
+              "fp": 15,
+              "fn": 0,
+              "eff": 0,
+              "docs": 21
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 14,
+              "fn": 0,
+              "eff": 0,
+              "docs": 14
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.051729999999224674,
+        "agreement": {
+          "k": 20,
+          "seed": 1002,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "group": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      }
+    },
+    "3": {
+      "A": {
+        "build_s": 1.4099998224992305e-05,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "close": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "group": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 20,
+              "docs": 40
+            }
+          },
+          "exact_tools": [],
+          "n_exact": 0,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "B": {
+        "build_s": 0.02225660000112839,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 2
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 13,
+              "fn": 0,
+              "eff": 0,
+              "docs": 30
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 13,
+              "fn": 0,
+              "eff": 0,
+              "docs": 24
+            },
+            "group": {
+              "checks": 40,
+              "fp": 9,
+              "fn": 0,
+              "eff": 0,
+              "docs": 19
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 11,
+              "fn": 0,
+              "eff": 2,
+              "docs": 13
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.06366939999861643,
+        "agreement": {
+          "k": 20,
+          "seed": 1003,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "group": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      }
+    },
+    "4": {
+      "A": {
+        "build_s": 2.1699997887481004e-05,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "close": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "group": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 20,
+              "docs": 40
+            }
+          },
+          "exact_tools": [],
+          "n_exact": 0,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "B": {
+        "build_s": 0.02511670000239974,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 4
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 17,
+              "fn": 0,
+              "eff": 0,
+              "docs": 26
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 16,
+              "fn": 0,
+              "eff": 0,
+              "docs": 26
+            },
+            "group": {
+              "checks": 40,
+              "fp": 17,
+              "fn": 0,
+              "eff": 0,
+              "docs": 24
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 16,
+              "fn": 0,
+              "eff": 1,
+              "docs": 17
+            }
+          },
+          "exact_tools": [
+            "close",
+            "open"
+          ],
+          "n_exact": 2,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.05821300000388874,
+        "agreement": {
+          "k": 20,
+          "seed": 1004,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "group": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "group",
+            "open",
+            "sort"
+          ],
+          "n_exact": 6,
+          "n_tools": 6,
+          "filled": true
+        }
+      }
+    },
+    "5": {
+      "A": {
+        "build_s": 3.1400006264448166e-05,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "close": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "group": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 0,
+              "docs": 40
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 20,
+              "fn": 0,
+              "eff": 20,
+              "docs": 40
+            }
+          },
+          "exact_tools": [],
+          "n_exact": 0,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "B": {
+        "build_s": 0.022456400001829024,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 1,
+              "fn": 0,
+              "eff": 0,
+              "docs": 1
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 8
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 14,
+              "fn": 0,
+              "eff": 0,
+              "docs": 30
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 14,
+              "fn": 0,
+              "eff": 0,
+              "docs": 31
+            },
+            "group": {
+              "checks": 40,
+              "fp": 13,
+              "fn": 0,
+              "eff": 0,
+              "docs": 20
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 11,
+              "fn": 0,
+              "eff": 7,
+              "docs": 18
+            }
+          },
+          "exact_tools": [
+            "close"
+          ],
+          "n_exact": 1,
+          "n_tools": 6,
+          "filled": true
+        }
+      },
+      "C": {
+        "build_s": 0.048623000002407935,
+        "agreement": {
+          "k": 20,
+          "seed": 1005,
+          "cells": {
+            "open:success": 20,
+            "open:failure": 20,
+            "close:success": 20,
+            "close:failure": 20,
+            "filter:success": 20,
+            "filter:failure": 20,
+            "sort:success": 20,
+            "sort:failure": 20,
+            "group:success": 20,
+            "group:failure": 20,
+            "compare:success": 20,
+            "compare:failure": 20
+          },
+          "per_tool": {
+            "open": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "close": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "filter": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "sort": {
+              "checks": 40,
+              "fp": 1,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "group": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 1,
+              "eff": 0,
+              "docs": 0
+            },
+            "compare": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "close",
+            "compare",
+            "filter",
+            "open"
+          ],
+          "n_exact": 4,
+          "n_tools": 6,
+          "filled": true
+        }
+      }
+    }
+  },
+  "storage": {
+    "1": {
+      "A": {
+        "journal_bytes": 724992,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 548864,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 249856,
+        "model_json_bytes": 14220
+      },
+      "ORACLE": {
+        "journal_bytes": 249856,
+        "model_json_bytes": 46
+      }
+    },
+    "2": {
+      "A": {
+        "journal_bytes": 724992,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 561152,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 249856,
+        "model_json_bytes": 13965
+      }
+    },
+    "3": {
+      "A": {
+        "journal_bytes": 724992,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 417792,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 249856,
+        "model_json_bytes": 14479
+      }
+    },
+    "4": {
+      "A": {
+        "journal_bytes": 724992,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 421888,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 249856,
+        "model_json_bytes": 15160
+      }
+    },
+    "5": {
+      "A": {
+        "journal_bytes": 724992,
+        "model_json_bytes": 23
+      },
+      "B": {
+        "journal_bytes": 708608,
+        "model_json_bytes": 44
+      },
+      "C": {
+        "journal_bytes": 249856,
+        "model_json_bytes": 13288
+      }
+    }
+  },
+  "protocol": {
+    "version": 1,
+    "body": "view",
+    "frozen_at": "2026-10-24T09:40:00",
+    "hypothesis": "H3 (transfer): the learner, planner and acquisition policy that produced the filesystem results, with no body-specific code, acquire the view body's tool rules from 600 exploration steps and act on unseen test tasks (target panel p3, extensions md/log/json and key ext as goals, a busier start screen) at least as well as exact-signature retrieval (B).",
+    "primary": "C strict completion vs B, paired by (seed, task)",
+    "primary_pair": [
+      "C",
+      "B"
+    ],
+    "primary_metric": "completion",
+    "min_gain_pp": 10.0,
+    "seeds_ge": 4,
+    "max_cost_ratio": 3.0,
+    "decision": "VALID_BOUNDED_GAIN / VALID_NO_GAIN (C-B <= 0) / VALID_INCONCLUSIVE exactly as in protocol.json v3. Expectation stated before the run, from the dev split (seed 1: A = B = C = 12/12): completion saturates on this body, so VALID_NO_GAIN is the likely verdict and the transfer claim rests on the secondary measures below, frozen here before any test task is run.",
+    "secondary": {
+      "rule_agreement": "per (seed, condition) the frozen model is checked against the evaluator's true semantics on fresh train-distribution situations, >= 20 per (tool, true outcome) cell (eval.oracle.rule_agreement): fp = predicted success where the tool really failed, fn = predicted failure where it succeeded, eff = wrong predicted attributes. A tool counts as learned when fp = fn = eff = 0. Transfer claim for the body: C has >= 5 of 6 tools learned in >= 4 of 5 seeds; A (documentation only) is expected to show fp > 0 on filter/group/compare/sort and B to answer from documentation on a large share of fresh situations.",
+      "waste": "no-op real actions per episode, C vs A and C vs B (A acts on optimistic documentation and is expected to waste actions)",
+      "cost": "exploration 600 steps per seed, model build seconds, wall seconds per episode, journal bytes"
+    },
+    "conditions": "A, B, C + ORACLE (D omitted as in v3)",
+    "split": "test",
+    "tasks": 20,
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "explore_steps": 600,
+    "policy": "contrast-kind",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "invalid_if": [
+      "env_errors > 0",
+      "ORACLE completion < 1.0",
+      "semantics check not ok",
+      "validity tests not run or failed",
+      "unreachable task",
+      "label != pre-registered",
+      "source changed during the run (sha256 of the package at start != at end)"
+    ],
+    "known_limits": [
+      "value objects ext:md/log/json, key:ext and panel p3 exist in the exploration universe (as md existed in the filesystem POOL); what is new in test are the tasks: target p3, those extensions and key as goals, two open panels with one filtered at the start, 7 focus / 7 regroup / 6 compare",
+      "the documentation given to every condition is nearly complete for this body (missing: all preconditions, compare's inherited filter/sort), so A can succeed by trial and error within 20 actions; completion is therefore not expected to separate conditions",
+      "tasks need at most 3 actions; the body does not test deep planning",
+      "dev-split results (A = B = C = 12/12, seed 1) and dev coverage of the policies novelty/contrast-role/contrast-kind were seen before freezing; no test task was run",
+      "learner v3 (type groups), v4 (effect language: copies of any attribute) and the contrast-kind policy were developed on this body's dev split after the v3 filesystem runs; the filesystem C episodes were re-checked bit-identical under v4 (DECISIONS.md)"
+    ],
+    "iteration_cap": "one pre-registered run; any change after seeing test results goes to protocol_view.json version 2"
+  },
+  "conditions": {
+    "A": {
+      "episodes": 100,
+      "completion": 0.7,
+      "completion_end_state_only": 0.7,
+      "partial": 0.925,
+      "keep_violated": 0,
+      "actions": 8.25,
+      "noops": 5.6,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 30,
+      "env_errors": 0,
+      "pred_errors": 590,
+      "pred_total": 825,
+      "docs_share": 1.0,
+      "wall_s": 26.063482162000366,
+      "cpu_s": 25.99671875,
+      "plan_expanded": 155.0,
+      "plan_predicted": 127472.3,
+      "peak_mem_mb": 1033.2595,
+      "status_counts": {
+        "documented": 825
+      },
+      "plan_stops": {
+        "found": 825
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 0.0,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    },
+    "B": {
+      "episodes": 100,
+      "completion": 0.82,
+      "completion_end_state_only": 0.82,
+      "partial": 0.955,
+      "keep_violated": 0,
+      "actions": 5.98,
+      "noops": 2.33,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 18,
+      "env_errors": 0,
+      "pred_errors": 233,
+      "pred_total": 598,
+      "docs_share": 0.5317725752508361,
+      "wall_s": 1.5997866579999391,
+      "cpu_s": 1.55828125,
+      "plan_expanded": 13.31,
+      "plan_predicted": 7611.08,
+      "peak_mem_mb": 53.982815,
+      "status_counts": {
+        "retrieved": 280,
+        "documented": 318
+      },
+      "plan_stops": {
+        "found": 598
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 0.4,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    },
+    "C": {
+      "episodes": 100,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 2.65,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 265,
+      "docs_share": 0.0,
+      "wall_s": 0.23921876299973518,
+      "cpu_s": 0.22515625,
+      "plan_expanded": 5.75,
+      "plan_predicted": 4125.05,
+      "peak_mem_mb": 9.202402,
+      "status_counts": {
+        "learned": 265
+      },
+      "plan_stops": {
+        "found": 265
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 1.0,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    },
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 2.65,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 53,
+      "docs_share": 0.0,
+      "wall_s": 0.15137312000078965,
+      "cpu_s": 0.13828125,
+      "plan_expanded": 5.75,
+      "plan_predicted": 4125.05,
+      "peak_mem_mb": 7.421349,
+      "status_counts": {
+        "oracle": 53
+      },
+      "plan_stops": {
+        "found": 53
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "compare": 1.0,
+        "focus": 1.0,
+        "regroup": 1.0
+      },
+      "council": null
+    }
+  },
+  "paired": {
+    "C-B": {
+      "mean_pp": 18.000000000000004,
+      "tasks_pos": 6,
+      "tasks_neg": 0,
+      "tasks_zero": 14,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 60.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 60.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 60.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 60.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 60.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 60.0,
+        "18": 0.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 19.999999999999996,
+        "2": 19.999999999999996,
+        "3": 9.999999999999998,
+        "4": 9.999999999999998,
+        "5": 30.000000000000004
+      },
+      "pred_ratio": 0.541979587653789,
+      "per_seed_pred_ratio": {
+        "1": 0.6207096317919858,
+        "2": 0.4630413308488427,
+        "3": 0.5558542534125669,
+        "4": 0.7038914058034076,
+        "5": 0.4474193705834821
+      }
+    },
+    "B-A": {
+      "mean_pp": 12.0,
+      "tasks_pos": 6,
+      "tasks_neg": 0,
+      "tasks_zero": 14,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 40.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 40.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 40.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 40.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 40.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 40.0,
+        "18": 0.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 10.000000000000009,
+        "2": 10.000000000000009,
+        "3": 20.000000000000007,
+        "4": 20.000000000000007,
+        "5": 0.0
+      },
+      "pred_ratio": 0.05970771689221893,
+      "per_seed_pred_ratio": {
+        "1": 0.05213446372270681,
+        "2": 0.06988655574583655,
+        "3": 0.05821735388786427,
+        "4": 0.04597351738377671,
+        "5": 0.07232669372091034
+      }
+    },
+    "C-A": {
+      "mean_pp": 30.000000000000004,
+      "tasks_pos": 6,
+      "tasks_neg": 0,
+      "tasks_zero": 14,
+      "seeds_ge": 5,
+      "seeds": 5,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 100.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 100.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 100.0,
+        "9": 0.0,
+        "10": 0.0,
+        "11": 100.0,
+        "12": 0.0,
+        "13": 0.0,
+        "14": 100.0,
+        "15": 0.0,
+        "16": 0.0,
+        "17": 100.0,
+        "18": 0.0,
+        "19": 0.0
+      },
+      "per_seed_pp": {
+        "1": 30.000000000000004,
+        "2": 30.000000000000004,
+        "3": 30.000000000000004,
+        "4": 30.000000000000004,
+        "5": 30.000000000000004
+      },
+      "pred_ratio": 0.03236036378099399,
+      "per_seed_pred_ratio": {
+        "1": 0.03236036378099399,
+        "2": 0.03236036378099399,
+        "3": 0.03236036378099399,
+        "4": 0.03236036378099399,
+        "5": 0.03236036378099399
+      }
+    }
+  },
+  "verdict": "REPLICATION"
+}
