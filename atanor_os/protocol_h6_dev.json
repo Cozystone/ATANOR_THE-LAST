@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "H6-1 development experiment (not a task evaluation)",
+  "frozen_at": "2026-10-24T18:10:00",
+  "context": "P6 confirmed NO_GAIN. User decision: run H6-1 as a development experiment; do not claim task performance; measure goal interpretation, page selection, candidate generation and evidence judgement separately; check transfer to unseen documents with the teacher off; if results stay weak, re-examine the assumption that free English web reading is reachable with the current small learner instead of iterating thresholds.",
+  "change": "H6-1: during training the teacher (a) locates the official name on every page ATANOR opened (span annotation -> learned span model), (b) marks opened pages and up to 3 unopened search results as about-this-format or not (counterexamples -> learned page relevance used to order results), (c) annotates cue words in 81 goal sentences (36 P6 + 45 new contrastive). Training formats, web policy, budgets and fs rules are the same as P6.",
+  "transfer_set": "44 formats never taught: 40 training-only Wikidata formats held out from training + 4 P6 dev formats (results/h6-dev/reference.json); P6 evaluation pool untouched",
+  "sentences": {
+    "file_outside_repo": "D:/ATANOR-experiments/2026-09-19/sealed/h6_dev_sentences.json",
+    "sha256": "bd3315e676ebc02e924a6e6a446c261949560dc1e7aca708d5bbe94095054f53",
+    "written_by": "an agent without the teacher's context; original published only after measurement",
+    "count": "15 per form"
+  },
+  "conditions": {
+    "baseline": "P6 frozen training state (results/p6-train/state.json) with the H6 code (learned span/page models empty -> P6 behaviour)",
+    "h6": "H6-1 training state (results/h6-train/state.json)"
+  },
+  "measures": [
+    "1 interpretation accuracy (unclear counts as wrong) on the 45 independent sentences",
+    "2 page selection: share of formats where >= 1 opened page is relevant (contains extension and an accepted name)",
+    "3 candidate generation: accepted name among candidates on relevant pages it opened",
+    "3' given the right page (the format's English Wikipedia article): candidate present / ranked first / trusted / trusted but wrong",
+    "4 evidence judgement: per format correct / wrong / abstain, precision and recall"
+  ],
+  "development_success": {
+    "interpretation": ">= 0.85",
+    "given_right_page": "candidate present >= 0.8 of formats AND trusted-and-first >= 0.5 AND trusted-but-wrong <= 0.1",
+    "page_selection": ">= 0.6 of formats open a relevant page",
+    "end_to_end": "precision >= 0.9 AND recall >= 0.3"
+  },
+  "weak_rule": "if 2 or more of the 4 stage criteria fail after H6-1, the result is WEAK: no threshold re-tuning; the report re-examines the assumption that free English web reading is reachable with the current small learner",
+  "teacher_off": "measurement runs in a separate process with the teacher import guard and LLM/localhost host block; attempts are recorded",
+  "known_limits": [
+    "the 4 dev formats were seen in the P6 dev check (not taught); the 40 held-out ones were never seen",
+    "relevance of a page is judged by string presence of an accepted name and the extension",
+    "transfer set accepted names come from Wikidata labels (looser filters for the 40 training-only formats)"
+  ]
+}

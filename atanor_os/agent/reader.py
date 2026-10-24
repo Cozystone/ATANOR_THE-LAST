@@ -11,6 +11,8 @@ import math
 import re
 from collections import defaultdict
 
+from .span_reader import PageModel, SpanModel
+
 WORD = re.compile(r"[a-z][a-z'\-]*")
 CONNECT = {'of', 'and', 'for', 'the', 'to', 'de', 'in', 'on', '-', '&'}
 
@@ -62,6 +64,12 @@ class Lexicon:
         margin = sc[ranked[0]] - sc[ranked[1]] if len(ranked) > 1 else float('inf')
         unknown = [w for w in dict.fromkeys(words(text)) if w not in self.vocab and len(w) > 2]
         return {'form': ranked[0], 'margin': margin, 'scores': sc, 'unknown': unknown}
+
+    def learn_cues(self, cues, form, weight=2.0):
+        """Teacher annotation (training): the words of a sentence that carry its form get extra weight."""
+        for w in cues:
+            self.c[w.lower()][form] += weight
+            self.vocab.add(w.lower())
 
     def associate(self, word, definition_text, url, weight=0.5):
         """Self-acquired meaning: a new word inherits the form associations of the known words in a page
@@ -187,6 +195,8 @@ class NameReader:
         self.examples = {'rank': [], 'trust': []}
         self.threshold = 0.0                                # trust logit a page must exceed; calibrated in training
         self.host_util = defaultdict(lambda: [1.0, 2.0])    # host -> [useful pages+1, opened+2], learned
+        self.spans = SpanModel()                            # H6-1: where names are written (teacher-located spans)
+        self.pages = PageModel()                            # H6-1: which results are about the format
 
     def record_host(self, url, useful):
         u = self.host_util[url.split('/')[2] if '//' in url else url]
@@ -247,8 +257,19 @@ class NameReader:
     def _trust(self, f):
         return sum(self.w['t:' + k] * v for k, v in f.items())
 
+    def all_candidates(self, text, ext, title=''):
+        """Provided generators plus the learned span proposals, merged by name (features united)."""
+        merged = {}
+        for name, f in candidates(text, ext, title) + definitional(text, ext, title) + self.spans.propose(text, ext):
+            k = name.lower()
+            if k in merged:
+                merged[k] = (merged[k][0], {**merged[k][1], **f})
+            else:
+                merged[k] = (name, dict(f))
+        return list(merged.values())
+
     def best(self, text, ext, title=''):
-        cs = candidates(text, ext, title) + definitional(text, ext, title)
+        cs = self.all_candidates(text, ext, title)
         if not cs:
             return None
         ranked = self._ranked(cs)
@@ -258,7 +279,7 @@ class NameReader:
 
     def train(self, text, ext, title, is_correct, refit=True):
         """Teacher (training) or own verified outcome on one page."""
-        cs = candidates(text, ext, title) + definitional(text, ext, title)
+        cs = self.all_candidates(text, ext, title)
         if not cs:
             return 0
         uniq = {}

@@ -123,7 +123,8 @@ def save_state(path, agent):
     st = {'lexicon': {'c': {w: dict(d) for w, d in lex.c.items()}, 'n': dict(lex.n), 'vocab': sorted(lex.vocab),
                       'learned_from_pages': lex.learned_from_pages},
           'reader': {'w': dict(rd.w), 'util': {f'{s}|{f}': u for (s, f), u in rd.util.items()}, 'updates': rd.updates,
-                     'examples': rd.examples, 'threshold': rd.threshold, 'host_util': dict(rd.host_util)},
+                     'examples': rd.examples, 'threshold': rd.threshold, 'host_util': dict(rd.host_util),
+                     'spans': rd.spans.state(), 'pages': rd.pages.state()},
           'memory': agent.memory}
     Path(path).write_text(json.dumps(st, indent=1, ensure_ascii=False), encoding='utf-8')
 
@@ -148,6 +149,8 @@ def load_state(path):
     rd.threshold = st['reader'].get('threshold', 0.0)
     for h, u in st['reader'].get('host_util', {}).items():
         rd.host_util[h] = list(u)
+    rd.spans.load(st['reader'].get('spans', {}))
+    rd.pages.load(st['reader'].get('pages', {}))
     ex = st['reader'].get('examples') or {}
     rd.examples = {'rank': [(list(fs), list(g)) for fs, g in ex.get('rank', [])], 'trust': [tuple(x) for x in ex.get('trust', [])]}
     return lex, rd, st['memory']
@@ -342,6 +345,8 @@ def _nwords(s):
 def evaluate(state_path, sealed_path, commit_hash, out, conditions=('ORACLE', 'N', 'M', 'S', 'F'), n_possible=30, n_impossible=6,
              protocol=None):
     teacher_off()
+    if Path(sealed_path).resolve().is_relative_to(PKG.resolve()):
+        raise RuntimeError('sealed_inside_repo: keep sealed originals outside the repository; publish only their hash before the run')
     out = Path(out)
     out.mkdir(parents=True, exist_ok=False)
     snap = load_snapshot()

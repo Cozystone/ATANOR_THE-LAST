@@ -104,7 +104,7 @@ class Agent:
                      results=r.get('results', [])[:6], error=r.get('error'))
             queue = list(r.get('results', [])) + queue
             while queue and len(opened) < BUDGET['pages_per_fact'] and not adopted:
-                queue.sort(key=lambda u: -self.reader.host_value(u))      # learned: which sites have been useful
+                queue.sort(key=lambda u: -(self.reader.pages.score(u, ext) + self.reader.host_value(u)))   # learned relevance
                 url = queue.pop(0)
                 if url in opened:
                     continue
