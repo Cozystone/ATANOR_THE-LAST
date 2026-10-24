@@ -1,0 +1,593 @@
+{
+ "built_at": "2026-10-24T15:02:17+0900",
+ "source": "https://query.wikidata.org/sparql",
+ "classes": {
+  "Q105599390": "raster-graphics file format",
+  "Q1572121": "image file format",
+  "Q682626": "audio file format",
+  "Q18359031": "video file format",
+  "Q336705": "document file format",
+  "Q24451526": "data serialization format",
+  "Q55281818": "font file format",
+  "Q105599400": "vector graphics file format"
+ },
+ "candidates_before_filters": 147,
+ "formats": {
+  "3ga": {
+   "item": "Q4676210",
+   "label": "Adaptive Multi-Rate audio codec",
+   "classes": [
+    "Q682626"
+   ],
+   "aliases": [
+    "AMR",
+    "Adaptive Multi-Rate",
+    "Adaptive multi-rate compression"
+   ]
+  },
+  "aat": {
+   "item": "Q4049344",
+   "label": "SFNT",
+   "classes": [
+    "Q55281818"
+   ],
+   "aliases": [
+    ".aat",
+    ".cff",
+    ".off",
+    ".sil",
+    ".ttf",
+    "scalable font",
+    "spline font"
+   ]
+  },
+  "amv": {
+   "item": "Q197972",
+   "label": "AMV video format",
+   "classes": [
+    "Q18359031"
+   ],
+   "aliases": [
+    "MTV"
+   ]
+  },
+  "avif": {
+   "item": "Q59913607",
+   "label": "AV1 Image File Format",
+   "classes": [
+    "Q105599390",
+    "Q1572121"
+   ],
+   "aliases": [
+    "AVIF"
+   ]
+  },
+  "bbm": {
+   "item": "Q2389386",
+   "label": "Interleaved Bitmap",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".iff",
+    ".lbm",
+    "Amiga IFF",
+    "Amiga ILBM",
+    "IFF Interleaved Bitmap",
+    "IFF-ILBM",
+    "ILBM",
+    "LBM"
+   ]
+  },
+  "bie": {
+   "item": "Q629039",
+   "label": "JBIG",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".bie",
+    ".jbg",
+    ".jbig",
+    "JBIG1",
+    "T.82"
+   ]
+  },
+  "binpb": {
+   "item": "Q1645574",
+   "label": "Protocol Buffers",
+   "classes": [
+    "Q24451526"
+   ],
+   "aliases": [
+    "Protobuf"
+   ]
+  },
+  "exr": {
+   "item": "Q1341482",
+   "label": "OpenEXR",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".exr",
+    "EXR",
+    "ILM OpenEXR",
+    "IlmImf"
+   ]
+  },
+  "f3b": {
+   "item": "Q5424215",
+   "label": "F3",
+   "classes": [
+    "Q55281818"
+   ],
+   "aliases": []
+  },
+  "gbs": {
+   "item": "Q5519821",
+   "label": "Game Boy Sound",
+   "classes": [
+    "Q682626"
+   ],
+   "aliases": [
+    ".gbs",
+    "GBS",
+    "Game Boy Sound System"
+   ]
+  },
+  "hdp": {
+   "item": "Q1064039",
+   "label": "JPEG XR",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".jxr",
+    "HD Photo",
+    "JPEG XR bitmap",
+    "JPEG extended range"
+   ]
+  },
+  "heic": {
+   "item": "Q119522752",
+   "label": "High Efficiency Image Coding",
+   "classes": [
+    "Q1572121"
+   ],
+   "aliases": []
+  },
+  "heif": {
+   "item": "Q24907733",
+   "label": "High Efficiency Image File Format",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    "High Efficiency Image File Format, HEIF"
+   ]
+  },
+  "heifs": {
+   "item": "Q24907733",
+   "label": "High Efficiency Image File Format",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    "High Efficiency Image File Format, HEIF"
+   ]
+  },
+  "hvif": {
+   "item": "Q5639159",
+   "label": "Haiku Vector Icon Format",
+   "classes": [
+    "Q105599400"
+   ],
+   "aliases": [
+    "HVIF"
+   ]
+  },
+  "icns": {
+   "item": "Q2858737",
+   "label": "Apple Icon Image format",
+   "classes": [
+    "Q1572121"
+   ],
+   "aliases": [
+    ".icns",
+    "Apple Icon",
+    "ICNS",
+    "IconFamily Resource",
+    "Mac OS Icon",
+    "Mac OS X Icon Resource",
+    "Mac OS icns Resource",
+    "Macintosh Icon",
+    "Macintosh OS X Icon"
+   ]
+  },
+  "ilbm": {
+   "item": "Q2389386",
+   "label": "Interleaved Bitmap",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".iff",
+    ".lbm",
+    "Amiga IFF",
+    "Amiga ILBM",
+    "IFF Interleaved Bitmap",
+    "IFF-ILBM",
+    "ILBM",
+    "LBM"
+   ]
+  },
+  "jb2": {
+   "item": "Q1143961",
+   "label": "JBIG2",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".jb2",
+    ".jbig2",
+    "JBIG2 bitmap",
+    "T.88"
+   ]
+  },
+  "jbg": {
+   "item": "Q629039",
+   "label": "JBIG",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".bie",
+    ".jbg",
+    ".jbig",
+    "JBIG1",
+    "T.82"
+   ]
+  },
+  "jng": {
+   "item": "Q1676678",
+   "label": "JPEG Network Graphics",
+   "classes": [
+    "Q1572121"
+   ],
+   "aliases": [
+    ".jng",
+    "JNG"
+   ]
+  },
+  "jpg2": {
+   "item": "Q931783",
+   "label": "JPEG 2000",
+   "classes": [
+    "Q1572121"
+   ],
+   "aliases": [
+    ".j2c",
+    ".j2k",
+    ".jpc",
+    ".jpx",
+    "J2C",
+    "J2K",
+    "JP2",
+    "JPEG 2000 Part 1 Core Coding System"
+   ]
+  },
+  "jxl": {
+   "item": "Q72885392",
+   "label": "JPEG XL",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".jxl",
+    "JPEG XL Image Coding System",
+    "JPEGXL"
+   ]
+  },
+  "jxr": {
+   "item": "Q1064039",
+   "label": "JPEG XR",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".jxr",
+    "HD Photo",
+    "JPEG XR bitmap",
+    "JPEG extended range"
+   ]
+  },
+  "m4p": {
+   "item": "Q337594",
+   "label": "Advanced Audio Coding",
+   "classes": [
+    "Q682626"
+   ],
+   "aliases": []
+  },
+  "mdown": {
+   "item": "Q1193600",
+   "label": "Markdown",
+   "classes": [
+    "Q336705"
+   ],
+   "aliases": [
+    "markdown"
+   ]
+  },
+  "mdtext": {
+   "item": "Q1193600",
+   "label": "Markdown",
+   "classes": [
+    "Q336705"
+   ],
+   "aliases": [
+    "markdown"
+   ]
+  },
+  "mdtxt": {
+   "item": "Q1193600",
+   "label": "Markdown",
+   "classes": [
+    "Q336705"
+   ],
+   "aliases": [
+    "markdown"
+   ]
+  },
+  "mdwn": {
+   "item": "Q1193600",
+   "label": "Markdown",
+   "classes": [
+    "Q336705"
+   ],
+   "aliases": [
+    "markdown"
+   ]
+  },
+  "mjp2": {
+   "item": "Q3273017",
+   "label": "Motion JPEG 2000",
+   "classes": [
+    "Q18359031"
+   ],
+   "aliases": [
+    "MJ2",
+    "Motion JPEG2000",
+    "T.802"
+   ]
+  },
+  "mkd": {
+   "item": "Q1193600",
+   "label": "Markdown",
+   "classes": [
+    "Q336705"
+   ],
+   "aliases": [
+    "markdown"
+   ]
+  },
+  "mkdn": {
+   "item": "Q1193600",
+   "label": "Markdown",
+   "classes": [
+    "Q336705"
+   ],
+   "aliases": [
+    "markdown"
+   ]
+  },
+  "n3": {
+   "item": "Q1424987",
+   "label": "Notation3",
+   "classes": [
+    "Q24451526"
+   ],
+   "aliases": [
+    "N3"
+   ]
+  },
+  "nsv": {
+   "item": "Q7069009",
+   "label": "Nullsoft Streaming Video",
+   "classes": [
+    "Q18359031"
+   ],
+   "aliases": [
+    ".nsv",
+    "NSV"
+   ]
+  },
+  "ora": {
+   "item": "Q747906",
+   "label": "OpenRaster",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".ora"
+   ]
+  },
+  "otf": {
+   "item": "Q4049344",
+   "label": "SFNT",
+   "classes": [
+    "Q55281818"
+   ],
+   "aliases": [
+    ".aat",
+    ".cff",
+    ".off",
+    ".sil",
+    ".ttf",
+    "scalable font",
+    "spline font"
+   ]
+  },
+  "proto": {
+   "item": "Q1645574",
+   "label": "Protocol Buffers",
+   "classes": [
+    "Q24451526"
+   ],
+   "aliases": [
+    "Protobuf"
+   ]
+  },
+  "psfu": {
+   "item": "Q25098907",
+   "label": "PC Screen Font",
+   "classes": [
+    "Q55281818"
+   ],
+   "aliases": [
+    ".psf",
+    ".psfu",
+    "PSF"
+   ]
+  },
+  "qoi": {
+   "item": "Q111843814",
+   "label": "Quite OK Image Format",
+   "classes": [
+    "Q105599390",
+    "Q1572121"
+   ],
+   "aliases": [
+    "QOI"
+   ]
+  },
+  "raml": {
+   "item": "Q16909517",
+   "label": "RESTful API Modeling Language",
+   "classes": [
+    "Q24451526"
+   ],
+   "aliases": [
+    "RAML"
+   ]
+  },
+  "sb0": {
+   "item": "Q11885120",
+   "label": "Vorbis",
+   "classes": [
+    "Q682626"
+   ],
+   "aliases": []
+  },
+  "tpic": {
+   "item": "Q1063976",
+   "label": "Truevision TGA",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".icb",
+    ".tga",
+    ".vda",
+    ".vst",
+    "TGA",
+    "Targa",
+    "TrueVision Targa",
+    "TrueVision Targa format",
+    "Truevision Advanced Raster Graphics Adapter",
+    "Truevision Graphics Adapter"
+   ]
+  },
+  "txtpb": {
+   "item": "Q1645574",
+   "label": "Protocol Buffers",
+   "classes": [
+    "Q24451526"
+   ],
+   "aliases": [
+    "Protobuf"
+   ]
+  },
+  "type": {
+   "item": "Q6043826",
+   "label": "Intellifont",
+   "classes": [
+    "Q55281818"
+   ],
+   "aliases": [
+    "IntelliFont Font File"
+   ]
+  },
+  "wbmp": {
+   "item": "Q2119856",
+   "label": "Wireless Application Protocol Bitmap Format",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".wbmp",
+    "WAP Bitmap",
+    "WBMP",
+    "Wireless Bitmap",
+    "Wireless Bitmap Image File"
+   ]
+  },
+  "xbm": {
+   "item": "Q1817318",
+   "label": "X BitMap",
+   "classes": [
+    "Q105599390",
+    "Q1572121"
+   ],
+   "aliases": [
+    ".xbm",
+    "X-Windows Bitmap",
+    "X11 Bitmap",
+    "XBM"
+   ]
+  },
+  "xcf": {
+   "item": "Q261907",
+   "label": "eXperimental Computing Facility",
+   "classes": [
+    "Q1572121"
+   ],
+   "aliases": [
+    ".xcf",
+    "GIMP Image Format",
+    "GIMP XCF",
+    "GIMP eXperimental Computing Facility",
+    "GIMP image",
+    "GNU Image Manipulation Program eXperimental Computing Facility",
+    "Gimp Bitmap",
+    "XCF"
+   ]
+  },
+  "xpm": {
+   "item": "Q1887604",
+   "label": "X PixMap",
+   "classes": [
+    "Q105599390"
+   ],
+   "aliases": [
+    ".xpm",
+    "X11 Pixel Map",
+    "XPM"
+   ]
+  },
+  "yml": {
+   "item": "Q281876",
+   "label": "YAML",
+   "classes": [
+    "Q24451526"
+   ],
+   "aliases": [
+    ".yaml",
+    ".yml",
+    "YAML Ain't Markup Language",
+    "Yet Another Markup Language"
+   ]
+  }
+ }
+}

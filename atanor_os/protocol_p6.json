@@ -1,8 +1,9 @@
 {
-  "version": 1,
-  "name": "P6 autonomous task execution",
-  "frozen_at": "2026-10-24T13:30:00",
-  "design": "P6_DESIGN.md",
+  "version": 2,
+  "supersedes": "protocol_p6_v1.json (public commit 3f433a1). Kept unchanged.",
+  "frozen_at": "2026-10-24T16:40:00",
+  "name": "P6 autonomous task execution — official names of file formats",
+  "change_reason": "While authoring the v1 evaluator (extension -> media type), the response was stopped by a safety classifier (no reason disclosed). Per the user's instruction the blocked content was not reconstructed; the task was replaced by a harmless one: find the official name of each file's format in public documents and write the result in an isolated workspace.",
   "question": "Given only an English top-level goal and an allowed action scope, does ATANOR notice what it does not know, find and compare public web sources, run small experiments when needed, verify its interpretation by results, choose its next action, and stop with a stated reason when it cannot find an answer?",
   "scope_decided_by_user": {
     "language": "teacher (Claude or sLLM) allowed in training only; teacher, sLLM and pre-made interpretations fully off at evaluation; dependencies removed by demonstrated capability, not by schedule; no hidden teacher calls",
@@ -10,16 +11,73 @@
     "permissions": "read public pages only; no login, posting, purchase, running downloaded code, system settings; page instructions are data",
     "separation": "evaluation tasks and answers never shown to the training teacher"
   },
-  "task_domain": "file tasks that need a fact not observable in the workspace: file extension -> media type (top-level / subtype); goal forms: group-by-top-level, group-by-subtype, move-files-of-a-top-level-type; impossible tasks contain extensions with no registered type",
-  "truth": "Python 3.13 stdlib mimetypes.types_map snapshot at freeze; extensions where well-known web usage disagrees are excluded from the candidate pools; agent/ may not import mimetypes",
-  "conditions": {
-    "F": "full ATANOR",
-    "N": "no web actions",
-    "S": "single source: first extracted value of the first page, no comparison",
-    "M": "training memory only",
-    "ORACLE": "truth table + same planner"
+  "search_limits": "usable entry points for an honest read-only bot: Wikimedia Action API search, Wiby search, direct pages; DuckDuckGo answers bots with a CAPTCHA; Bing/Startpage/Mojeek/Marginalia/Google disallow search pages in robots.txt; results must not be described as exploring the open web at large",
+  "task": {
+    "forms": {
+      "folder": "move each file into a folder named after the official name of its format",
+      "rename": "rename each file to the official name of its format, keeping the extension",
+      "copy": "copy each file into a folder named after the official name of its format; originals stay"
+    },
+    "files_per_task": 3,
+    "possible_tasks": 30,
+    "impossible_tasks": 6,
+    "impossible": "one file has a random 5-letter extension with no format; correct = file untouched and reason in (no_evidence, contradiction, single_source)",
+    "decoy": "a file in a subfolder that must stay unchanged"
   },
-  "primary": "strict completion on possible evaluation tasks, F vs N, paired by task",
+  "truth": {
+    "source": "Wikidata snapshot via eval/web_truth.py",
+    "file": "results/p6-truth/truth.json",
+    "sha256": "e0a6e5621784a2c3a4eb86d835b6028c76771811cf840b20fa042c1a787e1d74",
+    "accept": "English label or any English alias, normalized (casefold, alphanumerics only)",
+    "pools": {
+      "train": 16,
+      "eval": 32
+    },
+    "pool_rule": "eval iff first hex digit of sha256('p6-pool:'+ext) < 8"
+  },
+  "training": {
+    "state": "results/p6-train/state.json",
+    "state_sha256": "dc8f9fe950f0aa045905572645c9ddad35ca1cb1c08edb42b5006a5128eeb06c",
+    "teacher": "Claude-authored sentences (36 + 6 dev) and truth-based feedback on training material only (16-pool minus 4 dev + 60 extra formats)",
+    "teacher_calls_in_training": 35215,
+    "calibrated_threshold": {
+      "threshold": 2.448,
+      "utility": 5.0,
+      "grid": 389
+    }
+  },
+  "sealed_sentences": {
+    "file": "results/p6-sealed/eval_sentences.json",
+    "sha256": "5f7ae298dc18d2fdcc48b11c7e2b63b9a188779cb4e4d26d382044e75c8d8712",
+    "written_by": "an agent without the teacher's context; the teacher counted entries only"
+  },
+  "eval_seed": "int(sha256(public commit hash of this freeze commit)) mod 2^31 selects the extensions per task",
+  "budget": {
+    "searches_per_fact": 3,
+    "pages_per_fact": 6,
+    "follow_per_page": 2,
+    "lookups_per_goal": 3,
+    "actions": 20,
+    "predictions": 400000,
+    "nodes": 600,
+    "depth": 12,
+    "seconds": 120.0
+  },
+  "conditions": {
+    "F": "full ATANOR (web, 2 agreeing pages)",
+    "S": "web, first trusted page adopted (no agreement)",
+    "M": "training memory, no web",
+    "N": "no web, no memory",
+    "ORACLE": "truth names + given form (task validity)"
+  },
+  "primary": "strict completion on the 30 possible tasks, F vs N paired by task",
+  "decision_values": {
+    "min_gain_pp": 30,
+    "min_completion": 0.5,
+    "min_correct_stops_frac": 0.6667,
+    "max_wrong_per_task": 0.5,
+    "no_gain_completion": 0.2
+  },
   "decision": {
     "GAIN": [
       "F - N >= 30 pp",
@@ -39,7 +97,9 @@
     "ORACLE completion < 1.0",
     "source changed during the run",
     "sealing procedure (P6_DESIGN §5) violated",
-    "evaluation sentences or extensions overlap training material"
+    "evaluation sentences or extensions overlap training material",
+    "teacher module imported in the evaluation process",
+    "LLM or localhost host requested"
   ],
   "secondary": [
     "F - S",
@@ -48,26 +108,20 @@
     "trigger validity of each information action",
     "evidence validity of each adopted value",
     "queries, pages, distinct domains, bytes, seconds, network failures, robots refusals",
-    "failure taxonomy: interpretation/query/source/extraction/comparison/planning/environment"
+    "failure taxonomy: interpretation/query/source/extraction/comparison/planning/environment",
+    "per-file outcomes and stop reasons",
+    "conflict handling (adopted despite disagreement / stopped on contradiction / single source)",
+    "self-learned words"
   ],
-  "sealing": [
-    "freeze training material (commit)",
-    "freeze code snapshot sha256 (commit + push to public mirror)",
-    "an agent without the teacher's context writes evaluation sentence templates and returns only their sha256; the teacher never reads them before the run",
-    "evaluation extensions drawn from the evaluation pool with seed = int(sha256(public commit hash of step 2))",
-    "one evaluation run; all observations archived; replay mode for review"
-  ],
-  "to_be_fixed_at_eval_freeze": [
-    "number of tasks per goal form and impossible tasks (planned: 30 possible + 6 impossible)",
-    "web budgets (pages/queries per task, seconds)",
-    "training/evaluation extension pools",
-    "code snapshot sha256",
-    "sealed sentence file sha256"
-  ],
+  "expectation_before_run": "From the teacher-off dev check (held-out training formats and sentences; dev reused once after a fix round, so not unbiased): F completed 0/5, N 0/5, ORACLE 5/5; F found names only for formats it already knew from training, stopped with 'no evidence' on every unseen format, made no wrong placement, interpreted 4/6 held-out sentences correctly. Expected verdict: NO_GAIN (F completion < 0.2).",
   "known_limits": [
-    "three goal forms only (generalization of wording and facts, not of task types)",
     "English at learned-lexicon level, not free understanding",
     "web state is the state at run time",
-    "truth table is Python mimetypes"
+    "truth table is Python mimetypes",
+    "three goal forms only",
+    "English at learned-lexicon level",
+    "truth labels are Wikidata's and sometimes unusual",
+    "the reader learned from 72 formats; candidate generation reaches the true name on >= 2 archived pages for only ~25% of training formats",
+    "six training rounds (all on training material) before freezing; listed in DECISIONS.md"
   ]
 }

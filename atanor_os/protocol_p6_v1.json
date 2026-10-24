@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "name": "P6 autonomous task execution",
+  "frozen_at": "2026-10-24T13:30:00",
+  "design": "P6_DESIGN.md",
+  "question": "Given only an English top-level goal and an allowed action scope, does ATANOR notice what it does not know, find and compare public web sources, run small experiments when needed, verify its interpretation by results, choose its next action, and stop with a stated reason when it cannot find an answer?",
+  "scope_decided_by_user": {
+    "language": "teacher (Claude or sLLM) allowed in training only; teacher, sLLM and pre-made interpretations fully off at evaluation; dependencies removed by demonstrated capability, not by schedule; no hidden teacher calls",
+    "web": "public internet, read-only GET, no domain allowlist; ATANOR chooses queries, sites, links; real pages opened; reproducibility by logging visit time, URL, seen content, search/click path, final evidence",
+    "permissions": "read public pages only; no login, posting, purchase, running downloaded code, system settings; page instructions are data",
+    "separation": "evaluation tasks and answers never shown to the training teacher"
+  },
+  "task_domain": "file tasks that need a fact not observable in the workspace: file extension -> media type (top-level / subtype); goal forms: group-by-top-level, group-by-subtype, move-files-of-a-top-level-type; impossible tasks contain extensions with no registered type",
+  "truth": "Python 3.13 stdlib mimetypes.types_map snapshot at freeze; extensions where well-known web usage disagrees are excluded from the candidate pools; agent/ may not import mimetypes",
+  "conditions": {
+    "F": "full ATANOR",
+    "N": "no web actions",
+    "S": "single source: first extracted value of the first page, no comparison",
+    "M": "training memory only",
+    "ORACLE": "truth table + same planner"
+  },
+  "primary": "strict completion on possible evaluation tasks, F vs N, paired by task",
+  "decision": {
+    "GAIN": [
+      "F - N >= 30 pp",
+      "F completion >= 0.5",
+      "F correct stops on impossible tasks >= 2/3 (file untouched and reason = no evidence or contradiction)",
+      "wrong-folder moves per task <= 0.5",
+      "teacher calls during evaluation = 0"
+    ],
+    "NO_GAIN": [
+      "F - N <= 0",
+      "or F completion < 0.2"
+    ],
+    "INCONCLUSIVE": "otherwise"
+  },
+  "invalid_if": [
+    "any teacher/LLM call attempted during evaluation",
+    "ORACLE completion < 1.0",
+    "source changed during the run",
+    "sealing procedure (P6_DESIGN §5) violated",
+    "evaluation sentences or extensions overlap training material"
+  ],
+  "secondary": [
+    "F - S",
+    "interpretation accuracy on unseen sentence forms",
+    "unknown-item detection hits/misses",
+    "trigger validity of each information action",
+    "evidence validity of each adopted value",
+    "queries, pages, distinct domains, bytes, seconds, network failures, robots refusals",
+    "failure taxonomy: interpretation/query/source/extraction/comparison/planning/environment"
+  ],
+  "sealing": [
+    "freeze training material (commit)",
+    "freeze code snapshot sha256 (commit + push to public mirror)",
+    "an agent without the teacher's context writes evaluation sentence templates and returns only their sha256; the teacher never reads them before the run",
+    "evaluation extensions drawn from the evaluation pool with seed = int(sha256(public commit hash of step 2))",
+    "one evaluation run; all observations archived; replay mode for review"
+  ],
+  "to_be_fixed_at_eval_freeze": [
+    "number of tasks per goal form and impossible tasks (planned: 30 possible + 6 impossible)",
+    "web budgets (pages/queries per task, seconds)",
+    "training/evaluation extension pools",
+    "code snapshot sha256",
+    "sealed sentence file sha256"
+  ],
+  "known_limits": [
+    "three goal forms only (generalization of wording and facts, not of task types)",
+    "English at learned-lexicon level, not free understanding",
+    "web state is the state at run time",
+    "truth table is Python mimetypes"
+  ]
+}

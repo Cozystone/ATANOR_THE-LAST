@@ -46,3 +46,14 @@ def test_no_import_of_frozen_research_code():
             continue
         for name in _resolved_imports(p):
             assert not re.match(r'^(packages|scripts)(\.|$)', name), (p.name, name)
+
+
+def test_learner_side_never_uses_teacher_or_truth_tables():
+    """P6: the teacher (training only) and the evaluator's truth sources are out of the learner's reach."""
+    for folder in LEARNER_SIDE:
+        for p in (PKG / folder).rglob('*.py'):
+            for name in _resolved_imports(p):
+                assert not name.startswith('atanor_os.teach') and '.teach.' not in name, (p.name, name)
+                assert name.split('.')[0] not in ('mimetypes',), (p.name, name)
+            src = p.read_text(encoding='utf-8')
+            assert 'query.wikidata.org' not in src and 'anthropic' not in src.lower() and 'openai' not in src.lower(), p.name
