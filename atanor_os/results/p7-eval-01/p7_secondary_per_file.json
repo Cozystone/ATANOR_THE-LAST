@@ -1,0 +1,88 @@
+{
+ "ORACLE": {
+  "file_success": "102/102",
+  "formats_adopted_correct": 31,
+  "formats_adopted_wrong": 0,
+  "formats_seen": 31,
+  "rehearsal_and_act": {
+   "rehearsal_ok": 36,
+   "act_ok": 102
+  },
+  "wrong_examples": []
+ },
+ "N": {
+  "file_success": "0/102",
+  "formats_adopted_correct": 0,
+  "formats_adopted_wrong": 0,
+  "formats_seen": 31,
+  "rehearsal_and_act": {},
+  "wrong_examples": []
+ },
+ "F": {
+  "file_success": "0/102",
+  "formats_adopted_correct": 0,
+  "formats_adopted_wrong": 0,
+  "formats_seen": 31,
+  "rehearsal_and_act": {},
+  "wrong_examples": []
+ },
+ "S_LM": {
+  "file_success": "19/102",
+  "formats_adopted_correct": 7,
+  "formats_adopted_wrong": 14,
+  "formats_seen": 31,
+  "rehearsal_and_act": {
+   "rehearsal_ok": 35,
+   "act_ok": 75
+  },
+  "wrong_examples": [
+   [
+    "gif",
+    "Graphics Interchange Format",
+    "animated GIF"
+   ],
+   [
+    "hlp",
+    "PFK31WH.HLP",
+    "WinHelp"
+   ],
+   [
+    "ini",
+    "URL",
+    "INI file"
+   ],
+   [
+    "lef",
+    "LEF (journal)",
+    "Library Exchange Format"
+   ],
+   [
+    "lrx",
+    "LRF",
+    "BBeB"
+   ],
+   [
+    "mdf",
+    "Master Database File",
+    "MDF format"
+   ]
+  ]
+ },
+ "F_LM": {
+  "file_success": "10/102",
+  "formats_adopted_correct": 4,
+  "formats_adopted_wrong": 1,
+  "formats_seen": 31,
+  "rehearsal_and_act": {
+   "rehearsal_ok": 17,
+   "act_ok": 18
+  },
+  "wrong_examples": [
+   [
+    "prc",
+    "PRC (Product Representation Compact)",
+    "Product Representation Compact"
+   ]
+  ]
+ }
+}
