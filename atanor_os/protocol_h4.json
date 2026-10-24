@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "name": "H4",
+  "frozen_at": "2026-10-24T12:40:00",
+  "hypothesis": "H4 (acquisition that reads the learner): exploration policy 'contrast-pair' = contrast-kind + (i) for a tool with a learned rule, first try novel actions the rule predicts to succeed while flipping one of its untested generalizations (literals every success had, dropped without contrast), + (ii) for a tool without a success yet, pairwise literal coverage instead of argument-kind novelty. Compared with 'contrast-kind' under the same code, seeds, steps and budget, it yields C models that agree exactly with the true semantics on more tools.",
+  "runs": {
+    "fs_target": "results/p5-h4-fs-target (protocol_h4_fs_target.json)",
+    "fs_control": "results/p5-h4-fs-control (protocol_h4_fs_control.json)",
+    "view_target": "results/p5-h4-view-target (protocol_h4_view_target.json)",
+    "view_control": "results/p5-h4-view-control (protocol_h4_view_control.json)"
+  },
+  "primary": "rule agreement 'exact' tool count of the frozen C model per seed (eval.oracle.rule_agreement, k=20, agreement seed 1000+seed), target vs control, summed over 5 seeds x 2 bodies = 10 pairs; computed by `python -m atanor_os compare --metric agreement --a <target> --b <control>` per body",
+  "decision": "H4 GAIN if delta_exact(fs) + delta_exact(view) >= +2 AND each body's delta >= 0 AND no more than one (body, seed) pair decreases AND every run is VALID (validity gates) AND exploration cost ratio <= 3 per body. H4 NO GAIN if the summed delta <= 0. Otherwise INCONCLUSIVE.",
+  "expectation_before_run": "Dev check (exploration seeds 11-15, agreement seeds 2000+s; no test task run) gave target vs control: fs 25 vs 24 exact (perfect seeds 5 vs 4), view 29 vs 30 (4 vs 5). The first variant tried on dev ('contrast-target': part (i) only) gave fs 24 vs 24, view 29 vs 30 and was dropped; the diagnosis was that fs non-exactness comes from late first successes of convert (step 115-290 of 300), which part (ii) targets. Expected verdict from dev: NO GAIN or INCONCLUSIVE; a GAIN would need test seeds to behave better than dev seeds.",
+  "secondary": [
+    "strict agreement counts",
+    "C strict completion and C-B within each run",
+    "first-success step per tool (mean over seeds)",
+    "targeted steps per run",
+    "exploration wall seconds"
+  ],
+  "conditions": "B, C + ORACLE (A ignores experience and is therefore identical across policies; see results/p3-view-01 and p1-test-03-*)",
+  "known_limits": [
+    "agreement samples train-distribution situations only (see P2_P4_REPORT §5.7); 'exact' is agreement on the sampled distribution, not truth",
+    "the view baseline was already 29-30/30 on dev, so the view body can show at most +1 per seed",
+    "two policy variants were tried on dev before freezing (contrast-target, contrast-pair); the frozen one is the dev-best",
+    "H4 is the third and last single-hypothesis change allowed in P2 (iteration_cap)"
+  ],
+  "iteration_cap": "P2: H1, H2, H4 (third of three)"
+}

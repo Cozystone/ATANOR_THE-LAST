@@ -176,6 +176,13 @@ def env_info(a, seeds):
 
 
 def cmd_compare(a):
+    if a.metric == 'agreement':
+        print(json.dumps(compare_agreement(a.a, a.b or a.a, a.cond), indent=1, default=str))
+        return
+    _cmd_compare(a)
+
+
+def _cmd_compare(a):
     """Paired comparison by (seed, task): one condition across two runs (e.g. exploration policies), or two
     conditions (--cond-b) inside the same or another run. Always reports strict completion; --metric adds a
     per-episode quantity (plan_predicted, actions, noops, wall_s) as a ratio a/b."""
@@ -203,6 +210,34 @@ def cmd_compare(a):
            'by_template': {t: (100 * metrics.mean(metrics.strict(x) - metrics.strict(y) for x, y in pairs if x['template'] == t))
                            for t in sorted({x['template'] for x, _ in pairs})}}
     print(json.dumps(out, indent=1))
+
+
+def compare_agreement(run_a, run_b, cond='C'):
+    """H4 primary: per seed, the number of tools whose frozen `cond` model agrees exactly with the true
+    semantics (rule_agreement 'exact'), run a vs run b, plus strict counts and first-success steps."""
+    def per_seed(run):
+        m = json.loads((Path(run) / 'metrics.json').read_text(encoding='utf-8'))
+        out = {}
+        for sd, cs in m['learn_cost_s'].items():
+            ag = cs[cond]['agreement']
+            out[int(sd)] = {'exact': ag['n_exact'], 'strict': ag.get('n_strict'), 'n_tools': ag['n_tools'],
+                            'filled': ag['filled'], 'first_success': cs.get('explore', {}).get('first_success'),
+                            'explore_s': cs.get('explore', {}).get('explore_s')}
+        return out, m
+    a, ma = per_seed(run_a)
+    b, mb = per_seed(run_b)
+    seeds = sorted(set(a) & set(b))
+    d = {s: a[s]['exact'] - b[s]['exact'] for s in seeds}
+    xs = lambda r: sum(r[s]['explore_s'] or 0 for s in seeds)
+    return {'cond': cond, 'a': str(run_a), 'b': str(run_b), 'seeds': seeds,
+            'exact_a': sum(a[s]['exact'] for s in seeds), 'exact_b': sum(b[s]['exact'] for s in seeds),
+            'delta_exact': sum(d.values()), 'per_seed_delta': d, 'seeds_lower': sum(v < 0 for v in d.values()),
+            'strict_a': sum(a[s]['strict'] or 0 for s in seeds), 'strict_b': sum(b[s]['strict'] or 0 for s in seeds),
+            'all_filled': all(a[s]['filled'] and b[s]['filled'] for s in seeds),
+            'explore_cost_ratio': xs(a) / max(xs(b), 1e-9),
+            'completion_a': ma['conditions'][cond]['completion'], 'completion_b': mb['conditions'][cond]['completion'],
+            'verdict_a': ma['verdict'], 'verdict_b': mb['verdict'],
+            'first_success_a': {s: a[s]['first_success'] for s in seeds}, 'first_success_b': {s: b[s]['first_success'] for s in seeds}}
 
 
 def run_tests(out, marks):
@@ -243,7 +278,8 @@ def cmd_semantics(a):
 
 
 def cmd_explore(a):
-    exps = explore(a.seed, a.steps, Path(a.out) / 'ws', policy=a.policy, block=BODIES[a.body]['block'])
+    exps = explore(a.seed, a.steps, Path(a.out) / 'ws', policy=a.policy, block=BODIES[a.body]['block'],
+                   type_attrs=BODIES[a.body]['spec'].get('type_attrs', ('kind',)))
     write_jsonl(Path(a.out) / 'experiences.jsonl', [e.to_json() for e in exps])
     per = {}
     for e in exps:
@@ -297,12 +333,16 @@ def cmd_pilot(a):
     write_jsonl(out / 'records.jsonl', [])
     for i, seed in enumerate(seeds):
         t0 = time.perf_counter()
-        exps = explore(seed, a.steps, out / 'explore' / f's{seed}', policy=a.policy, block=BODIES[a.body]['block'])
+        t_x = time.perf_counter()
+        exps = explore(seed, a.steps, out / 'explore' / f's{seed}', policy=a.policy, block=BODIES[a.body]['block'],
+                       type_attrs=BODIES[a.body]['spec'].get('type_attrs', ('kind',)))
+        explore_cost = {'explore_s': time.perf_counter() - t_x, **getattr(explore, 'last_stats', {})}
         write_jsonl(out / 'explore' / f'experiences_s{seed}.jsonl', [e.to_json() for e in exps])
         cs = conds + (['ORACLE'] if i == 0 else [])
         recs, lc, sz = evaluate(a.split, seed, exps, cs, a.tasks, out / f'eval_s{seed}', a.adapt, checks, a.body)
         write_jsonl(out / 'records.jsonl', recs, append=True)
         records += recs
+        lc['explore'] = explore_cost
         learn_costs[seed], sizes[seed] = lc, sz
         print(json.dumps({'seed': seed, 'explore_steps': len(exps), 'explore_successes': sum(e.succeeded for e in exps),
                           'seconds': round(time.perf_counter() - t0, 1)}), flush=True)
@@ -371,7 +411,7 @@ def main(argv=None):
     c.add_argument('--b', default=None, help='second run (default: same run as --a)')
     c.add_argument('--cond', default='C')
     c.add_argument('--cond-b', default=None, help='condition taken from --b (default: --cond)')
-    c.add_argument('--metric', default=None, choices=(None, 'plan_predicted', 'actions', 'noops', 'wall_s', 'plan_expanded'))
+    c.add_argument('--metric', default=None, choices=(None, 'plan_predicted', 'actions', 'noops', 'wall_s', 'plan_expanded', 'agreement'))
     for name in ('evaluate', 'pilot'):
         p = sub.add_parser(name)
         p.add_argument('--split', default=None if name == 'pilot' else 'dev', required=(name == 'pilot'))

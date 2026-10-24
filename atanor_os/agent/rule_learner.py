@@ -116,21 +116,25 @@ def learn_operator(tool, arity, exps, type_attrs=('kind',)):
         es = by_type[key]
         pre = set(frozenset.intersection(*(lifted_pre(e.pre, e.args) for e in es)))
         unexplained = {i for i, s in fsigs if pre <= s}
+        gdrop = []
         for lit in sorted(pre, key=_order):
             trial = pre - {lit}
             if not any(trial <= s for i, s in fsigs if i not in unexplained):
                 pre = trial
-                dropped.append(lit)
+                gdrop.append(lit)
+        dropped += gdrop
         counter |= unexplained
         own = {(i, a): spec for i, a, spec in _effects(es)}
         effects = [(i, a, shared.get((i, a)) or own[(i, a)]) for i, a in sorted(set(own) | set(shared))]
-        groups.append({'kinds': key, 'pre': frozenset(pre), 'effects': effects, 'support': len(es)})
+        groups.append({'kinds': key, 'pre': frozenset(pre), 'effects': effects, 'support': len(es),
+                       'open': frozenset(gdrop)})      # untested generalizations: every success had them
     # identical conjunctions from different value groups collapse into one
     merged = []
     for g in groups:
         same = next((m for m in merged if m['pre'] == g['pre'] and m['effects'] == g['effects']), None)
         if same:
             same['support'] += g['support']
+            same['open'] = same['open'] & g['open']             # common to the merged successes only
             same['kinds'] = same['kinds'] if same['kinds'] == g['kinds'] else tuple(
                 tuple(x if x == y else '*' for x, y in zip(k1, k2)) for k1, k2 in zip(same['kinds'], g['kinds']))
         else:

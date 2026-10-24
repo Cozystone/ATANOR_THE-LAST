@@ -61,3 +61,18 @@ def test_supervisor_survives_a_kill_before_the_workspace_exists(tmp_path):
     assert not (task_root / 'half.txt').exists()                                     # the half-made workspace was replaced
     rows = [json.loads(l) for l in (root / 'episodes.jsonl').read_text(encoding='utf-8').splitlines()]
     assert rows[0]['episode'] == 'sup-0' and rows[0]['actions_total'] == rows[0]['actions']
+
+
+def test_compare_agreement_pairs_seeds(tmp_path):
+    from atanor_os.eval.run import compare_agreement
+
+    def run(name, exact):
+        d = tmp_path / name
+        d.mkdir()
+        lc = {str(sd): {'C': {'agreement': {'n_exact': e, 'n_strict': e, 'n_tools': 5, 'filled': True}},
+                        'explore': {'explore_s': 1.0, 'first_success': {'convert': 10 * sd}}} for sd, e in exact.items()}
+        (d / 'metrics.json').write_text(json.dumps({'learn_cost_s': lc, 'verdict': 'X', 'conditions': {'C': {'completion': 1.0}}}))
+        return d
+    r = compare_agreement(run('a', {1: 5, 2: 5, 3: 4}), run('b', {1: 4, 2: 5, 3: 5}))
+    assert r['delta_exact'] == 0 and r['seeds_lower'] == 1 and r['per_seed_delta'] == {1: 1, 2: 0, 3: -1}, r
+    assert r['explore_cost_ratio'] == 1.0 and r['all_filled']

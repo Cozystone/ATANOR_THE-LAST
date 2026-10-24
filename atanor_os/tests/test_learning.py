@@ -70,3 +70,28 @@ def test_oracle_solves_dev_task_and_models_run(tmp_path):
         assert post is not None and post[absent]['kind'] == 'dir', (M.name, status)
     assert rec['plan_stops'] and all(k == 'found' for k in rec['plan_stops'])
     j.close()
+
+
+@pytest.mark.fs
+def test_targeted_contrast_picks_untested_generalizations():
+    """H4 machinery: with two convert successes (both into an existing directory) and failures that never
+    isolate the parent, the rule drops one parent literal; targets_of proposes exactly the actions that
+    keep the rule's conjunction and flip a dropped literal."""
+    from atanor_os.agent.lift import lifted_pre
+    from atanor_os.agent.rule_learner import learn_operator
+    from atanor_os.core.types import Experience
+    from atanor_os.eval.explore import targets_of
+    F = lambda ext, par='dir': {'kind': 'file', 'ext': ext, 'hash': 'h' + ext, 'parent_kind': par}
+    A = lambda ext, par='dir': {'kind': 'absent', 'ext': ext, 'hash': '-', 'parent_kind': par}
+    st = {'a.txt': F('txt'), 'b.md': A('md'), 'c.csv': F('csv'), 'd.md': A('md')}
+    post = {**st, 'b.md': {**F('md'), 'hash': 'x'}}
+    exps = [Experience('1', 'convert', ('a.txt', 'b.md'), st, post, True),
+            Experience('2', 'convert', ('a.txt', 'd.md'), st, {**st, 'd.md': {**F('md'), 'hash': 'y'}}, True),
+            Experience('3', 'convert', ('c.csv', 'b.md'), st, st, False)]
+    op = learn_operator('convert', 2, exps)
+    assert op.groups[0]['open'], op.groups
+    st2 = {**st, 'q/e.md': A('md', 'absent'), 'q': A('-')}
+    cands = [('convert', ('a.txt', 'q/e.md')), ('convert', ('a.txt', 'b.md')), ('convert', ('c.csv', 'q/e.md'))]
+    sigs = {a: lifted_pre(st2, a[1]) for a in cands}
+    tg = targets_of(op, sigs, cands)
+    assert ('convert', ('a.txt', 'q/e.md')) in tg and ('convert', ('a.txt', 'b.md')) not in tg, (tg, op.to_json())
