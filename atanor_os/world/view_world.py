@@ -30,6 +30,7 @@ def is_value(obj):
 class ViewWorkspace:
     TOOLS = TOOLS
     CAPABILITY = CAPABILITY
+    drift = frozenset()            # P8b: changed world rules, e.g. {'compare_replace'}; empty = the original world
 
     def __init__(self, root, data, create=True, spec=None):
         self.root = Path(root).absolute()
@@ -82,7 +83,7 @@ class ViewWorkspace:
         if cap and not capabilities.get(cap):
             return {'ok': False, 'blocked': True, 'error': f'capability {cap} not granted', 'ms': 0.0}
         spec = self._read()
-        ok = getattr(self, '_' + tool)(spec, *args)
+        ok = self._compare(spec, *args, drift=self.drift) if tool == 'compare' else getattr(self, '_' + tool)(spec, *args)
         if ok:
             self._write(spec)
         return {'ok': bool(ok), 'blocked': False, 'error': '' if ok else 'precondition', 'ms': (time.perf_counter() - t0) * 1000}
@@ -126,8 +127,9 @@ class ViewWorkspace:
         return True
 
     @staticmethod
-    def _compare(spec, c, p):
-        if c not in PANELS or c in spec or spec.get(p, {}).get('kind') != 'panel':
+    def _compare(spec, c, p, drift=frozenset()):
+        replace = 'compare_replace' in drift and spec.get(c, {}).get('kind') == 'compare'   # P8b changed world
+        if c not in PANELS or (c in spec and not replace) or spec.get(p, {}).get('kind') != 'panel':
             return False
         spec[c] = {'kind': 'compare', 'filter': spec[p]['filter'], 'sort': spec[p]['sort'], 'group': 'none'}
         return True

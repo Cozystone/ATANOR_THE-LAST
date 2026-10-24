@@ -56,5 +56,40 @@
     "two hand-chosen drifts",
     "re-verification experiments run in a sandbox of the current world",
     "evidence compressed to per-condition counts"
+  ],
+  "amendments": [
+    {
+      "version": "1.1",
+      "frozen_at": "2026-10-24T23:50:00",
+      "before_any_run": true,
+      "checked_with": "R1 built from E1 (a training artefact) and the true models only; no revision on E2/E3 and no test was run",
+      "changes": [
+        {
+          "what": "view drift replaced: group_filtered -> compare_replace (compare may replace an existing comparison view; a target that is a list panel still fails; effects unchanged)",
+          "why": "R1's view group rule is one conjunction (panel, grp) without the filter condition: the 11 training failures (filtered panel + grp:ext) stay unexplained because a single conjunction cannot express 'filter all OR value none', so no evidence for that condition is stored. Removing a condition ATANOR never learned would not test revision. R1 holds compare's condition \"target absent\" with 21 stored counter-examples."
+        },
+        {
+          "what": "view drift tasks: the comparison view cmp currently compares p1; make it compare p3 (filter and sort of p3) without ever closing it (kind cmp = compare kept all the way; close not granted)",
+          "why": "needs the changed capability: 20/20 solved by the changed-world truth, 0/20 by the original truth in the original world"
+        },
+        {
+          "what": "fs drift detail: a folder cannot move into itself (the world rejects it explicitly; before, the rename raised an error)",
+          "why": "found when validating the changed-world truth (it predicted success for those cases)"
+        },
+        {
+          "what": "changed-tool prediction split. (a) changed situations = actions of the changed tool where the original and the changed true rule disagree, >= 20 checks from blocks shaped like the drift tasks (indices 1000-2999, disjoint from the 20 evaluation tasks) and test blocks: the registered thresholds >= 0.90 and >= R1_KEEP + 20 pp apply here. (b) the changed tool's other situations (20 true successes + 20 true failures): joins 'other-tool prediction >= 0.95'.",
+          "why": "the P8 stratified sampler draws few changed situations, so R1 would score about 0.9 on the changed tool without any revision and the +20 pp criterion could not be met by anyone. Validation with true models: changed-world truth 1.00 (a) / 1.00 (b), original truth 0.00 (a) / 1.00 (b) in both bodies."
+        },
+        {
+          "what": "re-verification: re-creates the conflicting situation = stored conjunction minus the condition, plus the argument types (first raw attribute) the conflicting new success had; runs in a fresh exploration block of the current world (stable: original world, drift: changed world), at most 40 blocks per verification; a new success explained by another rule of the same tool is not a conflict",
+          "why": "a first version picked any action lacking the condition (e.g. an absent source), which fails in both worlds"
+        },
+        {
+          "what": "details fixed: E3 = explore(seed 31, 600 steps, contrast-kind) per body in the changed world; prediction seeds 9100 + 10*drift + view, changed-tool seeds 9300 + view (+2 for (b)); R2_P8 drift = P8 revise(R2 stable, E3); FULL_RAW/FULL_STRUCT/CASE/FIXED use E1+E2 (stable) and E1+E2+E3 (drift); training-situation exclusion includes E3",
+          "why": "implementation detail not fixed in v1"
+        }
+      ],
+      "unchanged": "all PASS thresholds, conditions, budget, measures and the overall verdict rule"
+    }
   ]
 }

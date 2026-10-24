@@ -49,6 +49,7 @@ def name_ext(path):
 class Workspace:
     TOOLS = TOOLS
     CAPABILITY = CAPABILITY
+    drift = frozenset()            # P8b: changed world rules, e.g. {'move_dirs'}; empty = the original world
 
     def __init__(self, root, create=True):
         root = Path(root).absolute()
@@ -137,7 +138,10 @@ class Workspace:
         return True
 
     def _move(self, s, d):
-        if not s.is_file() or d.exists() or d.is_symlink() or not d.parent.is_dir():
+        movable = s.is_file() or ('move_dirs' in self.drift and s.is_dir() and not s.is_symlink())
+        if not movable or d.exists() or d.is_symlink() or not d.parent.is_dir():
+            return False
+        if s.is_dir() and s.resolve() in d.resolve().parents:       # a folder cannot move into itself
             return False
         s.rename(d)
         return True
