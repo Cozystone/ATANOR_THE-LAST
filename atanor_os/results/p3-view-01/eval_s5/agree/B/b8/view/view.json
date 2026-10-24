@@ -1,0 +1,26 @@
+{
+ "cmp": {
+  "filter": "csv",
+  "group": "ext",
+  "kind": "panel",
+  "sort": "name"
+ },
+ "p1": {
+  "filter": "all",
+  "group": "none",
+  "kind": "compare",
+  "sort": "name"
+ },
+ "p2": {
+  "filter": "log",
+  "group": "ext",
+  "kind": "panel",
+  "sort": "size"
+ },
+ "p3": {
+  "filter": "all",
+  "group": "none",
+  "kind": "compare",
+  "sort": "size"
+ }
+}

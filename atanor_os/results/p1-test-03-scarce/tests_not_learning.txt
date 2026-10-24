@@ -1,0 +1,68 @@
+...............FFF..                                                     [100%]
+================================== FAILURES ===================================
+____________________ test_same_learner_induces_view_rules _____________________
+
+tmp_path = WindowsPath('C:/Users/anseo/AppData/Local/Temp/pytest-of-anseo/pytest-105/test_same_learner_induces_view0')
+
+    def test_same_learner_induces_view_rules(tmp_path):
+        exps = explore(2, 300, tmp_path / 'x', policy='contrast', block=view_block)
+        m = RuleModel(exps, spec={'tools': TOOLS, 'docs': VIEW_DOCS})
+        op = m.ops['filter']
+        assert op is not None and op.pre is not None
+>       assert ('kind', (0,), 'panel') in op.pre and ('kind', (1,), 'ext') in op.pre, op.to_json()
+E       AssertionError: {'counter': [], 'dropped': [['filter', [1], '-'], ['group', [0], 'none'], ['group', [1], '-'], ['kind', [1], 'ext'], ['sort', [1], '-'], ['value', [0], '-']], 'effects': [[0, 'filter', ['unknown']]], 'failures': 28, ...}
+E       assert (('kind', (0,), 'panel') in frozenset({('kind', (0,), 'panel')}) and ('kind', (1,), 'ext') in frozenset({('kind', (0,), 'panel')}))
+E        +  where frozenset({('kind', (0,), 'panel')}) = OperatorModel(tool='filter', arity=2, pre=frozenset({('kind', (0,), 'panel')}), effects=[(0, 'filter', ('unknown',))],...'-'), ('group', (0,), 'none'), ('group', (1,), '-'), ('kind', (1,), 'ext'), ('sort', (1,), '-'), ('value', (0,), '-')]).pre
+E        +  and   frozenset({('kind', (0,), 'panel')}) = OperatorModel(tool='filter', arity=2, pre=frozenset({('kind', (0,), 'panel')}), effects=[(0, 'filter', ('unknown',))],...'-'), ('group', (0,), 'none'), ('group', (1,), '-'), ('kind', (1,), 'ext'), ('sort', (1,), '-'), ('value', (0,), '-')]).pre
+
+atanor_os\tests\test_view.py:69: AssertionError
+___________________ test_renderer_draws_exactly_the_layout ____________________
+
+tmp_path = WindowsPath('C:/Users/anseo/AppData/Local/Temp/pytest-of-anseo/pytest-105/test_renderer_draws_exactly_th0')
+
+    def test_renderer_draws_exactly_the_layout(tmp_path):
+        data = _data(tmp_path)
+        spec = {'p1': {'kind': 'panel', 'filter': 'all', 'sort': 'name', 'group': 'ext'},
+                'cmp': {'kind': 'compare', 'filter': 'txt', 'sort': 'size', 'group': 'none'}}
+        validate(spec)
+        with pytest.raises(ValueError):
+            validate({'p9': spec['p1']})
+        with pytest.raises(ValueError):
+            validate({'p1': {**spec['p1'], 'filter': 'exe'}})
+        lay = ui_layout(spec, data)
+        assert lay['p1']['items'][0].startswith('[') and any(x.startswith('L ') for x in lay['cmp']['items'])
+        try:
+            w = render_once(spec, data)
+        except Exception as e:                                        # no display available
+            pytest.skip(f'tkinter unavailable: {e}')
+        for p in spec:
+            assert list(w['lists'][p].get(0, 'end')) == lay[p]['items']
+            btn, action = w['buttons'][p]
+            assert action == ('close', (p,))
+            btn.invoke()
+>       assert w['requested'] == [('close', ('cmp',)), ('close', ('p1',))]
+E       AssertionError: assert [('close', ('...e', ('cmp',))] == [('close', ('...se', ('p1',))]
+E         
+E         At index 0 diff: ('close', ('p1',)) != ('close', ('cmp',))
+E         Use -v to get more diff
+
+atanor_os\tests\test_view.py:93: AssertionError
+_____________________________ test_korean_grammar _____________________________
+
+    def test_korean_grammar():
+        r = parse('p3를 열어, p3에서 md만 보여줘 그리고 p3를 크기순으로 정렬')
+        assert r['goal'] is not None and r['unsupported'] == [] and r['ask'] is None
+>       assert set(r['literals']) >= {('kind', ('p3',), 'panel'), ('filter', ('p3',), 'md'), ('sort', ('p3',), 'size')}
+E       AssertionError: assert {Literal(pred...alue='panel')} >= {('filter', (...3',), 'size')}
+E         
+E         Extra items in the right set:
+E         ('sort', ('p3',), 'size')
+E         ('filter', ('p3',), 'md')
+E         ('kind', ('p3',), 'panel')
+
+atanor_os\tests\test_view.py:100: AssertionError
+=========================== short test summary info ===========================
+FAILED atanor_os/tests/test_view.py::test_same_learner_induces_view_rules - A...
+FAILED atanor_os/tests/test_view.py::test_renderer_draws_exactly_the_layout
+FAILED atanor_os/tests/test_view.py::test_korean_grammar - AssertionError: as...
+3 failed, 17 passed, 3 deselected in 6.39s

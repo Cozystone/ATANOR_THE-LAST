@@ -1,0 +1,47 @@
+{
+  "version": 4,
+  "body": "fs",
+  "frozen_at": "2026-10-24T09:40:00",
+  "supersedes": "v3 (results/p1-test-03-contrast/protocol_used.json; protocol.json stays v3 for the scarce re-execution). v4 keeps every v3 rule and adds the H2 question.",
+  "hypothesis": "H2: macros (pairs of tools whose argument slots are structurally related: same object, or directly under it) extracted from the agent's OWN completed training episodes reduce planning cost on unseen test tasks without losing completion. E = C + 20 training episodes' experience + macros; CT = C + the same training experience without macros, so E-CT isolates the macro effect from the extra experience.",
+  "primary": "planner predictions per episode, E vs CT, paired by (seed, task)",
+  "primary_pair": ["E", "CT"],
+  "primary_metric": "plan_predicted",
+  "max_ratio": 0.7,
+  "max_loss_pp": 2.0,
+  "min_gain_pp": 10.0,
+  "seeds_ge": 4,
+  "max_cost_ratio": 3.0,
+  "decision": "H2 GAIN (VALID_BOUNDED_GAIN) if mean predictions E / mean predictions CT <= max_ratio, the per-seed ratio is <= max_ratio in >= seeds_ge seeds, and E-CT strict completion >= -max_loss_pp; NO GAIN if the ratio >= 1.0 or the completion loss exceeds max_loss_pp; otherwise INCONCLUSIVE. Secondary: C-B (replication of v3 under the same policy and seeds; expected +58 pp), CT-C (value of the 20 training episodes alone), E-C, and rule agreement per condition.",
+  "conditions": "A, B, C, CT, E + ORACLE",
+  "split": "test",
+  "tasks": 20,
+  "seeds": [1, 2, 3, 4, 5],
+  "explore_steps": 300,
+  "policy": "contrast",
+  "train_tasks": 20,
+  "budget": {
+    "actions": 20,
+    "predictions": 400000,
+    "nodes": 600,
+    "depth": 12,
+    "seconds": 180.0
+  },
+  "invalid_if": [
+    "env_errors > 0",
+    "ORACLE completion < 1.0",
+    "semantics check not ok",
+    "validity tests not run or failed",
+    "unreachable task",
+    "label != pre-registered",
+    "source changed during the run (sha256 of the package at start != at end)"
+  ],
+  "known_limits": [
+    "macros are pairs of consecutive tools only, with argument-level structure (eq/child) and no attribute values",
+    "training tasks come from the train split generator (indices 100-119) and are acted by C's frozen rules; CT and E therefore see 20 goal-directed episodes that A, B and C do not",
+    "macro instances enlarge the candidate set at every expansion (each instance costs two predictions); whether depth reduction outweighs the larger branching is exactly the question",
+    "C strict completion is already 0.94 under the contrast policy, so completion cannot show a large gain; the primary measure is therefore cost at no loss",
+    "all v3 known limits apply (blocked structurally 0; B coverage-limited; md objects occur in exploration; dev coverage seen before freezing)"
+  ],
+  "iteration_cap": "P2: H2 is the second of at most 3 single-hypothesis changes (H1 was the first)"
+}

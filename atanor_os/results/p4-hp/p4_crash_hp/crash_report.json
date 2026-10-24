@@ -1,0 +1,71 @@
+{
+ "crash_log": {
+  "restarts": 18,
+  "kills": 17,
+  "natural_exits": 1,
+  "wall_s": 31.342265599996608,
+  "kill_delays": [
+   0.836,
+   2.619,
+   2.409,
+   1.138,
+   1.739,
+   1.624,
+   2.129,
+   2.472,
+   0.735,
+   0.571,
+   2.589,
+   1.582,
+   2.406,
+   0.505,
+   1.613,
+   2.304,
+   1.072
+  ]
+ },
+ "final_summary": {
+  "started_at": 1792802766.7284653,
+  "resumed_episodes": 1,
+  "reconciled": {
+   "done": 1,
+   "not_done": 0,
+   "unknown": 0
+  },
+  "startup_s": 0.07723619999887887,
+  "model_rebuild_s": 0.04239879999659024,
+  "journal_experiences": 125,
+  "update_s": 0.20455539999966277,
+  "updates": 26,
+  "episodes_finished": 40,
+  "episodes_done": 40,
+  "episodes_total": 40,
+  "episode_rows": 40,
+  "completed_rows": 40,
+  "resumed_rows": 9,
+  "journal_bytes": 552960,
+  "unresolved": 0,
+  "action_status": {
+   "reconciled": 2,
+   "verified": 152
+  },
+  "peak_mem_mb": 4.553553,
+  "model": "C",
+  "experiences_now": 451
+ },
+ "verify": {
+  "episodes": 40,
+  "claimed_done": 40,
+  "really_done": 40,
+  "false_done": [],
+  "failed": 0,
+  "running": 0,
+  "unresolved_actions": 0,
+  "action_status": {
+   "reconciled": 2,
+   "verified": 152
+  },
+  "duplicate_action_ids": 0
+ },
+ "ok": true
+}

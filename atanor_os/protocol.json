@@ -1,12 +1,14 @@
 {
-  "version": 2.1,
-  "frozen_at": "2026-10-24T02:56:13",
-  "supersedes": "v1 (frozen 2026-10-24T01:58:40; kept verbatim as results/p1-test-01/metrics.json['protocol']). v1 results are preserved and reported together with the review findings that motivated v2.",
-  "primary": "C-B strict completion (real end state AND no keep violation on the way) on split=test, learning state frozen",
+  "version": 3,
+  "frozen_at": "2026-10-24T08:26:35",
+  "supersedes": "v2.1 (kept in results/p1-test-02/protocol_used.json). v3 keeps every v2.1 rule and adds the H1 acquisition-policy question.",
+  "hypothesis": "H1: a fixed acquisition policy that prefers tools with few successes and, within a tool, untried signatures one literal away from a known success ('contrast') yields rules that fix C's sort/backup failures; 'scarce' (tool weighting only) is the ablation.",
+  "primary": "C strict completion under policy=contrast vs C under policy=novelty (results/p1-test-02), paired by (seed, task); same test split, seeds, budget, 300 steps; computed by `python -m atanor_os compare`",
   "min_gain_pp": 10.0,
   "seeds_ge": 4,
   "max_cost_ratio": 3.0,
-  "secondary": "D-C with the same thresholds, recorded only. D (v2): members vote only when they have evidence; tie = fail; docs fallback only when no member has evidence",
+  "decision": "H1 GAIN if C(contrast)-C(novelty) >= min_gain_pp and seeds_ge >= 4; NO GAIN if <= 0; else INCONCLUSIVE. Secondary: same for scarce; C-B inside each run; rule exactness per tool from model_C.json (known from the dev coverage check: contrast gives exact convert rules in 4/5 seeds).",
+  "conditions": "A, B, C + ORACLE (D omitted: its question was answered in v2 and it costs ~10x)",
   "split": "test",
   "tasks": 20,
   "seeds": [
@@ -24,15 +26,6 @@
     "depth": 12,
     "seconds": 180.0
   },
-  "changes_from_v1": [
-    "convert tasks: output must be content-distinct from every observable file (copy/move cannot satisfy); partial is over literals false at the start",
-    "test split rotates its extension list so md/log/json all occur (v1 never generated json)",
-    "binding search budget = 100000 predictions per plan call (deterministic, identical for all conditions); seconds=180 is a safety guard; stop reason recorded; planner budget exhaustion is reported separately from abstention",
-    "D vote rule: documented-only members abstain (v1 let them vote 'success')",
-    "validity gate: semantics check stratified per (tool, outcome) with >=20 each and a run-derived seed; tests gate excludes learner-performance tests; tests must have run; label must be 'pre-registered'",
-    "primary metric is strict completion; storage per condition; reachability once per task; records written per seed; source sha256 + git state recorded",
-    "v2.1 (before any v2 learner run): prediction cap 100k -> 400k because the evaluator's ORACLE solved only 16/20 test tasks at 100k (depth-2 sort tasks need ~750 actions per expansion); at 400k ORACLE solves 20/20 with 0 budget stops"
-  ],
   "invalid_if": [
     "env_errors > 0",
     "ORACLE completion < 1.0",
@@ -44,6 +37,8 @@
   "known_limits": [
     "blocked is structurally 0 (the planner never proposes capability-gated tools)",
     "B is exact-signature retrieval and therefore coverage-limited; C-B mixes rule induction with generalization beyond the explored signatures (docs_share column makes this visible)",
-    "md objects already occur during exploration (POOL); what is new in test: object and directory names, 3-4 files, extensions log/json, depth-2 target chains, more required steps"
-  ]
+    "md objects already occur during exploration (POOL); what is new in test: object and directory names, 3-4 files, extensions log/json, depth-2 target chains, more required steps",
+    "the dev coverage check used the same exploration seeds as the test run, so rule-exactness outcomes were seen before freezing; test-task completion was not"
+  ],
+  "iteration_cap": "P2 allows at most 3 single-hypothesis changes (H1 is the first)"
 }

@@ -1,0 +1,69 @@
+{
+ "k": 20,
+ "seed": 1004,
+ "cells": {
+  "open:success": 20,
+  "open:failure": 20,
+  "close:success": 20,
+  "close:failure": 20,
+  "filter:success": 20,
+  "filter:failure": 20,
+  "sort:success": 20,
+  "sort:failure": 20,
+  "group:success": 20,
+  "group:failure": 20,
+  "compare:success": 20,
+  "compare:failure": 20
+ },
+ "per_tool": {
+  "open": {
+   "checks": 40,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "docs": 0
+  },
+  "close": {
+   "checks": 40,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "docs": 4
+  },
+  "filter": {
+   "checks": 40,
+   "fp": 17,
+   "fn": 0,
+   "eff": 0,
+   "docs": 26
+  },
+  "sort": {
+   "checks": 40,
+   "fp": 16,
+   "fn": 0,
+   "eff": 0,
+   "docs": 26
+  },
+  "group": {
+   "checks": 40,
+   "fp": 17,
+   "fn": 0,
+   "eff": 0,
+   "docs": 24
+  },
+  "compare": {
+   "checks": 40,
+   "fp": 16,
+   "fn": 0,
+   "eff": 1,
+   "docs": 17
+  }
+ },
+ "exact_tools": [
+  "close",
+  "open"
+ ],
+ "n_exact": 2,
+ "n_tools": 6,
+ "filled": true
+}

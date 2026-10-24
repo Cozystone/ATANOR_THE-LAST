@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "body": "view",
+  "frozen_at": "2026-10-24T09:40:00",
+  "hypothesis": "H3 (transfer): the learner, planner and acquisition policy that produced the filesystem results, with no body-specific code, acquire the view body's tool rules from 600 exploration steps and act on unseen test tasks (target panel p3, extensions md/log/json and key ext as goals, a busier start screen) at least as well as exact-signature retrieval (B).",
+  "primary": "C strict completion vs B, paired by (seed, task)",
+  "primary_pair": ["C", "B"],
+  "primary_metric": "completion",
+  "min_gain_pp": 10.0,
+  "seeds_ge": 4,
+  "max_cost_ratio": 3.0,
+  "decision": "VALID_BOUNDED_GAIN / VALID_NO_GAIN (C-B <= 0) / VALID_INCONCLUSIVE exactly as in protocol.json v3. Expectation stated before the run, from the dev split (seed 1: A = B = C = 12/12): completion saturates on this body, so VALID_NO_GAIN is the likely verdict and the transfer claim rests on the secondary measures below, frozen here before any test task is run.",
+  "secondary": {
+    "rule_agreement": "per (seed, condition) the frozen model is checked against the evaluator's true semantics on fresh train-distribution situations, >= 20 per (tool, true outcome) cell (eval.oracle.rule_agreement): fp = predicted success where the tool really failed, fn = predicted failure where it succeeded, eff = wrong predicted attributes. A tool counts as learned when fp = fn = eff = 0. Transfer claim for the body: C has >= 5 of 6 tools learned in >= 4 of 5 seeds; A (documentation only) is expected to show fp > 0 on filter/group/compare/sort and B to answer from documentation on a large share of fresh situations.",
+    "waste": "no-op real actions per episode, C vs A and C vs B (A acts on optimistic documentation and is expected to waste actions)",
+    "cost": "exploration 600 steps per seed, model build seconds, wall seconds per episode, journal bytes"
+  },
+  "conditions": "A, B, C + ORACLE (D omitted as in v3)",
+  "split": "test",
+  "tasks": 20,
+  "seeds": [1, 2, 3, 4, 5],
+  "explore_steps": 600,
+  "policy": "contrast-kind",
+  "budget": {
+    "actions": 20,
+    "predictions": 400000,
+    "nodes": 600,
+    "depth": 12,
+    "seconds": 180.0
+  },
+  "invalid_if": [
+    "env_errors > 0",
+    "ORACLE completion < 1.0",
+    "semantics check not ok",
+    "validity tests not run or failed",
+    "unreachable task",
+    "label != pre-registered",
+    "source changed during the run (sha256 of the package at start != at end)"
+  ],
+  "known_limits": [
+    "value objects ext:md/log/json, key:ext and panel p3 exist in the exploration universe (as md existed in the filesystem POOL); what is new in test are the tasks: target p3, those extensions and key as goals, two open panels with one filtered at the start, 7 focus / 7 regroup / 6 compare",
+    "the documentation given to every condition is nearly complete for this body (missing: all preconditions, compare's inherited filter/sort), so A can succeed by trial and error within 20 actions; completion is therefore not expected to separate conditions",
+    "tasks need at most 3 actions; the body does not test deep planning",
+    "dev-split results (A = B = C = 12/12, seed 1) and dev coverage of the policies novelty/contrast-role/contrast-kind were seen before freezing; no test task was run",
+    "learner v3 (type groups), v4 (effect language: copies of any attribute) and the contrast-kind policy were developed on this body's dev split after the v3 filesystem runs; the filesystem C episodes were re-checked bit-identical under v4 (DECISIONS.md)"
+  ],
+  "iteration_cap": "one pre-registered run; any change after seeing test results goes to protocol_view.json version 2"
+}

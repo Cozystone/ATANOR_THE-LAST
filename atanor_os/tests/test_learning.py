@@ -8,6 +8,8 @@ from atanor_os.eval.explore import explore
 from atanor_os.eval.generator import make_task
 from atanor_os.eval.oracle import TrueModel, reachable
 
+import pytest
+
 
 def O(kind, ext='txt', h='-', pk='dir'):
     return {'kind': kind, 'ext': ext, 'hash': h, 'parent_kind': pk}
@@ -17,6 +19,8 @@ def X(i, args, pre, post, ok):
     return Experience(f'x{i}', 'copy', args, pre, post, ok)
 
 
+@pytest.mark.learning
+@pytest.mark.fs
 def test_precondition_induction_on_controlled_contrasts():
     s1 = {'a.txt': O('file', 'txt', 'h1'), 'd': O('dir', '-'), 'd/b.txt': O('absent', 'txt')}
     s2 = {'c.csv': O('file', 'csv', 'h2'), 'e.csv': O('absent', 'csv')}
@@ -38,6 +42,8 @@ def test_precondition_induction_on_controlled_contrasts():
     assert op2.status == 'unseparable' and op2.counter == ['x6'] and op2.pre == op.pre
 
 
+@pytest.mark.learning
+@pytest.mark.fs
 def test_rule_from_real_exploration_has_true_effects(tmp_path):
     exps = explore(99, 300, tmp_path / 'x')
     op = learn_operator('copy', 2, [e for e in exps if e.tool == 'copy'])
@@ -46,6 +52,8 @@ def test_rule_from_real_exploration_has_true_effects(tmp_path):
     assert (1, 'kind', ('const', 'file')) in op.effects and (1, 'hash', ('copy', 0)) in op.effects
 
 
+@pytest.mark.learning
+@pytest.mark.fs
 def test_oracle_solves_dev_task_and_models_run(tmp_path):
     exps = explore(7, 120, tmp_path / 'x')
     ws, goal, meta = make_task(0, 'dev', tmp_path / 'ws')

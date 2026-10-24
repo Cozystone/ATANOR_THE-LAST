@@ -1,0 +1,59 @@
+{
+ "k": 20,
+ "seed": 1003,
+ "cells": {
+  "mkdir:success": 20,
+  "mkdir:failure": 20,
+  "copy:success": 20,
+  "copy:failure": 20,
+  "move:success": 20,
+  "move:failure": 20,
+  "delete:success": 20,
+  "delete:failure": 20,
+  "convert:success": 20,
+  "convert:failure": 20
+ },
+ "per_tool": {
+  "mkdir": {
+   "checks": 40,
+   "fp": 6,
+   "fn": 0,
+   "eff": 0,
+   "docs": 6
+  },
+  "copy": {
+   "checks": 40,
+   "fp": 15,
+   "fn": 0,
+   "eff": 0,
+   "docs": 26
+  },
+  "move": {
+   "checks": 40,
+   "fp": 15,
+   "fn": 0,
+   "eff": 0,
+   "docs": 27
+  },
+  "delete": {
+   "checks": 40,
+   "fp": 0,
+   "fn": 0,
+   "eff": 0,
+   "docs": 0
+  },
+  "convert": {
+   "checks": 40,
+   "fp": 10,
+   "fn": 0,
+   "eff": 20,
+   "docs": 10
+  }
+ },
+ "exact_tools": [
+  "delete"
+ ],
+ "n_exact": 1,
+ "n_tools": 5,
+ "filled": true
+}

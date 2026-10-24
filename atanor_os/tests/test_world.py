@@ -4,6 +4,7 @@ import pytest
 from atanor_os.world.fs_world import Workspace
 
 
+@pytest.mark.fs
 def test_bad_paths_rejected(tmp_path):
     ws = Workspace(tmp_path / 'w')
     for bad in ('../x', '/abs', 'a\\b', 'a//b', '', 'a/./b', 'C:x', ' a'):
@@ -11,6 +12,7 @@ def test_bad_paths_rejected(tmp_path):
             ws.path(bad)
 
 
+@pytest.mark.fs
 def test_tool_semantics_and_observation(tmp_path):
     ws = Workspace(tmp_path / 'w')
     caps = {'destroy': True}

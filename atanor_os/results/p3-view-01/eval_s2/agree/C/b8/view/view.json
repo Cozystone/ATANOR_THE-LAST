@@ -1,0 +1,26 @@
+{
+ "cmp": {
+  "filter": "all",
+  "group": "none",
+  "kind": "compare",
+  "sort": "ext"
+ },
+ "p1": {
+  "filter": "md",
+  "group": "none",
+  "kind": "panel",
+  "sort": "size"
+ },
+ "p2": {
+  "filter": "all",
+  "group": "ext",
+  "kind": "panel",
+  "sort": "name"
+ },
+ "p3": {
+  "filter": "log",
+  "group": "ext",
+  "kind": "panel",
+  "sort": "size"
+ }
+}

@@ -47,6 +47,9 @@ def name_ext(path):
 
 
 class Workspace:
+    TOOLS = TOOLS
+    CAPABILITY = CAPABILITY
+
     def __init__(self, root, create=True):
         root = Path(root).absolute()
         if create:

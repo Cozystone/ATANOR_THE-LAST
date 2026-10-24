@@ -1,23 +1,27 @@
-"""Condition models behind one interface: predict(state, tool, args) -> (post_state | None, status).
+"""Condition models behind one interface: predict(state, tool, args, sig=None) -> (post_state | None, status).
 
 A docs only · B exact-signature retrieval · C induced rules (then B, then docs) · D council of three C's.
 status ends with 'documented' when the prediction rests on documentation alone.
+Body-generic since P3: a model takes a `spec` = {'tools': {name: arity}, 'docs': {name: {'effects': [...]}}}
+(default: the filesystem body).
 """
 from ..world.fs_world import TOOLS
 from .bootstrap import DOCS
 from .lift import apply_effects, lifted_effects, lifted_pre
 from .rule_learner import learn_operator
 
+FS_SPEC = {'tools': TOOLS, 'docs': DOCS, 'type_attrs': ('kind',)}
+
 
 class DocModel:
     """A: documented effects only; every syntactically valid action is assumed to succeed."""
     name = 'A'
 
-    def __init__(self, experiences=()):
-        pass
+    def __init__(self, experiences=(), spec=None):
+        self.spec = spec or FS_SPEC
 
     def predict(self, state, tool, args, sig=None):
-        return apply_effects(state, args, DOCS[tool]['effects']), 'documented'
+        return apply_effects(state, args, self.spec['docs'][tool]['effects']), 'documented'
 
     def update(self, exp):
         pass
@@ -30,7 +34,8 @@ class RetrievalModel(DocModel):
     """B: exact lifted-signature retrieval of past outcomes (majority); docs when nothing matches."""
     name = 'B'
 
-    def __init__(self, experiences=()):
+    def __init__(self, experiences=(), spec=None):
+        super().__init__(experiences, spec)
         self.index = {}
         for e in experiences:
             self._index(e)
@@ -67,16 +72,16 @@ class RuleModel(RetrievalModel):
     """C: induced operator rules first, then B's retrieval, then docs."""
     name = 'C'
 
-    def __init__(self, experiences=()):
-        super().__init__(experiences)
+    def __init__(self, experiences=(), spec=None):
+        super().__init__(experiences, spec)
         self.experiences = [e for e in experiences if not e.blocked]
         self.ops = {}
         self.relearn()
 
     def relearn(self, tools=None):
-        for t in (tools or TOOLS):
+        for t in (tools or self.spec['tools']):
             exps = [e for e in self.experiences if e.tool == t]
-            self.ops[t] = learn_operator(t, TOOLS[t], exps) if exps else None
+            self.ops[t] = learn_operator(t, self.spec['tools'][t], exps, self.spec.get('type_attrs', ('kind',))) if exps else None
 
     def update(self, exp):
         super().update(exp)
@@ -87,9 +92,10 @@ class RuleModel(RetrievalModel):
     def predict(self, state, tool, args, sig=None):
         sig = lifted_pre(state, args) if sig is None else sig
         op = self.ops.get(tool)
-        if op is not None and op.pre is not None:
-            if op.pre <= sig:
-                return apply_effects(state, args, op.effects), 'learned'
+        if op is not None and op.groups:
+            eff = op.match(sig)
+            if eff is not None:
+                return apply_effects(state, args, eff), 'learned'
             return None, 'learned_fail'
         return super().predict(state, tool, args, sig)
 
@@ -109,9 +115,10 @@ class CouncilModel(DocModel):
     name = 'D'
     RANK = {'learned': 0, 'retrieved': 1, 'documented': 2}
 
-    def __init__(self, experiences=()):
+    def __init__(self, experiences=(), spec=None):
+        super().__init__(experiences, spec)
         exps = [e for e in experiences if not e.blocked]
-        self.members = [RuleModel(exps[i::3]) for i in range(3)]
+        self.members = [RuleModel(exps[i::3], self.spec) for i in range(3)]
         self.votes = self.disagreements = self.no_evidence = self.updates = 0
 
     def reset_stats(self):

@@ -45,10 +45,11 @@ test 과제 20개(id 0–19 고정, 템플릿 균등) × 경험 seed 5개(1–5)
 ## 반드시 보고할 지표
 완수율(평가기가 실제 상태로 판정), 부분 충족, keep 위반 수, 행동 수, no-op 수, 보류 수, 예산 초과 수, 환경 오류 수, 차단된 제안 수, 예측 오류 수/예측 수, 조건별 wall·CPU·최대 메모리(tracemalloc)·저장 증가량, 학습 비용(모델 구축 시간) 별도, 템플릿별 완수율, C−B 과제별·seed별 paired 차이.
 
-## 판정 규칙 (값은 protocol.json에 동결. 동결 전엔 EXPLORATORY)
-- 완수(primary) = 평가기가 실제 끝 상태로 판정 **그리고** 도중 keep 위반 없음(v2 엄격 정의).
+## 판정 규칙 (값은 몸별 프로토콜 파일에 동결 — `protocol.json`=fs, `protocol_view.json`=view, 또는 `--protocol`. 동결 전엔 EXPLORATORY)
+- 완수(primary) = 평가기가 실제 끝 상태로 판정 **그리고** 도중 keep 위반 없음(v2 엄격 정의). v4(H2)부터 프로토콜이 `primary_pair`(기본 C,B)와 `primary_metric`(`completion` 또는 `plan_predicted`: 예측 횟수 비 ≤ `max_ratio` & 완수 손실 ≤ `max_loss_pp`)을 지정할 수 있다.
 - 라벨이 `pre-registered`가 아니면 판정하지 않는다(`REPLICATION` / `EXPLORATORY`).
-- INVALID: 환경 오류 > 0, ORACLE 완수율 < 100 %, 의미 일치 검사 실패(도구×결과 셀당 ≥ 20, 실행별 seed), 유효성 테스트(학습기 성능 테스트 제외) 미실행·실패, 과제 도달 불가.
+- INVALID: 환경 오류 > 0, ORACLE 완수율 < 100 %, 의미 일치 검사 실패(도구×결과 셀당 ≥ 20, 실행별 seed), 유효성 게이트 미실행·실패, 과제 도달 불가, **실행 중 소스 sha256 변화**, **프로토콜의 설계 파라미터와 실행 인자 불일치**(split·explore_steps·policy·tasks·seeds·body·budget·train_tasks·conditions_list 중 프로토콜에 있는 것).
+- 유효성 게이트(2026-10-24 검토 2차 이후) = pytest 마커 식 `not learning and not timing and not <다른 몸>`: 학습기 성능 단정(`learning`), 시간 의존 프로세스 시험(`timing`), 다른 몸 전용 시험은 판정에 쓰지 않고 `learner_tests_passed`로 따로 기록한다. 이유: scarce 1차 실행이 fs와 무관한 화면 몸 테스트의 일시적 실패로 INVALID가 됐다.
 - VALID_BOUNDED_GAIN: C−B 평균 완수율 ≥ `min_gain_pp` **그리고** seed 중 C ≥ B인 수 ≥ `seeds_ge` **그리고** C의 에피소드 평균 wall ≤ `max_cost_ratio` × B.
 - VALID_NO_GAIN: C−B ≤ 0.
 - 그 외: VALID_INCONCLUSIVE.
@@ -57,4 +58,6 @@ test 과제 20개(id 0–19 고정, 템플릿 균등) × 경험 seed 5개(1–5)
 ## 동결 기록
 **v1** (2026-10-24 01:58:40, `results/p1-test-01/metrics.json → protocol`에 원문 보존): `min_gain_pp = 10`, `seeds_ge = 4/5`, `max_cost_ratio = 3.0`. 계획 시간 상한 10 s. dev 예비 측정(`runs/dev1`, 2 seed × 12 dev 과제): A 0.083 · B 0.375 · C 1.000 · D 0.375 · ORACLE 1.000(dev는 train 분포, 일반화 증거 아님). dev 후 변경 3건(시간 상한 5→10 s, 의결 서명 계산 공유, 탐색 200→300·서명 반복 2회)은 test 실행 전에 적용.
 
-**v2** (`protocol.json` 참조, v1 실행이 끝난 뒤 별도 실행 `results/p1-test-02`): 독립 검토(`results/magi-review-01.json`, 검토자 3 + 반박 2표, 19건 확정)로 드러난 **평가기 결함**을 고친 새 실험이다. v1 결과를 본 뒤의 변경이므로 v1을 대체하지 않고 둘 다 보고한다. 변경 목록은 `protocol.json: changes_from_v1`. 학습기(C의 규칙 유도)는 변경하지 않았다.
+**v3 — P2 첫 가설 H1(획득 정책)** (`protocol.json` version 3; `results/p1-test-03-contrast`, `-scarce`): 탐색 정책을 "성공 희소 도구 우선(1/(1+성공수) 가중) + 성공 서명과 리터럴 하나만 다른 미경험 서명 우선"으로 바꾼다(`eval/explore.py::explore(policy='contrast')`). 학습기를 참조하지 않는 고정 정책. 1차 판정은 **같은 조건 C를 정책 간 paired 비교**(`python -m atanor_os compare --a <v3> --b results/p1-test-02 --cond C`), 기준은 v2와 동일(≥ 10 pp, seed 4/5). `scarce`(도구 가중만)는 절제. D 제외. dev 커버리지 검사(train 로그, test 미접촉): contrast에서 convert 규칙 정확 4/5, move 5/5; novelty는 convert 0/5, move 4/5. P2 가설 변경 상한 3회 중 1회째.
+
+**v2** (`protocol.json` v2.1은 `results/p1-test-02/protocol_used.json`에 보존, v1 실행이 끝난 뒤 별도 실행 `results/p1-test-02`): 독립 검토(`results/magi-review-01.json`, 검토자 3 + 반박 2표, 19건 확정)로 드러난 **평가기 결함**을 고친 새 실험이다. v1 결과를 본 뒤의 변경이므로 v1을 대체하지 않고 둘 다 보고한다. 변경 목록은 `protocol.json: changes_from_v1`. 학습기(C의 규칙 유도)는 변경하지 않았다.

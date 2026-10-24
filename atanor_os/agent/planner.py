@@ -12,18 +12,21 @@ import heapq
 import itertools
 import time
 
-from ..world.fs_world import CAPABILITY
+from ..world.fs_world import CAPABILITY as FS_CAPABILITY
+from .lift import DERIVED_ATTRS
 
 
 def canon(state):
-    return tuple(sorted((p, o['kind'], o['ext'], o['hash']) for p, o in state.items()))
+    """Canonical state key over non-derived attributes (body-generic)."""
+    return tuple(sorted((p, tuple(sorted((k, v) for k, v in o.items() if k not in DERIVED_ATTRS)))
+                        for p, o in state.items()))
 
 
 def unsatisfied(state, goal):
     return sum(not l.holds(state) for l in goal.must)
 
 
-def plan(state, goal, model, actions, avoid=frozenset()):
+def plan(state, goal, model, actions, avoid=frozenset(), capability=FS_CAPABILITY):
     b = goal.budget
     cap = b.get('predictions', 10 ** 9)
     t0 = time.perf_counter()
@@ -49,20 +52,26 @@ def plan(state, goal, model, actions, avoid=frozenset()):
             if stats['predicted'] >= cap:
                 stats['stop'] = 'predictions'
                 break
-            c = CAPABILITY.get(tool)
-            if c and not goal.capabilities.get(c):
+            steps = args if tool == 'macro' else ((tool, args),)
+            if any(capability.get(t) and not goal.capabilities.get(capability[t]) for t, _ in steps):
                 continue
-            if not path and (tool, args) in avoid:
+            if not path and steps[0] in avoid:
                 continue
-            post, status = model.predict(s, tool, args)
-            stats['predicted'] += 1
-            if post is None or any(not l.holds(post) for l in goal.keep):
+            post, cost = s, 0.0
+            for t, a in steps:                       # a macro is predicted step by step, keep checked on the way
+                post, status = model.predict(post, t, a)
+                stats['predicted'] += 1
+                if post is None or any(not l.holds(post) for l in goal.keep):
+                    post = None
+                    break
+                cost += 1 + (0.5 if status.endswith('documented') else 0.0)
+            if post is None:
                 continue
             key = canon(post)
             if key in seen:
                 continue
             seen.add(key)
-            g2 = g + 1 + (0.5 if status.endswith('documented') else 0.0)
+            g2 = g + cost
             h = unsatisfied(post, goal)
             p2 = path + [(tool, args)]
             if h == 0:

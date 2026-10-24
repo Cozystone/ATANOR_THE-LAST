@@ -24,9 +24,12 @@ def paired(xs, ys):
     seeds = sorted({r['seed'] for r in xs})
     pt = {t: 100 * (rate(xs, task=t) - rate(ys, task=t)) for t in tasks if rate(ys, task=t) is not None}
     ps = {s: 100 * (rate(xs, seed=s) - rate(ys, seed=s)) for s in seeds if rate(ys, seed=s) is not None}
+    pred = lambda rs: mean(r.get('plan_predicted', 0) for r in rs)
+    pr = {s: pred([r for r in xs if r['seed'] == s]) / max(pred([r for r in ys if r['seed'] == s]), 1e-9) for s in seeds}
     return {'mean_pp': 100 * (rate(xs) - rate(ys)), 'tasks_pos': sum(v > 0 for v in pt.values()),
             'tasks_neg': sum(v < 0 for v in pt.values()), 'tasks_zero': sum(v == 0 for v in pt.values()),
-            'seeds_ge': sum(v >= 0 for v in ps.values()), 'seeds': len(ps), 'per_task_pp': pt, 'per_seed_pp': ps}
+            'seeds_ge': sum(v >= 0 for v in ps.values()), 'seeds': len(ps), 'per_task_pp': pt, 'per_seed_pp': ps,
+            'pred_ratio': pred(xs) / max(pred(ys), 1e-9), 'per_seed_pred_ratio': pr}
 
 
 def summarize(records, protocol=None, checks=None, learn_costs=None, env=None, sizes=None):
@@ -60,13 +63,14 @@ def summarize(records, protocol=None, checks=None, learn_costs=None, env=None, s
             'plan_predicted': mean(r.get('plan_predicted', 0) for r in rs),
             'peak_mem_mb': max((r.get('peak_mem') or 0 for r in rs), default=0) / 1e6,
             'status_counts': sc, 'plan_stops': stops,
+            'macro_steps': sum(r.get('macro_steps', 0) for r in rs),
             'by_template': {t: mean(strict(r) for r in rs if r['template'] == t)
                             for t in sorted({r['template'] for r in rs})},
             'council': ({'disagreement': mean(x['disagreements'] / max(1, x['votes']) for x in council),
                          'no_evidence': mean(x.get('no_evidence', 0) / max(1, x['votes']) for x in council)}
                         if council else None),
         }
-    for x, y in (('C', 'B'), ('B', 'A'), ('C', 'A'), ('D', 'C')):
+    for x, y in (('C', 'B'), ('B', 'A'), ('C', 'A'), ('D', 'C'), ('E', 'C'), ('E', 'CT'), ('CT', 'C')):
         if x in by and y in by:
             s['paired'][f'{x}-{y}'] = paired(by[x], by[y])
     s['verdict'] = verdict(s, protocol)
@@ -82,11 +86,21 @@ def verdict(s, protocol):
         return 'EXPLORATORY'
     invalid = (any(v['env_errors'] for v in c.values()) or ck.get('semantics_ok') is not True
                or ck.get('unreachable', 0) > 0 or ck.get('tests_passed') is not True
+               or ck.get('source_changed_during_run') is True or bool(ck.get('protocol_mismatch'))
                or ('ORACLE' in c and c['ORACLE']['completion'] < 1.0))
-    if invalid or 'C-B' not in s['paired']:
+    x, y = protocol.get('primary_pair', ('C', 'B'))               # v1-v3 protocols: C vs B on completion
+    pair = f'{x}-{y}'
+    if invalid or pair not in s['paired']:
         return 'INVALID'
-    p = s['paired']['C-B']
-    ratio = c['C']['wall_s'] / max(c['B']['wall_s'], 1e-9)
+    p = s['paired'][pair]
+    if protocol.get('primary_metric', 'completion') == 'plan_predicted':       # H2: planning cost at no loss
+        ok_seeds = sum(v <= protocol['max_ratio'] for v in p['per_seed_pred_ratio'].values())
+        if p['pred_ratio'] <= protocol['max_ratio'] and ok_seeds >= protocol['seeds_ge'] and p['mean_pp'] >= -protocol['max_loss_pp']:
+            return 'VALID_BOUNDED_GAIN'
+        if p['pred_ratio'] >= 1.0 or p['mean_pp'] < -protocol['max_loss_pp']:
+            return 'VALID_NO_GAIN'
+        return 'VALID_INCONCLUSIVE'
+    ratio = c[x]['wall_s'] / max(c[y]['wall_s'], 1e-9)
     if (p['mean_pp'] >= protocol['min_gain_pp'] and p['seeds_ge'] >= protocol['seeds_ge']
             and ratio <= protocol['max_cost_ratio']):
         return 'VALID_BOUNDED_GAIN'
@@ -102,6 +116,27 @@ def secondary(s, protocol):
     if p['mean_pp'] >= protocol['min_gain_pp'] and p['seeds_ge'] >= protocol['seeds_ge']:
         return 'council gain'
     return 'no council gain' if p['mean_pp'] <= 0 else 'council inconclusive'
+
+
+def _costs(lc):
+    """learn_cost_s without the nested agreement records (reported in their own table)."""
+    return {sd: {c: ({k: v for k, v in d.items() if k != 'agreement'} if isinstance(d, dict) else d) for c, d in cs.items()}
+            for sd, cs in lc.items()}
+
+
+def agreement_rows(s):
+    """(seed, condition, exact tools, fp, fn, eff, docs share) from the per-condition rule_agreement records."""
+    rows = []
+    for sd, cs in s.get('learn_cost_s', {}).items():
+        for c, d in cs.items():
+            ag = d.get('agreement') if isinstance(d, dict) else None
+            if not ag:
+                continue
+            tot = {k: sum(v.get(k, 0) for v in ag['per_tool'].values()) for k in ('checks', 'fp', 'fn', 'eff', 'unk', 'docs', 'near_checks', 'near_fp')}
+            tot['filled'] = ag.get('filled')
+            tot['strict'] = f"{ag.get('n_strict', '-')}/{ag['n_tools']}"
+            rows.append((str(sd), c, f"{ag['n_exact']}/{ag['n_tools']}", ' '.join(ag['exact_tools']) or '-', tot))
+    return rows
 
 
 def report(s):
@@ -129,11 +164,19 @@ def report(s):
     for k, p in s['paired'].items():
         L.append(f"| {k} | {p['mean_pp']:+.1f} | {p['tasks_pos']}/{p['tasks_zero']}/{p['tasks_neg']} | "
                  f"{p['seeds_ge']}/{p['seeds']} | {', '.join(f'{sd}:{v:+.0f}' for sd, v in p['per_seed_pp'].items())} |")
+    rows = agreement_rows(s)
+    if rows:
+        L += ['', '## 규칙 일치 — 고정 모델 vs 진실 의미론 (seed별 새 상황, 셀당 ≥ 20; fp=성공 오예측, fn=실패 오예측, eff=효과 오예측, unk=효과 미정, near=성공과 인자 하나 차이인 실패)', '',
+              '| seed | 조건 | 정확 도구 | 엄격 도구 | 어떤 도구(정확) | 검사 | fp | fn | eff | unk | near 검사 | near fp | 설명서 답 | 셀 충족 |',
+              '|---|---|---:|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---|']
+        for sd, c_, ne, tools, tot in rows:
+            L.append(f"| {sd} | {c_} | {ne} | {tot['strict']} | {tools} | {tot['checks']} | {tot['fp']} | {tot['fn']} | {tot['eff']} | {tot['unk']} | "
+                     f"{tot['near_checks']} | {tot['near_fp']} | {tot['docs']} | {tot['filled']} |")
     L += ['', '## 예측 근거와 탐색 정지 이유', '']
     for k, v in c.items():
         extra = f"  의결: {json.dumps(v['council'])}" if v.get('council') else ''
         L.append(f"- {k}: status `{json.dumps(v['status_counts'])}`  stops `{json.dumps(v['plan_stops'])}`{extra}")
-    L += ['', f"학습 비용(모델 구축 s, seed별): `{json.dumps(s['learn_cost_s'])}`",
+    L += ['', f"학습 비용(모델 구축 s, seed별): `{json.dumps(_costs(s['learn_cost_s']))}`",
           f"저장(journal bytes, seed→조건): `{json.dumps(s['storage'])}`", '',
           '## 주장할 수 없는 것', '',
           '- 위 수치는 생성된 소형 파일 과제에서의 결과다. 자유 언어, UI, 실제 사용자 자료, 자기수정, AGI·의식에 대한 증거가 아니다.',

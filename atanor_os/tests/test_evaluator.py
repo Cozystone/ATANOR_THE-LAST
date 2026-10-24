@@ -8,7 +8,10 @@ from atanor_os.eval.generator import EXT, make_task
 from atanor_os.eval.oracle import TrueModel, reachable, semantic_check
 from atanor_os.world.fs_world import Workspace, name_ext
 
+import pytest
 
+
+@pytest.mark.fs
 def test_convert_tasks_cannot_be_completed_by_copying(tmp_path):
     """Review finding: v1 convert goals were satisfied by copying any file. v2 goals must reject that."""
     seen = 0
@@ -31,6 +34,7 @@ def test_convert_tasks_cannot_be_completed_by_copying(tmp_path):
     assert seen >= 2
 
 
+@pytest.mark.fs
 def test_test_split_actually_uses_new_extensions(tmp_path):
     exts = set()
     for i in range(20):
@@ -40,6 +44,7 @@ def test_test_split_actually_uses_new_extensions(tmp_path):
     assert set(EXT['test']) == {'txt', 'csv', 'md', 'log', 'json'}
 
 
+@pytest.mark.fs
 def test_planner_reports_budget_stop_reasons(tmp_path):
     ws, goal, _ = make_task(1, 'dev', tmp_path / 'w')
     state = ws.observe(goal.universe)
@@ -57,6 +62,7 @@ def test_planner_reports_budget_stop_reasons(tmp_path):
     j.close()
 
 
+@pytest.mark.fs
 def test_council_votes_only_with_evidence():
     from atanor_os.tests.test_learning import O, X
     s1 = {'a.txt': O('file', 'txt', 'h1'), 'd': O('dir', '-'), 'd/b.txt': O('absent', 'txt')}
@@ -72,6 +78,7 @@ def test_council_votes_only_with_evidence():
     assert status3 == 'council_documented' and m.stats()['no_evidence'] == 1
 
 
+@pytest.mark.fs
 def test_semantic_check_covers_every_tool_and_outcome(tmp_path):
     r = semantic_check(5, seed=11, root=tmp_path / 'sem')
     assert r['ok'], r
