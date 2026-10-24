@@ -1,0 +1,23 @@
+{"t": 1792855255.776, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["dahlia1.txt", "keep/dahlia1.txt"]]]}
+{"t": 1792855255.861, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792855255.869, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792855255.87, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792855255.942, "event": "ask_check", "unknown": ["move"], "ok": false}
+{"t": 1792855255.942, "event": "ask_explain", "word": "move", "answer": null, "learned": false}
+{"t": 1792855255.956, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["nutmeg1.csv", "stack/nutmeg1.csv"]]]}
+{"t": 1792855256.257, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792855256.598, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792855261.972, "event": "experiment_resolved", "lab_actions": 2}
+{"t": 1792855262.131, "event": "surprise", "task": "d3-t0", "action": ["copy", ["dahlia2.log", "mirror/dahlia2.log"]], "predicted_ok": true, "ok": false}
+{"t": 1792855262.172, "event": "reverify", "tool": "copy", "replayed": "home-19", "ok": false}
+{"t": 1792855262.172, "event": "world_change", "tool": "copy", "set_aside_before": 32}
+{"t": 1792855277.842, "event": "experiment_resolved", "lab_actions": 28}
+{"t": 1792855280.426, "event": "surprise", "task": "d3-t0", "action": ["move", ["mirror", "mirror/dahlia2.log"]], "predicted_ok": true, "ok": false}
+{"t": 1792855280.477, "event": "reverify", "tool": "move", "replayed": "home-26", "ok": true}
+{"t": 1792855291.618, "event": "experiment_budget_spent"}
+{"t": 1792855291.686, "event": "stuck", "task": "d3-t0"}
+{"t": 1792855291.694, "event": "wrong", "task": "d3-t0", "interp": {"pid": "b9f36a029b", "selected": ["dahlia2.log", "ember3.log", "russet2.log", "yarrow3.log"], "dest": "mirror"}}
+{"t": 1792855333.648, "event": "experiment_budget_spent"}
+{"t": 1792855333.648, "event": "stuck", "task": "d4-t0"}
+{"t": 1792855341.545, "event": "experiment_budget_spent"}
+{"t": 1792855341.545, "event": "stuck", "task": "d4-t3"}

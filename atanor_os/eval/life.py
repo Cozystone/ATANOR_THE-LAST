@@ -92,7 +92,24 @@ DAYS_D = [                                   # third held-out scenario; no task 
         {'command': 'Copy the log files to a folder named vault.', 'tool': 'copy', 'ext': 'log', 'dest': 'vault'},
         {'command': 'Move the csv files into a folder called bay.', 'tool': 'move', 'ext': 'csv', 'dest': 'bay'}]},
 ]
-SCENARIOS = {'A': DAYS, 'B': DAYS_B, 'C': DAYS_C, 'D': DAYS_D}
+DAYS_E = [                                   # the world changes on day 3: copy stops working, a new tool appears
+    {'day': 1, 'user': True, 'tasks': [
+        {'command': 'Copy the txt files into a folder called keep.', 'tool': 'copy', 'ext': 'txt', 'dest': 'keep'},
+        {'command': 'Delete the log files.', 'tool': 'delete', 'ext': 'log', 'dest': None},
+        {'command': 'Move the csv files into a folder called stack.', 'tool': 'move', 'ext': 'csv', 'dest': 'stack'}]},
+    {'day': 2, 'user': True, 'tasks': [
+        {'command': 'Copy the md files into a folder called spare.', 'tool': 'copy', 'ext': 'md', 'dest': 'spare'},
+        {'command': 'Move the json files into a folder called box.', 'tool': 'move', 'ext': 'json', 'dest': 'box'}]},
+    {'day': 3, 'user': True, 'drift': ['copy_retired'], 'tasks': [
+        {'command': 'Copy the log files into a folder called mirror.', 'tool': 'copy', 'ext': 'log', 'dest': 'mirror'},
+        {'command': 'Move the txt files into a folder called tray.', 'tool': 'move', 'ext': 'txt', 'dest': 'tray'}]},
+    {'day': 4, 'user': False, 'drift': ['copy_retired'], 'tasks': [
+        {'command': 'Copy the csv files into a folder called pile.', 'tool': 'copy', 'ext': 'csv', 'dest': 'pile'},
+        {'command': 'Delete the md files.', 'tool': 'delete', 'ext': 'md', 'dest': None},
+        {'command': 'Move the log files into a folder called bin.', 'tool': 'move', 'ext': 'log', 'dest': 'bin'},
+        {'command': 'Copy the json files into a folder called twin.', 'tool': 'copy', 'ext': 'json', 'dest': 'twin'}]},
+]
+SCENARIOS = {'A': DAYS, 'B': DAYS_B, 'C': DAYS_C, 'D': DAYS_D, 'E': DAYS_E}
 CONDS = ('LIFE', 'FRESH', 'CASE', 'FIXED', 'HAND')
 
 
@@ -132,6 +149,7 @@ def run_day(cond, day_no, root, scenario='A'):
     root = Path(root)
     day = next(d for d in SCENARIOS[scenario] if d['day'] == day_no)
     home = Workspace(root / 'home', create=not (root / 'home').exists())
+    home.drift = frozenset(day.get('drift', ()))
     if cond == 'FRESH' and (root / 'mind').exists():
         shutil.rmtree(root / 'mind')
     inflow(home, day_no)
@@ -147,7 +165,8 @@ def run_day(cond, day_no, root, scenario='A'):
                          'help_score': 0, 'counts': {}, 'seconds': round(time.time() - t0, 2), 'episodes': 0})
             continue
         mind = Mind(home, root / 'mind', root / 'lab', user=user, generalize=cond != 'CASE',
-                    lexicon_mode='case' if cond == 'CASE' else 'general', seed=day_no * 10 + k, fixed=cond == 'FIXED')
+                    lexicon_mode='case' if cond == 'CASE' else 'general', seed=day_no * 10 + k, fixed=cond == 'FIXED',
+                    notice_change=cond != 'KEEP_OLD')
         teacher.begin(task)
         h0 = dict(teacher.help)
         t0 = time.time()

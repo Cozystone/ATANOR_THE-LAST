@@ -1,0 +1,19 @@
+{"t": 1792855462.581, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["dahlia1.txt", "keep/dahlia1.txt"]]]}
+{"t": 1792855462.615, "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792855462.693, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792855462.702, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792855462.703, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792855462.722, "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792855462.782, "event": "ask_check", "unknown": ["move"], "ok": false}
+{"t": 1792855462.782, "event": "ask_explain", "word": "move", "answer": null, "learned": false}
+{"t": 1792855462.796, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["nutmeg1.csv", "stack/nutmeg1.csv"]]]}
+{"t": 1792855462.83, "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792855463.102, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792855463.457, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792855468.829, "event": "experiment_resolved", "lab_actions": 2}
+{"t": 1792855468.988, "event": "surprise", "task": "d3-t0", "action": ["copy", ["dahlia2.log", "mirror/dahlia2.log"]], "predicted_ok": true, "ok": false}
+{"t": 1792855469.032, "event": "reverify", "tool": "copy", "replayed": "home-27", "ok": false}
+{"t": 1792855469.032, "event": "world_change", "tool": "copy", "set_aside_before": 40}
+{"t": 1792855484.733, "event": "experiment_resolved", "lab_actions": 28}
+{"t": 1792855486.419, "event": "rehearsal", "ok": false, "steps": 9}
+{"t": 1792855492.482, "event": "experiment_budget_spent"}

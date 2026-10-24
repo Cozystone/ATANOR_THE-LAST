@@ -100,11 +100,13 @@ class Workspace:
     def observe(self, paths):
         return {p: self.attrs(p) for p in self.universe(paths)}
 
-    @staticmethod
-    def actions(universe):
-        """Syntactically valid actions over a universe; permissions and preconditions are not consulted."""
+    def actions(self_or_universe, universe=None):
+        """Syntactically valid actions over a universe; permissions and preconditions are not consulted.
+        Called on a workspace it uses that workspace's current tools; called on the class, the original tools."""
+        tools = self_or_universe.tools() if universe is not None else TOOLS
+        universe = self_or_universe if universe is None else universe
         out = []
-        for tool, ar in TOOLS.items():
+        for tool, ar in tools.items():
             if ar == 1:
                 out += [(tool, (a,)) for a in universe]
             else:
@@ -114,7 +116,8 @@ class Workspace:
     def execute(self, tool, args, capabilities):
         """Real action. Failing a precondition is an ordinary failed action, not an exception."""
         t0 = time.perf_counter()
-        if tool not in TOOLS or len(args) != TOOLS[tool] or len(set(args)) != len(args):
+        tools = self.tools()
+        if tool not in tools or len(args) != tools[tool] or len(set(args)) != len(args):
             raise ValueError('invalid action')
         cap = CAPABILITY.get(tool)
         if cap and not capabilities.get(cap):
@@ -131,7 +134,25 @@ class Workspace:
         p.mkdir()                      # fails if it exists or the parent is not a directory
         return True
 
+    def tools(self):
+        """The body's tool names and arity (all an agent is told). A changed world can retire and add tools."""
+        t = dict(TOOLS)
+        if 'copy_retired' in self.drift:
+            t['replicate'] = 2
+        return t
+
+    def _replicate(self, d, s):
+        """Changed world only: copies, destination first."""
+        if 'copy_retired' not in self.drift:
+            return False
+        if not s.is_file() or d.exists() or d.is_symlink() or not d.parent.is_dir():
+            return False
+        shutil.copyfile(s, d)
+        return True
+
     def _copy(self, s, d):
+        if 'copy_retired' in self.drift:
+            return False                                         # changed world: the old copy no longer works
         if not s.is_file() or d.exists() or d.is_symlink() or not d.parent.is_dir():
             return False
         shutil.copyfile(s, d)

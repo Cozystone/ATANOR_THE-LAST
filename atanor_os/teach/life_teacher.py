@@ -51,8 +51,12 @@ class Teacher:
     def _steps(self, objs):
         t, d = self.task['tool'], self.task['dest']
         out = [('mkdir', (d,))] if t in ('move', 'copy') else []
+        retired = t == 'copy' and 'copy_retired' in getattr(self.home, 'drift', ())
         for o in objs:
-            out.append((t, (o, f'{d}/{o}')) if t in ('move', 'copy') else (t, (o,)))
+            if retired:
+                out.append(('replicate', (f'{d}/{o}', o)))        # the person knows how the world works now
+            else:
+                out.append((t, (o, f'{d}/{o}')) if t in ('move', 'copy') else (t, (o,)))
         return out
 
     def demonstrate(self, command, o, dest):

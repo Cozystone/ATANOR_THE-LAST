@@ -1,0 +1,15 @@
+{"t": 1792855341.702, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["dahlia1.txt", "keep/dahlia1.txt"]]]}
+{"t": 1792855341.792, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792855341.8, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792855341.801, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792855341.873, "event": "ask_check", "unknown": ["move"], "ok": false}
+{"t": 1792855341.873, "event": "ask_explain", "word": "move", "answer": null, "learned": false}
+{"t": 1792855341.887, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["nutmeg1.csv", "stack/nutmeg1.csv"]]]}
+{"t": 1792855342.184, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792855342.54, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792855347.969, "event": "experiment_resolved", "lab_actions": 2}
+{"t": 1792855348.129, "event": "surprise", "task": "d3-t0", "action": ["copy", ["dahlia2.log", "mirror/dahlia2.log"]], "predicted_ok": true, "ok": false}
+{"t": 1792855376.602, "event": "experiment_resolved", "lab_actions": 55}
+{"t": 1792855378.936, "event": "surprise", "task": "d4-t0", "action": ["copy", ["olive2.csv", "pile/olive2.csv"]], "predicted_ok": true, "ok": false}
+{"t": 1792855382.741, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792855390.06, "event": "surprise", "task": "d4-t3", "action": ["copy", ["amber3.json", "twin/amber3.json"]], "predicted_ok": true, "ok": false}

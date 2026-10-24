@@ -1,0 +1,185 @@
+{
+ "cases": {
+  "copy the <V> files into a folder called <D>": [
+   "b9f36a029b",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "delete the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "move the <V> files into a folder called <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 5,
+  "box": 1,
+  "called": 5,
+  "copy": 2,
+  "csv": 1,
+  "delete": 1,
+  "files": 6,
+  "folder": 5,
+  "into": 5,
+  "json": 1,
+  "keep": 1,
+  "log": 1,
+  "md": 1,
+  "move": 3,
+  "spare": 1,
+  "stack": 1,
+  "the": 6,
+  "tray": 1,
+  "txt": 2
+ },
+ "marker": {
+  "called": 8
+ },
+ "meaning": {
+  "a": [],
+  "called": [],
+  "copy": [],
+  "csv": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "delete": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "files": [],
+  "folder": [],
+  "into": [],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "log": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "md": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "move": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "the": [],
+  "txt": [
+   "('U', 0, 'a2', 'txt')"
+  ]
+ },
+ "mode": "general",
+ "neutral": [],
+ "pattern_of": {
+  "a": {
+   "a01fcbd090": 5,
+   "b9f36a029b": 3
+  },
+  "called": {
+   "a01fcbd090": 5,
+   "b9f36a029b": 3
+  },
+  "copy": {
+   "b9f36a029b": 3
+  },
+  "csv": {
+   "a01fcbd090": 2
+  },
+  "delete": {
+   "22204eb435": 3
+  },
+  "files": {
+   "22204eb435": 3,
+   "a01fcbd090": 5,
+   "b9f36a029b": 3
+  },
+  "folder": {
+   "a01fcbd090": 5,
+   "b9f36a029b": 3
+  },
+  "into": {
+   "a01fcbd090": 5,
+   "b9f36a029b": 3
+  },
+  "json": {
+   "a01fcbd090": 1
+  },
+  "log": {
+   "22204eb435": 2,
+   "a01fcbd090": 1
+  },
+  "md": {
+   "22204eb435": 1,
+   "b9f36a029b": 1
+  },
+  "move": {
+   "a01fcbd090": 5
+  },
+  "the": {
+   "22204eb435": 3,
+   "a01fcbd090": 5,
+   "b9f36a029b": 3
+  },
+  "txt": {
+   "a01fcbd090": 1,
+   "b9f36a029b": 2
+  }
+ },
+ "prev_n": {
+  "a": 8,
+  "called": 8,
+  "copy": 3,
+  "csv": 2,
+  "delete": 3,
+  "files": 8,
+  "folder": 8,
+  "into": 8,
+  "json": 1,
+  "log": 3,
+  "md": 2,
+  "move": 5,
+  "the": 11,
+  "txt": 3
+ },
+ "value_rule": [
+  11,
+  11
+ ],
+ "word_n": {
+  "a": 8,
+  "called": 8,
+  "copy": 3,
+  "csv": 2,
+  "delete": 3,
+  "files": 11,
+  "folder": 8,
+  "into": 8,
+  "json": 1,
+  "log": 3,
+  "md": 2,
+  "move": 5,
+  "the": 11,
+  "txt": 3
+ }
+}

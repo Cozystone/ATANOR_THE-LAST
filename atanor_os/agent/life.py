@@ -46,9 +46,24 @@ class WorldModel:
     excluded failure (an unchecked generalisation is not a fact); otherwise 'unknown' (a reason to experiment)."""
     name = 'LIFE'
 
-    def __init__(self, episodes, body='fs', generalize=True):
+    def __init__(self, episodes, body='fs', generalize=True, notice_change=True, retired=None):
         self.body, self.generalize = body, generalize
-        self.eps = [e for e in episodes if not e.blocked]
+        eps = [e for e in episodes if not e.blocked]
+        retired = retired or {}                    # tool -> number of episodes before a re-verified world change
+        eps = [e for i, e in enumerate(eps) if i >= retired.get(e.tool, -1)]
+        self.changes = []
+        if notice_change:
+            # the same situation and action gave a different result than before: the world changed for that tool;
+            # its older episodes are set aside (kept in memory, not used) and the tool is relearned from newer ones
+            last, cut = {}, {}
+            for i, e in enumerate(eps):
+                k = (e.tool, atoms(body, e.pre, e.args, FAMILIES_ALL))
+                if k in last and last[k][1] != e.succeeded:
+                    cut[e.tool] = i
+                    self.changes.append({'tool': e.tool, 'at_episode': e.id, 'was': last[k][1], 'now': e.succeeded})
+                last[k] = (i, e.succeeded)
+            eps = [e for i, e in enumerate(eps) if i >= cut.get(e.tool, -1)]
+        self.eps = eps
         self.rules = induce(body, self.eps, FAMILIES_ALL) if self.eps else {}
         self.exact = defaultdict(dict)
         self.kinds_ok = defaultdict(set)
@@ -247,11 +262,11 @@ class Lexicon:
 
 # ---------------------------------------------------------------- the mind
 class Mind:
-    def __init__(self, home, mind_dir, lab_root, user=None, generalize=True, lexicon_mode='general', seed=0, fixed=False):
+    def __init__(self, home, mind_dir, lab_root, user=None, generalize=True, lexicon_mode='general', seed=0, fixed=False, notice_change=True):
         """home: the body (a workspace); user: the channel to the person (ask_* / confirm), or None."""
         self.home, self.dir, self.lab_root, self.user = home, Path(mind_dir), Path(lab_root), user
         self.dir.mkdir(parents=True, exist_ok=True)
-        self.generalize, self.fixed = generalize, fixed
+        self.generalize, self.fixed, self.notice_change = generalize, fixed, notice_change
         self.rng = random.Random(seed)
         self.episodes = self._load_episodes()
         lp = self.dir / 'lexicon.json'
@@ -260,9 +275,12 @@ class Mind:
         self.patterns = json.loads(pp.read_text(encoding='utf-8')) if pp.exists() else {}
         rp = self.dir / 'procedures.json'
         self.procedures = json.loads(rp.read_text(encoding='utf-8')) if rp.exists() else {}
+        cp = self.dir / 'changes.json'
+        self.world_changes = json.loads(cp.read_text(encoding='utf-8')) if cp.exists() else []
         mp = self.dir / 'methods.json'
         self.methods = json.loads(mp.read_text(encoding='utf-8')) if mp.exists() else {'explain': [0, 0], 'check': [0, 0]}
         self._model = None
+        self._noticed = []
         self.counts = Counter()
 
     # ---- memory
@@ -282,6 +300,7 @@ class Mind:
         (self.dir / 'lexicon.json').write_text(json.dumps(self.lex.to_json(), indent=1, sort_keys=True), encoding='utf-8')
         (self.dir / 'patterns.json').write_text(json.dumps(self.patterns, indent=1, sort_keys=True), encoding='utf-8')
         (self.dir / 'methods.json').write_text(json.dumps(self.methods), encoding='utf-8')
+        (self.dir / 'changes.json').write_text(json.dumps(self.world_changes, indent=1), encoding='utf-8')
         (self.dir / 'procedures.json').write_text(json.dumps(self.procedures, indent=1), encoding='utf-8')
 
     def log(self, **kw):
@@ -291,7 +310,12 @@ class Mind:
     @property
     def model(self):
         if self._model is None:
-            self._model = WorldModel(self.episodes, generalize=self.generalize)
+            retired = {c['tool']: c['before'] for c in self.world_changes} if self.notice_change else {}
+            self._model = WorldModel(self.episodes, generalize=self.generalize, notice_change=self.notice_change, retired=retired)
+            for c in self._model.changes:
+                if c not in self._noticed:
+                    self._noticed.append(c)
+                    self.log(event='world_change', **c)
         return self._model
 
     def _task(self, d=None):
@@ -606,6 +630,9 @@ class Mind:
                     return False
                 avoid = set()
                 continue
+            if self._needs_rehearsal(p) and not self._rehearse(goal, p):
+                avoid = set()
+                continue                                         # the rehearsal taught something: plan again
             tool, args = p[0]
             predicted, status = self.model.predict(state, tool, args)
             ok, post = self._try(ws, tool, args, 'home', goal.capabilities)
@@ -614,6 +641,8 @@ class Mind:
             if surprise:
                 self.counts['surprises'] += 1
                 self.log(event='surprise', task=task_id, action=[tool, list(args)], predicted_ok=predicted is not None, ok=ok)
+                if predicted is not None and not ok and self.notice_change:
+                    self._reverify(tool)
             if not ok:
                 avoid.add((tool, tuple(args)))
         return goal.satisfied(ws.observe(goal.universe))
@@ -634,6 +663,57 @@ class Mind:
                         out.add(tool)
         return out
 
+    def _needs_rehearsal(self, p):
+        """A plan relying on a tool with little evidence (fewer than 3 successes since its last world change) is
+        tried in the lab first."""
+        succ = Counter(e.tool for e in self.model.eps if e.succeeded)
+        return any(succ[t] < 3 for t, _ in p)
+
+    def _rehearse(self, goal, p):
+        objs = [q for q in goal.universe if self.home.kind(q) != 'absent']
+        lab = self._lab(objs, None)
+        for tool, args in p:
+            ok, _ = self._try(lab, tool, tuple(args), 'rehearsal')
+            self.counts['rehearsal_actions'] += 1
+            if not ok:
+                break
+        done = goal.satisfied(lab.observe(goal.universe))
+        self.counts['rehearsals'] += 1
+        self.log(event='rehearsal', ok=done, steps=len(p))
+        if not done:
+            self.counts['rehearsals_failed'] += 1
+        return done
+
+    def _reverify(self, tool):
+        """A confident prediction failed. Rebuild in the lab the most recent situation where this tool worked and
+        try it again there: if it fails now, the world changed for this tool and its older experience is set aside."""
+        past = [i for i, e in enumerate(self.episodes) if e.tool == tool and e.succeeded and not e.blocked]
+        if not past:
+            return
+        e = self.episodes[past[-1]]
+        if self.lab_root.exists():
+            shutil.rmtree(self.lab_root)
+        lab = type(self.home)(self.lab_root)
+        lab.drift = getattr(self.home, 'drift', frozenset())
+        for path in sorted(e.pre, key=lambda q: q.count('/')):
+            k = e.pre[path].get('kind')
+            target = lab.path(path)
+            if k == 'dir':
+                target.mkdir(parents=True, exist_ok=True)
+            elif k == 'file':
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(b'placeholder' + bytes([10]))
+        before = len(self.episodes)
+        ok, _ = self._try(lab, tool, tuple(e.args), 'reverify')
+        self.counts['reverifications'] += 1
+        self.log(event='reverify', tool=tool, replayed=e.id, ok=ok)
+        if not ok:
+            self.world_changes.append({'tool': tool, 'before': before, 'evidence': e.id})
+            self.counts['world_changes'] += 1
+            self.log(event='world_change', tool=tool, set_aside_before=before)
+            self._model = None
+            self.save()
+
     def _try(self, ws, tool, args, source, caps=None):
         universe = ws.universe(list(args))
         pre = ws.observe(universe)
@@ -649,6 +729,7 @@ class Mind:
         if self.lab_root.exists():
             shutil.rmtree(self.lab_root)
         lab = type(self.home)(self.lab_root)
+        lab.drift = getattr(self.home, 'drift', frozenset())     # the lab is a copy of the world as it is now
         for o in objs:
             if o is None:
                 continue
