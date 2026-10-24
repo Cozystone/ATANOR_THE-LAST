@@ -94,7 +94,7 @@ def measure(state_path, sentences_path, out, tag):
             relevant += rel
             if rel:
                 title = t['url'].rstrip('/').rsplit('/', 1)[-1].replace('_', ' ')
-                cs = candidates(text, ext, title) + definitional(text, ext, title)
+                cs = rd.all_candidates(text, ext, title)
                 cand_hit += any(_ok(ref, ext, n) for n, _ in cs)
         per[ext] = {'group': ref[ext]['group'], 'opened': len(opened), 'relevant_opened': relevant, 'candidate_hit_on_relevant': cand_hit,
                     'decision': 'correct' if name and _ok(ref, ext, name) else ('wrong' if name else 'abstain'), 'name': name, 'how': how}
@@ -104,7 +104,7 @@ def measure(state_path, sentences_path, out, tag):
             url = 'https://en.wikipedia.org/wiki/' + urllib.parse.quote(arts[0].replace(' ', '_'))
             p = web.open(url)
             if p.get('ok'):
-                cs = candidates(p['text'], ext, arts[0]) + definitional(p['text'], ext, arts[0])
+                cs = rd.all_candidates(p['text'], ext, arts[0])
                 b = rd.best(p['text'], ext, arts[0])
                 per[ext]['given_page'] = {'url': url, 'candidate_present': any(_ok(ref, ext, n) for n, _ in cs),
                                           'ranked_first': bool(b) and _ok(ref, ext, b['name']), 'top': None if not b else b['name'],

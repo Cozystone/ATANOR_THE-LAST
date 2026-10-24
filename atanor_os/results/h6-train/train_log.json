@@ -1,0 +1,989 @@
+{
+ "teach_exts": [
+  "aat",
+  "bbm",
+  "heifs",
+  "ilbm",
+  "mdown",
+  "n3",
+  "nsv",
+  "ora",
+  "otf",
+  "raml",
+  "type",
+  "xpm",
+  "3gp",
+  "3mf",
+  "aac",
+  "abc",
+  "acm",
+  "adf",
+  "adoc",
+  "amf",
+  "appx",
+  "ark",
+  "art",
+  "asec",
+  "ass",
+  "avi",
+  "azw",
+  "bag",
+  "bat",
+  "bilw",
+  "bin",
+  "blb",
+  "blw",
+  "bpw",
+  "btm",
+  "btw",
+  "bundle",
+  "cab",
+  "caf",
+  "cda",
+  "cdx",
+  "cff",
+  "cgns",
+  "ch",
+  "chm",
+  "cif",
+  "class",
+  "clp",
+  "cmd",
+  "cmsc",
+  "coffee",
+  "cpc",
+  "cpi",
+  "cpt",
+  "crd",
+  "crw",
+  "csl",
+  "csr",
+  "csv",
+  "ct",
+  "ctr",
+  "cue",
+  "cv",
+  "cvcert",
+  "cwl",
+  "daa",
+  "dae",
+  "dbf",
+  "dbk",
+  "ddp",
+  "dds",
+  "dem"
+ ],
+ "lexicon_epochs": [
+  {
+   "epoch": 0,
+   "accuracy_before_feedback": 0.6666666666666666
+  },
+  {
+   "epoch": 1,
+   "accuracy_before_feedback": 1.0
+  },
+  {
+   "epoch": 2,
+   "accuracy_before_feedback": 1.0
+  }
+ ],
+ "reading_epochs": [
+  {
+   "epoch": 0,
+   "adopted_correct": 0,
+   "n": 72,
+   "adopted_wrong": 2,
+   "rows": [
+    {
+     "ext": "aat",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bbm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "heifs",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ilbm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "mdown",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "n3",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "nsv",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ora",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "otf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "raml",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "type",
+     "adopted": "This",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "xpm",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "3gp",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "3mf",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "aac",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "abc",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "acm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "adf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "adoc",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "amf",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "appx",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ark",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "art",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "asec",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ass",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "avi",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "azw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bag",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bat",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bilw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bin",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "blb",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "blw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bpw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "btm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "btw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bundle",
+     "adopted": "Bundles",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "cab",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "caf",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cda",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cdx",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cff",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cgns",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ch",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "chm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cif",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "class",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "clp",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cmd",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "cmsc",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "coffee",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cpc",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cpi",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cpt",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "crd",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "crw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "csl",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "csr",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "csv",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ct",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ctr",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cue",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cv",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cvcert",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cwl",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "daa",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "dae",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "dbf",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "dbk",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "ddp",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "dds",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "dem",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "epoch": 1,
+   "adopted_correct": 7,
+   "n": 72,
+   "adopted_wrong": 5,
+   "rows": [
+    {
+     "ext": "aat",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "bbm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "heifs",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "ilbm",
+     "adopted": "Interleaved BitMap",
+     "how": "adopted",
+     "correct": true
+    },
+    {
+     "ext": "mdown",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "n3",
+     "adopted": "Notation3",
+     "how": "adopted",
+     "correct": true
+    },
+    {
+     "ext": "nsv",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "ora",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "otf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "raml",
+     "adopted": "RESTful API Modeling Language",
+     "how": "adopted",
+     "correct": true
+    },
+    {
+     "ext": "type",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "xpm",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "3gp",
+     "adopted": "Retrieved",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "3mf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "aac",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "abc",
+     "adopted": "Australian Broadcasting Corporation",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "acm",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "adf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "adoc",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "amf",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "appx",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "ark",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "art",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "asec",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "ass",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "avi",
+     "adopted": "Audio Video Interleave",
+     "how": "adopted",
+     "correct": true
+    },
+    {
+     "ext": "azw",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "bag",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bat",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bilw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bin",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "blb",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "blw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bpw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "btm",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "btw",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "bundle",
+     "adopted": "GNUstep",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "cab",
+     "adopted": "Cabinet",
+     "how": "adopted",
+     "correct": true
+    },
+    {
+     "ext": "caf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "cda",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cdx",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cff",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cgns",
+     "adopted": "CFD General Notation System",
+     "how": "adopted",
+     "correct": true
+    },
+    {
+     "ext": "ch",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "chm",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "cif",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "class",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "clp",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cmd",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cmsc",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "coffee",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cpc",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "cpi",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cpt",
+     "adopted": "Compact Pro",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "crd",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "crw",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "csl",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "csr",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "csv",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "ct",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "ctr",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cue",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cv",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cvcert",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "cwl",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "daa",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "dae",
+     "adopted": "COLLADA",
+     "how": "adopted",
+     "correct": false
+    },
+    {
+     "ext": "dbf",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "dbk",
+     "adopted": null,
+     "how": "single_source",
+     "correct": false
+    },
+    {
+     "ext": "ddp",
+     "adopted": null,
+     "how": "contradiction",
+     "correct": false
+    },
+    {
+     "ext": "dds",
+     "adopted": null,
+     "how": "no_evidence",
+     "correct": false
+    },
+    {
+     "ext": "dem",
+     "adopted": "USGS DEM",
+     "how": "adopted",
+     "correct": true
+    }
+   ]
+  }
+ ],
+ "calibration": {
+  "threshold": 2.018,
+  "utility": 13.0,
+  "grid": 554
+ },
+ "teacher_calls": 87160,
+ "web": {
+  "requests": 905,
+  "ok": 847,
+  "refused": 49,
+  "failed": 9,
+  "bytes": 171728126,
+  "hosts": 116
+ },
+ "spans": {
+  "located_occurrences": 1525.0
+ }
+}

@@ -1,0 +1,1037 @@
+{
+ "result": {
+  "tag": "baseline",
+  "state": "atanor_os/results/p6-train/state.json",
+  "interpretation": {
+   "n": 45,
+   "accuracy": 0.7111111111111111,
+   "unclear": 8,
+   "by_form": {
+    "folder": 7,
+    "rename": 14,
+    "copy": 11
+   },
+   "confusions": {
+    "folder->rename": 0,
+    "folder->copy": 5,
+    "rename->folder": 0,
+    "rename->copy": 1,
+    "copy->folder": 3,
+    "copy->rename": 0
+   }
+  },
+  "page_selection": {
+   "n": 44,
+   "opened_any_relevant": 34,
+   "opened_two_relevant": 29
+  },
+  "candidate_generation": {
+   "relevant_pages_opened": 101,
+   "accepted_name_among_candidates": 51
+  },
+  "given_right_page": {
+   "n": 44,
+   "candidate_present": 21,
+   "ranked_first": 17,
+   "trusted": 8,
+   "trusted_and_first": 6,
+   "trusted_but_wrong": 2
+  },
+  "evidence_judgement": {
+   "n": 44,
+   "correct": 1,
+   "wrong": 0,
+   "abstain": 43,
+   "precision": 1.0,
+   "recall": 0.022727272727272728
+  },
+  "web": {
+   "requests": 343,
+   "ok": 312,
+   "refused": 25,
+   "failed": 6,
+   "bytes": 42240529,
+   "hosts": 55
+  },
+  "teacher_import_attempts": [],
+  "teacher_module_loaded": false
+ },
+ "per_format": {
+  "der": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 5,
+   "candidate_hit_on_relevant": 3,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Distinguished_Encoding_Rules",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Distinguished Encoding Rules",
+    "trusted": false
+   }
+  },
+  "desktop": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Shortcut_%28computing%29",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Explorer",
+    "trusted": false
+   }
+  },
+  "dif": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Data_Interchange_Format",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Data Interchange Format",
+    "trusted": false
+   }
+  },
+  "dita": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Darwin_Information_Typing_Architecture",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Darwin Information Typing Architecture",
+    "trusted": false
+   }
+  },
+  "diz": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 3,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FILE_ID.DIZ",
+    "candidate_present": true,
+    "ranked_first": false,
+    "top": "Description in Zip",
+    "trusted": false
+   }
+  },
+  "dls": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Downloadable_Sounds",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Downloadable Sounds",
+    "trusted": false
+   }
+  },
+  "dmg": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Apple_Disk_Image",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Disk",
+    "trusted": false
+   }
+  },
+  "dms": {
+   "group": "held_out",
+   "opened": 4,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Disk_Masher_System",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Disk Masher System",
+    "trusted": true
+   }
+  },
+  "dot": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 1,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/DOT_%28graph_description_language%29",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "File",
+    "trusted": false
+   }
+  },
+  "drv": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Portable_Executable",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Portable Executable",
+    "trusted": false
+   }
+  },
+  "dsf": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Direct_Stream_Digital",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "PDF",
+    "trusted": false
+   }
+  },
+  "dtd": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 6,
+   "candidate_hit_on_relevant": 3,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Document_type_definition",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "DTD Tutorial",
+    "trusted": false
+   }
+  },
+  "dwfx": {
+   "group": "held_out",
+   "opened": 4,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Design_Web_Format",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Open Packaging Conventions",
+    "trusted": false
+   }
+  },
+  "dx": {
+   "group": "held_out",
+   "opened": 4,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/JCAMP-DX",
+    "candidate_present": true,
+    "ranked_first": false,
+    "top": "A Standard",
+    "trusted": false
+   }
+  },
+  "dxfp": {
+   "group": "held_out",
+   "opened": 3,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Timed_Text_Markup_Language",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": null,
+    "trusted": false
+   }
+  },
+  "dylib": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 4,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Mach-O",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "none",
+    "trusted": false
+   }
+  },
+  "ear": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/EAR_%28file_format%29",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "For example",
+    "trusted": false
+   }
+  },
+  "edf": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/EDIF",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": null,
+    "trusted": false
+   }
+  },
+  "edi": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/EDIF",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "EDIF",
+    "trusted": true
+   }
+  },
+  "efi": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Portable_Executable",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Portable Executable",
+    "trusted": true
+   }
+  },
+  "emf": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 1,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/EMF%2B",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Enhanced Metafile",
+    "trusted": false
+   }
+  },
+  "eot": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 4,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Embedded_OpenType",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Embedded OpenType",
+    "trusted": false
+   }
+  },
+  "eps": {
+   "group": "held_out",
+   "opened": 4,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Encapsulated_PostScript",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Encapsulated PostScript",
+    "trusted": false
+   }
+  },
+  "evy": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 1,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Envoy_%28WordPerfect%29",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Jump",
+    "trusted": false
+   }
+  },
+  "exi": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 5,
+   "candidate_hit_on_relevant": 5,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Efficient_XML_Interchange",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Efficient XML Interchange",
+    "trusted": false
+   }
+  },
+  "face": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/X-Face",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Usenet",
+    "trusted": false
+   }
+  },
+  "fasta": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 5,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FASTA_format",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "FASTQ",
+    "trusted": false
+   }
+  },
+  "fastq": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 5,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FASTQ_format",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "FASTQ format",
+    "trusted": false
+   }
+  },
+  "fb2": {
+   "group": "held_out",
+   "opened": 4,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 3,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FictionBook",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "FictionBook",
+    "trusted": false
+   }
+  },
+  "fbx": {
+   "group": "held_out",
+   "opened": 4,
+   "relevant_opened": 1,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FBX",
+    "candidate_present": true,
+    "ranked_first": false,
+    "top": "Export",
+    "trusted": false
+   }
+  },
+  "fcs": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Flow_Cytometry_Standard",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Flow Cytometry Standard",
+    "trusted": false
+   }
+  },
+  "fdb": {
+   "group": "held_out",
+   "opened": 3,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 2,
+   "decision": "correct",
+   "name": "Font Definition Block",
+   "how": "adopted",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FDB_%28file_format%29",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Font Definition Block",
+    "trusted": true
+   }
+  },
+  "fen": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 3,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Forsyth Edwards Notation",
+    "trusted": true
+   }
+  },
+  "fits": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FITS",
+    "candidate_present": true,
+    "ranked_first": false,
+    "top": "MIME Sub-type Registrations for Flexible Image Transport System",
+    "trusted": false
+   }
+  },
+  "fodt": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 5,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/OpenDocument",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Main",
+    "trusted": false
+   }
+  },
+  "fpx": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 2,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/FlashPix",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "FlashPix",
+    "trusted": true
+   }
+  },
+  "frm": {
+   "group": "held_out",
+   "opened": 5,
+   "relevant_opened": 0,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Extensible_Forms_Description_Language",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": null,
+    "trusted": false
+   }
+  },
+  "gblorb": {
+   "group": "held_out",
+   "opened": 3,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 3,
+   "decision": "abstain",
+   "name": null,
+   "how": "contradiction",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Blorb",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Blorb",
+    "trusted": true
+   }
+  },
+  "gbr": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Gerber_format",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "BOT",
+    "trusted": false
+   }
+  },
+  "gcd": {
+   "group": "held_out",
+   "opened": 6,
+   "relevant_opened": 1,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/General_content_descriptor",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "A General Content Descriptor",
+    "trusted": false
+   }
+  },
+  "jbg": {
+   "group": "dev",
+   "opened": 4,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 0,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/JBIG",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Main",
+    "trusted": false
+   }
+  },
+  "jxr": {
+   "group": "dev",
+   "opened": 5,
+   "relevant_opened": 5,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/JPEG_XR",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "HDR",
+    "trusted": true
+   }
+  },
+  "mjp2": {
+   "group": "dev",
+   "opened": 3,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 2,
+   "decision": "abstain",
+   "name": null,
+   "how": "no_evidence",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+    "candidate_present": true,
+    "ranked_first": true,
+    "top": "Motion JPEG 2000",
+    "trusted": false
+   }
+  },
+  "yml": {
+   "group": "dev",
+   "opened": 5,
+   "relevant_opened": 3,
+   "candidate_hit_on_relevant": 1,
+   "decision": "abstain",
+   "name": null,
+   "how": "single_source",
+   "given_page": {
+    "url": "https://en.wikipedia.org/wiki/YAML",
+    "candidate_present": false,
+    "ranked_first": false,
+    "top": "Main",
+    "trusted": false
+   }
+  }
+ },
+ "interpretation_rows": [
+  {
+   "form": "folder",
+   "read": "copy",
+   "margin": 0.64,
+   "unclear": true
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 5.47,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "copy",
+   "margin": 0.21,
+   "unclear": true
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 4.97,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 4.7,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "copy",
+   "margin": 3.18,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "copy",
+   "margin": 0.02,
+   "unclear": true
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 0.35,
+   "unclear": true
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 2.95,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 5.2,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 0.1,
+   "unclear": true
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 0.57,
+   "unclear": true
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 6.03,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "copy",
+   "margin": 4.12,
+   "unclear": false
+  },
+  {
+   "form": "folder",
+   "read": "folder",
+   "margin": 4.85,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 12.99,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 11.52,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 9.44,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 5.29,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 9.99,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 4.91,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 2.89,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 1.7,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 1.53,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 4.34,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 6.1,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "copy",
+   "margin": 0.15,
+   "unclear": true
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 11.77,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 4.21,
+   "unclear": false
+  },
+  {
+   "form": "rename",
+   "read": "rename",
+   "margin": 6.2,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 5.98,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 8.44,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 11.48,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 5.16,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 8.09,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 3.2,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 4.49,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "folder",
+   "margin": 2.66,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 0.33,
+   "unclear": true
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 9.06,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 12.53,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "folder",
+   "margin": 3.38,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 5.8,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "folder",
+   "margin": 3.0,
+   "unclear": false
+  },
+  {
+   "form": "copy",
+   "read": "copy",
+   "margin": 4.41,
+   "unclear": false
+  }
+ ]
+}
