@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.782" timestamp="2026-09-17T09:33:48.742862+09:00" hostname="ANSEOK-9950X3D"><testcase classname="packages.action_core.tests.test_transfer_harness.TransferHarnessTests" name="test_wrong_independent_digest_does_not_spawn_or_consume_attempt" time="0.003"><failure message="TimeoutError: 48-hour hard cap reached: 2026-09-14T11:19:00+00:00">self = &lt;test_transfer_harness.TransferHarnessTests testMethod=test_wrong_independent_digest_does_not_spawn_or_consume_attempt&gt;
+
+    def test_wrong_independent_digest_does_not_spawn_or_consume_attempt(self):
+        with tempfile.TemporaryDirectory(prefix='atanor-transfer-binding-test-') as tmp:
+            folder = Path(tmp)
+            (folder / 'preregistration.json').write_text('{}', encoding='utf-8')
+            (folder / 'receipt.json').write_text('{}', encoding='utf-8')
+            with patch('packages.action_core.transfer_eval.Client', side_effect=AssertionError('no worker')):
+                with self.assertRaises(ValueError):
+&gt;                   run(folder, '0' * 64)
+
+packages\action_core\tests\test_transfer_harness.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+packages\action_core\transfer_eval.py:237: in run
+    check_deadline()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def check_deadline(now=None):
+        """Parent-approved 48h wall boundary, independent of learner/caller status."""
+        if (time.time() if now is None else now) &gt;= DEADLINE_UNIX:
+&gt;           raise TimeoutError('48-hour hard cap reached: ' + DEADLINE_UTC)
+E           TimeoutError: 48-hour hard cap reached: 2026-09-14T11:19:00+00:00
+
+packages\action_core\transfer_eval.py:52: TimeoutError</failure></testcase></testsuite></testsuites>

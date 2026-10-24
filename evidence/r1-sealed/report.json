@@ -1,0 +1,50 @@
+{
+  "collateral_reduction": 0.5,
+  "control_successes": {
+    "off": 32,
+    "on": 32
+  },
+  "gates": {
+    "budget_and_no_halt": true,
+    "collateral_reduction": true,
+    "frozen_inner_all": true,
+    "independent_control_no_regression": true,
+    "native_replay_all": true,
+    "on_collateral": true,
+    "on_success": true,
+    "paired_lift_lcb": true,
+    "relation_change_predicted": true,
+    "source_unchanged": true,
+    "success_lift": true,
+    "training_unchanged": true
+  },
+  "paired_lcb95": 0.5,
+  "prereg_sha256": "c1a65c21232e6d2e5ae1131e09d7f036402b95a513b9720ddbb8a14af3a35159",
+  "rows_sha256": "195de6c17759cd573c8a6211880897da2a5c0195569c67814b69958746636daf",
+  "scope": "fresh instances of a single known aliasing mechanism, two-action task",
+  "scores": {
+    "off": {
+      "actions": 96,
+      "collateral_cases": 32,
+      "n": 64,
+      "parent_cpu_seconds": 10.8125,
+      "replay_valid": 64,
+      "successes": 32,
+      "verification_parent_cpu_seconds": 1.875,
+      "worker_os_cpu_seconds": 112.578125
+    },
+    "on": {
+      "actions": 96,
+      "collateral_cases": 0,
+      "n": 64,
+      "parent_cpu_seconds": 13.171875,
+      "replay_valid": 64,
+      "successes": 64,
+      "verification_parent_cpu_seconds": 2.109375,
+      "worker_os_cpu_seconds": 114.609375
+    }
+  },
+  "success_lift": 0.5,
+  "verdict": "R1_CAPABILITY_GREEN",
+  "wall_seconds": 276.5187214000616
+}

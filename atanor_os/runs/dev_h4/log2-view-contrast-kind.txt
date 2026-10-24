@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "D:\ATANOR-experiments\2026-09-19\developmental-research\atanor_os\runs\_scripts\dev_h4.py", line 16, in <module>
+    ex = explore(seed, steps, root / 'x', policy=policy, block=B['block'], type_attrs=B['spec'].get('type_attrs', ('kind',)))
+  File "D:\ATANOR-experiments\2026-09-19\developmental-research\atanor_os\eval\explore.py", line 92, in explore
+    ws, targets = block(rng, root / f'b{b}')
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ATANOR-experiments\2026-09-19\developmental-research\atanor_os\eval\view_tasks.py", line 106, in view_block
+    data = materialize(root / 'data', files, ddir, dfile)
+  File "D:\ATANOR-experiments\2026-09-19\developmental-research\atanor_os\eval\generator.py", line 41, in materialize
+    ws = Workspace(root)
+  File "D:\ATANOR-experiments\2026-09-19\developmental-research\atanor_os\world\fs_world.py", line 56, in __init__
+    root.mkdir(parents=True, exist_ok=False)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\miniconda3\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [WinError 183] 파일이 이미 있으므로 만들 수 없습니다: 'D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\atanor_os\\runs\\dev_h4\\view-contrast-kind-11\\x\\b0\\data'

@@ -1,0 +1,180 @@
+{
+  "status": "POST_HOC_DIAGNOSTIC_NOT_NEW_GATE",
+  "exposures": [
+    {
+      "law": "null",
+      "life": 0,
+      "first_changed_event": 169,
+      "counts": {
+        "8": 0,
+        "32": 0,
+        "128": 0,
+        "512": 6
+      }
+    },
+    {
+      "law": "null",
+      "life": 1,
+      "first_changed_event": 72,
+      "counts": {
+        "8": 0,
+        "32": 0,
+        "128": 2,
+        "512": 6
+      }
+    },
+    {
+      "law": "null",
+      "life": 2,
+      "first_changed_event": 2,
+      "counts": {
+        "8": 1,
+        "32": 1,
+        "128": 2,
+        "512": 6
+      }
+    },
+    {
+      "law": "null",
+      "life": 3,
+      "first_changed_event": 152,
+      "counts": {
+        "8": 0,
+        "32": 0,
+        "128": 0,
+        "512": 5
+      }
+    },
+    {
+      "law": "cascade",
+      "life": 0,
+      "first_changed_event": 104,
+      "counts": {
+        "8": 0,
+        "32": 0,
+        "128": 1,
+        "512": 5
+      }
+    },
+    {
+      "law": "cascade",
+      "life": 1,
+      "first_changed_event": 132,
+      "counts": {
+        "8": 0,
+        "32": 0,
+        "128": 0,
+        "512": 5
+      }
+    },
+    {
+      "law": "cascade",
+      "life": 2,
+      "first_changed_event": 6,
+      "counts": {
+        "8": 1,
+        "32": 1,
+        "128": 2,
+        "512": 4
+      }
+    },
+    {
+      "law": "cascade",
+      "life": 3,
+      "first_changed_event": 32,
+      "counts": {
+        "8": 0,
+        "32": 1,
+        "128": 2,
+        "512": 5
+      }
+    }
+  ],
+  "examples": [
+    {
+      "law": "null",
+      "goal": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "events": [
+        {
+          "action": [
+            3,
+            0
+          ],
+          "before": [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          "after": [
+            0,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "law": "cascade",
+      "goal": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "events": [
+        {
+          "action": [
+            3,
+            4
+          ],
+          "before": [
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "after": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "action": [
+            3,
+            0
+          ],
+          "before": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "after": [
+            0,
+            1,
+            1,
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation": "Random B experience supplies only0..2 direct law contradictions by128; both arms see identical events. Does not isolate stale replay, optimizer inertia or architecture."
+}

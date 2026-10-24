@@ -1,0 +1,38 @@
+{
+  "accepted": true,
+  "production_authority": false,
+  "projection": {
+    "channels": {
+      "r_eb62ec5d3e6817d6": {
+        "column": 3,
+        "operator": "eq",
+        "predictions": [
+          false,
+          true
+        ],
+        "width": 5
+      }
+    },
+    "fields": [
+      "st_mode",
+      "st_nlink",
+      "st_size",
+      "st_ino",
+      "st_dev"
+    ],
+    "version": "stat-comparison-v1"
+  },
+  "proposal": {
+    "column": 3,
+    "format": "relation-proposal-v1",
+    "operator": "eq",
+    "width": 5
+  },
+  "proposal_and_validation_wall_seconds": 0.07493879995308816,
+  "train_errors_after": 0,
+  "train_errors_before": 16,
+  "training_digest": "1e8eccb0055259754fc56695898f87717ce9e330994483b7bd90da93442477cf",
+  "validation_digest": "810e293443f9b6689a2af95ef0cc43fb4f0a1e14dd7c92122ad7f43ac950772b",
+  "validation_errors_after": 0,
+  "validation_errors_before": 16
+}

@@ -1,0 +1,73 @@
+{
+ "summary": {
+  "body": "view",
+  "policy": "contrast-target",
+  "steps": 600,
+  "exact_sum": 29,
+  "perfect_seeds": 4,
+  "strict_sum": 29,
+  "open_sum": 188,
+  "explore_s": 6.8
+ },
+ "rows": [
+  {
+   "seed": 11,
+   "exact": 6,
+   "strict": 6,
+   "n_tools": 6,
+   "open": 42,
+   "successes": 96,
+   "targeted": 23,
+   "explore_s": 1.4,
+   "non_exact": {}
+  },
+  {
+   "seed": 12,
+   "exact": 6,
+   "strict": 6,
+   "n_tools": 6,
+   "open": 36,
+   "successes": 83,
+   "targeted": 23,
+   "explore_s": 1.2,
+   "non_exact": {}
+  },
+  {
+   "seed": 13,
+   "exact": 6,
+   "strict": 6,
+   "n_tools": 6,
+   "open": 36,
+   "successes": 85,
+   "targeted": 34,
+   "explore_s": 1.3,
+   "non_exact": {}
+  },
+  {
+   "seed": 14,
+   "exact": 5,
+   "strict": 5,
+   "n_tools": 6,
+   "open": 37,
+   "successes": 63,
+   "targeted": 20,
+   "explore_s": 1.6,
+   "non_exact": {
+    "group": {
+     "fn": 4
+    }
+   }
+  },
+  {
+   "seed": 15,
+   "exact": 6,
+   "strict": 6,
+   "n_tools": 6,
+   "open": 37,
+   "successes": 82,
+   "targeted": 27,
+   "explore_s": 1.3,
+   "non_exact": {}
+  }
+ ]
+}

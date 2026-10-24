@@ -1,0 +1,35 @@
+{
+  "transitions": 276,
+  "training_alias_counts": [
+    2,
+    3
+  ],
+  "on": {
+    "empty": {
+      "programs": 11,
+      "unsupported": 0
+    },
+    "unlink": {
+      "programs": 10,
+      "unsupported": 0
+    },
+    "copy": {
+      "programs": 21,
+      "unsupported": 0
+    }
+  },
+  "off": {
+    "empty": {
+      "programs": 6,
+      "unsupported": 14
+    },
+    "unlink": {
+      "programs": 3,
+      "unsupported": 0
+    },
+    "copy": {
+      "programs": 10,
+      "unsupported": 0
+    }
+  }
+}

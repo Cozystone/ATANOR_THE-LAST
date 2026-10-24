@@ -1,0 +1,43 @@
+{
+  "gates": {
+    "action_count_not_worse": true,
+    "budget_no_halt": true,
+    "frozen_inner_all": true,
+    "lcb95": true,
+    "native_replay_all": true,
+    "on_success": true,
+    "selective_no_regression": true,
+    "source_unchanged": true,
+    "success_lift": true,
+    "training_unchanged": true
+  },
+  "paired_lcb95": 0.5,
+  "prereg_sha256": "e655f4bb02ce0527c33b99aed5c1732ce4a3352cfdfdf3273e6b204282aa9c87",
+  "rows_sha256": "da48059c8fefd1b10c430d4072fa472a41df23cfc0af4e53311c0edc74e996a9",
+  "scope": "larger cardinalities of the same native relation mechanics, not new mechanics",
+  "scores": {
+    "off": {
+      "actions": 80,
+      "collective_successes": 0,
+      "n": 40,
+      "parent_cpu": 18.734375,
+      "selective_successes": 20,
+      "successes": 20,
+      "verification_cpu": 2.671875,
+      "worker_cpu": 112.9375
+    },
+    "on": {
+      "actions": 60,
+      "collective_successes": 20,
+      "n": 40,
+      "parent_cpu": 15.703125,
+      "selective_successes": 20,
+      "successes": 40,
+      "verification_cpu": 2.328125,
+      "worker_cpu": 101.09375
+    }
+  },
+  "success_lift": 0.5,
+  "verdict": "R3_CAPABILITY_GREEN",
+  "wall_seconds": 266.76767940004356
+}

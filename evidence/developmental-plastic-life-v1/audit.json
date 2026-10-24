@@ -1,0 +1,147 @@
+{
+  "raw_count_audit": "PASS",
+  "totals": {
+    "fresh-0": {
+      "success": 1,
+      "count": 16,
+      "mean_penalized_actions": 32.5,
+      "actual_actions": 505,
+      "cpu_seconds": 4.5625
+    },
+    "fresh-256": {
+      "success": 1,
+      "count": 16,
+      "mean_penalized_actions": 32.5,
+      "actual_actions": 505,
+      "cpu_seconds": 4.640625
+    },
+    "fresh-1024": {
+      "success": 1,
+      "count": 16,
+      "mean_penalized_actions": 32.5,
+      "actual_actions": 505,
+      "cpu_seconds": 4.71875
+    },
+    "passive-0": {
+      "success": 1,
+      "count": 16,
+      "mean_penalized_actions": 32.5,
+      "actual_actions": 505,
+      "cpu_seconds": 4.46875
+    },
+    "passive-256": {
+      "success": 2,
+      "count": 16,
+      "mean_penalized_actions": 29.75,
+      "actual_actions": 462,
+      "cpu_seconds": 4.171875
+    },
+    "passive-1024": {
+      "success": 16,
+      "count": 16,
+      "mean_penalized_actions": 4.6875,
+      "actual_actions": 75,
+      "cpu_seconds": 0.734375
+    },
+    "developing-0": {
+      "success": 1,
+      "count": 16,
+      "mean_penalized_actions": 32.5,
+      "actual_actions": 505,
+      "cpu_seconds": 4.375
+    },
+    "developing-256": {
+      "success": 3,
+      "count": 16,
+      "mean_penalized_actions": 29.75,
+      "actual_actions": 463,
+      "cpu_seconds": 4.125
+    },
+    "developing-1024": {
+      "success": 16,
+      "count": 16,
+      "mean_penalized_actions": 4.4375,
+      "actual_actions": 71,
+      "cpu_seconds": 0.703125
+    }
+  },
+  "diagnostics": {
+    "fresh-0": {
+      "unchanged": 423,
+      "whole_state_argmax_correct": 228,
+      "transitions": 505
+    },
+    "fresh-256": {
+      "unchanged": 423,
+      "whole_state_argmax_correct": 228,
+      "transitions": 505
+    },
+    "fresh-1024": {
+      "unchanged": 423,
+      "whole_state_argmax_correct": 228,
+      "transitions": 505
+    },
+    "passive-0": {
+      "unchanged": 423,
+      "whole_state_argmax_correct": 228,
+      "transitions": 505
+    },
+    "passive-256": {
+      "unchanged": 372,
+      "whole_state_argmax_correct": 420,
+      "transitions": 462
+    },
+    "passive-1024": {
+      "unchanged": 17,
+      "whole_state_argmax_correct": 62,
+      "transitions": 75
+    },
+    "developing-0": {
+      "unchanged": 423,
+      "whole_state_argmax_correct": 228,
+      "transitions": 505
+    },
+    "developing-256": {
+      "unchanged": 375,
+      "whole_state_argmax_correct": 391,
+      "transitions": 463
+    },
+    "developing-1024": {
+      "unchanged": 13,
+      "whole_state_argmax_correct": 61,
+      "transitions": 71
+    }
+  },
+  "real_training_actions": 8192,
+  "native_verified": 11788,
+  "artifact_sha256": {
+    "attempt.json": "695136577dc62bbf6710376f66cfbe14982c2ca7f885d34ff2159e116b560bc1",
+    "life-0-developing-1024.pt": "20213176b8c2eff07266cf4a91a8c805ec6fb2ccef6d7b482d931cad26fae424",
+    "life-0-developing-256.pt": "34bc10de0b422fec2f6a6692e9d690324bce2720762cd074b9cd7ca71318629b",
+    "life-0-developing.json": "6a017eb0c623ae5a17d753ad7ba3754ff278b0f5a5ac294103a378f42d8c4a77",
+    "life-0-passive-1024.pt": "d9cb3d18a140e488d382049e084999863dfc7373f1d5413126aa50c8f10e80df",
+    "life-0-passive-256.pt": "f5b920557bc2e7010a0ae75199f6a4329d7ec96419e0f006bad846c84e2ad631",
+    "life-0-passive.json": "dae9176b1f775cf0c770a8008c46eb8cc3c275f6dbfde2a285a6fea9cfc7708a",
+    "life-1-developing-1024.pt": "2572d51ca05a4b60fa38e1fb85f24294c91dbd7b71501f41875ee241f27ff3f8",
+    "life-1-developing-256.pt": "0da35af895e035ed853becf26293d717339a8cb4ca449060701ef7455a04699c",
+    "life-1-developing.json": "4fbe17d8eeaf8563bb9829f755555dbdce62d1870bd2b11f406653ecbb98d32c",
+    "life-1-passive-1024.pt": "ba8aebe02d95c6056921c7ef4b3e85e312c633d1567da1d8b56a18237f062b55",
+    "life-1-passive-256.pt": "92c0889f51a5faec90d0a269b6e571b224d506688d579e6801ce144ffa4d54e7",
+    "life-1-passive.json": "d30b62079e4e2a83b2135db617f1b07ff76d21dd3c2d6a35ba63e25f3ec2dcdf",
+    "life-2-developing-1024.pt": "6c88e62a8e8897008582cf1f36b01d3cefbe720cfec619a601936a583d6569b7",
+    "life-2-developing-256.pt": "f6d1fabd77ae8fd0a0727ea8ef91c212ccf105615b13172a02f159873cbc6b0a",
+    "life-2-developing.json": "0d49c6b2d7ee2f9bd326c262476bb3ec0edbaccf10e3a041ea397abb5198de1a",
+    "life-2-passive-1024.pt": "3986621a5c96550f27b5c464d19ab25094d6e231d9efb843008f0041eaca0cb4",
+    "life-2-passive-256.pt": "ba4b97c1eb8929701ef2b15750400ce3869c3a3dcae67e2b1b53465b971bfb6b",
+    "life-2-passive.json": "42f9c1cddcdeaf66d751c4cecc9d131dc7a9739ba36158f94be56aec2b60af36",
+    "life-3-developing-1024.pt": "1d97807f7e8ba25f652c7e7d88e21b90352bfa2ff2e7e32b67b27f1d00da935f",
+    "life-3-developing-256.pt": "8c7781abe164cf58113d0e49464155b134d231be9160a0de25e99429726ee213",
+    "life-3-developing.json": "ddf60457b90979dd8e1d22ef6865158a7889dc2bc1a1ff53cd7f80a9ef449193",
+    "life-3-passive-1024.pt": "31ec65a5b75d797ebb8cb6b80734269d9c97ec35726b34ab9e5fd92eeeb77ddb",
+    "life-3-passive-256.pt": "c72d84260dbbefa6d6b4089f633ee8032d3d8a802b6e123eb147548cb720ea4c",
+    "life-3-passive.json": "6914f8ad87996eb9e692024b786caf42e5e20440921b32a4e4a6c8964f02cb19",
+    "report.json": "3e12820e84f7409dd11d28164c9bcbf2ccc5639cc7b825898b5a22ff1e2bf14b",
+    "tasks.jsonl": "8d06a72b6d9c024d44ec4db4fe106b0972eafa4b7ffc29987dbcec966ac3d2a9"
+  },
+  "caveat": "Same mechanics across ages; improved learned model is not established improved learning algorithm."
+}

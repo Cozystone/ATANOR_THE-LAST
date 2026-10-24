@@ -1,0 +1,38 @@
+{
+  "file": {
+    "after": {
+      "actions": 36,
+      "cpu_seconds": 12.265625,
+      "successes": 24
+    },
+    "before": {
+      "actions": 36,
+      "cpu_seconds": 11.90625,
+      "successes": 24
+    }
+  },
+  "scope": "same cognitive algorithm, separately learned bodies; NOT knowledge transfer/agency/AGI",
+  "source_digests": {
+    "C:\\0.ASKIM ALL-VIN\\27., ATANOR DEMO\\packages\\mind\\fk_world.py": "85ee675a8273f94e76d284968636f42783eb86df8694aa7b052bf48b3e76e47a",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-continual.json": "186ca6f514ce909b322aa32017f080a71e83d5cfa97253d9df231cd21e8a481e",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-fk-learning.json": "834d2fe73015058aa38366ecc5662db2c929e188e086e13cae4eaf36ef77b46b",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-online-eval.json": "da6bca3187ee215110cade59258507c4b2aee67e29f8d51ffac1e133af714fc0",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\packages\\shared_world\\conditional_support.py": "0cc1fb56fa98aecfca6626fa371ba15e59a3ee64b6f01404bae807b96f01ecd9",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\packages\\shared_world\\partial_goal.py": "ad6dba3b874c68f028290c213092e1a4ddb9f982dd82b8bd22468d72364f3e5e",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\packages\\shared_world\\planning.py": "40edc31959431f82081400bd93a7f86766a9373b3de1cb49b739720072b832f1",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_conditional_eval.py": "bbd96443a12126bcc2ef767c91332f57a29656bcf2d20a95ed72161c3007dbb4",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_fk_tasks.py": "a541debc9da99e2fc548156585db7e4c1d3fa5ef4fdc36323376262a4eeee2d3",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_task_eval.py": "d2d7ae8910ca1eec0ce65568a46e343d05b6b66566ab388c4ac168d20f054182"
+  },
+  "sql": {
+    "local": {
+      "actions": 40,
+      "success": 8
+    },
+    "relational": {
+      "actions": 28,
+      "success": 16
+    }
+  },
+  "verdict": "BOUNDED_ARBITRATION_PASS"
+}

@@ -1,0 +1,4 @@
+{"lexicon_epochs": [{"epoch": 0, "accuracy_before_feedback": 0.5}, {"epoch": 1, "accuracy_before_feedback": 0.8611111111111112}, {"epoch": 2, "accuracy_before_feedback": 0.8888888888888888}], "teacher_calls": 35215, "web": {"requests": 640, "ok": 549, "refused": 60, "failed": 31, "bytes": 86829320, "hosts": 106}}
+reading epoch 0 correct 2 / 72 wrong 8
+reading epoch 1 correct 9 / 72 wrong 8
+calibration {'threshold': 2.448, 'utility': 5.0, 'grid': 389} teacher calls 35215 web {'requests': 640, 'ok': 549, 'refused': 60, 'failed': 31, 'bytes': 86829320, 'hosts': 106}

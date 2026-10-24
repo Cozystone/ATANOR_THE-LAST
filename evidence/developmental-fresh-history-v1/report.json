@@ -1,0 +1,358 @@
+{
+  "verdict": "VALIDATION_NO_GO",
+  "selected": "weights_adam",
+  "gates": {
+    "null_fast": true,
+    "fresh_not_before8": true,
+    "six_of_eight": true,
+    "no_life_slower": true,
+    "cascade_noninferior": false,
+    "whole_noninferior": true
+  },
+  "outcomes": {
+    "null": {
+      "fresh": {
+        "acquisition": null,
+        "per_life": [
+          null,
+          8,
+          8,
+          null,
+          8,
+          8,
+          null,
+          8
+        ]
+      },
+      "full": {
+        "acquisition": 4,
+        "per_life": [
+          4,
+          4,
+          8,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      "weights_adam": {
+        "acquisition": 4,
+        "per_life": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    "cascade": {
+      "fresh": {
+        "acquisition": 2,
+        "per_life": [
+          1,
+          2,
+          0,
+          2,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "full": {
+        "acquisition": 4,
+        "per_life": [
+          2,
+          2,
+          4,
+          2,
+          2,
+          2,
+          2,
+          1
+        ]
+      },
+      "weights_adam": {
+        "acquisition": 4,
+        "per_life": [
+          2,
+          2,
+          4,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      }
+    }
+  },
+  "summaries": [
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 0,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 1,
+      "denominator": 32,
+      "changed_correct": 5,
+      "whole_correct": 5
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 2,
+      "denominator": 32,
+      "changed_correct": 3,
+      "whole_correct": 3
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 4,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 8,
+      "denominator": 32,
+      "changed_correct": 24,
+      "whole_correct": 24
+    },
+    {
+      "law": "null",
+      "arm": "full",
+      "count": 0,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "full",
+      "count": 1,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "full",
+      "count": 2,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "full",
+      "count": 4,
+      "denominator": 32,
+      "changed_correct": 30,
+      "whole_correct": 30
+    },
+    {
+      "law": "null",
+      "arm": "full",
+      "count": 8,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 32
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 0,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 1,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 2,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 4,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 32
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 8,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 32
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 0,
+      "denominator": 32,
+      "changed_correct": 9,
+      "whole_correct": 0
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 1,
+      "denominator": 32,
+      "changed_correct": 26,
+      "whole_correct": 7
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 2,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 16
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 4,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 0
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 8,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 13
+    },
+    {
+      "law": "cascade",
+      "arm": "full",
+      "count": 0,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "cascade",
+      "arm": "full",
+      "count": 1,
+      "denominator": 32,
+      "changed_correct": 5,
+      "whole_correct": 5
+    },
+    {
+      "law": "cascade",
+      "arm": "full",
+      "count": 2,
+      "denominator": 32,
+      "changed_correct": 28,
+      "whole_correct": 28
+    },
+    {
+      "law": "cascade",
+      "arm": "full",
+      "count": 4,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 30
+    },
+    {
+      "law": "cascade",
+      "arm": "full",
+      "count": 8,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 32
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 0,
+      "denominator": 32,
+      "changed_correct": 0,
+      "whole_correct": 0
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 1,
+      "denominator": 32,
+      "changed_correct": 1,
+      "whole_correct": 1
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 2,
+      "denominator": 32,
+      "changed_correct": 28,
+      "whole_correct": 28
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 4,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 32
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 8,
+      "denominator": 32,
+      "changed_correct": 32,
+      "whole_correct": 32
+    }
+  ],
+  "hashes": {
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\adaptation_fresh_validation.py": "d5228517e54726dbaf63aff2d661d240515bcb893542ef0012eb235e23104e16",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-pair-isolation-v1\\report.json": "8b1446944d7ca8693e0aa5701693a169d12049bb65118a07e3c93aaa4e11ab83",
+    "C:\\0.ASKIM ALL-VIN\\27., ATANOR DEMO\\packages\\mind\\fk_world.py": "85ee675a8273f94e76d284968636f42783eb86df8694aa7b052bf48b3e76e47a",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\adaptation_pair_isolation.py": "684ac4d85422eaf6c7caac8a3d9cf13ab589958efa48586511224c98d1c30f1b",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\counterexample_adaptation_eval.py": "302de1bf791797fbbe9b478c8d40fa694b0797be08677cce1bb42791808f5be7",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_plastic_world.py": "cfd4fc37176d47e69014c1edb87e0131c69a8d431ad9b9177f4c8181b6d76470",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_plastic_eval.py": "bf8ff76a558496a1ec47349bc82aebff98704158f07d7761772a1c337a6116bf",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\plastic_law_world.py": "16008a88dd1b0c9f7309fe1d3ebc635626f7a36118a496ec692e484f54f357be",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\packages\\shared_world\\sql_schema_sensor.py": "4c4deae8af87c0f14e7e83e2af533adeb66fd55b793aec967189713e93b8451d",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\docs\\ATANOR_PAIR_ISOLATION_V1_PREREGISTRATION.md": "70925e7e6f3d54f9fb23f89e4fe816254e0d0978eafc6839793b7aba83e1c393"
+  },
+  "source_unchanged": true,
+  "restart_equal": true,
+  "native_A_verified": 8192,
+  "native_B_unique_verified": 192,
+  "probe_rows": 960,
+  "actual_new_counterexamples": 128,
+  "wall_seconds": 118.28860120009631,
+  "scope": "New initializations/A histories in same related native-law family; not new mechanism"
+}

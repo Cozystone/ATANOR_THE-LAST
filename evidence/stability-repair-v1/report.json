@@ -1,0 +1,233 @@
+{
+  "verdict": "REPAIR_NO_GO",
+  "repair_gates": {
+    "cost_at_most_six": true,
+    "macro_preserved": false,
+    "each_preserved": false,
+    "negative_transfer": true
+  },
+  "original_panel_gates": {
+    "gates": {
+      "mean_gain": true,
+      "median_gain": true,
+      "four_laws": true,
+      "six_histories": true,
+      "severe_pairs": true,
+      "no_severe_law": true,
+      "retention_nonvacuous": false,
+      "retention_macro": false,
+      "retention_each": false
+    },
+    "costs": {
+      "fresh": {
+        "unique_link": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        "broadcast_unlink": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "steal_link": [
+          null,
+          16,
+          null,
+          null,
+          null,
+          null,
+          null,
+          16
+        ],
+        "attached_insert": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          16
+        ],
+        "cleanup_delete": [
+          16,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "parent_insert": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "weights_adam": {
+        "unique_link": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4
+        ],
+        "broadcast_unlink": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "steal_link": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          16
+        ],
+        "attached_insert": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "cleanup_delete": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          16
+        ],
+        "parent_insert": [
+          8,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    "means": {
+      "fresh": 12.541666666666666,
+      "weights_adam": 4.458333333333333
+    },
+    "medians": {
+      "fresh": 16.0,
+      "weights_adam": 4.0
+    },
+    "lawmeans": {
+      "unique_link": {
+        "fresh": 16,
+        "weights_adam": 2.25
+      },
+      "broadcast_unlink": {
+        "fresh": 0.75,
+        "weights_adam": 0
+      },
+      "steal_link": {
+        "fresh": 16.75,
+        "weights_adam": 9
+      },
+      "attached_insert": {
+        "fresh": 16.875,
+        "weights_adam": 2
+      },
+      "cleanup_delete": {
+        "fresh": 16.875,
+        "weights_adam": 9
+      },
+      "parent_insert": {
+        "fresh": 8,
+        "weights_adam": 4.5
+      }
+    },
+    "severe_negative_pairs": 0,
+    "improved_histories": 8,
+    "retention": {
+      "unique_link": {
+        "0": 0.6041666666666666,
+        "16": 0.6833333333333333
+      },
+      "broadcast_unlink": {
+        "0": 0.1636904761904762,
+        "16": 0.15476190476190477
+      },
+      "steal_link": {
+        "0": 0.4107142857142857,
+        "16": 0.1125
+      },
+      "attached_insert": {
+        "0": 0.27604166666666663,
+        "16": 0.328125
+      },
+      "cleanup_delete": {
+        "0": 0.209375,
+        "16": 0.046875
+      },
+      "parent_insert": {
+        "0": 0.6875,
+        "16": 0.0
+      }
+    }
+  },
+  "baseline_exact_rows": 1152,
+  "restart_exact_rows": 1152,
+  "retention_before": 0.39191468253968254,
+  "retention_after": 0.22093253968253967,
+  "source_hashes": {
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\stability_repair_eval.py": "e94ab8345a5b145b16bf4e269e2c31c121f03f467dee23715c813ee972b459f7",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\stable_plastic_world.py": "2e11a4e924bf7bdd0b32124f159240f41232a775d98fb96ba616f1856f52abb4",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_plastic_world.py": "cfd4fc37176d47e69014c1edb87e0131c69a8d431ad9b9177f4c8181b6d76470",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\docs\\ATANOR_STABILITY_REPAIR_V1_PREREGISTRATION.md": "f5b888ddbb1872252f76bd7cab141a3f0265244edcb45bbc144284fda1733cbf",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\probes.jsonl": "6d975e7199cd073b250e8726fa3c9b77b1f5f7d0953f7de89fdb633292247d5e",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\cases.jsonl": "53f468fda471d0f9468ef0e7fcea8b73d2ab4e7f4e32640b7e895ee246ddb5c2",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\events.jsonl": "267261be8ed6ee980cb0fa90350a9c8f08ce5d53862b92dcd0043f15c68c0a50",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-0.pt": "406ef467aeec76196998d7905f1966fda38f761c80d0f79d949f945ef302aecd",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-1.pt": "b2d7f573d78be06b742bd57ef1180a390aa3b3f4d4b771858c866365bdddf0f6",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-2.pt": "61df5882b31a33dc9890e8d78b51e7af23568de8917f5bfa40b88b5ef177168f",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-3.pt": "a233f13cc278d69b8bd2cd62a59fb52d9ff874c840a9fbcecb2a1ec24f8ef08d",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-4.pt": "12228fd64f082d0c99c2bc09c0545077653cb6a2ac02c5417b5fe65cec301390",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-5.pt": "5742ccb99051bb184ebc691542ed48557436f4f4f814ba74044f761adfaffa34",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-6.pt": "4661c740933ce0d8345d8abc53889fc5b5b330ec09ee609a3c28f0ccccd777be",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\evidence\\developmental-plasticity-panel-v1\\A-7.pt": "55bf17306d3171cb98dfe47c7abacfc1cce78636957be04a8fd859ee772e502c"
+  },
+  "seconds": 76.61187490005977,
+  "scope": "Exposed diagnostic; no fresh validation; prediction checkpoints only, not resumable teacher checkpoint"
+}

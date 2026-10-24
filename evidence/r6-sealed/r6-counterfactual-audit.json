@@ -1,0 +1,770 @@
+{
+  "scope": "Known feasible unlink->empty diagnostic on 24 failed selective tasks, fresh temporary roots; candidate unchanged and original RED untouched.",
+  "counts": {
+    "('unlink', 'exact')": 24,
+    "('empty', 'wrong_program')": 20,
+    "('empty', 'routed_away')": 4
+  },
+  "records": [
+    {
+      "block": 0,
+      "task": 0,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5019350583598701,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 0,
+      "task": 0,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5222262951998039,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "task": 2,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5021759605964167,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 0,
+      "task": 2,
+      "op": "empty",
+      "category": "routed_away",
+      "uncertainty": 1.0,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "task": 4,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5020652250169257,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 0,
+      "task": 4,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.522243650754078,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 0,
+      "task": 6,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.501827079308539,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 0,
+      "task": 6,
+      "op": "empty",
+      "category": "routed_away",
+      "uncertainty": 1.0,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 1,
+      "task": 0,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5022156762993739,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 0,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221831418329315,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 2,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5024347777658358,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 2,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5222591864480308,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 4,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.50225167490807,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 4,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221879416474242,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 6,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5018020675013908,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 1,
+      "task": 6,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221713100224135,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 0,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5021286337716004,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 0,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5222521052547013,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 2,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5022976449872676,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 2,
+      "op": "empty",
+      "category": "routed_away",
+      "uncertainty": 1.0,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 4,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5021027855767158,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 4,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5222486588287167,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 6,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5026928675087511,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 2,
+      "task": 6,
+      "op": "empty",
+      "category": "routed_away",
+      "uncertainty": 1.0,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 3,
+      "task": 0,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5022734239231972,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 3,
+      "task": 0,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5219879638962294,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 3,
+      "task": 2,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5023722245624539,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 3,
+      "task": 2,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5220476208832382,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 3,
+      "task": 4,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5013770289180125,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 3,
+      "task": 4,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5218684445622048,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 3,
+      "task": 6,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5023657085142009,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 3,
+      "task": 6,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5220467158765364,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 6,
+      "task": 0,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.501272239257788,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 6,
+      "task": 0,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5220573502273866,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 6,
+      "task": 2,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5021426096498578,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 6,
+      "task": 2,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5222186075430338,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 6,
+      "task": 4,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.501502811341547,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 6,
+      "task": 4,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5220880931718879,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 6,
+      "task": 6,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5021254304769687,
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ]
+    },
+    {
+      "block": 6,
+      "task": 6,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5222162215467993,
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ]
+    },
+    {
+      "block": 7,
+      "task": 0,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5021132193289197,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 0,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221694809035375,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 2,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5019203607007638,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 2,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221877396334375,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 4,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.5020373425145253,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 4,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221593639949516,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 6,
+      "op": "unlink",
+      "category": "exact",
+      "uncertainty": 0.501827079308539,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    },
+    {
+      "block": 7,
+      "task": 6,
+      "op": "empty",
+      "category": "wrong_program",
+      "uncertainty": 0.5221747838845174,
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ]
+    }
+  ]
+}

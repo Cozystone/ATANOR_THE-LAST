@@ -1,0 +1,98 @@
+{
+  "completed": 0,
+  "steps": 48,
+  "workers": [
+    {
+      "pid": 84052,
+      "initial_model_digest": "1bafbf52e3c208a044d5f801f9aed320d6ef1530c76efac3e483ac4eac1c8b7c",
+      "final_model_digest": "85eec390bb576e42ade08c9da02fe619581aa7e26c05ccb2e67293d41fef2fed",
+      "completed": 0,
+      "steps": 6,
+      "active": 0
+    },
+    {
+      "pid": 34836,
+      "initial_model_digest": "85eec390bb576e42ade08c9da02fe619581aa7e26c05ccb2e67293d41fef2fed",
+      "final_model_digest": "8d817b38fba5652609b26e368a32a33b7069c7f08db7b56860b40bcc490865b8",
+      "completed": 0,
+      "steps": 48,
+      "active": null
+    }
+  ],
+  "native_verification": {
+    "green": true,
+    "errors": [],
+    "steps": 48,
+    "goals": [
+      {
+        "completed": false,
+        "goal_id": "prepare-workspace",
+        "model_digest": "8d817b38fba5652609b26e368a32a33b7069c7f08db7b56860b40bcc490865b8",
+        "observation": 292,
+        "reason": "step_budget_exceeded",
+        "steps": 48
+      }
+    ],
+    "capability_claim": false
+  },
+  "continuity": true,
+  "distinct_processes": true,
+  "single_goal": true,
+  "surprise_observed": true,
+  "plan_revised": true,
+  "experience_used": true,
+  "operations_used": [
+    "empty",
+    "mkdir",
+    "unlink"
+  ],
+  "thought_dispatch_matches": true,
+  "final_evidence": {
+    "n0": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n1": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n2": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n3": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n4": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n5": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n6": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n7": {
+      "kind": 2,
+      "sha256": null,
+      "size_bytes": null
+    },
+    "n8": {
+      "kind": 1,
+      "sha256": "6a2ba12bcd0c90714a0c6ffc0eb55311837530ecdd6ce730006129d67801a52a",
+      "size_bytes": 42
+    }
+  },
+  "intent_digest": "82a9de9bc04a2a1b84db56d97e1209ede9ad21a5e6fce98e3eaeb996db8f95f7"
+}

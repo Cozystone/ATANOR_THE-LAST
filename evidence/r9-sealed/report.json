@@ -1,0 +1,70 @@
+{
+  "differences": {
+    "discriminate": {
+      "lcb95": 0.0,
+      "lift": 0.0
+    },
+    "none": {
+      "lcb95": 0.5,
+      "lift": 0.5
+    },
+    "online": {
+      "lcb95": 0.5,
+      "lift": 0.5
+    }
+  },
+  "gates": {
+    "acquisition_charged_economy": false,
+    "actual_only_training": true,
+    "budgets": true,
+    "discriminate_nonregression": true,
+    "none_lift": true,
+    "online_nonregression": true,
+    "projection_unchanged": true,
+    "source_unchanged": true,
+    "success_rate": true
+  },
+  "prereg_sha256": "2bb029f08ee76b2e92197826a877f1f7fbd438faa2a2684e3b1ed48b073a5056",
+  "rows_sha256": "badd4cb7d5321eaaa654cd64d33f957dac05920db11786626d0384d030aff210",
+  "scope": "New instances, exposed mechanics. Same eight-task horizon. Actual acquisition+task action costs, not fixture/reset/measurement overhead. Independent native audit required.",
+  "scores": {
+    "discriminate": {
+      "acquisition_actions": 115,
+      "actions_per_success": 3.296875,
+      "cpu_seconds": 126.890625,
+      "n": 64,
+      "successes": 64,
+      "task_actions": 96,
+      "total_native_actions": 211
+    },
+    "focused": {
+      "acquisition_actions": 115,
+      "actions_per_success": 3.296875,
+      "cpu_seconds": 145.9375,
+      "n": 64,
+      "successes": 64,
+      "task_actions": 96,
+      "total_native_actions": 211
+    },
+    "none": {
+      "acquisition_actions": 0,
+      "actions_per_success": 3.0,
+      "cpu_seconds": 44.890625,
+      "n": 64,
+      "successes": 32,
+      "task_actions": 96,
+      "total_native_actions": 96
+    },
+    "online": {
+      "acquisition_actions": 0,
+      "actions_per_success": 3.0,
+      "cpu_seconds": 49.5625,
+      "n": 64,
+      "successes": 32,
+      "task_actions": 96,
+      "total_native_actions": 96
+    }
+  },
+  "verdict": "R9_LOCAL_CAPABILITY_RED",
+  "wall_seconds": 373.8840624000877
+}

@@ -1,0 +1,107 @@
+{
+  "status": "RAW_NATIVE_AUDIT_PASS",
+  "tasks": 3456,
+  "retention": 1632,
+  "native_catalogs": 720,
+  "warm_transitions": 4096,
+  "sequential_events": 1536,
+  "calibration_events": 272,
+  "acquisition": {
+    "weights_adam": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "anchored": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "latent": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "usable": {
+    "weights_adam": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "anchored": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "latent": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    }
+  },
+  "gates": {
+    "novel_acquired": false,
+    "acquisition_noninferior": true,
+    "return_within_four": false,
+    "cumulative_three": false,
+    "cumulative_four": false,
+    "improvement_over_controls": false,
+    "bounded_growth": true
+  },
+  "files": {
+    "attempt.json": "4ef8d938e443c2dc68a8557e4c3bf512f19553e8261d934cb29b47ee5762a65f",
+    "bank.jsonl": "08a6aee3a904cb7a7467e0eef311e44f597e36794771863395ea92f30ca7ab50",
+    "events.jsonl": "b2b28346c12426bf2f944f9037a1008fbddebef0dcdabfaacd75751dcd2b45ac",
+    "latent-0-0.pt": "1ea6d68c321fb510211c38dc6e8a112d24dfa8338f5c5b364a2341288dbf08bb",
+    "latent-0-1.pt": "ef545645864a74169c3367684ef94b8d087136187fb6b2d58aaf38ee9f4f12cb",
+    "latent-0-2.pt": "bb790d1e1d08ec82b9bedcb335bebf021f0c5d6aa7e78139c541d46ea2518fc6",
+    "latent-0-3.pt": "1c414426aa7ddedcb40a1777f19c19a4a05caf275c21b84178c51c984dc256a2",
+    "latent-0-4.pt": "c478c418d3b86eb3e64559502806e5d98289f629e1be81c1fab6a6348e221030",
+    "latent-0-5.pt": "15a5cb68a6eed82de9c4aa5e3b2cb376386a6bbd7ef795894015309c18d20e64",
+    "latent-1-0.pt": "2c4bf2c0814b03661791a393020bbd9c84ecbe3452cef671cb6f0639ee6183d5",
+    "latent-1-1.pt": "fb28e69b49fb330d78a38f33740b67470bba47cb00be234a1d20136c4fd5aa62",
+    "latent-1-2.pt": "1ecd62b6b2263a912e00c23f49dcf0cc94a26d3adf3efdc931f485628a9d3274",
+    "latent-1-3.pt": "26554a1eab1fa767a51fc12b05f7579bd11b013ae35f762cd8bb61de9623c90d",
+    "latent-1-4.pt": "95841488ff4d524b9cd7554eadcb7e4d8c6e0760d51ec4d80a8ad3e1d533f1e9",
+    "latent-1-5.pt": "6f20fed708411927bfd5403acf22d93187f825e875df83152ae5b7ef60cdf0f6",
+    "latent-2-0.pt": "0ff79eab6849b70be303ec7738f622eaa393a153a53229139f4d94e94328faa0",
+    "latent-2-1.pt": "3bff9e84211371250000edf85bbf56704b9b4b732e6f4e5a435568ecf340dccf",
+    "latent-2-2.pt": "713c291a1e24af35fa666a050c697d4458d0ce6bc8576e50d7e2f621589153c2",
+    "latent-2-3.pt": "d318b1d683c50701c72493f17745bbd4ec83646953988fe5e91c90592f656a23",
+    "latent-2-4.pt": "cbb498957ca29a70696619905e45ff3c5323004c5294a9b86dc152d7b5401300",
+    "latent-2-5.pt": "a5c7612261c86d8eb6fcb2933dc8d8a1043b9f0ba013a527f7cc4aef6c82e528",
+    "latent-3-0.pt": "3850b53e12c39921feebe5a8857b54d6dd976b0e5060e7e1bbbc09b61f4b53e1",
+    "latent-3-1.pt": "aa14b95417d4c4bf1dd821434f85dfbabe7322d29f52b4de8a742d5de9b5a89a",
+    "latent-3-2.pt": "b5f4bfa31e6b39dfb3ce11b993fc34b2991cf52bc8e2f9020cd33431a24b41ac",
+    "latent-3-3.pt": "e65081f11bafb8f84b6e4d8f2bb2a9bea8e680607256e51217e458749f4fcef3",
+    "latent-3-4.pt": "bfcadee3c1774c3a31dfbfd649b34a46822a4d9e4ad3ffac86fc132bf39ce723",
+    "latent-3-5.pt": "9b7aeafaf614aec2de639aad877b42977d017f3e8928021f78716c1b423f8afd",
+    "report.json": "9dcd85dd1f3008b70b59f8176fa58e1d7cb802d1a0da4ff2ee74848fb0fc2299",
+    "retention.jsonl": "848aab010edd4e400a3251644d25898aaa518d7b0e0d913953606f70180a5a65",
+    "tasks.jsonl": "42a037fc27a645cb5248630f4646705100e3c009ee1f249cd1b41dcc2a40b14a",
+    "warm-0.pt": "1d15b77dc8e66c72a8a396dac15d4c98a93df464739f37b2e7e3160f61dd01e7",
+    "warm-1.pt": "6dc397a7ccc2005a90df5de3e7cd6959334b013405674e926e84ce6e4b07c724",
+    "warm-2.pt": "327290e71288e77d5e9bb661c081413e091aef0274679cf48bc6dd0d52f7c3a3",
+    "warm-3.pt": "5b7f19246277e0fbb6320866c0ae25f07fb5e0055907a5d052eb611387868f8c",
+    "warm.jsonl": "7811ab00b8a6511ee772c3446373e79e0d37b96aef6f77293f04d33984d81408"
+  }
+}

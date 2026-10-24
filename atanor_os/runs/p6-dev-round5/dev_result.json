@@ -1,0 +1,4885 @@
+{
+ "result": {
+  "summary": {
+   "ORACLE": {
+    "possible_tasks": 5,
+    "completion": 1.0,
+    "impossible_tasks": 1,
+    "correct_stops": 1,
+    "wrong_placements_per_task": 0.0,
+    "form_accuracy": 1.0,
+    "info_actions_per_task": 0.0,
+    "seconds_per_task": 0.10863546530405681,
+    "file_status": {
+     "done": 17,
+     "no_evidence": 1
+    },
+    "goal_unclear": 0
+   },
+   "N": {
+    "possible_tasks": 5,
+    "completion": 0.0,
+    "impossible_tasks": 1,
+    "correct_stops": 1,
+    "wrong_placements_per_task": 0.0,
+    "form_accuracy": 0.6666666666666666,
+    "info_actions_per_task": 0.0,
+    "seconds_per_task": 0.005358378092447917,
+    "file_status": {
+     "no_evidence": 15
+    },
+    "goal_unclear": 1
+   },
+   "S": {
+    "possible_tasks": 5,
+    "completion": 0.0,
+    "impossible_tasks": 1,
+    "correct_stops": 1,
+    "wrong_placements_per_task": 0.0,
+    "form_accuracy": 0.6666666666666666,
+    "info_actions_per_task": 15.333333333333334,
+    "seconds_per_task": 6.364171067873637,
+    "file_status": {
+     "no_evidence": 9,
+     "done": 6
+    },
+    "goal_unclear": 1
+   },
+   "F": {
+    "possible_tasks": 5,
+    "completion": 0.0,
+    "impossible_tasks": 1,
+    "correct_stops": 1,
+    "wrong_placements_per_task": 0.0,
+    "form_accuracy": 0.6666666666666666,
+    "info_actions_per_task": 15.333333333333334,
+    "seconds_per_task": 4.992025852203369,
+    "file_status": {
+     "no_evidence": 9,
+     "done": 6
+    },
+    "goal_unclear": 1
+   }
+  },
+  "F_vs_N": {
+   "pairs": 5,
+   "mean_pp": 0.0,
+   "pos": 0,
+   "neg": 0
+  },
+  "extra": {
+   "ORACLE": {
+    "web": {
+     "requests": 0
+    },
+    "llm_or_local_host_attempts": 0,
+    "memory_after": null,
+    "self_learned_words": []
+   },
+   "N": {
+    "web": {
+     "requests": 0
+    },
+    "llm_or_local_host_attempts": 0,
+    "memory_after": {},
+    "self_learned_words": []
+   },
+   "S": {
+    "web": {
+     "requests": 36,
+     "ok": 28,
+     "refused": 7,
+     "failed": 1,
+     "bytes": 2901841,
+     "hosts": 10
+    },
+    "llm_or_local_host_attempts": 0,
+    "memory_after": {
+     "aat": "SFNT",
+     "bbm": "Interleaved Bitmap",
+     "heifs": "High Efficiency Image File Format",
+     "ilbm": "IFF",
+     "mdown": "Markdown",
+     "n3": "Notation3",
+     "nsv": "Nullsoft Streaming Video",
+     "ora": "OpenRaster",
+     "otf": "SFNT",
+     "raml": "RESTful API Modeling Language",
+     "type": "Intellifont",
+     "xpm": "X PixMap",
+     "3gp": "Advanced Audio Coding",
+     "3mf": "3D Manufacturing Format",
+     "aac": "Advanced Audio Coding",
+     "abc": "Alembic",
+     "acm": "Portable Executable",
+     "adf": "Amiga Disk File",
+     "adoc": "AsciiDoc",
+     "amf": "Additive Manufacturing File Format standard",
+     "appx": "Universal Windows Platform application package",
+     "ark": "ARC",
+     "art": "ART image file format",
+     "asec": "Android Secure encrypted file",
+     "ass": "SubStation Alpha",
+     "avi": "Audio Video Interleave",
+     "azw": "Kindle File Format",
+     "bag": "Bathymetry Attributed Grid",
+     "bat": "batch file",
+     "bilw": "world file",
+     "bin": "Executable and Linkable Format",
+     "blb": "Blorb",
+     "blw": "world file",
+     "bpw": "world file",
+     "btm": "batch file",
+     "btw": "world file",
+     "bundle": "Mach-O",
+     "cab": "Cabinet",
+     "caf": "Core Audio Format",
+     "cda": "Compact Disc Audio track file",
+     "cdx": "CDX Format",
+     "cff": "SFNT",
+     "cgns": "CFD General Notation System",
+     "ch": "Scitex Continuous Tone",
+     "chm": "Microsoft Compiled HTML Help",
+     "cif": "Caltech Intermediate Form",
+     "class": "Java bytecode",
+     "clp": "PICtor PIC image format",
+     "cmd": "batch file",
+     "cmsc": "Cryptographic Message Syntax",
+     "coffee": "CoffeeScript",
+     "cpc": "Cartesian Perceptual Compression",
+     "cpi": "Cartesian Perceptual Compression",
+     "cpt": "Corel Photo-Paint Image",
+     "crd": "ChordPro",
+     "crw": "Camera Image File Format",
+     "csl": "Citation Style Language",
+     "csr": "certificate signing request",
+     "csv": "Comma Separated Values",
+     "ct": "Scitex Continuous Tone",
+     "ctr": "Citrine",
+     "cue": "Cue sheet",
+     "cv": "Card Verifiable Certificate",
+     "cvcert": "Card Verifiable Certificate",
+     "cwl": "Common Workflow Language",
+     "daa": "Direct Access Archive",
+     "dae": "Digital Asset Exchange",
+     "dbf": "shapefile",
+     "dbk": "DocBook",
+     "ddp": "Disc Description Protocol",
+     "dds": "DirectDraw Surface",
+     "dem": "LandXML"
+    },
+    "self_learned_words": [
+     {
+      "word": "carries",
+      "weights": {
+       "folder": 5.4910231286190365,
+       "rename": 4.257449541081255,
+       "copy": 6.251527330299709
+      },
+      "url": "https://en.wikipedia.org/wiki/Carry",
+      "known_words_used": [
+       "a",
+       "also",
+       "and",
+       "as",
+       "create",
+       "file",
+       "for",
+       "in",
+       "is",
+       "keep",
+       "move",
+       "name",
+       "of",
+       "to",
+       "up",
+       "what"
+      ]
+     }
+    ]
+   },
+   "F": {
+    "web": {
+     "requests": 36,
+     "ok": 28,
+     "refused": 7,
+     "failed": 1,
+     "bytes": 3022110,
+     "hosts": 10
+    },
+    "llm_or_local_host_attempts": 0,
+    "memory_after": {
+     "aat": "SFNT",
+     "bbm": "Interleaved Bitmap",
+     "heifs": "High Efficiency Image File Format",
+     "ilbm": "IFF",
+     "mdown": "Markdown",
+     "n3": "Notation3",
+     "nsv": "Nullsoft Streaming Video",
+     "ora": "OpenRaster",
+     "otf": "SFNT",
+     "raml": "RESTful API Modeling Language",
+     "type": "Intellifont",
+     "xpm": "X PixMap",
+     "3gp": "Advanced Audio Coding",
+     "3mf": "3D Manufacturing Format",
+     "aac": "Advanced Audio Coding",
+     "abc": "Alembic",
+     "acm": "Portable Executable",
+     "adf": "Amiga Disk File",
+     "adoc": "AsciiDoc",
+     "amf": "Additive Manufacturing File Format standard",
+     "appx": "Universal Windows Platform application package",
+     "ark": "ARC",
+     "art": "ART image file format",
+     "asec": "Android Secure encrypted file",
+     "ass": "SubStation Alpha",
+     "avi": "Audio Video Interleave",
+     "azw": "Kindle File Format",
+     "bag": "Bathymetry Attributed Grid",
+     "bat": "batch file",
+     "bilw": "world file",
+     "bin": "Executable and Linkable Format",
+     "blb": "Blorb",
+     "blw": "world file",
+     "bpw": "world file",
+     "btm": "batch file",
+     "btw": "world file",
+     "bundle": "Mach-O",
+     "cab": "Cabinet",
+     "caf": "Core Audio Format",
+     "cda": "Compact Disc Audio track file",
+     "cdx": "CDX Format",
+     "cff": "SFNT",
+     "cgns": "CFD General Notation System",
+     "ch": "Scitex Continuous Tone",
+     "chm": "Microsoft Compiled HTML Help",
+     "cif": "Caltech Intermediate Form",
+     "class": "Java bytecode",
+     "clp": "PICtor PIC image format",
+     "cmd": "batch file",
+     "cmsc": "Cryptographic Message Syntax",
+     "coffee": "CoffeeScript",
+     "cpc": "Cartesian Perceptual Compression",
+     "cpi": "Cartesian Perceptual Compression",
+     "cpt": "Corel Photo-Paint Image",
+     "crd": "ChordPro",
+     "crw": "Camera Image File Format",
+     "csl": "Citation Style Language",
+     "csr": "certificate signing request",
+     "csv": "Comma Separated Values",
+     "ct": "Scitex Continuous Tone",
+     "ctr": "Citrine",
+     "cue": "Cue sheet",
+     "cv": "Card Verifiable Certificate",
+     "cvcert": "Card Verifiable Certificate",
+     "cwl": "Common Workflow Language",
+     "daa": "Direct Access Archive",
+     "dae": "Digital Asset Exchange",
+     "dbf": "shapefile",
+     "dbk": "DocBook",
+     "ddp": "Disc Description Protocol",
+     "dds": "DirectDraw Surface",
+     "dem": "LandXML"
+    },
+    "self_learned_words": [
+     {
+      "word": "carries",
+      "weights": {
+       "folder": 3.7431970416625147,
+       "rename": 2.7429567874580663,
+       "copy": 3.5138461708794195
+      },
+      "url": "https://en.wikipedia.org/wiki/Canada_Carries_On",
+      "known_words_used": [
+       "a",
+       "as",
+       "by",
+       "create",
+       "file",
+       "in",
+       "move",
+       "of",
+       "to",
+       "what"
+      ]
+     }
+    ]
+   }
+  },
+  "teacher_import_attempts": []
+ },
+ "rows": {
+  "ORACLE": [
+   {
+    "cond": "ORACLE",
+    "index": 0,
+    "form": "folder",
+    "sentence": "Move the files into directories named after their formats, written out completely.",
+    "exts": [
+     "jbg",
+     "aat",
+     "bbm"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "folder",
+    "form_correct": true,
+    "result": {
+     "form": "folder",
+     "margin": 99.0,
+     "files": {
+      "fjord.jbg": {
+       "status": "done",
+       "name": "JBIG",
+       "fact": "oracle"
+      },
+      "jade.bbm": {
+       "status": "done",
+       "name": "Interleaved Bitmap",
+       "fact": "oracle"
+      },
+      "reed.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "oracle"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.14043807983398438
+    },
+    "judge": {
+     "per_file": {
+      "fjord.jbg": "ok",
+      "reed.aat": "ok",
+      "jade.bbm": "ok"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": true,
+     "impossible_correct": null
+    },
+    "seconds": 0.1458740234375,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.061,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "fjord.jbg",
+      "form": "folder",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.083,
+      "action": "act",
+      "trigger": "name of .jbg adopted; goal form folder",
+      "src": "fjord.jbg",
+      "dst": "JBIG/fjord.jbg",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.112,
+      "action": "act",
+      "trigger": "name of .bbm adopted; goal form folder",
+      "src": "jade.bbm",
+      "dst": "Interleaved Bitmap/jade.bbm",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.14,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form folder",
+      "src": "reed.aat",
+      "dst": "SFNT/reed.aat",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.14,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": []
+     }
+    ]
+   },
+   {
+    "cond": "ORACLE",
+    "index": 1,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "aat",
+     "yml",
+     "jbg"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 99.0,
+     "files": {
+      "jade.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "oracle"
+      },
+      "maple.yml": {
+       "status": "done",
+       "name": "YAML",
+       "fact": "oracle"
+      },
+      "reed.jbg": {
+       "status": "done",
+       "name": "JBIG",
+       "fact": "oracle"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.08102059364318848
+    },
+    "judge": {
+     "per_file": {
+      "jade.aat": "ok",
+      "maple.yml": "ok",
+      "reed.jbg": "ok"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": true,
+     "impossible_correct": null
+    },
+    "seconds": 0.08521699905395508,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.032,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "jade.aat",
+      "form": "rename",
+      "outcome_ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.046,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form rename",
+      "src": "jade.aat",
+      "dst": "SFNT.aat",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.065,
+      "action": "act",
+      "trigger": "name of .yml adopted; goal form rename",
+      "src": "maple.yml",
+      "dst": "YAML.yml",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.081,
+      "action": "act",
+      "trigger": "name of .jbg adopted; goal form rename",
+      "src": "reed.jbg",
+      "dst": "JBIG.jbg",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.081,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": []
+     }
+    ]
+   },
+   {
+    "cond": "ORACLE",
+    "index": 2,
+    "form": "copy",
+    "sentence": "Make duplicates of the files in folders called by their formats' official names, keeping the originals.",
+    "exts": [
+     "bbm",
+     "aat",
+     "jxr"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 99.0,
+     "files": {
+      "nova.jxr": {
+       "status": "done",
+       "name": "JPEG XR",
+       "fact": "oracle"
+      },
+      "reed.bbm": {
+       "status": "done",
+       "name": "Interleaved Bitmap",
+       "fact": "oracle"
+      },
+      "tide.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "oracle"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.12947797775268555
+    },
+    "judge": {
+     "per_file": {
+      "reed.bbm": "ok",
+      "tide.aat": "ok",
+      "nova.jxr": "ok"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": true,
+     "impossible_correct": null
+    },
+    "seconds": 0.13569855690002441,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.038,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "nova.jxr",
+      "form": "copy",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.068,
+      "action": "act",
+      "trigger": "name of .jxr adopted; goal form copy",
+      "src": "nova.jxr",
+      "dst": "JPEG XR/nova.jxr",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.093,
+      "action": "act",
+      "trigger": "name of .bbm adopted; goal form copy",
+      "src": "reed.bbm",
+      "dst": "Interleaved Bitmap/reed.bbm",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.129,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form copy",
+      "src": "tide.aat",
+      "dst": "SFNT/tide.aat",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.129,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": []
+     }
+    ]
+   },
+   {
+    "cond": "ORACLE",
+    "index": 3,
+    "form": "folder",
+    "sentence": "Put each file in a folder that carries the full name of its format.",
+    "exts": [
+     "jxr",
+     "yml",
+     "mjp2"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "folder",
+    "form_correct": true,
+    "result": {
+     "form": "folder",
+     "margin": 99.0,
+     "files": {
+      "ember.jxr": {
+       "status": "done",
+       "name": "JPEG XR",
+       "fact": "oracle"
+      },
+      "jade.yml": {
+       "status": "done",
+       "name": "YAML",
+       "fact": "oracle"
+      },
+      "reed.mjp2": {
+       "status": "done",
+       "name": "Motion JPEG 2000",
+       "fact": "oracle"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.10979127883911133
+    },
+    "judge": {
+     "per_file": {
+      "ember.jxr": "ok",
+      "jade.yml": "ok",
+      "reed.mjp2": "ok"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": true,
+     "impossible_correct": null
+    },
+    "seconds": 0.11616158485412598,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.035,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "ember.jxr",
+      "form": "folder",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.055,
+      "action": "act",
+      "trigger": "name of .jxr adopted; goal form folder",
+      "src": "ember.jxr",
+      "dst": "JPEG XR/ember.jxr",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.082,
+      "action": "act",
+      "trigger": "name of .yml adopted; goal form folder",
+      "src": "jade.yml",
+      "dst": "YAML/jade.yml",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.11,
+      "action": "act",
+      "trigger": "name of .mjp2 adopted; goal form folder",
+      "src": "reed.mjp2",
+      "dst": "Motion JPEG 2000/reed.mjp2",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.11,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": []
+     }
+    ]
+   },
+   {
+    "cond": "ORACLE",
+    "index": 4,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "jbg",
+     "aat",
+     "yml"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 99.0,
+     "files": {
+      "bravo.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "oracle"
+      },
+      "delta.jbg": {
+       "status": "done",
+       "name": "JBIG",
+       "fact": "oracle"
+      },
+      "reed.yml": {
+       "status": "done",
+       "name": "YAML",
+       "fact": "oracle"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.06466937065124512
+    },
+    "judge": {
+     "per_file": {
+      "delta.jbg": "ok",
+      "bravo.aat": "ok",
+      "reed.yml": "ok"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": true,
+     "impossible_correct": null
+    },
+    "seconds": 0.06931114196777344,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.028,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "bravo.aat",
+      "form": "rename",
+      "outcome_ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.04,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form rename",
+      "src": "bravo.aat",
+      "dst": "SFNT.aat",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.051,
+      "action": "act",
+      "trigger": "name of .jbg adopted; goal form rename",
+      "src": "delta.jbg",
+      "dst": "JBIG.jbg",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.065,
+      "action": "act",
+      "trigger": "name of .yml adopted; goal form rename",
+      "src": "reed.yml",
+      "dst": "YAML.yml",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.065,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": []
+     }
+    ]
+   },
+   {
+    "cond": "ORACLE",
+    "index": 5,
+    "form": "copy",
+    "sentence": "Copy each file into a folder named with its format's full name; the originals stay where they are.",
+    "exts": [
+     "mjp2",
+     "yml",
+     "jqmdh"
+    ],
+    "impossible_file": "opal.jqmdh",
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 99.0,
+     "files": {
+      "fjord.yml": {
+       "status": "done",
+       "name": "YAML",
+       "fact": "oracle"
+      },
+      "opal.jqmdh": {
+       "status": "no_evidence"
+      },
+      "reed.mjp2": {
+       "status": "done",
+       "name": "Motion JPEG 2000",
+       "fact": "oracle"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.09245967864990234
+    },
+    "judge": {
+     "per_file": {
+      "reed.mjp2": "ok",
+      "fjord.yml": "ok",
+      "opal.jqmdh": "correct_stop"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": true,
+     "impossible_correct": true
+    },
+    "seconds": 0.09955048561096191,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.036,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "fjord.yml",
+      "form": "copy",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.061,
+      "action": "act",
+      "trigger": "name of .yml adopted; goal form copy",
+      "src": "fjord.yml",
+      "dst": "YAML/fjord.yml",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.092,
+      "action": "act",
+      "trigger": "name of .mjp2 adopted; goal form copy",
+      "src": "reed.mjp2",
+      "dst": "Motion JPEG 2000/reed.mjp2",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 0.092,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "opal.jqmdh"
+      ]
+     }
+    ]
+   }
+  ],
+  "N": [
+   {
+    "cond": "N",
+    "index": 0,
+    "form": "folder",
+    "sentence": "Move the files into directories named after their formats, written out completely.",
+    "exts": [
+     "jbg",
+     "aat",
+     "bbm"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": false,
+    "result": {
+     "form": "copy",
+     "margin": 1.4390332712133862,
+     "files": {
+      "fjord.jbg": {
+       "status": "no_evidence"
+      },
+      "jade.bbm": {
+       "status": "no_evidence"
+      },
+      "reed.aat": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.0022215843200683594
+    },
+    "judge": {
+     "per_file": {
+      "fjord.jbg": "not_done",
+      "reed.aat": "not_done",
+      "jade.bbm": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.006122112274169922,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 1.44,
+      "unknown": [
+       "written",
+       "completely"
+      ]
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .jbg unknown and no web in this condition",
+      "ext": "jbg",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .bbm unknown and no web in this condition",
+      "ext": "bbm",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .aat unknown and no web in this condition",
+      "ext": "aat",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "fjord.jbg",
+       "jade.bbm",
+       "reed.aat"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "N",
+    "index": 1,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "aat",
+     "yml",
+     "jbg"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 6.832188997219282,
+     "files": {
+      "jade.aat": {
+       "status": "no_evidence"
+      },
+      "maple.yml": {
+       "status": "no_evidence"
+      },
+      "reed.jbg": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.0022058486938476562
+    },
+    "judge": {
+     "per_file": {
+      "jade.aat": "not_done",
+      "maple.yml": "not_done",
+      "reed.jbg": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.005125999450683594,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "rename",
+      "margin": 6.83,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .aat unknown and no web in this condition",
+      "ext": "aat",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .yml unknown and no web in this condition",
+      "ext": "yml",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .jbg unknown and no web in this condition",
+      "ext": "jbg",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "jade.aat",
+       "maple.yml",
+       "reed.jbg"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "N",
+    "index": 2,
+    "form": "copy",
+    "sentence": "Make duplicates of the files in folders called by their formats' official names, keeping the originals.",
+    "exts": [
+     "bbm",
+     "aat",
+     "jxr"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 2.678240887355379,
+     "files": {
+      "nova.jxr": {
+       "status": "no_evidence"
+      },
+      "reed.bbm": {
+       "status": "no_evidence"
+      },
+      "tide.aat": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.0020570755004882812
+    },
+    "judge": {
+     "per_file": {
+      "reed.bbm": "not_done",
+      "tide.aat": "not_done",
+      "nova.jxr": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.005162239074707031,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 2.68,
+      "unknown": [
+       "duplicates",
+       "formats'"
+      ]
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .jxr unknown and no web in this condition",
+      "ext": "jxr",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .bbm unknown and no web in this condition",
+      "ext": "bbm",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .aat unknown and no web in this condition",
+      "ext": "aat",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "nova.jxr",
+       "reed.bbm",
+       "tide.aat"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "N",
+    "index": 3,
+    "form": "folder",
+    "sentence": "Put each file in a folder that carries the full name of its format.",
+    "exts": [
+     "jxr",
+     "yml",
+     "mjp2"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": false,
+    "result": {
+     "form": "copy",
+     "margin": 0.5456862193809826,
+     "files": {},
+     "stopped": "goal_unclear",
+     "seconds": 7.987022399902344e-05
+    },
+    "judge": {
+     "per_file": {
+      "ember.jxr": "not_done",
+      "jade.yml": "not_done",
+      "reed.mjp2": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.0038650035858154297,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 0.55,
+      "unknown": [
+       "carries"
+      ]
+     },
+     {
+      "t": 0.0,
+      "action": "stop",
+      "trigger": "goal interpretation not decisive",
+      "reason": "goal_unclear",
+      "scores": {
+       "folder": -15.357165149271351,
+       "rename": -20.41772464176683,
+       "copy": -14.811478929890368
+      }
+     }
+    ]
+   },
+   {
+    "cond": "N",
+    "index": 4,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "jbg",
+     "aat",
+     "yml"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 6.832188997219282,
+     "files": {
+      "bravo.aat": {
+       "status": "no_evidence"
+      },
+      "delta.jbg": {
+       "status": "no_evidence"
+      },
+      "reed.yml": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.0022306442260742188
+    },
+    "judge": {
+     "per_file": {
+      "delta.jbg": "not_done",
+      "bravo.aat": "not_done",
+      "reed.yml": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.006998300552368164,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "rename",
+      "margin": 6.83,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .aat unknown and no web in this condition",
+      "ext": "aat",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .jbg unknown and no web in this condition",
+      "ext": "jbg",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .yml unknown and no web in this condition",
+      "ext": "yml",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "bravo.aat",
+       "delta.jbg",
+       "reed.yml"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "N",
+    "index": 5,
+    "form": "copy",
+    "sentence": "Copy each file into a folder named with its format's full name; the originals stay where they are.",
+    "exts": [
+     "mjp2",
+     "yml",
+     "jqmdh"
+    ],
+    "impossible_file": "opal.jqmdh",
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 16.606426347682742,
+     "files": {
+      "fjord.yml": {
+       "status": "no_evidence"
+      },
+      "opal.jqmdh": {
+       "status": "no_evidence"
+      },
+      "reed.mjp2": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.002012968063354492
+    },
+    "judge": {
+     "per_file": {
+      "reed.mjp2": "not_done",
+      "fjord.yml": "not_done",
+      "opal.jqmdh": "correct_stop"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": true
+    },
+    "seconds": 0.004876613616943359,
+    "info_actions": 0,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 16.61,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .yml unknown and no web in this condition",
+      "ext": "yml",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .jqmdh unknown and no web in this condition",
+      "ext": "jqmdh",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop_fact",
+      "trigger": "name of .mjp2 unknown and no web in this condition",
+      "ext": "mjp2",
+      "reason": "no_evidence"
+     },
+     {
+      "t": 0.002,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "fjord.yml",
+       "opal.jqmdh",
+       "reed.mjp2"
+      ]
+     }
+    ]
+   }
+  ],
+  "S": [
+   {
+    "cond": "S",
+    "index": 0,
+    "form": "folder",
+    "sentence": "Move the files into directories named after their formats, written out completely.",
+    "exts": [
+     "jbg",
+     "aat",
+     "bbm"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": false,
+    "result": {
+     "form": "copy",
+     "margin": 1.4390332712133862,
+     "files": {
+      "fjord.jbg": {
+       "status": "no_evidence"
+      },
+      "jade.bbm": {
+       "status": "done",
+       "name": "Interleaved Bitmap",
+       "fact": "memory"
+      },
+      "reed.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      }
+     },
+     "stopped": "done",
+     "seconds": 8.136506080627441
+    },
+    "judge": {
+     "per_file": {
+      "fjord.jbg": "not_done",
+      "reed.aat": "not_done",
+      "jade.bbm": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 8.141562461853027,
+    "info_actions": 11,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 1.44,
+      "unknown": [
+       "written",
+       "completely"
+      ]
+     },
+     {
+      "t": 0.557,
+      "action": "search",
+      "trigger": "name of .jbg unknown",
+      "ext": "jbg",
+      "service": "wikipedia",
+      "query": "JBG format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JBG",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/JBIG",
+       "https://en.wikipedia.org/wiki/Jung_Brutal_Gutaussehend_3",
+       "https://en.wikipedia.org/wiki/History_of_vehicle_registration_plates_of_the_Philippines",
+       "https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_400"
+      ],
+      "error": null
+     },
+     {
+      "t": 3.109,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://en.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "f2dc740050ad51a63e6212aca4d491ea3637447158affb6c76ac132a93d9a280",
+      "best": {
+       "name": "JBG Smith",
+       "score": -5.313
+      },
+      "snippet": "ar\nhide\nFrom Wikipedia, the free encyclopedia\nJBG may refer to:\nJames Bond girl\nJBG Smith, an American real estate investment trust\nJBIG, an image compression format\nJer"
+     },
+     {
+      "t": 3.109,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://de.wikipedia.org/wiki/JBG",
+       "https://ko.wikipedia.org/wiki/JBG"
+      ]
+     },
+     {
+      "t": 4.959,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://de.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "d492e22b07ffa58ba243d56b7e6a5ee19d6002c4280427cd402a151c2ee2b582",
+      "best": {
+       "name": "Bildungseinrichtungen",
+       "score": -8.339
+      },
+      "snippet": " (2017)\nJohannes Brahms Gesamtausgabe, Edition seit 1991\nJBG steht für folgende Bildungseinrichtungen (Akronym von Gymnasium oder Gesamtschule):\nJakob-Brucker-Gymnasium, eine Bildun"
+     },
+     {
+      "t": 4.959,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/JBG",
+       "https://de.wikipedia.org/wiki/Spezial:Linkliste/JBG"
+      ]
+     },
+     {
+      "t": 6.604,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "962a72312142db2a92228bda701566224ff3461e4ce20a7fec4c1b45d1144d1b",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 6.604,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/JBG"
+      ]
+     },
+     {
+      "t": 8.046,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+      "ok": true,
+      "sha256": "1000cedfacb49971269b5ebb9657bfcfea8a4f3dc0ec075e9ec7a431f3503445",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 8.047,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100"
+      ]
+     },
+     {
+      "t": 8.047,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 8.047,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 8.047,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jbg",
+      "ext": "jbg",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 8.047,
+      "action": "recall",
+      "trigger": "name of .bbm already known",
+      "ext": "bbm",
+      "name": "Interleaved Bitmap"
+     },
+     {
+      "t": 8.083,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "jade.bbm",
+      "form": "copy",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 8.108,
+      "action": "act",
+      "trigger": "name of .bbm adopted; goal form copy",
+      "src": "jade.bbm",
+      "dst": "Interleaved Bitmap/jade.bbm",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 8.108,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 8.137,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form copy",
+      "src": "reed.aat",
+      "dst": "SFNT/reed.aat",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 8.137,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "fjord.jbg"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "S",
+    "index": 1,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "aat",
+     "yml",
+     "jbg"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 6.832188997219282,
+     "files": {
+      "jade.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      },
+      "maple.yml": {
+       "status": "no_evidence"
+      },
+      "reed.jbg": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 8.240307807922363
+    },
+    "judge": {
+     "per_file": {
+      "jade.aat": "ok",
+      "maple.yml": "not_done",
+      "reed.jbg": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 8.24600601196289,
+    "info_actions": 24,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "rename",
+      "margin": 6.83,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 0.027,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "jade.aat",
+      "form": "rename",
+      "outcome_ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.038,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form rename",
+      "src": "jade.aat",
+      "dst": "SFNT.aat",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.589,
+      "action": "search",
+      "trigger": "name of .yml unknown",
+      "ext": "yml",
+      "service": "wikipedia",
+      "query": "YML format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/YML",
+       "https://en.wikipedia.org/wiki/YAML",
+       "https://en.wikipedia.org/wiki/List_of_filename_extensions_%28S%E2%80%93Z%29",
+       "https://en.wikipedia.org/wiki/Vexor",
+       "https://en.wikipedia.org/wiki/Static_site_generator",
+       "https://en.wikipedia.org/wiki/Kali_Linux"
+      ],
+      "error": null
+     },
+     {
+      "t": 1.915,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://en.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "042e3b39e6feba6839b62efb786ebe6e71c5feb41ffedab8a90919917297de0d",
+      "best": {
+       "name": "YAML",
+       "score": -1.117
+      },
+      "snippet": "levoix Airport, in Quebec, Canada, IATA code YML\n.yml, a file extension for the YAML file format\nYamalele language, ISO 639-3 languagec code yml\nTopics referred to "
+     },
+     {
+      "t": 1.915,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://de.wikipedia.org/wiki/YML",
+       "https://fr.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 2.576,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://de.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "bd9cbec27e940f93f9b5771b32a3c7cf1375557736e106b55d79978f2ec624a2",
+      "best": {
+       "name": "Zum Inhalt",
+       "score": -5.36
+      },
+      "snippet": "Zum Inhalt springen\nHauptmenü\nHauptmenü\nIn die Seitenleiste verschieben\nVerbergen\nNavigati"
+     },
+     {
+      "t": 2.576,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://fr.wikipedia.org/wiki/YML",
+       "https://it.wikipedia.org/wiki/Yml"
+      ]
+     },
+     {
+      "t": 4.204,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://fr.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "82a9d0e8f5a600fd1ccdd15235365f10a79ed85ec3afb229308265b481b20a90",
+      "best": {
+       "name": "Aller",
+       "score": -7.061
+      },
+      "snippet": "Aller au contenu\nMenu principal\nMenu principal\ndéplacer vers la barre latérale\nmasque"
+     },
+     {
+      "t": 4.204,
+      "action": "follow",
+      "trigger": "links on https://fr.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://it.wikipedia.org/wiki/Yml",
+       "https://ja.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 6.241,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://it.wikipedia.org/wiki/Yml",
+      "ok": true,
+      "sha256": "ffb5334c70889216fe9d4e657a3bb68747baf16bbfb27cfb8929966b50723b67",
+      "best": {
+       "name": "YAML Ain't Markup Language",
+       "score": -5.917
+      },
+      "snippet": "i Murray Bay (Québec), (Canada)\nYML – l'estensione di file per il formato YAML (YAML Ain't Markup Language)\nYML – tipo di estensione di un file\nEstratto da \"https://it.wikipedia.org/w/in"
+     },
+     {
+      "t": 6.241,
+      "action": "follow",
+      "trigger": "links on https://it.wikipedia.org/wiki/Yml mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ja.wikipedia.org/wiki/YML",
+       "https://ko.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 7.879,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ja.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "876da302475df32bf392fe302d8fb79983f112bfaf6719df64f0eb675e52c2cb",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 7.879,
+      "action": "follow",
+      "trigger": "links on https://ja.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ko.wikipedia.org/wiki/YML",
+       "https://ru.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 8.238,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ko.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "01ff29b3e7aa38d070a0497429f3ad6936831ab15ca1db30f5bd5ee33cf1dbef",
+      "best": {
+       "name": "IATA YML",
+       "score": -4.588
+      },
+      "snippet": null
+     },
+     {
+      "t": 8.238,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ru.wikipedia.org/wiki/YML",
+       "https://zh.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 8.239,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .yml",
+      "ext": "yml",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 8.239,
+      "action": "search",
+      "trigger": "name of .jbg unknown",
+      "ext": "jbg",
+      "service": "wikipedia",
+      "query": "JBG format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JBG",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/JBIG",
+       "https://en.wikipedia.org/wiki/Jung_Brutal_Gutaussehend_3",
+       "https://en.wikipedia.org/wiki/History_of_vehicle_registration_plates_of_the_Philippines",
+       "https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_400"
+      ],
+      "error": null
+     },
+     {
+      "t": 8.239,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://en.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "f2dc740050ad51a63e6212aca4d491ea3637447158affb6c76ac132a93d9a280",
+      "best": {
+       "name": "JBG Smith",
+       "score": -5.313
+      },
+      "snippet": "ar\nhide\nFrom Wikipedia, the free encyclopedia\nJBG may refer to:\nJames Bond girl\nJBG Smith, an American real estate investment trust\nJBIG, an image compression format\nJer"
+     },
+     {
+      "t": 8.239,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://de.wikipedia.org/wiki/JBG",
+       "https://ko.wikipedia.org/wiki/JBG"
+      ]
+     },
+     {
+      "t": 8.239,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://de.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "d492e22b07ffa58ba243d56b7e6a5ee19d6002c4280427cd402a151c2ee2b582",
+      "best": {
+       "name": "Bildungseinrichtungen",
+       "score": -8.339
+      },
+      "snippet": " (2017)\nJohannes Brahms Gesamtausgabe, Edition seit 1991\nJBG steht für folgende Bildungseinrichtungen (Akronym von Gymnasium oder Gesamtschule):\nJakob-Brucker-Gymnasium, eine Bildun"
+     },
+     {
+      "t": 8.24,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/JBG",
+       "https://de.wikipedia.org/wiki/Spezial:Linkliste/JBG"
+      ]
+     },
+     {
+      "t": 8.24,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "962a72312142db2a92228bda701566224ff3461e4ce20a7fec4c1b45d1144d1b",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 8.24,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/JBG"
+      ]
+     },
+     {
+      "t": 8.24,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+      "ok": true,
+      "sha256": "1000cedfacb49971269b5ebb9657bfcfea8a4f3dc0ec075e9ec7a431f3503445",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 8.24,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100"
+      ]
+     },
+     {
+      "t": 8.24,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 8.24,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 8.24,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jbg",
+      "ext": "jbg",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 8.24,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "maple.yml",
+       "reed.jbg"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "S",
+    "index": 2,
+    "form": "copy",
+    "sentence": "Make duplicates of the files in folders called by their formats' official names, keeping the originals.",
+    "exts": [
+     "bbm",
+     "aat",
+     "jxr"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 2.678240887355379,
+     "files": {
+      "nova.jxr": {
+       "status": "no_evidence"
+      },
+      "reed.bbm": {
+       "status": "done",
+       "name": "Interleaved Bitmap",
+       "fact": "memory"
+      },
+      "tide.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      }
+     },
+     "stopped": "done",
+     "seconds": 8.958663940429688
+    },
+    "judge": {
+     "per_file": {
+      "reed.bbm": "ok",
+      "tide.aat": "ok",
+      "nova.jxr": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 8.96564769744873,
+    "info_actions": 9,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 2.68,
+      "unknown": [
+       "duplicates",
+       "formats'"
+      ]
+     },
+     {
+      "t": 0.521,
+      "action": "search",
+      "trigger": "name of .jxr unknown",
+      "ext": "jxr",
+      "service": "wikipedia",
+      "query": "JXR format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JPEG_XR",
+       "https://en.wikipedia.org/wiki/List_of_file_formats",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/Microsoft_Open_Specification_Promise",
+       "https://en.wikipedia.org/wiki/Comparison_of_image_viewers",
+       "https://en.wikipedia.org/wiki/After_School_Club"
+      ],
+      "error": null
+     },
+     {
+      "t": 2.695,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://en.wikipedia.org/wiki/JPEG_XR",
+      "ok": true,
+      "sha256": "2847da93e909ef2e07e29b1000b93f66c4d9c0e27c5fcafb7a2c53296f4d72c7",
+      "best": {
+       "name": "HDR",
+       "score": -6.205
+      },
+      "snippet": "IEC TR 29199-1).\nSince the release of Windows 11, version 24H2 in October 2024, HDR images in JPEG XR can be set as HDR wallpapers.[16][17]\nDescription[edit]\nCapab"
+     },
+     {
+      "t": 2.696,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JPEG_XR mention .jxr",
+      "ext": "jxr",
+      "links": [
+       "https://web.archive.org/web/20141126082326/https://jxrlib.codeplex.com/SourceControl/latest",
+       "https://jxrlib.codeplex.com/SourceControl/latest"
+      ]
+     },
+     {
+      "t": 6.123,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://web.archive.org/web/20141126082326/https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": true,
+      "sha256": "5487bcb322438e9a25b10f6ff40c9c1061a136393b2424d6eb62617174198c5f",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 6.123,
+      "action": "follow",
+      "trigger": "links on https://web.archive.org/web/20141126082326/https://jxrlib.codeplex.com/SourceControl/latest mention .jxr",
+      "ext": "jxr",
+      "links": [
+       "https://web.archive.org/web/20141126082326*/https://jxrlib.codeplex.com/SourceControl/latest",
+       "https://web.archive.org/web/20141126082326/http://web.archive.org/screenshot/https://jxrlib.codeplex.com/SourceControl/latest"
+      ]
+     },
+     {
+      "t": 7.156,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://web.archive.org/web/20141126082326*/https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": true,
+      "sha256": "61cb92c6072aa2acd263fdb1c43f52dcbf26ec088647c9d988ec2a144d79f399",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 8.199,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://web.archive.org/web/20141126082326/http://web.archive.org/screenshot/https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": false,
+      "error": "http"
+     },
+     {
+      "t": 8.208,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 8.871,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://en.wikipedia.org/wiki/List_of_file_formats",
+      "ok": true,
+      "sha256": "92ed11dcb95a6e158d50a6043c39e7faf79b4fd8a3f6e3570537c2bec2c88d34",
+      "best": {
+       "name": "JXR JPEG XR",
+       "score": -6.568
+      },
+      "snippet": null
+     },
+     {
+      "t": 8.872,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jxr",
+      "ext": "jxr",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 8.872,
+      "action": "recall",
+      "trigger": "name of .bbm already known",
+      "ext": "bbm",
+      "name": "Interleaved Bitmap"
+     },
+     {
+      "t": 8.905,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "reed.bbm",
+      "form": "copy",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 8.93,
+      "action": "act",
+      "trigger": "name of .bbm adopted; goal form copy",
+      "src": "reed.bbm",
+      "dst": "Interleaved Bitmap/reed.bbm",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 8.93,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 8.959,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form copy",
+      "src": "tide.aat",
+      "dst": "SFNT/tide.aat",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 8.959,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "nova.jxr"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "S",
+    "index": 3,
+    "form": "folder",
+    "sentence": "Put each file in a folder that carries the full name of its format.",
+    "exts": [
+     "jxr",
+     "yml",
+     "mjp2"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": false,
+    "result": {
+     "form": "copy",
+     "margin": 0.6135865270055696,
+     "files": {},
+     "stopped": "goal_unclear",
+     "seconds": 1.8139147758483887
+    },
+    "judge": {
+     "per_file": {
+      "ember.jxr": "not_done",
+      "jade.yml": "not_done",
+      "reed.mjp2": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 1.8192942142486572,
+    "info_actions": 2,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 0.55,
+      "unknown": [
+       "carries"
+      ]
+     },
+     {
+      "t": 0.817,
+      "action": "search",
+      "trigger": "goal word \"carries\" never seen and interpretation not decisive",
+      "service": "wikipedia",
+      "query": "carries",
+      "results": [
+       "https://en.wikipedia.org/wiki/Carry",
+       "https://en.wikipedia.org/wiki/Canada_Carries_On",
+       "https://en.wikipedia.org/wiki/Carry-On"
+      ],
+      "ok": true
+     },
+     {
+      "t": 1.813,
+      "action": "open",
+      "trigger": "definition of \"carries\"",
+      "url": "https://en.wikipedia.org/wiki/Carry",
+      "ok": true,
+      "sha256": "72aa8cc176410565b9fd17bc333498775a6f5bd0f805ea8baafffea755b0a20f"
+     },
+     {
+      "t": 1.814,
+      "action": "learn_word",
+      "trigger": "definition page read for \"carries\"",
+      "word": "carries",
+      "added": {
+       "folder": 5.4910231286190365,
+       "rename": 4.257449541081255,
+       "copy": 6.251527330299709
+      }
+     },
+     {
+      "t": 1.814,
+      "action": "interpret",
+      "trigger": "after lookup",
+      "form": "copy",
+      "margin": 0.61,
+      "unknown": []
+     },
+     {
+      "t": 1.814,
+      "action": "stop",
+      "trigger": "goal interpretation not decisive",
+      "reason": "goal_unclear",
+      "scores": {
+       "folder": -18.953407853168095,
+       "rename": -24.13496364852516,
+       "copy": -18.339821326162525
+      }
+     }
+    ]
+   },
+   {
+    "cond": "S",
+    "index": 4,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "jbg",
+     "aat",
+     "yml"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 6.832188997219282,
+     "files": {
+      "bravo.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      },
+      "delta.jbg": {
+       "status": "no_evidence"
+      },
+      "reed.yml": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.06724119186401367
+    },
+    "judge": {
+     "per_file": {
+      "delta.jbg": "not_done",
+      "bravo.aat": "ok",
+      "reed.yml": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.07212591171264648,
+    "info_actions": 24,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "rename",
+      "margin": 6.83,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 0.051,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "bravo.aat",
+      "form": "rename",
+      "outcome_ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.063,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form rename",
+      "src": "bravo.aat",
+      "dst": "SFNT.aat",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.063,
+      "action": "search",
+      "trigger": "name of .jbg unknown",
+      "ext": "jbg",
+      "service": "wikipedia",
+      "query": "JBG format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JBG",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/JBIG",
+       "https://en.wikipedia.org/wiki/Jung_Brutal_Gutaussehend_3",
+       "https://en.wikipedia.org/wiki/History_of_vehicle_registration_plates_of_the_Philippines",
+       "https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_400"
+      ],
+      "error": null
+     },
+     {
+      "t": 0.063,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://en.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "f2dc740050ad51a63e6212aca4d491ea3637447158affb6c76ac132a93d9a280",
+      "best": {
+       "name": "JBG Smith",
+       "score": -5.313
+      },
+      "snippet": "ar\nhide\nFrom Wikipedia, the free encyclopedia\nJBG may refer to:\nJames Bond girl\nJBG Smith, an American real estate investment trust\nJBIG, an image compression format\nJer"
+     },
+     {
+      "t": 0.063,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://de.wikipedia.org/wiki/JBG",
+       "https://ko.wikipedia.org/wiki/JBG"
+      ]
+     },
+     {
+      "t": 0.064,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://de.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "d492e22b07ffa58ba243d56b7e6a5ee19d6002c4280427cd402a151c2ee2b582",
+      "best": {
+       "name": "Bildungseinrichtungen",
+       "score": -8.339
+      },
+      "snippet": " (2017)\nJohannes Brahms Gesamtausgabe, Edition seit 1991\nJBG steht für folgende Bildungseinrichtungen (Akronym von Gymnasium oder Gesamtschule):\nJakob-Brucker-Gymnasium, eine Bildun"
+     },
+     {
+      "t": 0.064,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/JBG",
+       "https://de.wikipedia.org/wiki/Spezial:Linkliste/JBG"
+      ]
+     },
+     {
+      "t": 0.064,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "962a72312142db2a92228bda701566224ff3461e4ce20a7fec4c1b45d1144d1b",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.064,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/JBG"
+      ]
+     },
+     {
+      "t": 0.064,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+      "ok": true,
+      "sha256": "1000cedfacb49971269b5ebb9657bfcfea8a4f3dc0ec075e9ec7a431f3503445",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.064,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100"
+      ]
+     },
+     {
+      "t": 0.065,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 0.065,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 0.065,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jbg",
+      "ext": "jbg",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 0.065,
+      "action": "search",
+      "trigger": "name of .yml unknown",
+      "ext": "yml",
+      "service": "wikipedia",
+      "query": "YML format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/YML",
+       "https://en.wikipedia.org/wiki/YAML",
+       "https://en.wikipedia.org/wiki/List_of_filename_extensions_%28S%E2%80%93Z%29",
+       "https://en.wikipedia.org/wiki/Vexor",
+       "https://en.wikipedia.org/wiki/Static_site_generator",
+       "https://en.wikipedia.org/wiki/Kali_Linux"
+      ],
+      "error": null
+     },
+     {
+      "t": 0.065,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://en.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "042e3b39e6feba6839b62efb786ebe6e71c5feb41ffedab8a90919917297de0d",
+      "best": {
+       "name": "YAML",
+       "score": -1.117
+      },
+      "snippet": "levoix Airport, in Quebec, Canada, IATA code YML\n.yml, a file extension for the YAML file format\nYamalele language, ISO 639-3 languagec code yml\nTopics referred to "
+     },
+     {
+      "t": 0.065,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://de.wikipedia.org/wiki/YML",
+       "https://fr.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.066,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://de.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "bd9cbec27e940f93f9b5771b32a3c7cf1375557736e106b55d79978f2ec624a2",
+      "best": {
+       "name": "Zum Inhalt",
+       "score": -5.36
+      },
+      "snippet": "Zum Inhalt springen\nHauptmenü\nHauptmenü\nIn die Seitenleiste verschieben\nVerbergen\nNavigati"
+     },
+     {
+      "t": 0.066,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://fr.wikipedia.org/wiki/YML",
+       "https://it.wikipedia.org/wiki/Yml"
+      ]
+     },
+     {
+      "t": 0.066,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://fr.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "82a9d0e8f5a600fd1ccdd15235365f10a79ed85ec3afb229308265b481b20a90",
+      "best": {
+       "name": "Aller",
+       "score": -7.061
+      },
+      "snippet": "Aller au contenu\nMenu principal\nMenu principal\ndéplacer vers la barre latérale\nmasque"
+     },
+     {
+      "t": 0.066,
+      "action": "follow",
+      "trigger": "links on https://fr.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://it.wikipedia.org/wiki/Yml",
+       "https://ja.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.067,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://it.wikipedia.org/wiki/Yml",
+      "ok": true,
+      "sha256": "ffb5334c70889216fe9d4e657a3bb68747baf16bbfb27cfb8929966b50723b67",
+      "best": {
+       "name": "YAML Ain't Markup Language",
+       "score": -5.917
+      },
+      "snippet": "i Murray Bay (Québec), (Canada)\nYML – l'estensione di file per il formato YAML (YAML Ain't Markup Language)\nYML – tipo di estensione di un file\nEstratto da \"https://it.wikipedia.org/w/in"
+     },
+     {
+      "t": 0.067,
+      "action": "follow",
+      "trigger": "links on https://it.wikipedia.org/wiki/Yml mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ja.wikipedia.org/wiki/YML",
+       "https://ko.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.067,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ja.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "876da302475df32bf392fe302d8fb79983f112bfaf6719df64f0eb675e52c2cb",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.067,
+      "action": "follow",
+      "trigger": "links on https://ja.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ko.wikipedia.org/wiki/YML",
+       "https://ru.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.067,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ko.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "01ff29b3e7aa38d070a0497429f3ad6936831ab15ca1db30f5bd5ee33cf1dbef",
+      "best": {
+       "name": "IATA YML",
+       "score": -4.588
+      },
+      "snippet": null
+     },
+     {
+      "t": 0.067,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ru.wikipedia.org/wiki/YML",
+       "https://zh.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.067,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .yml",
+      "ext": "yml",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 0.067,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "delta.jbg",
+       "reed.yml"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "S",
+    "index": 5,
+    "form": "copy",
+    "sentence": "Copy each file into a folder named with its format's full name; the originals stay where they are.",
+    "exts": [
+     "mjp2",
+     "yml",
+     "jqmdh"
+    ],
+    "impossible_file": "opal.jqmdh",
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 16.606426347682742,
+     "files": {
+      "fjord.yml": {
+       "status": "no_evidence"
+      },
+      "opal.jqmdh": {
+       "status": "no_evidence"
+      },
+      "reed.mjp2": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 10.932127475738525
+    },
+    "judge": {
+     "per_file": {
+      "reed.mjp2": "not_done",
+      "fjord.yml": "not_done",
+      "opal.jqmdh": "correct_stop"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": true
+    },
+    "seconds": 10.94039011001587,
+    "info_actions": 22,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 16.61,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "search",
+      "trigger": "name of .yml unknown",
+      "ext": "yml",
+      "service": "wikipedia",
+      "query": "YML format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/YML",
+       "https://en.wikipedia.org/wiki/YAML",
+       "https://en.wikipedia.org/wiki/List_of_filename_extensions_%28S%E2%80%93Z%29",
+       "https://en.wikipedia.org/wiki/Vexor",
+       "https://en.wikipedia.org/wiki/Static_site_generator",
+       "https://en.wikipedia.org/wiki/Kali_Linux"
+      ],
+      "error": null
+     },
+     {
+      "t": 0.002,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://en.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "042e3b39e6feba6839b62efb786ebe6e71c5feb41ffedab8a90919917297de0d",
+      "best": {
+       "name": "YAML",
+       "score": -1.117
+      },
+      "snippet": "levoix Airport, in Quebec, Canada, IATA code YML\n.yml, a file extension for the YAML file format\nYamalele language, ISO 639-3 languagec code yml\nTopics referred to "
+     },
+     {
+      "t": 0.002,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://de.wikipedia.org/wiki/YML",
+       "https://fr.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.003,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://de.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "bd9cbec27e940f93f9b5771b32a3c7cf1375557736e106b55d79978f2ec624a2",
+      "best": {
+       "name": "Zum Inhalt",
+       "score": -5.36
+      },
+      "snippet": "Zum Inhalt springen\nHauptmenü\nHauptmenü\nIn die Seitenleiste verschieben\nVerbergen\nNavigati"
+     },
+     {
+      "t": 0.003,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://fr.wikipedia.org/wiki/YML",
+       "https://it.wikipedia.org/wiki/Yml"
+      ]
+     },
+     {
+      "t": 0.003,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://fr.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "82a9d0e8f5a600fd1ccdd15235365f10a79ed85ec3afb229308265b481b20a90",
+      "best": {
+       "name": "Aller",
+       "score": -7.061
+      },
+      "snippet": "Aller au contenu\nMenu principal\nMenu principal\ndéplacer vers la barre latérale\nmasque"
+     },
+     {
+      "t": 0.003,
+      "action": "follow",
+      "trigger": "links on https://fr.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://it.wikipedia.org/wiki/Yml",
+       "https://ja.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://it.wikipedia.org/wiki/Yml",
+      "ok": true,
+      "sha256": "ffb5334c70889216fe9d4e657a3bb68747baf16bbfb27cfb8929966b50723b67",
+      "best": {
+       "name": "YAML Ain't Markup Language",
+       "score": -5.917
+      },
+      "snippet": "i Murray Bay (Québec), (Canada)\nYML – l'estensione di file per il formato YAML (YAML Ain't Markup Language)\nYML – tipo di estensione di un file\nEstratto da \"https://it.wikipedia.org/w/in"
+     },
+     {
+      "t": 0.004,
+      "action": "follow",
+      "trigger": "links on https://it.wikipedia.org/wiki/Yml mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ja.wikipedia.org/wiki/YML",
+       "https://ko.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ja.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "876da302475df32bf392fe302d8fb79983f112bfaf6719df64f0eb675e52c2cb",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.004,
+      "action": "follow",
+      "trigger": "links on https://ja.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ko.wikipedia.org/wiki/YML",
+       "https://ru.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ko.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "01ff29b3e7aa38d070a0497429f3ad6936831ab15ca1db30f5bd5ee33cf1dbef",
+      "best": {
+       "name": "IATA YML",
+       "score": -4.588
+      },
+      "snippet": null
+     },
+     {
+      "t": 0.004,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ru.wikipedia.org/wiki/YML",
+       "https://zh.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .yml",
+      "ext": "yml",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 0.786,
+      "action": "search",
+      "trigger": "name of .jqmdh unknown",
+      "ext": "jqmdh",
+      "service": "wikipedia",
+      "query": "JQMDH format",
+      "ok": true,
+      "results": [],
+      "error": null
+     },
+     {
+      "t": 2.65,
+      "action": "search",
+      "trigger": "name of .jqmdh unknown",
+      "ext": "jqmdh",
+      "service": "wiby",
+      "query": "JQMDH format",
+      "ok": true,
+      "results": [],
+      "error": null
+     },
+     {
+      "t": 3.526,
+      "action": "search",
+      "trigger": "name of .jqmdh unknown",
+      "ext": "jqmdh",
+      "service": "wiby",
+      "query": "jqmdh",
+      "ok": true,
+      "results": [],
+      "error": null
+     },
+     {
+      "t": 3.526,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jqmdh",
+      "ext": "jqmdh",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 0,
+      "searches": 3
+     },
+     {
+      "t": 4.057,
+      "action": "search",
+      "trigger": "name of .mjp2 unknown",
+      "ext": "mjp2",
+      "service": "wikipedia",
+      "query": "MJP2 format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+       "https://en.wikipedia.org/wiki/JPEG_2000"
+      ],
+      "error": null
+     },
+     {
+      "t": 6.281,
+      "action": "open",
+      "trigger": "candidate source for .mjp2",
+      "ext": "mjp2",
+      "url": "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+      "ok": true,
+      "sha256": "6aa394b093894bf1a316fa82d3d4684980613c6b8cd2fb5ffc7f0b4e82813cb1",
+      "best": {
+       "name": "Motion JPEG 2000",
+       "score": -5.726
+      },
+      "snippet": "3\nHistory\n4\nSee also\n5\nReferences\n6\nExternal links\nToggle the table of contents\nMotion JPEG 2000\n3 languages\nFrançais\n한국어\nРусский\nEdit links\nArticle\nTalk\nEnglish\nRead\nEdit\nView"
+     },
+     {
+      "t": 7.873,
+      "action": "open",
+      "trigger": "candidate source for .mjp2",
+      "ext": "mjp2",
+      "url": "https://en.wikipedia.org/wiki/JPEG_2000",
+      "ok": true,
+      "sha256": "b4286f9280043c79416b21db7dfa80cf8f160a7cb7490923bb31f2cbda9aeaeb",
+      "best": {
+       "name": "Motion JPEG",
+       "score": -3.085
+      },
+      "snippet": "lated standards subsection\n9.1\nJPIP protocol for streaming JPEG 2000 images\n9.2\nMotion JPEG 2000\n9.3\nISO base media file format\n9.4\nGML JP2 georeferencing\n10\nApplication s"
+     },
+     {
+      "t": 8.62,
+      "action": "search",
+      "trigger": "name of .mjp2 unknown",
+      "ext": "mjp2",
+      "service": "wiby",
+      "query": "mjp2 file format",
+      "ok": true,
+      "results": [
+       "http://www.ftyps.com/"
+      ],
+      "error": null
+     },
+     {
+      "t": 10.413,
+      "action": "open",
+      "trigger": "candidate source for .mjp2",
+      "ext": "mjp2",
+      "url": "http://www.ftyps.com/",
+      "ok": true,
+      "sha256": "f5d8dd0845ce495f67a9982156a257bf9baba14082f68863da9cf7a0d6551490",
+      "best": {
+       "name": "Complete List",
+       "score": -10.949
+      },
+      "snippet": "Complete List of\nall known MP4 / QuickTime 'ftyp' designations\nRev 2.0\n- 22 Aug 2009\nftyp\nDes"
+     },
+     {
+      "t": 10.932,
+      "action": "search",
+      "trigger": "name of .mjp2 unknown",
+      "ext": "mjp2",
+      "service": "wikipedia",
+      "query": ".mjp2 file extension",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+       "https://en.wikipedia.org/wiki/JPEG_2000"
+      ],
+      "error": null
+     },
+     {
+      "t": 10.932,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .mjp2",
+      "ext": "mjp2",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 3,
+      "searches": 3
+     },
+     {
+      "t": 10.932,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "fjord.yml",
+       "opal.jqmdh",
+       "reed.mjp2"
+      ]
+     }
+    ]
+   }
+  ],
+  "F": [
+   {
+    "cond": "F",
+    "index": 0,
+    "form": "folder",
+    "sentence": "Move the files into directories named after their formats, written out completely.",
+    "exts": [
+     "jbg",
+     "aat",
+     "bbm"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": false,
+    "result": {
+     "form": "copy",
+     "margin": 1.4390332712133862,
+     "files": {
+      "fjord.jbg": {
+       "status": "no_evidence"
+      },
+      "jade.bbm": {
+       "status": "done",
+       "name": "Interleaved Bitmap",
+       "fact": "memory"
+      },
+      "reed.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      }
+     },
+     "stopped": "done",
+     "seconds": 6.489538669586182
+    },
+    "judge": {
+     "per_file": {
+      "fjord.jbg": "not_done",
+      "reed.aat": "not_done",
+      "jade.bbm": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 6.494933128356934,
+    "info_actions": 11,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 1.44,
+      "unknown": [
+       "written",
+       "completely"
+      ]
+     },
+     {
+      "t": 0.53,
+      "action": "search",
+      "trigger": "name of .jbg unknown",
+      "ext": "jbg",
+      "service": "wikipedia",
+      "query": "JBG format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JBG",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/JBIG",
+       "https://en.wikipedia.org/wiki/Jung_Brutal_Gutaussehend_3",
+       "https://en.wikipedia.org/wiki/History_of_vehicle_registration_plates_of_the_Philippines",
+       "https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_400"
+      ],
+      "error": null
+     },
+     {
+      "t": 2.336,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://en.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "f2dc740050ad51a63e6212aca4d491ea3637447158affb6c76ac132a93d9a280",
+      "best": {
+       "name": "JBG Smith",
+       "score": -5.313
+      },
+      "snippet": "ar\nhide\nFrom Wikipedia, the free encyclopedia\nJBG may refer to:\nJames Bond girl\nJBG Smith, an American real estate investment trust\nJBIG, an image compression format\nJer"
+     },
+     {
+      "t": 2.336,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://de.wikipedia.org/wiki/JBG",
+       "https://ko.wikipedia.org/wiki/JBG"
+      ]
+     },
+     {
+      "t": 3.703,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://de.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "d492e22b07ffa58ba243d56b7e6a5ee19d6002c4280427cd402a151c2ee2b582",
+      "best": {
+       "name": "Bildungseinrichtungen",
+       "score": -8.339
+      },
+      "snippet": " (2017)\nJohannes Brahms Gesamtausgabe, Edition seit 1991\nJBG steht für folgende Bildungseinrichtungen (Akronym von Gymnasium oder Gesamtschule):\nJakob-Brucker-Gymnasium, eine Bildun"
+     },
+     {
+      "t": 3.703,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/JBG",
+       "https://de.wikipedia.org/wiki/Spezial:Linkliste/JBG"
+      ]
+     },
+     {
+      "t": 5.039,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "962a72312142db2a92228bda701566224ff3461e4ce20a7fec4c1b45d1144d1b",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 5.039,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/JBG"
+      ]
+     },
+     {
+      "t": 6.397,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+      "ok": true,
+      "sha256": "1000cedfacb49971269b5ebb9657bfcfea8a4f3dc0ec075e9ec7a431f3503445",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 6.397,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100"
+      ]
+     },
+     {
+      "t": 6.397,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 6.398,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 6.398,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jbg",
+      "ext": "jbg",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 6.398,
+      "action": "recall",
+      "trigger": "name of .bbm already known",
+      "ext": "bbm",
+      "name": "Interleaved Bitmap"
+     },
+     {
+      "t": 6.433,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "jade.bbm",
+      "form": "copy",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 6.458,
+      "action": "act",
+      "trigger": "name of .bbm adopted; goal form copy",
+      "src": "jade.bbm",
+      "dst": "Interleaved Bitmap/jade.bbm",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 6.458,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 6.49,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form copy",
+      "src": "reed.aat",
+      "dst": "SFNT/reed.aat",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 6.49,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "fjord.jbg"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "F",
+    "index": 1,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "aat",
+     "yml",
+     "jbg"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 6.832188997219282,
+     "files": {
+      "jade.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      },
+      "maple.yml": {
+       "status": "no_evidence"
+      },
+      "reed.jbg": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 6.114617824554443
+    },
+    "judge": {
+     "per_file": {
+      "jade.aat": "ok",
+      "maple.yml": "not_done",
+      "reed.jbg": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 6.118484020233154,
+    "info_actions": 24,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "rename",
+      "margin": 6.83,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 0.029,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "jade.aat",
+      "form": "rename",
+      "outcome_ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.039,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form rename",
+      "src": "jade.aat",
+      "dst": "SFNT.aat",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.586,
+      "action": "search",
+      "trigger": "name of .yml unknown",
+      "ext": "yml",
+      "service": "wikipedia",
+      "query": "YML format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/YML",
+       "https://en.wikipedia.org/wiki/YAML",
+       "https://en.wikipedia.org/wiki/List_of_filename_extensions_%28S%E2%80%93Z%29",
+       "https://en.wikipedia.org/wiki/Vexor",
+       "https://en.wikipedia.org/wiki/Static_site_generator",
+       "https://en.wikipedia.org/wiki/Kali_Linux"
+      ],
+      "error": null
+     },
+     {
+      "t": 1.376,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://en.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "042e3b39e6feba6839b62efb786ebe6e71c5feb41ffedab8a90919917297de0d",
+      "best": {
+       "name": "YAML",
+       "score": -1.117
+      },
+      "snippet": "levoix Airport, in Quebec, Canada, IATA code YML\n.yml, a file extension for the YAML file format\nYamalele language, ISO 639-3 languagec code yml\nTopics referred to "
+     },
+     {
+      "t": 1.376,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://de.wikipedia.org/wiki/YML",
+       "https://fr.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 1.734,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://de.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "bd9cbec27e940f93f9b5771b32a3c7cf1375557736e106b55d79978f2ec624a2",
+      "best": {
+       "name": "Zum Inhalt",
+       "score": -5.36
+      },
+      "snippet": "Zum Inhalt springen\nHauptmenü\nHauptmenü\nIn die Seitenleiste verschieben\nVerbergen\nNavigati"
+     },
+     {
+      "t": 1.734,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://fr.wikipedia.org/wiki/YML",
+       "https://it.wikipedia.org/wiki/Yml"
+      ]
+     },
+     {
+      "t": 3.084,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://fr.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "82a9d0e8f5a600fd1ccdd15235365f10a79ed85ec3afb229308265b481b20a90",
+      "best": {
+       "name": "Aller",
+       "score": -7.061
+      },
+      "snippet": "Aller au contenu\nMenu principal\nMenu principal\ndéplacer vers la barre latérale\nmasque"
+     },
+     {
+      "t": 3.084,
+      "action": "follow",
+      "trigger": "links on https://fr.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://it.wikipedia.org/wiki/Yml",
+       "https://ja.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 4.426,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://it.wikipedia.org/wiki/Yml",
+      "ok": true,
+      "sha256": "ffb5334c70889216fe9d4e657a3bb68747baf16bbfb27cfb8929966b50723b67",
+      "best": {
+       "name": "YAML Ain't Markup Language",
+       "score": -5.917
+      },
+      "snippet": "i Murray Bay (Québec), (Canada)\nYML – l'estensione di file per il formato YAML (YAML Ain't Markup Language)\nYML – tipo di estensione di un file\nEstratto da \"https://it.wikipedia.org/w/in"
+     },
+     {
+      "t": 4.426,
+      "action": "follow",
+      "trigger": "links on https://it.wikipedia.org/wiki/Yml mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ja.wikipedia.org/wiki/YML",
+       "https://ko.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 5.769,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ja.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "876da302475df32bf392fe302d8fb79983f112bfaf6719df64f0eb675e52c2cb",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 5.769,
+      "action": "follow",
+      "trigger": "links on https://ja.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ko.wikipedia.org/wiki/YML",
+       "https://ru.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 6.113,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ko.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "01ff29b3e7aa38d070a0497429f3ad6936831ab15ca1db30f5bd5ee33cf1dbef",
+      "best": {
+       "name": "IATA YML",
+       "score": -4.588
+      },
+      "snippet": null
+     },
+     {
+      "t": 6.113,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ru.wikipedia.org/wiki/YML",
+       "https://zh.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 6.113,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .yml",
+      "ext": "yml",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 6.113,
+      "action": "search",
+      "trigger": "name of .jbg unknown",
+      "ext": "jbg",
+      "service": "wikipedia",
+      "query": "JBG format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JBG",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/JBIG",
+       "https://en.wikipedia.org/wiki/Jung_Brutal_Gutaussehend_3",
+       "https://en.wikipedia.org/wiki/History_of_vehicle_registration_plates_of_the_Philippines",
+       "https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_400"
+      ],
+      "error": null
+     },
+     {
+      "t": 6.113,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://en.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "f2dc740050ad51a63e6212aca4d491ea3637447158affb6c76ac132a93d9a280",
+      "best": {
+       "name": "JBG Smith",
+       "score": -5.313
+      },
+      "snippet": "ar\nhide\nFrom Wikipedia, the free encyclopedia\nJBG may refer to:\nJames Bond girl\nJBG Smith, an American real estate investment trust\nJBIG, an image compression format\nJer"
+     },
+     {
+      "t": 6.113,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://de.wikipedia.org/wiki/JBG",
+       "https://ko.wikipedia.org/wiki/JBG"
+      ]
+     },
+     {
+      "t": 6.114,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://de.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "d492e22b07ffa58ba243d56b7e6a5ee19d6002c4280427cd402a151c2ee2b582",
+      "best": {
+       "name": "Bildungseinrichtungen",
+       "score": -8.339
+      },
+      "snippet": " (2017)\nJohannes Brahms Gesamtausgabe, Edition seit 1991\nJBG steht für folgende Bildungseinrichtungen (Akronym von Gymnasium oder Gesamtschule):\nJakob-Brucker-Gymnasium, eine Bildun"
+     },
+     {
+      "t": 6.114,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/JBG",
+       "https://de.wikipedia.org/wiki/Spezial:Linkliste/JBG"
+      ]
+     },
+     {
+      "t": 6.114,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "962a72312142db2a92228bda701566224ff3461e4ce20a7fec4c1b45d1144d1b",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 6.114,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/JBG"
+      ]
+     },
+     {
+      "t": 6.114,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+      "ok": true,
+      "sha256": "1000cedfacb49971269b5ebb9657bfcfea8a4f3dc0ec075e9ec7a431f3503445",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 6.114,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100"
+      ]
+     },
+     {
+      "t": 6.114,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 6.115,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 6.115,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jbg",
+      "ext": "jbg",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 6.115,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "maple.yml",
+       "reed.jbg"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "F",
+    "index": 2,
+    "form": "copy",
+    "sentence": "Make duplicates of the files in folders called by their formats' official names, keeping the originals.",
+    "exts": [
+     "bbm",
+     "aat",
+     "jxr"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 2.678240887355379,
+     "files": {
+      "nova.jxr": {
+       "status": "no_evidence"
+      },
+      "reed.bbm": {
+       "status": "done",
+       "name": "Interleaved Bitmap",
+       "fact": "memory"
+      },
+      "tide.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      }
+     },
+     "stopped": "done",
+     "seconds": 5.941264629364014
+    },
+    "judge": {
+     "per_file": {
+      "reed.bbm": "ok",
+      "tide.aat": "ok",
+      "nova.jxr": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 5.9472877979278564,
+    "info_actions": 9,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 2.68,
+      "unknown": [
+       "duplicates",
+       "formats'"
+      ]
+     },
+     {
+      "t": 0.511,
+      "action": "search",
+      "trigger": "name of .jxr unknown",
+      "ext": "jxr",
+      "service": "wikipedia",
+      "query": "JXR format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JPEG_XR",
+       "https://en.wikipedia.org/wiki/List_of_file_formats",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/Microsoft_Open_Specification_Promise",
+       "https://en.wikipedia.org/wiki/Comparison_of_image_viewers",
+       "https://en.wikipedia.org/wiki/After_School_Club"
+      ],
+      "error": null
+     },
+     {
+      "t": 1.567,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://en.wikipedia.org/wiki/JPEG_XR",
+      "ok": true,
+      "sha256": "2847da93e909ef2e07e29b1000b93f66c4d9c0e27c5fcafb7a2c53296f4d72c7",
+      "best": {
+       "name": "HDR",
+       "score": -6.205
+      },
+      "snippet": "IEC TR 29199-1).\nSince the release of Windows 11, version 24H2 in October 2024, HDR images in JPEG XR can be set as HDR wallpapers.[16][17]\nDescription[edit]\nCapab"
+     },
+     {
+      "t": 1.567,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JPEG_XR mention .jxr",
+      "ext": "jxr",
+      "links": [
+       "https://web.archive.org/web/20141126082326/https://jxrlib.codeplex.com/SourceControl/latest",
+       "https://jxrlib.codeplex.com/SourceControl/latest"
+      ]
+     },
+     {
+      "t": 3.287,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://web.archive.org/web/20141126082326/https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": true,
+      "sha256": "5487bcb322438e9a25b10f6ff40c9c1061a136393b2424d6eb62617174198c5f",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 3.287,
+      "action": "follow",
+      "trigger": "links on https://web.archive.org/web/20141126082326/https://jxrlib.codeplex.com/SourceControl/latest mention .jxr",
+      "ext": "jxr",
+      "links": [
+       "https://web.archive.org/web/20141126082326*/https://jxrlib.codeplex.com/SourceControl/latest",
+       "https://web.archive.org/web/20141126082326/http://web.archive.org/screenshot/https://jxrlib.codeplex.com/SourceControl/latest"
+      ]
+     },
+     {
+      "t": 4.451,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://web.archive.org/web/20141126082326*/https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": true,
+      "sha256": "61cb92c6072aa2acd263fdb1c43f52dcbf26ec088647c9d988ec2a144d79f399",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 5.169,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://web.archive.org/web/20141126082326/http://web.archive.org/screenshot/https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": false,
+      "error": "http"
+     },
+     {
+      "t": 5.177,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://jxrlib.codeplex.com/SourceControl/latest",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 5.85,
+      "action": "open",
+      "trigger": "candidate source for .jxr",
+      "ext": "jxr",
+      "url": "https://en.wikipedia.org/wiki/List_of_file_formats",
+      "ok": true,
+      "sha256": "92ed11dcb95a6e158d50a6043c39e7faf79b4fd8a3f6e3570537c2bec2c88d34",
+      "best": {
+       "name": "JXR JPEG XR",
+       "score": -6.568
+      },
+      "snippet": null
+     },
+     {
+      "t": 5.851,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jxr",
+      "ext": "jxr",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 5.851,
+      "action": "recall",
+      "trigger": "name of .bbm already known",
+      "ext": "bbm",
+      "name": "Interleaved Bitmap"
+     },
+     {
+      "t": 5.891,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "reed.bbm",
+      "form": "copy",
+      "outcome_ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 5.911,
+      "action": "act",
+      "trigger": "name of .bbm adopted; goal form copy",
+      "src": "reed.bbm",
+      "dst": "Interleaved Bitmap/reed.bbm",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 5.911,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 5.941,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form copy",
+      "src": "tide.aat",
+      "dst": "SFNT/tide.aat",
+      "ok": true,
+      "actions": 2,
+      "noops": 0
+     },
+     {
+      "t": 5.941,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "nova.jxr"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "F",
+    "index": 3,
+    "form": "folder",
+    "sentence": "Put each file in a folder that carries the full name of its format.",
+    "exts": [
+     "jxr",
+     "yml",
+     "mjp2"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "copy",
+    "form_correct": false,
+    "result": {
+     "form": "copy",
+     "margin": 0.5127393080943641,
+     "files": {},
+     "stopped": "goal_unclear",
+     "seconds": 2.582711935043335
+    },
+    "judge": {
+     "per_file": {
+      "ember.jxr": "not_done",
+      "jade.yml": "not_done",
+      "reed.mjp2": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 2.588451862335205,
+    "info_actions": 2,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 0.55,
+      "unknown": [
+       "carries"
+      ]
+     },
+     {
+      "t": 0.816,
+      "action": "search",
+      "trigger": "goal word \"carries\" never seen and interpretation not decisive",
+      "service": "wikipedia",
+      "query": "carries",
+      "results": [
+       "https://en.wikipedia.org/wiki/Canada_Carries_On",
+       "https://en.wikipedia.org/wiki/Carry-On",
+       "https://en.wikipedia.org/wiki/Carry"
+      ],
+      "ok": true
+     },
+     {
+      "t": 2.582,
+      "action": "open",
+      "trigger": "definition of \"carries\"",
+      "url": "https://en.wikipedia.org/wiki/Canada_Carries_On",
+      "ok": true,
+      "sha256": "be0b5c87d0fa50ffa3dc13605f7bf0dc566ddd36d93465f625f0f8c2f37f5ee0"
+     },
+     {
+      "t": 2.583,
+      "action": "learn_word",
+      "trigger": "definition page read for \"carries\"",
+      "word": "carries",
+      "added": {
+       "folder": 3.7431970416625147,
+       "rename": 2.7429567874580663,
+       "copy": 3.5138461708794195
+      }
+     },
+     {
+      "t": 2.583,
+      "action": "interpret",
+      "trigger": "after lookup",
+      "form": "copy",
+      "margin": 0.51,
+      "unknown": []
+     },
+     {
+      "t": 2.583,
+      "action": "stop",
+      "trigger": "goal interpretation not decisive",
+      "reason": "goal_unclear",
+      "scores": {
+       "folder": -18.90841931924333,
+       "rename": -24.121368207054328,
+       "copy": -18.395680011148965
+      }
+     }
+    ]
+   },
+   {
+    "cond": "F",
+    "index": 4,
+    "form": "rename",
+    "sentence": "Rename every file after the official name of its format and keep the extension.",
+    "exts": [
+     "jbg",
+     "aat",
+     "yml"
+    ],
+    "impossible_file": null,
+    "interpreted_form": "rename",
+    "form_correct": true,
+    "result": {
+     "form": "rename",
+     "margin": 6.832188997219282,
+     "files": {
+      "bravo.aat": {
+       "status": "done",
+       "name": "SFNT",
+       "fact": "memory"
+      },
+      "delta.jbg": {
+       "status": "no_evidence"
+      },
+      "reed.yml": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 0.04951930046081543
+    },
+    "judge": {
+     "per_file": {
+      "delta.jbg": "not_done",
+      "bravo.aat": "ok",
+      "reed.yml": "not_done"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": null
+    },
+    "seconds": 0.05498003959655762,
+    "info_actions": 24,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "rename",
+      "margin": 6.83,
+      "unknown": []
+     },
+     {
+      "t": 0.002,
+      "action": "recall",
+      "trigger": "name of .aat already known",
+      "ext": "aat",
+      "name": "SFNT"
+     },
+     {
+      "t": 0.03,
+      "action": "experiment",
+      "trigger": "verify the plan in a sandbox copy before the first real action",
+      "src": "bravo.aat",
+      "form": "rename",
+      "outcome_ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.045,
+      "action": "act",
+      "trigger": "name of .aat adopted; goal form rename",
+      "src": "bravo.aat",
+      "dst": "SFNT.aat",
+      "ok": true,
+      "actions": 1,
+      "noops": 0
+     },
+     {
+      "t": 0.045,
+      "action": "search",
+      "trigger": "name of .jbg unknown",
+      "ext": "jbg",
+      "service": "wikipedia",
+      "query": "JBG format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/JBG",
+       "https://en.wikipedia.org/wiki/Comparison_of_graphics_file_formats",
+       "https://en.wikipedia.org/wiki/JBIG",
+       "https://en.wikipedia.org/wiki/Jung_Brutal_Gutaussehend_3",
+       "https://en.wikipedia.org/wiki/History_of_vehicle_registration_plates_of_the_Philippines",
+       "https://en.wikipedia.org/wiki/Historical_components_of_the_S%26P_400"
+      ],
+      "error": null
+     },
+     {
+      "t": 0.045,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://en.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "f2dc740050ad51a63e6212aca4d491ea3637447158affb6c76ac132a93d9a280",
+      "best": {
+       "name": "JBG Smith",
+       "score": -5.313
+      },
+      "snippet": "ar\nhide\nFrom Wikipedia, the free encyclopedia\nJBG may refer to:\nJames Bond girl\nJBG Smith, an American real estate investment trust\nJBIG, an image compression format\nJer"
+     },
+     {
+      "t": 0.046,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://de.wikipedia.org/wiki/JBG",
+       "https://ko.wikipedia.org/wiki/JBG"
+      ]
+     },
+     {
+      "t": 0.046,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://de.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "d492e22b07ffa58ba243d56b7e6a5ee19d6002c4280427cd402a151c2ee2b582",
+      "best": {
+       "name": "Bildungseinrichtungen",
+       "score": -8.339
+      },
+      "snippet": " (2017)\nJohannes Brahms Gesamtausgabe, Edition seit 1991\nJBG steht für folgende Bildungseinrichtungen (Akronym von Gymnasium oder Gesamtschule):\nJakob-Brucker-Gymnasium, eine Bildun"
+     },
+     {
+      "t": 0.046,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/JBG",
+       "https://de.wikipedia.org/wiki/Spezial:Linkliste/JBG"
+      ]
+     },
+     {
+      "t": 0.046,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/JBG",
+      "ok": true,
+      "sha256": "962a72312142db2a92228bda701566224ff3461e4ce20a7fec4c1b45d1144d1b",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.047,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+       "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EB%A7%81%ED%81%AC%EC%B5%9C%EA%B7%BC%EB%B0%94%EB%80%9C/JBG"
+      ]
+     },
+     {
+      "t": 0.047,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG",
+      "ok": true,
+      "sha256": "1000cedfacb49971269b5ebb9657bfcfea8a4f3dc0ec075e9ec7a431f3503445",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.047,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG mention .jbg",
+      "ext": "jbg",
+      "links": [
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+       "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100"
+      ]
+     },
+     {
+      "t": 0.047,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=20",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 0.047,
+      "action": "open",
+      "trigger": "candidate source for .jbg",
+      "ext": "jbg",
+      "url": "https://ko.wikipedia.org/w/index.php?title=%ED%8A%B9%EC%88%98:%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%EB%AC%B8%EC%84%9C/JBG&limit=100",
+      "ok": false,
+      "error": "refused:robots"
+     },
+     {
+      "t": 0.047,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jbg",
+      "ext": "jbg",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 0.047,
+      "action": "search",
+      "trigger": "name of .yml unknown",
+      "ext": "yml",
+      "service": "wikipedia",
+      "query": "YML format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/YML",
+       "https://en.wikipedia.org/wiki/YAML",
+       "https://en.wikipedia.org/wiki/List_of_filename_extensions_%28S%E2%80%93Z%29",
+       "https://en.wikipedia.org/wiki/Vexor",
+       "https://en.wikipedia.org/wiki/Static_site_generator",
+       "https://en.wikipedia.org/wiki/Kali_Linux"
+      ],
+      "error": null
+     },
+     {
+      "t": 0.048,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://en.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "042e3b39e6feba6839b62efb786ebe6e71c5feb41ffedab8a90919917297de0d",
+      "best": {
+       "name": "YAML",
+       "score": -1.117
+      },
+      "snippet": "levoix Airport, in Quebec, Canada, IATA code YML\n.yml, a file extension for the YAML file format\nYamalele language, ISO 639-3 languagec code yml\nTopics referred to "
+     },
+     {
+      "t": 0.048,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://de.wikipedia.org/wiki/YML",
+       "https://fr.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.048,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://de.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "bd9cbec27e940f93f9b5771b32a3c7cf1375557736e106b55d79978f2ec624a2",
+      "best": {
+       "name": "Zum Inhalt",
+       "score": -5.36
+      },
+      "snippet": "Zum Inhalt springen\nHauptmenü\nHauptmenü\nIn die Seitenleiste verschieben\nVerbergen\nNavigati"
+     },
+     {
+      "t": 0.048,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://fr.wikipedia.org/wiki/YML",
+       "https://it.wikipedia.org/wiki/Yml"
+      ]
+     },
+     {
+      "t": 0.049,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://fr.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "82a9d0e8f5a600fd1ccdd15235365f10a79ed85ec3afb229308265b481b20a90",
+      "best": {
+       "name": "Aller",
+       "score": -7.061
+      },
+      "snippet": "Aller au contenu\nMenu principal\nMenu principal\ndéplacer vers la barre latérale\nmasque"
+     },
+     {
+      "t": 0.049,
+      "action": "follow",
+      "trigger": "links on https://fr.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://it.wikipedia.org/wiki/Yml",
+       "https://ja.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.049,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://it.wikipedia.org/wiki/Yml",
+      "ok": true,
+      "sha256": "ffb5334c70889216fe9d4e657a3bb68747baf16bbfb27cfb8929966b50723b67",
+      "best": {
+       "name": "YAML Ain't Markup Language",
+       "score": -5.917
+      },
+      "snippet": "i Murray Bay (Québec), (Canada)\nYML – l'estensione di file per il formato YAML (YAML Ain't Markup Language)\nYML – tipo di estensione di un file\nEstratto da \"https://it.wikipedia.org/w/in"
+     },
+     {
+      "t": 0.049,
+      "action": "follow",
+      "trigger": "links on https://it.wikipedia.org/wiki/Yml mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ja.wikipedia.org/wiki/YML",
+       "https://ko.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.049,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ja.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "876da302475df32bf392fe302d8fb79983f112bfaf6719df64f0eb675e52c2cb",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.049,
+      "action": "follow",
+      "trigger": "links on https://ja.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ko.wikipedia.org/wiki/YML",
+       "https://ru.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.049,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ko.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "01ff29b3e7aa38d070a0497429f3ad6936831ab15ca1db30f5bd5ee33cf1dbef",
+      "best": {
+       "name": "IATA YML",
+       "score": -4.588
+      },
+      "snippet": null
+     },
+     {
+      "t": 0.05,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ru.wikipedia.org/wiki/YML",
+       "https://zh.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.05,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .yml",
+      "ext": "yml",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 0.05,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "delta.jbg",
+       "reed.yml"
+      ]
+     }
+    ]
+   },
+   {
+    "cond": "F",
+    "index": 5,
+    "form": "copy",
+    "sentence": "Copy each file into a folder named with its format's full name; the originals stay where they are.",
+    "exts": [
+     "mjp2",
+     "yml",
+     "jqmdh"
+    ],
+    "impossible_file": "opal.jqmdh",
+    "interpreted_form": "copy",
+    "form_correct": true,
+    "result": {
+     "form": "copy",
+     "margin": 16.606426347682742,
+     "files": {
+      "fjord.yml": {
+       "status": "no_evidence"
+      },
+      "opal.jqmdh": {
+       "status": "no_evidence"
+      },
+      "reed.mjp2": {
+       "status": "no_evidence"
+      }
+     },
+     "stopped": "done",
+     "seconds": 8.741707801818848
+    },
+    "judge": {
+     "per_file": {
+      "reed.mjp2": "not_done",
+      "fjord.yml": "not_done",
+      "opal.jqmdh": "correct_stop"
+     },
+     "wrong_placements": 0,
+     "decoy_ok": true,
+     "completed": false,
+     "impossible_correct": true
+    },
+    "seconds": 8.748018264770508,
+    "info_actions": 22,
+    "trace": [
+     {
+      "t": 0.0,
+      "action": "interpret",
+      "trigger": "new goal",
+      "form": "copy",
+      "margin": 16.61,
+      "unknown": []
+     },
+     {
+      "t": 0.003,
+      "action": "search",
+      "trigger": "name of .yml unknown",
+      "ext": "yml",
+      "service": "wikipedia",
+      "query": "YML format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/YML",
+       "https://en.wikipedia.org/wiki/YAML",
+       "https://en.wikipedia.org/wiki/List_of_filename_extensions_%28S%E2%80%93Z%29",
+       "https://en.wikipedia.org/wiki/Vexor",
+       "https://en.wikipedia.org/wiki/Static_site_generator",
+       "https://en.wikipedia.org/wiki/Kali_Linux"
+      ],
+      "error": null
+     },
+     {
+      "t": 0.003,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://en.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "042e3b39e6feba6839b62efb786ebe6e71c5feb41ffedab8a90919917297de0d",
+      "best": {
+       "name": "YAML",
+       "score": -1.117
+      },
+      "snippet": "levoix Airport, in Quebec, Canada, IATA code YML\n.yml, a file extension for the YAML file format\nYamalele language, ISO 639-3 languagec code yml\nTopics referred to "
+     },
+     {
+      "t": 0.003,
+      "action": "follow",
+      "trigger": "links on https://en.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://de.wikipedia.org/wiki/YML",
+       "https://fr.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://de.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "bd9cbec27e940f93f9b5771b32a3c7cf1375557736e106b55d79978f2ec624a2",
+      "best": {
+       "name": "Zum Inhalt",
+       "score": -5.36
+      },
+      "snippet": "Zum Inhalt springen\nHauptmenü\nHauptmenü\nIn die Seitenleiste verschieben\nVerbergen\nNavigati"
+     },
+     {
+      "t": 0.004,
+      "action": "follow",
+      "trigger": "links on https://de.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://fr.wikipedia.org/wiki/YML",
+       "https://it.wikipedia.org/wiki/Yml"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://fr.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "82a9d0e8f5a600fd1ccdd15235365f10a79ed85ec3afb229308265b481b20a90",
+      "best": {
+       "name": "Aller",
+       "score": -7.061
+      },
+      "snippet": "Aller au contenu\nMenu principal\nMenu principal\ndéplacer vers la barre latérale\nmasque"
+     },
+     {
+      "t": 0.004,
+      "action": "follow",
+      "trigger": "links on https://fr.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://it.wikipedia.org/wiki/Yml",
+       "https://ja.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.004,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://it.wikipedia.org/wiki/Yml",
+      "ok": true,
+      "sha256": "ffb5334c70889216fe9d4e657a3bb68747baf16bbfb27cfb8929966b50723b67",
+      "best": {
+       "name": "YAML Ain't Markup Language",
+       "score": -5.917
+      },
+      "snippet": "i Murray Bay (Québec), (Canada)\nYML – l'estensione di file per il formato YAML (YAML Ain't Markup Language)\nYML – tipo di estensione di un file\nEstratto da \"https://it.wikipedia.org/w/in"
+     },
+     {
+      "t": 0.004,
+      "action": "follow",
+      "trigger": "links on https://it.wikipedia.org/wiki/Yml mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ja.wikipedia.org/wiki/YML",
+       "https://ko.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.005,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ja.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "876da302475df32bf392fe302d8fb79983f112bfaf6719df64f0eb675e52c2cb",
+      "best": null,
+      "snippet": null
+     },
+     {
+      "t": 0.005,
+      "action": "follow",
+      "trigger": "links on https://ja.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ko.wikipedia.org/wiki/YML",
+       "https://ru.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.005,
+      "action": "open",
+      "trigger": "candidate source for .yml",
+      "ext": "yml",
+      "url": "https://ko.wikipedia.org/wiki/YML",
+      "ok": true,
+      "sha256": "01ff29b3e7aa38d070a0497429f3ad6936831ab15ca1db30f5bd5ee33cf1dbef",
+      "best": {
+       "name": "IATA YML",
+       "score": -4.588
+      },
+      "snippet": null
+     },
+     {
+      "t": 0.005,
+      "action": "follow",
+      "trigger": "links on https://ko.wikipedia.org/wiki/YML mention .yml",
+      "ext": "yml",
+      "links": [
+       "https://ru.wikipedia.org/wiki/YML",
+       "https://zh.wikipedia.org/wiki/YML"
+      ]
+     },
+     {
+      "t": 0.005,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .yml",
+      "ext": "yml",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 6,
+      "searches": 1
+     },
+     {
+      "t": 0.524,
+      "action": "search",
+      "trigger": "name of .jqmdh unknown",
+      "ext": "jqmdh",
+      "service": "wikipedia",
+      "query": "JQMDH format",
+      "ok": true,
+      "results": [],
+      "error": null
+     },
+     {
+      "t": 2.171,
+      "action": "search",
+      "trigger": "name of .jqmdh unknown",
+      "ext": "jqmdh",
+      "service": "wiby",
+      "query": "JQMDH format",
+      "ok": true,
+      "results": [],
+      "error": null
+     },
+     {
+      "t": 3.17,
+      "action": "search",
+      "trigger": "name of .jqmdh unknown",
+      "ext": "jqmdh",
+      "service": "wiby",
+      "query": "jqmdh",
+      "ok": true,
+      "results": [],
+      "error": null
+     },
+     {
+      "t": 3.17,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .jqmdh",
+      "ext": "jqmdh",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 0,
+      "searches": 3
+     },
+     {
+      "t": 3.674,
+      "action": "search",
+      "trigger": "name of .mjp2 unknown",
+      "ext": "mjp2",
+      "service": "wikipedia",
+      "query": "MJP2 format",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+       "https://en.wikipedia.org/wiki/JPEG_2000"
+      ],
+      "error": null
+     },
+     {
+      "t": 4.643,
+      "action": "open",
+      "trigger": "candidate source for .mjp2",
+      "ext": "mjp2",
+      "url": "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+      "ok": true,
+      "sha256": "6aa394b093894bf1a316fa82d3d4684980613c6b8cd2fb5ffc7f0b4e82813cb1",
+      "best": {
+       "name": "Motion JPEG 2000",
+       "score": -5.726
+      },
+      "snippet": "3\nHistory\n4\nSee also\n5\nReferences\n6\nExternal links\nToggle the table of contents\nMotion JPEG 2000\n3 languages\nFrançais\n한국어\nРусский\nEdit links\nArticle\nTalk\nEnglish\nRead\nEdit\nView"
+     },
+     {
+      "t": 5.81,
+      "action": "open",
+      "trigger": "candidate source for .mjp2",
+      "ext": "mjp2",
+      "url": "https://en.wikipedia.org/wiki/JPEG_2000",
+      "ok": true,
+      "sha256": "b4286f9280043c79416b21db7dfa80cf8f160a7cb7490923bb31f2cbda9aeaeb",
+      "best": {
+       "name": "Motion JPEG",
+       "score": -3.085
+      },
+      "snippet": "lated standards subsection\n9.1\nJPIP protocol for streaming JPEG 2000 images\n9.2\nMotion JPEG 2000\n9.3\nISO base media file format\n9.4\nGML JP2 georeferencing\n10\nApplication s"
+     },
+     {
+      "t": 6.449,
+      "action": "search",
+      "trigger": "name of .mjp2 unknown",
+      "ext": "mjp2",
+      "service": "wiby",
+      "query": "mjp2 file format",
+      "ok": true,
+      "results": [
+       "http://www.ftyps.com/"
+      ],
+      "error": null
+     },
+     {
+      "t": 8.215,
+      "action": "open",
+      "trigger": "candidate source for .mjp2",
+      "ext": "mjp2",
+      "url": "http://www.ftyps.com/",
+      "ok": true,
+      "sha256": "f5d8dd0845ce495f67a9982156a257bf9baba14082f68863da9cf7a0d6551490",
+      "best": {
+       "name": "Complete List",
+       "score": -10.949
+      },
+      "snippet": "Complete List of\nall known MP4 / QuickTime 'ftyp' designations\nRev 2.0\n- 22 Aug 2009\nftyp\nDes"
+     },
+     {
+      "t": 8.742,
+      "action": "search",
+      "trigger": "name of .mjp2 unknown",
+      "ext": "mjp2",
+      "service": "wikipedia",
+      "query": ".mjp2 file extension",
+      "ok": true,
+      "results": [
+       "https://en.wikipedia.org/wiki/Motion_JPEG_2000",
+       "https://en.wikipedia.org/wiki/JPEG_2000"
+      ],
+      "error": null
+     },
+     {
+      "t": 8.742,
+      "action": "stop_fact",
+      "trigger": "no agreeing sources for .mjp2",
+      "ext": "mjp2",
+      "reason": "no_evidence",
+      "seen": [],
+      "pages": 3,
+      "searches": 3
+     },
+     {
+      "t": 8.742,
+      "action": "stop",
+      "trigger": "every file handled or left with a reason",
+      "reason": "done",
+      "left": [
+       "fjord.yml",
+       "opal.jqmdh",
+       "reed.mjp2"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

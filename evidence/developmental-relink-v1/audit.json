@@ -1,0 +1,55 @@
+{
+  "native_transitions_verified": 332,
+  "rows": [
+    {
+      "life": 0,
+      "arm": "base",
+      "success": 4,
+      "total_actions": 42
+    },
+    {
+      "life": 0,
+      "arm": "relink",
+      "success": 4,
+      "total_actions": 42
+    },
+    {
+      "life": 1,
+      "arm": "relink",
+      "success": 4,
+      "total_actions": 42
+    },
+    {
+      "life": 1,
+      "arm": "base",
+      "success": 4,
+      "total_actions": 42
+    },
+    {
+      "life": 2,
+      "arm": "base",
+      "success": 0,
+      "total_actions": 38
+    },
+    {
+      "life": 2,
+      "arm": "relink",
+      "success": 4,
+      "total_actions": 42
+    },
+    {
+      "life": 3,
+      "arm": "relink",
+      "success": 4,
+      "total_actions": 42
+    },
+    {
+      "life": 3,
+      "arm": "base",
+      "success": 4,
+      "total_actions": 42
+    }
+  ],
+  "source_sha256": "85c9d5803b4d9d3a56fda08cb6ef30f416730678fd8f92f94bae12e0487c8a3f",
+  "scope": "same native adapter replay, not external judge; four independent life seeds, not32 independent lives"
+}

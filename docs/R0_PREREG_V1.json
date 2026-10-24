@@ -1,0 +1,14 @@
+{
+  "attempt": "r0-v1",
+  "seed": 9176201,
+  "train_pairs": 16,
+  "fresh_pairs": 64,
+  "min_accuracy": 0.9,
+  "min_lift": 0.3,
+  "design": "Each pair: identical old Frame, equal bytes, 2-5 native links per observed path in BOTH cases. Separate copies versus two hardlinked names. Target role and execution order randomized. Observed collateral SHA-256 change is the target; no setup labels go to fit. New native identities/names/content in fresh cohort. 32 training and 128 fresh transitions. Frozen rule and predictions journaled before dispatch. One attempt only.",
+  "candidate": "Simple exhaustive eq/lt/le same-channel comparison stumps over anonymous raw integer channels; training majority in leaves, tie=False; training error then enumeration order selects. Grammar and sensor channels are human-provided.",
+  "baselines": "Old Frame majority baseline: each matched pair has exactly equal inputs and opposite targets, so no deterministic memoryless old-Frame predictor can exceed 50% on these balanced paired inputs. Ablation refits search excluding the entire selected raw channel (not just one equivalent comparison).",
+  "hard_gates": ["old_view_aliasing_all_pairs", "train_fresh_native_id_disjoint", "observed_effect_agrees_with_native_setup", "source_unchanged", "frozen_model", "search_accuracy", "lift_vs_old", "lift_vs_removed"],
+  "measurement": "Accuracy denominator=128 fresh native transitions. No statistical population/general-mechanics claim. GREEN requires all 8 gates. Missing/unsupported native setup or interrupted execution=INVALID, not a permitted retry. Save original evidence either way.",
+  "limitations": ["Not planning/task-completion capability", "Not unseen mechanics", "Not old LinkGraph gate reproduction or repair", "Not superiority over feature search: this IS feature search", "Raw file identity is a privileged sensor added by humans", "Only one native volume: inode comparison need not generalize across devices", "No active experiment selection, arbitrary concept invention, or AGI claim", "Same trusted supervisor measures and dispatches; not external attestation", "No mutation of D4 or production; OFF retained"]
+}

@@ -1,0 +1,40 @@
+{
+  "verdict": "INVALID_EXPERIMENT_AGAIN",
+  "source_unchanged": true,
+  "hashes_after": {
+    "scripts/whole_mind_bridge.py": "c79c6f17f8c958cc30a237806b1e23bb6913faee98318ebdf23c3d756ca11713",
+    "packages/shared_world/runtime.py": "b772e531eea887abe4d8bc27333220a3761d8384e76af6bf33674764ea7f731e",
+    "packages/shared_world/historical_goal_world.py": "c119a255af97532a6cf9d3663ea40342a74e83d29e5958fa32f219f413862feb",
+    "packages/action_core/world.py": "031b8826c4983adb3db854a8f937741c74b0d49fc0ade25742eb6340a5b6128a",
+    "packages/action_core/planner.py": "e46469bd177d18fe897f80383bc8f5f69f120b160f55e8a9425dbb59c8671161",
+    "packages/action_core/schema.py": "785b0e6a7cd98a95b56cbf37dfac33c3dcfce8b4b03f252f79e8d04351650227",
+    "packages/shared_world/contracts.py": "ad210e58b994fb75c4706aa728525beb3a30f942e3cf5a5c1b19632b81810d12",
+    "packages/action_core/episode.py": "4e02fccd84aefe8c981e894e4da3e37823b443db9409e36fdc2ff632fd135d14"
+  },
+  "structural": false,
+  "full_success": false,
+  "causal_choices_observed": true,
+  "cap": 34,
+  "results": {
+    "full": {
+      "completed": 0,
+      "steps": 34,
+      "noops": 22,
+      "exact_post_reachable": false
+    },
+    "no_memory": {
+      "completed": 0,
+      "steps": 34,
+      "noops": 31,
+      "exact_post_reachable": true
+    },
+    "no_planning": {
+      "completed": 0,
+      "steps": 34,
+      "noops": 20,
+      "exact_post_reachable": true
+    }
+  },
+  "scope": "One flat native filesystem mission only; no AGI, consciousness, general digital competence or all-organ claim",
+  "owned_root": "C:\\Users\\anseo\\AppData\\Local\\Temp\\atanor_whole_mind_valid_5ivsbp5e"
+}

@@ -1,0 +1,419 @@
+{
+ "condition": "C",
+ "signatures": 226,
+ "operators": {
+  "open": {
+   "tool": "open",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "absent"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "filter",
+     [
+      "const",
+      "all"
+     ]
+    ],
+    [
+     0,
+     "group",
+     [
+      "const",
+      "none"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "panel"
+     ]
+    ],
+    [
+     0,
+     "sort",
+     [
+      "const",
+      "name"
+     ]
+    ]
+   ],
+   "support": 2,
+   "failures": 34,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "filter",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "group",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "sort",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "value",
+     [
+      0
+     ],
+     "-"
+    ]
+   ]
+  },
+  "close": {
+   "tool": "close",
+   "pre": [
+    [
+     "group",
+     [
+      0
+     ],
+     "none"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "filter",
+     [
+      "const",
+      "-"
+     ]
+    ],
+    [
+     0,
+     "group",
+     [
+      "const",
+      "-"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "absent"
+     ]
+    ],
+    [
+     0,
+     "sort",
+     [
+      "const",
+      "-"
+     ]
+    ]
+   ],
+   "support": 4,
+   "failures": 21,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "value",
+     [
+      0
+     ],
+     "-"
+    ]
+   ]
+  },
+  "filter": {
+   "tool": "filter",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "panel"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "ext"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "filter",
+     [
+      "copy",
+      1,
+      "value"
+     ]
+    ]
+   ],
+   "support": 3,
+   "failures": 35,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "filter",
+     [
+      1
+     ],
+     "-"
+    ],
+    [
+     "group",
+     [
+      0
+     ],
+     "none"
+    ],
+    [
+     "group",
+     [
+      1
+     ],
+     "-"
+    ],
+    [
+     "sort",
+     [
+      0
+     ],
+     "name"
+    ],
+    [
+     "sort",
+     [
+      1
+     ],
+     "-"
+    ],
+    [
+     "value",
+     [
+      0
+     ],
+     "-"
+    ]
+   ]
+  },
+  "sort": {
+   "tool": "sort",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "panel"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "key"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "sort",
+     [
+      "copy",
+      1,
+      "value"
+     ]
+    ]
+   ],
+   "support": 4,
+   "failures": 39,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "filter",
+     [
+      1
+     ],
+     "-"
+    ],
+    [
+     "group",
+     [
+      0
+     ],
+     "none"
+    ],
+    [
+     "group",
+     [
+      1
+     ],
+     "-"
+    ],
+    [
+     "sort",
+     [
+      1
+     ],
+     "-"
+    ],
+    [
+     "value",
+     [
+      0
+     ],
+     "-"
+    ]
+   ]
+  },
+  "group": {
+   "tool": "group",
+   "pre": null,
+   "effects": [],
+   "support": 0,
+   "failures": 78,
+   "counter": [],
+   "status": "no_success",
+   "dropped": []
+  },
+  "compare": {
+   "tool": "compare",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "absent"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "panel"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "filter",
+     [
+      "const",
+      "csv"
+     ]
+    ],
+    [
+     0,
+     "group",
+     [
+      "const",
+      "none"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "compare"
+     ]
+    ],
+    [
+     0,
+     "sort",
+     [
+      "const",
+      "size"
+     ]
+    ]
+   ],
+   "support": 1,
+   "failures": 79,
+   "counter": [],
+   "status": "hypothesis",
+   "dropped": [
+    [
+     "filter",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "filter",
+     [
+      1
+     ],
+     "csv"
+    ],
+    [
+     "group",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "group",
+     [
+      1
+     ],
+     "none"
+    ],
+    [
+     "sort",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "sort",
+     [
+      1
+     ],
+     "size"
+    ],
+    [
+     "value",
+     [
+      0
+     ],
+     "-"
+    ],
+    [
+     "value",
+     [
+      1
+     ],
+     "-"
+    ]
+   ]
+  }
+ }
+}

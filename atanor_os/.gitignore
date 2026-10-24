@@ -1,4 +1,19 @@
-runs/
+# runs/: code and dev-run outputs are published; these stay local
+runs/ollama/
+runs/**/web/
+runs/**/web_*/
+runs/**/pages/
+runs/**/model_calls*.jsonl
+runs/**/*.sqlite
+runs/**/*.sqlite-wal
+runs/**/*.sqlite-shm
+runs/**/ws/
+runs/**/ws_train/
+runs/**/semantics/
+runs/**/agree/
+runs/**/agree_*/
+runs/**/task_*/
+runs/**/explore/s*/
 __pycache__/
 results/**/ws/
 results/**/semantics/
@@ -23,3 +38,5 @@ results/p8b/test/*/unchg_*/
 results/p8b/verify/
 results/p8b/explore_e3/
 results/p9/*_ws/
+runs/**/b[0-9]*/
+runs/**/ag/

@@ -1,0 +1,874 @@
+{
+  "completed": 0,
+  "steps": 34,
+  "workers": [
+    {
+      "pid": 38060,
+      "start_steps": 0,
+      "steps": 5,
+      "initial_model_digest": "1bafbf52e3c208a044d5f801f9aed320d6ef1530c76efac3e483ac4eac1c8b7c",
+      "final_model_digest": "9ec6a5b5446db95b82efece89828479b8678b9dbbf156c3426b4f99cc5b6f2c5",
+      "completed": 0,
+      "active": 0,
+      "halted": null
+    },
+    {
+      "pid": 18616,
+      "start_steps": 5,
+      "steps": 34,
+      "initial_model_digest": "9ec6a5b5446db95b82efece89828479b8678b9dbbf156c3426b4f99cc5b6f2c5",
+      "final_model_digest": "aa6edcaaefb6faf08280edb2d4f392b6937db7f4e7229d504b4686edec91aa2b",
+      "completed": 0,
+      "active": 0,
+      "halted": null
+    }
+  ],
+  "noops": 22,
+  "failed_actions": 22,
+  "first_irreversible_dead_end": {
+    "action_index": 5,
+    "action": {
+      "args": [
+        "n6"
+      ],
+      "op": "mkdir"
+    },
+    "before": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "after": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      1
+    ]
+  },
+  "verified": {
+    "green": true,
+    "errors": [],
+    "steps": 34,
+    "goals": [
+      {
+        "completed": false,
+        "goal_id": "reconfigure-workspace",
+        "model_digest": "aa6edcaaefb6faf08280edb2d4f392b6937db7f4e7229d504b4686edec91aa2b",
+        "observation": 209,
+        "reason": "step_budget_exceeded",
+        "steps": 34
+      }
+    ],
+    "capability_claim": false
+  },
+  "native_final": {
+    "evidence": {
+      "n0": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n1": {
+        "kind": 0,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n2": {
+        "kind": 1,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "n3": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n4": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n5": {
+        "kind": 0,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n6": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n7": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n8": {
+        "kind": 1,
+        "sha256": "07848fb8c8950bbe1b5c90d1f0cc07a5cf8d9b34ab4548949dde5561f81dadeb",
+        "size_bytes": 46
+      }
+    },
+    "conditions": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true
+    ],
+    "manifest_unchanged": true
+  },
+  "continuity": true,
+  "distinct_processes": true,
+  "one_goal": true,
+  "exact_post_reachable": false,
+  "reobserved": true,
+  "preview_pure": true,
+  "proposal_changed": false,
+  "post_change_cognition": true,
+  "experiences_native_only": true,
+  "experience_retrieved": true,
+  "thought_dispatch": true,
+  "causal_readonly_choices": [
+    {
+      "revision": 0,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n5"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n5"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n2"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 1,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n4"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n4"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n7"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 2,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n1"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n1"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 3,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n5"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n7"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n6"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 4,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n2"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 5,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n3"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n3"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 6,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n4"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n4"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n0"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 7,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n7"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n7"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n7"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 8,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n0"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n0"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n5"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 9,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n0"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n2"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 10,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n7"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n4"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 11,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n4"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n4"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n0"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 12,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n2"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n2"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n3"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 13,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 14,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n4"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 15,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n4"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 16,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n5"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 17,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n2"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 19,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 20,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n7"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 21,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 22,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 23,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n5"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 25,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n3"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 26,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n3"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 27,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n5"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 28,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 30,
+      "choices": {
+        "full": {
+          "op": "unlink",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "unlink",
+          "args": [
+            "n5"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 31,
+      "choices": {
+        "full": {
+          "op": "empty",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "empty",
+          "args": [
+            "n3"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 32,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n1"
+          ]
+        }
+      }
+    },
+    {
+      "revision": 33,
+      "choices": {
+        "full": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_memory": {
+          "op": "mkdir",
+          "args": [
+            "n6"
+          ]
+        },
+        "no_planning": {
+          "op": "mkdir",
+          "args": [
+            "n5"
+          ]
+        }
+      }
+    }
+  ],
+  "finalization": {
+    "native_actions_added": 0,
+    "model_unchanged": true,
+    "steps": 34,
+    "terminal": {
+      "completed": false,
+      "goal_id": "reconfigure-workspace",
+      "model_digest": "aa6edcaaefb6faf08280edb2d4f392b6937db7f4e7229d504b4686edec91aa2b",
+      "observation": 209,
+      "reason": "step_budget_exceeded",
+      "steps": 34
+    }
+  }
+}

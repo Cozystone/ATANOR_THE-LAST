@@ -1,0 +1,15 @@
+{
+  "verdict": "INCONCLUSIVE_INVALID_MISSION",
+  "whole_mind_v0_integrated_claim": false,
+  "candidate_commit": "ccc9684",
+  "full": {"completed": 0, "actions": 48, "final_goal_literals_met": 4, "total_goal_literals": 8, "native_replay_green": true, "restart_continuity": true, "surprise_observed": true, "proposal_changed": true},
+  "no_memory": {"actions": 6, "status": "interrupted_by_harness_assertion_before_resume"},
+  "no_planning": {"status": "not_run"},
+  "causal_capability_claim": false,
+  "failure": "Selected native alphabet cannot change directory kind: mkdir/empty/unlink all fail on an existing directory. Four requested directory-to-file transitions were unreachable from the start.",
+  "harness_failure": "no_memory intervention attempted unlink on directory; body.step returned false; assertion stopped the trial.",
+  "responsibility": "Mission feasibility preflight omitted by implementer; not evidence that ATANOR cognition or integration is fundamentally impossible.",
+  "rerun": false,
+  "raw_evidence_modified": false,
+  "next_research": "none; block sealed and stopped"
+}

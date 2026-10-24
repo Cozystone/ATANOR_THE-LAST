@@ -1,0 +1,83 @@
+{
+  "arm": "full",
+  "config": {
+    "paths": [
+      "workspace_0",
+      "workspace_1",
+      "workspace_2",
+      "workspace_3",
+      "workspace_4",
+      "workspace_5",
+      "workspace_6",
+      "workspace_7",
+      "operator_manifest.txt"
+    ],
+    "initial": {
+      "workspace_0": "6f776e65642074656d706f7261727920696e707574",
+      "workspace_1": null,
+      "workspace_2": "6f776e65642074656d706f7261727920696e707574",
+      "workspace_3": null,
+      "workspace_4": "6f776e65642074656d706f7261727920696e707574",
+      "workspace_5": null,
+      "workspace_6": "6f776e65642074656d706f7261727920696e707574",
+      "workspace_7": null,
+      "operator_manifest.txt": "50726f746563746564206f70657261746f72206d616e69666573743b206e65766572206d6f646966792e"
+    },
+    "protected": [
+      "n8"
+    ],
+    "operations": [
+      {
+        "id": "mkdir",
+        "arity": 1
+      },
+      {
+        "id": "empty",
+        "arity": 1
+      },
+      {
+        "id": "unlink",
+        "arity": 1
+      }
+    ]
+  },
+  "body_root": "C:\\Users\\anseo\\AppData\\Local\\Temp\\atanor_whole_mind_v0_ymc7py1t\\full",
+  "goal": {
+    "id": "prepare-workspace",
+    "kinds": [
+      [
+        "n0",
+        2
+      ],
+      [
+        "n1",
+        1
+      ],
+      [
+        "n2",
+        2
+      ],
+      [
+        "n3",
+        1
+      ],
+      [
+        "n4",
+        2
+      ],
+      [
+        "n5",
+        1
+      ],
+      [
+        "n6",
+        2
+      ],
+      [
+        "n7",
+        1
+      ]
+    ],
+    "equal": []
+  }
+}

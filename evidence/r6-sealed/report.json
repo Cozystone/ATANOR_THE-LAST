@@ -1,0 +1,74 @@
+{
+  "differences": {
+    "active": {
+      "lcb95": -0.125,
+      "lift": 0.09375
+    },
+    "none": {
+      "lcb95": 0.0,
+      "lift": 0.125
+    },
+    "random": {
+      "lcb95": 0.09375,
+      "lift": 0.296875
+    }
+  },
+  "gates": {
+    "acquisition_charged_economy": false,
+    "active_nonregression": false,
+    "budgets": true,
+    "none_lift": false,
+    "only_actual_training": true,
+    "projection_unchanged": true,
+    "random_nonregression": true,
+    "source_unchanged": true,
+    "success_rate": false
+  },
+  "prereg_sha256": "fd51419b8c91f7d79c1dc59b49ac96f6946c201992e0854058f53b4ad51bf294",
+  "rows_sha256": "ca5f8415449d9e97560d7e1112d95742f9bfd51d1401f99195080faf747234c9",
+  "scope": "Fresh instances of exposed native mechanics; no external judge or OS-isolated blinding. Independent native audit required before sealing.",
+  "scores": {
+    "active": {
+      "acquisition_actions": 256,
+      "actions_per_success": 10.705882352941176,
+      "cpu_seconds": 83.40625,
+      "n": 64,
+      "prediction_error": 0.034353028540388464,
+      "successes": 34,
+      "task_actions": 108,
+      "total_native_actions": 364
+    },
+    "lookahead": {
+      "acquisition_actions": 88,
+      "actions_per_success": 4.6,
+      "cpu_seconds": 100.734375,
+      "n": 64,
+      "prediction_error": 0.06084222408531376,
+      "successes": 40,
+      "task_actions": 96,
+      "total_native_actions": 184
+    },
+    "none": {
+      "acquisition_actions": 0,
+      "actions_per_success": 3.0,
+      "cpu_seconds": 41.65625,
+      "n": 64,
+      "prediction_error": 0.08232302418741991,
+      "successes": 32,
+      "task_actions": 96,
+      "total_native_actions": 96
+    },
+    "random": {
+      "acquisition_actions": 256,
+      "actions_per_success": 17.523809523809526,
+      "cpu_seconds": 74.1875,
+      "n": 64,
+      "prediction_error": 0.04471218916376391,
+      "successes": 21,
+      "task_actions": 112,
+      "total_native_actions": 368
+    }
+  },
+  "verdict": "R6_LOCAL_CAPABILITY_RED",
+  "wall_seconds": 307.4071800999809
+}

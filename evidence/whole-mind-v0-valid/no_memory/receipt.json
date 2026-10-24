@@ -1,0 +1,160 @@
+{
+  "completed": 0,
+  "steps": 34,
+  "workers": [
+    {
+      "pid": 6492,
+      "start_steps": 0,
+      "steps": 5,
+      "initial_model_digest": "8950e6b307673a49df622b5e3f42796162f0e00db70bd9359dae85f164d8d480",
+      "final_model_digest": "72df60e577fb1ab2b166ebcf8f15f3410bb8b8d9e277b3cd171cd70cf3d468c4",
+      "completed": 0,
+      "active": 0,
+      "halted": null
+    },
+    {
+      "pid": 31432,
+      "start_steps": 5,
+      "steps": 34,
+      "initial_model_digest": "72df60e577fb1ab2b166ebcf8f15f3410bb8b8d9e277b3cd171cd70cf3d468c4",
+      "final_model_digest": "325a4a26f203032f427d596f4a1fce1c4b741e0a472c38f4f7a1e9d05df65ada",
+      "completed": 0,
+      "active": 0,
+      "halted": null
+    }
+  ],
+  "noops": 31,
+  "failed_actions": 31,
+  "first_irreversible_dead_end": {
+    "action_index": 6,
+    "action": {
+      "args": [
+        "n2"
+      ],
+      "op": "mkdir"
+    },
+    "before": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "after": [
+      1,
+      1,
+      2,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  "verified": {
+    "green": true,
+    "errors": [],
+    "steps": 34,
+    "goals": [
+      {
+        "completed": false,
+        "goal_id": "reconfigure-workspace",
+        "model_digest": "325a4a26f203032f427d596f4a1fce1c4b741e0a472c38f4f7a1e9d05df65ada",
+        "observation": 209,
+        "reason": "step_budget_exceeded",
+        "steps": 34
+      }
+    ],
+    "capability_claim": false
+  },
+  "native_final": {
+    "evidence": {
+      "n0": {
+        "kind": 1,
+        "sha256": "29cdb943ea681a679f3c7def655c1f29ab1263ddc7b79f1aa1ca74ecc0318d77",
+        "size_bytes": 13
+      },
+      "n1": {
+        "kind": 1,
+        "sha256": "f8dfec5c0410a063057889d99b773a1bcb650927b93beca49f14d69613fab1ec",
+        "size_bytes": 13
+      },
+      "n2": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n3": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n4": {
+        "kind": 1,
+        "sha256": "e351692bdea69e506f876ff800be98c2dc1c4dd2fce52670ebffdab8fcf92d37",
+        "size_bytes": 13
+      },
+      "n5": {
+        "kind": 1,
+        "sha256": "c1906bf1bfa4d8a378f7c54a172b8e3f04c84473cba447035ab18405c40c66d3",
+        "size_bytes": 13
+      },
+      "n6": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n7": {
+        "kind": 1,
+        "sha256": "759bd0fe5ef21fbf3bb5f745a00ea8d371e6027abbd608e80bb8195a740f1a12",
+        "size_bytes": 21
+      },
+      "n8": {
+        "kind": 1,
+        "sha256": "07848fb8c8950bbe1b5c90d1f0cc07a5cf8d9b34ab4548949dde5561f81dadeb",
+        "size_bytes": 46
+      }
+    },
+    "conditions": [
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "manifest_unchanged": true
+  },
+  "continuity": true,
+  "distinct_processes": true,
+  "one_goal": true,
+  "exact_post_reachable": true,
+  "reobserved": true,
+  "preview_pure": true,
+  "proposal_changed": false,
+  "post_change_cognition": true,
+  "experiences_native_only": true,
+  "experience_retrieved": false,
+  "thought_dispatch": true,
+  "causal_readonly_choices": [],
+  "finalization": {
+    "native_actions_added": 0,
+    "model_unchanged": true,
+    "steps": 34,
+    "terminal": {
+      "completed": false,
+      "goal_id": "reconfigure-workspace",
+      "model_digest": "325a4a26f203032f427d596f4a1fce1c4b741e0a472c38f4f7a1e9d05df65ada",
+      "observation": 209,
+      "reason": "step_budget_exceeded",
+      "steps": 34
+    }
+  }
+}

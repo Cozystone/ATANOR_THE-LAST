@@ -1,0 +1,171 @@
+{
+  "source_sha256": "3586bfe0b7ccb15bd16e4c772b6c30a37ac8af65defbe82b185229666b3e4e2f",
+  "native_transitions_verified": 304,
+  "summary_verified": {
+    "active": {
+      "actions_per_success": 17.0,
+      "disagreement_actions": 44,
+      "success": 8,
+      "total_actions": 136
+    },
+    "none": {
+      "actions_per_success": 4.0,
+      "disagreement_actions": 0,
+      "success": 8,
+      "total_actions": 32
+    },
+    "random": {
+      "actions_per_success": 17.0,
+      "disagreement_actions": 0,
+      "success": 8,
+      "total_actions": 136
+    }
+  },
+  "rows": [
+    {
+      "life": 0,
+      "arm": "none",
+      "success": 4,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 1.0,
+      "first_zero_coupling_record": null,
+      "changed_acquisition_actions": 0,
+      "disagreement_cells_resolved_at_same_input": 0,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "success": 4,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 1.0,
+      "first_zero_coupling_record": null,
+      "changed_acquisition_actions": 8,
+      "disagreement_cells_resolved_at_same_input": 6,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "success": 4,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 8,
+      "changed_acquisition_actions": 15,
+      "disagreement_cells_resolved_at_same_input": 27,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "success": 4,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 1.0,
+      "first_zero_coupling_record": null,
+      "changed_acquisition_actions": 0,
+      "disagreement_cells_resolved_at_same_input": 0,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "success": 4,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 7,
+      "changed_acquisition_actions": 15,
+      "disagreement_cells_resolved_at_same_input": 20,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "success": 4,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 7,
+      "changed_acquisition_actions": 18,
+      "disagreement_cells_resolved_at_same_input": 21,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "success": 0,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 1.0,
+      "first_zero_coupling_record": null,
+      "changed_acquisition_actions": 0,
+      "disagreement_cells_resolved_at_same_input": 0,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "success": 0,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 7,
+      "changed_acquisition_actions": 20,
+      "disagreement_cells_resolved_at_same_input": 14,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "success": 0,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 7,
+      "changed_acquisition_actions": 14,
+      "disagreement_cells_resolved_at_same_input": 20,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "success": 0,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 1.0,
+      "first_zero_coupling_record": null,
+      "changed_acquisition_actions": 0,
+      "disagreement_cells_resolved_at_same_input": 0,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "success": 0,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 6,
+      "changed_acquisition_actions": 16,
+      "disagreement_cells_resolved_at_same_input": 11,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "success": 0,
+      "coupling_after_bootstrap": 1.0,
+      "coupling_after_acquisition": 0.0,
+      "first_zero_coupling_record": 14,
+      "changed_acquisition_actions": 14,
+      "disagreement_cells_resolved_at_same_input": 26,
+      "disagreement_cells_still_multiple": 0,
+      "disagreement_cells_became_unsupported": 0
+    }
+  ],
+  "scope": "exposed post-result diagnosis; same adapters, not independent judge; no new capability trial"
+}

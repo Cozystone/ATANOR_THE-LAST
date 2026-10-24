@@ -1,0 +1,1218 @@
+{
+  "verdict": "PLASTICITY_NO_GO",
+  "metrics": {
+    "gates": {
+      "mean_gain": true,
+      "median_gain": true,
+      "four_laws": true,
+      "six_histories": true,
+      "severe_pairs": true,
+      "no_severe_law": true,
+      "retention_nonvacuous": false,
+      "retention_macro": false,
+      "retention_each": false
+    },
+    "costs": {
+      "fresh": {
+        "unique_link": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        "broadcast_unlink": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "steal_link": [
+          null,
+          16,
+          null,
+          null,
+          null,
+          null,
+          null,
+          16
+        ],
+        "attached_insert": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          16
+        ],
+        "cleanup_delete": [
+          16,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "parent_insert": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      "weights_adam": {
+        "unique_link": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4
+        ],
+        "broadcast_unlink": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "steal_link": [
+          16,
+          8,
+          8,
+          8,
+          8,
+          16,
+          8,
+          16
+        ],
+        "attached_insert": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "cleanup_delete": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          16
+        ],
+        "parent_insert": [
+          8,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ]
+      }
+    },
+    "means": {
+      "fresh": 12.541666666666666,
+      "weights_adam": 4.791666666666667
+    },
+    "medians": {
+      "fresh": 16.0,
+      "weights_adam": 4.0
+    },
+    "lawmeans": {
+      "unique_link": {
+        "fresh": 16,
+        "weights_adam": 2.25
+      },
+      "broadcast_unlink": {
+        "fresh": 0.75,
+        "weights_adam": 0
+      },
+      "steal_link": {
+        "fresh": 16.75,
+        "weights_adam": 11
+      },
+      "attached_insert": {
+        "fresh": 16.875,
+        "weights_adam": 2
+      },
+      "cleanup_delete": {
+        "fresh": 16.875,
+        "weights_adam": 9
+      },
+      "parent_insert": {
+        "fresh": 8,
+        "weights_adam": 4.5
+      }
+    },
+    "severe_negative_pairs": 0,
+    "improved_histories": 8,
+    "retention": {
+      "unique_link": {
+        "0": 0.6041666666666666,
+        "16": 0.3666666666666667
+      },
+      "broadcast_unlink": {
+        "0": 0.1636904761904762,
+        "16": 0.11607142857142856
+      },
+      "steal_link": {
+        "0": 0.4107142857142857,
+        "16": 0.125
+      },
+      "attached_insert": {
+        "0": 0.27604166666666663,
+        "16": 0.3489583333333333
+      },
+      "cleanup_delete": {
+        "0": 0.209375,
+        "16": 0.046875
+      },
+      "parent_insert": {
+        "0": 0.6875,
+        "16": 0.0
+      }
+    }
+  },
+  "outcomes": {
+    "unique_link": {
+      "fresh": 16,
+      "weights_adam": 4
+    },
+    "broadcast_unlink": {
+      "fresh": 1,
+      "weights_adam": 0
+    },
+    "steal_link": {
+      "fresh": null,
+      "weights_adam": 16
+    },
+    "attached_insert": {
+      "fresh": null,
+      "weights_adam": 2
+    },
+    "cleanup_delete": {
+      "fresh": null,
+      "weights_adam": 8
+    },
+    "parent_insert": {
+      "fresh": 8,
+      "weights_adam": 8
+    },
+    "null": {
+      "fresh": 16,
+      "weights_adam": 4
+    },
+    "cascade": {
+      "fresh": 8,
+      "weights_adam": 4
+    }
+  },
+  "summaries": [
+    {
+      "law": "unique_link",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 24,
+      "common": 16,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 28,
+      "common": 20,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 32,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 32,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 24,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 106,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 106,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 28,
+      "changed": 28,
+      "common": 148,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 106,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 64,
+      "common_n": 176
+    },
+    {
+      "law": "unique_link",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 64,
+      "common_n": 176
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 10,
+      "changed": 16,
+      "common": 0,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 34,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 28,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 24,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 28,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 20,
+      "common_n": 208
+    },
+    {
+      "law": "broadcast_unlink",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 24,
+      "common_n": 208
+    },
+    {
+      "law": "steal_link",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 22,
+      "common": 8,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 12,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 16,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 16,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 16,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 8,
+      "changed": 32,
+      "common": 0,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 72,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 72,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 100,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 104,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 20,
+      "changed": 32,
+      "common": 20,
+      "common_n": 192
+    },
+    {
+      "law": "steal_link",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 20,
+      "common_n": 192
+    },
+    {
+      "law": "attached_insert",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 12,
+      "common": 0,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 20,
+      "common": 0,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 0,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 0,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 0,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 4,
+      "changed": 32,
+      "common": 0,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 56,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 60,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 60,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 52,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 60,
+      "common_n": 224
+    },
+    {
+      "law": "attached_insert",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 72,
+      "common_n": 224
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 8,
+      "common": 8,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 2,
+      "changed": 20,
+      "common": 4,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 4,
+      "changed": 32,
+      "common": 2,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 18,
+      "changed": 18,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 28,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 28,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 28,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 14,
+      "changed": 14,
+      "common": 28,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 30,
+      "changed": 30,
+      "common": 16,
+      "common_n": 144
+    },
+    {
+      "law": "cleanup_delete",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 6,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 4,
+      "changed": 18,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 8,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 4,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 100,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 72,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 54,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 28,
+      "changed": 28,
+      "common": 18,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "parent_insert",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 144
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 2,
+      "changed": 2,
+      "common": 8,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 2,
+      "changed": 2,
+      "common": 10,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 12,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 10,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 16,
+      "changed": 16,
+      "common": 0,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 84,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 84,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 60,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 36,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 42,
+      "common_n": 288
+    },
+    {
+      "law": "null",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 16,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 12,
+      "common": 8,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 16,
+      "common": 6,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 2,
+      "n": 32,
+      "whole": 12,
+      "changed": 12,
+      "common": 2,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 4,
+      "n": 32,
+      "whole": 20,
+      "changed": 20,
+      "common": 0,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "fresh",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 0,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 0,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 84,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 1,
+      "n": 32,
+      "whole": 0,
+      "changed": 0,
+      "common": 84,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 2,
+      "n": 32,
+      "whole": 12,
+      "changed": 12,
+      "common": 44,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 4,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 44,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 8,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 78,
+      "common_n": 288
+    },
+    {
+      "law": "cascade",
+      "arm": "weights_adam",
+      "count": 16,
+      "n": 32,
+      "whole": 32,
+      "changed": 32,
+      "common": 42,
+      "common_n": 288
+    }
+  ],
+  "hashes": {
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_plasticity_eval.py": "4ca05ba31c8cb676f996b5c073c557e99dc00274d369f438e49797e4abb0904a",
+    "C:\\0.ASKIM ALL-VIN\\27., ATANOR DEMO\\packages\\mind\\fk_world.py": "85ee675a8273f94e76d284968636f42783eb86df8694aa7b052bf48b3e76e47a",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\plasticity_law_suite.py": "63c31f611cb140f0bfe0a7b1be9858e3712982c8abcba656b71eb08bf4811039",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\adaptation_pair_isolation.py": "684ac4d85422eaf6c7caac8a3d9cf13ab589958efa48586511224c98d1c30f1b",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_plastic_world.py": "cfd4fc37176d47e69014c1edb87e0131c69a8d431ad9b9177f4c8181b6d76470",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\developmental_plastic_eval.py": "bf8ff76a558496a1ec47349bc82aebff98704158f07d7761772a1c337a6116bf",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\scripts\\plastic_law_world.py": "16008a88dd1b0c9f7309fe1d3ebc635626f7a36118a496ec692e484f54f357be",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\packages\\shared_world\\sql_schema_sensor.py": "4c4deae8af87c0f14e7e83e2af533adeb66fd55b793aec967189713e93b8451d",
+    "D:\\ATANOR-experiments\\2026-09-19\\developmental-research\\docs\\ATANOR_DEVELOPMENTAL_PLASTICITY_V1_PREREGISTRATION.md": "2a3cac50acd85ecd1cf1e032b0a8ab5ef0065b7d7b524cf3a8e74d153dab115b"
+  },
+  "source_unchanged": true,
+  "restart_equal": true,
+  "actual_A_reverified": 8192,
+  "unique_native_cases_reverified": 1280,
+  "probe_rows": 3072,
+  "wall_seconds": 165.17732400004752,
+  "scope": "Six curated unseen SQL laws; two exposed controls excluded from gates; not universal law distribution"
+}

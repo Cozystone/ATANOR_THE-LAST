@@ -1,0 +1,67 @@
+{
+  "env": {
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "ANSEOK-9950X3D",
+    "cpus": 32,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 10.0
+    },
+    "steps": null,
+    "tasks": 20,
+    "seeds": [
+      0
+    ],
+    "split": "test",
+    "adapt": false
+  },
+  "checks": {
+    "unreachable": 0
+  },
+  "learn_cost_s": {
+    "0": {
+      "ORACLE": 2.700020559132099e-06
+    }
+  },
+  "storage": {
+    "0": {
+      "journal_bytes": 430080
+    }
+  },
+  "protocol": null,
+  "conditions": {
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 5.55,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 111,
+      "wall_s": 0.5518293000030099,
+      "cpu_s": 0.53984375,
+      "plan_expanded": 240.85,
+      "peak_mem_mb": 0.0,
+      "status_counts": {
+        "oracle": 111
+      },
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 1.0
+      },
+      "council_disagreement": null
+    }
+  },
+  "paired": {},
+  "verdict": "EXPLORATORY"
+}

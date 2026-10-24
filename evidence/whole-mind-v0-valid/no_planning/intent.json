@@ -1,0 +1,80 @@
+{
+  "config": {
+    "paths": [
+      "entry0",
+      "entry1",
+      "entry2",
+      "entry3",
+      "entry4",
+      "entry5",
+      "entry6",
+      "entry7",
+      "manifest"
+    ],
+    "initial": {
+      "entry0": "6f776e656420696e7075742030",
+      "entry1": "6f776e656420696e7075742031",
+      "entry4": "6f776e656420696e7075742034",
+      "entry5": "6f776e656420696e7075742035",
+      "manifest": "4154414e4f522076616c69646174696f6e206d616e69666573743a2070726573657276652065786163746c792e0a"
+    },
+    "protected": [
+      "n8"
+    ],
+    "operations": [
+      {
+        "id": "mkdir",
+        "arity": 1
+      },
+      {
+        "id": "empty",
+        "arity": 1
+      },
+      {
+        "id": "unlink",
+        "arity": 1
+      }
+    ]
+  },
+  "body_root": "C:\\Users\\anseo\\AppData\\Local\\Temp\\atanor_whole_mind_valid_5ivsbp5e\\no_planning",
+  "arm": "no_planning",
+  "goal": {
+    "id": "reconfigure-workspace",
+    "kinds": [
+      [
+        "n0",
+        2
+      ],
+      [
+        "n1",
+        0
+      ],
+      [
+        "n2",
+        1
+      ],
+      [
+        "n3",
+        2
+      ],
+      [
+        "n4",
+        2
+      ],
+      [
+        "n5",
+        0
+      ],
+      [
+        "n6",
+        1
+      ],
+      [
+        "n7",
+        2
+      ]
+    ],
+    "equal": []
+  },
+  "cap": 34
+}

@@ -1,0 +1,2360 @@
+{
+  "scope": "All chosen steps in failed lookahead tasks, post-result diagnosis. No repair/no rerun. Exactness is whole state, not goal probability.",
+  "counts": {
+    "exact_step_but_failed_plan": 48
+  },
+  "records": [
+    {
+      "block": 0,
+      "task": 0,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3056468205138596
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 0,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3056468205138596
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 2,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.2902744311963358
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 2,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.2902744311963358
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 4,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3152140698074529
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 4,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3152140698074529
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 6,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.26463165653732873
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 0,
+      "task": 6,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.26463165653732873
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 0,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3262722390673953
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 0,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3262722390673953
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 2,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.3092974931486355
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 2,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.3092974931486355
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 4,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.32891813680655535
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 4,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.32891813680655535
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 6,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.26279328871193536
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 1,
+      "task": 6,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.26279328871193536
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 0,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3198746132760472
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 0,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3198746132760472
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 2,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.29921823392387786
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 2,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.29921823392387786
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 4,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.317974770952024
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 4,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.317974770952024
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 6,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n1"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.32826708925291437
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 2,
+      "task": 6,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n1"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.32826708925291437
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 0,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.33051668941840845
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 0,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.33051668941840845
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 2,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.30469983270007195
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 2,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.30469983270007195
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 4,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.26463165653732873
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 4,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.26463165653732873
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 6,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3042209031534739
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 3,
+      "task": 6,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3042209031534739
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 0,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.25692961651083196
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 0,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.1986283643967466
+            ],
+            [
+              0.25692961651083196
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 2,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.28782313662425574
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 2,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.28782313662425574
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 4,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n1"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.2738766646671176
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 4,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n1"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.2738766646671176
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 6,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        0
+      ],
+      "applicable": [
+        0
+      ],
+      "anywhere": [
+        0
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.28656046741691077
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 6,
+      "task": 6,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.28656046741691077
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 0,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3187416517390124
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 0,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.3187416517390124
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 2,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n1"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.27148783886585526
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 2,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n1"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.27148783886585526
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 4,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.31316470588101597
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 4,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.31316470588101597
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 6,
+      "step": 0,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        1
+      ],
+      "applicable": [
+        1
+      ],
+      "anywhere": [
+        1
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,1,1,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "copy",
+              "a0"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.26463165653732873
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "block": 7,
+      "task": 6,
+      "step": 1,
+      "collective": false,
+      "action": {
+        "args": [
+          "n0"
+        ],
+        "op": "empty"
+      },
+      "category": "exact_step_but_failed_plan",
+      "leaf_labels": [
+        2
+      ],
+      "applicable": [
+        2
+      ],
+      "anywhere": [
+        2
+      ],
+      "ambiguous_slots": [
+        {
+          "slot": [
+            "size",
+            "*:1,0,0,0,0,0,0"
+          ],
+          "expressions": [
+            [
+              "keep"
+            ],
+            [
+              "constant",
+              0.1986283643967466
+            ]
+          ],
+          "values": [
+            [
+              0.26463165653732873
+            ],
+            [
+              0.1986283643967466
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

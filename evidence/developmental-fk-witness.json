@@ -1,0 +1,84 @@
+{
+  "rows": [
+    {
+      "after": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "before": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "blocked": false,
+      "local_query": {
+        "action": "delete",
+        "argument_equals_output": true,
+        "argument_state": 1,
+        "output_state": 1,
+        "self_reference": false
+      },
+      "native_anchor_count": 0,
+      "references": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          null
+        ]
+      ],
+      "success": true
+    },
+    {
+      "after": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "before": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "blocked": true,
+      "local_query": {
+        "action": "delete",
+        "argument_equals_output": true,
+        "argument_state": 1,
+        "output_state": 1,
+        "self_reference": false
+      },
+      "native_anchor_count": 1,
+      "references": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          null
+        ]
+      ],
+      "success": false
+    }
+  ],
+  "scope": "native architectural witness, NOT a candidate transfer evaluation",
+  "source_path": "C:\\0.ASKIM ALL-VIN\\27., ATANOR DEMO\\packages\\mind\\fk_world.py",
+  "source_sha256": "85ee675a8273f94e76d284968636f42783eb86df8694aa7b052bf48b3e76e47a",
+  "verdict": "ROOT_ONLY_CONTEXT_INSUFFICIENT"
+}

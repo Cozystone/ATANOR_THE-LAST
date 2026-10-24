@@ -1,0 +1,588 @@
+{
+  "verdict": "BOUNDED_LOOP_SUPPORTED",
+  "gates": {
+    "native_replay": true,
+    "restart_exact": true,
+    "checkpoint_continuity": true,
+    "separate_processes": true,
+    "full_goals": true,
+    "belief_revision": true,
+    "revision_contribution": true,
+    "prediction_contribution": true
+  },
+  "summary": {
+    "continuous": {
+      "workers": [
+        {
+          "pid": 40252,
+          "start_steps": 0,
+          "steps": 8,
+          "initial_model_digest": "db061d8d1fdce99216915dcc1ff83e21fbaa8d1c79c141c486712e40b67326e7",
+          "final_model_digest": "6d3b1cb56156480e9c66a33ce0a63ec6f6c4692125683e9152b3c55bf86fb438",
+          "revision": 8,
+          "active": null,
+          "completed": 3,
+          "exhausted": true
+        }
+      ],
+      "verification": {
+        "green": true,
+        "errors": [],
+        "steps": 8,
+        "goals": [
+          {
+            "completed": true,
+            "goal_id": "0",
+            "model_digest": "b4ea8ab153c36bb9e3713ee9d14b81c5602968b9099a4a579d2c1d68de07cb8d",
+            "observation": 40,
+            "reason": "goal_reached",
+            "steps": 6
+          },
+          {
+            "completed": true,
+            "goal_id": "1",
+            "model_digest": "f887123b698d61da87c071c8d2f1ce146117dd45bd79641aba3c2f656c0b5fb6",
+            "observation": 50,
+            "reason": "goal_reached",
+            "steps": 1
+          },
+          {
+            "completed": true,
+            "goal_id": "2",
+            "model_digest": "6d3b1cb56156480e9c66a33ce0a63ec6f6c4692125683e9152b3c55bf86fb438",
+            "observation": 60,
+            "reason": "goal_reached",
+            "steps": 1
+          }
+        ],
+        "capability_claim": false
+      },
+      "actions": [
+        {
+          "args": [
+            "n4",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n1"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n0",
+            "n1"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n2",
+            "n3"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n2",
+            "n1"
+          ],
+          "op": "rename"
+        }
+      ],
+      "completed": 3,
+      "steps": 8,
+      "belief_revisions": 5,
+      "alternatives": 288
+    },
+    "resumed": {
+      "workers": [
+        {
+          "pid": 19116,
+          "start_steps": 0,
+          "steps": 1,
+          "initial_model_digest": "db061d8d1fdce99216915dcc1ff83e21fbaa8d1c79c141c486712e40b67326e7",
+          "final_model_digest": "655f7dc26da8ac57b42dd428640d373a7159b2c44e1547076ecc0aa350129b92",
+          "revision": 1,
+          "active": 0,
+          "completed": 0,
+          "exhausted": false
+        },
+        {
+          "pid": 23272,
+          "start_steps": 1,
+          "steps": 8,
+          "initial_model_digest": "655f7dc26da8ac57b42dd428640d373a7159b2c44e1547076ecc0aa350129b92",
+          "final_model_digest": "6d3b1cb56156480e9c66a33ce0a63ec6f6c4692125683e9152b3c55bf86fb438",
+          "revision": 8,
+          "active": null,
+          "completed": 3,
+          "exhausted": true
+        }
+      ],
+      "verification": {
+        "green": true,
+        "errors": [],
+        "steps": 8,
+        "goals": [
+          {
+            "completed": true,
+            "goal_id": "0",
+            "model_digest": "b4ea8ab153c36bb9e3713ee9d14b81c5602968b9099a4a579d2c1d68de07cb8d",
+            "observation": 40,
+            "reason": "goal_reached",
+            "steps": 6
+          },
+          {
+            "completed": true,
+            "goal_id": "1",
+            "model_digest": "f887123b698d61da87c071c8d2f1ce146117dd45bd79641aba3c2f656c0b5fb6",
+            "observation": 50,
+            "reason": "goal_reached",
+            "steps": 1
+          },
+          {
+            "completed": true,
+            "goal_id": "2",
+            "model_digest": "6d3b1cb56156480e9c66a33ce0a63ec6f6c4692125683e9152b3c55bf86fb438",
+            "observation": 60,
+            "reason": "goal_reached",
+            "steps": 1
+          }
+        ],
+        "capability_claim": false
+      },
+      "actions": [
+        {
+          "args": [
+            "n4",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n1"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n0",
+            "n1"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n2",
+            "n3"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n2",
+            "n1"
+          ],
+          "op": "rename"
+        }
+      ],
+      "completed": 3,
+      "steps": 8,
+      "belief_revisions": 5,
+      "alternatives": 288
+    },
+    "frozen": {
+      "workers": [
+        {
+          "pid": 51516,
+          "start_steps": 0,
+          "steps": 18,
+          "initial_model_digest": "87ee1b0d1ad3747b975cbcf0b22de1ec0ab1e830a939f97d5aaed0afc9b1a824",
+          "final_model_digest": "501486d919db3f935cad3d6d3e4e784a407cb7b92743e0e0a312aeb95525d584",
+          "revision": 18,
+          "active": null,
+          "completed": 1,
+          "exhausted": true
+        }
+      ],
+      "verification": {
+        "green": true,
+        "errors": [],
+        "steps": 18,
+        "goals": [
+          {
+            "completed": true,
+            "goal_id": "0",
+            "model_digest": "d6e0300d96373db5c82e2972ff23de216c6cd9d85d70f8858b8329016b1d6b58",
+            "observation": 16,
+            "reason": "goal_reached",
+            "steps": 2
+          },
+          {
+            "completed": false,
+            "goal_id": "1",
+            "model_digest": "e54370f98b0d3a894b8cb14ef93a58addb0fc2037b83955829ee1daa5a729500",
+            "observation": 68,
+            "reason": "step_budget_exceeded",
+            "steps": 8
+          },
+          {
+            "completed": false,
+            "goal_id": "2",
+            "model_digest": "501486d919db3f935cad3d6d3e4e784a407cb7b92743e0e0a312aeb95525d584",
+            "observation": 120,
+            "reason": "step_budget_exceeded",
+            "steps": 8
+          }
+        ],
+        "capability_claim": false
+      },
+      "actions": [
+        {
+          "args": [
+            "n4",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n3"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n2",
+            "n3"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n1",
+            "n4"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n3"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n2",
+            "n1"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n2",
+            "n3"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n3",
+            "n4"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n3"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n1"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n4"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n4"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n1",
+            "n4"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n3"
+          ],
+          "op": "rename"
+        }
+      ],
+      "completed": 1,
+      "steps": 18,
+      "belief_revisions": 0,
+      "alternatives": 648
+    },
+    "no_prediction": {
+      "workers": [
+        {
+          "pid": 36704,
+          "start_steps": 0,
+          "steps": 16,
+          "initial_model_digest": "db061d8d1fdce99216915dcc1ff83e21fbaa8d1c79c141c486712e40b67326e7",
+          "final_model_digest": "a46319977dbb2a1213da7c28eecb96e5176acfdb2ef0b1fc4dc2dc51310648b6",
+          "revision": 16,
+          "active": null,
+          "completed": 1,
+          "exhausted": true
+        }
+      ],
+      "verification": {
+        "green": true,
+        "errors": [],
+        "steps": 16,
+        "goals": [
+          {
+            "completed": false,
+            "goal_id": "0",
+            "model_digest": "8a226412b986e088f8a10a69e007ca19cb08e67b390a40192f7f225a9cf09094",
+            "observation": 52,
+            "reason": "step_budget_exceeded",
+            "steps": 8
+          },
+          {
+            "completed": true,
+            "goal_id": "1",
+            "model_digest": "8a226412b986e088f8a10a69e007ca19cb08e67b390a40192f7f225a9cf09094",
+            "observation": 56,
+            "reason": "goal_reached",
+            "steps": 0
+          },
+          {
+            "completed": false,
+            "goal_id": "2",
+            "model_digest": "a46319977dbb2a1213da7c28eecb96e5176acfdb2ef0b1fc4dc2dc51310648b6",
+            "observation": 108,
+            "reason": "step_budget_exceeded",
+            "steps": 8
+          }
+        ],
+        "capability_claim": false
+      },
+      "actions": [
+        {
+          "args": [
+            "n4",
+            "n1"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n4",
+            "n1"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n1",
+            "n3"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n0",
+            "n1"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n4",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n4"
+          ],
+          "op": "unlink"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n1",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n0",
+            "n2"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n4",
+            "n3"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n4"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n3",
+            "n4"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n1"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n3",
+            "n1"
+          ],
+          "op": "copy"
+        },
+        {
+          "args": [
+            "n4",
+            "n2"
+          ],
+          "op": "rename"
+        },
+        {
+          "args": [
+            "n0",
+            "n3"
+          ],
+          "op": "copy"
+        }
+      ],
+      "completed": 1,
+      "steps": 16,
+      "belief_revisions": 7,
+      "alternatives": 576
+    }
+  },
+  "scope": "Previously exposed filesystem skill; supplied goals and heuristic; not autonomous concept/goal formation, consciousness or general intelligence"
+}

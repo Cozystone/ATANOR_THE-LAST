@@ -1,0 +1,362 @@
+{
+  "seed": 260003,
+  "arm": "frozen",
+  "completed": 1,
+  "steps": 8,
+  "workers": [
+    {
+      "pid": 67856,
+      "start_steps": 0,
+      "steps": 1,
+      "initial_model_digest": "87ee1b0d1ad3747b975cbcf0b22de1ec0ab1e830a939f97d5aaed0afc9b1a824",
+      "final_model_digest": "6b6b5f1905d756b0abb323fb7fa267c33fe82332927c29de5cc7574189f9efed",
+      "revision": 1,
+      "active": 0,
+      "completed": 0,
+      "exhausted": false
+    },
+    {
+      "pid": 25700,
+      "start_steps": 1,
+      "steps": 2,
+      "initial_model_digest": "6b6b5f1905d756b0abb323fb7fa267c33fe82332927c29de5cc7574189f9efed",
+      "final_model_digest": "f1094fc3679aec24bbafb55afe90282f4f849d217b0b98200682b8826762768b",
+      "revision": 2,
+      "active": 0,
+      "completed": 0,
+      "exhausted": false
+    },
+    {
+      "pid": 94524,
+      "start_steps": 2,
+      "steps": 3,
+      "initial_model_digest": "f1094fc3679aec24bbafb55afe90282f4f849d217b0b98200682b8826762768b",
+      "final_model_digest": "3841a4844b5963e6908e9535bd5729dc3405714d98ba737e5003e998e8f9c3dc",
+      "revision": 3,
+      "active": 0,
+      "completed": 0,
+      "exhausted": false
+    },
+    {
+      "pid": 77660,
+      "start_steps": 3,
+      "steps": 8,
+      "initial_model_digest": "3841a4844b5963e6908e9535bd5729dc3405714d98ba737e5003e998e8f9c3dc",
+      "final_model_digest": "ad458eafdeb97c743f2e76f99ce1badc2df67b3a451794c6187b05ab210703a3",
+      "revision": 8,
+      "active": null,
+      "completed": 1,
+      "exhausted": true
+    }
+  ],
+  "continuity": true,
+  "observed_external": true,
+  "verification": {
+    "green": true,
+    "errors": [],
+    "steps": 8,
+    "goals": [
+      {
+        "completed": true,
+        "goal_id": "arrange-workspace",
+        "model_digest": "ad458eafdeb97c743f2e76f99ce1badc2df67b3a451794c6187b05ab210703a3",
+        "observation": 52,
+        "reason": "goal_reached",
+        "steps": 8
+      }
+    ],
+    "capability_claim": false
+  },
+  "belief_revisions": 0,
+  "modes": {
+    "model_supported": 0,
+    "unknown_exploration": 8,
+    "prediction_disabled": 0
+  },
+  "interventions": [
+    {
+      "observation_seq": 9,
+      "action": {
+        "op": "rename",
+        "args": [
+          "n3",
+          "n1"
+        ]
+      },
+      "before": {
+        "kinds": [
+          1,
+          0,
+          0,
+          2,
+          2
+        ],
+        "sizes": [
+          0.30611498749693195,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "equal": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "parent": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "handles": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4"
+        ],
+        "view_version": 2,
+        "relations": {
+          "r_eb62ec5d3e6817d6": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      },
+      "after": {
+        "kinds": [
+          1,
+          2,
+          0,
+          0,
+          2
+        ],
+        "sizes": [
+          0.30611498749693195,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "equal": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "parent": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "handles": [
+          "n0",
+          "n1",
+          "n2",
+          "n3",
+          "n4"
+        ],
+        "view_version": 2,
+        "relations": {
+          "r_eb62ec5d3e6817d6": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

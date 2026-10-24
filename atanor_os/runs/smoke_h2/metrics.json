@@ -1,0 +1,432 @@
+{
+  "env": {
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "ANSEOK-9950X3D",
+    "cpus": 32,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "steps": null,
+    "tasks": 2,
+    "seeds": [
+      1
+    ],
+    "split": "dev",
+    "adapt": false,
+    "policy": null,
+    "body": "fs",
+    "learner_version": 4,
+    "source_sha256": "f55f4d6ab689b5b0",
+    "source_files": 37,
+    "git_head": "2cbd24f",
+    "git_atanor_os_untracked_or_modified": true
+  },
+  "checks": {
+    "unreachable": 0,
+    "label": "exploratory",
+    "body": "fs"
+  },
+  "learn_cost_s": {
+    "1": {
+      "C": {
+        "build_s": 0.0023951000184752047,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "CT": {
+        "build_s": 0.00343440001597628,
+        "train_phase": {
+          "episodes": 20,
+          "completed": 20,
+          "experiences": 76,
+          "wall_s": 1.8482913000043482
+        },
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "n_tools": 5,
+          "filled": true
+        }
+      },
+      "E": {
+        "build_s": 0.003656299988506362,
+        "train_phase": {
+          "episodes": 20,
+          "completed": 20,
+          "experiences": 76,
+          "wall_s": 1.8482913000043482
+        },
+        "macros": 5,
+        "macro_extraction_s": 0.0005402000097092241,
+        "agreement": {
+          "k": 20,
+          "seed": 1001,
+          "cells": {
+            "mkdir:success": 20,
+            "mkdir:failure": 20,
+            "copy:success": 20,
+            "copy:failure": 20,
+            "move:success": 20,
+            "move:failure": 20,
+            "delete:success": 20,
+            "delete:failure": 20,
+            "convert:success": 20,
+            "convert:failure": 20
+          },
+          "per_tool": {
+            "mkdir": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "copy": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "move": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "delete": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            },
+            "convert": {
+              "checks": 40,
+              "fp": 0,
+              "fn": 0,
+              "eff": 0,
+              "docs": 0
+            }
+          },
+          "exact_tools": [
+            "convert",
+            "copy",
+            "delete",
+            "mkdir",
+            "move"
+          ],
+          "n_exact": 5,
+          "n_tools": 5,
+          "filled": true
+        }
+      }
+    }
+  },
+  "storage": {
+    "1": {
+      "C": {
+        "journal_bytes": 36864,
+        "model_json_bytes": 6734
+      },
+      "CT": {
+        "journal_bytes": 36864,
+        "model_json_bytes": 6735
+      },
+      "E": {
+        "journal_bytes": 36864,
+        "model_json_bytes": 7466
+      }
+    }
+  },
+  "protocol": null,
+  "conditions": {
+    "C": {
+      "episodes": 2,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 3.0,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 6,
+      "docs_share": 0.0,
+      "wall_s": 0.04073290001542773,
+      "cpu_s": 0.015625,
+      "plan_expanded": 6.5,
+      "plan_predicted": 923.0,
+      "peak_mem_mb": 0.0,
+      "status_counts": {
+        "learned": 6
+      },
+      "plan_stops": {
+        "found": 6
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0
+      },
+      "council": null
+    },
+    "CT": {
+      "episodes": 2,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 3.0,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 6,
+      "docs_share": 0.0,
+      "wall_s": 0.04007879999699071,
+      "cpu_s": 0.015625,
+      "plan_expanded": 6.5,
+      "plan_predicted": 923.0,
+      "peak_mem_mb": 0.0,
+      "status_counts": {
+        "learned": 6
+      },
+      "plan_stops": {
+        "found": 6
+      },
+      "macro_steps": 0,
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0
+      },
+      "council": null
+    },
+    "E": {
+      "episodes": 2,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 3.0,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 6,
+      "docs_share": 0.0,
+      "wall_s": 0.16147279999859165,
+      "cpu_s": 0.1328125,
+      "plan_expanded": 5.5,
+      "plan_predicted": 2044.0,
+      "peak_mem_mb": 0.0,
+      "status_counts": {
+        "learned": 6
+      },
+      "plan_stops": {
+        "found": 6
+      },
+      "macro_steps": 2,
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0
+      },
+      "council": null
+    }
+  },
+  "paired": {
+    "E-C": {
+      "mean_pp": 0.0,
+      "tasks_pos": 0,
+      "tasks_neg": 0,
+      "tasks_zero": 2,
+      "seeds_ge": 1,
+      "seeds": 1,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0
+      },
+      "per_seed_pp": {
+        "1": 0.0
+      },
+      "pred_ratio": 2.2145178764897073,
+      "per_seed_pred_ratio": {
+        "1": 2.2145178764897073
+      }
+    },
+    "E-CT": {
+      "mean_pp": 0.0,
+      "tasks_pos": 0,
+      "tasks_neg": 0,
+      "tasks_zero": 2,
+      "seeds_ge": 1,
+      "seeds": 1,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0
+      },
+      "per_seed_pp": {
+        "1": 0.0
+      },
+      "pred_ratio": 2.2145178764897073,
+      "per_seed_pred_ratio": {
+        "1": 2.2145178764897073
+      }
+    },
+    "CT-C": {
+      "mean_pp": 0.0,
+      "tasks_pos": 0,
+      "tasks_neg": 0,
+      "tasks_zero": 2,
+      "seeds_ge": 1,
+      "seeds": 1,
+      "per_task_pp": {
+        "0": 0.0,
+        "1": 0.0
+      },
+      "per_seed_pp": {
+        "1": 0.0
+      },
+      "pred_ratio": 1.0,
+      "per_seed_pred_ratio": {
+        "1": 1.0
+      }
+    }
+  },
+  "verdict": "EXPLORATORY"
+}

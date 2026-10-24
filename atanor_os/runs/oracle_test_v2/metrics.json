@@ -1,0 +1,83 @@
+{
+  "env": {
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "ANSEOK-9950X3D",
+    "cpus": 32,
+    "env_version": "fsworld-1/py3.13/win32",
+    "budget": {
+      "actions": 20,
+      "predictions": 400000,
+      "nodes": 600,
+      "depth": 12,
+      "seconds": 180.0
+    },
+    "steps": null,
+    "tasks": 20,
+    "seeds": [
+      0
+    ],
+    "split": "test",
+    "adapt": false,
+    "source_sha256": "83947f41b9fc6dce",
+    "source_files": 28,
+    "git_head": "a812362",
+    "git_atanor_os_untracked_or_modified": true
+  },
+  "checks": {
+    "unreachable": 0,
+    "label": "exploratory"
+  },
+  "learn_cost_s": {
+    "0": {
+      "ORACLE": 3.1999952625483274e-06
+    }
+  },
+  "storage": {
+    "0": {
+      "ORACLE": {
+        "journal_bytes": 405504,
+        "model_json_bytes": 28
+      }
+    }
+  },
+  "protocol": null,
+  "conditions": {
+    "ORACLE": {
+      "episodes": 20,
+      "completion": 1.0,
+      "completion_end_state_only": 1.0,
+      "partial": 1.0,
+      "keep_violated": 0,
+      "actions": 5.25,
+      "noops": 0.0,
+      "blocked": 0,
+      "abstained": 0,
+      "planner_budget_exceeded": 0,
+      "budget_exceeded": 0,
+      "env_errors": 0,
+      "pred_errors": 0,
+      "pred_total": 105,
+      "docs_share": 0.0,
+      "wall_s": 0.34614255499618596,
+      "cpu_s": 0.321875,
+      "plan_expanded": 172.55,
+      "plan_predicted": 102426.1,
+      "peak_mem_mb": 0.0,
+      "status_counts": {
+        "oracle": 105
+      },
+      "plan_stops": {
+        "found": 105
+      },
+      "by_template": {
+        "backup": 1.0,
+        "convert": 1.0,
+        "sort": 1.0
+      },
+      "council": null
+    }
+  },
+  "paired": {},
+  "verdict": "EXPLORATORY"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "POST_HOC_PAIRED_RETENTION_ONLY",
+  "totals": {
+    "kept": 162,
+    "lost": 234,
+    "never_correct": 668,
+    "gained": 24
+  },
+  "laws": {
+    "unique_link": {
+      "kept": 64,
+      "lost": 42,
+      "never_correct": 70
+    },
+    "broadcast_unlink": {
+      "never_correct": 166,
+      "lost": 18,
+      "kept": 16,
+      "gained": 8
+    },
+    "steal_link": {
+      "kept": 20,
+      "lost": 52,
+      "never_correct": 120
+    },
+    "attached_insert": {
+      "never_correct": 152,
+      "kept": 56,
+      "gained": 16
+    },
+    "cleanup_delete": {
+      "never_correct": 116,
+      "lost": 22,
+      "kept": 6
+    },
+    "parent_insert": {
+      "never_correct": 44,
+      "lost": 100
+    }
+  },
+  "interpretation": "Counts of matched probe transitions, not distinct learned concepts. Already-incorrect cases not counted as forgetting. No task regression or production damage inferred."
+}

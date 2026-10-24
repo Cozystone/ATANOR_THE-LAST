@@ -1,0 +1,140 @@
+{
+  "completed": 0,
+  "steps": 34,
+  "workers": [
+    {
+      "pid": 76440,
+      "start_steps": 0,
+      "steps": 5,
+      "initial_model_digest": "4c7df1e9731e4d6b21322793ce94c338fbf9b71b26ade110c6304a072e54be3e",
+      "final_model_digest": "be6a0bd49461829243d05cb5259ef3bde175171c4460f9b024aa5ce53576a791",
+      "completed": 0,
+      "active": 0,
+      "halted": null
+    },
+    {
+      "pid": 75124,
+      "start_steps": 5,
+      "steps": 34,
+      "initial_model_digest": "be6a0bd49461829243d05cb5259ef3bde175171c4460f9b024aa5ce53576a791",
+      "final_model_digest": "b0e258c2b282866395ac2dcf5c00c19c65d753c2b76742d7386b026acca789ce",
+      "completed": 0,
+      "active": 0,
+      "halted": null
+    }
+  ],
+  "noops": 20,
+  "failed_actions": 18,
+  "first_irreversible_dead_end": {
+    "action_index": 19,
+    "action": {
+      "args": [
+        "n6"
+      ],
+      "op": "mkdir"
+    },
+    "before": [
+      0,
+      0,
+      1,
+      2,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "after": [
+      0,
+      0,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      1
+    ]
+  },
+  "verified": {
+    "green": false,
+    "errors": [
+      "durable_world_mismatch"
+    ],
+    "steps": 34,
+    "goals": [],
+    "capability_claim": false
+  },
+  "native_final": {
+    "evidence": {
+      "n0": {
+        "kind": 0,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n1": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n2": {
+        "kind": 1,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "n3": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n4": {
+        "kind": 1,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "n5": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n6": {
+        "kind": 2,
+        "sha256": null,
+        "size_bytes": null
+      },
+      "n7": {
+        "kind": 1,
+        "sha256": "759bd0fe5ef21fbf3bb5f745a00ea8d371e6027abbd608e80bb8195a740f1a12",
+        "size_bytes": 21
+      },
+      "n8": {
+        "kind": 1,
+        "sha256": "07848fb8c8950bbe1b5c90d1f0cc07a5cf8d9b34ab4548949dde5561f81dadeb",
+        "size_bytes": 46
+      }
+    },
+    "conditions": [
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "manifest_unchanged": true
+  },
+  "continuity": true,
+  "distinct_processes": true,
+  "one_goal": true,
+  "exact_post_reachable": true,
+  "reobserved": true,
+  "preview_pure": true,
+  "proposal_changed": false,
+  "post_change_cognition": true,
+  "experiences_native_only": true,
+  "experience_retrieved": true,
+  "thought_dispatch": true,
+  "causal_readonly_choices": []
+}

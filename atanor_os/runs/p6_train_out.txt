@@ -1,0 +1,6 @@
+D:\ATANOR-experiments\2026-09-19\developmental-research\atanor_os\eval\web_truth.py:108: SyntaxWarning: invalid escape sequence '\:'
+  if norm(lab) == norm(ext) or any(c in lab for c in '/\:*?"<>|'):
+lexicon: [0.5, 0.86, 0.89]
+reading epoch 0 correct 6 / 72 wrong 21 | pool-12 subset correct 0 wrong 2
+reading epoch 1 correct 10 / 72 wrong 21 | pool-12 subset correct 4 wrong 2
+teacher calls 19477 web {'requests': 526, 'ok': 442, 'refused': 53, 'failed': 31, 'bytes': 58233037, 'hosts': 92}

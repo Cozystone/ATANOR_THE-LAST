@@ -1,0 +1,571 @@
+{
+ "condition": "C",
+ "signatures": 184,
+ "operators": {
+  "mkdir": {
+   "tool": "mkdir",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "dir"
+     ]
+    ]
+   ],
+   "support": 8,
+   "failures": 29,
+   "counter": [],
+   "status": "supported",
+   "dropped": [],
+   "groups": [
+    {
+     "kinds": [
+      [
+       "absent"
+      ]
+     ],
+     "pre": [
+      [
+       "kind",
+       [
+        0
+       ],
+       "absent"
+      ],
+      [
+       "parent_kind",
+       [
+        0
+       ],
+       "dir"
+      ]
+     ],
+     "effects": [
+      [
+       0,
+       "kind",
+       [
+        "const",
+        "dir"
+       ]
+      ]
+     ],
+     "support": 8
+    }
+   ]
+  },
+  "copy": {
+   "tool": "copy",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      1
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     1,
+     "hash",
+     [
+      "copy",
+      0
+     ]
+    ],
+    [
+     1,
+     "kind",
+     [
+      "const",
+      "file"
+     ]
+    ]
+   ],
+   "support": 13,
+   "failures": 25,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ],
+    [
+     "same_content",
+     [
+      0,
+      1
+     ],
+     false
+    ]
+   ],
+   "groups": [
+    {
+     "kinds": [
+      [
+       "file"
+      ],
+      [
+       "absent"
+      ]
+     ],
+     "pre": [
+      [
+       "kind",
+       [
+        0
+       ],
+       "file"
+      ],
+      [
+       "kind",
+       [
+        1
+       ],
+       "absent"
+      ],
+      [
+       "parent_kind",
+       [
+        1
+       ],
+       "dir"
+      ]
+     ],
+     "effects": [
+      [
+       1,
+       "hash",
+       [
+        "copy",
+        0
+       ]
+      ],
+      [
+       1,
+       "kind",
+       [
+        "const",
+        "file"
+       ]
+      ]
+     ],
+     "support": 13
+    }
+   ]
+  },
+  "move": {
+   "tool": "move",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      1
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "hash",
+     [
+      "const",
+      "-"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "absent"
+     ]
+    ],
+    [
+     1,
+     "hash",
+     [
+      "copy",
+      0
+     ]
+    ],
+    [
+     1,
+     "kind",
+     [
+      "const",
+      "file"
+     ]
+    ]
+   ],
+   "support": 14,
+   "failures": 29,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ],
+    [
+     "same_content",
+     [
+      0,
+      1
+     ],
+     false
+    ]
+   ],
+   "groups": [
+    {
+     "kinds": [
+      [
+       "file"
+      ],
+      [
+       "absent"
+      ]
+     ],
+     "pre": [
+      [
+       "kind",
+       [
+        0
+       ],
+       "file"
+      ],
+      [
+       "kind",
+       [
+        1
+       ],
+       "absent"
+      ],
+      [
+       "parent_kind",
+       [
+        1
+       ],
+       "dir"
+      ]
+     ],
+     "effects": [
+      [
+       0,
+       "hash",
+       [
+        "const",
+        "-"
+       ]
+      ],
+      [
+       0,
+       "kind",
+       [
+        "const",
+        "absent"
+       ]
+      ],
+      [
+       1,
+       "hash",
+       [
+        "copy",
+        0
+       ]
+      ],
+      [
+       1,
+       "kind",
+       [
+        "const",
+        "file"
+       ]
+      ]
+     ],
+     "support": 14
+    }
+   ]
+  },
+  "delete": {
+   "tool": "delete",
+   "pre": [
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ]
+   ],
+   "effects": [
+    [
+     0,
+     "hash",
+     [
+      "const",
+      "-"
+     ]
+    ],
+    [
+     0,
+     "kind",
+     [
+      "const",
+      "absent"
+     ]
+    ]
+   ],
+   "support": 11,
+   "failures": 32,
+   "counter": [],
+   "status": "supported",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ]
+   ],
+   "groups": [
+    {
+     "kinds": [
+      [
+       "file"
+      ]
+     ],
+     "pre": [
+      [
+       "kind",
+       [
+        0
+       ],
+       "file"
+      ]
+     ],
+     "effects": [
+      [
+       0,
+       "hash",
+       [
+        "const",
+        "-"
+       ]
+      ],
+      [
+       0,
+       "kind",
+       [
+        "const",
+        "absent"
+       ]
+      ]
+     ],
+     "support": 11
+    }
+   ]
+  },
+  "convert": {
+   "tool": "convert",
+   "pre": [
+    [
+     "ext",
+     [
+      0
+     ],
+     "txt"
+    ],
+    [
+     "ext",
+     [
+      1
+     ],
+     "md"
+    ],
+    [
+     "kind",
+     [
+      0
+     ],
+     "file"
+    ],
+    [
+     "kind",
+     [
+      1
+     ],
+     "absent"
+    ],
+    [
+     "parent_kind",
+     [
+      1
+     ],
+     "dir"
+    ]
+   ],
+   "effects": [
+    [
+     1,
+     "hash",
+     [
+      "unknown"
+     ]
+    ],
+    [
+     1,
+     "kind",
+     [
+      "const",
+      "file"
+     ]
+    ]
+   ],
+   "support": 1,
+   "failures": 138,
+   "counter": [],
+   "status": "hypothesis",
+   "dropped": [
+    [
+     "parent_kind",
+     [
+      0
+     ],
+     "dir"
+    ],
+    [
+     "same_content",
+     [
+      0,
+      1
+     ],
+     false
+    ]
+   ],
+   "groups": [
+    {
+     "kinds": [
+      [
+       "file"
+      ],
+      [
+       "absent"
+      ]
+     ],
+     "pre": [
+      [
+       "ext",
+       [
+        0
+       ],
+       "txt"
+      ],
+      [
+       "ext",
+       [
+        1
+       ],
+       "md"
+      ],
+      [
+       "kind",
+       [
+        0
+       ],
+       "file"
+      ],
+      [
+       "kind",
+       [
+        1
+       ],
+       "absent"
+      ],
+      [
+       "parent_kind",
+       [
+        1
+       ],
+       "dir"
+      ]
+     ],
+     "effects": [
+      [
+       1,
+       "hash",
+       [
+        "unknown"
+       ]
+      ],
+      [
+       1,
+       "kind",
+       [
+        "const",
+        "file"
+       ]
+      ]
+     ],
+     "support": 1
+    }
+   ]
+  }
+ }
+}

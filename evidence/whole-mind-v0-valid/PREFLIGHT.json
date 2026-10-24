@@ -1,0 +1,75 @@
+{
+  "reachable": true,
+  "minimum_or_verified_action_count": 10,
+  "action_set_hash": "0c3b565b09d8ce5c479e906456b711fa995e8e552c697b0db6ef3b0781e7ff1d",
+  "initial_state_hash": "431217ed6218ff256fde4f7bf308f0208a3bcde08546fb8851b8ac1c5638fa3e",
+  "goal_hash": "0ee5e5c7e9258db3096438dc2875cf00631d75addff3f4596e8ec2bb97551ae3",
+  "frozen_hashes": {
+    "scripts/whole_mind_bridge.py": "c79c6f17f8c958cc30a237806b1e23bb6913faee98318ebdf23c3d756ca11713",
+    "packages/shared_world/runtime.py": "b772e531eea887abe4d8bc27333220a3761d8384e76af6bf33674764ea7f731e",
+    "packages/shared_world/historical_goal_world.py": "c119a255af97532a6cf9d3663ea40342a74e83d29e5958fa32f219f413862feb",
+    "packages/action_core/world.py": "031b8826c4983adb3db854a8f937741c74b0d49fc0ade25742eb6340a5b6128a",
+    "packages/action_core/planner.py": "e46469bd177d18fe897f80383bc8f5f69f120b160f55e8a9425dbb59c8671161",
+    "packages/action_core/schema.py": "785b0e6a7cd98a95b56cbf37dfac33c3dcfce8b4b03f252f79e8d04351650227",
+    "packages/shared_world/contracts.py": "ad210e58b994fb75c4706aa728525beb3a30f942e3cf5a5c1b19632b81810d12",
+    "packages/action_core/episode.py": "4e02fccd84aefe8c981e894e4da3e37823b443db9409e36fdc2ff632fd135d14"
+  },
+  "native_transition_checks": [
+    {
+      "kind": 0,
+      "op": "mkdir",
+      "result": 2,
+      "success": true
+    },
+    {
+      "kind": 0,
+      "op": "empty",
+      "result": 1,
+      "success": true
+    },
+    {
+      "kind": 0,
+      "op": "unlink",
+      "result": 0,
+      "success": false
+    },
+    {
+      "kind": 1,
+      "op": "mkdir",
+      "result": 1,
+      "success": false
+    },
+    {
+      "kind": 1,
+      "op": "empty",
+      "result": 1,
+      "success": true
+    },
+    {
+      "kind": 1,
+      "op": "unlink",
+      "result": 0,
+      "success": true
+    },
+    {
+      "kind": 2,
+      "op": "mkdir",
+      "result": 2,
+      "success": false
+    },
+    {
+      "kind": 2,
+      "op": "empty",
+      "result": 2,
+      "success": false
+    },
+    {
+      "kind": 2,
+      "op": "unlink",
+      "result": 2,
+      "success": false
+    }
+  ],
+  "protected_manifest_verified": true,
+  "cap": 34
+}

@@ -1,0 +1,8694 @@
+{
+  "source_sha256": "3586bfe0b7ccb15bd16e4c772b6c30a37ac8af65defbe82b185229666b3e4e2f",
+  "summary": {
+    "none": {
+      "singleton": 2180,
+      "multiple": 1348,
+      "unseen_key": 984
+    },
+    "random": {
+      "singleton": 2780,
+      "multiple": 1204,
+      "unseen_key": 528
+    },
+    "active": {
+      "singleton": 3048,
+      "multiple": 648,
+      "unseen_key": 816
+    }
+  },
+  "rows": [
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 2,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 3,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 6,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "none",
+      "task": 7,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 69,
+        "multiple": 21
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 140,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 2,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 69,
+        "multiple": 21
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 3,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 140,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 69,
+        "multiple": 21
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 140,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 6,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 69,
+        "multiple": 21
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "random",
+      "task": 7,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 140,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "unseen_key": 24,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 2,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 3,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "multiple": 24,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "multiple": 24,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 6,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 0,
+      "arm": "active",
+      "task": 7,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "unseen_key": 24,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 2,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 3,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 6,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "multiple": 24,
+        "unseen_key": 18
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "none",
+      "task": 7,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 100,
+        "multiple": 60,
+        "unseen_key": 32
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 66,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 132,
+        "multiple": 60
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 2,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 66,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 3,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 132,
+        "multiple": 60
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 66,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 132,
+        "multiple": 60
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 6,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 66,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "random",
+      "task": 7,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 132,
+        "multiple": 60
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "unseen_key": 24,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 2,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 3,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "multiple": 24,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 1
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "unseen_key": 24,
+        "multiple": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 6,
+      "task_success": true,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 72,
+        "multiple": 6,
+        "unseen_key": 12
+      },
+      "best_one_step_supported_goal_cells": 6,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 1,
+      "arm": "active",
+      "task": 7,
+      "task_success": true,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 144,
+        "multiple": 24,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 8,
+      "best_actions": [
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "empty",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 168,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 2,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 3,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 92,
+        "unseen_key": 24,
+        "multiple": 76
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 92,
+        "unseen_key": 24,
+        "multiple": 76
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 6,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "none",
+      "task": 7,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 92,
+        "unseen_key": 24,
+        "multiple": 76
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 168,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 2,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 3,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 92,
+        "unseen_key": 24,
+        "multiple": 76
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 92,
+        "unseen_key": 24,
+        "multiple": 76
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 6,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 45,
+        "unseen_key": 12,
+        "multiple": 33
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "random",
+      "task": 7,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 92,
+        "unseen_key": 24,
+        "multiple": 76
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 12,
+        "multiple": 30
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 168,
+        "unseen_key": 24
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 2,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 12,
+        "multiple": 30
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 3,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 96,
+        "unseen_key": 24,
+        "multiple": 72
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 12,
+        "multiple": 30
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 96,
+        "unseen_key": 24,
+        "multiple": 72
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 6,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 12,
+        "multiple": 30
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 2,
+      "arm": "active",
+      "task": 7,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 96,
+        "unseen_key": 24,
+        "multiple": 72
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n2",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n4",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 30,
+        "singleton": 33,
+        "multiple": 27
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 80,
+        "singleton": 60,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 2,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 30,
+        "singleton": 33,
+        "multiple": 27
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 3,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 80,
+        "singleton": 60,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 30,
+        "singleton": 33,
+        "multiple": 27
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 80,
+        "singleton": 60,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 6,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 30,
+        "singleton": 33,
+        "multiple": 27
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 3,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "none",
+      "task": 7,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "unseen_key": 80,
+        "singleton": 60,
+        "multiple": 52
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 4
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 24,
+        "multiple": 18
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 84,
+        "unseen_key": 72,
+        "multiple": 36
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 2,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 24,
+        "multiple": 18
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 3,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 84,
+        "unseen_key": 72,
+        "multiple": 36
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 24,
+        "multiple": 18
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 84,
+        "unseen_key": 72,
+        "multiple": 36
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 6,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 48,
+        "unseen_key": 24,
+        "multiple": 18
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "random",
+      "task": 7,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 84,
+        "unseen_key": 72,
+        "multiple": 36
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 0,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 60,
+        "unseen_key": 24,
+        "multiple": 6
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 1,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 108,
+        "unseen_key": 72,
+        "multiple": 12
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 2,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 60,
+        "unseen_key": 24,
+        "multiple": 6
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 3,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 108,
+        "unseen_key": 72,
+        "multiple": 12
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n0",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 4,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 60,
+        "unseen_key": 24,
+        "multiple": 6
+      },
+      "best_one_step_supported_goal_cells": 5,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 5,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 108,
+        "unseen_key": 72,
+        "multiple": 12
+      },
+      "best_one_step_supported_goal_cells": 7,
+      "best_actions": [
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 6,
+      "task_success": false,
+      "goal_cells": 6,
+      "all_actions_goal_cell_counts": {
+        "singleton": 60,
+        "unseen_key": 24,
+        "multiple": 6
+      },
+      "best_one_step_supported_goal_cells": 3,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 4,
+            "multiple": 2
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n1",
+              "n3"
+            ]
+          },
+          "counts": {
+            "singleton": 6
+          }
+        }
+      ]
+    },
+    {
+      "life": 3,
+      "arm": "active",
+      "task": 7,
+      "task_success": false,
+      "goal_cells": 8,
+      "all_actions_goal_cell_counts": {
+        "singleton": 108,
+        "unseen_key": 72,
+        "multiple": 12
+      },
+      "best_one_step_supported_goal_cells": 4,
+      "best_actions": [
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "unlink",
+            "args": [
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 5,
+            "multiple": 3
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n0"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n1"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n2"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        },
+        {
+          "action": {
+            "op": "copy",
+            "args": [
+              "n3",
+              "n4"
+            ]
+          },
+          "counts": {
+            "singleton": 8
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "exposed initial-state support, NOT causal attribution or fresh capability"
+}

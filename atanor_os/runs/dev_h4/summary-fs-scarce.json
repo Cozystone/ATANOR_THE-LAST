@@ -1,0 +1,80 @@
+{
+ "summary": {
+  "body": "fs",
+  "policy": "scarce",
+  "steps": 300,
+  "exact_sum": 23,
+  "perfect_seeds": 3,
+  "strict_sum": 20,
+  "open_sum": 38,
+  "explore_s": 20.8
+ },
+ "rows": [
+  {
+   "seed": 11,
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 32,
+   "targeted": 0,
+   "explore_s": 2.9,
+   "non_exact": {}
+  },
+  {
+   "seed": 12,
+   "exact": 4,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 6,
+   "successes": 22,
+   "targeted": 0,
+   "explore_s": 3.9,
+   "non_exact": {
+    "convert": {
+     "fp": 8,
+     "eff": 20,
+     "near_fp": 8
+    }
+   }
+  },
+  {
+   "seed": 13,
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 9,
+   "successes": 26,
+   "targeted": 0,
+   "explore_s": 4.6,
+   "non_exact": {}
+  },
+  {
+   "seed": 14,
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 31,
+   "targeted": 0,
+   "explore_s": 4.5,
+   "non_exact": {}
+  },
+  {
+   "seed": 15,
+   "exact": 4,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 9,
+   "successes": 35,
+   "targeted": 0,
+   "explore_s": 4.9,
+   "non_exact": {
+    "convert": {
+     "fp": 13,
+     "near_fp": 13
+    }
+   }
+  }
+ ]
+}

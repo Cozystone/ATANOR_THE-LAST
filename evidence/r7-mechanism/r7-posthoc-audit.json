@@ -1,0 +1,7174 @@
+{
+  "scope": "Post-hoc diagnosis, no repair or capability claim",
+  "counts": {
+    "RESIDUAL_DISAGREEMENT": 20,
+    "NO_APPLICABLE_ROUTED_BRANCH": 4
+  },
+  "rows_sha256": "ca5f8415449d9e97560d7e1112d95742f9bfd51d1401f99195080faf747234c9",
+  "records": [
+    {
+      "block": 0,
+      "task": 0,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3056468205138596
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3056468205138596
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3056468205138596
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3056468205138596
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 0,
+      "task": 2,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "NO_APPLICABLE_ROUTED_BRANCH",
+        "routed_labels": [
+          1
+        ],
+        "applicable_labels": [],
+        "unsupported_labels": [
+          1
+        ],
+        "disagreement_cells": []
+      }
+    },
+    {
+      "block": 0,
+      "task": 4,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3152140698074529
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3152140698074529
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3152140698074529
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3152140698074529
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 0,
+      "task": 6,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "NO_APPLICABLE_ROUTED_BRANCH",
+        "routed_labels": [
+          1
+        ],
+        "applicable_labels": [],
+        "unsupported_labels": [
+          1
+        ],
+        "disagreement_cells": []
+      }
+    },
+    {
+      "block": 1,
+      "task": 0,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3262722390673953
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3262722390673953
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3262722390673953
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3262722390673953
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 1,
+      "task": 2,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3092974931486355
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3092974931486355
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3092974931486355
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3092974931486355
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3092974931486355
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 1,
+      "task": 4,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.32891813680655535
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.32891813680655535
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.32891813680655535
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.32891813680655535
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 1,
+      "task": 6,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26279328871193536
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26279328871193536
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26279328871193536
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26279328871193536
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26279328871193536
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 2,
+      "task": 0,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3198746132760472
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3198746132760472
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3198746132760472
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3198746132760472
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 2,
+      "task": 2,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "NO_APPLICABLE_ROUTED_BRANCH",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [],
+        "unsupported_labels": [
+          2
+        ],
+        "disagreement_cells": []
+      }
+    },
+    {
+      "block": 2,
+      "task": 4,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.317974770952024
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.317974770952024
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.317974770952024
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.317974770952024
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 2,
+      "task": 6,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "NO_APPLICABLE_ROUTED_BRANCH",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [],
+        "unsupported_labels": [
+          2
+        ],
+        "disagreement_cells": []
+      }
+    },
+    {
+      "block": 3,
+      "task": 0,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.33051668941840845
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.33051668941840845
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.33051668941840845
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.33051668941840845
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 3,
+      "task": 2,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.30469983270007195
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.30469983270007195
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.30469983270007195
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.30469983270007195
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.30469983270007195
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 3,
+      "task": 4,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 3,
+      "task": 6,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3042209031534739
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3042209031534739
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3042209031534739
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3042209031534739
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3042209031534739
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 6,
+      "task": 0,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.25692961651083196
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.25692961651083196
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.25692961651083196
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.25692961651083196
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 6,
+      "task": 2,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28782313662425574
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28782313662425574
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28782313662425574
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28782313662425574
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28782313662425574
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 6,
+      "task": 4,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.2738766646671176
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.2738766646671176
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.2738766646671176
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.2738766646671176
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 6,
+      "task": 6,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          2
+        ],
+        "applicable_labels": [
+          2
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28656046741691077
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28656046741691077
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28656046741691077
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28656046741691077
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.28656046741691077
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 7,
+      "task": 0,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3187416517390124
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3187416517390124
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3187416517390124
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.3187416517390124
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 7,
+      "task": 2,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.27148783886585526
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.27148783886585526
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.27148783886585526
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.27148783886585526
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.27148783886585526
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 7,
+      "task": 4,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.31316470588101597
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.31316470588101597
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.31316470588101597
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.31316470588101597
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "block": 7,
+      "task": 6,
+      "report": {
+        "query_kind": "observation_view",
+        "truth_claim": false,
+        "learning_revision": 11,
+        "status": "RESIDUAL_DISAGREEMENT",
+        "routed_labels": [
+          0
+        ],
+        "applicable_labels": [
+          0
+        ],
+        "unsupported_labels": [],
+        "disagreement_cells": [
+          {
+            "field": "equal",
+            "address": [
+              0,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              0,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              1,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              3,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              4,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              0
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              1
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              3
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              4
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "equal",
+            "address": [
+              5,
+              5
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              2
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "kind",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0,
+              1
+            ]
+          },
+          {
+            "field": "r_eb62ec5d3e6817d6",
+            "address": [
+              2,
+              2
+            ],
+            "possible_values": [
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              0
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              1
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              3
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              4
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          },
+          {
+            "field": "size",
+            "address": [
+              5
+            ],
+            "possible_values": [
+              0.1986283643967466,
+              0.26463165653732873
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

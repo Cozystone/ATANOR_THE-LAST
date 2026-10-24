@@ -1,0 +1,111 @@
+{
+ "summary": {
+  "body": "fs",
+  "policy": "contrast-pair",
+  "steps": 300,
+  "exact_sum": 25,
+  "perfect_seeds": 5,
+  "strict_sum": 20,
+  "open_sum": 35,
+  "first_success_max": {
+   "mkdir": 22,
+   "copy": 61,
+   "move": 193,
+   "delete": 20,
+   "convert": 281
+  },
+  "explore_s": 14.5
+ },
+ "rows": [
+  {
+   "seed": 11,
+   "first_success": {
+    "delete": 4,
+    "mkdir": 22,
+    "copy": 61,
+    "move": 98,
+    "convert": 281
+   },
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 29,
+   "targeted": 7,
+   "explore_s": 2.7,
+   "non_exact": {}
+  },
+  {
+   "seed": 12,
+   "first_success": {
+    "mkdir": 7,
+    "delete": 10,
+    "copy": 55,
+    "move": 89,
+    "convert": 214
+   },
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 36,
+   "targeted": 8,
+   "explore_s": 3.4,
+   "non_exact": {}
+  },
+  {
+   "seed": 13,
+   "first_success": {
+    "mkdir": 11,
+    "delete": 14,
+    "copy": 52,
+    "convert": 62,
+    "move": 193
+   },
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 34,
+   "targeted": 11,
+   "explore_s": 2.8,
+   "non_exact": {}
+  },
+  {
+   "seed": 14,
+   "first_success": {
+    "delete": 0,
+    "mkdir": 1,
+    "copy": 5,
+    "move": 40,
+    "convert": 80
+   },
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 38,
+   "targeted": 17,
+   "explore_s": 2.7,
+   "non_exact": {}
+  },
+  {
+   "seed": 15,
+   "first_success": {
+    "mkdir": 11,
+    "delete": 20,
+    "move": 25,
+    "copy": 40,
+    "convert": 100
+   },
+   "exact": 5,
+   "strict": 4,
+   "n_tools": 5,
+   "open": 7,
+   "successes": 34,
+   "targeted": 13,
+   "explore_s": 2.9,
+   "non_exact": {}
+  }
+ ]
+}
