@@ -1,0 +1,32 @@
+{"t": 1792853470.349, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["archive"]], ["move", ["nutmeg1.csv", "archive/nutmeg1.csv"]]]}
+{"t": 1792853470.441, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792853470.448, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792853470.909, "event": "experiment_resolved", "lab_actions": 1}
+{"t": 1792853471.356, "event": "ask_check", "unknown": ["please"], "ok": true}
+{"t": 1792853475.847, "event": "experiment_resolved", "lab_actions": 1}
+{"t": 1792853476.373, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853476.373, "event": "ask_explain", "word": "make", "answer": null, "learned": false}
+{"t": 1792853476.373, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853476.374, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792853476.374, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853476.374, "event": "ask_explain", "word": "of", "answer": null, "learned": false}
+{"t": 1792853476.374, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853476.374, "event": "ask_explain", "word": "in", "answer": null, "learned": false}
+{"t": 1792853477.987, "event": "wrong", "task": "d3-t0", "interp": {"pid": "a01fcbd090", "selected": ["ember2.md", "fennel2.md", "fennel3.md", "marigold3.md", "poppy1.md", "umber1.md"], "dest": "backup"}}
+{"t": 1792853478.04, "event": "ask_explain", "word": "transfer", "answer": "move", "learned": true}
+{"t": 1792853478.04, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792853478.04, "event": "ask_explain", "word": "named", "answer": null, "learned": false}
+{"t": 1792853478.04, "event": "ask_explain", "word": "vault", "answer": null, "learned": false}
+{"t": 1792853478.06, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["vault"]], ["move", ["dahlia2.log", "vault/dahlia2.log"]]]}
+{"t": 1792853479.072, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853479.072, "event": "ask_explain", "word": "make", "answer": null, "learned": false}
+{"t": 1792853479.072, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853479.072, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792853479.072, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853479.072, "event": "ask_explain", "word": "of", "answer": null, "learned": false}
+{"t": 1792853479.073, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853479.073, "event": "ask_explain", "word": "in", "answer": null, "learned": false}
+{"t": 1792853484.666, "event": "wrong", "task": "d4-t0", "interp": {"pid": "a01fcbd090", "selected": ["archive/nutmeg1.csv", "archive/thistle1.csv", "olive2.csv", "russet3.csv", "russet4.csv", "walnut2.csv", "walnut3.csv", "walnut4.csv"], "dest": "spare"}}
+{"t": 1792853484.724, "event": "ask_explain", "word": "erase", "answer": "delete", "learned": true}
+{"t": 1792853497.96, "event": "surprise", "task": "d5-t3", "action": ["move", ["nutmeg5.txt", "drawer/nutmeg5.txt"]], "predicted_ok": true, "ok": false}
+{"t": 1792853503.262, "event": "experiment_resolved", "lab_actions": 1}

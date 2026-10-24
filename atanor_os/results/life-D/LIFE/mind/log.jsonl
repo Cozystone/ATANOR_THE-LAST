@@ -1,0 +1,20 @@
+{"t": 1792854634.243, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["store"]], ["move", ["garnet1.json", "store/garnet1.json"]]]}
+{"t": 1792854634.35, "event": "ask_check", "unknown": ["copy"], "ok": false}
+{"t": 1792854634.351, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792854634.365, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["twin"]], ["copy", ["poppy1.md", "twin/poppy1.md"]]]}
+{"t": 1792854634.632, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792854634.645, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["nutmeg1.csv"]]]}
+{"t": 1792854634.647, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792854634.838, "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792854634.838, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792854634.855, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["attic"]], ["move", ["dahlia2.log", "attic/dahlia2.log"]]]}
+{"t": 1792854635.237, "event": "ask_explain", "word": "clone", "answer": "make a copy", "learned": true}
+{"t": 1792854635.37, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854635.961, "event": "ask_explain", "word": "remove", "answer": "delete", "learned": true}
+{"t": 1792854635.962, "event": "ask_check", "why": "irreversible", "unproven": ["remove"], "ok": true}
+{"t": 1792854636.099, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854636.587, "event": "ask_check", "unknown": ["shift"], "ok": true}
+{"t": 1792854636.659, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854637.004, "event": "refuse_ambiguous", "command": "Kindly clone the json files to a folder named loft."}
+{"t": 1792854638.045, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854639.556, "event": "refuse_ambiguous", "command": "Copy the log files to a folder named vault."}

@@ -1,0 +1,17 @@
+{"t": 1792852404.622, "event": "demonstration", "pid": "ded0c7c021", "pattern": [["D", "kind", "dir"], ["D/o", "kind", "file"], ["D/o", "hash", "=o"], ["o", "kind", "absent"]], "steps": [["mkdir", ["archive"]], ["move", ["nutmeg1.csv", "archive/nutmeg1.csv"]]]}
+{"t": 1792852404.72, "event": "ask_explain", "word": "delete", "answer": null}
+{"t": 1792852404.727, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792852574.396, "event": "experiment_budget_spent"}
+{"t": 1792852574.885, "event": "ask_explain", "word": "please", "answer": ""}
+{"t": 1792852574.896, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["garnet1.json"]]]}
+{"t": 1792852575.374, "event": "ask_explain", "word": "make", "answer": null}
+{"t": 1792852575.393, "event": "demonstration", "pid": "2cebde5de6", "pattern": [["D", "kind", "dir"], ["D/o", "kind", "file"], ["D/o", "hash", "=o"]], "steps": [["mkdir", ["backup"]], ["copy", ["ember2.md", "backup/ember2.md"]]]}
+{"t": 1792852576.502, "event": "ask_explain", "word": "transfer", "answer": "move"}
+{"t": 1792852576.526, "event": "demonstration", "pid": "9a039deb4f", "pattern": [["o", "kind", "absent"], ["D", "kind", "dir"], ["D/o", "kind", "file"], ["D/o", "hash", "=o"]], "steps": [["mkdir", ["vault"]], ["move", ["dahlia2.log", "vault/dahlia2.log"]]]}
+{"t": 1792852579.898, "event": "wrong", "task": "d4-t0", "interp": {"pid": "2cebde5de6", "selected": ["olive2.csv", "russet3.csv", "russet4.csv", "walnut2.csv", "walnut3.csv", "walnut4.csv"], "dest": "spare"}}
+{"t": 1792852579.954, "event": "ask_explain", "word": "erase", "answer": "delete"}
+{"t": 1792852579.974, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["birch4.txt"]]]}
+{"t": 1792852840.561, "event": "experiment_budget_spent"}
+{"t": 1792853096.734, "event": "experiment_budget_spent"}
+{"t": 1792853096.735, "event": "stuck", "task": "d5-t0"}
+{"t": 1792853106.834, "event": "experiment_resolved", "lab_actions": 2}

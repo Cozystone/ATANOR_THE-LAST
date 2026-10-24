@@ -1,0 +1,11 @@
+{"t": 1792854496.608, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["indigo1.log", "keep/indigo1.log"]]]}
+{"t": 1792854496.706, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["dahlia1.txt"]]]}
+{"t": 1792854496.707, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792854496.914, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["nutmeg1.csv", "stack/nutmeg1.csv"]]]}
+{"t": 1792854497.171, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["garnet1.json"]]]}
+{"t": 1792854497.172, "event": "ask_check", "why": "irreversible", "unproven": ["please", "discard"], "ok": true}
+{"t": 1792854497.503, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["bin"]], ["move", ["ember2.md", "bin/ember2.md"]]]}
+{"t": 1792854498.097, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["extra"]], ["copy", ["russet3.csv", "extra/russet3.csv"]]]}
+{"t": 1792854499.303, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854501.518, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854502.356, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}

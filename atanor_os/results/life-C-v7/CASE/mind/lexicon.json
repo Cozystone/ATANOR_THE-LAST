@@ -1,0 +1,266 @@
+{
+ "cases": {
+  "copy the <V> files into a folder called <D>": [
+   "b9f36a029b",
+   [
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "delete the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "duplicate the <V> files into a folder called <D>": [
+   "b9f36a029b",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "move the <V> files into a folder called <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "please discard the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "relocate the <V> files to a folder named <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 4,
+  "bin": 1,
+  "called": 3,
+  "copy": 1,
+  "csv": 2,
+  "delete": 1,
+  "discard": 1,
+  "duplicate": 1,
+  "extra": 1,
+  "files": 6,
+  "folder": 4,
+  "into": 3,
+  "json": 1,
+  "keep": 1,
+  "log": 1,
+  "md": 1,
+  "move": 1,
+  "named": 1,
+  "please": 1,
+  "relocate": 1,
+  "stack": 1,
+  "the": 6,
+  "to": 1,
+  "txt": 1
+ },
+ "marker": {
+  "called": 6,
+  "named": 2
+ },
+ "meaning": {
+  "a": [],
+  "called": [],
+  "copy": [
+   "('U', 0, 'a2', 'log')"
+  ],
+  "csv": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "delete": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "discard": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "duplicate": [],
+  "files": [],
+  "folder": [],
+  "into": [],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "log": [
+   "('U', 0, 'a2', 'log')"
+  ],
+  "md": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "move": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "named": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "relocate": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "the": [],
+  "to": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "txt": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ]
+ },
+ "mode": "case",
+ "neutral": [
+  "please"
+ ],
+ "pattern_of": {
+  "a": {
+   "a01fcbd090": 4,
+   "b9f36a029b": 4
+  },
+  "called": {
+   "a01fcbd090": 2,
+   "b9f36a029b": 4
+  },
+  "copy": {
+   "b9f36a029b": 2
+  },
+  "csv": {
+   "a01fcbd090": 2,
+   "b9f36a029b": 2
+  },
+  "delete": {
+   "22204eb435": 2
+  },
+  "discard": {
+   "22204eb435": 3
+  },
+  "duplicate": {
+   "b9f36a029b": 3
+  },
+  "files": {
+   "22204eb435": 4,
+   "a01fcbd090": 4,
+   "b9f36a029b": 4
+  },
+  "folder": {
+   "a01fcbd090": 4,
+   "b9f36a029b": 4
+  },
+  "into": {
+   "a01fcbd090": 2,
+   "b9f36a029b": 4
+  },
+  "json": {
+   "22204eb435": 2
+  },
+  "log": {
+   "b9f36a029b": 2
+  },
+  "md": {
+   "a01fcbd090": 2
+  },
+  "move": {
+   "a01fcbd090": 2
+  },
+  "named": {
+   "a01fcbd090": 2
+  },
+  "please": {
+   "22204eb435": 2
+  },
+  "relocate": {
+   "a01fcbd090": 3
+  },
+  "the": {
+   "22204eb435": 4,
+   "a01fcbd090": 4,
+   "b9f36a029b": 4
+  },
+  "to": {
+   "a01fcbd090": 2
+  },
+  "txt": {
+   "22204eb435": 2
+  }
+ },
+ "prev_n": {
+  "a": 8,
+  "called": 6,
+  "copy": 2,
+  "csv": 4,
+  "delete": 2,
+  "discard": 2,
+  "duplicate": 2,
+  "files": 8,
+  "folder": 8,
+  "into": 6,
+  "json": 2,
+  "log": 2,
+  "md": 2,
+  "move": 2,
+  "named": 2,
+  "please": 2,
+  "relocate": 2,
+  "the": 12,
+  "to": 2,
+  "txt": 2
+ },
+ "value_rule": [
+  12,
+  12
+ ],
+ "word_n": {
+  "a": 8,
+  "called": 6,
+  "copy": 2,
+  "csv": 4,
+  "delete": 2,
+  "discard": 3,
+  "duplicate": 3,
+  "files": 12,
+  "folder": 8,
+  "into": 6,
+  "json": 2,
+  "log": 2,
+  "md": 2,
+  "move": 2,
+  "named": 2,
+  "please": 3,
+  "relocate": 3,
+  "the": 12,
+  "to": 2,
+  "txt": 2
+ }
+}

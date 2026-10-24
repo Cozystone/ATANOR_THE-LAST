@@ -1,0 +1,15 @@
+{"t": 1792854494.527, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["indigo1.log", "keep/indigo1.log"]]]}
+{"t": 1792854494.623, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792854494.631, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["dahlia1.txt"]]]}
+{"t": 1792854494.632, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792854494.816, "event": "ask_explain", "word": "move", "answer": null, "learned": false}
+{"t": 1792854494.834, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["nutmeg1.csv", "stack/nutmeg1.csv"]]]}
+{"t": 1792854495.084, "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792854495.084, "event": "ask_explain", "word": "discard", "answer": "delete", "learned": true}
+{"t": 1792854495.096, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["garnet1.json"]]]}
+{"t": 1792854495.097, "event": "ask_check", "why": "irreversible", "unproven": ["please", "discard"], "ok": true}
+{"t": 1792854495.405, "event": "ask_explain", "word": "relocate", "answer": "move", "learned": true}
+{"t": 1792854495.405, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792854495.424, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["bin"]], ["move", ["ember2.md", "bin/ember2.md"]]]}
+{"t": 1792854495.956, "event": "ask_explain", "word": "duplicate", "answer": "make a copy", "learned": true}
+{"t": 1792854495.976, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["extra"]], ["copy", ["russet3.csv", "extra/russet3.csv"]]]}

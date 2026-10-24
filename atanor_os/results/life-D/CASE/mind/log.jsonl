@@ -1,0 +1,17 @@
+{"t": 1792854642.626, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["store"]], ["move", ["garnet1.json", "store/garnet1.json"]]]}
+{"t": 1792854642.709, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792854642.723, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["twin"]], ["copy", ["poppy1.md", "twin/poppy1.md"]]]}
+{"t": 1792854642.954, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792854642.967, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["nutmeg1.csv"]]]}
+{"t": 1792854642.968, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792854643.145, "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792854643.145, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792854643.161, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["attic"]], ["move", ["dahlia2.log", "attic/dahlia2.log"]]]}
+{"t": 1792854643.538, "event": "ask_explain", "word": "clone", "answer": "make a copy", "learned": true}
+{"t": 1792854643.559, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["echo"]], ["copy", ["amber2.txt", "echo/amber2.txt"]]]}
+{"t": 1792854644.178, "event": "ask_explain", "word": "remove", "answer": "delete", "learned": true}
+{"t": 1792854644.194, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["ember2.md"]]]}
+{"t": 1792854644.195, "event": "ask_check", "why": "irreversible", "unproven": ["remove"], "ok": true}
+{"t": 1792854644.704, "event": "ask_explain", "word": "shift", "answer": "move", "learned": true}
+{"t": 1792854644.726, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["den"]], ["move", ["russet3.csv", "den/russet3.csv"]]]}
+{"t": 1792854645.472, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}

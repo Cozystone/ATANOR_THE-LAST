@@ -1,0 +1,291 @@
+{
+ "cases": {
+  "clone the <V> files into a folder called <D>": [
+   "b9f36a029b",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "copy the <V> files into a folder called <D>": [
+   "b9f36a029b",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "delete the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "kindly move the <V> files to a folder named <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "move the <V> files into a folder called <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "remove the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "shift the <V> files into a folder called <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "shift the <V> files to a folder named <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 5,
+  "attic": 1,
+  "called": 3,
+  "clone": 1,
+  "copy": 1,
+  "csv": 2,
+  "delete": 1,
+  "den": 1,
+  "echo": 1,
+  "files": 7,
+  "folder": 5,
+  "into": 3,
+  "json": 1,
+  "kindly": 1,
+  "log": 1,
+  "md": 2,
+  "move": 2,
+  "named": 2,
+  "remove": 1,
+  "shift": 1,
+  "store": 1,
+  "the": 7,
+  "to": 2,
+  "twin": 1,
+  "txt": 1
+ },
+ "marker": {
+  "called": 8,
+  "named": 4
+ },
+ "meaning": {
+  "a": [],
+  "called": [],
+  "clone": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "copy": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "csv": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "delete": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "files": [],
+  "folder": [],
+  "into": [],
+  "json": [
+   "('U', 0, 'a2', 'json')"
+  ],
+  "kindly": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "log": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "md": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "move": [],
+  "named": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "remove": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "shift": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "the": [],
+  "to": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "txt": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ]
+ },
+ "mode": "general",
+ "neutral": [],
+ "pattern_of": {
+  "a": {
+   "a01fcbd090": 8,
+   "b9f36a029b": 4
+  },
+  "called": {
+   "a01fcbd090": 4,
+   "b9f36a029b": 4
+  },
+  "clone": {
+   "b9f36a029b": 2
+  },
+  "copy": {
+   "b9f36a029b": 2
+  },
+  "csv": {
+   "22204eb435": 2,
+   "a01fcbd090": 3
+  },
+  "delete": {
+   "22204eb435": 2
+  },
+  "files": {
+   "22204eb435": 4,
+   "a01fcbd090": 8,
+   "b9f36a029b": 4
+  },
+  "folder": {
+   "a01fcbd090": 8,
+   "b9f36a029b": 4
+  },
+  "into": {
+   "a01fcbd090": 4,
+   "b9f36a029b": 4
+  },
+  "json": {
+   "a01fcbd090": 2
+  },
+  "kindly": {
+   "a01fcbd090": 2
+  },
+  "log": {
+   "a01fcbd090": 2
+  },
+  "md": {
+   "22204eb435": 2,
+   "a01fcbd090": 1,
+   "b9f36a029b": 2
+  },
+  "move": {
+   "a01fcbd090": 5
+  },
+  "named": {
+   "a01fcbd090": 4
+  },
+  "remove": {
+   "22204eb435": 2
+  },
+  "shift": {
+   "a01fcbd090": 3
+  },
+  "the": {
+   "22204eb435": 4,
+   "a01fcbd090": 8,
+   "b9f36a029b": 4
+  },
+  "to": {
+   "a01fcbd090": 4
+  },
+  "txt": {
+   "b9f36a029b": 2
+  }
+ },
+ "prev_n": {
+  "a": 12,
+  "called": 8,
+  "clone": 2,
+  "copy": 2,
+  "csv": 5,
+  "delete": 2,
+  "files": 12,
+  "folder": 12,
+  "into": 8,
+  "json": 2,
+  "kindly": 2,
+  "log": 2,
+  "md": 5,
+  "move": 5,
+  "named": 4,
+  "remove": 2,
+  "shift": 3,
+  "the": 16,
+  "to": 4,
+  "txt": 2
+ },
+ "value_rule": [
+  16,
+  16
+ ],
+ "word_n": {
+  "a": 12,
+  "called": 8,
+  "clone": 2,
+  "copy": 2,
+  "csv": 5,
+  "delete": 2,
+  "files": 16,
+  "folder": 12,
+  "into": 8,
+  "json": 2,
+  "kindly": 2,
+  "log": 2,
+  "md": 5,
+  "move": 5,
+  "named": 4,
+  "remove": 2,
+  "shift": 3,
+  "the": 16,
+  "to": 4,
+  "txt": 2
+ }
+}

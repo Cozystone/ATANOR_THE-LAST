@@ -1,0 +1,10 @@
+{"t": 1792854282.053, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["poppy1.md"]]]}
+{"t": 1792854282.126, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["dahlia1.txt", "keep/dahlia1.txt"]]]}
+{"t": 1792854282.342, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["dahlia2.log", "stack/dahlia2.log"]]]}
+{"t": 1792854282.613, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["nutmeg1.csv"]]]}
+{"t": 1792854282.939, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["bin"]], ["move", ["amber3.json", "bin/amber3.json"]]]}
+{"t": 1792854283.519, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["extra"]], ["copy", ["ember2.md", "extra/ember2.md"]]]}
+{"t": 1792854283.936, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["pile"]], ["copy", ["russet3.csv", "pile/russet3.csv"]]]}
+{"t": 1792854284.398, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854300.76, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854302.106, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}

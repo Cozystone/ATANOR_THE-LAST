@@ -1,0 +1,17 @@
+{"t": 1792854261.553, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["poppy1.md"]]]}
+{"t": 1792854261.612, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792854261.613, "event": "ask_explain", "word": "into", "answer": null, "learned": false}
+{"t": 1792854261.626, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["copy", ["dahlia1.txt", "keep/dahlia1.txt"]]]}
+{"t": 1792854261.845, "event": "ask_explain", "word": "move", "answer": null, "learned": false}
+{"t": 1792854261.863, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["stack"]], ["move", ["dahlia2.log", "stack/dahlia2.log"]]]}
+{"t": 1792854262.126, "event": "ask_explain", "word": "discard", "answer": "delete", "learned": true}
+{"t": 1792854262.138, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["nutmeg1.csv"]]]}
+{"t": 1792854262.475, "event": "ask_explain", "word": "relocate", "answer": "move", "learned": true}
+{"t": 1792854262.475, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792854262.494, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["bin"]], ["move", ["amber3.json", "bin/amber3.json"]]]}
+{"t": 1792854263.046, "event": "ask_explain", "word": "duplicate", "answer": "make a copy", "learned": true}
+{"t": 1792854263.067, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["extra"]], ["copy", ["ember2.md", "extra/ember2.md"]]]}
+{"t": 1792854263.517, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854264.007, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854280.364, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854281.645, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}

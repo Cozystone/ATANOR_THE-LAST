@@ -1,0 +1,22 @@
+{"t": 1792854603.497, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["archive"]], ["move", ["nutmeg1.csv", "archive/nutmeg1.csv"]]]}
+{"t": 1792854603.579, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792854603.586, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792854603.587, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792854603.832, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854604.049, "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792854604.061, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["garnet1.json"]]]}
+{"t": 1792854604.062, "event": "ask_check", "why": "irreversible", "unproven": ["please"], "ok": true}
+{"t": 1792854604.338, "event": "ask_explain", "word": "make", "answer": null, "learned": false}
+{"t": 1792854604.338, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792854604.356, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["backup"]], ["copy", ["ember2.md", "backup/ember2.md"]]]}
+{"t": 1792854604.883, "event": "ask_explain", "word": "transfer", "answer": "move", "learned": true}
+{"t": 1792854604.883, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792854604.903, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["vault"]], ["move", ["dahlia2.log", "vault/dahlia2.log"]]]}
+{"t": 1792854605.574, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854606.384, "event": "ask_explain", "word": "erase", "answer": "delete", "learned": true}
+{"t": 1792854606.406, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["birch4.txt"]]]}
+{"t": 1792854606.407, "event": "ask_check", "why": "irreversible", "unproven": ["erase"], "ok": true}
+{"t": 1792854615.515, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854617.689, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854618.789, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854620.17, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}

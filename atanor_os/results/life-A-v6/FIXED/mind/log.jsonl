@@ -1,0 +1,12 @@
+{"t": 1792854235.782, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["archive"]], ["move", ["nutmeg1.csv", "archive/nutmeg1.csv"]]]}
+{"t": 1792854235.877, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792854236.08, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["papers"]], ["move", ["amber2.txt", "papers/amber2.txt"]]]}
+{"t": 1792854236.312, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["garnet1.json"]]]}
+{"t": 1792854236.616, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["backup"]], ["copy", ["ember2.md", "backup/ember2.md"]]]}
+{"t": 1792854237.169, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["vault"]], ["move", ["dahlia2.log", "vault/dahlia2.log"]]]}
+{"t": 1792854237.697, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["spare"]], ["copy", ["olive2.csv", "spare/olive2.csv"]]]}
+{"t": 1792854238.561, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["birch4.txt"]]]}
+{"t": 1792854238.972, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["shelf"]], ["move", ["cobalt4.md", "shelf/cobalt4.md"]]]}
+{"t": 1792854241.468, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854242.591, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854243.963, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}

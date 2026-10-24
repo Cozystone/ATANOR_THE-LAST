@@ -1,0 +1,17 @@
+{"t": 1792853182.711, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["archive"]], ["move", ["nutmeg1.csv", "archive/nutmeg1.csv"]]]}
+{"t": 1792853182.817, "event": "ask_explain", "word": "delete", "answer": null}
+{"t": 1792853182.825, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792853187.467, "event": "experiment_resolved", "lab_actions": 4}
+{"t": 1792853187.905, "event": "ask_check", "unknown": ["please"], "ok": true}
+{"t": 1792853218.323, "event": "experiment_resolved", "lab_actions": 7}
+{"t": 1792853218.866, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792853218.868, "event": "ask_explain", "word": "make", "answer": null}
+{"t": 1792853218.887, "event": "demonstration", "pid": "d54b3d4482", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"]], "steps": [["mkdir", ["backup"]], ["copy", ["ember2.md", "backup/ember2.md"]]]}
+{"t": 1792853220.465, "event": "ask_check", "unknown": ["transfer", "to", "named", "vault"], "ok": false}
+{"t": 1792853220.465, "event": "ask_explain", "word": "transfer", "answer": "move"}
+{"t": 1792853220.465, "event": "ask_explain", "word": "to", "answer": null}
+{"t": 1792853220.487, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["vault"]], ["move", ["dahlia2.log", "vault/dahlia2.log"]]]}
+{"t": 1792853225.457, "event": "ask_explain", "word": "erase", "answer": "delete"}
+{"t": 1792853382.039, "event": "experiment_budget_spent"}
+{"t": 1792853382.04, "event": "stuck", "task": "d5-t2"}
+{"t": 1792853382.665, "event": "surprise", "task": "d5-t3", "action": ["move", ["nutmeg5.txt", "drawer/nutmeg5.txt"]], "predicted_ok": true, "ok": false}

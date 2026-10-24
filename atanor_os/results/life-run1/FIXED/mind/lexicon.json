@@ -1,0 +1,274 @@
+{
+ "cases": {
+  "delete the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "erase the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "make a copy of the <V> files in a folder called <D>": [
+   "2cebde5de6",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "move the <V> files into a folder called <D>": [
+   "9a039deb4f",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "please delete the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "transfer the <V> files to a folder named <D>": [
+   "9a039deb4f",
+   [
+    "('N', 0)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ]
+ },
+ "marker": {
+  "called": 10,
+  "named": 2
+ },
+ "meaning": {
+  "a": [],
+  "called": [],
+  "copy": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "csv": [
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "delete": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "erase": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "files": [],
+  "folder": [],
+  "in": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "into": [],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "log": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "make": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "md": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "move": [],
+  "named": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "of": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "please": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "the": [],
+  "to": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "transfer": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "txt": [
+   "('N', 0)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ]
+ },
+ "mode": "general",
+ "neutral": [],
+ "pattern_of": {
+  "a": {
+   "2cebde5de6": 5,
+   "9a039deb4f": 5,
+   "ded0c7c021": 2
+  },
+  "called": {
+   "2cebde5de6": 5,
+   "9a039deb4f": 3,
+   "ded0c7c021": 2
+  },
+  "copy": {
+   "2cebde5de6": 5
+  },
+  "csv": {
+   "2cebde5de6": 2,
+   "ded0c7c021": 2
+  },
+  "delete": {
+   "22204eb435": 4
+  },
+  "erase": {
+   "22204eb435": 2
+  },
+  "files": {
+   "22204eb435": 6,
+   "2cebde5de6": 5,
+   "9a039deb4f": 5,
+   "ded0c7c021": 2
+  },
+  "folder": {
+   "2cebde5de6": 5,
+   "9a039deb4f": 5,
+   "ded0c7c021": 2
+  },
+  "in": {
+   "2cebde5de6": 5
+  },
+  "into": {
+   "9a039deb4f": 3,
+   "ded0c7c021": 2
+  },
+  "json": {
+   "22204eb435": 2
+  },
+  "log": {
+   "22204eb435": 2,
+   "2cebde5de6": 1,
+   "9a039deb4f": 2
+  },
+  "make": {
+   "2cebde5de6": 5
+  },
+  "md": {
+   "2cebde5de6": 2,
+   "9a039deb4f": 1
+  },
+  "move": {
+   "9a039deb4f": 3,
+   "ded0c7c021": 2
+  },
+  "named": {
+   "9a039deb4f": 2
+  },
+  "of": {
+   "2cebde5de6": 5
+  },
+  "please": {
+   "22204eb435": 2
+  },
+  "the": {
+   "22204eb435": 6,
+   "2cebde5de6": 5,
+   "9a039deb4f": 5,
+   "ded0c7c021": 2
+  },
+  "to": {
+   "9a039deb4f": 2
+  },
+  "transfer": {
+   "9a039deb4f": 2
+  },
+  "txt": {
+   "22204eb435": 2,
+   "9a039deb4f": 2
+  }
+ },
+ "prev_n": {
+  "a": 17,
+  "called": 10,
+  "copy": 5,
+  "csv": 4,
+  "delete": 4,
+  "erase": 2,
+  "files": 12,
+  "folder": 12,
+  "in": 5,
+  "into": 5,
+  "json": 2,
+  "log": 5,
+  "make": 5,
+  "md": 3,
+  "move": 5,
+  "named": 2,
+  "of": 5,
+  "please": 2,
+  "the": 18,
+  "to": 2,
+  "transfer": 2,
+  "txt": 4
+ },
+ "value_rule": [
+  12,
+  18
+ ],
+ "word_n": {
+  "a": 12,
+  "called": 10,
+  "copy": 5,
+  "csv": 4,
+  "delete": 4,
+  "erase": 2,
+  "files": 18,
+  "folder": 12,
+  "in": 5,
+  "into": 5,
+  "json": 2,
+  "log": 5,
+  "make": 5,
+  "md": 3,
+  "move": 5,
+  "named": 2,
+  "of": 5,
+  "please": 2,
+  "the": 18,
+  "to": 2,
+  "transfer": 2,
+  "txt": 4
+ }
+}

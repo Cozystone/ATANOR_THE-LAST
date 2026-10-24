@@ -1,0 +1,22 @@
+{"t": 1792854567.516, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["archive"]], ["move", ["nutmeg1.csv", "archive/nutmeg1.csv"]]]}
+{"t": 1792854567.6, "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792854567.608, "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["indigo1.log"]]]}
+{"t": 1792854567.609, "event": "ask_check", "why": "irreversible", "unproven": ["delete"], "ok": true}
+{"t": 1792854567.857, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854568.082, "event": "ask_check", "unknown": ["please"], "ok": true}
+{"t": 1792854568.128, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854568.409, "event": "ask_check", "unknown": ["make", "copy", "of", "in"], "ok": false}
+{"t": 1792854568.409, "event": "ask_explain", "word": "make", "answer": null, "learned": false}
+{"t": 1792854568.409, "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792854568.429, "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["backup"]], ["copy", ["ember2.md", "backup/ember2.md"]]]}
+{"t": 1792854568.977, "event": "ask_explain", "word": "transfer", "answer": "move", "learned": true}
+{"t": 1792854568.977, "event": "ask_explain", "word": "to", "answer": null, "learned": false}
+{"t": 1792854568.997, "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["vault"]], ["move", ["dahlia2.log", "vault/dahlia2.log"]]]}
+{"t": 1792854569.688, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854570.531, "event": "ask_explain", "word": "erase", "answer": "delete", "learned": true}
+{"t": 1792854570.531, "event": "ask_check", "why": "irreversible", "unproven": ["erase"], "ok": true}
+{"t": 1792854570.623, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792854579.594, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854592.854, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854593.987, "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
+{"t": 1792854595.611, "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
