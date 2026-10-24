@@ -1,0 +1,718 @@
+{
+ "summary": {
+  "ORACLE": {
+   "possible_tasks": 30,
+   "completion": 1.0,
+   "impossible_tasks": 6,
+   "correct_stops": 6,
+   "wrong_placements_per_task": 0.0,
+   "form_accuracy": 1.0,
+   "info_actions_per_task": 0.0,
+   "seconds_per_task": 0.10248463021384345,
+   "file_status": {
+    "done": 102,
+    "no_evidence": 6
+   },
+   "goal_unclear": 0
+  },
+  "N": {
+   "possible_tasks": 30,
+   "completion": 0.0,
+   "impossible_tasks": 6,
+   "correct_stops": 6,
+   "wrong_placements_per_task": 0.0,
+   "form_accuracy": 0.6666666666666666,
+   "info_actions_per_task": 0.0,
+   "seconds_per_task": 0.006100356578826904,
+   "file_status": {
+    "no_evidence": 102
+   },
+   "goal_unclear": 2
+  },
+  "M": {
+   "possible_tasks": 30,
+   "completion": 0.0,
+   "impossible_tasks": 6,
+   "correct_stops": 6,
+   "wrong_placements_per_task": 0.0,
+   "form_accuracy": 0.6666666666666666,
+   "info_actions_per_task": 0.0,
+   "seconds_per_task": 0.005640917354159885,
+   "file_status": {
+    "no_evidence": 102
+   },
+   "goal_unclear": 2
+  },
+  "S": {
+   "possible_tasks": 30,
+   "completion": 0.0,
+   "impossible_tasks": 6,
+   "correct_stops": 6,
+   "wrong_placements_per_task": 0.08333333333333333,
+   "form_accuracy": 0.6666666666666666,
+   "info_actions_per_task": 8.0,
+   "seconds_per_task": 5.77957769897249,
+   "file_status": {
+    "no_evidence": 99,
+    "done": 3
+   },
+   "goal_unclear": 2
+  },
+  "F": {
+   "possible_tasks": 30,
+   "completion": 0.0,
+   "impossible_tasks": 6,
+   "correct_stops": 6,
+   "wrong_placements_per_task": 0.0,
+   "form_accuracy": 0.6666666666666666,
+   "info_actions_per_task": 8.194444444444445,
+   "seconds_per_task": 5.293313244978587,
+   "file_status": {
+    "no_evidence": 86,
+    "single_source": 11,
+    "contradiction": 5
+   },
+   "goal_unclear": 2
+  }
+ },
+ "F_vs_N": {
+  "pairs": 30,
+  "mean_pp": 0.0,
+  "pos": 0,
+  "neg": 0
+ },
+ "F_vs_S": {
+  "pairs": 30,
+  "mean_pp": 0.0,
+  "pos": 0,
+  "neg": 0
+ },
+ "F_vs_M": {
+  "pairs": 30,
+  "mean_pp": 0.0,
+  "pos": 0,
+  "neg": 0
+ },
+ "checks": {
+  "teacher_import_attempts": [],
+  "teacher_module_loaded": false,
+  "llm_or_local_host_attempts": {
+   "ORACLE": 0,
+   "N": 0,
+   "M": 0,
+   "S": 0,
+   "F": 0
+  },
+  "sentence_overlap_with_training": [],
+  "extension_overlap_with_training": [],
+  "sealed_sha256": "5f7ae298dc18d2fdcc48b11c7e2b63b9a188779cb4e4d26d382044e75c8d8712",
+  "commit_hash": "ef3a978f702396ecb8774ee9cdae698073c32361",
+  "seed": 1167098185,
+  "oracle_completion": 1.0
+ },
+ "secondary": {
+  "N": {
+   "information_actions": 0,
+   "searches_for_already_known_fact": 0,
+   "conflicts": {
+    "adopted_despite_disagreement": 0,
+    "stopped_contradiction": 0,
+    "stopped_single_source": 0
+   },
+   "evidence_pages_checked": 0,
+   "evidence_pages_with_name_and_extension": 0
+  },
+  "M": {
+   "information_actions": 0,
+   "searches_for_already_known_fact": 0,
+   "conflicts": {
+    "adopted_despite_disagreement": 0,
+    "stopped_contradiction": 0,
+    "stopped_single_source": 0
+   },
+   "evidence_pages_checked": 0,
+   "evidence_pages_with_name_and_extension": 0
+  },
+  "S": {
+   "information_actions": 276,
+   "searches_for_already_known_fact": 0,
+   "conflicts": {
+    "adopted_despite_disagreement": 0,
+    "stopped_contradiction": 0,
+    "stopped_single_source": 0
+   },
+   "evidence_pages_checked": 1,
+   "evidence_pages_with_name_and_extension": 1
+  },
+  "F": {
+   "information_actions": 283,
+   "searches_for_already_known_fact": 0,
+   "conflicts": {
+    "adopted_despite_disagreement": 0,
+    "stopped_contradiction": 1,
+    "stopped_single_source": 5
+   },
+   "evidence_pages_checked": 0,
+   "evidence_pages_with_name_and_extension": 0
+  }
+ },
+ "extra": {
+  "ORACLE": {
+   "web": {
+    "requests": 0
+   },
+   "llm_or_local_host_attempts": 0,
+   "memory_after": null,
+   "self_learned_words": []
+  },
+  "N": {
+   "web": {
+    "requests": 0
+   },
+   "llm_or_local_host_attempts": 0,
+   "memory_after": {},
+   "self_learned_words": []
+  },
+  "M": {
+   "web": {
+    "requests": 0
+   },
+   "llm_or_local_host_attempts": 0,
+   "memory_after": {
+    "aat": "SFNT",
+    "bbm": "Interleaved Bitmap",
+    "heifs": "High Efficiency Image File Format",
+    "ilbm": "Interleaved Bitmap",
+    "mdown": "Markdown",
+    "n3": "Notation3",
+    "nsv": "Nullsoft Streaming Video",
+    "ora": "OpenRaster",
+    "otf": "SFNT",
+    "raml": "RESTful API Modeling Language",
+    "type": "Intellifont",
+    "xpm": "X Pixmap",
+    "3gp": "Advanced Audio Coding",
+    "3mf": "3D Manufacturing Format",
+    "aac": "Advanced Audio Coding",
+    "abc": "Alembic",
+    "acm": "Portable Executable",
+    "adf": "Amiga Disk File",
+    "adoc": "AsciiDoc",
+    "amf": "Additive Manufacturing File Format standard",
+    "appx": "Universal Windows Platform application package",
+    "ark": "ARC",
+    "art": "ART image file format",
+    "asec": "Android Secure encrypted file",
+    "ass": "SubStation Alpha",
+    "avi": "Audio Video Interleave",
+    "azw": "Kindle File Format",
+    "bag": "Bathymetry Attributed Grid",
+    "bat": "batch file",
+    "bilw": "world file",
+    "bin": "Executable and Linkable Format",
+    "blb": "Blorb",
+    "blw": "world file",
+    "bpw": "world file",
+    "btm": "batch file",
+    "btw": "world file",
+    "bundle": "Mach-O",
+    "cab": "Cabinet",
+    "caf": "Apple Lossless",
+    "cda": "Compact Disc Audio track file",
+    "cdx": "CDX Format",
+    "cff": "SFNT",
+    "cgns": "CFD General Notation System",
+    "ch": "Scitex Continuous Tone",
+    "chm": "Microsoft Compiled HTML Help",
+    "cif": "Caltech Intermediate Form",
+    "class": "Java bytecode",
+    "clp": "PICtor PIC image format",
+    "cmd": "batch file",
+    "cmsc": "Cryptographic Message Syntax",
+    "coffee": "CoffeeScript",
+    "cpc": "Cartesian Perceptual Compression",
+    "cpi": "Cartesian Perceptual Compression",
+    "cpt": "Corel Photo-Paint Image",
+    "crd": "ChordPro",
+    "crw": "Camera Image File Format",
+    "csl": "Citation Style Language",
+    "csr": "certificate signing request",
+    "csv": "comma-separated values",
+    "ct": "Scitex Continuous Tone",
+    "ctr": "Citrine",
+    "cue": "Cue sheet",
+    "cv": "Card Verifiable Certificate",
+    "cvcert": "Card Verifiable Certificate",
+    "cwl": "Common Workflow Language",
+    "daa": "Direct Access Archive",
+    "dae": "Digital Asset Exchange",
+    "dbf": "shapefile",
+    "dbk": "DocBook",
+    "ddp": "Disc Description Protocol",
+    "dds": "DirectDraw Surface",
+    "dem": "LandXML"
+   },
+   "self_learned_words": []
+  },
+  "S": {
+   "web": {
+    "requests": 206,
+    "ok": 186,
+    "refused": 16,
+    "failed": 4,
+    "bytes": 25260719,
+    "hosts": 26
+   },
+   "llm_or_local_host_attempts": 0,
+   "memory_after": {
+    "aat": "SFNT",
+    "bbm": "Interleaved Bitmap",
+    "heifs": "High Efficiency Image File Format",
+    "ilbm": "Interleaved Bitmap",
+    "mdown": "Markdown",
+    "n3": "Notation3",
+    "nsv": "Nullsoft Streaming Video",
+    "ora": "OpenRaster",
+    "otf": "SFNT",
+    "raml": "RESTful API Modeling Language",
+    "type": "Intellifont",
+    "xpm": "X Pixmap",
+    "3gp": "Advanced Audio Coding",
+    "3mf": "3D Manufacturing Format",
+    "aac": "Advanced Audio Coding",
+    "abc": "Alembic",
+    "acm": "Portable Executable",
+    "adf": "Amiga Disk File",
+    "adoc": "AsciiDoc",
+    "amf": "Additive Manufacturing File Format standard",
+    "appx": "Universal Windows Platform application package",
+    "ark": "ARC",
+    "art": "ART image file format",
+    "asec": "Android Secure encrypted file",
+    "ass": "SubStation Alpha",
+    "avi": "Audio Video Interleave",
+    "azw": "Kindle File Format",
+    "bag": "Bathymetry Attributed Grid",
+    "bat": "batch file",
+    "bilw": "world file",
+    "bin": "Executable and Linkable Format",
+    "blb": "Blorb",
+    "blw": "world file",
+    "bpw": "world file",
+    "btm": "batch file",
+    "btw": "world file",
+    "bundle": "Mach-O",
+    "cab": "Cabinet",
+    "caf": "Apple Lossless",
+    "cda": "Compact Disc Audio track file",
+    "cdx": "CDX Format",
+    "cff": "SFNT",
+    "cgns": "CFD General Notation System",
+    "ch": "Scitex Continuous Tone",
+    "chm": "Microsoft Compiled HTML Help",
+    "cif": "Caltech Intermediate Form",
+    "class": "Java bytecode",
+    "clp": "PICtor PIC image format",
+    "cmd": "batch file",
+    "cmsc": "Cryptographic Message Syntax",
+    "coffee": "CoffeeScript",
+    "cpc": "Cartesian Perceptual Compression",
+    "cpi": "Cartesian Perceptual Compression",
+    "cpt": "Corel Photo-Paint Image",
+    "crd": "ChordPro",
+    "crw": "Camera Image File Format",
+    "csl": "Citation Style Language",
+    "csr": "certificate signing request",
+    "csv": "comma-separated values",
+    "ct": "Scitex Continuous Tone",
+    "ctr": "Citrine",
+    "cue": "Cue sheet",
+    "cv": "Card Verifiable Certificate",
+    "cvcert": "Card Verifiable Certificate",
+    "cwl": "Common Workflow Language",
+    "daa": "Direct Access Archive",
+    "dae": "Digital Asset Exchange",
+    "dbf": "shapefile",
+    "dbk": "DocBook",
+    "ddp": "Disc Description Protocol",
+    "dds": "DirectDraw Surface",
+    "dem": "LandXML",
+    "wbmp": "Mozilla Firefox"
+   },
+   "self_learned_words": [
+    {
+     "word": "clone",
+     "weights": {
+      "folder": 6.450889349354823,
+      "rename": 5.883982428483708,
+      "copy": 5.665128222161471
+     },
+     "url": "https://en.wikipedia.org/wiki/Clone",
+     "known_words_used": [
+      "a",
+      "also",
+      "and",
+      "as",
+      "be",
+      "create",
+      "file",
+      "group",
+      "in",
+      "move",
+      "not",
+      "of",
+      "that",
+      "to",
+      "up",
+      "uses",
+      "what",
+      "with"
+     ]
+    },
+    {
+     "word": "nothing",
+     "weights": {
+      "folder": 3.0647656691134952,
+      "rename": 2.6841332580463018,
+      "copy": 3.2511010728402034
+     },
+     "url": "https://en.wikipedia.org/wiki/Nothing",
+     "known_words_used": [
+      "also",
+      "create",
+      "file",
+      "in",
+      "is",
+      "move",
+      "of",
+      "to",
+      "what"
+     ]
+    },
+    {
+     "word": "disappear",
+     "weights": {
+      "folder": 4.909863708329182,
+      "rename": 2.7429567874580663,
+      "copy": 5.347179504212752
+     },
+     "url": "https://en.wikipedia.org/wiki/Disappear",
+     "known_words_used": [
+      "a",
+      "also",
+      "as",
+      "by",
+      "create",
+      "file",
+      "for",
+      "in",
+      "move",
+      "of",
+      "to",
+      "up",
+      "what"
+     ]
+    },
+    {
+     "word": "from",
+     "weights": {
+      "folder": 4.564765669113495,
+      "rename": 2.8507999247129683,
+      "copy": 3.5844344061735365
+     },
+     "url": "https://en.wikipedia.org/wiki/From_%28TV_series%29",
+     "known_words_used": [
+      "and",
+      "as",
+      "create",
+      "file",
+      "for",
+      "in",
+      "move",
+      "of",
+      "to",
+      "uses",
+      "what"
+     ]
+    },
+    {
+     "word": "current",
+     "weights": {
+      "folder": 5.558175738854651,
+      "rename": 3.1687870836440934,
+      "copy": 5.273037177501256
+     },
+     "url": "https://en.wikipedia.org/wiki/Current",
+     "known_words_used": [
+      "a",
+      "also",
+      "and",
+      "as",
+      "create",
+      "file",
+      "from",
+      "in",
+      "move",
+      "of",
+      "to",
+      "up",
+      "uses",
+      "what"
+     ]
+    },
+    {
+     "word": "location",
+     "weights": {
+      "folder": 3.54342358574763,
+      "rename": 3.169638822111669,
+      "copy": 4.286937592140701
+     },
+     "url": "https://en.wikipedia.org/wiki/Location",
+     "known_words_used": [
+      "also",
+      "as",
+      "create",
+      "current",
+      "file",
+      "from",
+      "in",
+      "move",
+      "of",
+      "to",
+      "what"
+     ]
+    }
+   ]
+  },
+  "F": {
+   "web": {
+    "requests": 210,
+    "ok": 190,
+    "refused": 17,
+    "failed": 3,
+    "bytes": 25450863,
+    "hosts": 25
+   },
+   "llm_or_local_host_attempts": 0,
+   "memory_after": {
+    "aat": "SFNT",
+    "bbm": "Interleaved Bitmap",
+    "heifs": "High Efficiency Image File Format",
+    "ilbm": "Interleaved Bitmap",
+    "mdown": "Markdown",
+    "n3": "Notation3",
+    "nsv": "Nullsoft Streaming Video",
+    "ora": "OpenRaster",
+    "otf": "SFNT",
+    "raml": "RESTful API Modeling Language",
+    "type": "Intellifont",
+    "xpm": "X Pixmap",
+    "3gp": "Advanced Audio Coding",
+    "3mf": "3D Manufacturing Format",
+    "aac": "Advanced Audio Coding",
+    "abc": "Alembic",
+    "acm": "Portable Executable",
+    "adf": "Amiga Disk File",
+    "adoc": "AsciiDoc",
+    "amf": "Additive Manufacturing File Format standard",
+    "appx": "Universal Windows Platform application package",
+    "ark": "ARC",
+    "art": "ART image file format",
+    "asec": "Android Secure encrypted file",
+    "ass": "SubStation Alpha",
+    "avi": "Audio Video Interleave",
+    "azw": "Kindle File Format",
+    "bag": "Bathymetry Attributed Grid",
+    "bat": "batch file",
+    "bilw": "world file",
+    "bin": "Executable and Linkable Format",
+    "blb": "Blorb",
+    "blw": "world file",
+    "bpw": "world file",
+    "btm": "batch file",
+    "btw": "world file",
+    "bundle": "Mach-O",
+    "cab": "Cabinet",
+    "caf": "Apple Lossless",
+    "cda": "Compact Disc Audio track file",
+    "cdx": "CDX Format",
+    "cff": "SFNT",
+    "cgns": "CFD General Notation System",
+    "ch": "Scitex Continuous Tone",
+    "chm": "Microsoft Compiled HTML Help",
+    "cif": "Caltech Intermediate Form",
+    "class": "Java bytecode",
+    "clp": "PICtor PIC image format",
+    "cmd": "batch file",
+    "cmsc": "Cryptographic Message Syntax",
+    "coffee": "CoffeeScript",
+    "cpc": "Cartesian Perceptual Compression",
+    "cpi": "Cartesian Perceptual Compression",
+    "cpt": "Corel Photo-Paint Image",
+    "crd": "ChordPro",
+    "crw": "Camera Image File Format",
+    "csl": "Citation Style Language",
+    "csr": "certificate signing request",
+    "csv": "comma-separated values",
+    "ct": "Scitex Continuous Tone",
+    "ctr": "Citrine",
+    "cue": "Cue sheet",
+    "cv": "Card Verifiable Certificate",
+    "cvcert": "Card Verifiable Certificate",
+    "cwl": "Common Workflow Language",
+    "daa": "Direct Access Archive",
+    "dae": "Digital Asset Exchange",
+    "dbf": "shapefile",
+    "dbk": "DocBook",
+    "ddp": "Disc Description Protocol",
+    "dds": "DirectDraw Surface",
+    "dem": "LandXML"
+   },
+   "self_learned_words": [
+    {
+     "word": "clone",
+     "weights": {
+      "folder": 6.450889349354823,
+      "rename": 5.883982428483708,
+      "copy": 5.665128222161471
+     },
+     "url": "https://en.wikipedia.org/wiki/Clone",
+     "known_words_used": [
+      "a",
+      "also",
+      "and",
+      "as",
+      "be",
+      "create",
+      "file",
+      "group",
+      "in",
+      "move",
+      "not",
+      "of",
+      "that",
+      "to",
+      "up",
+      "uses",
+      "what",
+      "with"
+     ]
+    },
+    {
+     "word": "nothing",
+     "weights": {
+      "folder": 3.0647656691134952,
+      "rename": 2.6841332580463018,
+      "copy": 3.2511010728402034
+     },
+     "url": "https://en.wikipedia.org/wiki/Nothing",
+     "known_words_used": [
+      "also",
+      "create",
+      "file",
+      "in",
+      "is",
+      "move",
+      "of",
+      "to",
+      "what"
+     ]
+    },
+    {
+     "word": "disappear",
+     "weights": {
+      "folder": 4.909863708329182,
+      "rename": 2.7429567874580663,
+      "copy": 5.347179504212752
+     },
+     "url": "https://en.wikipedia.org/wiki/Disappear",
+     "known_words_used": [
+      "a",
+      "also",
+      "as",
+      "by",
+      "create",
+      "file",
+      "for",
+      "in",
+      "move",
+      "of",
+      "to",
+      "up",
+      "what"
+     ]
+    },
+    {
+     "word": "from",
+     "weights": {
+      "folder": 4.564765669113495,
+      "rename": 2.8507999247129683,
+      "copy": 3.5844344061735365
+     },
+     "url": "https://en.wikipedia.org/wiki/From_%28TV_series%29",
+     "known_words_used": [
+      "and",
+      "as",
+      "create",
+      "file",
+      "for",
+      "in",
+      "move",
+      "of",
+      "to",
+      "uses",
+      "what"
+     ]
+    },
+    {
+     "word": "current",
+     "weights": {
+      "folder": 5.558175738854651,
+      "rename": 3.1687870836440934,
+      "copy": 5.273037177501256
+     },
+     "url": "https://en.wikipedia.org/wiki/Current",
+     "known_words_used": [
+      "a",
+      "also",
+      "and",
+      "as",
+      "create",
+      "file",
+      "from",
+      "in",
+      "move",
+      "of",
+      "to",
+      "up",
+      "uses",
+      "what"
+     ]
+    },
+    {
+     "word": "location",
+     "weights": {
+      "folder": 3.54342358574763,
+      "rename": 3.169638822111669,
+      "copy": 4.286937592140701
+     },
+     "url": "https://en.wikipedia.org/wiki/Location",
+     "known_words_used": [
+      "also",
+      "as",
+      "create",
+      "current",
+      "file",
+      "from",
+      "in",
+      "move",
+      "of",
+      "to",
+      "what"
+     ]
+    }
+   ]
+  }
+ },
+ "verdict": "NO_GAIN"
+}

@@ -1,6 +1,6 @@
 # ATANOR OS — 최소 수직 구현 (P1 → P4)
 
-**보고서: [P1_REPORT.md](P1_REPORT.md)** (v1·v2 사전등록 결과, HP 복제, 독립 검토) · **[P2_P4_REPORT.md](P2_P4_REPORT.md)** (획득 정책 H1, 스킬 H2, 화면 몸 H3, 감독 루프 P4). 결과 원본은 `results/`, 모든 결정과 이유는 `DECISIONS.md`.
+**보고서: [P1_REPORT.md](P1_REPORT.md)** (v1·v2 사전등록 결과, HP 복제, 독립 검토) · **[P2_P4_REPORT.md](P2_P4_REPORT.md)** (획득 정책 H1/H4, 스킬 H2, 화면 몸 H3, 감독 루프 P4) · **[P6_REPORT.md](P6_REPORT.md)** (자율 과제 수행: 공개 웹 읽기 전용, 교사는 훈련에서만 — 판정 NO_GAIN). 결과 원본은 `results/`, 모든 결정과 이유는 `DECISIONS.md`.
 
 상태 표기: **구현됨** = 코드가 있고 실행된다 · **시험됨** = 명세 테스트 또는 실측 결과가 있다 · **가설** = 아직 증거 없음 · **막힘** = 승인/자원 필요.
 이 디렉터리의 어떤 것도 AGI·의식·일반 지능의 증거가 아니다.
@@ -49,7 +49,10 @@ python -m atanor_os crash     --root atanor_os/runs/crash --experiences <jsonl> 
 | `agent/supervisor.py` | P4 장기 운영자: 의도↔현실 대조, 실제 상태에서 재개, 모델 재구축 | 시험됨(로컬·HP) |
 | `ui/renderer.py` | 신뢰된 tkinter 렌더러: 명세 검증 → 순수 레이아웃 → 그리기, 버튼은 허용 행동만 | 시험됨 |
 | `lang/korean.py` | 제한된 한국어 지시 → 목표 리터럴(지원 형식 공개, 미지원 보고, 지시어는 질문) | 시험됨 |
-| `eval/` | 과제 생성(분할·seed), 진실 모델(평가기 전용), 탐색 정책, 판정, 지표, 규칙 일치, 충돌 시험 | 시험됨 |
+| `world/web_world.py` | P6 웹 몸: 읽기 전용 GET, robots 준수, 속도 제한, 관측 보관·재생 | 시험됨 |
+| `agent/reader.py`, `agent/autonomy.py` | P6 영어 목표 해석(어휘 학습)·명칭 읽기(학습)·일반 결정 절차(찾기·대조·멈춤·리허설) | 시험됨(평가 NO_GAIN) |
+| `teach/` | P6 훈련 전용 교사(평가 프로세스에서 import 차단) | 구현됨 |
+| `eval/` | 과제 생성(분할·seed), 진실 모델(평가기 전용), 탐색 정책, 판정, 지표, 규칙 일치, 충돌 시험, P6 진실·과제·봉인 평가 | 시험됨 |
 
 ## 지금 주장할 수 없는 것
 - 자유로운 언어 이해(문법은 사람이 준 것), 실시간 UI 재구성, 자기 코드 수정(P5, 미착수).
