@@ -70,6 +70,29 @@
         }
       ],
       "unchanged": "conditions, measures, decision thresholds, delayed rule and expectation"
+    },
+    {
+      "version": "1.2",
+      "recorded_at_commit": "see git commit time (machine clock); written after the immediate run and before the delayed run",
+      "scope": "delayed test only; the immediate verdict LINKED (0.600) and concept contribution 0 stay as they are",
+      "changes": [
+        {
+          "what": "delayed runner eval/p9_delayed.py: a single attempt, scheduled once after 2026-10-27 22:33 KST; inside the program: now >= 2026-10-27T22:33+09:00 AND >= 72 h since the lexicon freeze (and the 72 h check inside p9.evaluate)"
+        },
+        {
+          "what": "before the sealed set opens: code sha of every .py under agent/core/world/eval = 87f96e2839f9b688f9dc0f556a441c1ed6aedb27b350b972c53db635fc51c9a4 (per-file in results/p9/delayed_freeze.json), lexicon sha (CONCEPT ba04818846ce7ec4..., FLAT 918c436f1117b89a...) and R1 sha 65fc7d3d76d2241c... must match; the sealed sha is checked inside p9.evaluate"
+        },
+        {
+          "what": "no training, teacher import guard, network audit (must be 0), Qwen and every model off; one evaluation of the sealed delayed set"
+        },
+        {
+          "what": "any failure after the checks start (hash mismatch, exception) is recorded in results/p9/delayed_status.json and is final: no retraining, no repeat. A run started too early is refused before anything opens and is logged without consuming the attempt."
+        },
+        {
+          "what": "delayed verdict reported as its own item: REUSED if CONCEPT delayed interpretation >= 0.8 x 0.600 = 0.48 and lexicon sha unchanged, else NOT_REUSED; INVALID if any teacher import or network event. FLAT, NONE and ORACLE interpretation and action success reported alongside, not used for the verdict."
+        }
+      ],
+      "unchanged": "conditions, measures, the delayed threshold, the immediate result"
     }
   ]
 }
