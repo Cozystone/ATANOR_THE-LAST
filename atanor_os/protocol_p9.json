@@ -4,7 +4,9 @@
   "frozen_at": "2026-10-24T23:59:00",
   "design": "P9_DESIGN.md",
   "base_representation": "P8b R1_KEEP stable_fs (R1 from E1, 2107 bytes), frozen; concept identity = sha256 of the definition",
-  "bodies": ["fs"],
+  "bodies": [
+    "fs"
+  ],
   "view_body": "not tested in P9 v1 (no internal concepts)",
   "task": "one English command over a file workspace -> (tool in {copy, move, delete}, selected objects, destination folder) -> act through R1",
   "teacher": "Claude (this session), training only; ATANOR interprets and acts before each feedback",
@@ -15,7 +17,12 @@
     "delayed_set": "30 sentences, same author and instructions, opened only at the delayed run (>= 72 h after the lexicon freeze)",
     "truth": "author's structured label (tool, selector {kind, ext}, destination); truth set = scene objects satisfying the selector; never changed after the run"
   },
-  "conditions": ["CONCEPT (primary)", "FLAT (raw atoms only)", "NONE (no linking)", "ORACLE (true interpretation, same action path)"],
+  "conditions": [
+    "CONCEPT (primary)",
+    "FLAT (raw atoms only)",
+    "NONE (no linking)",
+    "ORACLE (true interpretation, same action path)"
+  ],
   "measures": [
     "interpretation: tool, object set and destination all correct (components reported separately; seen vs unseen extension sentences)",
     "action success: evaluator truth goal holds at the end and unselected objects unchanged",
@@ -30,5 +37,39 @@
     "delayed": "REUSED if delayed interpretation >= 0.8 x immediate and lexicon sha unchanged, else NOT_REUSED"
   },
   "expectation_before_run": "WEAK; CONCEPT ~ FLAT",
-  "naming": "'own language ability' only for what is reproduced with teacher and Qwen off: narrow three-tool command interpretation"
+  "naming": "'own language ability' only for what is reproduced with teacher and Qwen off: narrow three-tool command interpretation",
+  "amendments": [
+    {
+      "version": "1.1",
+      "frozen_at": "2026-10-25T00:40:00",
+      "before_any_run": true,
+      "sealed_sha256": {
+        "immediate": "882942f8f464678f632c578e9b3d2c7dfc00be02fd24f6b38f471d5a48b361e6",
+        "delayed": "3386e118204511e6e3f8cc360f3642a3aaee8a95df61cd465828a026d4682e78"
+      },
+      "sealing": "instructions written by the teacher, published in P9_SEALING_INSTRUCTIONS.md before the run; they contain example phrasings, so the training sentences avoid those example verbs and type phrases",
+      "changes": [
+        {
+          "what": "scenes: 4-6 top-level files with mixed extensions (the needed one present and at least one other) + one empty folder; training extensions txt/csv/md and WORDS_TRAIN names, evaluation txt/csv/md/log/json and WORDS_TEST names; truth set = files whose extension matches (any = all files), never the folder"
+        },
+        {
+          "what": "value rule uses the first string-valued raw attribute (a2) only; tokens are compared with observed values, never with tool identifiers"
+        },
+        {
+          "what": "goal construction: an attribute value implied by the post kind (constant across every currently observed object of that kind) is left out of the goal; an interpretation whose arity does not fit the tool's learned effects leads to no action",
+          "why": "found on training sentences only (smoke runs): redundant hash literals for moved sources made the planner exceed its search budget (move correct interpretations 3/14 acted); after the change 14/14. No sealed sentence was opened."
+        },
+        {
+          "what": "NONE: most frequent training tool (ties by name), all non-folder objects, last token as destination if that tool took one in training; ORACLE: true interpretation, same act path; the evaluator grants the destroy capability for every command"
+        },
+        {
+          "what": "exact overlap is computed against sha256 of the normalized training sentences (the evaluation process cannot import the teacher)"
+        },
+        {
+          "what": "teacher-off: import guard on atanor_os.teach; model-off: audit hook records every socket.connect / getaddrinfo / urllib.Request (must be 0)"
+        }
+      ],
+      "unchanged": "conditions, measures, decision thresholds, delayed rule and expectation"
+    }
+  ]
 }
