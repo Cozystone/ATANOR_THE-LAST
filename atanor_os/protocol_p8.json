@@ -19,7 +19,8 @@
     "FULL_RAW": "full log, rules over unary + equality raw atoms only (no composed structural atoms, no dictionary)",
     "CASE": "full log, nearest-case retrieval over raw atom sets (majority outcome)",
     "FIXED": "full log, human-fixed concepts (lifted literals kind/ext/parent_kind/same_content, type groups) + learner v4",
-    "INTERNAL_INF": "unbounded internal representation (reference)"
+    "INTERNAL_INF": "unbounded internal representation (reference)",
+    "FULL_STRUCT": "full log, rules over unary + equality + composed structural atoms, no dictionary, no budget (amendment 1.1)"
   },
   "unseen_situations": {
     "fs": "test-split layouts (new names, extensions, depth-2 targets) in fresh workspaces",
@@ -61,5 +62,19 @@
     "experience was collected by fixed exploration policies",
     "concepts are bounded to the two bodies' tools"
   ],
-  "qwen": "not used in P8 in any condition"
+  "qwen": "not used in P8 in any condition",
+  "amendments": [
+    {
+      "version": "1.1",
+      "at": "2026-10-24T21:40:00",
+      "before_any_run": true,
+      "changes": [
+        "secondary ablation FULL_STRUCT added: full log, rules over all raw atoms (unary, equality, composed structural) without a concept dictionary or budget - separates what the dictionary adds from having the composed atoms",
+        "'P1 fs test tasks (20 x seeds 1-3)' operationalized as 60 distinct fs test tasks (indices 0-59), because the experience is fixed and P1 seeds varied exploration logs; view: 20 test tasks",
+        "overlap rule operationalized: in the prediction sampler every candidate action whose exact (tool, args, full pre-state) occurs in the training log is excluded before sampling, and the number excluded is reported; task episodes are not filtered (their overlap with training is disclosed, not used for INVALID)",
+        "FIXED answers from experience only (documentation fallback disabled) so that no condition gets documentation",
+        "INTERNAL primary = R2 (built on E1, revised with E2 only); R1 tested as well for the revision criterion"
+      ]
+    }
+  ]
 }
