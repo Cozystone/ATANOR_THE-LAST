@@ -344,3 +344,26 @@ def test_a_reading_must_use_every_word_that_has_named_values():
     assert not any("'log'" in a for a in L.meaning['logs'])
     r = L.interpret(tokens('delete the csv files and logs'), v, False)
     assert not r['support'], r
+
+
+def test_an_unheard_word_where_joining_words_stand_is_offered_and_checked(tmp_path):
+    """After 'and' has been learned as joining, the first 'log plus txt' costs one check, not an explanation and a pointing."""
+    ws = _home(tmp_path, ['a.csv', 'b.csv', 'c.md', 'd.txt', 'e.log', 'f.json'])
+    t = Teacher(ws)
+    steps = [('Copy the csv files into a folder called one.', 'copy', 'csv', 'one'), ('Move the md files into a folder called two.', 'move', 'md', 'two'),
+             ('Copy the txt files into a folder called three.', 'copy', 'txt', 'three'), ('Delete the log files.', 'delete', 'log', None)]
+    for i, (cmd, tool, ext, d) in enumerate(steps):
+        _do(ws, tmp_path, t, {'command': cmd, 'tool': tool, 'ext': ext, 'dest': d}, f't{i}')
+    for n in ('g.md', 'h.log', 'i.csv', 'j.json'):
+        (ws.root / n).write_bytes(n.encode())
+    for i, (cmd, tool, pair, d) in enumerate([('Copy the csv and md files into a folder called five.', 'copy', ['csv', 'md'], 'five'),
+                                               ('Move the md and json files into a folder called six.', 'move', ['md', 'json'], 'six')]):
+        r, ok, m = _do(ws, tmp_path, t, {'command': cmd, 'tool': tool, 'ext': pair, 'dest': d}, f'u{i}')
+    for n in ('k.log', 'l.txt'):
+        (ws.root / n).write_bytes(n.encode())
+    before = dict(t.help)
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Copy the log plus txt files into a folder called seven.', 'tool': 'copy',
+                                    'ext': ['log', 'txt'], 'dest': 'seven'}, 'v')
+    used = {q: t.help[q] - before.get(q, 0) for q in t.help if t.help[q] - before.get(q, 0)}
+    assert ok, (r, used)
+    assert used.get('point', 0) == 0 and used.get('explain', 0) == 0 and used.get('check', 0) == 1, used

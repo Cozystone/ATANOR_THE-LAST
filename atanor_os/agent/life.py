@@ -374,7 +374,7 @@ class Lexicon:
         return ' '.join('<D>' if t == dest else ('<V>' if t in values else t) for t in toks)
 
     # -- interpretation (with what is still unknown)
-    def interpret(self, toks, view, takes_dest):
+    def interpret(self, toks, view, takes_dest, join_unknown=False):
         values = set().union(*[vs for _, vs in view.values()]) if view else set()
         dest = self._dest(toks, values | set(view))
         unknown = [t for t in toks if self.word_n[t] == 0 and t != dest and t not in values and t not in view]
@@ -478,7 +478,9 @@ class Lexicon:
         union_sel = None
         if contradiction:
             alts = self._alternatives(toks, view, dest)
-            if len(alts) == 1 and any(self.joined(w) for w in self._between(toks, next(iter(alts.values())))):
+            between = self._between(toks, next(iter(alts.values()))) if len(alts) == 1 else set()
+            by_analogy = join_unknown and any(self.joined(w) for w in self.join) and any(self.word_n[w] == 0 for w in between)
+            if len(alts) == 1 and (any(self.joined(w) for w in between) or by_analogy):
                 key = next(iter(alts))
                 base = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] == key)}
                 union_sel = sorted(o for o, (at, _) in view.items()
@@ -756,6 +758,18 @@ class Mind:
                 if not self.patterns or '<shape>' in r['unknown']:
                     self._teach_from_demo(toks, command)          # nothing known yet to explain it with: be shown
                     continue
+                if r['contradiction'] and 'join_tried' not in checked:
+                    checked.add('join_tried')                     # an unheard word where joining words stand: offer that reading
+                    rj = self._resolve_dest(self.lex.interpret(toks, view, True, join_unknown=True), toks, view)
+                    if not rj['contradiction'] and rj['selected'] and rj['pid'] in self.patterns:
+                        ok = self.user.check(self._proposal(rj))
+                        self.counts['check'] += 1
+                        self.counts['join_by_analogy'] += 1
+                        self.methods['check'][0] += int(ok)
+                        self.methods['check'][1] += 1
+                        self.log(event='ask_check', why='unheard word read as joining', unknown=r['unknown'], ok=ok)
+                        if ok:
+                            return self._result(rj, view)
                 rate = lambda m: (self.methods[m][0] + 1) / (self.methods[m][1] + 2)
                 word = next((w for w in r['unknown'] if w not in asked_words), None) if len(asked_words) < 2 else None
                 can_check = self._complete(r) and key(r) not in checked
