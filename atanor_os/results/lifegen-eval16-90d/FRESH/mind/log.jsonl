@@ -1,0 +1,6 @@
+{"t": 1792947031.642, "task": "d90-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northpier"]], ["shove", ["northpier/juniper90.csv", "juniper90.csv"]]]}
+{"t": 1792947034.725, "task": "d90-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792947044.116, "task": "d90-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792947044.12, "task": "d90-t1", "event": "ask_explain", "word": "remove", "answer": "delete", "learned": false}
+{"t": 1792947045.291, "task": "d90-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["amber88.md"]]]}
+{"t": 1792947051.478, "task": "d90-t1", "event": "rehearsal", "ok": true, "steps": 6}
