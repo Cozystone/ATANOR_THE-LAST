@@ -118,3 +118,25 @@ def test_a_well_used_screen_verb_stops_needing_a_check(tmp_path):
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Filter p2 to txt.', 'tool': 'filter', 'panel': 'p2', 'value': 'ext:txt'}, 't9')
     used = {q: t.help[q] - before.get(q, 0) for q in t.help if t.help[q] - before.get(q, 0)}
     assert ok and not used.get('check') and not used.get('point'), used
+
+
+def test_the_state_a_change_rewrites_does_not_name_its_object(tmp_path):
+    """Panels about to be sorted are usually still sorted by 'name' while another panel is not: that old state is what
+    the sort replaces, not what 'sort' names. After several sorts, 'sort' decides the change and is not re-checked."""
+    data = Workspace(tmp_path / 'data')
+    for n in ('a.csv', 'b.md', 'c.txt'):
+        (data.root / n).write_bytes(n.encode())
+    spec = {'p1': {'kind': 'panel', 'filter': 'all', 'sort': 'name', 'group': 'none'},
+            'p2': {'kind': 'panel', 'filter': 'all', 'sort': 'name', 'group': 'none'},
+            'p3': {'kind': 'panel', 'filter': 'all', 'sort': 'size', 'group': 'none'}}
+    t = None
+    for i, (p, k) in enumerate([('p1', 'ext'), ('p2', 'ext'), ('p1', 'size'), ('p2', 'size'), ('p1', 'ext'), ('p2', 'ext')]):
+        import shutil
+        shutil.rmtree(tmp_path / 'view', ignore_errors=True)
+        ws = ViewWorkspace(tmp_path / 'view', data, spec={q: dict(v) for q, v in spec.items()})     # the screen restarts
+        t = t or ViewTeacher(ws)
+        t.home = ws
+        before = dict(t.help)
+        r, ok, m = _do(ws, tmp_path, t, {'command': f'Sort {p} by {k}.', 'tool': 'sort', 'panel': p, 'value': f'key:{k}'}, f't{i}')
+        used = {q: t.help[q] - before.get(q, 0) for q in t.help if t.help[q] - before.get(q, 0)}
+    assert ok and not used.get('check'), used

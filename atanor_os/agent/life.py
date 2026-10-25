@@ -168,6 +168,7 @@ class Lexicon:
     def __init__(self, mode='general'):
         self.mode = mode                        # 'general' or 'case' (exact sentence-shape retrieval only)
         self.kind_keys = set()                  # the body's kind attributes (given by the body, not learned)
+        self.changed_keys = {}                  # change id -> attributes it rewrites on its object (from its pattern)
         self.word_n = Counter()
         self.pattern_of = defaultdict(Counter)  # word -> pid counts (from confirmed / demonstrated uses)
         self.meaning = {}                       # word -> set(repr(atom)) shared by most of its recent uses
@@ -215,14 +216,24 @@ class Lexicon:
         del ds[:-24]
         self._derive(word)
 
-    def _discriminating(self, atoms_repr, objs, view):
-        """Of these atoms, the value atoms that some other object of the same kind lacked (they told objects apart)."""
+    def _discriminating(self, atoms_repr, objs, view, pid=None):
+        """Of these atoms, the value atoms that some other object of the same kind lacked (they told objects apart),
+        leaving out attributes the change itself rewrites on its object."""
+        rewritten = self.changed_keys.get(pid, set())
+        atoms_repr = {a for a in atoms_repr if not (a.startswith("('U'") and a.split(',')[2].strip(" '") in rewritten)}
         objs = [o for o in objs if o in view]
         if not objs:
             return set()
         kinds = {a for a in {repr(x) for x in view[objs[0]][0]} if a.startswith("('U'") and a.split(',')[2].strip(" '") in self.kind_keys}
         peers = [{repr(x) for x in at} for o, (at, _) in view.items() if o not in objs and kinds <= {repr(x) for x in at}]
         return {a for a in atoms_repr if self.valued(a) and any(a not in pa for pa in peers)}
+
+    def _absent_like(self, atoms, objs, view):
+        """No object like these (same kind, sharing what they all share outside these atoms' attributes) carries the atoms."""
+        insel = [{repr(x) for x in view[o][0]} for o in objs if o in view]
+        keys = {a.split(',')[2] for a in atoms}
+        shared = {x for x in set.intersection(*insel) if x.split(',')[2:3] not in [[k] for k in keys]} if insel else set()
+        return not any(shared <= {repr(x) for x in at} and atoms & {repr(x) for x in at} for at, _ in view.values())
 
     def naming_atoms(self, word):
         """Value atoms of the word's meaning that told its objects apart in at least half of its remembered uses."""
@@ -315,12 +326,21 @@ class Lexicon:
                 own = [parts[i] for i, t in enumerate(toks) if t == w and i in parts]
                 if not own and any(t == w and i in bringers for i, t in enumerate(toks)):
                     continue                                # its own part of the selection cannot be told apart: no evidence
+                va = self.naming_atoms(w) if w not in values and self.strong(w) else set()
+                if not own and va and selected:
+                    sel_in = [o for o in selected if o in view]
+                    mine = [o for o in sel_in if va & {repr(a) for a in view[o][0]}]
+                    if not mine:
+                        if self._absent_like(va, sel_in, view):
+                            continue                        # nothing it names is here today: this use says nothing about it
+                    elif len(mine) < len(sel_in):
+                        own = [mine]                        # a mixed selection: the word learns from the part it names
                 if own:                                     # a value word in a union learns from its own part
                     sub = [view[o][0] for o in own[0] if o in view]
                     part = {repr(a) for a in frozenset.intersection(*sub)} if sub else cur
-                    self._add_use(w, part, disc=self._discriminating(part, own[0], view))
+                    self._add_use(w, part, disc=self._discriminating(part, own[0], view, pid))
                 else:
-                    self._add_use(w, cur, disc=self._discriminating(cur, selected, view))
+                    self._add_use(w, cur, disc=self._discriminating(cur, selected, view, pid))
         for pair in self.pairs(toks, dest, values):
             if pid is not None:
                 self.pattern_of[pair][pid] += 1
@@ -635,6 +655,7 @@ class Mind:
         self._model = None
         self._cache = {'atoms': {}, 'rules': {}}
         self._merge_patterns()
+        self.lex.changed_keys = {pid: self._changed_keys(pid) for pid in self.patterns}
         self._noticed = []
         self.counts = Counter()
 
@@ -1117,12 +1138,23 @@ class Mind:
         self.log(event='demonstration', pid=pid, pattern=pattern, steps=steps)
         self.save()
         self._merge_patterns()
+        self.lex.changed_keys = {q: self._changed_keys(q) for q in self.patterns}
         return True
 
     def _canonical(self, pattern):
         """A change without the entries that are now known to follow from the kind (learned implication)."""
         kind_of = {it[0]: it[2] for it in pattern if it[1] == 'kind'}
         return sorted(it for it in pattern if it[1] == 'kind' or not self._implied(kind_of.get(it[0]), it[1], it[2]))
+
+    def _changed_keys(self, pid):
+        """Raw attributes that this change rewrites on its object (read from its pattern through the body's mapping)."""
+        preds = {it[1] for it in self.patterns.get(pid, []) if it[0] == 'o' and it[1] != 'kind' and not (len(it) > 3 and it[3] == 'keep')}
+        keys = set()
+        for pr in preds:
+            base = {q: 'x0' for q in preds | {pr}}
+            r0, r1 = raw_attrs(self.body, base), raw_attrs(self.body, {**base, pr: 'x1'})
+            keys |= {k for k in r0 if r0[k] != r1[k]}
+        return keys
 
     def _merge_patterns(self):
         """Changes that turn out to be the same once more is known get one identity; their word statistics and

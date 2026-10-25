@@ -367,3 +367,25 @@ def test_an_unheard_word_where_joining_words_stand_is_offered_and_checked(tmp_pa
     used = {q: t.help[q] - before.get(q, 0) for q in t.help if t.help[q] - before.get(q, 0)}
     assert ok, (r, used)
     assert used.get('point', 0) == 0 and used.get('explain', 0) == 0 and used.get('check', 0) == 1, used
+
+
+
+def test_a_value_word_learns_only_from_its_own_part_of_a_mixed_selection():
+    """'markdown' names md. In 'the logs and markdown files' (no union read yet) it learns from the md files only; on a
+    day with no md file, 'markdown files and logs' teaches it nothing (it must not come to mean log)."""
+    from atanor_os.agent.life import Lexicon, tokens
+    def at(ext):
+        return frozenset({('N', 0), ('U', 0, 'a0', 1), ('U', 0, 'a1', 0), ('U', 0, 'a2', ext)})
+    v = {'a.md': (at('md'), frozenset({'md'})), 'b.log': (at('log'), frozenset({'log'})), 'c.csv': (at('csv'), frozenset({'csv'}))}
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the markdown files'), v, 'CP', ['a.md'], None)
+        L.confirmed['markdown'] += 1
+    md = "('U', 0, 'a2', 'md')"
+    for _ in range(6):
+        L.learn(tokens('copy the logz and markdown files'), v, 'CP', ['a.md', 'b.log'], None)   # 'logz' unread
+    assert md in L.meaning['markdown'], L.meaning['markdown']
+    nomd = {o: x for o, x in v.items() if o != 'a.md'}
+    for _ in range(6):
+        L.learn(tokens('copy the markdown files and logz'), nomd, 'CP', ['b.log'], None)
+    assert md in L.meaning['markdown'] and "('U', 0, 'a2', 'log')" not in L.meaning['markdown'], L.meaning['markdown']
