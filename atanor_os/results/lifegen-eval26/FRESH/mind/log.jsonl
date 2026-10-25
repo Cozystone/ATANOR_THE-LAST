@@ -1,0 +1,7 @@
+{"t": 1792957097.818, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["southyard"]], ["replicate", ["southyard/dahlia28.json", "dahlia28.json"]]]}
+{"t": 1792957100.599, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 11}
+{"t": 1792957119.122, "task": "d30-t1", "event": "ask_check", "unknown": ["carry", "all", "text", "files"], "ok": false}
+{"t": 1792957119.124, "task": "d30-t1", "event": "ask_explain", "word": "carry", "answer": "move", "learned": false}
+{"t": 1792957119.125, "task": "d30-t1", "event": "ask_explain", "word": "all", "answer": "", "learned": true}
+{"t": 1792957119.943, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northcabin"]], ["shove", ["northcabin/dahlia29.txt", "dahlia29.txt"]]]}
+{"t": 1792957122.441, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 7}

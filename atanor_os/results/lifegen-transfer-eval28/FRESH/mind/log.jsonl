@@ -1,0 +1,8 @@
+{"t": 1792956675.252, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["basin"]], ["replicate", ["basin/birch29.log", "birch29.log"]]]}
+{"t": 1792956681.412, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792956682.032, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792956683.652, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792956684.282, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792956695.124, "task": "d30-t1", "event": "ask_explain", "word": "documents", "answer": "json files", "learned": true}
+{"t": 1792956695.127, "task": "d30-t1", "event": "ask_explain", "word": "along", "answer": null, "learned": false}
+{"t": 1792956696.325, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["acorn"]], ["replicate", ["acorn/cobalt30.md", "cobalt30.md"]]]}
