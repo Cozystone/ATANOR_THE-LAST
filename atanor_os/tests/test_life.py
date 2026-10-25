@@ -181,3 +181,17 @@ def test_irreversible_change_without_literal_naming_is_held_alone(tmp_path):
         (ws.root / n).write_bytes(n.encode())
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Discard every logs.', 'tool': 'delete', 'ext': 'log', 'dest': None}, 't9', user=False)
     assert ws.kind('f.md') == 'file' and ws.kind('g.json') == 'file', 'nothing but log files may be deleted'
+
+
+def test_an_explanation_never_makes_a_meaning_less_specific():
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_for_lexicon()
+    L = Lexicon()
+    for _ in range(3):
+        L.learn(tokens('zap the markdown files'), v, 'DEL', ['x.json'], None)        # 'markdown' learned with json objects here
+    before = set(L.meaning['markdown'])
+    assert any("'json'" in a for a in before)
+    L.learn_word('markdown', meaning={"('N', 0)"})                                    # an explanation that names no value
+    assert L.meaning['markdown'] == before                                             # the specific meaning is kept
+    L.learn_word('markdown', meaning={"('N', 0)", "('U', 0, 'a2', 'md')"})            # an explanation that names a value
+    assert "('U', 0, 'a2', 'md')" in L.meaning['markdown']

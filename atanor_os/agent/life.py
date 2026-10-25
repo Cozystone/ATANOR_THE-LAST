@@ -255,7 +255,13 @@ class Lexicon:
             self.pattern_of[word][p] += 5                    # the person defined it: strong evidence, not one co-occurrence
             self.confirmed[f'{word}|{p}'] += 1               # stated by the person counts like a confirmed use
         if meaning is not None:
-            self.meaning[word] = set(meaning)
+            def specific(m):
+                return any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in m)
+            old_m = self.meaning.get(word)
+            if old_m is not None and specific(old_m) and not specific(meaning):
+                pass                                         # the explanation names no value: keep the more specific meaning
+            else:
+                self.meaning[word] = set(meaning)
 
     def _shape(self, toks, view, dest):
         values = set().union(*[vs for _, vs in view.values()]) if view else set()
