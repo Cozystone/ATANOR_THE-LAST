@@ -108,3 +108,56 @@ class Teacher:
                 ok &= q['kind'] == 'file' and q['hash'] == h
             ok &= (st['kind'] == 'file' and st['hash'] == h) if t == 'copy' else st['kind'] == 'absent'
         return bool(ok)
+
+
+class ViewTeacher(Teacher):
+    """The person using the screen body. Knows the command's meaning: a panel, a tool, and the value object it takes
+    (filter/sort/group: 'ext:csv', 'key:size', 'grp:ext'; compare: the source panel; open/close: none)."""
+    ATTR = {'filter': 'filter', 'sort': 'sort', 'group': 'group'}
+
+    def begin(self, task):
+        self.task = task
+        self.before = self.home._read()
+        self.truth = [task['panel']]
+
+    def point(self, command):
+        self.help['point'] += 1
+        return {'objects': list(self.truth), 'dest': self.task.get('value')}
+
+    def _steps(self, objs):
+        t, v = self.task['tool'], self.task.get('value')
+        return [(t, (o, v)) if v else (t, (o,)) for o in objs]
+
+    def check(self, proposal):
+        self.help['check'] += 1
+        ch = {(it[0], it[1]): it[2] for it in proposal['change'] if len(it) == 3}
+        t = self.task['tool']
+        want = {'open': ('kind', 'panel'), 'close': ('kind', 'absent')}
+        if t in want:
+            ok_change = ch.get(('o', 'kind')) == want[t][1]
+        elif t in self.ATTR:
+            ok_change = ('o', self.ATTR[t]) in ch and ch.get(('o', 'kind')) == 'panel'
+        else:
+            ok_change = ch.get(('o', 'kind')) == 'compare'
+        return ok_change and sorted(proposal['objects']) == self.truth and (proposal['dest'] or None) == (self.task.get('value') or None)
+
+    def judge(self):
+        spec = self.home._read()
+        t, p, v = self.task['tool'], self.task['panel'], self.task.get('value')
+        cur = ViewWorkspace.attrs_of(spec, p)
+        if t == 'open':
+            ok = cur['kind'] == 'panel'
+        elif t == 'close':
+            ok = cur['kind'] == 'absent'
+        elif t in self.ATTR:
+            ok = cur['kind'] == 'panel' and cur[self.ATTR[t]] == v.split(':', 1)[1]
+        else:
+            src = ViewWorkspace.attrs_of(self.before, v)
+            ok = cur['kind'] == 'compare' and cur['filter'] == src['filter'] and cur['sort'] == src['sort']
+        for q in self.before:                                   # every other panel is as it was
+            if q != p and ViewWorkspace.attrs_of(spec, q) != ViewWorkspace.attrs_of(self.before, q):
+                ok = False
+        return bool(ok)
+
+
+from ..world.view_world import ViewWorkspace  # noqa: E402  (after the class: the module is evaluator-side only)

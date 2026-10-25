@@ -12,6 +12,13 @@ view:       a0..a4 = the object's five observed tokens (kind, filter, sort, grou
 from .fs_world import parent_of
 
 IDENTITY = {'fs': ('a3',), 'view': ()}
+KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',)}       # provided: which raw attributes make up an argument's kind
+
+
+def names_of(body, obj):
+    """String attribute values of an object that a sentence may use to name it (identity attributes excluded)."""
+    return frozenset(v for k, v in raw_attrs(body, obj).items()
+                     if k not in IDENTITY[body] and isinstance(v, str) and v not in ('-', '', None))
 
 
 def raw_attrs(body, obj):

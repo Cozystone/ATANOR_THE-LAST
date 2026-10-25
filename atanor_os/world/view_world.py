@@ -28,6 +28,7 @@ def is_value(obj):
 
 
 class ViewWorkspace:
+    BODY = 'view'
     TOOLS = TOOLS
     CAPABILITY = CAPABILITY
     drift = frozenset()            # P8b: changed world rules, e.g. {'compare_replace'}; empty = the original world
@@ -57,6 +58,36 @@ class ViewWorkspace:
         if p is None:
             return dict(BLANK)
         return {'kind': p['kind'], 'filter': p['filter'], 'sort': p['sort'], 'group': p['group'], 'value': '-'}
+
+    def tools(self):
+        return dict(TOOLS)
+
+    def existing(self):
+        """Every object the screen has: panels (open or not) and the value objects tools take."""
+        return sorted(set(PANELS) | set(VALUE_OBJECTS))
+
+    def kind(self, obj):
+        return self.attrs_of(self._read(), obj)['kind']
+
+    def lab_copy(self, root, objs=(), seen=None):
+        """A fresh screen with the same specification, showing the same data (tools never change the data)."""
+        root = Path(root)
+        if root.exists():
+            import shutil
+            shutil.rmtree(root)
+        lab = ViewWorkspace(root, self.data, spec=self._read())
+        lab.drift = self.drift
+        return lab
+
+    def lab_from_state(self, root, state):
+        root = Path(root)
+        if root.exists():
+            import shutil
+            shutil.rmtree(root)
+        spec = {p: {k: state[p][k] for k in ('kind', 'filter', 'sort', 'group')} for p in PANELS if state.get(p, {}).get('kind', 'absent') != 'absent'}
+        lab = ViewWorkspace(root, self.data, spec=spec)
+        lab.drift = self.drift
+        return lab
 
     def universe(self, paths=()):
         return sorted(set(PANELS) | set(VALUE_OBJECTS) | set(paths))

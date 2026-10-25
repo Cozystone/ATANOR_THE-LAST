@@ -24,7 +24,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from ..core.types import Experience, Goal, Literal
-from ..world.raw_obs import raw_attrs
+from ..world.raw_obs import KIND_ATTRS, names_of, raw_attrs
 from .concepts import FAMILIES_ALL, apply_raw, atoms, induce
 from .planner import plan
 
@@ -103,7 +103,8 @@ class WorldModel:
         self.unknown_asked = Counter()
 
     def kinds(self, state, args):
-        return tuple((raw_attrs(self.body, state[a])['a0'], raw_attrs(self.body, state[a])['a1']) if a in state else None for a in args)
+        ks = KIND_ATTRS[self.body]
+        return tuple(tuple(raw_attrs(self.body, state[a])[k] for k in ks) if a in state else None for a in args)
 
     def predict(self, state, tool, args, sig=None):
         if any(a not in state for a in args):
@@ -190,7 +191,7 @@ class Lexicon:
         # what all selected objects had in common (atoms every object shares are kept: they may tell objects apart later)
         inter = frozenset.intersection(*sel) if sel else frozenset()
         cur = {repr(a) for a in inter}
-        values = {v for _, v in view.values()}
+        values = set().union(*[vs for _, vs in view.values()]) if view else set()
         for w in set(t for i, t in enumerate(toks) if i != d_idx):
             self.word_n[w] += 1
             if pid is not None:
@@ -203,7 +204,7 @@ class Lexicon:
         for w in set(toks):
             if w in values:
                 self.value_rule[1] += 1
-                self.value_rule[0] += int(bool(selected) and set(selected) <= {o for o, (_, v) in view.items() if v == w})
+                self.value_rule[0] += int(bool(selected) and set(selected) <= {o for o, (_, vs) in view.items() if w in vs})
         self.cases[self._shape(toks, view, dest)] = (pid, sorted(cur))
 
     @staticmethod
@@ -236,21 +237,23 @@ class Lexicon:
             self.meaning[word] = set(meaning)
 
     def _shape(self, toks, view, dest):
-        values = {v for _, v in view.values()}
+        values = set().union(*[vs for _, vs in view.values()]) if view else set()
         return ' '.join('<D>' if t == dest else ('<V>' if t in values else t) for t in toks)
 
     # -- interpretation (with what is still unknown)
     def interpret(self, toks, view, takes_dest):
-        values = {v for _, v in view.values()}
-        dest = self._dest(toks, values)
-        unknown = [t for t in toks if self.word_n[t] == 0 and t != dest and t not in values]
+        values = set().union(*[vs for _, vs in view.values()]) if view else set()
+        dest = self._dest(toks, values | set(view))
+        unknown = [t for t in toks if self.word_n[t] == 0 and t != dest and t not in values and t not in view]
         if self.mode == 'case':
             c = self.cases.get(self._shape(toks, view, dest))
             if c is None:
                 return {'pid': None, 'dest': dest, 'selected': [], 'unknown': unknown or ['<shape>'], 'contradiction': False}
             pid, cons = c[0], set(c[1])
             vals = [t for t in toks if t in values]
-            cons = {a for a in cons if not a.startswith("('U', 0, 'a2'")} | {repr(a) for o, (at, v) in view.items() if v in vals for a in at if a[0] == 'U' and a[2] == 'a2'}
+            named = {repr(a) for o, (at, vs) in view.items() if vs & set(vals) for a in at if a[0] == 'U' and a[3] in vals}
+            keys = {a.split(',')[2] for a in named}
+            cons = {a for a in cons if a.split(',')[2] not in keys} | named
             sel = sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
             return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': [], 'contradiction': False}
         pids = sorted({q for c in self.pattern_of.values() for q in c})
@@ -260,7 +263,7 @@ class Lexicon:
         while i < len(toks):
             pair = f'{toks[i]} {toks[i + 1]}' if i + 1 < len(toks) else None
             top, share = self._share(pair, pids) if pair else (None, 0.0)
-            if pair and share >= DECISIVE and dest not in (toks[i], toks[i + 1]) and toks[i] not in values and toks[i + 1] not in values:
+            if pair and share >= DECISIVE and dest not in (toks[i], toks[i + 1]) and toks[i] not in values and toks[i + 1] not in values and toks[i] not in view and toks[i + 1] not in view:
                 units.append(pair)                          # the pair speaks for both words
                 i += 2
                 continue
@@ -268,7 +271,7 @@ class Lexicon:
             i += 1
         for t in units:
             pc = self.pattern_of.get(t)
-            if t in values or t == dest or not pc or t in self.neutral:
+            if t in values or t in view or t == dest or not pc or t in self.neutral:
                 continue
             informative += 1
             n = sum(pc.values())
@@ -283,7 +286,7 @@ class Lexicon:
             pid = max(logp, key=logp.get)
             tops = set()
             for t in units:
-                if t in values or t == dest or t in self.neutral:
+                if t in values or t in view or t == dest or t in self.neutral:
                     continue
                 top, share = self._share(t, pids)
                 if top is not None and share >= DECISIVE:   # a decisive unit: mostly used with one change
@@ -291,7 +294,7 @@ class Lexicon:
             ambiguous = len(tops) != 1 or pid not in tops   # decisive units disagree, or none exists
             for t in units:                                 # a decisive unit confirmed only with another change: conflict
                 pc = self.pattern_of.get(t)
-                if t in values or t == dest or not pc or t in self.neutral:
+                if t in values or t in view or t == dest or not pc or t in self.neutral:
                     continue
                 top, n = pc.most_common(1)[0]
                 if top != pid and n / sum(pc.values()) >= 0.9 and self.confirmed.get(f'{t}|{top}', 0) and not self.confirmed.get(f'{t}|{pid}', 0):
@@ -300,7 +303,7 @@ class Lexicon:
         weak_change = not any(self.strong(u) for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values and u not in self.neutral)
         cons, weak_selection, support = set(), False, any(t in values and t != dest for t in toks)
         for t in toks:
-            if t == dest or t in values or t in self.neutral or t in change_words or self.word_n[t] == 0:
+            if t == dest or t in values or t in view or t in self.neutral or t in change_words or self.word_n[t] == 0:
                 continue
             if self.strong(t):
                 if self.meaning.get(t):
@@ -312,11 +315,19 @@ class Lexicon:
         if opp >= 2 and hits / opp >= 0.8:
             for t in toks:
                 if t != dest and t in values:
-                    cons = {a for a in cons if not a.startswith("('U', 0, 'a2'")}
-                    cons |= {repr(a) for o, (at, v) in view.items() if v == t for a in at if a[0] == 'U' and a[2] == 'a2'}
-        a2 = {a for a in cons if a.startswith("('U', 0, 'a2'")}
-        contradiction = len(a2) > 1
-        sel = [] if contradiction else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
+                    named = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+                    keys = {a.split(',')[2] for a in named}
+                    cons = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] in keys)} | named
+        by_key = defaultdict(set)
+        for a in cons:
+            if a.startswith("('U'"):
+                by_key[a.split(',')[2]].add(a)
+        contradiction = any(len(v) > 1 for v in by_key.values())
+        ids = [t for t in toks if t in view and t != dest]
+        if ids:
+            sel, support = sorted(set(ids)), True                # tokens that are objects' own ids name them directly
+        else:
+            sel = [] if contradiction else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
         return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous,
                 'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support}
 
@@ -357,6 +368,8 @@ class Mind:
     def __init__(self, home, mind_dir, lab_root, user=None, generalize=True, lexicon_mode='general', seed=0, fixed=False, notice_change=True):
         """home: the body (a workspace); user: the channel to the person (ask_* / confirm), or None."""
         self.home, self.dir, self.lab_root, self.user = home, Path(mind_dir), Path(lab_root), user
+        self.body = getattr(home, 'BODY', 'fs')
+        self.caps = {c: True for c in set(getattr(home, 'CAPABILITY', {}).values())}   # the person's command grants the body's capabilities
         self.dir.mkdir(parents=True, exist_ok=True)
         self.generalize, self.fixed, self.notice_change = generalize, fixed, notice_change
         self.rng = random.Random(seed)
@@ -365,6 +378,8 @@ class Mind:
         self.lex = Lexicon.from_json(json.loads(lp.read_text(encoding='utf-8'))) if lp.exists() else Lexicon(lexicon_mode)
         pp = self.dir / 'patterns.json'
         self.patterns = json.loads(pp.read_text(encoding='utf-8')) if pp.exists() else {}
+        mp2 = self.dir / 'pattern_meta.json'
+        self.pattern_meta = json.loads(mp2.read_text(encoding='utf-8')) if mp2.exists() else {}
         rp = self.dir / 'procedures.json'
         self.procedures = json.loads(rp.read_text(encoding='utf-8')) if rp.exists() else {}
         cp = self.dir / 'changes.json'
@@ -399,6 +414,7 @@ class Mind:
         (self.dir / 'methods.json').write_text(json.dumps(self.methods), encoding='utf-8')
         (self.dir / 'changes.json').write_text(json.dumps(self.world_changes, indent=1), encoding='utf-8')
         (self.dir / 'procedures.json').write_text(json.dumps(self.procedures, indent=1), encoding='utf-8')
+        (self.dir / 'pattern_meta.json').write_text(json.dumps(self.pattern_meta, indent=1), encoding='utf-8')
 
     def log(self, **kw):
         with open(self.dir / 'log.jsonl', 'a', encoding='utf-8') as f:
@@ -408,8 +424,8 @@ class Mind:
     def model(self):
         if self._model is None:
             retired = {c['tool']: c['before'] for c in self.world_changes} if self.notice_change else {}
-            self._model = WorldModel(self.episodes, generalize=self.generalize, notice_change=self.notice_change, retired=retired,
-                                     cache=self._cache)
+            self._model = WorldModel(self.episodes, body=self.body, generalize=self.generalize, notice_change=self.notice_change,
+                                     retired=retired, cache=self._cache)
             for c in self._model.changes:
                 if c not in self._noticed:
                     self._noticed.append(c)
@@ -427,7 +443,7 @@ class Mind:
         ws = ws or self.home
         objs = ws.existing()
         st = ws.observe(objs)
-        return {o: (frozenset(a for a in atoms('fs', st, (o,), FAMILIES_ALL) if a[0] != 'E'), raw_attrs('fs', st[o])['a2']) for o in objs}
+        return {o: (frozenset(a for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E'), names_of(self.body, st[o])) for o in objs}
 
     # ---- one command, start to finish (resumable)
     def do(self, command, task_id):
@@ -489,7 +505,7 @@ class Mind:
             if self.fixed:                                    # fixed human procedure: always ask to be shown
                 self._teach_from_demo(toks, command)
                 break
-            r = self.lex.interpret(toks, view, True)
+            r = self._resolve_dest(self.lex.interpret(toks, view, True), toks, view)
             if r['unknown'] and self.user is not None:
                 if not self.patterns or '<shape>' in r['unknown']:
                     self._teach_from_demo(toks, command)          # nothing known yet to explain it with: be shown
@@ -525,7 +541,7 @@ class Mind:
                 if self._teach_from_demo(toks, command):          # nothing better than the rejected reading: be shown
                     break
                 continue
-            needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
+            needs_dest = self._needs_dest(r['pid'])
             weak = r.get('weak_change') or r.get('weak_selection')
             if self.user is None and ((weak and self._irreversible(r['pid'])) or not r.get('support')):
                 self.counts['refused_weak'] += 1
@@ -567,7 +583,7 @@ class Mind:
         taught = self._from_taught(command, view)
         if taught is not None:
             return taught                                     # the person showed what this command means
-        r = self.lex.interpret(toks, view, True)
+        r = self._resolve_dest(self.lex.interpret(toks, view, True), toks, view)
         if pointed is not None and r['pid'] in self.patterns:
             r = {**r, 'selected': [o for o in pointed['objects'] if o in view], 'dest': pointed['dest'] or r['dest'],
                  'contradiction': False, 'weak_selection': False}
@@ -614,7 +630,7 @@ class Mind:
         """From its own learned change: an object's content disappears and is not left anywhere else."""
         pat = self.patterns.get(pid, [])
         gone = any(it[0] == 'o' and it[1] == 'kind' and it[2] == 'absent' for it in pat)
-        kept = any(it[1] == 'hash' and it[2] == '=o' and it[3:] != ['keep'] for it in pat)
+        kept = any(it[0] != 'o' and isinstance(it[2], str) and it[2].startswith('=o.') and it[1] != 'kind' and it[3:] != ['keep'] for it in pat)
         return gone and not kept
 
     def _from_taught(self, command, view):
@@ -626,9 +642,34 @@ class Mind:
             return None
         return self._result({'pid': t['pid'], 'selected': sel, 'dest': t['dest']}, view)
 
+    def _resolve_dest(self, r, toks, view):
+        """A change whose second object was named by a value it carries: find the unselected object with that value."""
+        meta = self.pattern_meta.get(r['pid'] or '', {})
+        if r.get('dest') or meta.get('D_by') != 'value':
+            return r
+        cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and vs & set(toks)
+                 and any(a[0] == 'U' and a[2] == 'a0' and a[3] == meta.get('D_kind') for a in at)]
+        return {**r, 'dest': cands[0]} if len(cands) == 1 else r
+
+    def _needs_dest(self, pid):
+        """A change needs a second object when an entry is about it or copies a value from it."""
+        return any(it[0] != 'o' or (isinstance(it[2], str) and it[2].startswith('=D.')) for it in self.patterns.get(pid, []))
+
+    def _remembered_kind(self, p):
+        """The kind an object last had when it was present: in the home now, or in memory."""
+        k = self.home.kind(p) if hasattr(self.home, 'kind') else None
+        if k and k != 'absent':
+            return k
+        for e in reversed(self.episodes):
+            for st in (e.post, e.pre):
+                ob = st.get(p)
+                if ob and ob.get('kind') not in (None, 'absent'):
+                    return ob['kind']
+        return None
+
     def _proposal(self, r):
         """What is shown to the person: the change, the objects, and the destination only if the change has one."""
-        needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
+        needs_dest = self._needs_dest(r['pid'])
         return {'change': self.patterns[r['pid']], 'objects': r['selected'], 'dest': r['dest'] if needs_dest else None}
 
     def _complete(self, r):
@@ -638,12 +679,12 @@ class Mind:
             weak = r.get('weak_change') or r.get('weak_selection')
             if (weak and self._irreversible(r['pid'])) or not r.get('support', True):
                 return False                                  # nobody to ask: no irreversible or unsupported guess
-        return bool(r['dest']) or not any(it[0] != 'o' for it in self.patterns[r['pid']])
+        return bool(r['dest']) or not self._needs_dest(r['pid'])
 
     def _result(self, r, view):
-        needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
+        needs_dest = self._needs_dest(r['pid'])
         return {'pid': r['pid'], 'selected': r['selected'], 'dest': r['dest'] if needs_dest else None,
-                'view_at_start': {o: ([repr(a) for a in at], v) for o, (at, v) in view.items()}}
+                'view_at_start': {o: ([repr(a) for a in at], sorted(v)) for o, (at, v) in view.items()}}
 
     def _learn_pointing(self, toks, view, ans):
         """The person pointed at the objects: the words learn what those objects share; no change is attributed."""
@@ -689,7 +730,7 @@ class Mind:
         if not objs:
             return False
         o = objs[0]
-        seen = {p: 'file' for p in objs}
+        seen = {p: k for p in objs for k in [self._remembered_kind(p)] if k}
         lab = self._lab([o] + ([dest] if dest else []), dest, seen)
         before = lab.observe(self._paths(o, dest))
         steps = self.user.demonstrate(command, o, dest)
@@ -703,6 +744,9 @@ class Mind:
         pattern = sorted(pattern)
         pid = hashlib.sha256(json.dumps(pattern).encode()).hexdigest()[:10]
         self.patterns[pid] = pattern
+        if dest:
+            d_by = 'token' if dest in toks else ('value' if names_of(self.body, before.get(dest, {})) & set(toks) else None)
+            self.pattern_meta[pid] = {'D_by': d_by, 'D_kind': before.get(dest, {}).get('kind')}
         self._taught = {'command': command, 'pid': pid, 'selected': sorted(objs), 'dest': dest}
         rel = {o: 'o', dest: 'D', f'{dest}/{name_of(o)}': 'D/o'} if dest else {o: 'o'}
         if all(a in rel for _, args in steps for a in args):
@@ -738,6 +782,9 @@ class Mind:
             return
         for q, keep in alias.items():
             self.patterns.pop(q, None)
+            if q in self.pattern_meta and keep not in self.pattern_meta:
+                self.pattern_meta[keep] = self.pattern_meta[q]
+            self.pattern_meta.pop(q, None)
             if q in self.procedures and keep not in self.procedures:
                 self.procedures[keep] = self.procedures[q]
             self.procedures.pop(q, None)
@@ -773,28 +820,44 @@ class Mind:
         rels = {o: 'o'}
         if dest:
             rels.update({dest: 'D', f'{dest}/{name_of(o)}': 'D/o'})
-        pat = []
-        changed = [p for p in sorted(set(before) | set(after)) if any(before.get(p, {}).get(k) != after.get(p, {}).get(k) for k in ('kind', 'hash'))]
+        attrs = sorted({k for st in (before, after) for ob in st.values() for k in ob})
+        changed = [p for p in sorted(set(before) | set(after)) if any(before.get(p, {}).get(k) != after.get(p, {}).get(k) for k in attrs)]
         if any(p not in rels for p in changed):
             return None
         needed = set(changed) | {q for q in rels if any(c.startswith(q + '/') for c in changed)}
+        roles = [(rels[q], q) for q in rels if q in before]
+
+        def encode(k, value):
+            """A value that equals an attribute of a role before the change is a copy; the same attribute is preferred."""
+            if value in ('-', None):
+                return value
+            for rel, q in roles:
+                if before[q].get(k) == value:
+                    return f'={rel}.{k}'
+            for rel, q in roles:
+                for k2, v2 in before[q].items():
+                    if v2 == value and k2 != 'kind':
+                        return f'={rel}.{k2}'
+            return value
+        pat = []
         for p in sorted(needed):
             b, a = before.get(p, {}), after.get(p, {})
-            for k in ('kind', 'hash'):
+            for k in attrs:
                 if k == 'kind' or b.get(k) != a.get(k):
                     if k != 'kind' and self._implied(a.get('kind'), k, a.get(k)):
                         continue                               # learned: every object of this kind seen so far had this value
-                    v = '=o' if k == 'hash' and a.get(k) == before[o].get('hash') and a.get(k) != '-' else a.get(k)
-                    pat.append([rels[p], k, v])
-        if pat and before.get(o, {}).get('kind') == after.get(o, {}).get('kind') == 'file':
-            pat += [['o', 'kind', 'file', 'keep'], ['o', 'hash', '=o', 'keep']]     # what the shown change left as it was
+                    pat.append([rels[p], k, a.get('kind') if k == 'kind' else encode(k, a.get(k))])
+        if pat and o not in changed and before.get(o, {}).get('kind') not in ('absent', None):
+            for k in attrs:                                    # what the shown change left as it was
+                if k == 'kind' or not self._implied(before[o]['kind'], k, before[o].get(k)):
+                    pat.append(['o', k, before[o]['kind'] if k == 'kind' else encode(k, before[o].get(k)), 'keep'])
         return pat or None
 
     def _goal(self, interp):
         pat = self.patterns.get(interp['pid'])
         if not pat:
             return None
-        st = self.home.observe(interp['selected'])
+        st = self.home.observe(list(interp['selected']) + ([interp['dest']] if interp['dest'] else []))
         must, keep, universe = [], [], set()
         for o in interp['selected']:
             path = {'o': o, 'D': interp['dest'], 'D/o': f"{interp['dest']}/{name_of(o)}" if interp['dest'] else None}
@@ -802,11 +865,19 @@ class Mind:
                 rel, k, v = item[:3]
                 if path[rel] is None:
                     return None
-                val = st[o]['hash'] if v == '=o' else v
+                if isinstance(v, str) and v.startswith('=') and '.' in v:
+                    r2, k2 = v[1:].split('.', 1)
+                    if path[r2] is None or path[r2] not in st:
+                        return None
+                    val = st[path[r2]].get(k2)
+                else:
+                    val = v
                 (keep if item[3:] == ['keep'] else must).append(Literal(k, (path[rel],), val))
                 universe.add(path[rel])
         universe |= set(interp['selected'])
-        g = Goal('life:' + interp['pid'], must, keep, {'destroy': True}, dict(BUDGET), sorted(universe))
+        if interp['dest'] and self._needs_dest(interp['pid']):
+            universe.add(interp['dest'])                      # the second object belongs to the goal even if only its value is copied
+        g = Goal('life:' + interp['pid'], must, keep, dict(self.caps), dict(BUDGET), sorted(universe))
         g.selected, g.dest = list(interp['selected']), interp['dest']
         return g
 
@@ -873,7 +944,7 @@ class Mind:
             predicted, status = self.model.predict(state, tool, args)
             ok, post = self._try(ws, tool, args, 'home', goal.capabilities)
             self.counts['home_actions'] += 1
-            surprise = (predicted is None) == ok or (ok and any(predicted[a].get(k) not in ('unknown', post[a].get(k)) for a in args for k in ('kind', 'hash')))
+            surprise = (predicted is None) == ok or (ok and any(predicted[a].get(k) not in ('unknown', post[a].get(k)) for a in args for k in predicted[a]))
             if surprise:
                 self.counts['surprises'] += 1
                 self.log(event='surprise', task=task_id, action=[tool, list(args)], predicted_ok=predicted is not None, ok=ok)
@@ -886,11 +957,14 @@ class Mind:
     def _relevant_tools(self, goal):
         """Tools whose learned effects make the kind of change the goal asks for (in raw attributes)."""
         want = set()
+        state = self.home.observe(goal.universe)
         for l in goal.must:
-            if l.pred == 'kind':
-                want |= {('a0', 0)} if l.value == 'absent' else ({('a0', 1), ('a1', 1)} if l.value == 'dir' else {('a0', 1)})
-            elif l.pred == 'hash':
-                want.add(('a3', 'copy'))
+            cur = state.get(l.args[0], {})
+            now, then = raw_attrs(self.body, cur), raw_attrs(self.body, {**cur, l.pred: l.value})
+            for k in then:
+                if then[k] != now.get(k):
+                    want.add((k, then[k]))
+                    want.add((k, 'copy'))
         out = set()
         for tool, groups in self.model.rules.items():
             for g in groups:
@@ -927,18 +1001,7 @@ class Mind:
         if not past:
             return
         e = self.episodes[past[-1]]
-        if self.lab_root.exists():
-            shutil.rmtree(self.lab_root)
-        lab = type(self.home)(self.lab_root)
-        lab.drift = getattr(self.home, 'drift', frozenset())
-        for path in sorted(e.pre, key=lambda q: q.count('/')):
-            k = e.pre[path].get('kind')
-            target = lab.path(path)
-            if k == 'dir':
-                target.mkdir(parents=True, exist_ok=True)
-            elif k == 'file':
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(b'placeholder' + bytes([10]))
+        lab = self.home.lab_from_state(self.lab_root, e.pre)
         before = len(self.episodes)
         ok, _ = self._try(lab, tool, tuple(e.args), 'reverify')
         self.counts['reverifications'] += 1
@@ -953,34 +1016,15 @@ class Mind:
     def _try(self, ws, tool, args, source, caps=None):
         universe = ws.universe(list(args))
         pre = ws.observe(universe)
-        res = ws.execute(tool, tuple(args), caps or {'destroy': True})
+        res = ws.execute(tool, tuple(args), caps or self.caps)
         post = ws.observe(universe)
         exp = Experience(f'{source}-{len(self.episodes)}', tool, tuple(args), pre, post, res['ok'], res['blocked'], res['ms'], False, source)
         self._store(exp)
         return res['ok'], post
 
     def _lab(self, objs, dest, seen=None):
-        """A fresh lab mirroring the relevant objects of home (same relative paths, kinds and contents); an object no
-        longer in home but seen earlier (seen: {path: kind}) is recreated with placeholder content."""
-        if self.lab_root.exists():
-            shutil.rmtree(self.lab_root)
-        lab = type(self.home)(self.lab_root)
-        lab.drift = getattr(self.home, 'drift', frozenset())     # the lab is a copy of the world as it is now
-        for o in objs:
-            if o is None:
-                continue
-            src = self.home.path(o)
-            dst = lab.path(o)
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            if src.is_file():
-                shutil.copyfile(src, dst)
-            elif src.is_dir():
-                dst.mkdir(exist_ok=True)
-            elif seen and seen.get(o) == 'file':
-                dst.write_bytes(b'placeholder' + bytes([10]))
-            elif seen and seen.get(o) == 'dir':
-                dst.mkdir(exist_ok=True)
-        return lab
+        """A fresh lab: the world's own copy of the relevant objects, as the world is now."""
+        return self.home.lab_copy(self.lab_root, [o for o in objs if o is not None], seen)
 
     def _experiment(self, goal):
         """Experiments in a lab copy of the goal's objects until the real goal becomes plannable or the budget ends."""
@@ -1041,7 +1085,7 @@ class Mind:
                 pred, status = self.model.predict(state, tool, args)
                 if status != 'unknown':
                     continue
-                sig = (tool, self.model.kinds(state, args), tuple(atoms('fs', state, args, FAMILIES_ALL)) if not self.generalize else None)
+                sig = (tool, self.model.kinds(state, args), tuple(atoms(self.body, state, args, FAMILIES_ALL)) if not self.generalize else None)
                 cand.append((0 if tool in relevant else 1, tried[sig], self.rng.random(), tool, args, sig))
             if not cand:
                 if resets >= 2:
@@ -1081,4 +1125,4 @@ class Mind:
 
 def view_from_json(d):
     import ast
-    return {o: (frozenset(ast.literal_eval(a) for a in at), v) for o, (at, v) in d.items()}
+    return {o: (frozenset(ast.literal_eval(a) for a in at), frozenset(v) if isinstance(v, list) else v) for o, (at, v) in d.items()}

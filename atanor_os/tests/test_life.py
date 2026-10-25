@@ -116,7 +116,7 @@ def test_one_use_word_meaning_does_not_constrain_and_informative_word_decides():
 def _scene_for_lexicon():
     def at(ext):
         return frozenset({('N', 0), ('U', 0, 'a0', 1), ('U', 0, 'a1', 0), ('U', 0, 'a2', ext)})
-    return {'x.json': (at('json'), 'json'), 'y.csv': (at('csv'), 'csv'), 'z.txt': (at('txt'), 'txt')}
+    return {'x.json': (at('json'), frozenset({'json'})), 'y.csv': (at('csv'), frozenset({'csv'})), 'z.txt': (at('txt'), frozenset({'txt'}))}
 
 
 def test_a_long_goal_is_not_mistaken_for_a_knowledge_gap(tmp_path):

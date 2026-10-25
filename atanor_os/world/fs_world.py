@@ -47,6 +47,7 @@ def name_ext(path):
 
 
 class Workspace:
+    BODY = 'fs'
     TOOLS = TOOLS
     CAPABILITY = CAPABILITY
     drift = frozenset()            # P8b: changed world rules, e.g. {'move_dirs'}; empty = the original world
@@ -81,6 +82,46 @@ class Workspace:
         h = hashlib.sha256(p.read_bytes()).hexdigest()[:12] if k == 'file' else '-'
         par = parent_of(value)
         return {'kind': k, 'ext': name_ext(value), 'hash': h, 'parent_kind': 'dir' if par == '' else self.kind(par)}
+
+    def lab_copy(self, root, objs, seen=None):
+        """A fresh workspace holding copies of the named objects (same relative paths, kinds and contents); an object
+        no longer present but seen earlier (seen: {path: kind}) is recreated with placeholder content."""
+        root = Path(root)
+        if root.exists():
+            shutil.rmtree(root)
+        lab = type(self)(root)
+        lab.drift = self.drift
+        for o in objs:
+            if o is None:
+                continue
+            src, dst = self.path(o), lab.path(o)
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            if src.is_file():
+                shutil.copyfile(src, dst)
+            elif src.is_dir():
+                dst.mkdir(exist_ok=True)
+            elif seen and seen.get(o) == 'file':
+                dst.write_bytes(b'placeholder' + bytes([10]))
+            elif seen and seen.get(o) == 'dir':
+                dst.mkdir(exist_ok=True)
+        return lab
+
+    def lab_from_state(self, root, state):
+        """A fresh workspace rebuilt from an observed state ({path: attrs}); contents are placeholders."""
+        root = Path(root)
+        if root.exists():
+            shutil.rmtree(root)
+        lab = type(self)(root)
+        lab.drift = self.drift
+        for path in sorted(state, key=lambda q: q.count('/')):
+            k = state[path].get('kind')
+            target = lab.path(path)
+            if k == 'dir':
+                target.mkdir(parents=True, exist_ok=True)
+            elif k == 'file':
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(b'placeholder' + bytes([10]))
+        return lab
 
     def existing(self):
         out = []
