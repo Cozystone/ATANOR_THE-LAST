@@ -85,3 +85,24 @@ def test_a_second_object_named_by_a_well_used_word_is_not_a_guess(tmp_path):
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by extension.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't9', user=False)
     assert ok, (r, dict(m.counts))
     assert t.help == before
+
+
+def test_how_the_second_object_is_named_is_learned_from_every_use(tmp_path):
+    """A demonstration once recorded the sort key as named by meaning only ('by extension'). Later confirmed uses name it
+    by its value ('by ext'): that one demonstration must not decide forever how the key can be named."""
+    import json
+    ws = _screen(tmp_path)
+    t = ViewTeacher(ws)
+    for i, (p, k) in enumerate([('p1', 'size'), ('p2', 'name'), ('p1', 'ext')]):
+        _do(ws, tmp_path, t, {'command': f'Sort {p} by {k}.', 'tool': 'sort', 'panel': p, 'value': f'key:{k}'}, f't{i}')
+    for i, (p, k) in enumerate([('p2', 'ext'), ('p1', 'size'), ('p2', 'name')]):
+        _do(ws, tmp_path, t, {'command': f'Sort {p} by {k}.', 'tool': 'sort', 'panel': p, 'value': f'key:{k}'}, f'u{i}')
+    mp = tmp_path / 'mind' / 'pattern_meta.json'
+    meta = json.loads(mp.read_text(encoding='utf-8'))
+    for v in meta.values():
+        v['D_by'] = None                                    # as if the latest demonstration had said 'by extension'
+    mp.write_text(json.dumps(meta), encoding='utf-8')
+    before = dict(t.help)
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by ext.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't9', user=False)
+    assert ok, (r, dict(m.counts))
+    assert t.help == before

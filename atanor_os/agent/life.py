@@ -576,6 +576,7 @@ class Mind:
             self.counts['confirm'] += 1
         if confirmed:                                           # only a confirmed use teaches what the words mean
             self.lex.learn(toks, view_from_json(interp['view_at_start']), interp['pid'], interp['selected'], interp['dest'])
+            self._note_d_naming(interp['pid'], toks, interp['dest'], view_from_json(interp['view_at_start']))
         if confirmed:
             for w in set(toks) | set(self.lex.pairs(toks, interp['dest'])):
                 self.lex.confirmed[w] += 1
@@ -779,10 +780,24 @@ class Mind:
             return None
         return self._result({'pid': t['pid'], 'selected': sel, 'dest': t['dest']}, view)
 
+    def _note_d_naming(self, pid, toks, dest, view):
+        """Remember how this use named the change's second object: by its id, by a value it carries, or by meaning."""
+        if not dest or pid not in self.patterns:
+            return
+        how = 'token' if dest in toks else ('value' if dest in view and set(view[dest][1]) & set(toks) else 'meaning')
+        named = self.pattern_meta.setdefault(pid, {}).setdefault('D_named', {})
+        named[how] = named.get(how, 0) + 1
+
     def _resolve_dest(self, r, toks, view):
-        """A change whose second object was named by a value it carries: find the unselected object with that value."""
+        """A change whose second object has been named by a value it carries or by word meaning: find it among the
+        unselected objects."""
         meta = self.pattern_meta.get(r['pid'] or '', {})
-        if r.get('dest') or meta.get('D_by') != 'value':
+        named = dict(meta.get('D_named', {}))
+        if meta.get('D_by'):
+            named[meta['D_by']] = named.get(meta['D_by'], 0) + 1
+        elif meta:
+            named['meaning'] = named.get('meaning', 0) + 1           # the first demonstration named it neither way
+        if r.get('dest') or not (named.get('value') or named.get('meaning')):
             return r
         kind_ok = lambda at: any(a[0] == 'U' and a[2] == 'a0' and a[3] == meta.get('D_kind') for a in at)
         cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and vs & set(toks) and kind_ok(at)]
