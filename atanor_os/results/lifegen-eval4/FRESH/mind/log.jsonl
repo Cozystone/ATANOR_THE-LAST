@@ -1,0 +1,6 @@
+{"t": 1792908914.318, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["delete", ["birch30.txt"]]]}
+{"t": 1792908915.042, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792908916.73, "task": "d30-t1", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792908916.731, "task": "d30-t1", "event": "ask_explain", "word": "the", "answer": "", "learned": true}
+{"t": 1792908917.558, "task": "d30-t1", "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northpier"]], ["shove", ["northpier/fennel28.csv", "fennel28.csv"]]]}
+{"t": 1792908918.686, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 7}

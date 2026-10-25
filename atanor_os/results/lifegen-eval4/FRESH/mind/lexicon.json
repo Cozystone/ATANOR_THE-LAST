@@ -1,0 +1,278 @@
+{
+ "cases": {
+  "get rid of every text file": [
+   "3922670d9f",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "shift the <V> files into a folder called <D>": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 1,
+  "a folder": 1,
+  "a folder|a01fcbd090": 1,
+  "a|a01fcbd090": 1,
+  "called": 1,
+  "called|a01fcbd090": 1,
+  "csv": 1,
+  "csv files": 1,
+  "csv files|a01fcbd090": 1,
+  "csv|a01fcbd090": 1,
+  "every": 1,
+  "every text": 1,
+  "every text|3922670d9f": 1,
+  "every|3922670d9f": 1,
+  "file": 1,
+  "files": 1,
+  "files into": 1,
+  "files into|a01fcbd090": 1,
+  "files|a01fcbd090": 1,
+  "file|3922670d9f": 1,
+  "folder": 1,
+  "folder called": 1,
+  "folder called|a01fcbd090": 1,
+  "folder|a01fcbd090": 1,
+  "get": 1,
+  "get rid": 1,
+  "get rid|3922670d9f": 1,
+  "get|3922670d9f": 1,
+  "into": 1,
+  "into a": 1,
+  "into a|a01fcbd090": 1,
+  "into|a01fcbd090": 1,
+  "northpier": 1,
+  "northpier|a01fcbd090": 1,
+  "of": 1,
+  "of every": 1,
+  "of every|3922670d9f": 1,
+  "of|3922670d9f": 1,
+  "rid": 1,
+  "rid of": 1,
+  "rid of|3922670d9f": 1,
+  "rid|3922670d9f": 1,
+  "shift": 1,
+  "shift the": 1,
+  "shift the|a01fcbd090": 1,
+  "shift|a01fcbd090": 1,
+  "text": 1,
+  "text file": 1,
+  "text file|3922670d9f": 1,
+  "text|3922670d9f": 1,
+  "the": 1,
+  "the csv": 1,
+  "the csv|a01fcbd090": 1,
+  "the|a01fcbd090": 1
+ },
+ "defined": {
+  "the": 1
+ },
+ "marker": {
+  "called": 2
+ },
+ "meaning": {
+  "a": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "called": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "csv": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "every": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "file": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "folder": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "get": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "into": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "of": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "rid": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "shift": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "text": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ]
+ },
+ "mode": "general",
+ "neutral": [
+  "the"
+ ],
+ "pattern_of": {
+  "a": {
+   "a01fcbd090": 2
+  },
+  "a folder": {
+   "a01fcbd090": 2
+  },
+  "called": {
+   "a01fcbd090": 2
+  },
+  "csv": {
+   "a01fcbd090": 2
+  },
+  "every": {
+   "3922670d9f": 2
+  },
+  "every text": {
+   "3922670d9f": 2
+  },
+  "file": {
+   "3922670d9f": 2
+  },
+  "files": {
+   "a01fcbd090": 2
+  },
+  "files into": {
+   "a01fcbd090": 2
+  },
+  "folder": {
+   "a01fcbd090": 2
+  },
+  "folder called": {
+   "a01fcbd090": 2
+  },
+  "get": {
+   "3922670d9f": 2
+  },
+  "get rid": {
+   "3922670d9f": 2
+  },
+  "into": {
+   "a01fcbd090": 2
+  },
+  "into a": {
+   "a01fcbd090": 2
+  },
+  "of": {
+   "3922670d9f": 2
+  },
+  "of every": {
+   "3922670d9f": 2
+  },
+  "rid": {
+   "3922670d9f": 2
+  },
+  "rid of": {
+   "3922670d9f": 2
+  },
+  "shift": {
+   "a01fcbd090": 2
+  },
+  "shift the": {
+   "a01fcbd090": 2
+  },
+  "text": {
+   "3922670d9f": 2
+  },
+  "text file": {
+   "3922670d9f": 2
+  },
+  "the": {
+   "a01fcbd090": 2
+  }
+ },
+ "pointed": {},
+ "prev_n": {
+  "a": 2,
+  "called": 2,
+  "csv": 2,
+  "every": 2,
+  "files": 2,
+  "folder": 2,
+  "get": 2,
+  "into": 2,
+  "of": 2,
+  "rid": 2,
+  "shift": 2,
+  "text": 2,
+  "the": 2
+ },
+ "value_rule": [
+  2,
+  2
+ ],
+ "word_n": {
+  "a": 2,
+  "called": 2,
+  "csv": 2,
+  "every": 2,
+  "file": 2,
+  "files": 2,
+  "folder": 2,
+  "get": 2,
+  "into": 2,
+  "of": 2,
+  "rid": 2,
+  "shift": 2,
+  "text": 2,
+  "the": 3
+ }
+}
