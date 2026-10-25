@@ -177,6 +177,7 @@ class Lexicon:
         self.cases = {}                         # 'case' mode: sentence shape -> (pid, constraints)
         self.confirmed = Counter()              # word -> confirmed uses (the result was what the person wanted)
         self.pointed = Counter()                # word -> uses in which the person pointed at the objects
+        self.dmeaning = {}                      # word -> atoms every second object it was used with had in common
         self.defined = Counter()                # word -> explanations by the person
 
     # -- learning from one confirmed or taught interpretation
@@ -201,6 +202,12 @@ class Lexicon:
         for pair in self.pairs(toks, dest, values):
             if pid is not None:
                 self.pattern_of[pair][pid] += 1
+        if dest in view:                                    # the second object exists: words may describe it
+            dcur = {repr(a) for a in view[dest][0]}
+            for w in set(toks):
+                if w in self.neutral or w in view or w == dest:
+                    continue
+                self.dmeaning[w] = dcur if w not in self.dmeaning else (self.dmeaning[w] & dcur)
         for w in set(toks):
             if w in values:
                 self.value_rule[1] += 1
@@ -253,7 +260,7 @@ class Lexicon:
             vals = [t for t in toks if t in values]
             named = {repr(a) for o, (at, vs) in view.items() if vs & set(vals) for a in at if a[0] == 'U' and a[3] in vals}
             keys = {a.split(',')[2] for a in named}
-            cons = {a for a in cons if a.split(',')[2] not in keys} | named
+            cons = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] in keys)} | named
             sel = sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
             return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': [], 'contradiction': False}
         pids = sorted({q for c in self.pattern_of.values() for q in c})
@@ -347,7 +354,7 @@ class Lexicon:
                 'meaning': {w: sorted(m) for w, m in self.meaning.items()}, 'neutral': sorted(self.neutral),
                 'marker': dict(self.marker), 'prev_n': dict(self.prev_n), 'value_rule': self.value_rule,
                 'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed),
-                'pointed': dict(self.pointed), 'defined': dict(self.defined)}
+                'pointed': dict(self.pointed), 'defined': dict(self.defined), 'dmeaning': {w: sorted(m) for w, m in self.dmeaning.items()}}
 
     @staticmethod
     def from_json(d):
@@ -360,6 +367,7 @@ class Lexicon:
         x.cases = {k: (v[0], v[1]) for k, v in d['cases'].items()}
         x.confirmed = Counter(d.get('confirmed', {}))
         x.pointed, x.defined = Counter(d.get('pointed', {})), Counter(d.get('defined', {}))
+        x.dmeaning = {w: set(m) for w, m in d.get('dmeaning', {}).items()}
         return x
 
 
@@ -506,6 +514,9 @@ class Mind:
                 self._teach_from_demo(toks, command)
                 break
             r = self._resolve_dest(self.lex.interpret(toks, view, True), toks, view)
+            if pointed is not None and r['pid'] in self.patterns:
+                r = {**r, 'selected': [o for o in pointed['objects'] if o in view], 'dest': pointed['dest'] or r['dest'],
+                     'contradiction': False, 'weak_selection': False, 'support': True}
             if r['unknown'] and self.user is not None:
                 if not self.patterns or '<shape>' in r['unknown']:
                     self._teach_from_demo(toks, command)          # nothing known yet to explain it with: be shown
@@ -647,8 +658,15 @@ class Mind:
         meta = self.pattern_meta.get(r['pid'] or '', {})
         if r.get('dest') or meta.get('D_by') != 'value':
             return r
-        cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and vs & set(toks)
-                 and any(a[0] == 'U' and a[2] == 'a0' and a[3] == meta.get('D_kind') for a in at)]
+        kind_ok = lambda at: any(a[0] == 'U' and a[2] == 'a0' and a[3] == meta.get('D_kind') for a in at)
+        cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and vs & set(toks) and kind_ok(at)]
+        if len(cands) != 1:                                   # no token names it: words that describe the second object
+            cons = set()
+            for t in toks:
+                if t not in view and t not in self.lex.neutral and self.lex.strong(t) and self.lex.dmeaning.get(t):
+                    cons |= self.lex.dmeaning[t]
+            if cons:
+                cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and kind_ok(at) and cons <= {repr(a) for a in at}]
         return {**r, 'dest': cands[0]} if len(cands) == 1 else r
 
     def _needs_dest(self, pid):

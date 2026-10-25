@@ -1,0 +1,8 @@
+{"t": 1792909468.018, "task": "d30-t0", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["close", ["p1"]]]}
+{"t": 1792909468.025, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792909468.047, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792909468.048, "task": "d30-t1", "event": "ask_explain", "word": "filter", "answer": null, "learned": false}
+{"t": 1792909468.052, "task": "d30-t1", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["filter", ["p2", "ext:json"]]]}
+{"t": 1792909468.058, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792909468.083, "task": "d30-t2", "event": "ask_explain", "word": "dismiss", "answer": "close", "learned": false}
+{"t": 1792909468.088, "task": "d30-t2", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["close", ["p2"]]]}

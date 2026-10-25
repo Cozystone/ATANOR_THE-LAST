@@ -124,6 +124,20 @@ class ViewTeacher(Teacher):
         self.help['point'] += 1
         return {'objects': list(self.truth), 'dest': self.task.get('value')}
 
+    def explain(self, word):
+        """A verb word -> the plain verb; a value synonym -> the value's own word; a function word -> '' (nothing)."""
+        self.help['explain'] += 1
+        ph = self.task.get('phrases')
+        if not ph:
+            return None
+        if word in ph['verb'] and word != ph['base']:
+            return ph['base']
+        if word in ph['selector_synonym'] and self.task.get('value'):
+            return self.task['value'].split(':', 1)[1]
+        if word in ph['function']:
+            return ''
+        return None
+
     def _steps(self, objs):
         t, v = self.task['tool'], self.task.get('value')
         return [(t, (o, v)) if v else (t, (o,)) for o in objs]
