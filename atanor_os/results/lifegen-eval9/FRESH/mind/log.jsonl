@@ -1,0 +1,7 @@
+{"t": 1792915266.615, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["hut"]], ["shove", ["hut/ember28.csv", "ember28.csv"]]]}
+{"t": 1792915268.008, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 9}
+{"t": 1792915284.324, "task": "d30-t1", "event": "ask_check", "unknown": ["clone", "every", "file", "new", "folder", "named", "fort"], "ok": false}
+{"t": 1792915284.325, "task": "d30-t1", "event": "ask_explain", "word": "clone", "answer": "copy", "learned": false}
+{"t": 1792915284.326, "task": "d30-t1", "event": "ask_explain", "word": "every", "answer": "", "learned": true}
+{"t": 1792915285.85, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["fort"]], ["replicate", ["fort/dahlia30.txt", "dahlia30.txt"]]]}
+{"t": 1792915287.854, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
