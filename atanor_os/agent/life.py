@@ -29,6 +29,7 @@ from .concepts import FAMILIES_ALL, apply_raw, atoms, induce
 from .planner import plan
 
 LAB_COST = 1 / 20          # provided preference: one question to the person costs as much as 20 lab actions
+DECISIVE = 0.75            # provided: a unit is decisive about the change when it mostly goes with one change
 HELP_COST = {'explain': 1, 'check': 1, 'point': 1, 'demonstrate': 2, 'demonstrate_goal': 3}
 BUDGET = {'actions': 40, 'predictions': 400000, 'nodes': 800, 'depth': 12, 'seconds': 120.0}
 
@@ -174,6 +175,8 @@ class Lexicon:
         self.value_rule = [0, 0]
         self.cases = {}                         # 'case' mode: sentence shape -> (pid, constraints)
         self.confirmed = Counter()              # word -> confirmed uses (the result was what the person wanted)
+        self.pointed = Counter()                # word -> uses in which the person pointed at the objects
+        self.defined = Counter()                # word -> explanations by the person
 
     # -- learning from one confirmed or taught interpretation
     def learn(self, toks, view, pid, selected, dest):
@@ -194,14 +197,34 @@ class Lexicon:
                 self.pattern_of[w][pid] += 1
             if w not in self.neutral:
                 self.meaning[w] = cur if w not in self.meaning else (self.meaning[w] & cur)
+        for pair in self.pairs(toks, dest, values):
+            if pid is not None:
+                self.pattern_of[pair][pid] += 1
         for w in set(toks):
             if w in values:
                 self.value_rule[1] += 1
                 self.value_rule[0] += int(bool(selected) and set(selected) <= {o for o, (_, v) in view.items() if v == w})
         self.cases[self._shape(toks, view, dest)] = (pid, sorted(cur))
 
+    @staticmethod
+    def pairs(toks, dest=None, values=()):
+        """Adjacent word pairs that name neither the destination nor an observed value."""
+        return [f'{a} {b}' for a, b in zip(toks, toks[1:]) if dest not in (a, b) and a not in values and b not in values]
+
+    def _share(self, unit, pids):
+        pc = self.pattern_of.get(unit)
+        if not pc:
+            return None, 0.0
+        n = sum(pc.values())
+        top, c = pc.most_common(1)[0]
+        return top, (c + 0.1) / (n + 0.1 * len(pids))
+
+    def strong(self, unit):
+        return self.confirmed[unit] + self.pointed[unit] + 3 * self.defined[unit] >= 3
+
     def learn_word(self, word, pids=None, meaning=None, neutral=False):
         self.word_n[word] += 1
+        self.defined[word] += 1
         if neutral:
             self.neutral.add(word)
             self.meaning.pop(word, None)
@@ -233,10 +256,20 @@ class Lexicon:
         pids = sorted({q for c in self.pattern_of.values() for q in c})
         logp = {q: 0.0 for q in pids}
         informative, decisive = 0, 0.0
-        for t in toks:
+        units, i = [], 0
+        while i < len(toks):
+            pair = f'{toks[i]} {toks[i + 1]}' if i + 1 < len(toks) else None
+            top, share = self._share(pair, pids) if pair else (None, 0.0)
+            if pair and share >= DECISIVE and dest not in (toks[i], toks[i + 1]) and toks[i] not in values and toks[i + 1] not in values:
+                units.append(pair)                          # the pair speaks for both words
+                i += 2
+                continue
+            units.append(toks[i])
+            i += 1
+        for t in units:
             pc = self.pattern_of.get(t)
             if t in values or t == dest or not pc or t in self.neutral:
-                continue                                    # a word that names objects does not name the change
+                continue
             informative += 1
             n = sum(pc.values())
             probs = [(pc[q] + 0.1) / (n + 0.1 * len(pids)) for q in pids]
@@ -249,27 +282,32 @@ class Lexicon:
         if informative and pids:
             pid = max(logp, key=logp.get)
             tops = set()
-            for t in toks:
-                pc = self.pattern_of.get(t)
-                if t in values or t == dest or not pc or t in self.neutral:
+            for t in units:
+                if t in values or t == dest or t in self.neutral:
                     continue
-                n = sum(pc.values())
-                probs = [(pc[q] + 0.1) / (n + 0.1 * len(pids)) for q in pids]
-                ent = -sum(x * math.log(x) for x in probs) / math.log(len(pids)) if len(pids) > 1 else 0.0
-                if 1.0 - ent >= 0.3:                        # an informative word: it mostly goes with one change
-                    tops.add(pc.most_common(1)[0][0])
-            ambiguous = len(tops) != 1 or pid not in tops   # informative words disagree, or none exists
-            for t in toks:                                  # a decisive word confirmed only with another change: conflict
+                top, share = self._share(t, pids)
+                if top is not None and share >= DECISIVE:   # a decisive unit: mostly used with one change
+                    tops.add(top)
+            ambiguous = len(tops) != 1 or pid not in tops   # decisive units disagree, or none exists
+            for t in units:                                 # a decisive unit confirmed only with another change: conflict
                 pc = self.pattern_of.get(t)
                 if t in values or t == dest or not pc or t in self.neutral:
                     continue
                 top, n = pc.most_common(1)[0]
                 if top != pid and n / sum(pc.values()) >= 0.9 and self.confirmed.get(f'{t}|{top}', 0) and not self.confirmed.get(f'{t}|{pid}', 0):
                     ambiguous = True
-        cons = set()
+        change_words = {w for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values for w in u.split(' ')}
+        weak_change = not any(self.strong(u) for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values and u not in self.neutral)
+        cons, weak_selection, support = set(), False, any(t in values and t != dest for t in toks)
         for t in toks:
-            if t != dest and t not in self.neutral and self.word_n[t] >= 2 and self.meaning.get(t):
-                cons |= self.meaning[t]
+            if t == dest or t in values or t in self.neutral or t in change_words or self.word_n[t] == 0:
+                continue
+            if self.strong(t):
+                if self.meaning.get(t):
+                    cons |= self.meaning[t]
+                    support = True
+            else:
+                weak_selection = True                       # an object word with little evidence: ask or hold
         hits, opp = self.value_rule
         if opp >= 2 and hits / opp >= 0.8:
             for t in toks:
@@ -280,7 +318,7 @@ class Lexicon:
         contradiction = len(a2) > 1
         sel = [] if contradiction else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
         return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous,
-                'decisive': decisive}
+                'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support}
 
     def _dest(self, toks, values):
         best, best_s = None, 0.0
@@ -297,7 +335,8 @@ class Lexicon:
         return {'mode': self.mode, 'word_n': dict(self.word_n), 'pattern_of': {w: dict(c) for w, c in self.pattern_of.items()},
                 'meaning': {w: sorted(m) for w, m in self.meaning.items()}, 'neutral': sorted(self.neutral),
                 'marker': dict(self.marker), 'prev_n': dict(self.prev_n), 'value_rule': self.value_rule,
-                'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed)}
+                'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed),
+                'pointed': dict(self.pointed), 'defined': dict(self.defined)}
 
     @staticmethod
     def from_json(d):
@@ -309,6 +348,7 @@ class Lexicon:
         x.marker, x.prev_n, x.value_rule = Counter(d['marker']), Counter(d['prev_n']), list(d['value_rule'])
         x.cases = {k: (v[0], v[1]) for k, v in d['cases'].items()}
         x.confirmed = Counter(d.get('confirmed', {}))
+        x.pointed, x.defined = Counter(d.get('pointed', {})), Counter(d.get('defined', {}))
         return x
 
 
@@ -424,7 +464,7 @@ class Mind:
         if confirmed:                                           # only a confirmed use teaches what the words mean
             self.lex.learn(toks, view_from_json(interp['view_at_start']), interp['pid'], interp['selected'], interp['dest'])
         if confirmed:
-            for w in set(toks):
+            for w in set(toks) | set(self.lex.pairs(toks, interp['dest'])):
                 self.lex.confirmed[w] += 1
                 self.lex.confirmed[f"{w}|{interp['pid']}"] += 1    # confirmed together with this change
         elif confirmed is False and self.user is not None:
@@ -440,8 +480,12 @@ class Mind:
     def _understand(self, toks, command):
         view = self.view()
         asked_words, checked, rejected = set(), set(), set()
+        pointed, accepted = None, None
         key = lambda r: (r['pid'], tuple(r['selected']), r['dest'])
         for _ in range(8):
+            taught = self._from_taught(command, view)
+            if taught is not None:
+                return taught                                 # the person showed what this command means: do that
             if self.fixed:                                    # fixed human procedure: always ask to be shown
                 self._teach_from_demo(toks, command)
                 break
@@ -482,6 +526,31 @@ class Mind:
                     break
                 continue
             needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
+            weak = r.get('weak_change') or r.get('weak_selection')
+            if self.user is None and ((weak and self._irreversible(r['pid'])) or not r.get('support')):
+                self.counts['refused_weak'] += 1
+                self.log(event='refuse_weak', why='irreversible' if r.get('support') else 'no selection support')
+                return None
+            if self.user is not None and (r.get('weak_selection') or not r.get('support')) and pointed is None:
+                ans = self.user.point(command)
+                self.counts['point'] += 1
+                self.log(event='ask_point', why='weak selection')
+                self._learn_pointing(toks, view, ans)
+                pointed = ans
+                continue
+            if self.user is not None and r.get('weak_change') and key(r) not in checked and not r['unknown']:
+                checked.add(key(r))
+                rr = {**r, 'selected': [o for o in pointed['objects'] if o in view], 'dest': pointed['dest'] or r['dest']} if pointed else r
+                ok = self.user.check(self._proposal(rr))
+                self.counts['check'] += 1
+                self.methods['check'][0] += int(ok)
+                self.methods['check'][1] += 1
+                self.log(event='ask_check', why='weak change', ok=ok)
+                if not ok:
+                    rejected.add(key(r))
+                    self._teach_from_demo(toks, command)
+                    return self._from_taught(command, view)
+                accepted = r['pid']
             if r['contradiction'] or not r['selected'] or (needs_dest and not r['dest']):
                 if self.user is None:
                     return None
@@ -491,13 +560,17 @@ class Mind:
                 if needs_dest and not ans['dest']:
                     self._teach_from_demo(toks, command)          # no destination meant: the change itself was misread
                     continue
-                self.lex.learn(toks, view, r['pid'], ans['objects'], ans['dest'])
+                self._learn_pointing(toks, view, ans)
+                pointed = ans
                 continue
             break
         taught = self._from_taught(command, view)
         if taught is not None:
             return taught                                     # the person showed what this command means
         r = self.lex.interpret(toks, view, True)
+        if pointed is not None and r['pid'] in self.patterns:
+            r = {**r, 'selected': [o for o in pointed['objects'] if o in view], 'dest': pointed['dest'] or r['dest'],
+                 'contradiction': False, 'weak_selection': False}
         if not self._complete(r) or key(r) in rejected:
             return None                                       # never act on an interpretation the person rejected
         if r['unknown'] and self.user is None:
@@ -561,12 +634,24 @@ class Mind:
     def _complete(self, r):
         if r['pid'] is None or r['pid'] not in self.patterns or not r['selected'] or r['contradiction']:
             return False
+        if self.user is None:
+            weak = r.get('weak_change') or r.get('weak_selection')
+            if (weak and self._irreversible(r['pid'])) or not r.get('support', True):
+                return False                                  # nobody to ask: no irreversible or unsupported guess
         return bool(r['dest']) or not any(it[0] != 'o' for it in self.patterns[r['pid']])
 
     def _result(self, r, view):
         needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
         return {'pid': r['pid'], 'selected': r['selected'], 'dest': r['dest'] if needs_dest else None,
                 'view_at_start': {o: ([repr(a) for a in at], v) for o, (at, v) in view.items()}}
+
+    def _learn_pointing(self, toks, view, ans):
+        """The person pointed at the objects: the words learn what those objects share; no change is attributed."""
+        self.lex.learn(toks, view, None, ans['objects'], ans['dest'])
+        values = {v for _, v in view.values()}
+        for w in set(toks):
+            if w != ans['dest'] and w not in values:
+                self.lex.pointed[w] += 1
 
     def _learn_explanation(self, word, answer, view):
         if answer == '':
@@ -576,7 +661,7 @@ class Mind:
             return False
         ptoks = tokens(answer)
         r = self.lex.interpret(ptoks, view, True)
-        known_pid = r['pid'] if (r['pid'] in self.patterns and not r.get('ambiguous') and r.get('decisive', 0) >= 0.5) else None
+        known_pid = r['pid'] if (r['pid'] in self.patterns and not r.get('ambiguous') and r.get('decisive', 0) >= 0.3) else None
         cons = set()
         values = {v for _, v in view.values()}
         for t in ptoks:
@@ -753,8 +838,10 @@ class Mind:
         self.counts['subgoals'] += 1
         for l in goal.must:
             if not l.holds(state):
-                group = [m for m in goal.must if set(m.args) & set(l.args) or m.args[0].rsplit('/', 1)[-1] == l.args[0].rsplit('/', 1)[-1]]
-                sub = Goal(goal.id + '-sub', group, goal.keep, goal.capabilities, goal.budget, sorted({a for m in group for a in m.args}))
+                names = {a.rsplit('/', 1)[-1] for a in l.args}
+                group = [m for m in goal.must if set(m.args) & set(l.args) or {a.rsplit('/', 1)[-1] for a in m.args} & names]
+                paths = {a for m in group for a in m.args} | {q for q in goal.universe if q.rsplit('/', 1)[-1] in names}
+                sub = Goal(goal.id + '-sub', group, goal.keep, goal.capabilities, goal.budget, sorted(paths))
                 return plan(state, sub, self.model, ws.actions(self._focus(sub)), avoid, cap)
         return p, pst
 
