@@ -1,0 +1,10 @@
+{"t": 1792929791.876, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["grotto"]], ["replicate", ["grotto/birch30.json", "birch30.json"]]]}
+{"t": 1792929792.735, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792929794.852, "task": "d30-t1", "event": "ask_explain", "word": "discard", "answer": "delete", "learned": false}
+{"t": 1792929794.853, "task": "d30-t1", "event": "ask_explain", "word": "spreadsheets", "answer": "csv files", "learned": true}
+{"t": 1792929795.098, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["garnet30.csv"]]]}
+{"t": 1792929796.173, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792929798.533, "task": "d30-t2", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792929798.534, "task": "d30-t2", "event": "ask_explain", "word": "files", "answer": null, "learned": false}
+{"t": 1792929799.705, "task": "d30-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["hangar"]], ["shove", ["hangar/amber30.md", "amber30.md"]]]}
+{"t": 1792929802.291, "task": "d30-t2", "event": "rehearsal", "ok": true, "steps": 7}
