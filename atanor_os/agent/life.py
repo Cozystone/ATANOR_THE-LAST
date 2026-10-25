@@ -291,6 +291,30 @@ class Lexicon:
             shared = {x for x in set.intersection(*insel0) if x.split(',')[2:3] != [key]} if insel0 else set()
             return not any(shared <= {repr(x) for x in at} and a in {repr(x) for x in at} for at, _ in view.values())
         bringers = {i for k, am in alts.items() for a, i in am.items() if absent(k, a)}
+        sel_atoms = [{repr(x) for x in view[o][0]} for o in selected if o in view]
+        by_attr = defaultdict(set)
+        for sa in sel_atoms:
+            for a in sa:
+                if self.valued(a):
+                    by_attr[a.split(',')[2]].add(a)
+        mixed = any(len(v) > 1 for v in by_attr.values())   # the selected objects differ on a naming attribute
+        residual, residual_word = [], None
+        if mixed:
+            vals_here = set().union(*[vs for _, vs in view.values()])
+            named = set()
+            for t in toks:
+                if t == dest or t in view:
+                    continue
+                if t in vals_here:
+                    named |= {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+                elif self.strong(t):
+                    named |= self.naming_atoms(t)
+            residual = [o for o in selected if o in view and not named & {repr(a) for a in view[o][0]}]
+            new = {t for t in toks if t != dest and t not in view and t not in vals_here and t not in self.neutral
+                   and len(self.uses.get(t, [])) < 3 and not self.join_n[t]}   # a word seen standing between alternatives is not it
+            sub = [{repr(a) for a in view[o][0]} for o in residual]
+            if len(new) == 1 and residual and len(residual) < len([o for o in selected if o in view]) and any(self.valued(a) for a in set.intersection(*sub)):
+                residual_word = next(iter(new))
         alt_atoms = {a for am in alts.values() for a in am}
         insel = [{repr(x) for x in view[o][0]} for o in selected if o in view]
         akey = next(iter(alts)) if len(alts) == 1 else None
@@ -335,6 +359,11 @@ class Lexicon:
                             continue                        # nothing it names is here today: this use says nothing about it
                     elif len(mine) < len(sel_in):
                         own = [mine]                        # a mixed selection: the word learns from the part it names
+                if not own and mixed and w not in values and len(self.uses.get(w, [])) < 3:
+                    if w == residual_word and residual:
+                        own = [residual]                    # the part nothing read explains belongs to the one new word
+                    else:
+                        continue                            # a new word's part in a mixed selection is unknown: no evidence yet
                 if own:                                     # a value word in a union learns from its own part
                     sub = [view[o][0] for o in own[0] if o in view]
                     part = {repr(a) for a in frozenset.intersection(*sub)} if sub else cur

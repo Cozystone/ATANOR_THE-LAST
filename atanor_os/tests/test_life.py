@@ -389,3 +389,32 @@ def test_a_value_word_learns_only_from_its_own_part_of_a_mixed_selection():
     for _ in range(6):
         L.learn(tokens('copy the markdown files and logz'), nomd, 'CP', ['b.log'], None)
     assert md in L.meaning['markdown'] and "('U', 0, 'a2', 'log')" not in L.meaning['markdown'], L.meaning['markdown']
+
+
+def test_a_new_word_first_heard_in_mixed_selections_still_forms_its_meaning():
+    from atanor_os.agent.life import Lexicon, tokens
+    def at(ext):
+        return frozenset({('N', 0), ('U', 0, 'a0', 1), ('U', 0, 'a1', 0), ('U', 0, 'a2', ext)})
+    v = {'a.json': (at('json'), frozenset({'json'})), 'b.csv': (at('csv'), frozenset({'csv'})), 'c.md': (at('md'), frozenset({'md'}))}
+    L = Lexicon()
+    for _ in range(2):
+        L.learn(tokens('move the json files and spreadsheets'), v, 'MOV', ['a.json', 'b.csv'], None)   # first heard here
+    for _ in range(3):
+        L.learn(tokens('move the spreadsheets'), v, 'MOV', ['b.csv'], None)
+    assert "('U', 0, 'a2', 'csv')" in L.meaning['spreadsheets'], L.meaning['spreadsheets']
+
+
+def test_the_part_nothing_read_explains_belongs_to_the_one_new_word():
+    """'markdown' is heard only in 'the markdown and txt files': txt explains the txt files, so the md files are its."""
+    from atanor_os.agent.life import Lexicon, tokens
+    def at(ext):
+        return frozenset({('N', 0), ('U', 0, 'a0', 1), ('U', 0, 'a1', 0), ('U', 0, 'a2', ext)})
+    v = {'a.md': (at('md'), frozenset({'md'})), 'b.txt': (at('txt'), frozenset({'txt'})), 'c.csv': (at('csv'), frozenset({'csv'}))}
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the txt files'), v, 'CP', ['b.txt'], None)
+        L.learn(tokens('copy the csv and txt files'), v, 'CP', ['b.txt', 'c.csv'], None)      # 'and' is known by now
+        for w in ('copy', 'the', 'txt', 'files', 'csv', 'and'):
+            L.confirmed[w] += 1
+    L.learn(tokens('copy the markdown and txt files'), v, 'CP', ['a.md', 'b.txt'], None)
+    assert "('U', 0, 'a2', 'md')" in L.meaning['markdown'], L.meaning.get('markdown')
