@@ -1,0 +1,5 @@
+{"t": 1792921857.875, "task": "d30-t0", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["sift", ["ext:json", "p1"]]]}
+{"t": 1792921857.901, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792921857.925, "task": "d30-t1", "event": "ask_explain", "word": "close", "answer": null, "learned": false}
+{"t": 1792921857.929, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["close", ["p1"]]]}
+{"t": 1792921857.935, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 1}

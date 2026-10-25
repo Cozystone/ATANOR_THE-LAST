@@ -1,0 +1,9 @@
+{"t": 1792923926.868, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["southoasis"]], ["replicate", ["southoasis/amber30.json", "amber30.json"]]]}
+{"t": 1792923940.646, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792923941.856, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792923945.062, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792923946.269, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792923979.012, "task": "d30-t1", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": false}
+{"t": 1792923979.014, "task": "d30-t1", "event": "ask_explain", "word": "files", "answer": null, "learned": false}
+{"t": 1792923980.144, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["southzenith"]], ["shove", ["southzenith/garnet30.md", "garnet30.md"]]]}
+{"t": 1792923982.519, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
