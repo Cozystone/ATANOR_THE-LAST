@@ -502,8 +502,37 @@ class Mind:
         st = ws.observe(objs)
         return {o: (frozenset(a for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E'), names_of(self.body, st[o])) for o in objs}
 
+    # ---- unfinished goals (kept across restarts until a person has heard them)
+    def pending_goals(self):
+        p = self.dir / 'pending.json'
+        return json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+
+    def _set_pending(self, goals):
+        (self.dir / 'pending.json').write_text(json.dumps(goals, indent=1), encoding='utf-8')
+
+    def resume(self, goal):
+        """With a person present: bring up one unfinished goal. Returns None if it is no longer wanted."""
+        self._set_pending([g for g in self.pending_goals() if g['id'] != goal['id']])
+        if self.user is None:
+            raise ValueError('an unfinished goal is only resumed with the person')
+        wanted = self.user.still_wanted(goal['command'])
+        self.counts['recall'] += 1
+        self.log(event='recall', goal=goal['id'], wanted=wanted)
+        if not wanted:
+            return None
+        return self.do(goal['command'], goal['id'] + '/r')
+
     # ---- one command, start to finish (resumable)
     def do(self, command, task_id):
+        r = self._do(command, task_id)
+        why = r.get('reason') or ('not achieved' if r.get('achieved') is False else None)
+        if why in ('not understood', 'no goal', 'not achieved') and self.user is None and not task_id.endswith('/r'):
+            goals = [g for g in self.pending_goals() if g['id'] != task_id]
+            self._set_pending(goals + [{'id': task_id, 'command': command, 'why': why}])
+            self.log(event='unfinished', goal=task_id, why=why)
+        return r
+
+    def _do(self, command, task_id):
         self.task_id = task_id
         t = self._task()
         if t and t.get('status') == 'in_progress' and t['id'] == task_id:

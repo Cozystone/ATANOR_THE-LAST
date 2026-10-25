@@ -116,6 +116,10 @@ def run_day(cond, seed, day_no, root, days=30):
                      'help_score': sum({'explain': 1, 'point': 1, 'check': 1, 'demonstrate': 2, 'demonstrate_goal': 3}.get(q, 0) * n
                                        for q, n in helped.items()),
                      'counts': counts, 'seconds': round(time.time() - t0, 2)})
+    # before the person leaves, the core brings up what it left unfinished on earlier days
+    if cond != 'HAND' and day['user']:
+        resume_goals(root, seed, days, day_no, teacher, lambda k: Mind(home, root / 'mind', root / 'lab', user=teacher, generalize=cond != 'CASE',
+                     lexicon_mode='case' if cond == 'CASE' else 'general', seed=day_no * 10 + 9 - k), life)
     with open(root / 'days.jsonl', 'a', encoding='utf-8') as f:
         for r in rows:
             f.write(json.dumps(r, default=str) + '\n')
@@ -124,6 +128,41 @@ def run_day(cond, seed, day_no, root, days=30):
         if (root / part).exists():
             shutil.copytree(root / part, snap / part, dirs_exist_ok=True)
     return rows
+
+
+HELP_SCORE = {'explain': 1, 'point': 1, 'check': 1, 'recall': 1, 'demonstrate': 2, 'demonstrate_goal': 3}
+
+
+def resume_goals(root, seed, days, day_no, teacher, make_mind, life_fn, feasible=None):
+    """The person is here: the core brings up the goals it left unfinished. Their rows go to resumed.jsonl, apart from
+    the day's tasks (a held task stays held in days.jsonl)."""
+    L = life_fn(seed, days)
+    out = []
+    for k, g in enumerate(make_mind(0).pending_goals()):
+        d0, t0_ = (int(x[1:]) for x in g['id'].split('-'))
+        task = L[d0 - 1]['tasks'][t0_]
+        mind = make_mind(k)
+        if feasible is not None and not feasible(task):
+            mind._set_pending([x for x in mind.pending_goals() if x['id'] != g['id']])
+            out.append({'day': day_no, 'goal': g['id'], 'delay': day_no - d0, 'why': g['why'], 'tool': task['tool'], 'outcome': 'infeasible',
+                        'success': False, 'help': {}, 'help_score': 0})
+            continue
+        teacher.begin(task)
+        h0, t0 = dict(teacher.help), time.time()
+        r = mind.resume(g)
+        ok = r is not None and teacher.judge()
+        helped = {q: teacher.help[q] - h0.get(q, 0) for q in teacher.help if teacher.help[q] - h0.get(q, 0)}
+        outcome = 'no longer wanted' if r is None else 'success' if ok else (
+            'wrong' if r.get('achieved') is not None and r.get('achieved') is not False else 'held')
+        out.append({'day': day_no, 'goal': g['id'], 'delay': day_no - d0, 'why': g['why'], 'command': g['command'], 'tool': task['tool'],
+                    'outcome': outcome, 'success': ok, 'agent': r, 'help': helped,
+                    'help_score': sum(HELP_SCORE.get(q, 0) * n for q, n in helped.items()), 'counts': dict(mind.counts),
+                    'seconds': round(time.time() - t0, 2)})
+    if out:
+        with open(Path(root) / 'resumed.jsonl', 'a', encoding='utf-8') as f:
+            for r in out:
+                f.write(json.dumps(r, default=str) + '\n')
+    return out
 
 
 def run(seed, out, conds=('LIFE', 'FRESH', 'CASE', 'HAND'), days=30):

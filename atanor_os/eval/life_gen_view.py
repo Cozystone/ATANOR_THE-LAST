@@ -148,6 +148,12 @@ def run_day(cond, seed, day_no, root, days=30):
                      'help_score': sum({'explain': 1, 'point': 1, 'check': 1, 'demonstrate': 2, 'demonstrate_goal': 3}.get(q, 0) * n
                                        for q, n in helped.items()),
                      'counts': dict(mind.counts), 'seconds': round(time.time() - t0, 2)})
+    # before the person leaves, the core brings up what it left unfinished on earlier days
+    if day['user']:
+        from .life_gen import resume_goals
+        resume_goals(root, seed, days, day_no, teacher, lambda k: Mind(home, root / 'mind', root / 'lab', user=teacher, generalize=cond != 'CASE',
+                     lexicon_mode='case' if cond == 'CASE' else 'general', seed=day_no * 10 + 9 - k), life,
+                     feasible=lambda t: _feasible(home._read(), t['tool'], t['panel'], t['value'].split(':', 1)[1] if t['value'] else None))
     with open(root / 'days.jsonl', 'a', encoding='utf-8') as f:
         for r in rows:
             f.write(json.dumps(r, default=str) + '\n')

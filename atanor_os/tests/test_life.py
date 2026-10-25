@@ -220,3 +220,30 @@ def test_a_selection_naming_no_value_is_weak():
         L.learn(tokens('copy the files'), v, 'CP', ['x.json', 'y.csv', 'z.txt'], None)
     r = L.interpret(tokens('copy the files'), v, False)
     assert r['weak_selection'] and not r['literal'], r
+
+
+def test_an_unfinished_goal_survives_restarts_and_is_brought_up_with_the_person(tmp_path):
+    """Alone, an unknown verb is held and remembered; days later, with the person, the core asks if it is still wanted and does it."""
+    ws = _home(tmp_path, ['a.csv', 'b.csv', 'c.txt'])
+    t = Teacher(ws)
+    task = {'command': 'Relocate the csv files into a folder called box.', 'tool': 'move', 'ext': 'csv', 'dest': 'box'}
+    r, ok, m = _do(ws, tmp_path, t, task, 'd1-t0', user=False)
+    assert not ok and r['reason'] == 'not understood'
+    assert [g['id'] for g in Mind(ws, tmp_path / 'mind', tmp_path / 'lab').pending_goals()] == ['d1-t0']   # after a restart
+    t.begin(task)
+    m = Mind(ws, tmp_path / 'mind', tmp_path / 'lab', user=t)
+    g = m.pending_goals()[0]
+    r = m.resume(g)
+    assert r is not None and t.judge() and t.help['recall'] == 1, (r, dict(t.help))
+    assert Mind(ws, tmp_path / 'mind', tmp_path / 'lab').pending_goals() == []
+
+
+def test_a_goal_already_done_is_not_redone(tmp_path):
+    ws = _home(tmp_path, ['a.csv', 'c.txt'])
+    t = Teacher(ws)
+    task = {'command': 'Zorp the csv files.', 'tool': 'delete', 'ext': 'csv', 'dest': None}
+    _do(ws, tmp_path, t, task, 'd1-t0', user=False)
+    (ws.root / 'a.csv').unlink()                                                     # someone else did it meanwhile
+    t.begin(task)
+    m = Mind(ws, tmp_path / 'mind', tmp_path / 'lab', user=t)
+    assert m.resume(m.pending_goals()[0]) is None and ws.kind('c.txt') == 'file'

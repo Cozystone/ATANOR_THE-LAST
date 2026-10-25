@@ -95,6 +95,11 @@ class Teacher:
         self.help['confirm'] += 1
         return self.judge()
 
+    def still_wanted(self, command):
+        """'Earlier you asked: <command>. Do you still want it?' The person wants it unless it is already the case."""
+        self.help['recall'] += 1
+        return not self.judge()
+
     def judge(self):
         t, d = self.task['tool'], self.task['dest']
         ok = True
