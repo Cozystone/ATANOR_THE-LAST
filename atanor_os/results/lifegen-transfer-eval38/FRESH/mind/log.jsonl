@@ -1,0 +1,12 @@
+{"t": 1792968950.101, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westshed"]], ["replicate", ["westshed/amber27.txt", "amber27.txt"]]]}
+{"t": 1792968951.823, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 9}
+{"t": 1792968962.057, "task": "d30-t1", "event": "ask_explain", "word": "carry", "answer": "move", "learned": false}
+{"t": 1792968962.058, "task": "d30-t1", "event": "ask_explain", "word": "and", "answer": null, "learned": false}
+{"t": 1792968962.762, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["westlarder"]], ["shove", ["westlarder/cobalt30.json", "cobalt30.json"]]]}
+{"t": 1792968978.169, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792968978.681, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792968983.288, "task": "d30-t2", "event": "ask_explain", "word": "get", "answer": "delete", "learned": false}
+{"t": 1792968983.289, "task": "d30-t2", "event": "ask_explain", "word": "rid", "answer": "delete", "learned": false}
+{"t": 1792968983.65, "task": "d30-t2", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["amber27.txt"]]]}
+{"t": 1792969036.88, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792969037.427, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}

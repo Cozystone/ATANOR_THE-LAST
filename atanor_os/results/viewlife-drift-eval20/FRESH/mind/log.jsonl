@@ -1,0 +1,11 @@
+{"t": 1792967684.534, "task": "d30-t0", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["sift", ["ext:json", "p2"]]]}
+{"t": 1792967684.541, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792967684.568, "task": "d30-t1", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792967684.568, "task": "d30-t1", "event": "ask_explain", "word": "close", "answer": null, "learned": false}
+{"t": 1792967684.572, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["close", ["p1"]]]}
+{"t": 1792967684.579, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792967684.612, "task": "d30-t2", "event": "ask_point", "why": "weak selection"}
+{"t": 1792967684.612, "task": "d30-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792967684.613, "task": "d30-t2", "event": "ask_point", "why": "no destination"}
+{"t": 1792967684.618, "task": "d30-t2", "event": "demonstration", "pid": "a360e654fc", "pattern": [["o", "filter", "all"], ["o", "kind", "panel"]], "steps": [["open", ["p3"]]]}
+{"t": 1792967684.623, "task": "d30-t2", "event": "rehearsal", "ok": true, "steps": 1}

@@ -1,0 +1,7 @@
+{"t": 1792968479.524, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["crypt"]], ["shove", ["crypt/cobalt28.txt", "cobalt28.txt"]]]}
+{"t": 1792968480.974, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 11}
+{"t": 1792968494.805, "task": "d30-t1", "event": "ask_check", "unknown": ["back", "up", "every", "markdown", "file"], "ok": false}
+{"t": 1792968494.806, "task": "d30-t1", "event": "ask_explain", "word": "back", "answer": "copy", "learned": false}
+{"t": 1792968494.807, "task": "d30-t1", "event": "ask_explain", "word": "up", "answer": "copy", "learned": false}
+{"t": 1792968495.597, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["keep"]], ["replicate", ["keep/garnet30.md", "garnet30.md"]]]}
+{"t": 1792968496.604, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
