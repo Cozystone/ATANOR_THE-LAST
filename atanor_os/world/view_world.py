@@ -60,7 +60,26 @@ class ViewWorkspace:
         return {'kind': p['kind'], 'filter': p['filter'], 'sort': p['sort'], 'group': p['group'], 'value': '-'}
 
     def tools(self):
-        return dict(TOOLS)
+        t = dict(TOOLS)
+        if 'filter_retired' in self.drift:
+            t['sift'] = 2
+        if 'sort_retired' in self.drift:
+            t['rank'] = 2
+        return t
+
+    def _sift(self, spec, v, p):
+        """Changed world only: filters, value first."""
+        if 'filter_retired' not in self.drift or spec.get(p, {}).get('kind') != 'panel' or not v.startswith('ext:'):
+            return False
+        spec[p]['filter'] = v[4:]
+        return True
+
+    def _rank(self, spec, k, p):
+        """Changed world only: sorts, key first."""
+        if 'sort_retired' not in self.drift or p not in spec or not k.startswith('key:'):
+            return False
+        spec[p]['sort'] = k[4:]
+        return True
 
     def existing(self):
         """Every object the screen has: panels (open or not) and the value objects tools take."""
@@ -96,10 +115,11 @@ class ViewWorkspace:
         spec = self._read()
         return {o: self.attrs_of(spec, o) for o in self.universe(paths)}
 
-    @staticmethod
-    def actions(universe):
+    def actions(self_or_universe, universe=None):
+        tools = self_or_universe.tools() if universe is not None else TOOLS
+        universe = self_or_universe if universe is None else universe
         out = []
-        for tool, ar in TOOLS.items():
+        for tool, ar in tools.items():
             if ar == 1:
                 out += [(tool, (a,)) for a in universe]
             else:
@@ -108,7 +128,8 @@ class ViewWorkspace:
 
     def execute(self, tool, args, capabilities):
         t0 = time.perf_counter()
-        if tool not in TOOLS or len(args) != TOOLS[tool] or len(set(args)) != len(args):
+        tools = self.tools()
+        if tool not in tools or len(args) != tools[tool] or len(set(args)) != len(args):
             raise ValueError('invalid action')
         cap = CAPABILITY.get(tool)
         if cap and not capabilities.get(cap):
@@ -134,16 +155,14 @@ class ViewWorkspace:
         del spec[p]
         return True
 
-    @staticmethod
-    def _filter(spec, p, v):
-        if spec.get(p, {}).get('kind') != 'panel' or not v.startswith('ext:'):
+    def _filter(self, spec, p, v):
+        if 'filter_retired' in self.drift or spec.get(p, {}).get('kind') != 'panel' or not v.startswith('ext:'):
             return False
         spec[p]['filter'] = v[4:]
         return True
 
-    @staticmethod
-    def _sort(spec, p, k):
-        if p not in spec or not k.startswith('key:'):
+    def _sort(self, spec, p, k):
+        if 'sort_retired' in self.drift or p not in spec or not k.startswith('key:'):
             return False
         spec[p]['sort'] = k[4:]
         return True

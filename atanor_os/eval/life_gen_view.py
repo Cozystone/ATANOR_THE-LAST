@@ -58,10 +58,17 @@ def _apply(spec, tool, p, val):
         spec[p][tool] = val
 
 
-def life(seed, days=30):
+CHANGES = ['filter_retired', 'sort_retired']
+
+
+def life(seed, days=30, drift=True):
     rng = random.Random(f'viewlife-{seed}')
-    out = []
+    change_days = sorted(rng.sample(range(8, days), 2)) if drift and days > 10 else []
+    changes = rng.sample(CHANGES, 2)
+    out, cur = [], []
     for day in range(1, days + 1):
+        if day in change_days:
+            cur = cur + [changes[change_days.index(day)]]
         user = day <= 2 or day % 4 != 0
         spec = json.loads(json.dumps(START))
         tasks = []
@@ -98,7 +105,7 @@ def life(seed, days=30):
                           'phrases': {'verb': [w for w in verb if not w.startswith('{')], 'base': tool,
                                       'selector_synonym': [w for w in words if w not in (val, 'files')], 'function': sorted(FUNCTION)}})
             _apply(spec, tool, p, val)
-        out.append({'day': day, 'user': user, 'drift': [], 'tasks': tasks})
+        out.append({'day': day, 'user': user, 'drift': list(cur), 'tasks': tasks})
     return out
 
 
@@ -116,6 +123,7 @@ def run_day(cond, seed, day_no, root, days=30):
     if (root / 'view').exists():
         shutil.rmtree(root / 'view')
     home = ViewWorkspace(root / 'view', data, spec=json.loads(json.dumps(START)))        # the screen restarts each morning
+    home.drift = frozenset(day['drift'])
     if cond == 'FRESH' and (root / 'mind').exists():
         shutil.rmtree(root / 'mind')
     teacher = ViewTeacher(home)
@@ -123,7 +131,7 @@ def run_day(cond, seed, day_no, root, days=30):
     for k, task in enumerate(day['tasks']):
         spec = home._read()
         if not _feasible(spec, task['tool'], task['panel'], task['value'].split(':', 1)[1] if task['value'] else None):
-            rows.append({'day': day_no, 'task': k, 'command': task['command'], 'tool': task['tool'], 'user': day['user'], 'drift': [],
+            rows.append({'day': day_no, 'task': k, 'command': task['command'], 'tool': task['tool'], 'user': day['user'], 'drift': day['drift'],
                          'success': False, 'outcome': 'infeasible', 'agent': {}, 'help': {}, 'help_score': 0, 'counts': {}, 'seconds': 0.0})
             continue
         teacher.begin(task)
@@ -134,7 +142,7 @@ def run_day(cond, seed, day_no, root, days=30):
         ok = teacher.judge()
         helped = {q: teacher.help[q] - h0.get(q, 0) for q in teacher.help if teacher.help[q] - h0.get(q, 0)}
         acted = r.get('achieved') is not None
-        rows.append({'day': day_no, 'task': k, 'command': task['command'], 'tool': task['tool'], 'user': day['user'], 'drift': [],
+        rows.append({'day': day_no, 'task': k, 'command': task['command'], 'tool': task['tool'], 'user': day['user'], 'drift': day['drift'],
                      'success': ok, 'outcome': 'success' if ok else ('wrong' if acted and r.get('achieved') is not False else 'held'),
                      'agent': r, 'help': helped,
                      'help_score': sum({'explain': 1, 'point': 1, 'check': 1, 'demonstrate': 2, 'demonstrate_goal': 3}.get(q, 0) * n

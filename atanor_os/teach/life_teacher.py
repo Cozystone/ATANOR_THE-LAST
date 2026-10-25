@@ -140,6 +140,11 @@ class ViewTeacher(Teacher):
 
     def _steps(self, objs):
         t, v = self.task['tool'], self.task.get('value')
+        drift = getattr(self.home, 'drift', ())
+        if t == 'filter' and 'filter_retired' in drift:
+            return [('sift', (v, o)) for o in objs]          # the person knows how the screen works now
+        if t == 'sort' and 'sort_retired' in drift:
+            return [('rank', (v, o)) for o in objs]
         return [(t, (o, v)) if v else (t, (o,)) for o in objs]
 
     def check(self, proposal):
