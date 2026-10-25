@@ -1,0 +1,7 @@
+{"t": 1792951609.333, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["dune"]], ["move", ["cobalt29.csv", "dune/cobalt29.csv"]]]}
+{"t": 1792951610.553, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792951618.925, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792951618.926, "task": "d30-t1", "event": "ask_explain", "word": "remove", "answer": "delete", "learned": false}
+{"t": 1792951619.317, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["birch28.txt"]]]}
+{"t": 1792951658.263, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792951658.901, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}

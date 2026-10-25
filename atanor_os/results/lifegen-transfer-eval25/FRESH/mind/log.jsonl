@@ -1,0 +1,10 @@
+{"t": 1792951957.911, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northestate"]], ["shove", ["northestate/cobalt28.txt", "cobalt28.txt"]]]}
+{"t": 1792951963.759, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792951964.489, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792951966.205, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792951966.892, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792951986.64, "task": "d30-t1", "event": "ask_check", "unknown": ["duplicate", "a", "new", "named", "westmanor"], "ok": false}
+{"t": 1792951986.643, "task": "d30-t1", "event": "ask_explain", "word": "duplicate", "answer": "copy", "learned": false}
+{"t": 1792951986.644, "task": "d30-t1", "event": "ask_explain", "word": "a", "answer": "", "learned": true}
+{"t": 1792951988.03, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westmanor"]], ["replicate", ["westmanor/amber29.log", "amber29.log"]]]}
+{"t": 1792951990.381, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 7}

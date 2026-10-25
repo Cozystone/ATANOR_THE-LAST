@@ -1,0 +1,13 @@
+{"t": 1792951540.527, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["cobalt30.log"]]]}
+{"t": 1792951541.348, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792951543.019, "task": "d30-t1", "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792951543.02, "task": "d30-t1", "event": "ask_explain", "word": "all", "answer": "", "learned": true}
+{"t": 1792951544.006, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westwharf"]], ["copy", ["amber27.md", "westwharf/amber27.md"]]]}
+{"t": 1792951546.314, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 11}
+{"t": 1792951561.406, "task": "d30-t2", "event": "ask_check", "unknown": ["transfer", "comma", "separated", "file", "new", "folder", "named", "westshed"], "ok": false}
+{"t": 1792951561.407, "task": "d30-t2", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": false}
+{"t": 1792951561.408, "task": "d30-t2", "event": "ask_explain", "word": "comma", "answer": "csv files", "learned": true}
+{"t": 1792951561.409, "task": "d30-t2", "event": "ask_check", "unknown": ["transfer", "separated", "file", "new", "folder", "named", "westshed"], "ok": false}
+{"t": 1792951562.036, "task": "d30-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["westshed"]], ["shove", ["westshed/amber26.csv", "amber26.csv"]]]}
+{"t": 1792951582.5, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792951583.124, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}
