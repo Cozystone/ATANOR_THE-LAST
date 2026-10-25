@@ -30,7 +30,7 @@ def plan(state, goal, model, actions, avoid=frozenset(), capability=FS_CAPABILIT
     b = goal.budget
     cap = b.get('predictions', 10 ** 9)
     t0 = time.perf_counter()
-    stats = {'expanded': 0, 'predicted': 0, 'seconds': 0.0, 'stop': None}
+    stats = {'expanded': 0, 'predicted': 0, 'seconds': 0.0, 'stop': None, 'depth_hits': 0}
     if unsatisfied(state, goal) == 0 and all(l.holds(state) for l in goal.keep):
         stats['stop'] = 'found'
         return [], stats
@@ -47,6 +47,7 @@ def plan(state, goal, model, actions, avoid=frozenset(), capability=FS_CAPABILIT
         _, g, depth, _, s, path = heapq.heappop(heap)
         stats['expanded'] += 1
         if depth >= b['depth']:
+            stats['depth_hits'] += 1                 # a path was cut by the depth limit: exhaustion is then not proof
             continue
         for tool, args in actions:
             if stats['predicted'] >= cap:

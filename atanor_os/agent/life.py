@@ -133,7 +133,7 @@ class WorldModel:
         if g is None:
             fails = self.fail_kinds[(tool, k)]
             return ('learned_fail', None) if k not in self.kinds_ok[tool] and fails >= 3 else ('unknown', None)
-        backed = sum(g.get('ev', {}).values()) > 0
+        backed = sum(g.get('ev', {}).values()) > 0 or (g.get('unexplained', 0) == 0 and g['support'] >= 3)
         if k in self.kinds_ok[tool] and backed:
             return 'learned', g
         return 'unknown', None
@@ -247,11 +247,18 @@ class Lexicon:
                 logp[q] += weight * math.log(x)
         pid, ambiguous = None, False
         if informative and pids:
-            m = max(logp.values())
-            z = sum(math.exp(v - m) for v in logp.values())
-            post = {q: math.exp(v - m) / z for q, v in logp.items()}
-            pid = max(post, key=post.get)
-            ambiguous = post[pid] < 0.8                     # the words do not agree enough on one change
+            pid = max(logp, key=logp.get)
+            tops = set()
+            for t in toks:
+                pc = self.pattern_of.get(t)
+                if t in values or t == dest or not pc or t in self.neutral:
+                    continue
+                n = sum(pc.values())
+                probs = [(pc[q] + 0.1) / (n + 0.1 * len(pids)) for q in pids]
+                ent = -sum(x * math.log(x) for x in probs) / math.log(len(pids)) if len(pids) > 1 else 0.0
+                if 1.0 - ent >= 0.3:                        # an informative word: it mostly goes with one change
+                    tops.add(pc.most_common(1)[0][0])
+            ambiguous = len(tops) != 1 or pid not in tops   # informative words disagree, or none exists
             for t in toks:                                  # a decisive word confirmed only with another change: conflict
                 pc = self.pattern_of.get(t)
                 if t in values or t == dest or not pc or t in self.neutral:
@@ -261,7 +268,7 @@ class Lexicon:
                     ambiguous = True
         cons = set()
         for t in toks:
-            if t != dest and t not in self.neutral and self.word_n[t] and self.meaning.get(t):
+            if t != dest and t not in self.neutral and self.word_n[t] >= 2 and self.meaning.get(t):
                 cons |= self.meaning[t]
         hits, opp = self.value_rule
         if opp >= 2 and hits / opp >= 0.8:
@@ -738,9 +745,11 @@ class Mind:
         of the goal at a time (a sub-goal) and report it."""
         state = ws.observe(goal.universe)
         cap = getattr(ws, 'CAPABILITY', {})
-        p, pst = plan(state, goal, self.model, ws.actions(self._focus(goal)), avoid, cap)
-        if p or pst['stop'] == 'exhausted':
-            return p, pst
+        if not getattr(self, '_subgoals_only', False):
+            p, pst = plan(state, goal, self.model, ws.actions(self._focus(goal)), avoid, cap)
+            if p or (pst['stop'] == 'exhausted' and not pst.get('depth_hits')):
+                return p, pst                                # found, or truly no path with what is known
+            self._subgoals_only = True                       # the whole goal is too long or wide to search: object by object from here
         self.counts['subgoals'] += 1
         for l in goal.must:
             if not l.holds(state):
@@ -752,12 +761,14 @@ class Mind:
     def _achieve(self, goal, task_id):
         ws = self.home
         avoid = set()
-        for step in range(BUDGET['actions']):
+        self._subgoals_only = False
+        limit = BUDGET['actions'] + 3 * len(getattr(goal, 'selected', []) or [])
+        for step in range(limit):
             state = ws.observe(goal.universe)
             if goal.satisfied(state):
                 return True
             p, pst = self._plan(ws, goal, avoid)
-            if not p and pst['stop'] != 'exhausted':
+            if not p and (pst['stop'] != 'exhausted' or pst.get('depth_hits')):
                 self.counts['plan_budget_stops'] += 1
                 self.log(event='plan_budget', task=task_id, stop=pst['stop'])
                 return False
