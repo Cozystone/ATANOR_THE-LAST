@@ -127,3 +127,29 @@ def test_a_long_goal_is_not_mistaken_for_a_knowledge_gap(tmp_path):
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Move the txt files into a folder called two.', 'tool': 'move', 'ext': 'txt', 'dest': 'two'}, 't2')
     assert ok, r
     assert m.counts.get('world_gaps', 0) == 0 and m.counts.get('demonstrate_how', 0) == 0, dict(m.counts)
+
+
+def test_a_long_copy_goal_keeps_each_source_in_its_sub_goal(tmp_path):
+    """A copy leaves the source unchanged (it is only a 'keep'); the per-object sub-goal must still contain it."""
+    ws = _home(tmp_path, [f'f{i}.txt' for i in range(14)] + ['one.md'])
+    t = Teacher(ws)
+    _do(ws, tmp_path, t, {'command': 'Copy the md files into a folder called one.', 'tool': 'copy', 'ext': 'md', 'dest': 'one'}, 't1')
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Copy the txt files into a folder called two.', 'tool': 'copy', 'ext': 'txt', 'dest': 'two'}, 't2')
+    assert ok, r
+    assert m.counts.get('world_gaps', 0) == 0 and m.counts.get('demonstrate_how', 0) == 0, dict(m.counts)
+
+
+def test_two_word_verbs_sharing_a_word_do_not_look_like_disagreement():
+    """'throw away' means one change and 'put away' another; 'away' alone must not make them ambiguous."""
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_for_lexicon()
+    L = Lexicon()
+    for _ in range(3):
+        L.learn(tokens('throw away the json files'), v, 'DEL', ['x.json'], None)
+        L.learn(tokens('put away the csv files into box'), v, 'MOV', ['y.csv'], 'box')
+    L.learn(tokens('get rid of the txt files'), v, 'DEL', ['z.txt'], None)
+    L.learn(tokens('make a copy of the txt files into bag'), v, 'CPY', ['z.txt'], 'bag')
+    r = L.interpret(tokens('throw away the txt files'), v, True)
+    assert r['pid'] == 'DEL' and not r['ambiguous'], r
+    r = L.interpret(tokens('put away the json files into bin'), v, True)
+    assert r['pid'] == 'MOV' and not r['ambiguous'] and r['dest'] == 'bin', r

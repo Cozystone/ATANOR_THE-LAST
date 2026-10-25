@@ -1,0 +1,6 @@
+{"t": 1792905035.573, "task": "d30-t0", "event": "demonstration", "pid": "a01fcbd090", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["easthangar"]], ["shove", ["easthangar/dahlia28.log", "dahlia28.log"]]]}
+{"t": 1792905036.398, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792905043.961, "task": "d30-t1", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792905043.963, "task": "d30-t1", "event": "ask_explain", "word": "throw", "answer": "delete", "learned": false}
+{"t": 1792905044.419, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["amber27.json"]]]}
+{"t": 1792905056.834, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 8}

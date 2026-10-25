@@ -1,0 +1,194 @@
+{
+ "cases": {
+  "kindly shift all logs into the <D> folder": [
+   "a01fcbd090",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "please throw away the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "all": 1,
+  "all|a01fcbd090": 1,
+  "away": 1,
+  "away|22204eb435": 1,
+  "easthangar": 1,
+  "easthangar|a01fcbd090": 1,
+  "files": 1,
+  "files|22204eb435": 1,
+  "folder": 1,
+  "folder|a01fcbd090": 1,
+  "into": 1,
+  "into|a01fcbd090": 1,
+  "json": 1,
+  "json|22204eb435": 1,
+  "kindly": 1,
+  "kindly|a01fcbd090": 1,
+  "logs": 1,
+  "logs|a01fcbd090": 1,
+  "please": 1,
+  "please|22204eb435": 1,
+  "shift": 1,
+  "shift|a01fcbd090": 1,
+  "the": 2,
+  "the|22204eb435": 1,
+  "the|a01fcbd090": 1,
+  "throw": 1,
+  "throw|22204eb435": 1
+ },
+ "marker": {
+  "the": 2
+ },
+ "meaning": {
+  "all": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "away": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "folder": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "into": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "kindly": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "logs": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "shift": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "the": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "throw": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ]
+ },
+ "mode": "general",
+ "neutral": [
+  "please"
+ ],
+ "pattern_of": {
+  "all": {
+   "a01fcbd090": 2
+  },
+  "away": {
+   "22204eb435": 2
+  },
+  "files": {
+   "22204eb435": 2
+  },
+  "folder": {
+   "a01fcbd090": 2
+  },
+  "into": {
+   "a01fcbd090": 2
+  },
+  "json": {
+   "22204eb435": 2
+  },
+  "kindly": {
+   "a01fcbd090": 2
+  },
+  "logs": {
+   "a01fcbd090": 2
+  },
+  "please": {
+   "22204eb435": 2
+  },
+  "shift": {
+   "a01fcbd090": 2
+  },
+  "the": {
+   "22204eb435": 2,
+   "a01fcbd090": 2
+  },
+  "throw": {
+   "22204eb435": 2
+  }
+ },
+ "prev_n": {
+  "all": 2,
+  "away": 2,
+  "into": 2,
+  "json": 2,
+  "kindly": 2,
+  "logs": 2,
+  "please": 2,
+  "shift": 2,
+  "the": 4,
+  "throw": 2
+ },
+ "value_rule": [
+  2,
+  2
+ ],
+ "word_n": {
+  "all": 2,
+  "away": 2,
+  "files": 2,
+  "folder": 2,
+  "into": 2,
+  "json": 2,
+  "kindly": 2,
+  "logs": 2,
+  "please": 3,
+  "shift": 2,
+  "the": 4,
+  "throw": 2
+ }
+}
