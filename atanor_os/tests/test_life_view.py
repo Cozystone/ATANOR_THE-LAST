@@ -50,3 +50,24 @@ def test_sort_is_a_different_change_learned_the_same_way(tmp_path):
     assert ok, r
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by ext.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't3', user=False)
     assert ok, (r, dict(m.counts))
+
+
+def test_after_a_world_change_a_budget_stop_with_no_known_effect_is_a_gap(tmp_path, monkeypatch):
+    """Sort retires. On a big screen the plan search would stop on its budget; since no known tool changes the sort any
+    more, the core must read this as a gap and experiment (finding the new tool), not give up as if it only ran long."""
+    import atanor_os.agent.life as life
+    ws = _screen(tmp_path)
+    t = ViewTeacher(ws)
+    for i, (p, k) in enumerate([('p1', 'size'), ('p2', 'ext'), ('p1', 'name'), ('p2', 'size')]):
+        _do(ws, tmp_path, t, {'command': f'Sort {p} by {k}.', 'tool': 'sort', 'panel': p, 'value': f'key:{k}'}, f't{i}')
+    real = life.plan
+
+    def big_screen(*a, **kw):
+        p, st = real(*a, **kw)
+        return (p, {**st, 'stop': 'predictions'}) if not p else (p, st)
+    monkeypatch.setattr(life, 'plan', big_screen)
+    ws.drift = frozenset({'sort_retired'})
+    demos = t.help.get('demonstrate', 0)
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by ext.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't9')
+    assert ok and t.help.get('demonstrate', 0) == demos, (r, dict(m.counts))
+    assert m.counts.get('world_changes') == 1 and m.counts.get('lab_actions', 0) > 0, dict(m.counts)

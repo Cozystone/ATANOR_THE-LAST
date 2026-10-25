@@ -572,7 +572,24 @@ class Mind:
         elif confirmed is False and self.user is not None:
             self.counts['corrections'] += 1
             self.log(event='wrong', task=task_id, interp={k: interp[k] for k in ('pid', 'selected', 'dest')})
-            self._teach_from_demo(toks, command, interp_hint=interp)     # the counter-example corrects the words
+            tt = self._taught = None
+            if self._teach_from_demo(toks, command, interp_hint=interp):    # the counter-example corrects the words
+                tt = self._taught if self._taught and self._taught['pid'] in self.patterns else None
+            if tt is not None:
+                again = {**interp, 'pid': tt['pid'], 'selected': tt['selected'], 'dest': tt['dest'], 'view_at_start': interp['view_at_start']}
+                g2 = self._goal(again)
+                if g2 is not None:                                   # try once more with what was just shown, and ask again
+                    self.counts['retry_after_correction'] += 1
+                    done = self._achieve(g2, task_id)
+                    confirmed = self.user.confirm(command)
+                    self.counts['confirm'] += 1
+                    self.log(event='retry_after_correction', achieved=done, confirmed=confirmed)
+                    if confirmed:
+                        interp = again
+                        self.lex.learn(toks, view_from_json(interp['view_at_start']), interp['pid'], interp['selected'], interp['dest'])
+                        for w in set(toks) | set(self.lex.pairs(toks, interp['dest'])):
+                            self.lex.confirmed[w] += 1
+                            self.lex.confirmed[f"{w}|{interp['pid']}"] += 1
         self.save()
         t.update(status='done', ok=bool(confirmed if confirmed is not None else done))
         self._task(t)
@@ -1051,6 +1068,9 @@ class Mind:
             if goal.satisfied(state):
                 return True
             p, pst = self._plan(ws, goal, avoid)
+            if not p and (pst['stop'] != 'exhausted' or pst.get('depth_hits')) and not self._relevant_tools(goal):
+                self.log(event='no_known_effect', task=task_id, stop=pst['stop'])
+                pst = {**pst, 'stop': 'exhausted', 'depth_hits': 0}   # no known tool makes this change: a gap, not a budget stop
             if not p and (pst['stop'] != 'exhausted' or pst.get('depth_hits')):
                 self.counts['plan_budget_stops'] += 1
                 self.log(event='plan_budget', task=task_id, stop=pst['stop'])
