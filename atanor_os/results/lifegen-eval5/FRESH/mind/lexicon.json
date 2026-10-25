@@ -1,0 +1,329 @@
+{
+ "cases": {
+  "copy all the text files to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "duplicate the <V> files to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "please relocate all the <V> files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 2,
+  "a folder": 2,
+  "a folder|855e9bb242": 2,
+  "all": 2,
+  "all the": 2,
+  "all the|855e9bb242": 1,
+  "all the|d9877acc19": 1,
+  "all|855e9bb242": 1,
+  "all|d9877acc19": 1,
+  "a|855e9bb242": 2,
+  "barn": 1,
+  "barn|855e9bb242": 1,
+  "copy": 1,
+  "copy all": 1,
+  "copy all|855e9bb242": 1,
+  "copy|855e9bb242": 1,
+  "duplicate": 1,
+  "duplicate the": 1,
+  "duplicate the|855e9bb242": 1,
+  "duplicate|855e9bb242": 1,
+  "eyrie": 1,
+  "eyrie|d9877acc19": 1,
+  "files": 3,
+  "files into": 1,
+  "files into|d9877acc19": 1,
+  "files to": 2,
+  "files to|855e9bb242": 2,
+  "files|855e9bb242": 2,
+  "files|d9877acc19": 1,
+  "folder": 3,
+  "folder named": 2,
+  "folder named|855e9bb242": 2,
+  "folder|855e9bb242": 2,
+  "folder|d9877acc19": 1,
+  "into": 1,
+  "into the": 1,
+  "into the|d9877acc19": 1,
+  "into|d9877acc19": 1,
+  "json": 1,
+  "json files": 1,
+  "json files|d9877acc19": 1,
+  "json|d9877acc19": 1,
+  "log": 1,
+  "log files": 1,
+  "log files|855e9bb242": 1,
+  "log|855e9bb242": 1,
+  "named": 2,
+  "named|855e9bb242": 2,
+  "please": 1,
+  "please relocate": 1,
+  "please relocate|d9877acc19": 1,
+  "please|d9877acc19": 1,
+  "relocate": 1,
+  "relocate all": 1,
+  "relocate all|d9877acc19": 1,
+  "relocate|d9877acc19": 1,
+  "text": 1,
+  "text files": 1,
+  "text files|855e9bb242": 1,
+  "text|855e9bb242": 1,
+  "the": 3,
+  "the json": 1,
+  "the json|d9877acc19": 1,
+  "the log": 1,
+  "the log|855e9bb242": 1,
+  "the text": 1,
+  "the text|855e9bb242": 1,
+  "the|855e9bb242": 2,
+  "the|d9877acc19": 1,
+  "to": 2,
+  "to a": 2,
+  "to a|855e9bb242": 2,
+  "to|855e9bb242": 2,
+  "yard": 1,
+  "yard|855e9bb242": 1
+ },
+ "defined": {
+  "text": 1,
+  "to": 1
+ },
+ "marker": {
+  "named": 4,
+  "the": 2
+ },
+ "meaning": {
+  "a": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "all": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "copy": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "duplicate": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "folder": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "into": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "log": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "named": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "please": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "relocate": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "text": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "the": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ]
+ },
+ "mode": "general",
+ "neutral": [
+  "to"
+ ],
+ "pattern_of": {
+  "a": {
+   "855e9bb242": 4
+  },
+  "a folder": {
+   "855e9bb242": 4
+  },
+  "all": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "all the": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "copy": {
+   "855e9bb242": 2
+  },
+  "copy all": {
+   "855e9bb242": 2
+  },
+  "duplicate": {
+   "855e9bb242": 2
+  },
+  "duplicate the": {
+   "855e9bb242": 2
+  },
+  "files": {
+   "855e9bb242": 4,
+   "d9877acc19": 2
+  },
+  "files into": {
+   "d9877acc19": 2
+  },
+  "files to": {
+   "855e9bb242": 4
+  },
+  "folder": {
+   "855e9bb242": 4,
+   "d9877acc19": 2
+  },
+  "folder named": {
+   "855e9bb242": 4
+  },
+  "into": {
+   "d9877acc19": 2
+  },
+  "into the": {
+   "d9877acc19": 2
+  },
+  "json": {
+   "d9877acc19": 2
+  },
+  "log": {
+   "855e9bb242": 2
+  },
+  "named": {
+   "855e9bb242": 4
+  },
+  "please": {
+   "d9877acc19": 2
+  },
+  "please relocate": {
+   "d9877acc19": 2
+  },
+  "relocate": {
+   "d9877acc19": 2
+  },
+  "relocate all": {
+   "d9877acc19": 2
+  },
+  "text": {
+   "855e9bb242": 2
+  },
+  "text files": {
+   "855e9bb242": 2
+  },
+  "the": {
+   "855e9bb242": 4,
+   "d9877acc19": 2
+  },
+  "the text": {
+   "855e9bb242": 2
+  },
+  "to": {
+   "855e9bb242": 4
+  },
+  "to a": {
+   "855e9bb242": 4
+  }
+ },
+ "pointed": {},
+ "prev_n": {
+  "a": 4,
+  "all": 4,
+  "copy": 2,
+  "duplicate": 2,
+  "files": 6,
+  "folder": 4,
+  "into": 2,
+  "json": 2,
+  "log": 2,
+  "named": 4,
+  "please": 2,
+  "relocate": 2,
+  "text": 2,
+  "the": 8,
+  "to": 4
+ },
+ "value_rule": [
+  4,
+  4
+ ],
+ "word_n": {
+  "a": 4,
+  "all": 4,
+  "copy": 2,
+  "duplicate": 2,
+  "files": 6,
+  "folder": 6,
+  "into": 2,
+  "json": 2,
+  "log": 2,
+  "named": 4,
+  "please": 2,
+  "relocate": 2,
+  "text": 3,
+  "the": 6,
+  "to": 5
+ }
+}

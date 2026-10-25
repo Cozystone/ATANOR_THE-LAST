@@ -1,0 +1,11 @@
+{"t": 1792910287.601, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["eyrie"]], ["shove", ["eyrie/cobalt30.json", "cobalt30.json"]]]}
+{"t": 1792910288.556, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792910296.821, "task": "d30-t1", "event": "ask_explain", "word": "duplicate", "answer": "copy", "learned": false}
+{"t": 1792910296.822, "task": "d30-t1", "event": "ask_explain", "word": "to", "answer": "", "learned": true}
+{"t": 1792910298.024, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["barn"]], ["replicate", ["barn/birch28.log", "birch28.log"]]]}
+{"t": 1792910301.679, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 11}
+{"t": 1792910325.256, "task": "d30-t2", "event": "ask_check", "unknown": ["copy", "text"], "ok": false}
+{"t": 1792910325.257, "task": "d30-t2", "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792910325.259, "task": "d30-t2", "event": "ask_explain", "word": "text", "answer": "txt files", "learned": true}
+{"t": 1792910325.261, "task": "d30-t2", "event": "ask_check", "unknown": ["copy"], "ok": false}
+{"t": 1792910326.687, "task": "d30-t2", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["yard"]], ["replicate", ["yard/amber29.txt", "amber29.txt"]]]}

@@ -1,0 +1,6 @@
+{"t": 1792910654.241, "task": "d30-t0", "event": "demonstration", "pid": "7cd296e4fc", "pattern": [["o", "kind", "panel"]], "steps": [["open", ["p3"]]]}
+{"t": 1792910654.247, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792910654.268, "task": "d30-t1", "event": "ask_explain", "word": "filter", "answer": null, "learned": false}
+{"t": 1792910654.268, "task": "d30-t1", "event": "ask_explain", "word": "to", "answer": "filter", "learned": false}
+{"t": 1792910654.272, "task": "d30-t1", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["sift", ["ext:log", "p1"]]]}
+{"t": 1792910654.277, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 1}
