@@ -266,3 +266,45 @@ def test_a_joining_word_is_learned_from_pointed_unions_and_then_used_alone(tmp_p
                                     'ext': ['log', 'txt'], 'dest': 'seven'}, 'v', user=False)
     assert ok, (r, dict(m.counts))
     assert t.help == before
+
+
+def _scene_more():
+    def at(ext, n):
+        return frozenset({('N', n), ('U', 0, 'a0', 1), ('U', 0, 'a1', 0), ('U', 0, 'a2', ext)})
+    return {f'{c}.{e}': (at(e, 0), frozenset({e})) for c, e in [('a', 'csv'), ('b', 'csv'), ('c', 'md'), ('d', 'log'), ('e', 'txt')]}
+
+
+def test_a_union_not_yet_read_as_one_does_not_count_against_values():
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_more()
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the csv files'), v, 'CP', ['a.csv', 'b.csv'], None)
+    hits, opp = L.value_rule
+    L.learn(tokens('copy the csv files plus markdown files'), v, 'CP', ['a.csv', 'b.csv', 'c.md'], None)   # 'plus', 'markdown' never heard
+    assert L.value_rule[0] - hits == L.value_rule[1] - opp, L.value_rule
+
+
+def test_a_word_whose_part_cannot_be_told_apart_learns_nothing_from_that_use():
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_more()
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the logs'), v, 'CP', ['d.log'], None)
+        L.confirmed['logs'] += 1
+    before = set(L.meaning['logs'])
+    nolog = {o: x for o, x in v.items() if not o.endswith('.log')}                        # no log file at all today
+    for _ in range(3):
+        L.learn(tokens('copy the csv files plus logs'), nolog, 'CP', ['a.csv', 'b.csv'], None)
+    assert L.meaning['logs'] == before
+
+
+def test_a_reading_that_leaves_named_values_unused_is_held_alone_even_if_reversible():
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_more()
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the files'), v, 'CP', sorted(v), None)
+    L.value_rule = [1, 5]                                                                 # values are not trusted to restrict yet
+    r = L.interpret(tokens('copy the csv files'), v, False)
+    assert r['weak_selection'] and not r['support'], r

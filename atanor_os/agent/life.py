@@ -239,6 +239,12 @@ class Lexicon:
         self.note_values(view)
         parts = {}                                          # alternative atom -> the selected objects carrying it
         alts = self._alternatives(toks, view, dest)
+        insel0 = [{repr(x) for x in view[o][0]} for o in selected if o in view]
+        def absent(key, a):                                 # nothing like the selected objects carries this alternative
+            shared = {x for x in set.intersection(*insel0) if x.split(',')[2:3] != [key]} if insel0 else set()
+            return not any(shared <= {repr(x) for x in at} and a in {repr(x) for x in at} for at, _ in view.values())
+        bringers = {i for k, am in alts.items() for a, i in am.items() if absent(k, a)}
+        alt_atoms = {a for am in alts.values() for a in am}
         insel = [{repr(x) for x in view[o][0]} for o in selected if o in view]
         akey = next(iter(alts)) if len(alts) == 1 else None
         shared = {a for a in set.intersection(*insel) if a.split(',')[2:3] != [akey]} if insel and akey else set()
@@ -271,6 +277,8 @@ class Lexicon:
                 self.pattern_of[w][pid] += 1
             if w not in self.neutral:
                 own = [parts[i] for i, t in enumerate(toks) if t == w and i in parts]
+                if not own and any(t == w and i in bringers for i, t in enumerate(toks)):
+                    continue                                # its own part of the selection cannot be told apart: no evidence
                 if own:                                     # a value word in a union learns from its own part
                     sub = [view[o][0] for o in own[0] if o in view]
                     self._add_use(w, {repr(a) for a in frozenset.intersection(*sub)} if sub else cur)
@@ -291,12 +299,19 @@ class Lexicon:
                 need = max(1, -(-3 * len(us) // 4))
                 cnt = Counter(a for u in us for a in u)
                 self.dmeaning[w] = {a for a, c in cnt.items() if c >= need}
+        named_vals = {w for w in toks if w in values and w != dest}
+        any_carrier = {o for o, (at, vs) in view.items() if vs & named_vals or alt_atoms & {repr(a) for a in at}}
+        unread = any(t not in values and t != dest and t not in view and t not in self.neutral and not self.strong(t) for t in toks)
         for i, w in enumerate(toks):
             if w in values and w not in toks[:i]:
                 carriers = {o for o, (_, vs) in view.items() if w in vs}
                 own = parts.get(i)
+                sel_in = {o for o in selected if o in view}
+                hit = bool(sel_in) and (set(own) <= carriers if own else sel_in <= any_carrier and bool(sel_in & carriers))
+                if not hit and unread:
+                    continue                                # an unread word may name the rest: no evidence either way
                 self.value_rule[1] += 1
-                self.value_rule[0] += int(bool(selected) and (set(own or selected) <= carriers))
+                self.value_rule[0] += int(hit)
         self.cases[self._shape(toks, view, dest)] = (pid, sorted(cur))
 
     @staticmethod
@@ -442,7 +457,8 @@ class Lexicon:
                                    if base <= {repr(a) for a in at} and any(x in {repr(a) for a in at} for x in alts[key]))
                 contradiction = False                       # a learned joining word: the alternatives are all wanted
         value_named = any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in cons)
-        if union_sel is None and not value_named and any(t in values and t != dest for t in toks) and not any(t in view and t != dest for t in toks):
+        ignores_named = union_sel is None and not value_named and any(t in values and t != dest for t in toks) and not any(t in view and t != dest for t in toks)
+        if ignores_named:
             weak_selection = True                               # values were named but nothing in the reading uses them
         if not value_named and not literal:
             weak_selection = True                               # 'everything' with no value named: ask or hold
@@ -452,7 +468,7 @@ class Lexicon:
         else:
             sel = [] if contradiction else union_sel if union_sel is not None else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
         return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous,
-                'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support,
+                'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support and not ignores_named,
                 'literal': literal}
 
     def _dest(self, toks, values):
