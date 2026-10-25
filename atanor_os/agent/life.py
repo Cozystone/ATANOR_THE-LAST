@@ -178,10 +178,18 @@ class Lexicon:
         self.confirmed = Counter()              # word -> confirmed uses (the result was what the person wanted)
         self.pointed = Counter()                # word -> uses in which the person pointed at the objects
         self.dmeaning = {}                      # word -> atoms every second object it was used with had in common
+        self.value_atoms = {}                   # value -> the atom (repr) that carried it, from every view seen
         self.defined = Counter()                # word -> explanations by the person
 
     # -- learning from one confirmed or taught interpretation
+    def note_values(self, view):
+        for o, (at, vs) in view.items():
+            for a in at:
+                if a[0] == 'U' and a[3] in vs:
+                    self.value_atoms[a[3]] = repr(a)
+
     def learn(self, toks, view, pid, selected, dest):
+        self.note_values(view)
         d_idx = toks.index(dest) if dest in toks else None
         if d_idx:
             self.marker[toks[d_idx - 1]] += 1
@@ -225,7 +233,13 @@ class Lexicon:
             return None, 0.0
         n = sum(pc.values())
         top, c = pc.most_common(1)[0]
+        if n < 3 or self.names_value(unit):
+            return top, 0.0                                 # too little evidence, or an object word: not decisive
         return top, (c + 0.1) / (n + 0.1 * len(pids))
+
+    def names_value(self, word):
+        """A strong word whose meaning contains a value-bearing atom names objects, not a change."""
+        return self.strong(word) and any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in self.meaning.get(word, ()))
 
     def strong(self, unit):
         return self.confirmed[unit] + self.pointed[unit] + 3 * self.defined[unit] >= 3
@@ -298,7 +312,7 @@ class Lexicon:
                 top, share = self._share(t, pids)
                 if top is not None and share >= DECISIVE:   # a decisive unit: mostly used with one change
                     tops.add(top)
-            ambiguous = len(tops) != 1 or pid not in tops   # decisive units disagree, or none exists
+            ambiguous = len(tops) > 1 or (len(tops) == 1 and pid not in tops)   # decisive units disagree
             for t in units:                                 # a decisive unit confirmed only with another change: conflict
                 pc = self.pattern_of.get(t)
                 if t in values or t in view or t == dest or not pc or t in self.neutral:
@@ -309,6 +323,7 @@ class Lexicon:
         change_words = {w for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values for w in u.split(' ')}
         weak_change = not any(self.strong(u) for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values and u not in self.neutral)
         cons, weak_selection, support = set(), False, any(t in values and t != dest for t in toks)
+        literal = support or any(t in view and t != dest for t in toks)
         for t in toks:
             if t == dest or t in values or t in view or t in self.neutral or t in change_words or self.word_n[t] == 0:
                 continue
@@ -316,6 +331,7 @@ class Lexicon:
                 if self.meaning.get(t):
                     cons |= self.meaning[t]
                     support = True
+                    literal = literal or self.names_value(t)
             else:
                 weak_selection = True                       # an object word with little evidence: ask or hold
         hits, opp = self.value_rule
@@ -336,7 +352,8 @@ class Lexicon:
         else:
             sel = [] if contradiction else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
         return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous,
-                'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support}
+                'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support,
+                'literal': literal}
 
     def _dest(self, toks, values):
         best, best_s = None, 0.0
@@ -354,7 +371,8 @@ class Lexicon:
                 'meaning': {w: sorted(m) for w, m in self.meaning.items()}, 'neutral': sorted(self.neutral),
                 'marker': dict(self.marker), 'prev_n': dict(self.prev_n), 'value_rule': self.value_rule,
                 'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed),
-                'pointed': dict(self.pointed), 'defined': dict(self.defined), 'dmeaning': {w: sorted(m) for w, m in self.dmeaning.items()}}
+                'pointed': dict(self.pointed), 'defined': dict(self.defined), 'dmeaning': {w: sorted(m) for w, m in self.dmeaning.items()},
+                'value_atoms': dict(self.value_atoms)}
 
     @staticmethod
     def from_json(d):
@@ -368,6 +386,7 @@ class Lexicon:
         x.confirmed = Counter(d.get('confirmed', {}))
         x.pointed, x.defined = Counter(d.get('pointed', {})), Counter(d.get('defined', {}))
         x.dmeaning = {w: set(m) for w, m in d.get('dmeaning', {}).items()}
+        x.value_atoms = dict(d.get('value_atoms', {}))
         return x
 
 
@@ -553,12 +572,23 @@ class Mind:
                     break
                 continue
             needs_dest = self._needs_dest(r['pid'])
-            weak = r.get('weak_change') or r.get('weak_selection')
+            weak = r.get('weak_change') or r.get('weak_selection') or r.get('dest_by_meaning')
+            if r['pid'] in self.patterns and self._irreversible(r['pid']) and not r.get('literal') and pointed is None:
+                if self.user is None:
+                    self.counts['refused_weak'] += 1
+                    self.log(event='refuse_weak', why='irreversible without literal naming')
+                    return None
+                ans = self.user.point(command)
+                self.counts['point'] += 1
+                self.log(event='ask_point', why='irreversible without literal naming')
+                self._learn_pointing(toks, view, ans)
+                pointed = ans
+                continue
             if self.user is None and ((weak and self._irreversible(r['pid'])) or not r.get('support')):
                 self.counts['refused_weak'] += 1
                 self.log(event='refuse_weak', why='irreversible' if r.get('support') else 'no selection support')
                 return None
-            if self.user is not None and (r.get('weak_selection') or not r.get('support')) and pointed is None:
+            if self.user is not None and (r.get('weak_selection') or not r.get('support') or r.get('dest_by_meaning')) and pointed is None:
                 ans = self.user.point(command)
                 self.counts['point'] += 1
                 self.log(event='ask_point', why='weak selection')
@@ -660,14 +690,19 @@ class Mind:
             return r
         kind_ok = lambda at: any(a[0] == 'U' and a[2] == 'a0' and a[3] == meta.get('D_kind') for a in at)
         cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and vs & set(toks) and kind_ok(at)]
-        if len(cands) != 1:                                   # no token names it: words that describe the second object
-            cons = set()
-            for t in toks:
-                if t not in view and t not in self.lex.neutral and self.lex.strong(t) and self.lex.dmeaning.get(t):
-                    cons |= self.lex.dmeaning[t]
-            if cons:
-                cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and kind_ok(at) and cons <= {repr(a) for a in at}]
-        return {**r, 'dest': cands[0]} if len(cands) == 1 else r
+        if len(cands) == 1:
+            return {**r, 'dest': cands[0]}
+        pids = sorted({q for c in self.lex.pattern_of.values() for q in c})
+        change_words = {w for t in toks for w in t.split(' ') if self.lex._share(t, pids)[1] >= DECISIVE}
+        cons = set()
+        for t in toks:
+            if t not in view and t not in self.lex.neutral and t not in change_words and self.lex.strong(t) and self.lex.dmeaning.get(t):
+                cons |= self.lex.dmeaning[t]
+        if cons:
+            cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and kind_ok(at) and cons <= {repr(a) for a in at}]
+            if len(cands) == 1:
+                return {**r, 'dest': cands[0], 'dest_by_meaning': True}   # a guess from meanings: ask or hold
+        return r
 
     def _needs_dest(self, pid):
         """A change needs a second object when an entry is about it or copies a value from it."""
@@ -694,9 +729,11 @@ class Mind:
         if r['pid'] is None or r['pid'] not in self.patterns or not r['selected'] or r['contradiction']:
             return False
         if self.user is None:
-            weak = r.get('weak_change') or r.get('weak_selection')
-            if (weak and self._irreversible(r['pid'])) or not r.get('support', True):
-                return False                                  # nobody to ask: no irreversible or unsupported guess
+            weak = r.get('weak_change') or r.get('weak_selection') or r.get('dest_by_meaning')
+            if (weak and self._irreversible(r['pid'])) or not r.get('support', True) or r.get('dest_by_meaning'):
+                return False                                  # nobody to ask: no irreversible, unsupported or meaning-guessed reading
+            if self._irreversible(r['pid']) and not r.get('literal', True):
+                return False
         return bool(r['dest']) or not self._needs_dest(r['pid'])
 
     def _result(self, r, view):
@@ -726,10 +763,17 @@ class Mind:
         for t in ptoks:
             if t not in self.lex.neutral and self.lex.meaning.get(t):
                 cons |= self.lex.meaning[t]
-        for t in ptoks:                                       # a word of the explanation that names an observed value
+        self.lex.note_values(view)
+        for t in ptoks:                                       # a word of the explanation that names a value (seen now or before)
+            atom = self.lex.value_atoms.get(t)
             if t in values:
-                cons = {a for a in cons if not a.startswith("('U', 0, 'a2'")}
-                cons |= {repr(a) for o, (at, v) in view.items() if v == t for a in at if a[0] == 'U' and a[2] == 'a2'}
+                named = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+            elif atom:
+                named = {atom}
+            else:
+                continue
+            keys = {a.split(',')[2] for a in named}
+            cons = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] in keys)} | named
         if known_pid is None and not cons and not r['unknown']:
             self.lex.learn_word(word, neutral=True)            # explained, but carries no change and no objects
             return True
@@ -852,7 +896,7 @@ class Mind:
             for rel, q in roles:
                 if before[q].get(k) == value:
                     return f'={rel}.{k}'
-            for rel, q in roles:
+            for rel, q in sorted(roles, key=lambda x: (x[0] != 'D', x[0])):   # the pointed second object first
                 for k2, v2 in before[q].items():
                     if v2 == value and k2 != 'kind':
                         return f'={rel}.{k2}'
@@ -901,11 +945,15 @@ class Mind:
 
     # ---- acting: plan with the learned world model; a world gap goes to the lab
     def _focus(self, goal):
-        """The objects a goal is about, with their ancestors: actions are considered over these only."""
+        """The objects a goal is about, with their ancestors, and every object carrying a value the goal names."""
         out = set()
         for p in goal.universe:
             parts = p.split('/')
             out |= {'/'.join(parts[:i]) for i in range(1, len(parts) + 1)}
+        wanted = {str(l.value) for l in goal.must}
+        objs = self.home.existing()
+        st = self.home.observe(objs)
+        out |= {o for o in objs if names_of(self.body, st[o]) & wanted}
         return sorted(out)
 
     def _plannable(self, goal):

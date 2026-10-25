@@ -153,3 +153,31 @@ def test_two_word_verbs_sharing_a_word_do_not_look_like_disagreement():
     assert r['pid'] == 'DEL' and not r['ambiguous'], r
     r = L.interpret(tokens('put away the json files into bin'), v, True)
     assert r['pid'] == 'MOV' and not r['ambiguous'] and r['dest'] == 'bin', r
+
+
+def test_object_words_do_not_become_change_words_and_two_uses_are_not_decisive():
+    """'spreadsheets' used twice with a move must stay an object word; the selection must not fall back to everything."""
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_for_lexicon()
+    L = Lexicon()
+    for i in range(3):
+        L.learn(tokens('move the csv files into box'), v, 'MOV', ['y.csv'], 'box')
+        L.confirmed.update({'move': 1, 'the': 1, 'files': 1})
+    L.learn(tokens('move the spreadsheets into bag'), v, 'MOV', ['y.csv'], 'bag')
+    L.learn(tokens('move the spreadsheets into bin'), v, 'MOV', ['y.csv'], 'bin')
+    L.pointed['spreadsheets'] += 3                                            # pointed at csv files three times: strong object word
+    assert L.names_value('spreadsheets')
+    r = L.interpret(tokens('move the spreadsheets into crate'), v, True)
+    assert r['selected'] == ['y.csv'] and 'spreadsheets' not in {w for w in tokens('move the spreadsheets into crate') if L._share(w, ['MOV'])[1] > 0}, r
+
+
+def test_irreversible_change_without_literal_naming_is_held_alone(tmp_path):
+    """Alone, a delete whose selection rests only on generic meanings ('everything') is not acted on."""
+    ws = _home(tmp_path, ['a.log', 'b.log', 'c.txt', 'd.csv'])
+    t = Teacher(ws)
+    for i, (ext, cmd) in enumerate([('log', 'Discard the log files.'), ('txt', 'Discard the txt files.'), ('csv', 'Discard the csv files.')]):
+        _do(ws, tmp_path, t, {'command': cmd, 'tool': 'delete', 'ext': ext, 'dest': None}, f't{i}')
+    for n in ('e.log', 'f.md', 'g.json'):
+        (ws.root / n).write_bytes(n.encode())
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Discard every logs.', 'tool': 'delete', 'ext': 'log', 'dest': None}, 't9', user=False)
+    assert ws.kind('f.md') == 'file' and ws.kind('g.json') == 'file', 'nothing but log files may be deleted'
