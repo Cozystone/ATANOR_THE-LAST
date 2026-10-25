@@ -38,7 +38,8 @@ class Teacher:
         self.task = task
         files = [p for p in self.home.existing() if '/' not in p and self.home.kind(p) == 'file']
         self.before = {p: self.home.attrs(p)['hash'] for p in files}
-        self.truth = sorted(p for p in files if task['ext'] == 'any' or p.endswith('.' + task['ext']))
+        exts = task['ext'] if isinstance(task['ext'], list) else [task['ext']]
+        self.truth = sorted(p for p in files if 'any' in exts or any(p.endswith('.' + e) for e in exts))
 
     def explain(self, word):
         """A person answers from what they meant: a word of the verb phrase -> the plain verb; a word naming the
@@ -49,6 +50,8 @@ class Teacher:
             return EXPLAIN.get(word)
         if word in ph['verb'] and word != ph['base']:
             return ph['base']
+        if word in ph.get('syn_ext', {}):
+            return f"{ph['syn_ext'][word]} files"
         if word in ph['selector_synonym']:
             return f"{self.task['ext']} files"
         if word in ph['function']:

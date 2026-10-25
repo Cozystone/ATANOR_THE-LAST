@@ -1,0 +1,13 @@
+{"t": 1792943099.885, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["quay"]], ["replicate", ["quay/ember29.log", "ember29.log"]]]}
+{"t": 1792943107.663, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792943108.386, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792943110.365, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792943111.156, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792943127.632, "task": "d30-t1", "event": "ask_check", "unknown": ["kindly", "put", "away", "the", "text", "into", "new"], "ok": false}
+{"t": 1792943127.635, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792943127.637, "task": "d30-t1", "event": "ask_explain", "word": "put", "answer": "move", "learned": false}
+{"t": 1792943128.637, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["grotto"]], ["shove", ["grotto/violet30.txt", "violet30.txt"]]]}
+{"t": 1792943130.462, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792943134.762, "task": "d30-t2", "event": "ask_explain", "word": "replicate", "answer": "copy", "learned": true}
+{"t": 1792943134.763, "task": "d30-t2", "event": "ask_explain", "word": "every", "answer": "", "learned": true}
+{"t": 1792943136.37, "task": "d30-t2", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["mill"]], ["replicate", ["mill/heron28.json", "heron28.json"]]]}

@@ -183,6 +183,8 @@ class Lexicon:
         self.d_n = Counter()                    # word -> confirmed uses with a second object
         self.value_atoms = {}                   # value -> the atom (repr) that carried it, from every view seen
         self.defined = Counter()                # word -> explanations by the person
+        self.join = Counter()                   # word -> confirmed uses where it stood between alternatives that were all selected
+        self.join_n = Counter()                 # word -> confirmed uses where it stood between alternatives
 
     # -- learning from one confirmed or taught interpretation
     def note_values(self, view):
@@ -207,8 +209,51 @@ class Lexicon:
         del us[:-24]
         self._derive(word)
 
+    def _alternatives(self, toks, view, dest):
+        """Value-naming atoms brought by the tokens, by attribute: {key: {atom: first token index}}, only for
+        attributes with more than one alternative."""
+        values = set().union(*[vs for _, vs in view.values()]) if view else set()
+        by_key = defaultdict(dict)
+        for i, t in enumerate(toks):
+            if t == dest or t in view:
+                continue
+            if t in values:
+                got = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+            elif self.strong(t) and self.meaning.get(t):
+                got = {a for a in self.meaning[t] if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')}
+            else:
+                continue
+            for a in got:
+                by_key[a.split(',')[2]].setdefault(a, i)
+        return {k: v for k, v in by_key.items() if len(v) > 1}
+
+    def joined(self, word):
+        return self.join[word] >= 2 and self.join[word] / max(1, self.join_n[word]) >= 0.8
+
+    def _between(self, toks, alts):
+        idx = sorted(alts.values())
+        bringers = set(idx)
+        return {toks[i] for i in range(idx[0] + 1, idx[-1]) if i not in bringers}
+
     def learn(self, toks, view, pid, selected, dest):
         self.note_values(view)
+        parts = {}                                          # alternative atom -> the selected objects carrying it
+        alts = self._alternatives(toks, view, dest)
+        insel = [{repr(x) for x in view[o][0]} for o in selected if o in view]
+        akey = next(iter(alts)) if len(alts) == 1 else None
+        shared = {a for a in set.intersection(*insel) if a.split(',')[2:3] != [akey]} if insel and akey else set()
+        carried = lambda a: any(shared <= {repr(x) for x in at} and a in {repr(x) for x in at} for at, _ in view.values())
+        if len(alts) == 1 and insel and all(carried(a) for a in alts[akey]):     # each alternative has objects like the selected ones
+            (key, am), = alts.items()
+            parts = {a: [o for o in selected if o in view and a in {repr(x) for x in view[o][0]}] for a in am}
+            union = all(parts.values()) and set().union(*map(set, parts.values())) == {o for o in selected if o in view}
+            for w in self._between(toks, am):
+                self.join_n[w] += 1
+                self.join[w] += int(union)
+            if not union:
+                parts = {}
+            else:
+                parts = {i: parts[a] for a, i in am.items()}     # token index -> its own objects
         d_idx = toks.index(dest) if dest in toks else None
         if d_idx:
             self.marker[toks[d_idx - 1]] += 1
@@ -225,7 +270,12 @@ class Lexicon:
             if pid is not None:
                 self.pattern_of[w][pid] += 1
             if w not in self.neutral:
-                self._add_use(w, cur)
+                own = [parts[i] for i, t in enumerate(toks) if t == w and i in parts]
+                if own:                                     # a value word in a union learns from its own part
+                    sub = [view[o][0] for o in own[0] if o in view]
+                    self._add_use(w, {repr(a) for a in frozenset.intersection(*sub)} if sub else cur)
+                else:
+                    self._add_use(w, cur)
         for pair in self.pairs(toks, dest, values):
             if pid is not None:
                 self.pattern_of[pair][pid] += 1
@@ -241,10 +291,12 @@ class Lexicon:
                 need = max(1, -(-3 * len(us) // 4))
                 cnt = Counter(a for u in us for a in u)
                 self.dmeaning[w] = {a for a, c in cnt.items() if c >= need}
-        for w in set(toks):
-            if w in values:
+        for i, w in enumerate(toks):
+            if w in values and w not in toks[:i]:
+                carriers = {o for o, (_, vs) in view.items() if w in vs}
+                own = parts.get(i)
                 self.value_rule[1] += 1
-                self.value_rule[0] += int(bool(selected) and set(selected) <= {o for o, (_, vs) in view.items() if w in vs})
+                self.value_rule[0] += int(bool(selected) and (set(own or selected) <= carriers))
         self.cases[self._shape(toks, view, dest)] = (pid, sorted(cur))
 
     @staticmethod
@@ -317,7 +369,7 @@ class Lexicon:
         while i < len(toks):
             pair = f'{toks[i]} {toks[i + 1]}' if i + 1 < len(toks) else None
             top, share = self._share(pair, pids) if pair else (None, 0.0)
-            if pair and share >= DECISIVE and dest not in (toks[i], toks[i + 1]) and toks[i] not in values and toks[i + 1] not in values and toks[i] not in view and toks[i + 1] not in view:
+            if pair and share >= DECISIVE and dest not in (toks[i], toks[i + 1]) and toks[i] not in values and toks[i + 1] not in values and toks[i] not in view and toks[i + 1] not in view                     and not self.names_value(toks[i]) and not self.names_value(toks[i + 1]):
                 units.append(pair)                          # the pair speaks for both words
                 i += 2
                 continue
@@ -369,24 +421,36 @@ class Lexicon:
                 weak_selection = True                       # an object word with little evidence: ask or hold
         hits, opp = self.value_rule
         if opp >= 2 and hits / opp >= 0.8:
-            for t in toks:
-                if t != dest and t in values:
-                    named = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
-                    keys = {a.split(',')[2] for a in named}
-                    cons = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] in keys)} | named
+            named = {repr(a) for t in toks if t != dest and t in values
+                     for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+            keys = {a.split(',')[2] for a in named}
+            by_object_words = {a for t in toks if t != dest and t not in values and t not in self.neutral and self.names_value(t)
+                               for a in self.meaning.get(t, ()) if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')}
+            cons = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] in keys) or a in by_object_words} | named
         by_key = defaultdict(set)
         for a in cons:
             if a.startswith("('U'"):
                 by_key[a.split(',')[2]].add(a)
         contradiction = any(len(v) > 1 for v in by_key.values())
+        union_sel = None
+        if contradiction:
+            alts = self._alternatives(toks, view, dest)
+            if len(alts) == 1 and any(self.joined(w) for w in self._between(toks, next(iter(alts.values())))):
+                key = next(iter(alts))
+                base = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] == key)}
+                union_sel = sorted(o for o, (at, _) in view.items()
+                                   if base <= {repr(a) for a in at} and any(x in {repr(a) for a in at} for x in alts[key]))
+                contradiction = False                       # a learned joining word: the alternatives are all wanted
         value_named = any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in cons)
+        if union_sel is None and not value_named and any(t in values and t != dest for t in toks) and not any(t in view and t != dest for t in toks):
+            weak_selection = True                               # values were named but nothing in the reading uses them
         if not value_named and not literal:
             weak_selection = True                               # 'everything' with no value named: ask or hold
         ids = [t for t in toks if t in view and t != dest]
         if ids:
             sel, support = sorted(set(ids)), True                # tokens that are objects' own ids name them directly
         else:
-            sel = [] if contradiction else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
+            sel = [] if contradiction else union_sel if union_sel is not None else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
         return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous,
                 'decisive': decisive, 'weak_change': weak_change, 'weak_selection': weak_selection, 'support': support,
                 'literal': literal}
@@ -409,7 +473,7 @@ class Lexicon:
                 'marker': dict(self.marker), 'prev_n': dict(self.prev_n), 'value_rule': self.value_rule,
                 'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed),
                 'pointed': dict(self.pointed), 'defined': dict(self.defined), 'dmeaning': {w: sorted(m) for w, m in self.dmeaning.items()},
-                'value_atoms': dict(self.value_atoms), 'duses': {w: [sorted(u) for u in us] for w, us in self.duses.items()},
+                'value_atoms': dict(self.value_atoms), 'join': dict(self.join), 'join_n': dict(self.join_n), 'duses': {w: [sorted(u) for u in us] for w, us in self.duses.items()},
                 'd_n': dict(self.d_n)}
 
     @staticmethod
@@ -428,6 +492,7 @@ class Lexicon:
         x.value_atoms = dict(d.get('value_atoms', {}))
         x.duses = {w: [set(u) for u in us] for w, us in d.get('duses', {}).items()}
         x.d_n = Counter(d.get('d_n', {}))
+        x.join, x.join_n = Counter(d.get('join', {})), Counter(d.get('join_n', {}))
         return x
 
 

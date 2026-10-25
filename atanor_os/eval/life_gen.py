@@ -38,7 +38,9 @@ NAMES = ['amber', 'birch', 'cobalt', 'dahlia', 'ember', 'fennel', 'garnet', 'her
          'marigold', 'nutmeg', 'olive', 'poppy', 'quill', 'russet', 'saffron', 'thistle', 'umber', 'violet', 'walnut', 'yarrow']
 
 
-def life(seed, days=30):
+def life(seed, days=30, compose=False):
+    """compose: from day 6, about a third of the commands name two kinds of files at once ('the csv and md files'),
+    a combination of known parts never shown together before. Off by default (earlier lives are unchanged)."""
     rng = random.Random(f'life-{seed}')
     dests = DEST_NAMES[:]
     rng.shuffle(dests)
@@ -55,6 +57,14 @@ def life(seed, days=30):
             verb = rng.choice(VERBS[tool])
             sel = rng.choice(SELECT[ext])
             quant = rng.choice(QUANT) if sel != ['spreadsheets'] or True else []
+            syn = {w: ext for w in sel if w not in (ext, 'files', 'file')}
+            if compose and day >= 6 and rng.random() < 0.35:
+                ext2 = rng.choice([e for e in EXTS if e != ext])
+                sel2 = rng.choice(SELECT[ext2])
+                syn.update({w: ext2 for w in sel2 if w not in (ext2, 'files', 'file')})
+                sel = (sel[:-1] if sel[-1] == 'files' and sel2[-1] == 'files' else sel) + ['and'] + sel2
+                quant = [q for q in [quant] if q != ['every']][0] if quant != ['every'] else ['all', 'the']
+                ext = [ext, ext2]
             words = list(rng.choice(POLITE)) + verb + quant + (sel[:-1] + ['file'] if quant == ['every'] and sel[-1] == 'files' else sel)
             d = None
             if tool != 'delete':
@@ -67,8 +77,8 @@ def life(seed, days=30):
             sentence = ' '.join(words)
             sentence = sentence[0].upper() + sentence[1:] + '.'
             tasks.append({'command': sentence, 'tool': tool, 'ext': ext, 'dest': d,
-                          'phrases': {'verb': verb, 'base': tool, 'selector_synonym': [w for w in sel if w not in (ext, 'files', 'file')],
-                                      'function': sorted(FUNCTION)}})
+                          'phrases': {'verb': verb, 'base': tool, 'selector_synonym': sorted(syn),
+                                      'function': sorted(FUNCTION), 'syn_ext': syn}})
         out.append({'day': day, 'user': user, 'drift': list(drift), 'tasks': tasks})
     return out
 
@@ -82,13 +92,13 @@ def inflow(home, day, seed):
             p.write_bytes(f'{p.stem} {rng.random():.6f}\n'.encode())
 
 
-def run_day(cond, seed, day_no, root, days=30):
+def run_day(cond, seed, day_no, root, days=30, compose=False):
     from ..agent.life import Mind
     from ..teach.life_teacher import Teacher
     from ..world.fs_world import Workspace
     from .life import hand_do
     root = Path(root)
-    day = life(seed, days)[day_no - 1]
+    day = life(seed, days, compose)[day_no - 1]
     home = Workspace(root / 'home', create=not (root / 'home').exists())
     home.drift = frozenset(day['drift'])
     if cond == 'FRESH' and (root / 'mind').exists():
@@ -119,7 +129,7 @@ def run_day(cond, seed, day_no, root, days=30):
     # before the person leaves, the core brings up what it left unfinished on earlier days
     if cond != 'HAND' and day['user']:
         resume_goals(root, seed, days, day_no, teacher, lambda k: Mind(home, root / 'mind', root / 'lab', user=teacher, generalize=cond != 'CASE',
-                     lexicon_mode='case' if cond == 'CASE' else 'general', seed=day_no * 10 + 9 - k), life)
+                     lexicon_mode='case' if cond == 'CASE' else 'general', seed=day_no * 10 + 9 - k), lambda sd, dd: life(sd, dd, compose))
     with open(root / 'days.jsonl', 'a', encoding='utf-8') as f:
         for r in rows:
             f.write(json.dumps(r, default=str) + '\n')
@@ -165,7 +175,7 @@ def resume_goals(root, seed, days, day_no, teacher, make_mind, life_fn, feasible
     return out
 
 
-def run(seed, out, conds=('LIFE', 'FRESH', 'CASE', 'HAND'), days=30):
+def run(seed, out, conds=('LIFE', 'FRESH', 'CASE', 'HAND'), days=30, compose=False):
     out = Path(out)
     for c in conds:
         root = out / c
@@ -173,7 +183,7 @@ def run(seed, out, conds=('LIFE', 'FRESH', 'CASE', 'HAND'), days=30):
             shutil.rmtree(root)
         root.mkdir(parents=True)
         for d in range(1, days + 1):
-            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.life_gen import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days})'],
+            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.life_gen import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days}, {compose})'],
                            cwd=PKG.parent, check=True)
     return curves(out, conds)
 

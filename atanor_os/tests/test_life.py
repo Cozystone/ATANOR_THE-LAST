@@ -247,3 +247,22 @@ def test_a_goal_already_done_is_not_redone(tmp_path):
     t.begin(task)
     m = Mind(ws, tmp_path / 'mind', tmp_path / 'lab', user=t)
     assert m.resume(m.pending_goals()[0]) is None and ws.kind('c.txt') == 'file'
+
+
+def test_a_joining_word_is_learned_from_pointed_unions_and_then_used_alone(tmp_path):
+    """'the csv and md files' brings two values for one attribute. Nothing tells the core what 'and' does: after the
+    person pointed at the union twice, a new pair ('log and txt') is selected as a union with nobody to ask."""
+    names = ['a.csv', 'b.csv', 'c.md', 'd.txt', 'e.log', 'f.json']
+    ws = _home(tmp_path, names)
+    t = Teacher(ws)
+    for i, (ext, d) in enumerate([('csv', 'one'), ('md', 'two'), ('txt', 'three'), ('log', 'four')]):
+        _do(ws, tmp_path, t, {'command': f'Copy the {ext} files into a folder called {d}.', 'tool': 'copy', 'ext': ext, 'dest': d}, f't{i}')
+    for i, (pair, d) in enumerate([(['csv', 'md'], 'five'), (['md', 'json'], 'six')]):
+        r, ok, m = _do(ws, tmp_path, t, {'command': f'Copy the {pair[0]} and {pair[1]} files into a folder called {d}.', 'tool': 'copy',
+                                        'ext': pair, 'dest': d}, f'u{i}')
+        assert ok, (r, dict(m.counts))
+    before = dict(t.help)
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Copy the log and txt files into a folder called seven.', 'tool': 'copy',
+                                    'ext': ['log', 'txt'], 'dest': 'seven'}, 'v', user=False)
+    assert ok, (r, dict(m.counts))
+    assert t.help == before
