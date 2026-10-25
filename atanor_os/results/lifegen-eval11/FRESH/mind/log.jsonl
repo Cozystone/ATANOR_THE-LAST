@@ -1,0 +1,10 @@
+{"t": 1792919010.832, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["eastinlet"]], ["shove", ["eastinlet/birch29.txt", "birch29.txt"]]]}
+{"t": 1792919011.775, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792919020.23, "task": "d30-t1", "event": "ask_explain", "word": "make", "answer": "copy", "learned": false}
+{"t": 1792919020.231, "task": "d30-t1", "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792919021.172, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westquay"]], ["replicate", ["westquay/ember30.json", "ember30.json"]]]}
+{"t": 1792919022.45, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792919026.046, "task": "d30-t2", "event": "ask_check", "unknown": ["shift", "spreadsheets", "to"], "ok": false}
+{"t": 1792919026.048, "task": "d30-t2", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792919026.049, "task": "d30-t2", "event": "ask_explain", "word": "spreadsheets", "answer": "csv files", "learned": true}
+{"t": 1792919026.05, "task": "d30-t2", "event": "ask_check", "unknown": ["shift", "to"], "ok": true}
