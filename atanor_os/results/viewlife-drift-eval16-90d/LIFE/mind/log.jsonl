@@ -1,0 +1,306 @@
+{"t": 1792957856.375, "task": "d1-t0", "event": "demonstration", "pid": "9db53db05e", "pattern": [["o", "group", "=D.value"], ["o", "kind", "panel"]], "steps": [["group", ["p2", "grp:ext"]]]}
+{"t": 1792957856.385, "task": "d1-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957856.411, "task": "d1-t1", "event": "ask_check", "unknown": ["arrange"], "ok": false}
+{"t": 1792957856.412, "task": "d1-t1", "event": "ask_explain", "word": "arrange", "answer": "sort", "learned": false}
+{"t": 1792957856.418, "task": "d1-t1", "event": "demonstration", "pid": "25058de642", "pattern": [["o", "kind", "panel"], ["o", "sort", "=D.value"]], "steps": [["sort", ["p1", "key:ext"]]]}
+{"t": 1792957856.425, "task": "d1-t1", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957856.592, "task": "d2-t0", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792957856.593, "task": "d2-t0", "event": "ask_explain", "word": "show", "answer": "filter", "learned": false}
+{"t": 1792957856.6, "task": "d2-t0", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["filter", ["p2", "ext:log"]]]}
+{"t": 1792957856.606, "task": "d2-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957856.638, "task": "d2-t1", "event": "ask_explain", "word": "sort", "answer": null, "learned": false}
+{"t": 1792957856.638, "task": "d2-t1", "event": "ask_check", "unknown": ["sort"], "ok": true}
+{"t": 1792957856.678, "task": "d2-t2", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957856.678, "task": "d2-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957856.681, "task": "d2-t2", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792957856.688, "task": "d2-t2", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792957856.865, "task": "d3-t0", "event": "ask_explain", "word": "restrict", "answer": "filter", "learned": false}
+{"t": 1792957856.865, "task": "d3-t0", "event": "ask_explain", "word": "to", "answer": "filter", "learned": false}
+{"t": 1792957856.873, "task": "d3-t0", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["filter", ["p2", "ext:csv"]]]}
+{"t": 1792957856.905, "task": "d3-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957857.117, "task": "d4-t1", "event": "method_choice", "experiment_cost": 0.08, "ask_cost": 3, "user": false}
+{"t": 1792957857.12, "task": "d4-t1", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792957857.144, "task": "d4-t2", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792957857.144, "task": "d4-t2", "event": "unfinished", "goal": "d4-t2", "why": "not understood"}
+{"t": 1792957857.289, "task": "d5-t0", "event": "ask_check", "unknown": ["order"], "ok": false}
+{"t": 1792957857.289, "task": "d5-t0", "event": "ask_explain", "word": "order", "answer": "sort", "learned": true}
+{"t": 1792957857.29, "task": "d5-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957857.29, "task": "d5-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957857.321, "task": "d5-t1", "event": "ask_check", "unknown": ["bunch"], "ok": false}
+{"t": 1792957857.321, "task": "d5-t1", "event": "ask_explain", "word": "bunch", "answer": "group", "learned": false}
+{"t": 1792957857.325, "task": "d5-t1", "event": "demonstration", "pid": "9db53db05e", "pattern": [["o", "group", "=D.value"], ["o", "kind", "panel"]], "steps": [["group", ["p2", "grp:ext"]]]}
+{"t": 1792957857.362, "task": null, "event": "recall", "goal": "d4-t2", "wanted": true}
+{"t": 1792957857.367, "task": "d4-t2/r", "event": "ask_explain", "word": "logs", "answer": "log", "learned": true}
+{"t": 1792957857.367, "task": "d4-t2/r", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957857.367, "task": "d4-t2/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957857.539, "task": "d6-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957857.539, "task": "d6-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957857.576, "task": "d6-t1", "event": "ask_explain", "word": "hide", "answer": "close", "learned": false}
+{"t": 1792957857.582, "task": "d6-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["close", ["p1"]]]}
+{"t": 1792957857.589, "task": "d6-t1", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957857.815, "task": "d7-t0", "event": "ask_check", "unknown": ["filter"], "ok": true}
+{"t": 1792957857.859, "task": "d7-t1", "event": "ask_explain", "word": "close", "answer": null, "learned": false}
+{"t": 1792957857.864, "task": "d7-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["close", ["p2"]]]}
+{"t": 1792957857.898, "task": "d7-t2", "event": "ask_explain", "word": "dismiss", "answer": "close", "learned": true}
+{"t": 1792957857.898, "task": "d7-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.286, "task": "d9-t0", "event": "ask_check", "unknown": ["files"], "ok": true}
+{"t": 1792957858.324, "task": "d9-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957858.324, "task": "d9-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.508, "task": "d10-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957858.509, "task": "d10-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.541, "task": "d10-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957858.542, "task": "d10-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.733, "task": "d11-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.774, "task": "d11-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.81, "task": "d11-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957858.988, "task": "d12-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957858.989, "task": "d12-t0", "event": "unfinished", "goal": "d12-t0", "why": "not understood"}
+{"t": 1792957858.999, "task": "d12-t1", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957859.003, "task": "d12-t1", "event": "unfinished", "goal": "d12-t1", "why": "not understood"}
+{"t": 1792957859.154, "task": "d13-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957859.155, "task": "d13-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.193, "task": "d13-t1", "event": "ask_check", "unknown": ["narrow", "down"], "ok": true}
+{"t": 1792957859.226, "task": null, "event": "recall", "goal": "d12-t0", "wanted": true}
+{"t": 1792957859.231, "task": "d12-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.256, "task": null, "event": "recall", "goal": "d12-t1", "wanted": true}
+{"t": 1792957859.26, "task": "d12-t1/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.26, "task": "d12-t1/r", "event": "ask_point", "why": "contradiction"}
+{"t": 1792957859.429, "task": "d14-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.468, "task": "d14-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957859.468, "task": "d14-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.647, "task": "d15-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.682, "task": "d15-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957859.712, "task": "d15-t2", "event": "ask_explain", "word": "bring", "answer": "open", "learned": false}
+{"t": 1792957859.712, "task": "d15-t2", "event": "ask_explain", "word": "up", "answer": "open", "learned": false}
+{"t": 1792957859.716, "task": "d15-t2", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p1"]]]}
+{"t": 1792957859.723, "task": "d15-t2", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957859.906, "task": "d16-t0", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792957859.907, "task": "d16-t0", "event": "unfinished", "goal": "d16-t0", "why": "not understood"}
+{"t": 1792957860.087, "task": "d17-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957860.13, "task": "d17-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957860.173, "task": null, "event": "recall", "goal": "d16-t0", "wanted": true}
+{"t": 1792957860.177, "task": "d16-t0/r", "event": "ask_explain", "word": "open", "answer": null, "learned": false}
+{"t": 1792957860.184, "task": "d16-t0/r", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957860.364, "task": "d18-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957860.397, "task": "d18-t1", "event": "ask_check", "unknown": ["text"], "ok": false}
+{"t": 1792957860.398, "task": "d18-t1", "event": "ask_explain", "word": "text", "answer": "txt", "learned": true}
+{"t": 1792957860.402, "task": "d18-t1", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["filter", ["p2", "ext:txt"]]]}
+{"t": 1792957860.579, "task": "d19-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957860.616, "task": "d19-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957860.996, "task": "d21-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957861.027, "task": "d21-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957861.06, "task": "d21-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957861.06, "task": "d21-t2", "event": "ask_point", "why": "no destination"}
+{"t": 1792957861.066, "task": "d21-t2", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957861.25, "task": "d22-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957861.256, "task": "d22-t0", "event": "surprise", "action": ["sort", ["p1", "key:ext"]], "predicted_ok": true, "ok": false}
+{"t": 1792957861.258, "task": "d22-t0", "event": "reverify", "tool": "sort", "replayed": "home-60", "ok": false}
+{"t": 1792957861.258, "task": "d22-t0", "event": "world_change", "tool": "sort", "set_aside_before": 67}
+{"t": 1792957861.702, "task": "d22-t0", "event": "method_choice", "experiment_cost": 0.07, "ask_cost": 3, "user": true}
+{"t": 1792957861.714, "task": "d22-t0", "event": "experiment_resolved", "how": "substitute", "lab_actions": 5}
+{"t": 1792957861.72, "task": "d22-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957861.757, "task": "d22-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957861.762, "task": "d22-t1", "event": "method_choice", "experiment_cost": 0.15, "ask_cost": 3, "user": true}
+{"t": 1792957861.765, "task": "d22-t1", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792957861.949, "task": "d23-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957861.987, "task": "d23-t1", "event": "ask_check", "unknown": ["group"], "ok": false}
+{"t": 1792957861.987, "task": "d23-t1", "event": "ask_explain", "word": "group", "answer": null, "learned": false}
+{"t": 1792957861.991, "task": "d23-t1", "event": "demonstration", "pid": "9db53db05e", "pattern": [["o", "group", "=D.value"], ["o", "kind", "panel"]], "steps": [["group", ["p2", "grp:ext"]]]}
+{"t": 1792957862.391, "task": "d25-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957862.425, "task": "d25-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957862.426, "task": "d25-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957862.619, "task": "d26-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957862.62, "task": "d26-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957862.655, "task": "d26-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957862.839, "task": "d27-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957862.874, "task": "d27-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957862.912, "task": "d27-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.107, "task": "d28-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957863.108, "task": "d28-t0", "event": "unfinished", "goal": "d28-t0", "why": "not understood"}
+{"t": 1792957863.119, "task": "d28-t1", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792957863.123, "task": "d28-t1", "event": "unfinished", "goal": "d28-t1", "why": "not understood"}
+{"t": 1792957863.276, "task": "d29-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.315, "task": "d29-t1", "event": "ask_explain", "word": "everything", "answer": "all", "learned": true}
+{"t": 1792957863.315, "task": "d29-t1", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792957863.319, "task": "d29-t1", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["filter", ["p1", "ext:all"]]]}
+{"t": 1792957863.368, "task": "d29-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.412, "task": null, "event": "recall", "goal": "d28-t0", "wanted": true}
+{"t": 1792957863.418, "task": "d28-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.453, "task": null, "event": "recall", "goal": "d28-t1", "wanted": true}
+{"t": 1792957863.459, "task": "d28-t1/r", "event": "ask_explain", "word": "markdown", "answer": "md", "learned": true}
+{"t": 1792957863.459, "task": "d28-t1/r", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792957863.467, "task": "d28-t1/r", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["filter", ["p2", "ext:md"]]]}
+{"t": 1792957863.645, "task": "d30-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.681, "task": "d30-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.716, "task": "d30-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.92, "task": "d31-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957863.966, "task": "d31-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.214, "task": "d32-t1", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792957864.215, "task": "d32-t1", "event": "unfinished", "goal": "d32-t1", "why": "not understood"}
+{"t": 1792957864.38, "task": "d33-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957864.381, "task": "d33-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.425, "task": "d33-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.488, "task": null, "event": "recall", "goal": "d32-t1", "wanted": true}
+{"t": 1792957864.493, "task": "d32-t1/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.493, "task": "d32-t1/r", "event": "ask_point", "why": "no destination"}
+{"t": 1792957864.501, "task": "d32-t1/r", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957864.69, "task": "d34-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957864.69, "task": "d34-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.727, "task": "d34-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.764, "task": "d34-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957864.958, "task": "d35-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957864.958, "task": "d35-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.011, "task": "d35-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.061, "task": "d35-t2", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957865.062, "task": "d35-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.518, "task": "d37-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.551, "task": "d37-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.726, "task": "d38-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957865.726, "task": "d38-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.765, "task": "d38-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.807, "task": "d38-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957865.808, "task": "d38-t2", "event": "ask_point", "why": "contradiction"}
+{"t": 1792957866.006, "task": "d39-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792957866.006, "task": "d39-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.046, "task": "d39-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.465, "task": "d41-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.503, "task": "d41-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.542, "task": "d41-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.74, "task": "d42-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.79, "task": "d42-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957866.791, "task": "d42-t1", "event": "ask_point", "why": "no destination"}
+{"t": 1792957866.795, "task": "d42-t1", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957866.847, "task": "d42-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.055, "task": "d43-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.055, "task": "d43-t0", "event": "ask_point", "why": "no destination"}
+{"t": 1792957867.059, "task": "d43-t0", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957867.103, "task": "d43-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.149, "task": "d43-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.341, "task": "d44-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957867.341, "task": "d44-t0", "event": "unfinished", "goal": "d44-t0", "why": "not understood"}
+{"t": 1792957867.53, "task": "d45-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.53, "task": "d45-t0", "event": "ask_point", "why": "contradiction"}
+{"t": 1792957867.572, "task": "d45-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.627, "task": null, "event": "recall", "goal": "d44-t0", "wanted": true}
+{"t": 1792957867.632, "task": "d44-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.813, "task": "d46-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.845, "task": "d46-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957867.883, "task": "d46-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.077, "task": "d47-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.113, "task": "d47-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.113, "task": "d47-t1", "event": "ask_point", "why": "no destination"}
+{"t": 1792957868.121, "task": "d47-t1", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957868.322, "task": "d48-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957868.322, "task": "d48-t0", "event": "unfinished", "goal": "d48-t0", "why": "not understood"}
+{"t": 1792957868.512, "task": "d49-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.552, "task": "d49-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.552, "task": "d49-t1", "event": "ask_point", "why": "no destination"}
+{"t": 1792957868.559, "task": "d49-t1", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957868.61, "task": null, "event": "recall", "goal": "d48-t0", "wanted": true}
+{"t": 1792957868.616, "task": "d48-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.8, "task": "d50-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957868.833, "task": "d50-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.028, "task": "d51-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.069, "task": "d51-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.288, "task": "d52-t1", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957869.289, "task": "d52-t1", "event": "unfinished", "goal": "d52-t1", "why": "not understood"}
+{"t": 1792957869.44, "task": "d53-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.482, "task": "d53-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.538, "task": null, "event": "recall", "goal": "d52-t1", "wanted": true}
+{"t": 1792957869.543, "task": "d52-t1/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.735, "task": "d54-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.774, "task": "d54-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957869.988, "task": "d55-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957870.035, "task": "d55-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957870.507, "task": "d57-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957870.548, "task": "d57-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957870.765, "task": "d58-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957870.81, "task": "d58-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.016, "task": "d59-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.054, "task": "d59-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.245, "task": "d60-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957871.246, "task": "d60-t0", "event": "unfinished", "goal": "d60-t0", "why": "not understood"}
+{"t": 1792957871.445, "task": "d61-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.446, "task": "d61-t0", "event": "ask_point", "why": "contradiction"}
+{"t": 1792957871.493, "task": "d61-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.556, "task": null, "event": "recall", "goal": "d60-t0", "wanted": true}
+{"t": 1792957871.562, "task": "d60-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.757, "task": "d62-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.796, "task": "d62-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957871.848, "task": "d62-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.044, "task": "d63-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.084, "task": "d63-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.127, "task": "d63-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.557, "task": "d65-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.596, "task": "d65-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.806, "task": "d66-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.852, "task": "d66-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957872.896, "task": "d66-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.104, "task": "d67-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.144, "task": "d67-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.194, "task": "d67-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.401, "task": "d68-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957873.401, "task": "d68-t0", "event": "unfinished", "goal": "d68-t0", "why": "not understood"}
+{"t": 1792957873.415, "task": "d68-t1", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957873.422, "task": "d68-t1", "event": "unfinished", "goal": "d68-t1", "why": "not understood"}
+{"t": 1792957873.59, "task": "d69-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.631, "task": "d69-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.693, "task": null, "event": "recall", "goal": "d68-t0", "wanted": true}
+{"t": 1792957873.698, "task": "d68-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.743, "task": null, "event": "recall", "goal": "d68-t1", "wanted": true}
+{"t": 1792957873.751, "task": "d68-t1/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.947, "task": "d70-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957873.999, "task": "d70-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957874.224, "task": "d71-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957874.267, "task": "d71-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957874.534, "task": "d72-t1", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957874.534, "task": "d72-t1", "event": "unfinished", "goal": "d72-t1", "why": "not understood"}
+{"t": 1792957874.717, "task": "d73-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957874.767, "task": "d73-t1", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792957874.776, "task": "d73-t1", "event": "demonstration", "pid": "9db53db05e", "pattern": [["o", "group", "=D.value"], ["o", "kind", "panel"]], "steps": [["group", ["p1", "grp:ext"]]]}
+{"t": 1792957874.831, "task": "d73-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957874.902, "task": null, "event": "recall", "goal": "d72-t1", "wanted": true}
+{"t": 1792957874.909, "task": "d72-t1/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.132, "task": "d74-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.176, "task": "d74-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.397, "task": "d75-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.441, "task": "d75-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.654, "task": "d76-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957875.655, "task": "d76-t0", "event": "unfinished", "goal": "d76-t0", "why": "not understood"}
+{"t": 1792957875.851, "task": "d77-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.9, "task": "d77-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957875.956, "task": null, "event": "recall", "goal": "d76-t0", "wanted": true}
+{"t": 1792957875.963, "task": "d76-t0/r", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957876.169, "task": "d78-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957876.217, "task": "d78-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957876.262, "task": "d78-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957876.48, "task": "d79-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957876.524, "task": "d79-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957876.958, "task": "d81-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.006, "task": "d81-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.052, "task": "d81-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.253, "task": "d82-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.293, "task": "d82-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.493, "task": "d83-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.544, "task": "d83-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957877.961, "task": "d85-t0", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792957877.965, "task": "d85-t0", "event": "demonstration", "pid": "9db53db05e", "pattern": [["o", "group", "=D.value"], ["o", "kind", "panel"]], "steps": [["group", ["p2", "grp:ext"]]]}
+{"t": 1792957878.015, "task": "d85-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957878.213, "task": "d86-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957878.258, "task": "d86-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957878.302, "task": "d86-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957878.302, "task": "d86-t2", "event": "ask_point", "why": "contradiction"}
+{"t": 1792957878.515, "task": "d87-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957878.561, "task": "d87-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957878.757, "task": "d88-t0", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792957878.758, "task": "d88-t0", "event": "unfinished", "goal": "d88-t0", "why": "not understood"}
+{"t": 1792957878.961, "task": "d89-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957879.0, "task": "d89-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957879.0, "task": "d89-t1", "event": "ask_point", "why": "no destination"}
+{"t": 1792957879.004, "task": "d89-t1", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957879.046, "task": "d89-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957879.26, "task": "d90-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957879.301, "task": "d90-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792957879.301, "task": "d90-t1", "event": "ask_point", "why": "no destination"}
+{"t": 1792957879.308, "task": "d90-t1", "event": "demonstration", "pid": "75019f05b3", "pattern": [["o", "filter", "all"], ["o", "group", "none"], ["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957879.348, "task": "d90-t2", "event": "ask_check", "why": "weak change", "ok": true}

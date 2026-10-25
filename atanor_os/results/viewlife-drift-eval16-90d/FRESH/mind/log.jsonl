@@ -1,0 +1,8 @@
+{"t": 1792957898.176, "task": "d90-t0", "event": "demonstration", "pid": "25058de642", "pattern": [["o", "kind", "panel"], ["o", "sort", "=D.value"]], "steps": [["rank", ["key:size", "p2"]]]}
+{"t": 1792957898.183, "task": "d90-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957898.203, "task": "d90-t1", "event": "ask_explain", "word": "show", "answer": "open", "learned": false}
+{"t": 1792957898.207, "task": "d90-t1", "event": "demonstration", "pid": "4105c02186", "pattern": [["o", "kind", "panel"], ["o", "sort", "name"]], "steps": [["open", ["p3"]]]}
+{"t": 1792957898.213, "task": "d90-t1", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792957898.239, "task": "d90-t2", "event": "ask_check", "unknown": ["arrange"], "ok": true}
+{"t": 1792957898.258, "task": "d90-t2", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792957898.266, "task": "d90-t2", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
