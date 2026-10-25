@@ -106,3 +106,15 @@ def test_how_the_second_object_is_named_is_learned_from_every_use(tmp_path):
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by ext.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't9', user=False)
     assert ok, (r, dict(m.counts))
     assert t.help == before
+
+
+def test_a_well_used_screen_verb_stops_needing_a_check(tmp_path):
+    """The panel kind is not a name: after several confirmed filters, 'filter' decides the change and is not re-checked."""
+    ws = _screen(tmp_path)
+    t = ViewTeacher(ws)
+    for i, (p, e) in enumerate([('p1', 'csv'), ('p2', 'md'), ('p1', 'txt'), ('p2', 'csv'), ('p1', 'md')]):
+        _do(ws, tmp_path, t, {'command': f'Filter {p} to {e}.', 'tool': 'filter', 'panel': p, 'value': f'ext:{e}'}, f't{i}')
+    before = dict(t.help)
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Filter p2 to txt.', 'tool': 'filter', 'panel': 'p2', 'value': 'ext:txt'}, 't9')
+    used = {q: t.help[q] - before.get(q, 0) for q in t.help if t.help[q] - before.get(q, 0)}
+    assert ok and not used.get('check') and not used.get('point'), used

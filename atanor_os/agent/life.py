@@ -167,10 +167,12 @@ class Optimistic:
 class Lexicon:
     def __init__(self, mode='general'):
         self.mode = mode                        # 'general' or 'case' (exact sentence-shape retrieval only)
+        self.kind_keys = set()                  # the body's kind attributes (given by the body, not learned)
         self.word_n = Counter()
         self.pattern_of = defaultdict(Counter)  # word -> pid counts (from confirmed / demonstrated uses)
         self.meaning = {}                       # word -> set(repr(atom)) shared by most of its recent uses
         self.uses = {}                          # word -> list of per-use common-atom sets (repr strings), last 24
+        self.disc_uses = {}                     # word -> per use, the value atoms that told the selected objects apart
         self.neutral = set()                    # words the user explained as carrying nothing
         self.marker = Counter()
         self.prev_n = Counter()
@@ -181,6 +183,7 @@ class Lexicon:
         self.dmeaning = {}                      # word -> atoms most second objects it was used with had in common
         self.duses = {}                         # word -> per-use atoms of the second object (last 24)
         self.d_n = Counter()                    # word -> confirmed uses with a second object
+        self.d_disc = defaultdict(Counter)      # word -> atoms that told its second object apart, per use
         self.value_atoms = {}                   # value -> the atom (repr) that carried it, from every view seen
         self.defined = Counter()                # word -> explanations by the person
         self.join = Counter()                   # word -> confirmed uses where it stood between alternatives that were all selected
@@ -202,12 +205,33 @@ class Lexicon:
         counts = Counter(a for u in us for a in u)
         self.meaning[word] = {a for a, c in counts.items() if c >= need}
 
-    def _add_use(self, word, atoms_repr, times=1):
+    def _add_use(self, word, atoms_repr, times=1, disc=None):
         us = self.uses.setdefault(word, [])
+        ds = self.disc_uses.setdefault(word, [])
         for _ in range(times):
             us.append(set(atoms_repr))
+            ds.append({a for a in atoms_repr if self.valued(a)} if disc is None else set(disc))
         del us[:-24]
+        del ds[:-24]
         self._derive(word)
+
+    def _discriminating(self, atoms_repr, objs, view):
+        """Of these atoms, the value atoms that some other object of the same kind lacked (they told objects apart)."""
+        objs = [o for o in objs if o in view]
+        if not objs:
+            return set()
+        kinds = {a for a in {repr(x) for x in view[objs[0]][0]} if a.startswith("('U'") and a.split(',')[2].strip(" '") in self.kind_keys}
+        peers = [{repr(x) for x in at} for o, (at, _) in view.items() if o not in objs and kinds <= {repr(x) for x in at}]
+        return {a for a in atoms_repr if self.valued(a) and any(a not in pa for pa in peers)}
+
+    def naming_atoms(self, word):
+        """Value atoms of the word's meaning that told its objects apart in at least half of its remembered uses."""
+        m = self.meaning.get(word, ())
+        ds = self.disc_uses.get(word)
+        if not ds:
+            return {a for a in m if self.valued(a)}
+        c = Counter(a for d in ds for a in d)
+        return {a for a in m if self.valued(a) and 2 * c[a] >= len(ds)}
 
     def _alternatives(self, toks, view, dest):
         """Value-naming atoms brought by the tokens, by attribute: {key: {atom: first token index}}, only for
@@ -220,7 +244,7 @@ class Lexicon:
             if t in values:
                 got = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
             elif self.strong(t) and self.meaning.get(t):
-                got = {a for a in self.meaning[t] if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')}
+                got = self.naming_atoms(t)
             else:
                 continue
             for a in got:
@@ -232,7 +256,7 @@ class Lexicon:
         carried the same one, and that value was in at least half of all its uses (a function word co-occurs with
         whatever is selected, so its values spread)."""
         us = self.uses.get(word, [])
-        vals = [{a for a in u if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')} for u in us]
+        vals = [set(d) for d in self.disc_uses.get(word, [])] or [{a for a in u if self.valued(a)} for u in us]
         valued = [v for v in vals if v]
         if len(valued) < 4:
             return set()
@@ -293,9 +317,10 @@ class Lexicon:
                     continue                                # its own part of the selection cannot be told apart: no evidence
                 if own:                                     # a value word in a union learns from its own part
                     sub = [view[o][0] for o in own[0] if o in view]
-                    self._add_use(w, {repr(a) for a in frozenset.intersection(*sub)} if sub else cur)
+                    part = {repr(a) for a in frozenset.intersection(*sub)} if sub else cur
+                    self._add_use(w, part, disc=self._discriminating(part, own[0], view))
                 else:
-                    self._add_use(w, cur)
+                    self._add_use(w, cur, disc=self._discriminating(cur, selected, view))
         for pair in self.pairs(toks, dest, values):
             if pid is not None:
                 self.pattern_of[pair][pid] += 1
@@ -304,6 +329,8 @@ class Lexicon:
             for w in set(toks):
                 if w in self.neutral or w in view or w == dest:
                     continue
+                for a in self._discriminating(dcur, [dest], view):
+                    self.d_disc[w][a] += 1
                 us = self.duses.setdefault(w, [])
                 us.append(set(dcur))
                 del us[:-24]
@@ -337,13 +364,25 @@ class Lexicon:
             return None, 0.0
         n = sum(pc.values())
         top, c = pc.most_common(1)[0]
-        if n < 3 or self.names_value(unit):
+        if n < 3 or self.names_value(unit) or self.names_second(unit):
             return top, 0.0                                 # too little evidence, or an object word: not decisive
         return top, (c + 0.1) / (n + 0.1 * len(pids))
 
+    def valued(self, a):
+        """An atom that names a value: an attribute value that is neither a kind attribute of the body nor empty."""
+        if not a.startswith("('U'"):
+            return False
+        parts = a.split(',')
+        return parts[2].strip(" '") not in self.kind_keys and parts[3].strip(" )'") not in ('0', '1', '-')
+
+    def names_second(self, word):
+        """A strong word whose second-object meaning told that object apart from others of its kind in half its uses."""
+        n = self.d_n[word]
+        return self.strong(word) and n >= 3 and any(2 * self.d_disc[word][a] >= n for a in self.dmeaning.get(word, ()))
+
     def names_value(self, word):
         """A strong word whose meaning contains a value-bearing atom names objects, not a change."""
-        return self.strong(word) and any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in self.meaning.get(word, ()))
+        return self.strong(word) and bool(self.naming_atoms(word))
 
     def strong(self, unit):
         return self.confirmed[unit] + self.pointed[unit] + 3 * self.defined[unit] >= 3
@@ -355,18 +394,20 @@ class Lexicon:
             self.neutral.add(word)
             self.meaning.pop(word, None)
             self.uses.pop(word, None)
+            self.disc_uses.pop(word, None)
             return
         for p in pids or []:
             self.pattern_of[word][p] += 5                    # the person defined it: strong evidence, not one co-occurrence
             self.confirmed[f'{word}|{p}'] += 1               # stated by the person counts like a confirmed use
         if meaning is not None:
             def specific(m):
-                return any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in m)
+                return any(self.valued(a) for a in m)
             old_m = self.meaning.get(word)
             if old_m is not None and specific(old_m) and not specific(meaning):
                 pass                                         # the explanation names no value: keep the more specific meaning
             else:
                 self.uses[word] = []                         # the person's definition supersedes what co-occurrence suggested
+                self.disc_uses[word] = []
                 self._add_use(word, set(meaning), times=3)   # and weighs three uses: later uses can still heal it
 
     def _shape(self, toks, view, dest):
@@ -436,7 +477,7 @@ class Lexicon:
             if t in values:
                 return {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
             if self.names_value(t):
-                return {a for a in self.meaning.get(t, ()) if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')}
+                return self.naming_atoms(t)
             return set()
         for t in set(toks):
             if t in values or t in view or t == dest or t in self.neutral or not self.names_value(t):
@@ -468,7 +509,7 @@ class Lexicon:
                      for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
             keys = {a.split(',')[2] for a in named}
             by_object_words = {a for t in toks if t != dest and t not in values and t not in self.neutral and self.names_value(t)
-                               for a in self.meaning.get(t, ()) if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')}
+                               for a in self.naming_atoms(t)}
             cons = {a for a in cons if not (a.startswith("('U'") and a.split(',')[2] in keys) or a in by_object_words} | named
         by_key = defaultdict(set)
         for a in cons:
@@ -486,7 +527,7 @@ class Lexicon:
                 union_sel = sorted(o for o, (at, _) in view.items()
                                    if base <= {repr(a) for a in at} and any(x in {repr(a) for a in at} for x in alts[key]))
                 contradiction = False                       # a learned joining word: the alternatives are all wanted
-        value_named = any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in cons)
+        value_named = any(self.valued(a) for a in cons)
         ignores_named = False
         if ids_named := [t for t in toks if t in view and t != dest]:
             pass                                                # objects named by their ids: nothing to drop
@@ -535,11 +576,12 @@ class Lexicon:
         return {'mode': self.mode, 'word_n': dict(self.word_n), 'pattern_of': {w: dict(c) for w, c in self.pattern_of.items()},
                 'meaning': {w: sorted(m) for w, m in self.meaning.items()}, 'neutral': sorted(self.neutral),
                 'uses': {w: [sorted(u) for u in us] for w, us in self.uses.items()},
+                'disc_uses': {w: [sorted(u) for u in us] for w, us in self.disc_uses.items()},
                 'marker': dict(self.marker), 'prev_n': dict(self.prev_n), 'value_rule': self.value_rule,
                 'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed),
                 'pointed': dict(self.pointed), 'defined': dict(self.defined), 'dmeaning': {w: sorted(m) for w, m in self.dmeaning.items()},
                 'value_atoms': dict(self.value_atoms), 'join': dict(self.join), 'join_n': dict(self.join_n), 'duses': {w: [sorted(u) for u in us] for w, us in self.duses.items()},
-                'd_n': dict(self.d_n)}
+                'd_n': dict(self.d_n), 'd_disc': {w: dict(c) for w, c in self.d_disc.items()}}
 
     @staticmethod
     def from_json(d):
@@ -548,6 +590,7 @@ class Lexicon:
         x.pattern_of = defaultdict(Counter, {w: Counter(c) for w, c in d['pattern_of'].items()})
         x.meaning = {w: set(m) for w, m in d['meaning'].items()}
         x.uses = {w: [set(u) for u in us] for w, us in d.get('uses', {}).items()}
+        x.disc_uses = {w: [set(u) for u in us] for w, us in d.get('disc_uses', {}).items()}
         x.neutral = set(d['neutral'])
         x.marker, x.prev_n, x.value_rule = Counter(d['marker']), Counter(d['prev_n']), list(d['value_rule'])
         x.cases = {k: (v[0], v[1]) for k, v in d['cases'].items()}
@@ -557,6 +600,7 @@ class Lexicon:
         x.value_atoms = dict(d.get('value_atoms', {}))
         x.duses = {w: [set(u) for u in us] for w, us in d.get('duses', {}).items()}
         x.d_n = Counter(d.get('d_n', {}))
+        x.d_disc = defaultdict(Counter, {w: Counter(c) for w, c in d.get('d_disc', {}).items()})
         x.join, x.join_n = Counter(d.get('join', {})), Counter(d.get('join_n', {}))
         return x
 
@@ -574,6 +618,7 @@ class Mind:
         self.episodes = self._load_episodes()
         lp = self.dir / 'lexicon.json'
         self.lex = Lexicon.from_json(json.loads(lp.read_text(encoding='utf-8'))) if lp.exists() else Lexicon(lexicon_mode)
+        self.lex.kind_keys = set(KIND_ATTRS.get(self.body, ()))
         pp = self.dir / 'patterns.json'
         self.patterns = json.loads(pp.read_text(encoding='utf-8')) if pp.exists() else {}
         mp2 = self.dir / 'pattern_meta.json'
