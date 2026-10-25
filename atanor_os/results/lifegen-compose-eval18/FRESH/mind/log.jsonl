@@ -1,0 +1,11 @@
+{"t": 1792945500.664, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northcabin"]], ["shove", ["northcabin/ember27.log", "ember27.log"]]]}
+{"t": 1792945508.172, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945508.744, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945510.262, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945510.808, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945520.366, "task": "d30-t1", "event": "ask_explain", "word": "clone", "answer": "copy", "learned": false}
+{"t": 1792945520.369, "task": "d30-t1", "event": "ask_explain", "word": "text", "answer": "txt files", "learned": true}
+{"t": 1792945521.425, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westcove"]], ["copy", ["cobalt30.txt", "westcove/cobalt30.txt"]]]}
+{"t": 1792945523.078, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792945527.757, "task": "d30-t2", "event": "ask_explain", "word": "erase", "answer": "delete", "learned": false}
+{"t": 1792945527.759, "task": "d30-t2", "event": "ask_explain", "word": "every", "answer": "", "learned": true}

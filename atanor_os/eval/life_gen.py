@@ -53,18 +53,37 @@ def life(seed, days=30, compose=False):
         user = day <= 2 or day % 4 != 0
         tasks = []
         for ext in rng.sample(EXTS, rng.choice([2, 3])):
+            form = None
             tool = rng.choice(list(VERBS))
             verb = rng.choice(VERBS[tool])
             sel = rng.choice(SELECT[ext])
             quant = rng.choice(QUANT) if sel != ['spreadsheets'] or True else []
             syn = {w: ext for w in sel if w not in (ext, 'files', 'file')}
-            if compose and day >= 6 and rng.random() < 0.35:
+            if compose == 'transfer' and day >= 16 and rng.random() < 0.45:
+                form = rng.choice(['three', 'repeat', 'plus', 'as well as', 'along with'])
+                others = rng.sample([e for e in EXTS if e != ext], 2 if form == 'three' else 1)
+                sels = [sel] + [rng.choice(SELECT[e]) for e in others]
+                for e, sl in zip(others, sels[1:]):
+                    syn.update({w: e for w in sl if w not in (e, 'files', 'file')})
+                if quant == ['every']:
+                    quant = ['all', 'the']
+                if form == 'three':                          # 'the csv, md and txt files' (punctuation is not a token)
+                    strip = all(x[-1] == 'files' for x in sels)
+                    parts = [x[:-1] if strip and i < 2 else x for i, x in enumerate(sels)]
+                    sel = parts[0] + parts[1] + ['and'] + parts[2]
+                elif form == 'repeat':                       # 'the csv files and the md files'
+                    sel = sels[0] + ['and'] + quant + sels[1]
+                else:                                        # joining words never heard before
+                    sel = sels[0] + form.split(' ') + sels[1]
+                ext = [ext] + others
+            elif compose and day >= 6 and rng.random() < 0.35:
                 ext2 = rng.choice([e for e in EXTS if e != ext])
                 sel2 = rng.choice(SELECT[ext2])
                 syn.update({w: ext2 for w in sel2 if w not in (ext2, 'files', 'file')})
                 sel = (sel[:-1] if sel[-1] == 'files' and sel2[-1] == 'files' else sel) + ['and'] + sel2
                 quant = [q for q in [quant] if q != ['every']][0] if quant != ['every'] else ['all', 'the']
                 ext = [ext, ext2]
+                form = 'and'
             words = list(rng.choice(POLITE)) + verb + quant + (sel[:-1] + ['file'] if quant == ['every'] and sel[-1] == 'files' else sel)
             d = None
             if tool != 'delete':
@@ -76,7 +95,7 @@ def life(seed, days=30, compose=False):
                 words += [w.replace('{d}', d) for w in rng.choice(DEST)]
             sentence = ' '.join(words)
             sentence = sentence[0].upper() + sentence[1:] + '.'
-            tasks.append({'command': sentence, 'tool': tool, 'ext': ext, 'dest': d,
+            tasks.append({'command': sentence, 'tool': tool, 'ext': ext, 'dest': d, 'form': form,
                           'phrases': {'verb': verb, 'base': tool, 'selector_synonym': sorted(syn),
                                       'function': sorted(FUNCTION), 'syn_ext': syn}})
         out.append({'day': day, 'user': user, 'drift': list(drift), 'tasks': tasks})
@@ -183,7 +202,7 @@ def run(seed, out, conds=('LIFE', 'FRESH', 'CASE', 'HAND'), days=30, compose=Fal
             shutil.rmtree(root)
         root.mkdir(parents=True)
         for d in range(1, days + 1):
-            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.life_gen import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days}, {compose})'],
+            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.life_gen import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days}, {compose!r})'],
                            cwd=PKG.parent, check=True)
     return curves(out, conds)
 

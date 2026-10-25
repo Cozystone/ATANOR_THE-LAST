@@ -1,0 +1,5 @@
+{"t": 1792944621.712, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["depot"]], ["shove", ["depot/indigo30.csv", "indigo30.csv"]]]}
+{"t": 1792944622.597, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792944625.612, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792944625.614, "task": "d30-t1", "event": "ask_explain", "word": "put", "answer": "move", "learned": false}
+{"t": 1792944626.364, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["jetty"]], ["shove", ["jetty/amber20.log", "amber20.log"]]]}

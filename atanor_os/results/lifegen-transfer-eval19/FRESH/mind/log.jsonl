@@ -1,0 +1,14 @@
+{"t": 1792945251.005, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["basin"]], ["replicate", ["basin/cobalt24.json", "cobalt24.json"]]]}
+{"t": 1792945257.649, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945258.297, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945260.209, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945260.937, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945280.637, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792945280.641, "task": "d30-t1", "event": "ask_explain", "word": "clone", "answer": "copy", "learned": true}
+{"t": 1792945282.592, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["eastlodge"]], ["replicate", ["eastlodge/amber30.txt", "amber30.txt"]]]}
+{"t": 1792945295.926, "task": "d30-t2", "event": "ask_explain", "word": "relocate", "answer": "move", "learned": false}
+{"t": 1792945295.928, "task": "d30-t2", "event": "ask_explain", "word": "every", "answer": "", "learned": true}
+{"t": 1792945295.93, "task": "d30-t2", "event": "ask_check", "unknown": ["relocate", "file"], "ok": false}
+{"t": 1792945296.995, "task": "d30-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northlarder"]], ["move", ["birch25.md", "northlarder/birch25.md"]]]}
+{"t": 1792945323.705, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792945324.339, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}
