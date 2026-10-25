@@ -1,0 +1,6 @@
+{"t": 1792912672.996, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["southcellar"]], ["replicate", ["southcellar/birch28.txt", "birch28.txt"]]]}
+{"t": 1792912676.814, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 11}
+{"t": 1792912701.795, "task": "d30-t1", "event": "ask_check", "unknown": ["please", "clone", "every", "comma", "separated", "file"], "ok": false}
+{"t": 1792912701.797, "task": "d30-t1", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792912701.8, "task": "d30-t1", "event": "ask_explain", "word": "clone", "answer": "copy", "learned": true}
+{"t": 1792912703.564, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["northroost"]], ["replicate", ["northroost/birch30.csv", "birch30.csv"]]]}
