@@ -1,0 +1,8 @@
+{"t": 1792932383.99, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["amber28.log"]]]}
+{"t": 1792932384.67, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 6}
+{"t": 1792932388.491, "task": "d30-t1", "event": "ask_check", "unknown": ["shift", "text", "into", "a", "folder", "called", "pantry"], "ok": false}
+{"t": 1792932388.492, "task": "d30-t1", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792932388.494, "task": "d30-t1", "event": "ask_explain", "word": "text", "answer": "txt files", "learned": true}
+{"t": 1792932388.494, "task": "d30-t1", "event": "ask_check", "unknown": ["shift", "into", "a", "folder", "called", "pantry"], "ok": false}
+{"t": 1792932389.001, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["pantry"]], ["move", ["amber30.txt", "pantry/amber30.txt"]]]}
+{"t": 1792932390.101, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 9}
