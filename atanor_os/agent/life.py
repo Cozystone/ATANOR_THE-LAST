@@ -420,6 +420,22 @@ class Lexicon:
                 top, n = pc.most_common(1)[0]
                 if top != pid and n / sum(pc.values()) >= 0.9 and self.confirmed.get(f'{t}|{top}', 0) and not self.confirmed.get(f'{t}|{pid}', 0):
                     ambiguous = True
+        def value_atoms_of(t):
+            if t in values:
+                return {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+            if self.names_value(t):
+                return {a for a in self.meaning.get(t, ()) if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')}
+            return set()
+        for t in set(toks):
+            if t in values or t in view or t == dest or t in self.neutral or not self.names_value(t):
+                continue
+            pc = self.pattern_of.get(t)
+            n = sum(pc.values()) if pc else 0
+            if n < 3 or (pc.most_common(1)[0][1] + 0.1) / (n + 0.1 * len(pids)) < DECISIVE:
+                continue
+            others = set().union(*[value_atoms_of(u) for u in set(toks) if u != t and u != dest]) if len(toks) > 1 else set()
+            if value_atoms_of(t) - others:
+                ambiguous = True                            # change word or object word? the reading depends on it
         change_words = {w for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values for w in u.split(' ')}
         weak_change = not any(self.strong(u) for u in units if self._share(u, pids)[1] >= DECISIVE and u not in values and u not in self.neutral)
         cons, weak_selection, support = set(), False, any(t in values and t != dest for t in toks)

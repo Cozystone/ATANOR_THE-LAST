@@ -308,3 +308,20 @@ def test_a_reading_that_leaves_named_values_unused_is_held_alone_even_if_reversi
     L.value_rule = [1, 5]                                                                 # values are not trusted to restrict yet
     r = L.interpret(tokens('copy the csv files'), v, False)
     assert r['weak_selection'] and not r['support'], r
+
+
+def test_a_word_that_could_name_the_change_or_objects_makes_the_reading_ambiguous():
+    """'shift' has only ever moved md files: it goes with one change and its meaning names md. In 'shift the logs' the
+    md it would add is named by nothing else, so the reading depends on its role: ambiguous (checked, or held alone)."""
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_more()
+    L = Lexicon()
+    for _ in range(3):
+        L.learn(tokens('shift the md files'), v, 'MOV', ['c.md'], None)
+        L.learn(tokens('copy the logs'), v, 'CP', ['d.log'], None)
+        L.learn(tokens('move the csv files'), v, 'MOV', ['a.csv', 'b.csv'], None)
+        L.learn(tokens('move the logs'), v, 'MOV', ['d.log'], None)
+        for w in ('shift', 'the', 'md', 'files', 'copy', 'logs', 'move', 'csv'):
+            L.confirmed[w] += 1
+    assert L.interpret(tokens('shift the logs'), v, False)['ambiguous']
+    assert not L.interpret(tokens('move the logs'), v, False)['ambiguous']
