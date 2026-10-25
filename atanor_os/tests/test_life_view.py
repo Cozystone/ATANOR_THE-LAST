@@ -71,3 +71,17 @@ def test_after_a_world_change_a_budget_stop_with_no_known_effect_is_a_gap(tmp_pa
     r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by ext.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't9')
     assert ok and t.help.get('demonstrate', 0) == demos, (r, dict(m.counts))
     assert m.counts.get('world_changes') == 1 and m.counts.get('lab_actions', 0) > 0, dict(m.counts)
+
+
+def test_a_second_object_named_by_a_well_used_word_is_not_a_guess(tmp_path):
+    """'extension' is never the value's own name; after three confirmed uses naming the sort key, it names it alone."""
+    ws = _screen(tmp_path)
+    t = ViewTeacher(ws)
+    for i, (p, k) in enumerate([('p1', 'size'), ('p2', 'name'), ('p1', 'ext'), ('p2', 'ext'), ('p1', 'ext'), ('p2', 'ext')]):
+        word = 'extension' if k == 'ext' else k
+        _do(ws, tmp_path, t, {'command': f'Sort {p} by {word}.', 'tool': 'sort', 'panel': p, 'value': f'key:{k}'}, f't{i}')
+    _do(ws, tmp_path, t, {'command': 'Sort p1 by size.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:size'}, 't8')
+    before = dict(t.help)
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Sort p1 by extension.', 'tool': 'sort', 'panel': 'p1', 'value': 'key:ext'}, 't9', user=False)
+    assert ok, (r, dict(m.counts))
+    assert t.help == before

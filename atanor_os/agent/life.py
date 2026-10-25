@@ -178,7 +178,9 @@ class Lexicon:
         self.cases = {}                         # 'case' mode: sentence shape -> (pid, constraints)
         self.confirmed = Counter()              # word -> confirmed uses (the result was what the person wanted)
         self.pointed = Counter()                # word -> uses in which the person pointed at the objects
-        self.dmeaning = {}                      # word -> atoms every second object it was used with had in common
+        self.dmeaning = {}                      # word -> atoms most second objects it was used with had in common
+        self.duses = {}                         # word -> per-use atoms of the second object (last 24)
+        self.d_n = Counter()                    # word -> confirmed uses with a second object
         self.value_atoms = {}                   # value -> the atom (repr) that carried it, from every view seen
         self.defined = Counter()                # word -> explanations by the person
 
@@ -232,7 +234,13 @@ class Lexicon:
             for w in set(toks):
                 if w in self.neutral or w in view or w == dest:
                     continue
-                self.dmeaning[w] = dcur if w not in self.dmeaning else (self.dmeaning[w] & dcur)
+                us = self.duses.setdefault(w, [])
+                us.append(set(dcur))
+                del us[:-24]
+                self.d_n[w] += 1
+                need = max(1, -(-3 * len(us) // 4))
+                cnt = Counter(a for u in us for a in u)
+                self.dmeaning[w] = {a for a, c in cnt.items() if c >= need}
         for w in set(toks):
             if w in values:
                 self.value_rule[1] += 1
@@ -401,7 +409,8 @@ class Lexicon:
                 'marker': dict(self.marker), 'prev_n': dict(self.prev_n), 'value_rule': self.value_rule,
                 'cases': {k: [v[0], v[1]] for k, v in self.cases.items()}, 'confirmed': dict(self.confirmed),
                 'pointed': dict(self.pointed), 'defined': dict(self.defined), 'dmeaning': {w: sorted(m) for w, m in self.dmeaning.items()},
-                'value_atoms': dict(self.value_atoms)}
+                'value_atoms': dict(self.value_atoms), 'duses': {w: [sorted(u) for u in us] for w, us in self.duses.items()},
+                'd_n': dict(self.d_n)}
 
     @staticmethod
     def from_json(d):
@@ -417,6 +426,8 @@ class Lexicon:
         x.pointed, x.defined = Counter(d.get('pointed', {})), Counter(d.get('defined', {}))
         x.dmeaning = {w: set(m) for w, m in d.get('dmeaning', {}).items()}
         x.value_atoms = dict(d.get('value_atoms', {}))
+        x.duses = {w: [set(u) for u in us] for w, us in d.get('duses', {}).items()}
+        x.d_n = Counter(d.get('d_n', {}))
         return x
 
 
@@ -643,6 +654,9 @@ class Mind:
                 continue
             if r['pid'] is None or r['pid'] not in self.patterns or (key(r) in rejected and self.user is not None):
                 if self.user is None:
+                    why = 'unknown' if r['unknown'] else 'no_change'
+                    self.counts[f'refused_{why}'] += 1
+                    self.log(event=f'refuse_{why}', words=r['unknown'])
                     return None
                 if self._teach_from_demo(toks, command):          # nothing better than the rejected reading: be shown
                     break
@@ -686,6 +700,8 @@ class Mind:
                 accepted = r['pid']
             if r['contradiction'] or not r['selected'] or (needs_dest and not r['dest']):
                 if self.user is None:
+                    self.counts['refused_incomplete'] += 1
+                    self.log(event='refuse_incomplete', why='contradiction' if r['contradiction'] else ('nothing selected' if not r['selected'] else 'no second object'))
                     return None
                 ans = self.user.point(command)
                 self.counts['point'] += 1
@@ -705,6 +721,10 @@ class Mind:
             r = {**r, 'selected': [o for o in pointed['objects'] if o in view], 'dest': pointed['dest'] or r['dest'],
                  'contradiction': False, 'weak_selection': False}
         if not self._complete(r) or key(r) in rejected:
+            if self.user is None:
+                self.counts['refused_incomplete'] += 1
+                self.log(event='refuse_incomplete', why='rejected' if key(r) in rejected else 'weak or incomplete reading',
+                         dest_by_meaning=bool(r.get('dest_by_meaning')))
             return None                                       # never act on an interpretation the person rejected
         if r['unknown'] and self.user is None:
             self.counts['refused_unknown'] += 1
@@ -770,14 +790,16 @@ class Mind:
             return {**r, 'dest': cands[0]}
         pids = sorted({q for c in self.lex.pattern_of.values() for q in c})
         change_words = {w for t in toks for w in t.split(' ') if self.lex._share(t, pids)[1] >= DECISIVE}
-        cons = set()
+        cons, by = set(), []
         for t in toks:
             if t not in view and t not in self.lex.neutral and t not in change_words and self.lex.strong(t) and self.lex.dmeaning.get(t):
                 cons |= self.lex.dmeaning[t]
+                by.append(t)
         if cons:
             cands = [o for o, (at, vs) in view.items() if o not in r['selected'] and kind_ok(at) and cons <= {repr(a) for a in at}]
             if len(cands) == 1:
-                return {**r, 'dest': cands[0], 'dest_by_meaning': True}   # a guess from meanings: ask or hold
+                guess = any(self.lex.d_n[t] < 3 for t in by)       # too few uses naming a second object: a guess, ask or hold
+                return {**r, 'dest': cands[0], 'dest_by_meaning': guess}
         return r
 
     def _needs_dest(self, pid):
