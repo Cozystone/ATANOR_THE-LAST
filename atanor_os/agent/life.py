@@ -227,6 +227,18 @@ class Lexicon:
                 by_key[a.split(',')[2]].setdefault(a, i)
         return {k: v for k, v in by_key.items() if len(v) > 1}
 
+    def value_history(self, word):
+        """The value a word has kept naming: of its remembered uses that carried a value (at least 4), three quarters
+        carried the same one, and that value was in at least half of all its uses (a function word co-occurs with
+        whatever is selected, so its values spread)."""
+        us = self.uses.get(word, [])
+        vals = [{a for a in u if a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-')} for u in us]
+        valued = [v for v in vals if v]
+        if len(valued) < 4:
+            return set()
+        c = Counter(a for v in valued for a in v)
+        return {a for a, n in c.items() if 4 * n >= 3 * len(valued) and 2 * n >= len(us)}
+
     def joined(self, word):
         return self.join[word] >= 2 and self.join[word] / max(1, self.join_n[word]) >= 0.8
 
@@ -308,8 +320,8 @@ class Lexicon:
                 own = parts.get(i)
                 sel_in = {o for o in selected if o in view}
                 hit = bool(sel_in) and (set(own) <= carriers if own else sel_in <= any_carrier and bool(sel_in & carriers))
-                if not hit and unread:
-                    continue                                # an unread word may name the rest: no evidence either way
+                if not hit and (unread or not sel_in <= any_carrier):
+                    continue                                # part of the selection is named by nothing read: no evidence either way
                 self.value_rule[1] += 1
                 self.value_rule[0] += int(hit)
         self.cases[self._shape(toks, view, dest)] = (pid, sorted(cur))
@@ -473,7 +485,26 @@ class Lexicon:
                                    if base <= {repr(a) for a in at} and any(x in {repr(a) for a in at} for x in alts[key]))
                 contradiction = False                       # a learned joining word: the alternatives are all wanted
         value_named = any(a.startswith("('U'") and a.split(',')[3].strip(" )'") not in ('0', '1', '-') for a in cons)
-        ignores_named = union_sel is None and not value_named and any(t in values and t != dest for t in toks) and not any(t in view and t != dest for t in toks)
+        ignores_named = False
+        if ids_named := [t for t in toks if t in view and t != dest]:
+            pass                                                # objects named by their ids: nothing to drop
+        else:
+            used = set(cons) | ({x for am in self._alternatives(toks, view, dest).values() for x in am} if union_sel is not None else set())
+            for t in set(toks):
+                if t == dest or t in self.neutral:
+                    continue
+                if t in values:
+                    va = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+                else:
+                    pc = self.pattern_of.get(t)
+                    n = sum(pc.values()) if pc else 0
+                    names_change = n >= 3 and (pc.most_common(1)[0][1] + 0.1) / (n + 0.1 * len(pids)) >= DECISIVE
+                    va = self.value_history(t) if self.strong(t) and len(self.uses.get(t, [])) >= 3 and not names_change else set()
+                if not va:
+                    continue
+                present = any(va & {repr(a) for a in at} for at, _ in view.values())
+                if present and not va & used:
+                    ignores_named = True                    # a word that names values restricts nothing in this reading
         if ignores_named:
             weak_selection = True                               # values were named but nothing in the reading uses them
         if not value_named and not literal:

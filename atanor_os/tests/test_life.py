@@ -325,3 +325,22 @@ def test_a_word_that_could_name_the_change_or_objects_makes_the_reading_ambiguou
             L.confirmed[w] += 1
     assert L.interpret(tokens('shift the logs'), v, False)['ambiguous']
     assert not L.interpret(tokens('move the logs'), v, False)['ambiguous']
+
+
+def test_a_reading_must_use_every_word_that_has_named_values():
+    """'logs' has named log files in half of its uses but its current meaning lost the value. 'delete the csv files and
+    logs' read as csv only would drop part of the command: not supported (pointed with the person, held alone)."""
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_more()
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the csv files'), v, 'CP', ['a.csv', 'b.csv'], None)
+        L.learn(tokens('copy the logs'), v, 'CP', ['d.log'], None)
+        L.learn(tokens('move the logs'), v, 'MOV', ['d.log', 'e.txt'], None)         # uses that blurred the meaning
+        L.learn(tokens('delete the logs'), v, 'DEL', ['d.log', 'e.txt'], None)
+        L.learn(tokens('move the logs'), v, 'MOV', ['d.log'], None)
+        for w in ('copy', 'the', 'csv', 'files', 'logs'):
+            L.confirmed[w] += 1
+    assert not any("'log'" in a for a in L.meaning['logs'])
+    r = L.interpret(tokens('delete the csv files and logs'), v, False)
+    assert not r['support'], r
