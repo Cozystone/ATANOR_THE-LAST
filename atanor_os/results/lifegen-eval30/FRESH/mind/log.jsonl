@@ -1,0 +1,7 @@
+{"t": 1792960353.13, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["amber25.md"]]]}
+{"t": 1792960361.044, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792960361.742, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792960380.472, "task": "d30-t1", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": false}
+{"t": 1792960380.473, "task": "d30-t1", "event": "ask_explain", "word": "all", "answer": "", "learned": true}
+{"t": 1792960381.268, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["southhut"]], ["shove", ["southhut/cobalt30.txt", "cobalt30.txt"]]]}
+{"t": 1792960382.241, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}

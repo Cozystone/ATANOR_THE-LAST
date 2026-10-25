@@ -1,0 +1,5 @@
+{"t": 1792958843.105, "task": "d30-t0", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["sift", ["ext:md", "p2"]]]}
+{"t": 1792958843.123, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792958843.152, "task": "d30-t1", "event": "ask_check", "unknown": ["filter", "files"], "ok": true}
+{"t": 1792958843.155, "task": "d30-t1", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792958843.159, "task": "d30-t1", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}

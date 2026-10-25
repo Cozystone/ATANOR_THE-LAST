@@ -1,0 +1,10 @@
+{"t": 1792959942.278, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["dahlia30.json"]]]}
+{"t": 1792959943.232, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792959945.28, "task": "d30-t1", "event": "ask_check", "unknown": ["kindly", "copy", "all", "text", "files", "into", "southroost", "folder"], "ok": false}
+{"t": 1792959945.28, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792959945.281, "task": "d30-t1", "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792959946.458, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["southroost"]], ["replicate", ["southroost/ember30.txt", "ember30.txt"]]]}
+{"t": 1792959947.809, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792959951.358, "task": "d30-t2", "event": "ask_explain", "word": "back", "answer": "copy", "learned": true}
+{"t": 1792959951.359, "task": "d30-t2", "event": "ask_explain", "word": "up", "answer": "copy", "learned": true}
+{"t": 1792959952.523, "task": "d30-t2", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["northbasin"]], ["replicate", ["northbasin/amber27.csv", "amber27.csv"]]]}
