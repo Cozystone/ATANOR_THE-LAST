@@ -1,0 +1,6 @@
+{"t": 1792947581.226, "task": "d30-t0", "event": "demonstration", "pid": "25058de642", "pattern": [["o", "kind", "panel"], ["o", "sort", "=D.value"]], "steps": [["rank", ["key:ext", "p1"]]]}
+{"t": 1792947581.24, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792947581.264, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792947581.264, "task": "d30-t1", "event": "ask_explain", "word": "narrow", "answer": "filter", "learned": false}
+{"t": 1792947581.268, "task": "d30-t1", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["sift", ["ext:csv", "p2"]]]}
+{"t": 1792947581.274, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 1}

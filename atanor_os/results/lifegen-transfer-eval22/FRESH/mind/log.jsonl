@@ -1,0 +1,14 @@
+{"t": 1792948903.201, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["barn"]], ["move", ["dahlia29.json", "barn/dahlia29.json"]]]}
+{"t": 1792948904.372, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792948911.389, "task": "d30-t1", "event": "ask_explain", "word": "remove", "answer": "delete", "learned": false}
+{"t": 1792948911.389, "task": "d30-t1", "event": "ask_explain", "word": "the", "answer": "", "learned": true}
+{"t": 1792948911.71, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["ember26.log"]]]}
+{"t": 1792948944.619, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792948945.207, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792948961.954, "task": "d30-t2", "event": "ask_explain", "word": "into", "answer": "", "learned": true}
+{"t": 1792948961.955, "task": "d30-t2", "event": "ask_explain", "word": "called", "answer": "", "learned": true}
+{"t": 1792948962.66, "task": "d30-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["nest"]], ["move", ["olive30.txt", "nest/olive30.txt"]]]}
+{"t": 1792948964.005, "task": "d30-t2", "event": "surprise", "action": ["move", ["olive30.txt", "nest/olive30.txt"]], "predicted_ok": true, "ok": false}
+{"t": 1792948964.015, "task": "d30-t2", "event": "reverify", "tool": "move", "replayed": "demo-38", "ok": true}
+{"t": 1792948966.758, "task": "d30-t2", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792948967.11, "task": "d30-t2", "event": "experiment_resolved", "how": "analogy", "lab_actions": 3}

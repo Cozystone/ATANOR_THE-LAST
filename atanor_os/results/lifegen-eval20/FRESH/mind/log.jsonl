@@ -1,0 +1,7 @@
+{"t": 1792948689.533, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["garnet28.log"]]]}
+{"t": 1792948690.417, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 8}
+{"t": 1792948697.224, "task": "d30-t1", "event": "ask_check", "unknown": ["kindly", "get", "rid", "of", "spreadsheets"], "ok": false}
+{"t": 1792948697.225, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792948697.226, "task": "d30-t1", "event": "ask_explain", "word": "get", "answer": "delete", "learned": false}
+{"t": 1792948697.596, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["juniper28.csv"]]]}
+{"t": 1792948697.6, "task": "d30-t1", "event": "merged_changes", "alias": {"3922670d9f": "22204eb435"}}
