@@ -41,8 +41,19 @@ class Teacher:
         self.truth = sorted(p for p in files if task['ext'] == 'any' or p.endswith('.' + task['ext']))
 
     def explain(self, word):
+        """A person answers from what they meant: a word of the verb phrase -> the plain verb; a word naming the
+        files -> '<ext> files'; a word that only introduces the folder or is polite -> '' (changes nothing)."""
         self.help['explain'] += 1
-        return EXPLAIN.get(word)
+        ph = self.task.get('phrases')
+        if not ph:
+            return EXPLAIN.get(word)
+        if word in ph['verb'] and word != ph['base']:
+            return ph['base']
+        if word in ph['selector_synonym']:
+            return f"{self.task['ext']} files"
+        if word in ph['function']:
+            return ''
+        return None
 
     def point(self, command):
         self.help['point'] += 1
@@ -51,10 +62,14 @@ class Teacher:
     def _steps(self, objs):
         t, d = self.task['tool'], self.task['dest']
         out = [('mkdir', (d,))] if t in ('move', 'copy') else []
-        retired = t == 'copy' and 'copy_retired' in getattr(self.home, 'drift', ())
-        for o in objs:
-            if retired:
-                out.append(('replicate', (f'{d}/{o}', o)))        # the person knows how the world works now
+        drift = getattr(self.home, 'drift', ())
+        for o in objs:                                         # the person knows how the world works now
+            if t == 'copy' and 'copy_retired' in drift:
+                out.append(('replicate', (f'{d}/{o}', o)))
+            elif t == 'move' and 'move_retired' in drift:
+                out.append(('shove', (f'{d}/{o}', o)))
+            elif t == 'delete' and 'delete_retired' in drift:
+                out.append(('zap', (o,)))
             else:
                 out.append((t, (o, f'{d}/{o}')) if t in ('move', 'copy') else (t, (o,)))
         return out
@@ -70,8 +85,10 @@ class Teacher:
     def check(self, proposal):
         """'Is this what you mean?' about a concrete proposal: the change, the objects and the destination."""
         self.help['check'] += 1
-        rels = {(it[0], it[1]) for it in proposal['change'] if len(it) == 3}
-        tool = 'move' if ('o', 'kind') in rels and ('D/o', 'kind') in rels else 'copy' if ('D/o', 'kind') in rels else 'delete' if rels == {('o', 'kind')} else None
+        ch = {(it[0], it[1], it[2]) for it in proposal['change'] if len(it) == 3}
+        gone = ('o', 'kind', 'absent') in ch
+        arrives = any(r == 'D/o' and k == 'kind' for r, k, _ in ch)
+        tool = 'move' if gone and arrives else 'copy' if arrives else 'delete' if gone else None   # judged by what changes kind
         return tool == self.task['tool'] and sorted(proposal['objects']) == self.truth and (proposal['dest'] or None) == self.task['dest']
 
     def confirm(self, command):

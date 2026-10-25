@@ -1,0 +1,15 @@
+{"t": 1792898468.65, "task": "d30-t0", "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["niche"]], ["replicate", ["niche/amber28.csv", "amber28.csv"]]]}
+{"t": 1792898473.098, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792898477.192, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792898490.681, "task": "d30-t0", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792898624.446, "task": "d30-t0", "event": "experiment_budget_spent"}
+{"t": 1792898647.525, "task": "d30-t0", "event": "method_choice", "experiment_cost": 1.5, "ask_cost": 3, "user": false}
+{"t": 1792898743.024, "task": "d30-t0", "event": "experiment_budget_spent"}
+{"t": 1792898743.024, "task": "d30-t0", "event": "after_demonstration_experiments", "resolved": false}
+{"t": 1792898743.025, "task": "d30-t0", "event": "stuck"}
+{"t": 1792898743.04, "task": "d30-t0", "event": "wrong", "interp": {"pid": "b9f36a029b", "selected": ["amber28.csv", "dahlia24.csv", "dahlia26.csv", "ember27.csv", "heron24.csv", "kestrel25.csv", "lilac29.csv", "nutmeg26.csv", "olive29.csv", "poppy25.csv", "quill30.csv", "thistle28.csv", "violet27.csv", "walnut30.csv"], "dest": "niche"}}
+{"t": 1792898743.287, "task": "d30-t0", "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["niche"]], ["replicate", ["niche/amber28.csv", "amber28.csv"]]]}
+{"t": 1792898743.938, "task": "d30-t1", "event": "ask_check", "unknown": ["make", "copy", "of", "every", "file", "into", "new"], "ok": false}
+{"t": 1792898743.939, "task": "d30-t1", "event": "ask_explain", "word": "make", "answer": "copy", "learned": false}
+{"t": 1792898743.939, "task": "d30-t1", "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792898744.186, "task": "d30-t1", "event": "demonstration", "pid": "b9f36a029b", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o"], ["D/o", "kind", "file"], ["o", "hash", "=o", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["eastbunker"]], ["replicate", ["eastbunker/indigo30.json", "indigo30.json"]]]}

@@ -63,3 +63,19 @@ def test_never_acts_on_a_rejected_interpretation(tmp_path):
     m = Mind(ws, tmp_path / 'mind', tmp_path / 'lab', user=r2)
     out = m.do('Shove the csv files into a folder called bag.', 't2')
     assert not out['ok'] and ws.kind('c.csv') == 'file' and ws.kind('bag') == 'absent'
+
+
+class _PointsAtLogs(Teacher):
+    """Rejects every proposal; points at the log files and shows one deletion."""
+    def check(self, proposal):
+        self.help['check'] += 1
+        return False
+
+
+def test_after_a_rejection_an_irreversible_change_only_touches_what_was_pointed_at(tmp_path):
+    ws = _home(tmp_path, ['a.log', 'b.log', 'c.txt', 'd.csv', 'e.md'])
+    t = _PointsAtLogs(ws)
+    t.begin({'command': 'Zorp the log files.', 'tool': 'delete', 'ext': 'log', 'dest': None})
+    m = Mind(ws, tmp_path / 'mind', tmp_path / 'lab', user=t)
+    m.do('Zorp the log files.', 't1')
+    assert [p for p in ('c.txt', 'd.csv', 'e.md') if ws.kind(p) != 'file'] == []     # nothing else was deleted

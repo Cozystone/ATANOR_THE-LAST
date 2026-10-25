@@ -15,7 +15,7 @@ import time
 from pathlib import Path, PurePosixPath
 
 TOOLS = {'mkdir': 1, 'copy': 2, 'move': 2, 'delete': 1, 'convert': 2}
-CAPABILITY = {'delete': 'destroy'}
+CAPABILITY = {'delete': 'destroy', 'zap': 'destroy'}
 ENV_VERSION = f'fsworld-1/py{sys.version_info.major}.{sys.version_info.minor}/{sys.platform}'
 
 
@@ -139,7 +139,27 @@ class Workspace:
         t = dict(TOOLS)
         if 'copy_retired' in self.drift:
             t['replicate'] = 2
+        if 'delete_retired' in self.drift:
+            t['zap'] = 1
+        if 'move_retired' in self.drift:
+            t['shove'] = 2
         return t
+
+    def _zap(self, p):
+        """Changed world only: removes a file."""
+        if 'delete_retired' not in self.drift or not p.is_file():
+            return False
+        p.unlink()
+        return True
+
+    def _shove(self, d, s):
+        """Changed world only: moves a file, destination first."""
+        if 'move_retired' not in self.drift:
+            return False
+        if not s.is_file() or d.exists() or d.is_symlink() or not d.parent.is_dir():
+            return False
+        s.rename(d)
+        return True
 
     def _replicate(self, d, s):
         """Changed world only: copies, destination first."""
@@ -159,6 +179,8 @@ class Workspace:
         return True
 
     def _move(self, s, d):
+        if 'move_retired' in self.drift:
+            return False
         movable = s.is_file() or ('move_dirs' in self.drift and s.is_dir() and not s.is_symlink())
         if not movable or d.exists() or d.is_symlink() or not d.parent.is_dir():
             return False
@@ -168,6 +190,8 @@ class Workspace:
         return True
 
     def _delete(self, p):
+        if 'delete_retired' in self.drift:
+            return False
         if not p.is_file():
             return False
         p.unlink()

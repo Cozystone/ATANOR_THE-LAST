@@ -8,13 +8,14 @@ checks a prediction and is stored -> ask for confirmation -> learn the words fro
 
 What is provided (not learned): the body's tool names and arity, the observation adapter and atom families, the
 contrast-induction algorithm, the planner, the path relations a change can be expressed in (o, D, D/name(o)),
-the question formats, and two policies: intent gaps are asked (only the user knows the intent), world gaps are
-experimented first. What is learned: every tool's preconditions and effects (from episodes), which changes words
+the question formats, the price of a question in lab actions, and one policy: intent gaps are asked (only the
+person knows the intent), world gaps are experimented or asked by their recorded cost and success. What is learned: every tool's preconditions and effects (from episodes), which changes words
 ask for, which objects words pick out, where the destination name stands, which words carry nothing.
 Never imports teach/ or eval/.
 """
 import hashlib
 import json
+import math
 import random
 import re
 import shutil
@@ -27,7 +28,8 @@ from ..world.raw_obs import raw_attrs
 from .concepts import FAMILIES_ALL, apply_raw, atoms, induce
 from .planner import plan
 
-LAB_BUDGET = 60            # provided: lab actions per world gap before asking for a demonstration
+LAB_COST = 1 / 20          # provided preference: one question to the person costs as much as 20 lab actions
+HELP_COST = {'explain': 1, 'check': 1, 'point': 1, 'demonstrate': 2, 'demonstrate_goal': 3}
 BUDGET = {'actions': 40, 'predictions': 400000, 'nodes': 800, 'depth': 12, 'seconds': 120.0}
 
 
@@ -46,8 +48,18 @@ class WorldModel:
     excluded failure (an unchecked generalisation is not a fact); otherwise 'unknown' (a reason to experiment)."""
     name = 'LIFE'
 
-    def __init__(self, episodes, body='fs', generalize=True, notice_change=True, retired=None):
+    def __init__(self, episodes, body='fs', generalize=True, notice_change=True, retired=None, cache=None):
+        """cache (kept by the mind across rebuilds): atoms per episode id, and induced rules per tool keyed by the
+        exact list of episodes they came from, so only a tool with new experience is re-induced."""
         self.body, self.generalize = body, generalize
+        cache = cache if cache is not None else {'atoms': {}, 'rules': {}}
+        A = cache['atoms']
+
+        def at_of(e):
+            if e.id not in A:
+                A[e.id] = atoms(body, e.pre, e.args, FAMILIES_ALL)
+            return A[e.id]
+        self.at_of = at_of
         eps = [e for e in episodes if not e.blocked]
         retired = retired or {}                    # tool -> number of episodes before a re-verified world change
         eps = [e for i, e in enumerate(eps) if i >= retired.get(e.tool, -1)]
@@ -57,22 +69,33 @@ class WorldModel:
             # its older episodes are set aside (kept in memory, not used) and the tool is relearned from newer ones
             last, cut = {}, {}
             for i, e in enumerate(eps):
-                k = (e.tool, atoms(body, e.pre, e.args, FAMILIES_ALL))
+                k = (e.tool, at_of(e))
                 if k in last and last[k][1] != e.succeeded:
                     cut[e.tool] = i
                     self.changes.append({'tool': e.tool, 'at_episode': e.id, 'was': last[k][1], 'now': e.succeeded})
                 last[k] = (i, e.succeeded)
             eps = [e for i, e in enumerate(eps) if i >= cut.get(e.tool, -1)]
         self.eps = eps
-        self.rules = induce(body, self.eps, FAMILIES_ALL) if self.eps else {}
+        self.rules = {}
+        by_tool = defaultdict(list)
+        for e in self.eps:
+            by_tool[e.tool].append(e)
+        for tool, es in by_tool.items():
+            key = (tool, len(es), es[0].id, es[-1].id)
+            if key not in cache['rules']:
+                cache['rules'][key] = induce(body, es, FAMILIES_ALL, atoms_of=at_of).get(tool, [])
+            self.rules[tool] = cache['rules'][key]
         self.exact = defaultdict(dict)
         self.kinds_ok = defaultdict(set)
         self.kinds_seen = defaultdict(set)
+        self.fail_kinds = Counter()
         for e in self.eps:
-            at = atoms(body, e.pre, e.args, FAMILIES_ALL)
+            at = at_of(e)
             self.exact[e.tool][at] = e
             k = self.kinds(e.pre, e.args)
             self.kinds_seen[e.tool].add(k)
+            if not e.succeeded:
+                self.fail_kinds[(e.tool, k)] += 1
             if e.succeeded:
                 self.kinds_ok[e.tool].add(k)
         self._cache = {}
@@ -108,7 +131,7 @@ class WorldModel:
         g = next((g for g in groups if all(tuple(a) in at for a in g['pre'])), None)
         k = self.kinds(state, args)
         if g is None:
-            fails = sum(1 for e in self.eps if e.tool == tool and not e.succeeded and self.kinds(e.pre, e.args) == k)
+            fails = self.fail_kinds[(tool, k)]
             return ('learned_fail', None) if k not in self.kinds_ok[tool] and fails >= 3 else ('unknown', None)
         backed = sum(g.get('ev', {}).values()) > 0
         if k in self.kinds_ok[tool] and backed:
@@ -161,8 +184,8 @@ class Lexicon:
             if i != d_idx and i + 1 < len(toks):
                 self.prev_n[w] += 1
         sel = [view[o][0] for o in selected if o in view]
-        common = frozenset.intersection(*[a for a, _ in view.values()]) if view else frozenset()
-        inter = (frozenset.intersection(*sel) - common) if sel else frozenset()
+        # what all selected objects had in common (atoms every object shares are kept: they may tell objects apart later)
+        inter = frozenset.intersection(*sel) if sel else frozenset()
         cur = {repr(a) for a in inter}
         values = {v for _, v in view.values()}
         for w in set(t for i, t in enumerate(toks) if i != d_idx):
@@ -184,7 +207,8 @@ class Lexicon:
             self.meaning.pop(word, None)
             return
         for p in pids or []:
-            self.pattern_of[word][p] += 1
+            self.pattern_of[word][p] += 5                    # the person defined it: strong evidence, not one co-occurrence
+            self.confirmed[f'{word}|{p}'] += 1               # stated by the person counts like a confirmed use
         if meaning is not None:
             self.meaning[word] = set(meaning)
 
@@ -206,15 +230,35 @@ class Lexicon:
             cons = {a for a in cons if not a.startswith("('U', 0, 'a2'")} | {repr(a) for o, (at, v) in view.items() if v in vals for a in at if a[0] == 'U' and a[2] == 'a2'}
             sel = sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
             return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': [], 'contradiction': False}
-        votes = Counter()
+        pids = sorted({q for c in self.pattern_of.values() for q in c})
+        logp = {q: 0.0 for q in pids}
+        informative, decisive = 0, 0.0
         for t in toks:
             pc = self.pattern_of.get(t)
-            if t in values or t == dest:
+            if t in values or t == dest or not pc or t in self.neutral:
                 continue                                    # a word that names objects does not name the change
-            if pc and len(pc) == 1 and t not in self.neutral:
-                votes[next(iter(pc))] += 1
-        pid = votes.most_common(1)[0][0] if votes else None
-        ambiguous = len(votes) > 1                          # words in one sentence point to different changes
+            informative += 1
+            n = sum(pc.values())
+            probs = [(pc[q] + 0.1) / (n + 0.1 * len(pids)) for q in pids]
+            ent = -sum(x * math.log(x) for x in probs) / math.log(len(pids)) if len(pids) > 1 else 0.0
+            weight = 1.0 - ent                              # a word used with every change says little about which one
+            decisive = max(decisive, weight)
+            for q, x in zip(pids, probs):
+                logp[q] += weight * math.log(x)
+        pid, ambiguous = None, False
+        if informative and pids:
+            m = max(logp.values())
+            z = sum(math.exp(v - m) for v in logp.values())
+            post = {q: math.exp(v - m) / z for q, v in logp.items()}
+            pid = max(post, key=post.get)
+            ambiguous = post[pid] < 0.8                     # the words do not agree enough on one change
+            for t in toks:                                  # a decisive word confirmed only with another change: conflict
+                pc = self.pattern_of.get(t)
+                if t in values or t == dest or not pc or t in self.neutral:
+                    continue
+                top, n = pc.most_common(1)[0]
+                if top != pid and n / sum(pc.values()) >= 0.9 and self.confirmed.get(f'{t}|{top}', 0) and not self.confirmed.get(f'{t}|{pid}', 0):
+                    ambiguous = True
         cons = set()
         for t in toks:
             if t != dest and t not in self.neutral and self.word_n[t] and self.meaning.get(t):
@@ -228,7 +272,8 @@ class Lexicon:
         a2 = {a for a in cons if a.startswith("('U', 0, 'a2'")}
         contradiction = len(a2) > 1
         sel = [] if contradiction else sorted(o for o, (at, _) in view.items() if cons <= {repr(a) for a in at})
-        return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous}
+        return {'pid': pid, 'dest': dest, 'selected': sel, 'unknown': unknown, 'contradiction': contradiction, 'ambiguous': ambiguous,
+                'decisive': decisive}
 
     def _dest(self, toks, values):
         best, best_s = None, 0.0
@@ -278,8 +323,13 @@ class Mind:
         cp = self.dir / 'changes.json'
         self.world_changes = json.loads(cp.read_text(encoding='utf-8')) if cp.exists() else []
         mp = self.dir / 'methods.json'
-        self.methods = json.loads(mp.read_text(encoding='utf-8')) if mp.exists() else {'explain': [0, 0], 'check': [0, 0]}
+        self.methods = json.loads(mp.read_text(encoding='utf-8')) if mp.exists() else {}
+        self.methods.setdefault('explain', [0, 0])
+        self.methods.setdefault('check', [0, 0])
+        self.methods.setdefault('experiment', [0, 0, 0])      # resolved, attempts, lab actions spent when resolved
         self._model = None
+        self._cache = {'atoms': {}, 'rules': {}}
+        self._merge_patterns()
         self._noticed = []
         self.counts = Counter()
 
@@ -305,13 +355,14 @@ class Mind:
 
     def log(self, **kw):
         with open(self.dir / 'log.jsonl', 'a', encoding='utf-8') as f:
-            f.write(json.dumps({'t': round(time.time(), 3), **kw}, default=str) + '\n')
+            f.write(json.dumps({'t': round(time.time(), 3), 'task': getattr(self, 'task_id', None), **kw}, default=str) + '\n')
 
     @property
     def model(self):
         if self._model is None:
             retired = {c['tool']: c['before'] for c in self.world_changes} if self.notice_change else {}
-            self._model = WorldModel(self.episodes, generalize=self.generalize, notice_change=self.notice_change, retired=retired)
+            self._model = WorldModel(self.episodes, generalize=self.generalize, notice_change=self.notice_change, retired=retired,
+                                     cache=self._cache)
             for c in self._model.changes:
                 if c not in self._noticed:
                     self._noticed.append(c)
@@ -333,6 +384,7 @@ class Mind:
 
     # ---- one command, start to finish (resumable)
     def do(self, command, task_id):
+        self.task_id = task_id
         t = self._task()
         if t and t.get('status') == 'in_progress' and t['id'] == task_id:
             self.counts['resumed'] += 1
@@ -362,11 +414,12 @@ class Mind:
         if self.user is not None:
             confirmed = self.user.confirm(command)
             self.counts['confirm'] += 1
-        if confirmed or (confirmed is None and done):
+        if confirmed:                                           # only a confirmed use teaches what the words mean
             self.lex.learn(toks, view_from_json(interp['view_at_start']), interp['pid'], interp['selected'], interp['dest'])
         if confirmed:
             for w in set(toks):
                 self.lex.confirmed[w] += 1
+                self.lex.confirmed[f"{w}|{interp['pid']}"] += 1    # confirmed together with this change
         elif confirmed is False and self.user is not None:
             self.counts['corrections'] += 1
             self.log(event='wrong', task=task_id, interp={k: interp[k] for k in ('pid', 'selected', 'dest')})
@@ -395,7 +448,7 @@ class Mind:
                 can_check = self._complete(r) and key(r) not in checked
                 if can_check and (word is None or rate('check') >= rate('explain')):
                     checked.add(key(r))
-                    ok = self.user.check({'change': self.patterns[r['pid']], 'objects': r['selected'], 'dest': r['dest']})
+                    ok = self.user.check(self._proposal(r))
                     self.counts['check'] += 1
                     self.methods['check'][0] += int(ok)
                     self.methods['check'][1] += 1
@@ -415,10 +468,11 @@ class Mind:
                     continue
                 self._teach_from_demo(toks, command)
                 continue
-            if r['pid'] is None or r['pid'] not in self.patterns:
+            if r['pid'] is None or r['pid'] not in self.patterns or (key(r) in rejected and self.user is not None):
                 if self.user is None:
                     return None
-                self._teach_from_demo(toks, command)
+                if self._teach_from_demo(toks, command):          # nothing better than the rejected reading: be shown
+                    break
                 continue
             needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
             if r['contradiction'] or not r['selected'] or (needs_dest and not r['dest']):
@@ -427,50 +481,53 @@ class Mind:
                 ans = self.user.point(command)
                 self.counts['point'] += 1
                 self.log(event='ask_point', why='contradiction' if r['contradiction'] else ('nothing selected' if not r['selected'] else 'no destination'))
+                if needs_dest and not ans['dest']:
+                    self._teach_from_demo(toks, command)          # no destination meant: the change itself was misread
+                    continue
                 self.lex.learn(toks, view, r['pid'], ans['objects'], ans['dest'])
                 continue
             break
+        taught = self._from_taught(command, view)
+        if taught is not None:
+            return taught                                     # the person showed what this command means
         r = self.lex.interpret(toks, view, True)
         if not self._complete(r) or key(r) in rejected:
             return None                                       # never act on an interpretation the person rejected
+        if r['unknown'] and self.user is None:
+            self.counts['refused_unknown'] += 1
+            self.log(event='refuse_unknown', words=r['unknown'])
+            return None                                       # a reading that leans on unknown words is a guess: hold
         if r.get('ambiguous') and key(r) not in checked:
             if self.user is None:
                 self.counts['refused_ambiguous'] += 1
                 self.log(event='refuse_ambiguous', command=command)
                 return None
-            ok = self.user.check({'change': self.patterns[r['pid']], 'objects': r['selected'], 'dest': r['dest']})
+            ok = self.user.check(self._proposal(r))
             self.counts['check'] += 1
             self.methods['check'][0] += int(ok)
             self.methods['check'][1] += 1
             self.log(event='ask_check', why='ambiguous', ok=ok)
             checked.add(key(r))
             if not ok:
-                old = key(r)
                 self._teach_from_demo(toks, command)
-                r = self.lex.interpret(toks, view, True)
-                if not self._complete(r) or key(r) == old:
-                    return None
-                return self._result(r, view)
+                return self._from_taught(command, view)
         if self._irreversible(r['pid']) and key(r) not in checked:
             values = {v for _, v in view.values()}
-            unproven = [t for t in toks if t != r['dest'] and t not in values and not self.lex.confirmed[t]]
+            unproven = [t for t in toks if t != r['dest'] and t not in values and t not in self.lex.neutral
+                        and not self.lex.confirmed[f"{t}|{r['pid']}"]]      # never confirmed with this irreversible change
             if unproven:
                 if self.user is None:
                     self.counts['refused_irreversible'] += 1
                     self.log(event='refuse_irreversible', words=unproven)
                     return None
-                ok = self.user.check({'change': self.patterns[r['pid']], 'objects': r['selected'], 'dest': r['dest']})
+                ok = self.user.check(self._proposal(r))
                 self.counts['check'] += 1
                 self.methods['check'][0] += int(ok)
                 self.methods['check'][1] += 1
                 self.log(event='ask_check', why='irreversible', unproven=unproven, ok=ok)
                 if not ok:
-                    old = key(r)
                     self._teach_from_demo(toks, command)
-                    r = self.lex.interpret(toks, view, True)
-                    if not self._complete(r) or key(r) == old:
-                        return None                           # still the rejected reading: do not act
-                    return self._result(r, view)
+                    return self._from_taught(command, view)
         return self._result(r, view)
 
     def _irreversible(self, pid):
@@ -479,6 +536,20 @@ class Mind:
         gone = any(it[0] == 'o' and it[1] == 'kind' and it[2] == 'absent' for it in pat)
         kept = any(it[1] == 'hash' and it[2] == '=o' and it[3:] != ['keep'] for it in pat)
         return gone and not kept
+
+    def _from_taught(self, command, view):
+        t = getattr(self, '_taught', None)
+        if not t or t['command'] != command or t['pid'] not in self.patterns:
+            return None
+        sel = [o for o in t['selected'] if o in view]
+        if not sel:
+            return None
+        return self._result({'pid': t['pid'], 'selected': sel, 'dest': t['dest']}, view)
+
+    def _proposal(self, r):
+        """What is shown to the person: the change, the objects, and the destination only if the change has one."""
+        needs_dest = any(it[0] != 'o' for it in self.patterns[r['pid']])
+        return {'change': self.patterns[r['pid']], 'objects': r['selected'], 'dest': r['dest'] if needs_dest else None}
 
     def _complete(self, r):
         if r['pid'] is None or r['pid'] not in self.patterns or not r['selected'] or r['contradiction']:
@@ -498,12 +569,16 @@ class Mind:
             return False
         ptoks = tokens(answer)
         r = self.lex.interpret(ptoks, view, True)
-        pids = {next(iter(self.lex.pattern_of[t])) for t in ptoks if len(self.lex.pattern_of.get(t, {})) == 1 and t not in self.lex.neutral}
-        known_pid = next(iter(pids)) if len(pids) == 1 and next(iter(pids)) in self.patterns else None
+        known_pid = r['pid'] if (r['pid'] in self.patterns and not r.get('ambiguous') and r.get('decisive', 0) >= 0.5) else None
         cons = set()
+        values = {v for _, v in view.values()}
         for t in ptoks:
             if t not in self.lex.neutral and self.lex.meaning.get(t):
                 cons |= self.lex.meaning[t]
+        for t in ptoks:                                       # a word of the explanation that names an observed value
+            if t in values:
+                cons = {a for a in cons if not a.startswith("('U', 0, 'a2'")}
+                cons |= {repr(a) for o, (at, v) in view.items() if v == t for a in at if a[0] == 'U' and a[2] == 'a2'}
         if known_pid is None and not cons and not r['unknown']:
             self.lex.learn_word(word, neutral=True)            # explained, but carries no change and no objects
             return True
@@ -536,13 +611,68 @@ class Mind:
         pattern = sorted(pattern)
         pid = hashlib.sha256(json.dumps(pattern).encode()).hexdigest()[:10]
         self.patterns[pid] = pattern
+        self._taught = {'command': command, 'pid': pid, 'selected': sorted(objs), 'dest': dest}
         rel = {o: 'o', dest: 'D', f'{dest}/{name_of(o)}': 'D/o'} if dest else {o: 'o'}
         if all(a in rel for _, args in steps for a in args):
             self.procedures[pid] = [[tool, [rel[a] for a in args]] for tool, args in steps]   # the shown steps, relationally
         self.lex.learn(toks, self.view(), pid, objs, dest)
         self.log(event='demonstration', pid=pid, pattern=pattern, steps=steps)
         self.save()
+        self._merge_patterns()
         return True
+
+    def _canonical(self, pattern):
+        """A change without the entries that are now known to follow from the kind (learned implication)."""
+        kind_of = {it[0]: it[2] for it in pattern if it[1] == 'kind'}
+        return sorted(it for it in pattern if it[1] == 'kind' or not self._implied(kind_of.get(it[0]), it[1], it[2]))
+
+    def _merge_patterns(self):
+        """Changes that turn out to be the same once more is known get one identity; their word statistics and
+        procedures are combined (so one intent is not split across ids learned at different times)."""
+        if not self.patterns:
+            return
+        canon = {}
+        for pid, pat in self.patterns.items():
+            c = self._canonical(pat)
+            canon.setdefault(json.dumps(c), []).append(pid)
+        alias = {}
+        for c, pids in canon.items():
+            keep = sorted(pids)[0]
+            self.patterns[keep] = json.loads(c)
+            for q in pids:
+                if q != keep:
+                    alias[q] = keep
+        if not alias:
+            return
+        for q, keep in alias.items():
+            self.patterns.pop(q, None)
+            if q in self.procedures and keep not in self.procedures:
+                self.procedures[keep] = self.procedures[q]
+            self.procedures.pop(q, None)
+        for w, c in self.lex.pattern_of.items():
+            for q, keep in alias.items():
+                if q in c:
+                    c[keep] += c.pop(q)
+        self.lex.cases = {k: (alias.get(v[0], v[0]), v[1]) for k, v in self.lex.cases.items()}
+        for key in [k for k in self.lex.confirmed if '|' in k]:         # confirmations follow the merged identity
+            w, q = key.split('|', 1)
+            if q in alias:
+                self.lex.confirmed[f'{w}|{alias[q]}'] += self.lex.confirmed.pop(key)
+        self.log(event='merged_changes', alias=alias)
+        self.save()
+
+    def _implied(self, kind, attr, value):
+        """From everything observed: objects of this kind always had this value of attr (>= 2 observations)."""
+        seen = 0
+        home = self.home.observe(self.home.existing())
+        for e in [None] + self.episodes:
+            for st in ((home,) if e is None else (e.pre, e.post)):
+                for ob in st.values():
+                    if ob.get('kind') == kind:
+                        if ob.get(attr) != value:
+                            return False
+                        seen += 1
+        return seen >= 2
 
     def _paths(self, o, dest):
         return [o] + ([dest, f'{dest}/{name_of(o)}'] if dest else [])
@@ -552,14 +682,16 @@ class Mind:
         if dest:
             rels.update({dest: 'D', f'{dest}/{name_of(o)}': 'D/o'})
         pat = []
-        for p in sorted(set(before) | set(after)):
+        changed = [p for p in sorted(set(before) | set(after)) if any(before.get(p, {}).get(k) != after.get(p, {}).get(k) for k in ('kind', 'hash'))]
+        if any(p not in rels for p in changed):
+            return None
+        needed = set(changed) | {q for q in rels if any(c.startswith(q + '/') for c in changed)}
+        for p in sorted(needed):
             b, a = before.get(p, {}), after.get(p, {})
             for k in ('kind', 'hash'):
-                if b.get(k) != a.get(k):
-                    if k == 'hash' and a.get('kind') != 'file':
-                        continue                               # provided: only files have content
-                    if p not in rels:
-                        return None
+                if k == 'kind' or b.get(k) != a.get(k):
+                    if k != 'kind' and self._implied(a.get('kind'), k, a.get(k)):
+                        continue                               # learned: every object of this kind seen so far had this value
                     v = '=o' if k == 'hash' and a.get(k) == before[o].get('hash') and a.get(k) != '-' else a.get(k)
                     pat.append([rels[p], k, v])
         if pat and before.get(o, {}).get('kind') == after.get(o, {}).get('kind') == 'file':
@@ -594,6 +726,12 @@ class Mind:
             parts = p.split('/')
             out |= {'/'.join(parts[:i]) for i in range(1, len(parts) + 1)}
         return sorted(out)
+
+    def _plannable(self, goal):
+        """A cheap check used while experimenting: is there a plan within a small search budget?"""
+        small = Goal(goal.id, goal.must, goal.keep, goal.capabilities, {**goal.budget, 'predictions': 20000, 'nodes': 120}, goal.universe)
+        p, _ = self._plan(self.home, small)
+        return bool(p)
 
     def _plan(self, ws, goal, avoid=frozenset()):
         """Plan over the goal's own objects; if the search budget (not knowledge) stops it, plan for one object's part
@@ -753,6 +891,18 @@ class Mind:
         universe = sorted(set(goal.universe) | {'probe', 'probe/inner'})
         relevant = self._relevant_tools(goal)
         tried, resets = Counter(), 0
+        ex = self.methods['experiment']
+        p_ok = (ex[0] + 1) / (ex[1] + 2)
+        avg = ex[2] / ex[0] if ex[0] else 10
+        ask = HELP_COST['demonstrate_goal']
+        expected = avg * LAB_COST / p_ok
+        self.log(event='method_choice', experiment_cost=round(expected, 2), ask_cost=ask, user=self.user is not None)
+        if self.user is not None and expected > 1.5 * ask:
+            budget = 0                                         # experiments have been too costly here: ask to be shown
+        else:
+            budget = int(ask / LAB_COST) * (1 if self.user is not None else 3)
+        ex[1] += 1
+        spent0 = self.counts['lab_actions']
         proc = self.procedures.get(goal.id.split(':', 1)[-1])
         if proc and getattr(goal, 'selected', None):
             # analogy: replay the procedure that worked before, on one of the new objects, as an experiment
@@ -764,24 +914,26 @@ class Mind:
                 self._try(lab, tool, tuple(path[r] for r in rels), 'lab')
                 self.counts['lab_actions'] += 1
                 self.counts['lab_analogy'] += 1
-            p, _ = self._plan(self.home, goal)
-            if p:
+            if self._plannable(goal):
                 self.log(event='experiment_resolved', how='analogy', lab_actions=len(proc))
+                ex[0] += 1
+                ex[2] += self.counts['lab_actions'] - spent0
                 return True
             lab = self._lab(objs, None)
-        for i in range(LAB_BUDGET):
+        for i in range(budget):
             state = lab.observe(universe)
             # first choice: carry out the plan that would work if the unchecked generalisations held
-            labgoal = Goal(goal.id, goal.must, goal.keep, goal.capabilities, goal.budget, goal.universe)
+            labgoal = Goal(goal.id, goal.must, goal.keep, goal.capabilities, {**goal.budget, 'predictions': 20000, 'nodes': 120}, goal.universe)
             op, _ = plan(lab.observe(goal.universe), labgoal, Optimistic(self.model), lab.actions(self._focus(goal)), set(), getattr(lab, 'CAPABILITY', {}))
             if op:
                 tool, args = op[0]
                 self._try(lab, tool, tuple(args), 'lab')
                 self.counts['lab_actions'] += 1
                 self.counts['lab_optimistic'] += 1
-                p, _ = self._plan(self.home, goal)
-                if p:
+                if self._plannable(goal):
                     self.log(event='experiment_resolved', lab_actions=i + 1)
+                    ex[0] += 1
+                    ex[2] += self.counts['lab_actions'] - spent0
                     return True
                 if labgoal.satisfied(lab.observe(goal.universe)):
                     lab = self._lab(objs, None)                # done in the lab but still not trusted: try again from the start
@@ -803,9 +955,10 @@ class Mind:
             tried[sig] += 1
             self._try(lab, tool, args, 'lab')
             self.counts['lab_actions'] += 1
-            p, _ = self._plan(self.home, goal)
-            if p:
+            if self._plannable(goal):
                 self.log(event='experiment_resolved', lab_actions=i + 1)
+                ex[0] += 1
+                ex[2] += self.counts['lab_actions'] - spent0
                 return True
         self.log(event='experiment_budget_spent')
         if self.user is None:
@@ -816,7 +969,16 @@ class Mind:
         for tool, args in steps:
             self._try(lab, tool, tuple(args), 'demo')
         p, _ = self._plan(self.home, goal)
-        return bool(p)
+        if p:
+            return True
+        # what was shown worked, but a generalisation without counter-examples is not yet trusted: test it
+        user, self.user = self.user, None
+        try:
+            ok = self._experiment(goal)
+        finally:
+            self.user = user
+        self.log(event='after_demonstration_experiments', resolved=ok)
+        return ok
 
 
 def view_from_json(d):

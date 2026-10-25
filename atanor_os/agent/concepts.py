@@ -133,7 +133,7 @@ def _pred_val(body, spec, e, i, k):
     return 'unknown'
 
 
-def induce(body, exps, families=FAMILIES_ALL, concepts=None, extra_fails=None):
+def induce(body, exps, families=FAMILIES_ALL, concepts=None, extra_fails=None, atoms_of=None):
     """{tool: [group dicts]} by contrast-based induction over atoms (most general consistent conjunction per type group).
     extra_fails (P8b): {tool: [(atom set, weight)]} stored evidence re-entered as synthetic failures. Each kept atom gets
     an evidence count = weight of failures that only it excludes (group['ev'])."""
@@ -145,14 +145,15 @@ def induce(body, exps, families=FAMILIES_ALL, concepts=None, extra_fails=None):
     rules = {}
     for tool, es in sorted(by_tool.items()):
         succ = [e for e in es if e.succeeded]
-        fails = [(atoms(body, e.pre, e.args, families, concepts), 1) for e in es if not e.succeeded] + list(extra_fails.get(tool, []))
+        at = atoms_of or (lambda e: atoms(body, e.pre, e.args, families, concepts))
+        fails = [(at(e), 1) for e in es if not e.succeeded] + list(extra_fails.get(tool, []))
         groups_raw = defaultdict(list)
         for e in succ:
             groups_raw[_type_key(body, e.pre, e.args)].append(e)
         groups = []
         for key in sorted(groups_raw, key=repr):
             g = groups_raw[key]
-            pre = set(frozenset.intersection(*(atoms(body, e.pre, e.args, families, concepts) for e in g)))
+            pre = set(frozenset.intersection(*(at(e) for e in g)))
             unexplained = [s for s, w in fails if pre <= s]
             rest = [(s, w) for s, w in fails if not pre <= s]
             for a in sorted(pre, key=lambda a: (a[0] == 'U' and a[2] == 'a0', repr(a))):   # the type-like atom last
