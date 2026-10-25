@@ -1,0 +1,14 @@
+{"t": 1792927191.99, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["delete", ["ember30.json"]]]}
+{"t": 1792927192.512, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792927194.125, "task": "d30-t1", "event": "ask_check", "unknown": ["kindly", "transfer", "text", "files", "into", "kiosk", "folder"], "ok": false}
+{"t": 1792927194.125, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792927194.126, "task": "d30-t1", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": false}
+{"t": 1792927195.272, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["kiosk"]], ["shove", ["kiosk/garnet30.txt", "garnet30.txt"]]]}
+{"t": 1792927196.498, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792927205.353, "task": "d30-t2", "event": "ask_explain", "word": "relocate", "answer": "move", "learned": false}
+{"t": 1792927205.354, "task": "d30-t2", "event": "ask_explain", "word": "quay", "answer": null, "learned": false}
+{"t": 1792927206.566, "task": "d30-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["quay"]], ["shove", ["quay/dahlia30.csv", "dahlia30.csv"]]]}
+{"t": 1792927207.952, "task": "d30-t2", "event": "surprise", "action": ["shove", ["quay/dahlia30.csv", "dahlia30.csv"]], "predicted_ok": true, "ok": false}
+{"t": 1792927207.965, "task": "d30-t2", "event": "reverify", "tool": "shove", "replayed": "demo-22", "ok": true}
+{"t": 1792927210.889, "task": "d30-t2", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792927211.268, "task": "d30-t2", "event": "experiment_resolved", "how": "analogy", "lab_actions": 2}
