@@ -1,0 +1,7 @@
+{"t": 1792963464.929, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["dahlia29.md"]]]}
+{"t": 1792963465.695, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 8}
+{"t": 1792963471.336, "task": "d30-t1", "event": "ask_check", "unknown": ["kindly", "back", "up", "the", "to", "a", "folder", "named", "depot"], "ok": false}
+{"t": 1792963471.337, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792963471.338, "task": "d30-t1", "event": "ask_explain", "word": "back", "answer": "copy", "learned": false}
+{"t": 1792963472.136, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["depot"]], ["copy", ["birch29.csv", "depot/birch29.csv"]]]}
+{"t": 1792963473.385, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 7}

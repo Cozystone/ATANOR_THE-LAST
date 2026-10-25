@@ -1,0 +1,5 @@
+{"t": 1792962604.51, "task": "d90-t0", "event": "demonstration", "pid": "512d6c8046", "pattern": [["o", "filter", "=D.value"], ["o", "kind", "panel"]], "steps": [["sift", ["ext:json", "p2"]]]}
+{"t": 1792962604.518, "task": "d90-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792962604.543, "task": "d90-t1", "event": "ask_check", "unknown": ["show", "only", "in"], "ok": true}
+{"t": 1792962604.546, "task": "d90-t1", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792962604.549, "task": "d90-t1", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}

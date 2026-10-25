@@ -1,0 +1,13 @@
+{"t": 1792964243.774, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["bay"]], ["shove", ["bay/amber21.csv", "amber21.csv"]]]}
+{"t": 1792964255.627, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792964256.323, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792964258.18, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792964258.914, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792964287.692, "task": "d30-t1", "event": "ask_check", "unknown": ["please", "carry", "the", "folder", "called", "ranch"], "ok": false}
+{"t": 1792964287.694, "task": "d30-t1", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792964287.696, "task": "d30-t1", "event": "ask_explain", "word": "carry", "answer": "move", "learned": false}
+{"t": 1792964288.568, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["ranch"]], ["shove", ["ranch/olive30.log", "olive30.log"]]]}
+{"t": 1792964290.015, "task": "d30-t1", "event": "surprise", "action": ["shove", ["ranch/olive30.log", "olive30.log"]], "predicted_ok": true, "ok": false}
+{"t": 1792964290.021, "task": "d30-t1", "event": "reverify", "tool": "shove", "replayed": "demo-34", "ok": true}
+{"t": 1792964292.817, "task": "d30-t1", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792964293.216, "task": "d30-t1", "event": "experiment_resolved", "how": "analogy", "lab_actions": 4}
