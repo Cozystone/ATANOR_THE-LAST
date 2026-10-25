@@ -195,3 +195,28 @@ def test_an_explanation_never_makes_a_meaning_less_specific():
     assert L.meaning['markdown'] == before                                             # the specific meaning is kept
     L.learn_word('markdown', meaning={"('N', 0)", "('U', 0, 'a2', 'md')"})            # an explanation that names a value
     assert "('U', 0, 'a2', 'md')" in L.meaning['markdown']
+
+
+def test_one_bad_use_does_not_poison_a_meaning():
+    """A use whose objects share less (here a txt and a json file) must not erase what 'text' has meant every other time."""
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_for_lexicon()
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the text files'), v, 'CP', ['z.txt'], None)
+    L.learn(tokens('copy the text files'), v, 'CP', ['x.json', 'z.txt'], None)          # one use with mixed objects
+    assert "('U', 0, 'a2', 'txt')" in L.meaning['text']
+    for _ in range(12):                                                                 # if the word's use really changes, the meaning follows
+        L.learn(tokens('copy the text files'), v, 'CP', ['x.json', 'z.txt'], None)
+    assert "('U', 0, 'a2', 'txt')" not in L.meaning['text']
+    assert Lexicon.from_json(L.to_json()).meaning == L.meaning
+
+
+def test_a_selection_naming_no_value_is_weak():
+    from atanor_os.agent.life import Lexicon, tokens
+    v = _scene_for_lexicon()
+    L = Lexicon()
+    for _ in range(4):
+        L.learn(tokens('copy the files'), v, 'CP', ['x.json', 'y.csv', 'z.txt'], None)
+    r = L.interpret(tokens('copy the files'), v, False)
+    assert r['weak_selection'] and not r['literal'], r
