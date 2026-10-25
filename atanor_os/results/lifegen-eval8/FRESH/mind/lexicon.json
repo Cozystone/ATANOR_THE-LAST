@@ -1,0 +1,420 @@
+{
+ "cases": {
+  "clone the logs into a new folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "kindly shift all <V> files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "please make a copy of all markdown files to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 2,
+  "a copy": 1,
+  "a copy|855e9bb242": 1,
+  "a folder": 1,
+  "a folder|855e9bb242": 1,
+  "a new": 1,
+  "a new|855e9bb242": 1,
+  "all": 2,
+  "all markdown": 1,
+  "all markdown|855e9bb242": 1,
+  "all txt": 1,
+  "all txt|d9877acc19": 1,
+  "all|855e9bb242": 1,
+  "all|d9877acc19": 1,
+  "a|855e9bb242": 2,
+  "clone": 1,
+  "clone the": 1,
+  "clone the|855e9bb242": 1,
+  "clone|855e9bb242": 2,
+  "copy": 1,
+  "copy of": 1,
+  "copy of|855e9bb242": 1,
+  "copy|855e9bb242": 1,
+  "den": 1,
+  "den|855e9bb242": 1,
+  "files": 2,
+  "files into": 1,
+  "files into|d9877acc19": 1,
+  "files to": 1,
+  "files to|855e9bb242": 1,
+  "files|855e9bb242": 1,
+  "files|d9877acc19": 1,
+  "folder": 3,
+  "folder named": 2,
+  "folder named|855e9bb242": 2,
+  "folder|855e9bb242": 2,
+  "folder|d9877acc19": 1,
+  "into": 2,
+  "into a": 1,
+  "into a|855e9bb242": 1,
+  "into the": 1,
+  "into the|d9877acc19": 1,
+  "into|855e9bb242": 1,
+  "into|d9877acc19": 1,
+  "jetty": 1,
+  "jetty|d9877acc19": 1,
+  "kindly": 1,
+  "kindly shift": 1,
+  "kindly shift|d9877acc19": 1,
+  "kindly|d9877acc19": 1,
+  "kiosk": 1,
+  "kiosk|855e9bb242": 1,
+  "logs": 1,
+  "logs into": 1,
+  "logs into|855e9bb242": 1,
+  "logs|855e9bb242": 1,
+  "make": 1,
+  "make a": 1,
+  "make a|855e9bb242": 1,
+  "make|855e9bb242": 1,
+  "markdown": 1,
+  "markdown files": 1,
+  "markdown files|855e9bb242": 1,
+  "markdown|855e9bb242": 1,
+  "named": 2,
+  "named|855e9bb242": 2,
+  "new": 1,
+  "new folder": 1,
+  "new folder|855e9bb242": 1,
+  "new|855e9bb242": 1,
+  "of": 1,
+  "of all": 1,
+  "of all|855e9bb242": 1,
+  "of|855e9bb242": 1,
+  "please": 1,
+  "please make": 1,
+  "please make|855e9bb242": 1,
+  "please|855e9bb242": 1,
+  "shift": 1,
+  "shift all": 1,
+  "shift all|d9877acc19": 1,
+  "shift|d9877acc19": 1,
+  "the": 2,
+  "the logs": 1,
+  "the logs|855e9bb242": 1,
+  "the|855e9bb242": 1,
+  "the|d9877acc19": 1,
+  "to": 1,
+  "to a": 1,
+  "to a|855e9bb242": 1,
+  "to|855e9bb242": 1,
+  "txt": 1,
+  "txt files": 1,
+  "txt files|d9877acc19": 1,
+  "txt|d9877acc19": 1
+ },
+ "defined": {
+  "clone": 1,
+  "kindly": 1,
+  "new": 1
+ },
+ "dmeaning": {},
+ "marker": {
+  "named": 4,
+  "the": 2
+ },
+ "meaning": {
+  "a": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "all": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "clone": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "copy": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "folder": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "into": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "logs": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "make": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "markdown": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "named": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "of": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "please": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "shift": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "the": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "to": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "txt": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ]
+ },
+ "mode": "general",
+ "neutral": [
+  "kindly",
+  "new"
+ ],
+ "pattern_of": {
+  "a": {
+   "855e9bb242": 4
+  },
+  "a copy": {
+   "855e9bb242": 2
+  },
+  "a folder": {
+   "855e9bb242": 2
+  },
+  "a new": {
+   "855e9bb242": 2
+  },
+  "all": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "all markdown": {
+   "855e9bb242": 2
+  },
+  "clone": {
+   "855e9bb242": 7
+  },
+  "clone the": {
+   "855e9bb242": 2
+  },
+  "copy": {
+   "855e9bb242": 2
+  },
+  "copy of": {
+   "855e9bb242": 2
+  },
+  "files": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "files into": {
+   "d9877acc19": 2
+  },
+  "files to": {
+   "855e9bb242": 2
+  },
+  "folder": {
+   "855e9bb242": 4,
+   "d9877acc19": 2
+  },
+  "folder named": {
+   "855e9bb242": 4
+  },
+  "into": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "into a": {
+   "855e9bb242": 2
+  },
+  "into the": {
+   "d9877acc19": 2
+  },
+  "kindly": {
+   "d9877acc19": 2
+  },
+  "kindly shift": {
+   "d9877acc19": 2
+  },
+  "logs": {
+   "855e9bb242": 2
+  },
+  "logs into": {
+   "855e9bb242": 2
+  },
+  "make": {
+   "855e9bb242": 2
+  },
+  "make a": {
+   "855e9bb242": 2
+  },
+  "markdown": {
+   "855e9bb242": 2
+  },
+  "markdown files": {
+   "855e9bb242": 2
+  },
+  "named": {
+   "855e9bb242": 4
+  },
+  "new": {
+   "855e9bb242": 2
+  },
+  "new folder": {
+   "855e9bb242": 2
+  },
+  "of": {
+   "855e9bb242": 2
+  },
+  "of all": {
+   "855e9bb242": 2
+  },
+  "please": {
+   "855e9bb242": 2
+  },
+  "please make": {
+   "855e9bb242": 2
+  },
+  "shift": {
+   "d9877acc19": 2
+  },
+  "shift all": {
+   "d9877acc19": 2
+  },
+  "the": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "the logs": {
+   "855e9bb242": 2
+  },
+  "to": {
+   "855e9bb242": 2
+  },
+  "to a": {
+   "855e9bb242": 2
+  },
+  "txt": {
+   "d9877acc19": 2
+  }
+ },
+ "pointed": {},
+ "prev_n": {
+  "a": 6,
+  "all": 4,
+  "clone": 2,
+  "copy": 2,
+  "files": 4,
+  "folder": 4,
+  "into": 4,
+  "kindly": 2,
+  "logs": 2,
+  "make": 2,
+  "markdown": 2,
+  "named": 4,
+  "new": 2,
+  "of": 2,
+  "please": 2,
+  "shift": 2,
+  "the": 4,
+  "to": 2,
+  "txt": 2
+ },
+ "value_atoms": {
+  "csv": "('U', 0, 'a2', 'csv')",
+  "json": "('U', 0, 'a2', 'json')",
+  "log": "('U', 0, 'a2', 'log')",
+  "md": "('U', 0, 'a2', 'md')",
+  "txt": "('U', 0, 'a2', 'txt')"
+ },
+ "value_rule": [
+  2,
+  2
+ ],
+ "word_n": {
+  "a": 4,
+  "all": 4,
+  "clone": 3,
+  "copy": 2,
+  "files": 4,
+  "folder": 6,
+  "into": 4,
+  "kindly": 3,
+  "logs": 2,
+  "make": 2,
+  "markdown": 2,
+  "named": 4,
+  "new": 3,
+  "of": 2,
+  "please": 2,
+  "shift": 2,
+  "the": 4,
+  "to": 2,
+  "txt": 2
+ }
+}

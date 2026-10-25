@@ -1,0 +1,11 @@
+{"t": 1792913319.54, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["den"]], ["replicate", ["den/garnet30.md", "garnet30.md"]]]}
+{"t": 1792913320.583, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792913323.242, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792913323.244, "task": "d30-t1", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792913323.997, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["jetty"]], ["move", ["fennel30.txt", "jetty/fennel30.txt"]]]}
+{"t": 1792913325.428, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792913329.211, "task": "d30-t2", "event": "ask_check", "unknown": ["clone", "new", "kiosk"], "ok": false}
+{"t": 1792913329.213, "task": "d30-t2", "event": "ask_explain", "word": "clone", "answer": "copy", "learned": true}
+{"t": 1792913329.214, "task": "d30-t2", "event": "ask_explain", "word": "new", "answer": "", "learned": true}
+{"t": 1792913329.215, "task": "d30-t2", "event": "ask_check", "unknown": ["kiosk"], "ok": false}
+{"t": 1792913330.445, "task": "d30-t2", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["kiosk"]], ["replicate", ["kiosk/olive30.log", "olive30.log"]]]}
