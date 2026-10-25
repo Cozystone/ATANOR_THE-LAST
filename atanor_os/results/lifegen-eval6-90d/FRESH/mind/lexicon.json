@@ -1,0 +1,293 @@
+{
+ "cases": {
+  "remove every <V> file": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "remove the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "shift all the markdown files into a folder called <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 1,
+  "a folder": 1,
+  "a folder|d9877acc19": 1,
+  "all": 1,
+  "all the": 1,
+  "all the|d9877acc19": 1,
+  "all|d9877acc19": 1,
+  "a|d9877acc19": 1,
+  "called": 1,
+  "called|d9877acc19": 1,
+  "every": 1,
+  "every json": 1,
+  "every json|22204eb435": 1,
+  "every|22204eb435": 1,
+  "file": 1,
+  "files": 2,
+  "files into": 1,
+  "files into|d9877acc19": 1,
+  "files|22204eb435": 1,
+  "files|d9877acc19": 1,
+  "file|22204eb435": 1,
+  "folder": 1,
+  "folder called": 1,
+  "folder called|d9877acc19": 1,
+  "folder|d9877acc19": 1,
+  "into": 1,
+  "into a": 1,
+  "into a|d9877acc19": 1,
+  "into|d9877acc19": 1,
+  "json": 1,
+  "json file": 1,
+  "json file|22204eb435": 1,
+  "json|22204eb435": 1,
+  "log": 1,
+  "log files": 1,
+  "log files|22204eb435": 1,
+  "log|22204eb435": 1,
+  "markdown": 1,
+  "markdown files": 1,
+  "markdown files|d9877acc19": 1,
+  "markdown|d9877acc19": 1,
+  "remove": 2,
+  "remove every": 1,
+  "remove every|22204eb435": 1,
+  "remove the": 1,
+  "remove the|22204eb435": 1,
+  "remove|22204eb435": 2,
+  "shift": 1,
+  "shift all": 1,
+  "shift all|d9877acc19": 1,
+  "shift|d9877acc19": 1,
+  "southwarren": 1,
+  "southwarren|d9877acc19": 1,
+  "the": 2,
+  "the log": 1,
+  "the log|22204eb435": 1,
+  "the markdown": 1,
+  "the markdown|d9877acc19": 1,
+  "the|22204eb435": 1,
+  "the|d9877acc19": 1
+ },
+ "defined": {
+  "every": 1
+ },
+ "dmeaning": {},
+ "marker": {
+  "called": 2
+ },
+ "meaning": {
+  "a": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "all": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "called": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "file": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "folder": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "into": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "log": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "markdown": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "remove": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "shift": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "the": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ]
+ },
+ "mode": "general",
+ "neutral": [
+  "every"
+ ],
+ "pattern_of": {
+  "a": {
+   "d9877acc19": 2
+  },
+  "a folder": {
+   "d9877acc19": 2
+  },
+  "all": {
+   "d9877acc19": 2
+  },
+  "all the": {
+   "d9877acc19": 2
+  },
+  "called": {
+   "d9877acc19": 2
+  },
+  "every": {
+   "22204eb435": 2
+  },
+  "file": {
+   "22204eb435": 2
+  },
+  "files": {
+   "22204eb435": 2,
+   "d9877acc19": 2
+  },
+  "files into": {
+   "d9877acc19": 2
+  },
+  "folder": {
+   "d9877acc19": 2
+  },
+  "folder called": {
+   "d9877acc19": 2
+  },
+  "into": {
+   "d9877acc19": 2
+  },
+  "into a": {
+   "d9877acc19": 2
+  },
+  "json": {
+   "22204eb435": 2
+  },
+  "log": {
+   "22204eb435": 2
+  },
+  "markdown": {
+   "d9877acc19": 2
+  },
+  "markdown files": {
+   "d9877acc19": 2
+  },
+  "remove": {
+   "22204eb435": 4
+  },
+  "remove every": {
+   "22204eb435": 2
+  },
+  "remove the": {
+   "22204eb435": 2
+  },
+  "shift": {
+   "d9877acc19": 2
+  },
+  "shift all": {
+   "d9877acc19": 2
+  },
+  "the": {
+   "22204eb435": 2,
+   "d9877acc19": 2
+  },
+  "the markdown": {
+   "d9877acc19": 2
+  }
+ },
+ "pointed": {},
+ "prev_n": {
+  "a": 2,
+  "all": 2,
+  "called": 2,
+  "every": 2,
+  "files": 2,
+  "folder": 2,
+  "into": 2,
+  "json": 2,
+  "log": 2,
+  "markdown": 2,
+  "remove": 4,
+  "shift": 2,
+  "the": 4
+ },
+ "value_rule": [
+  4,
+  4
+ ],
+ "word_n": {
+  "a": 2,
+  "all": 2,
+  "called": 2,
+  "every": 3,
+  "file": 2,
+  "files": 4,
+  "folder": 2,
+  "into": 2,
+  "json": 2,
+  "log": 2,
+  "markdown": 2,
+  "remove": 4,
+  "shift": 2,
+  "the": 4
+ }
+}

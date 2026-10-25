@@ -1,0 +1,8 @@
+{"t": 1792919752.005, "task": "d90-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["southwarren"]], ["shove", ["southwarren/indigo90.md", "indigo90.md"]]]}
+{"t": 1792919753.883, "task": "d90-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792919761.405, "task": "d90-t1", "event": "ask_explain", "word": "remove", "answer": "delete", "learned": false}
+{"t": 1792919761.408, "task": "d90-t1", "event": "ask_explain", "word": "every", "answer": "", "learned": true}
+{"t": 1792919762.695, "task": "d90-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["cobalt87.json"]]]}
+{"t": 1792919796.333, "task": "d90-t1", "event": "rehearsal", "ok": true, "steps": 8}
+{"t": 1792919842.386, "task": "d90-t2", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792919843.808, "task": "d90-t2", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["lilac90.log"]]]}
