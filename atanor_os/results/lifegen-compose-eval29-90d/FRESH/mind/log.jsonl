@@ -1,0 +1,6 @@
+{"t": 1792970670.505, "task": "d90-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["northhut"]], ["copy", ["nutmeg90.log", "northhut/nutmeg90.log"]]]}
+{"t": 1792970673.583, "task": "d90-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792970681.249, "task": "d90-t1", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": false}
+{"t": 1792970681.251, "task": "d90-t1", "event": "ask_explain", "word": "into", "answer": "", "learned": true}
+{"t": 1792970683.083, "task": "d90-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["westsilo"]], ["shove", ["westsilo/amber89.json", "amber89.json"]]]}
+{"t": 1792970690.009, "task": "d90-t1", "event": "rehearsal", "ok": true, "steps": 9}
