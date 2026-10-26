@@ -224,14 +224,13 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
                 s, a = c
                 row.update(sel=s, act=a)
                 tut.start(sels[s], acts[a])
-                pts = tut.point()                      # gesture at the objects while saying the phrase
-                feats = g.feats()
-                cands = [x for x in g.mem.claims.claims('selects') if all(set(x['content']['atoms']) <= feats[o] for o in pts)]
-                cands = sorted(cands, key=lambda x: (len(g.extension(x['content']['atoms'], feats)), x['id']))
-                if cands:
-                    g.name_phrase(english('sel', sels[s]), cands[0]['content']['concept'], f'E{s}-d{day_no}')
+                sc = g.known_concept(f'E{s}-d{day_no}')   # the person points while saying the phrase; contrast if unclear
+                row['english_sel_known'] = bool(sc)
+                sc = sc or g.learn_selection(f'E{s}-d{day_no}')
+                cands = [sc] if sc else []
+                if sc:
+                    g.name_phrase(english('sel', sels[s]), sc['content']['concept'], f'E{s}-d{day_no}')
                     S['en_sel'].append(s)
-                row['english_sel_candidates'] = len(cands)
                 ac = g.learn_action(f'E{a}-d{day_no}')    # demonstrate while saying the action phrase
                 same = [x for x in g.mem.claims.claims('effect') if x['content']['tool'] == ac['content']['tool']
                         and x['content']['gained'] == ac['content']['gained'] and x['id'] != ac['id']]

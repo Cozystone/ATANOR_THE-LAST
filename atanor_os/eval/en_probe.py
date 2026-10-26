@@ -71,10 +71,9 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
         if not todo(spec, home, tut, acts[a]):
             naming.append({'sel': s, 'act': a, 'named': False})
             continue
-        pts = tut.point()
-        feats = g.feats()
-        cands = sorted((x for x in g.mem.claims.claims('selects') if all(set(x['content']['atoms']) <= feats[o] for o in pts)),
-                       key=lambda x: (len(g.extension(x['content']['atoms'], feats)), x['id']))
+        known = g.known_concept(f'P{s}')          # the person points while saying the phrase; contrast if unclear
+        sc = known or g.learn_selection(f'P{s}')
+        cands = [sc] if sc else []
         if cands:
             g.name_phrase(english('sel', sels[s]), cands[0]['content']['concept'], f'P{s}')
             named_s.add(s)
@@ -87,7 +86,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
         named_a.add(a)
         if cands:
             g.apply(cands[0]['content'], ac['content'], f'P{s}.{a}')
-        naming.append({'sel': s, 'act': a, 'named': True, 'sel_named': bool(cands), 'confirmed': tut.confirm()})
+        naming.append({'sel': s, 'act': a, 'named': True, 'sel_named': bool(cands), 'sel_known': bool(known), 'confirmed': tut.confirm()})
 
     rows = []
     for s in sorted(named_s):

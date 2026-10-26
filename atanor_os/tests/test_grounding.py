@@ -101,3 +101,18 @@ def test_phrase_order_reads_positions_only():
     assert al(w, ('p', 'r', 'z'), ('x', 'y', 'q')) == 6
     assert al(w, ('p', 'q', 'z'), ('x', 'y', 'r')) < 6     # would cross: p x q r z
     assert al(('b', 'a'), ('a', 'b'), ('c',)) == 1          # order counts, not only membership
+
+
+def test_a_name_goes_to_the_known_concept_the_person_confirms_by_contrast(tmp_path):
+    """Pointing at two cards that fit two known concepts: ATANOR asks about a card that splits them before naming."""
+    ws = BoardWorkspace(tmp_path / 'board')
+    ws.add_cards({'a': {'mark': 'idea', 'tray': 't2'}, 'b': {'mark': 'idea', 'tray': 't2'}, 'c': {'mark': 'memo', 'tray': 't2'},
+                  'd': {'mark': 'idea'}, 'e': {'mark': 'memo'}})
+    tut = Tutor(ws, BoardSpec, 3)
+    g = Grounder(ws, tmp_path / 'mind', person=tut)
+    k_idea = g.mem.claims.add('selects', {'concept': 'k0', 'atoms': [r for r in g.feats()['d'] if "'idea'" in r]}, [], 'inferred', g.scope)
+    k_tray = g.mem.claims.add('selects', {'concept': 'k1', 'atoms': [r for r in g.feats()['c'] if "'a2'" in r]}, [], 'inferred', g.scope)
+    tut.start({'kind': 'card', 'tray': 'teal'})
+    tut.point = lambda k=2: ['a', 'b']            # both pointed cards fit both known concepts
+    got = g.known_concept('L')
+    assert got['content']['concept'] == 'k1' and tut.help['contrast'] >= 1

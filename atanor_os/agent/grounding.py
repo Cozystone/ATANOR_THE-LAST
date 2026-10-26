@@ -119,6 +119,35 @@ class Grounder:
         g.save()
         return claim
 
+    def known_concept(self, lesson):
+        """The person points while saying a name: which concept already shared is meant? The known concepts that fit the
+        pointed objects are told apart by contrast questions (the object that splits them most evenly). None if no single
+        one is left (the caller then learns a new concept from pointing)."""
+        feats = self.feats()
+        pts = self.person.point()
+        self.counts['point'] += 1
+        self.mem.events.append('point', lesson=lesson, objects=pts, feats={o: sorted(feats[o]) for o in pts})
+        cands = [c for c in self.mem.claims.claims('selects') if self._in_scope(c)
+                 and all(set(c['content']['atoms']) <= feats[o] for o in pts)]
+        ext = lambda c: frozenset(self.extension(c['content']['atoms'], feats))
+        asked = set(pts)
+        for _ in range(QUESTION_BUDGET):
+            classes = {ext(c) for c in cands}
+            if len(classes) <= 1 or self.passive:
+                break
+            split = sorted(frozenset.union(*classes) - frozenset.intersection(*classes) - asked)
+            if not split:
+                break
+            o = min(split, key=lambda x: abs(sum(x in e for e in classes) - len(classes) / 2))
+            ans = self.person.contrast(o)
+            self.counts['contrast'] += 1
+            self.mem.events.append('contrast', lesson=lesson, object=o, answer=ans)
+            asked.add(o)
+            cands = [c for c in cands if (o in ext(c)) == ans]
+        if not cands or (len({ext(c) for c in cands}) > 1 and not self.passive):
+            return None
+        return sorted(cands, key=lambda c: (len(ext(c)), c['id']))[0]
+
     # ---------------------------------------------------------------- action concepts
     def learn_action(self, lesson):
         fb = self.feats()
