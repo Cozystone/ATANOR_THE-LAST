@@ -311,6 +311,7 @@ class Grounder:
                         self.mem.graph.unlink_claim(o['id'])
             return self.mem.claims.revise(c['id'], support=[ev], status='active')
         if replace:
+            self._carry_over(node, [o['content']['refers'] for o in old if o['content']['refers'] != node])
             for o in old:
                 self.mem.claims.revise(o['id'], counter=[ev], status='superseded')
                 self.mem.graph.unlink_claim(o['id'])
@@ -380,6 +381,42 @@ class Grounder:
                 k = self._align(tuple(words), tuple(x), tuple(y))
                 out.append((k, k - len(x) - len(y)))
         return max(out)
+
+    def _carry_over(self, node, old_nodes):
+        """The person teaches a name again on a new concept. What the person said before about that name (which objects
+        were pointed at, the answers to contrast questions) still says what the name means: criteria of the new concept
+        that contradict it are dropped."""
+        if self.mode == 'RAW' or not old_nodes:
+            return
+        new = next((c for c in self.mem.claims.claims('selects') if c['content']['concept'] == node), None)
+        if not new:
+            return
+        olds = [c for c in self.mem.claims.claims('selects', usable=False) if c['content']['concept'] in old_nodes]
+        evidence, used = [], []
+        for c in olds:
+            for eid in c['support']:
+                e = self.mem.events.get(eid)
+                if not e:
+                    continue
+                if e['kind'] == 'contrast' and e.get('feats') is not None:
+                    evidence.append((frozenset(e['feats']), bool(e['answer'])))
+                    used.append(eid)
+                elif e['kind'] == 'point':
+                    evidence += [(frozenset(f), True) for f in (e.get('feats') or {}).values()]
+                    used.append(eid)
+        if not evidence:
+            return
+        fits = lambda h: all((set(h) <= f) == y for f, y in evidence)
+        content = new['content']
+        alts = [a for a in content.get('alternatives', []) if fits(a)]
+        atoms = content['atoms']
+        if not fits(atoms) and alts:
+            atoms = min(alts, key=lambda h: (len(h), sorted(h)))
+            alts = [a for a in alts if a != atoms]
+        if atoms != content['atoms'] or len(alts) != len(content.get('alternatives', [])):
+            self.mem.claims.revise(new['id'], content={**content, 'atoms': sorted(atoms), 'alternatives': alts},
+                                   support=list(dict.fromkeys(used)), status='active')
+            self.counts['carried_over'] += 1
 
     def _in_scope(self, c):
         """A claim learned in another body (or under another core) says nothing about this one."""
