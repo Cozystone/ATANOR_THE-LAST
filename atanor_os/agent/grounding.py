@@ -686,6 +686,9 @@ class Grounder:
         new = {**content, 'atoms': sorted(best), 'alternatives': [sorted(h) for h in cands if h != best]}
         if c.get('id'):
             self.mem.claims.revise(c['id'], content=new, status='active')
+            for d in self.mem.claims.claims('denotes'):            # the person's own answers fixed it: its names stand again
+                if d['content']['refers'] == content.get('concept') and d['status'] == 'needs_recheck' and self._in_scope(d):
+                    self.mem.claims.revise(d['id'], status='active')
         return new
 
     def reply(self, ok, used=(), reason=None):
