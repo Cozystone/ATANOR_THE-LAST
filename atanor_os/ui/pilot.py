@@ -30,9 +30,11 @@ class Clock:
         return self.t
 
 
-def drive(sess, tut, names, timeout=30):
-    """Answer the job's questions until it ends."""
+def drive(sess, tut, names, timeout=30, noise=0.0, rng=None):
+    """Answer the job's questions until it ends. noise: the chance that a pointing includes a card not meant, or that a
+    contrast answer is the wrong one (people make such slips); confirmations are always honest."""
     t0 = time.time()
+    slips = sess.state.setdefault('pilot_slips', {'point': 0, 'contrast': 0})
     while sess.job.is_alive():
         p = sess.person.pending
         if p is None:
@@ -42,9 +44,19 @@ def drive(sess, tut, names, timeout=30):
             continue
         k = p['kind']
         if k == 'point':
-            ans = {'objects': tut.point()}
+            pts = tut.point()
+            others = sorted(set(tut.before) - set(tut.truth) - set(pts))
+            others = [o for o in others if tut.before[o].get('kind') == 'card']
+            if noise and others and rng.random() < noise:
+                pts = pts[:1] + [rng.choice(others)]
+                slips['point'] += 1
+            ans = {'objects': pts}
         elif k == 'contrast':
-            ans = {'yes': tut.contrast(p['object'])}
+            yes = tut.contrast(p['object'])
+            if noise and rng.random() < noise:
+                yes = not yes
+                slips['contrast'] += 1
+            ans = {'yes': yes}
         elif k == 'demo':
             st = tut.home.observe(tut.home.existing())
             rest = [o for o in tut.truth if not BoardSpec.shows(tut.act, o, st)] or tut.truth
@@ -64,7 +76,7 @@ def drive(sess, tut, names, timeout=30):
     sess.job.join()
 
 
-def run(root, seed=7, n_sessions=15):
+def run(root, seed=7, n_sessions=15, noise=0.0):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
@@ -73,6 +85,7 @@ def run(root, seed=7, n_sessions=15):
     sels, acts = targets(seed)
     sym = symbols(seed)
     rng = random.Random(f'pilot-{seed}')
+    nrng = random.Random(f'pilot-noise-{seed}')
     tut = Tutor(sess.home, BoardSpec, f'pilot-{seed}')
     taught, sym_named, en_named = [], set(), set()
 
@@ -83,7 +96,7 @@ def run(root, seed=7, n_sessions=15):
     def lesson(s, a):
         tut.start(sels[s], acts[a])
         sess.start('teach')
-        drive(sess, tut, {'selection': sym[s], 'action': sym[20 + a]})
+        drive(sess, tut, {'selection': sym[s], 'action': sym[20 + a]}, noise=noise, rng=nrng)
         last = json.loads((root / 'log.jsonl').read_text(encoding='utf-8').splitlines()[-1])
         if last.get('event') == 'lesson' and last.get('named'):   # the pilot uses only names it actually gave
             taught.append((s, a))
@@ -93,7 +106,10 @@ def run(root, seed=7, n_sessions=15):
         tut.start(sels[s], acts[a])
         words = [sym[20 + a], sym[s]] if lang == 'sym' else english('act', acts[a])[:1] + english('sel', sels[s]) + english('act', acts[a])[1:]
         sess.start('command', text=' '.join(words), alone=alone)
-        drive(sess, tut, {})
+        drive(sess, tut, {}, noise=noise, rng=nrng)
+        last = json.loads((root / 'log.jsonl').read_text(encoding='utf-8').splitlines()[-1])
+        if not alone and last.get('why') == 'needs recheck' and feasible(s, a):
+            lesson(s, a)                                   # asked to teach again, the person does
         return sess  # outcome is in the log
 
     for i in range(n_sessions):
@@ -111,10 +127,10 @@ def run(root, seed=7, n_sessions=15):
                 if feasible(s, a):
                     tut.start(sels[s], acts[a])
                     sess.start('name', part='selection', phrase=' '.join(english('sel', sels[s])))
-                    drive(sess, tut, {})
+                    drive(sess, tut, {}, noise=noise, rng=nrng)
                     tut.start(sels[s], acts[a])
                     sess.start('name', part='action', phrase=' '.join(english('act', acts[a])))
-                    drive(sess, tut, {})
+                    drive(sess, tut, {}, noise=noise, rng=nrng)
                     en_named.add(('en', (s, a)))
         named_s = {x for k, x in sym_named if k == 's'}
         named_a = {x for k, x in sym_named if k == 'a'}
@@ -136,6 +152,9 @@ if __name__ == '__main__':
     ap.add_argument('root')
     ap.add_argument('--seed', type=int, default=7)
     ap.add_argument('--sessions', type=int, default=15)
+    ap.add_argument('--noise', type=float, default=0.0)
     a = ap.parse_args()
-    run(a.root, a.seed, a.sessions)
+    sess = run(a.root, a.seed, a.sessions, a.noise)
+    sess.save()
+    print('slips', sess.state.get('pilot_slips'))
     print('done', a.root)

@@ -94,6 +94,8 @@ def classify(row):
             return 'structure: readings tie' if not row.get('unknown') else 'grounding: unknown word'
         if why == 'ambiguous generalization':
             return 'safety hold: concept undecided here'
+        if why == 'needs recheck':
+            return 'grounding: contradicted by the person, to be taught again'
         return 'safety hold'
     if o == 'tool_failed':
         return 'tool model: the action did not do what was remembered'
@@ -200,7 +202,7 @@ class Session:
         verdict = self.person.ask('confirm', acted=[o for o, _ in acted], failed=[o for o, _ in failed],
                                   note='ATANOR가 나머지 카드에 같은 행동을 했습니다. 맞나요?')
         ok = bool(verdict['ok'])
-        g.reply(ok)
+        g.reply(ok, used=[sc['id'], ac['id']], reason=verdict.get('reason'))
         row = {'event': 'lesson', 'lesson': lid, 'concept': sc['content']['concept'], 'action': ac['content']['action'],
                'criterion': [readable_atom(a) for a in sc['content']['atoms']], 'alternatives': len(sc['content'].get('alternatives', [])),
                'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed], 'confirmed': ok,
@@ -261,7 +263,8 @@ class Session:
                'acted': res.get('acted', []), 'failed': res.get('failed', []), 'used': res.get('used'), 'retrieved_as': res.get('retrieved_as')}
         if not res.get('ok') and not res.get('acted') and not res.get('failed'):
             row['outcome'] = 'held'
-            self.say('확실하지 않아 하지 않았습니다(보류).')
+            self.say('지난번에 틀렸다고 하신 것이라, 다시 가르쳐 주실 때까지 하지 않았습니다.' if res.get('why') == 'needs recheck'
+                     else '확실하지 않아 하지 않았습니다(보류).')
         elif res.get('failed'):
             row['outcome'] = 'tool_failed'
             self.say('기억한 행동이 이번에는 되지 않았습니다.')
@@ -269,7 +272,7 @@ class Session:
             verdict = self.person.ask('judge', acted=row['acted'], note='이 명령을 이렇게 했습니다. 맞나요?')
             row['outcome'] = 'success' if verdict['ok'] else 'wrong'
             row['reason'] = verdict.get('reason')
-            g.reply(bool(verdict['ok']))
+            g.reply(bool(verdict['ok']), used=res.get('used') or (), reason=verdict.get('reason'))
         taught = {w: self.state['taught'][w] for w in self.state['taught'] if all(x in words for x in w.split())}
         row['taught_words'] = {w: {'session': t['session'], 'date': t['date']} for w, t in taught.items()}
         first = min((t['session'] for t in taught.values()), default=None)

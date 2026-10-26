@@ -137,7 +137,7 @@ class Grounder:
         pts = self.person.point()
         self.counts['point'] += 1
         self.mem.events.append('point', lesson=lesson, objects=pts, feats={o: sorted(feats[o]) for o in pts})
-        cands = [c for c in self.mem.claims.claims('selects') if self._in_scope(c)
+        cands = [c for c in self.mem.claims.claims('selects') if self._in_scope(c) and c['status'] == 'active'
                  and all(set(c['content']['atoms']) <= feats[o] for o in pts)]
         ext = lambda c: frozenset(self.extension(c['content']['atoms'], feats))
         asked = set(pts)
@@ -415,7 +415,11 @@ class Grounder:
         def key(s, a):
             base = sum(1 for ns in nodes.values() if s in ns or a in ns)
             return (base, self._order_score(words, s, a)) if self.structure == 'order' else (base,)
-        scored = sorted(((key(s, a), s, a) for s in sel_n for a in act_n), reverse=True)
+        fresh = lambda n: (defs[n].get('claim') or {}).get('status', 'active') == 'active'
+        pairs = [(s, a) for s in sel_n for a in act_n]
+        if any(fresh(s) and fresh(a) for s, a in pairs):     # a reading the person contradicted yields to one never contradicted
+            pairs = [(s, a) for s, a in pairs if fresh(s) and fresh(a)]
+        scored = sorted(((key(s, a), s, a) for s, a in pairs), reverse=True)
         unknown = [w for w, ns in nodes.items() if not ns]
         if not scored:
             return None, None, unknown
@@ -437,6 +441,9 @@ class Grounder:
             self.counts['held_unresolved'] += 1
             return {'ok': False, 'why': 'unresolved', 'unknown': unknown, 'event': ev}
         sels, acts = [sel_d], [act_d]
+        if any((d.get('claim') or {}).get('status') == 'needs_recheck' for d in (sel_d, act_d)):
+            self.counts['held_recheck'] += 1                   # contradicted by the person: to be taught again first
+            return {'ok': False, 'why': 'needs recheck', 'event': ev, 'used': [sel_d['via'], act_d['via']]}
         sel, act = sels[0]['claim']['content'], acts[0]['claim']['content']
         feats = self.feats()
         alts = sel.get('alternatives', [])
@@ -484,6 +491,16 @@ class Grounder:
             self.mem.claims.revise(c['id'], content=new, status='active')
         return new
 
-    def reply(self, ok):
-        """The person's verdict on what was done (CONFIRM)."""
-        return self.mem.events.append('confirm', answer=ok)
+    def reply(self, ok, used=(), reason=None):
+        """The person's verdict on what was done (CONFIRM). A 'wrong' is a counter-example to the claims that were used:
+        the selection if the person says the objects were wrong, the action if the result was, both if not said. Those
+        claims (and the names that depend on them) need re-checking before ATANOR acts on them again."""
+        ev = self.mem.events.append('confirm', answer=ok, reason=reason, used=list(used))
+        if not ok:
+            kinds = {'cards': ('selects',), 'result': ('effect',)}.get(reason, ('selects', 'effect'))
+            for cid in used:
+                c = self.mem.claims.current(cid)
+                if c and c['kind'] in kinds and c['status'] in ('active', 'needs_recheck'):
+                    self.mem.counter(cid, ev)
+                    self.counts['person_counterexamples'] += 1
+        return ev
