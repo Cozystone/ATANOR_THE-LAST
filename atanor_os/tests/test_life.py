@@ -311,8 +311,8 @@ def test_a_reading_that_leaves_named_values_unused_is_held_alone_even_if_reversi
 
 
 def test_a_word_that_could_name_the_change_or_objects_makes_the_reading_ambiguous():
-    """'shift' has only ever moved md files: it goes with one change and its meaning names md. In 'shift the logs' the
-    md it would add is named by nothing else, so the reading depends on its role: ambiguous (checked, or held alone)."""
+    """'shift' has only ever moved md files, always said with the md token. v18 marked 'shift the logs' ambiguous because
+    'shift' had come to name md; since v24 the md token takes that credit, so 'shift' names nothing and the logs are read."""
     from atanor_os.agent.life import Lexicon, tokens
     v = _scene_more()
     L = Lexicon()
@@ -323,7 +323,9 @@ def test_a_word_that_could_name_the_change_or_objects_makes_the_reading_ambiguou
         L.learn(tokens('move the logs'), v, 'MOV', ['d.log'], None)
         for w in ('shift', 'the', 'md', 'files', 'copy', 'logs', 'move', 'csv'):
             L.confirmed[w] += 1
-    assert L.interpret(tokens('shift the logs'), v, False)['ambiguous']
+    r = L.interpret(tokens('shift the logs'), v, False)
+    # v24: the md token took the credit for md each time, so 'shift' never came to name md; no role conflict arises
+    assert not r['ambiguous'] and r['selected'] == ['d.log'], r
     assert not L.interpret(tokens('move the logs'), v, False)['ambiguous']
 
 
@@ -418,3 +420,14 @@ def test_the_part_nothing_read_explains_belongs_to_the_one_new_word():
             L.confirmed[w] += 1
     L.learn(tokens('copy the markdown and txt files'), v, 'CP', ['a.md', 'b.txt'], None)
     assert "('U', 0, 'a2', 'md')" in L.meaning['markdown'], L.meaning.get('markdown')
+
+
+def test_a_word_heard_twice_naming_one_value_is_not_dropped_alone(tmp_path):
+    """'logs' has been used twice, both for log files; 'Move the csv files and logs into tower' read as csv only would
+    drop it: alone, the reversible move is still held. One-shot reuse of a plain 'Move the txt files' is unaffected."""
+    ws = _home(tmp_path, ['a.csv', 'b.csv', 'c.log', 'd.log', 'e.txt'])
+    t = Teacher(ws)
+    _do(ws, tmp_path, t, {'command': 'Copy the csv files into a folder called one.', 'tool': 'copy', 'ext': 'csv', 'dest': 'one'}, 't0')
+    _do(ws, tmp_path, t, {'command': 'Copy the logs into a folder called two.', 'tool': 'copy', 'ext': 'log', 'dest': 'two'}, 't1')
+    r, ok, m = _do(ws, tmp_path, t, {'command': 'Move the csv files and logs into tower.', 'tool': 'move', 'ext': ['csv', 'log'], 'dest': 'tower'}, 't2', user=False)
+    assert ws.kind('a.csv') == 'file' and ws.kind('c.log') == 'file', 'nothing may be moved on a reading that drops the logs'

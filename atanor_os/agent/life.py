@@ -291,6 +291,17 @@ class Lexicon:
             shared = {x for x in set.intersection(*insel0) if x.split(',')[2:3] != [key]} if insel0 else set()
             return not any(shared <= {repr(x) for x in at} and a in {repr(x) for x in at} for at, _ in view.values())
         bringers = {i for k, am in alts.items() for a, i in am.items() if absent(k, a)}
+        vals0 = set().union(*[vs for _, vs in view.values()]) if view else set()
+        named_by = {}
+        for t in set(toks):
+            if t == dest or t in view:
+                continue
+            if t in vals0:
+                named_by[t] = {repr(a) for o, (at, vs) in view.items() if t in vs for a in at if a[0] == 'U' and a[3] == t}
+            elif self.strong(t) and self.names_value(t):
+                named_by[t] = self.naming_atoms(t)
+        def credited_elsewhere(w):                          # what the other words of this command already name
+            return set().union(*[a for t, a in named_by.items() if t != w]) if named_by else set()
         sel_atoms = [{repr(x) for x in view[o][0]} for o in selected if o in view]
         by_attr = defaultdict(set)
         for sa in sel_atoms:
@@ -367,9 +378,9 @@ class Lexicon:
                 if own:                                     # a value word in a union learns from its own part
                     sub = [view[o][0] for o in own[0] if o in view]
                     part = {repr(a) for a in frozenset.intersection(*sub)} if sub else cur
-                    self._add_use(w, part, disc=self._discriminating(part, own[0], view, pid))
+                    self._add_use(w, part, disc=self._discriminating(part, own[0], view, pid) - credited_elsewhere(w))
                 else:
-                    self._add_use(w, cur, disc=self._discriminating(cur, selected, view, pid))
+                    self._add_use(w, cur, disc=self._discriminating(cur, selected, view, pid) - credited_elsewhere(w))
         for pair in self.pairs(toks, dest, values):
             if pid is not None:
                 self.pattern_of[pair][pid] += 1
@@ -592,6 +603,10 @@ class Lexicon:
                     n = sum(pc.values()) if pc else 0
                     names_change = n >= 3 and (pc.most_common(1)[0][1] + 0.1) / (n + 0.1 * len(pids)) >= DECISIVE
                     va = self.value_history(t) if self.strong(t) and len(self.uses.get(t, [])) >= 3 and not names_change else set()
+                    if not va and not self.strong(t) and not names_change:
+                        ds = self.disc_uses.get(t, [])
+                        if len(ds) >= 2 and all(d and d == ds[0] for d in ds):
+                            va = set(ds[0])                 # a young word that has only ever named this value
                 if not va:
                     continue
                 present = any(va & {repr(a) for a in at} for at, _ in view.values())
