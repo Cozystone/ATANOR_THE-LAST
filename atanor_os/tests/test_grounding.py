@@ -72,3 +72,23 @@ def test_an_unknown_symbol_is_held_alone(tmp_path):
     g = Grounder(ws, tmp_path / 'mind', person=None)
     res = g.obey(['zuvo', 'kepa'])
     assert not res['ok'] and res['why'] == 'unresolved'
+
+
+def test_claims_from_another_body_are_not_used(tmp_path):
+    """One mind, two bodies: a symbol taught on the board does not act on the file body (scope), and the audit sees both scopes."""
+    from atanor_os.world.fs_world import Workspace
+    from atanor_os.eval.memory_audit import audit
+    ws = _board(tmp_path)
+    tut = Tutor(ws, BoardSpec, 1)
+    tut.start({'kind': 'card', 'mark': 'idea'}, {'tool': 'scrap'})
+    g = Grounder(ws, tmp_path / 'mind', person=tut)
+    sc = g.learn_selection('L')
+    ac = g.learn_action('L')
+    g.bind('mip', sc['content']['concept'], 'L')
+    g.bind('dax', ac['content']['action'], 'L')
+    fs = Workspace(tmp_path / 'home')
+    (fs.root / 'a.csv').write_text('a')
+    g2 = Grounder(fs, tmp_path / 'mind', person=None)
+    res = g2.obey(['dax', 'mip'])
+    assert not res['ok'] and fs.kind('a.csv') == 'file'
+    assert Grounder(ws, tmp_path / 'mind', person=None).resolve(['dax', 'mip'])[0] is not None

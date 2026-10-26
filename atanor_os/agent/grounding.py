@@ -30,7 +30,8 @@ class Grounder:
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.body = getattr(home, 'BODY', '?')
         self.dir = Path(mind_dir)
-        self.mem = Memory(self.dir, events_readable=mode in ('FULL', 'RAW'), persist_claims=mode in ('FULL', 'ONTO'))
+        self.mem = Memory(self.dir, events_readable=mode in ('FULL', 'RAW'), persist_claims=mode in ('FULL', 'ONTO'),
+                          stamp={'body': self.body, 'core': core})
         self.caps = {c: True for c in set(getattr(home, 'CAPABILITY', {}).values())}
         self.counts = Counter()
         self.scope = {'body': self.body, 'core': core}
@@ -222,9 +223,16 @@ class Grounder:
         g.save()
         return c
 
+    def _in_scope(self, c):
+        """A claim learned in another body (or under another core) says nothing about this one."""
+        sc = c.get('scope') or {}
+        return sc.get('body') in (None, self.body)
+
     def _definition(self, node):
         """The claim that defines an internal concept or action (claims memory), or re-derived from raw events (RAW)."""
         for c in self.mem.claims.claims():
+            if not self._in_scope(c):
+                continue
             if c['kind'] in ('selects', 'effect') and c['content'].get('concept', c['content'].get('action')) == node:
                 return c
         return None
@@ -243,7 +251,7 @@ class Grounder:
 
     def _from_events(self, symbol, node=None):
         """RAW memory: find the naming event, then re-derive the concept from that lesson's own raw events."""
-        evs = self.mem.events.all()
+        evs = [e for e in self.mem.events.all() if e.get('body') in (None, self.body)]      # this body's own experience
         names = [e for e in evs if e['kind'] == 'name' and e.get('symbol') == symbol and (node is None or e['node'] == node)]
         if not names:
             return None
@@ -276,8 +284,8 @@ class Grounder:
     def _nodes(self, word):
         """Internal nodes a word has been bound to (claims memory, or the raw naming events in RAW)."""
         if self.mode == 'RAW':
-            return {e['node'] for e in self.mem.events.all() if e['kind'] == 'name' and e.get('symbol') == word}
-        hits = [r['claim'] for r in self.mem.retrieve([f'sym:{word}'], depth=2) if r['claim']['kind'] == 'denotes']
+            return {e['node'] for e in self.mem.events.all() if e['kind'] == 'name' and e.get('symbol') == word and e.get('body') in (None, self.body)}
+        hits = [r['claim'] for r in self.mem.retrieve([f'sym:{word}'], depth=2) if r['claim']['kind'] == 'denotes' and self._in_scope(r['claim'])]
         return {c['content']['refers'] for c in hits if c['content']['symbol'] == word}
 
     def resolve(self, words):

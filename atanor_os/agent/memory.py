@@ -27,9 +27,10 @@ ACTIVE = ('active', 'needs_recheck')
 
 
 class EventLog:
-    def __init__(self, path, readable=True):
+    def __init__(self, path, readable=True, stamp=None):
         self.path = Path(path) if path else None
         self.readable = readable
+        self.stamp = dict(stamp or {})             # e.g. the body and core version every event of this session belongs to
         self._events = []
         self._n = 0
         if self.path and self.path.exists():
@@ -39,7 +40,7 @@ class EventLog:
                 self._events = [json.loads(l) for l in lines]
 
     def append(self, kind, **data):
-        e = {'id': f'e{self._n}', 'kind': kind, **data}
+        e = {'id': f'e{self._n}', 'kind': kind, **self.stamp, **data}
         self._n += 1
         self._events.append(e)
         if self.path:
@@ -134,10 +135,10 @@ class Ontology:
 class Memory:
     """The three layers together, with retrieval and revision."""
 
-    def __init__(self, mind_dir, events_readable=True, persist_claims=True):
+    def __init__(self, mind_dir, events_readable=True, persist_claims=True, stamp=None):
         d = Path(mind_dir)
         d.mkdir(parents=True, exist_ok=True)
-        self.events = EventLog(d / 'events.jsonl', readable=events_readable)
+        self.events = EventLog(d / 'events.jsonl', readable=events_readable, stamp=stamp)
         self.claims = ClaimLedger(d / 'claims.jsonl' if persist_claims else None)
         self.graph = Ontology(d / 'ontology.json' if persist_claims else None)
 
