@@ -1,0 +1,148 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\vt3-dev1",
+ "eval_seed": 101,
+ "summary": {
+  "taught": {
+   "success": 2,
+   "held": 2
+  },
+  "combo": {
+   "success": 4,
+   "held": 1
+  },
+  "english": {
+   "success": 2
+  }
+ },
+ "held_why": {
+  "ambiguous generalization": 3
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "combo",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 6,
+  "first": {
+   "success": 4,
+   "held:ambiguous generalization": 2
+  },
+  "second": {
+   "success": 4,
+   "held:ambiguous generalization": 2
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 0,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 1,
+    "act": 0,
+    "first": "held:ambiguous generalization",
+    "second": "held:ambiguous generalization"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "first": "held:ambiguous generalization",
+    "second": "held:ambiguous generalization"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   }
+  ]
+ }
+}
