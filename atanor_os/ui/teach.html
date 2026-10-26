@@ -84,7 +84,7 @@ details summary { cursor: pointer; color: var(--muted); }
         <input type="text" id="cmd" placeholder="명령 (기호나 영어, 예: dax mip)">
         <button id="bCmdAlone">혼자 하게 하기</button><button id="bCmdWith">내가 옆에 있을 때</button>
       </div>
-      <div class="row"><button id="bSession">새 세션 (새 카드가 들어옴)</button><button id="bCancel">지금 질문 취소</button></div>
+      <div class="row"><button id="bSession">새 세션 (새 카드가 들어옴)</button><button id="bRecall">혼자일 때 못 한 일 (0)</button><button id="bCancel">지금 질문 취소</button></div>
       <div class="log" id="log"></div>
     </section>
     <section style="margin-top:12px">
@@ -167,6 +167,10 @@ function drawControls() {
     pr.textContent = `${p.note} 고른 카드: ${(p.objects || []).join(', ') || '없음'}`;
     box.append(el('button', {class: 'ok', onclick: () => answer({ok: true})}, '네, 그 카드들이에요'),
                el('button', {class: 'bad', onclick: () => answer({ok: false})}, '아니요'));
+  } else if (p.kind === 'recall') {
+    pr.textContent = p.note;
+    box.append(el('button', {class: 'ok', onclick: () => answer({yes: true})}, '네, 지금 해 주세요'),
+               el('button', {class: 'bad', onclick: () => answer({yes: false})}, '아니요, 이제 필요 없어요'));
   } else if (p.kind === 'name') {
     pr.textContent = p.note;
     const a = el('input', {type: 'text', placeholder: '선택의 이름 (예: mip)'}), b = el('input', {type: 'text', placeholder: '행동의 이름 (예: dax)'});
@@ -207,6 +211,7 @@ async function refresh() {
   if (S.messages.length) document.getElementById('log').innerHTML = S.messages.slice().reverse().map(m => `<div>${m.at} ${m.text.replace(/</g, '&lt;')}</div>`).join('');
   const busy = S.busy;
   for (const id of ['bTeach', 'bNameSel', 'bNameAct', 'bCmdAlone', 'bCmdWith', 'bSession']) document.getElementById(id).disabled = busy;
+  const rb = document.getElementById('bRecall'); rb.textContent = `혼자일 때 못 한 일 (${S.unfinished || 0})`; rb.disabled = busy || !S.unfinished;
 }
 document.getElementById('bTeach').onclick = () => api('/api/start', {job: 'teach'}).then(refresh);
 document.getElementById('bNameSel').onclick = () => api('/api/start', {job: 'name', part: 'selection', phrase: document.getElementById('phrase').value}).then(refresh);
@@ -215,6 +220,7 @@ document.getElementById('bCmdAlone').onclick = () => api('/api/start', {job: 'co
 document.getElementById('bCmdWith').onclick = () => api('/api/start', {job: 'command', text: document.getElementById('cmd').value, alone: false}).then(refresh);
 document.getElementById('bSession').onclick = () => api('/api/start', {job: 'session'}).then(refresh);
 document.getElementById('bCancel').onclick = () => api('/api/cancel', {}).then(refresh);
+document.getElementById('bRecall').onclick = () => api('/api/start', {job: 'recall', index: 0}).then(refresh);
 refresh(); setInterval(refresh, 800);
 </script>
 </body>

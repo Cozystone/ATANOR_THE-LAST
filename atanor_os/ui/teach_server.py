@@ -399,7 +399,8 @@ class Session:
             memory = []
         return {'session': self.state['session'], 'cards': cards, 'trays': TRAYS, 'marks': MARKS, 'levels': LEVELS,
                 'tools': self.home.tools(), 'pending': self.person.pending, 'busy': bool(self.job and self.job.is_alive()),
-                'messages': self.messages, 'memory': memory, 'taught': self.state['taught']}
+                'messages': self.messages, 'memory': memory, 'taught': self.state['taught'],
+                'unfinished': len(json.loads((self.mind / 'pending.json').read_text(encoding='utf-8'))) if (self.mind / 'pending.json').exists() else 0}
 
 
 def make_handler(sess):
