@@ -16,7 +16,8 @@ What it reads, and what it does about it (most urgent first):
   new        a target nobody has taught yet -> a lesson, paired with something already shared (reuse)
   combo      names never used together -> a command for the new combination
   recall     a name not used for 5+ days -> ATANOR alone, then judged
-  phrase     after the first week, an English phrase for something shared
+  phrase     after the first week, an English phrase for something shared (t4: only on a day when what it picks
+             differs from what every other named selection picks, so the phrase cannot land on a shared concept)
 Every 4th session the teacher is away: ATANOR gets commands alone and is only judged afterwards.
 
 The teacher sees only its training world and its training phrases. The evaluator (eval/teacher_eval.py) uses other
@@ -37,7 +38,7 @@ from ..ui.pilot import DAYS, Clock, drive, write_names
 from ..ui.teach_server import Session
 from .tutor import Tutor, symbols
 
-POLICIES = ('t1', 't2')
+POLICIES = ('t1', 't2', 't4')
 PER_SESSION = 4
 
 
@@ -95,6 +96,13 @@ class Teacher:
     def feasible(self, s, a):
         self.tut.start(self.sels[s], self.acts[a])
         return bool(todo(self.spec, self.sess.home, self.tut, self.acts[a]))
+
+    def distinct_today(self, s):
+        """t4 (teacher's own world truth): does selection s pick, today, objects no other named selection picks alike?"""
+        st = self.sess.home.observe(self.sess.home.existing())
+        mine = lambda x: frozenset(o for o, a in st.items() if self.spec.member(o, a, self.sels[x]))
+        here = mine(s)
+        return bool(here) and all(mine(x) != here for x in self.named_s if x != s)
 
     def informative_pointer(self, claim):
         """Point at the meant cards that rule out the most criteria ATANOR still keeps besides the right one."""
@@ -215,6 +223,8 @@ class Teacher:
         if i >= 6:
             for s, a in sorted(self.used_pairs):
                 if (s, a) not in self.en and s in self.named_s and a in self.named_a and self.feasible(s, a):
+                    if self.policy == 't4' and not self.distinct_today(s):
+                        continue                           # t4: today it picks what another named selection picks; wait
                     out.append((2, 'phrase', 'phrase', s, a, None))
         self.rng.shuffle(out)
         out.sort(key=lambda x: -x[0])
