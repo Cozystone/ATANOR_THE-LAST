@@ -1,0 +1,10 @@
+{"t": 1792980155.637, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["delete", ["amber30.csv"]]]}
+{"t": 1792980156.436, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792980158.238, "task": "d30-t1", "event": "ask_check", "unknown": ["transfer", "and", "documents", "to", "a", "folder", "named", "ranch"], "ok": false}
+{"t": 1792980158.242, "task": "d30-t1", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": false}
+{"t": 1792980158.244, "task": "d30-t1", "event": "ask_explain", "word": "and", "answer": null, "learned": false}
+{"t": 1792980159.028, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["ranch"]], ["shove", ["ranch/birch26.txt", "birch26.txt"]]]}
+{"t": 1792980169.173, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792980169.878, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792980171.601, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792980172.274, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}

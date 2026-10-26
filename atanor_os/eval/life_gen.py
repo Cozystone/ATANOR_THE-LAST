@@ -59,7 +59,13 @@ def life(seed, days=30, compose=False):
             sel = rng.choice(SELECT[ext])
             quant = rng.choice(QUANT) if sel != ['spreadsheets'] or True else []
             syn = {w: ext for w in sel if w not in (ext, 'files', 'file')}
-            if compose == 'transfer' and day >= 16 and rng.random() < 0.45:
+            if compose == 'sequence' and day >= 11 and tool in ('copy', 'move') and rng.random() < 0.5:
+                tool = 'move'                                  # 'copy ... and then delete them': the end state of a move
+                verb = rng.choice(VERBS['copy'])
+                tail = rng.choice([['and', 'then', 'delete', 'them'], ['and', 'then', 'remove', 'the', 'originals'],
+                                   ['and', 'afterwards', 'erase', 'the', 'originals'], ['then', 'discard', 'them']])
+                form = 'sequence'
+            elif compose == 'transfer' and day >= 16 and rng.random() < 0.45:
                 form = rng.choice(['three', 'repeat', 'plus', 'as well as', 'along with'])
                 others = rng.sample([e for e in EXTS if e != ext], 2 if form == 'three' else 1)
                 sels = [sel] + [rng.choice(SELECT[e]) for e in others]
@@ -93,10 +99,14 @@ def life(seed, days=30, compose=False):
                 d = dests.pop()
                 used.add(d)
                 words += [w.replace('{d}', d) for w in rng.choice(DEST)]
+                if form == 'sequence':
+                    words += tail
             sentence = ' '.join(words)
             sentence = sentence[0].upper() + sentence[1:] + '.'
             tasks.append({'command': sentence, 'tool': tool, 'ext': ext, 'dest': d, 'form': form,
-                          'phrases': {'verb': verb, 'base': tool, 'selector_synonym': sorted(syn),
+                          'phrases': {'verb': verb, 'base': 'copy' if form == 'sequence' else tool,
+                                      'explain_map': ({w: ('delete' if w in ('delete', 'remove', 'erase', 'discard') else '') for w in tail}
+                                                      if form == 'sequence' else {}), 'selector_synonym': sorted(syn),
                                       'function': sorted(FUNCTION), 'syn_ext': syn}})
         out.append({'day': day, 'user': user, 'drift': list(drift), 'tasks': tasks})
     return out

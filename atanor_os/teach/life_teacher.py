@@ -50,6 +50,8 @@ class Teacher:
             return EXPLAIN.get(word)
         if word in ph['verb'] and word != ph['base']:
             return ph['base']
+        if word in ph.get('explain_map', {}):
+            return ph['explain_map'][word]                     # 'and then delete them': 'delete' is delete, 'then'/'them' nothing
         if word in ph.get('syn_ext', {}):
             return f"{ph['syn_ext'][word]} files"
         if word in ph['selector_synonym']:

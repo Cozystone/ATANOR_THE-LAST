@@ -1,0 +1,198 @@
+{"t": 1792980221.952, "task": "d1-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["villa"]], ["copy", ["marigold1.md", "villa/marigold1.md"]]]}
+{"t": 1792980222.014, "task": "d1-t0", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792980222.146, "task": "d1-t1", "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792980222.146, "task": "d1-t1", "event": "ask_explain", "word": "every", "answer": "", "learned": true}
+{"t": 1792980222.162, "task": "d1-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["umber1.json"]]]}
+{"t": 1792980222.205, "task": "d1-t1", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792980222.532, "task": "d2-t0", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792980222.533, "task": "d2-t0", "event": "ask_explain", "word": "the", "answer": "", "learned": true}
+{"t": 1792980222.57, "task": "d2-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["bay"]], ["move", ["dahlia1.log", "bay/dahlia1.log"]]]}
+{"t": 1792980222.692, "task": "d2-t0", "event": "rehearsal", "ok": true, "steps": 5}
+{"t": 1792980223.028, "task": "d2-t1", "event": "ask_explain", "word": "put", "answer": "move", "learned": false}
+{"t": 1792980223.028, "task": "d2-t1", "event": "ask_explain", "word": "away", "answer": "move", "learned": false}
+{"t": 1792980223.074, "task": "d2-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["outpost"]], ["move", ["amber2.txt", "outpost/amber2.txt"]]]}
+{"t": 1792980223.857, "task": "d3-t0", "event": "ask_explain", "word": "garret", "answer": null, "learned": false}
+{"t": 1792980223.955, "task": "d3-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["garret"]], ["copy", ["indigo3.log", "garret/indigo3.log"]]]}
+{"t": 1792980224.385, "task": "d3-t1", "event": "ask_check", "unknown": ["clone", "markdown", "file", "to"], "ok": false}
+{"t": 1792980224.385, "task": "d3-t1", "event": "ask_explain", "word": "clone", "answer": "copy", "learned": true}
+{"t": 1792980224.386, "task": "d3-t1", "event": "ask_explain", "word": "markdown", "answer": "md files", "learned": true}
+{"t": 1792980224.386, "task": "d3-t1", "event": "ask_check", "unknown": ["file", "to"], "ok": true}
+{"t": 1792980225.819, "task": "d4-t0", "event": "refuse_unknown", "words": ["please", "discard", "spreadsheets"]}
+{"t": 1792980225.82, "task": "d4-t0", "event": "unfinished", "goal": "d4-t0", "why": "not understood"}
+{"t": 1792980225.949, "task": "d4-t1", "event": "refuse_weak", "why": "no selection support"}
+{"t": 1792980225.955, "task": "d4-t1", "event": "unfinished", "goal": "d4-t1", "why": "not understood"}
+{"t": 1792980226.338, "task": "d5-t0", "event": "ask_check", "unknown": ["comma", "separated"], "ok": false}
+{"t": 1792980226.338, "task": "d5-t0", "event": "ask_explain", "word": "comma", "answer": "csv files", "learned": true}
+{"t": 1792980226.339, "task": "d5-t0", "event": "ask_explain", "word": "separated", "answer": "csv files", "learned": true}
+{"t": 1792980226.34, "task": "d5-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980226.341, "task": "d5-t0", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980226.441, "task": "d5-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["barn"]], ["move", ["cobalt4.csv", "barn/cobalt4.csv"]]]}
+{"t": 1792980234.508, "task": "d5-t1", "event": "ask_explain", "word": "get", "answer": "delete", "learned": true}
+{"t": 1792980234.509, "task": "d5-t1", "event": "ask_explain", "word": "rid", "answer": "delete", "learned": true}
+{"t": 1792980234.509, "task": "d5-t1", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980234.567, "task": "d5-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["fennel3.txt"]]]}
+{"t": 1792980236.854, "task": "d5-t2", "event": "ask_explain", "word": "duplicate", "answer": "copy", "learned": true}
+{"t": 1792980242.89, "task": null, "event": "recall", "goal": "d4-t0", "wanted": false}
+{"t": 1792980243.043, "task": null, "event": "recall", "goal": "d4-t1", "wanted": true}
+{"t": 1792980243.078, "task": "d4-t1/r", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980247.814, "task": "d6-t0", "event": "ask_explain", "word": "back", "answer": "copy", "learned": true}
+{"t": 1792980247.814, "task": "d6-t0", "event": "ask_explain", "word": "up", "answer": "copy", "learned": true}
+{"t": 1792980248.845, "task": "d6-t1", "event": "ask_explain", "word": "throw", "answer": "delete", "learned": true}
+{"t": 1792980248.845, "task": "d6-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980248.847, "task": "d6-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980287.974, "task": "d7-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980287.976, "task": "d7-t0", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980300.333, "task": "d7-t1", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792980300.334, "task": "d7-t1", "event": "ask_explain", "word": "text", "answer": "txt files", "learned": true}
+{"t": 1792980300.689, "task": "d7-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["nook"]], ["copy", ["birch7.txt", "nook/birch7.txt"]]]}
+{"t": 1792980304.289, "task": "d8-t0", "event": "refuse_ambiguous", "command": "Shift all the markdown files to a folder named loft."}
+{"t": 1792980304.29, "task": "d8-t0", "event": "unfinished", "goal": "d8-t0", "why": "not understood"}
+{"t": 1792980304.612, "task": "d8-t1", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792980304.618, "task": "d8-t1", "event": "unfinished", "goal": "d8-t1", "why": "not understood"}
+{"t": 1792980305.191, "task": "d9-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980317.338, "task": "d9-t1", "event": "ask_explain", "word": "relocate", "answer": "move", "learned": false}
+{"t": 1792980317.339, "task": "d9-t1", "event": "ask_explain", "word": "spreadsheets", "answer": "csv files", "learned": true}
+{"t": 1792980317.34, "task": "d9-t1", "event": "ask_check", "unknown": ["relocate"], "ok": false}
+{"t": 1792980317.628, "task": "d9-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["grotto"]], ["move", ["amber3.json", "grotto/amber3.json"]]]}
+{"t": 1792980343.442, "task": "d9-t2", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980343.445, "task": "d9-t2", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980375.4, "task": null, "event": "recall", "goal": "d8-t0", "wanted": true}
+{"t": 1792980375.468, "task": "d8-t0/r", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980375.472, "task": "d8-t0/r", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980375.734, "task": "d8-t0/r", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["loft"]], ["move", ["birch8.md", "loft/birch8.md"]]]}
+{"t": 1792980380.175, "task": null, "event": "recall", "goal": "d8-t1", "wanted": false}
+{"t": 1792980382.484, "task": "d10-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980382.49, "task": "d10-t1", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980382.945, "task": "d10-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["wharf"]], ["copy", ["nutmeg10.json", "wharf/nutmeg10.json"]]]}
+{"t": 1792980386.589, "task": "d11-t0", "event": "ask_explain", "word": "replicate", "answer": "copy", "learned": true}
+{"t": 1792980386.59, "task": "d11-t0", "event": "ask_point", "why": "contradiction"}
+{"t": 1792980386.594, "task": "d11-t0", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980389.456, "task": "d11-t1", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980391.979, "task": "d11-t2", "event": "ask_explain", "word": "move", "answer": null, "learned": false}
+{"t": 1792980391.98, "task": "d11-t2", "event": "ask_check", "unknown": ["move"], "ok": false}
+{"t": 1792980392.324, "task": "d11-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["mill"]], ["shove", ["mill/ember11.log", "ember11.log"]]]}
+{"t": 1792980393.798, "task": "d11-t2", "event": "surprise", "action": ["move", ["ember11.log", "mill/ember11.log"]], "predicted_ok": true, "ok": false}
+{"t": 1792980394.073, "task": "d11-t2", "event": "reverify", "tool": "move", "replayed": "home-195", "ok": false}
+{"t": 1792980394.073, "task": "d11-t2", "event": "world_change", "tool": "move", "set_aside_before": 219}
+{"t": 1792980394.456, "task": "d11-t2", "event": "rehearsal", "ok": true, "steps": 4}
+{"t": 1792980397.265, "task": "d12-t0", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792980397.266, "task": "d12-t0", "event": "unfinished", "goal": "d12-t0", "why": "not understood"}
+{"t": 1792980397.785, "task": "d12-t1", "event": "refuse_unknown", "words": ["carry"]}
+{"t": 1792980397.791, "task": "d12-t1", "event": "unfinished", "goal": "d12-t1", "why": "not understood"}
+{"t": 1792980398.287, "task": "d12-t2", "event": "refuse_unknown", "words": ["transfer"]}
+{"t": 1792980398.293, "task": "d12-t2", "event": "unfinished", "goal": "d12-t2", "why": "not understood"}
+{"t": 1792980399.052, "task": "d13-t0", "event": "ask_explain", "word": "afterwards", "answer": "", "learned": true}
+{"t": 1792980399.053, "task": "d13-t0", "event": "ask_explain", "word": "erase", "answer": "delete", "learned": true}
+{"t": 1792980399.054, "task": "d13-t0", "event": "ask_check", "unknown": ["originals"], "ok": false}
+{"t": 1792980399.425, "task": "d13-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["zenith"]], ["shove", ["zenith/indigo12.md", "indigo12.md"]]]}
+{"t": 1792980413.237, "task": "d13-t1", "event": "ask_explain", "word": "then", "answer": "", "learned": true}
+{"t": 1792980413.239, "task": "d13-t1", "event": "ask_explain", "word": "remove", "answer": "delete", "learned": true}
+{"t": 1792980413.239, "task": "d13-t1", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980413.248, "task": "d13-t1", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980418.33, "task": null, "event": "recall", "goal": "d12-t0", "wanted": false}
+{"t": 1792980418.859, "task": null, "event": "recall", "goal": "d12-t1", "wanted": true}
+{"t": 1792980418.967, "task": "d12-t1/r", "event": "ask_explain", "word": "carry", "answer": "move", "learned": true}
+{"t": 1792980418.968, "task": "d12-t1/r", "event": "ask_point", "why": "contradiction"}
+{"t": 1792980418.973, "task": "d12-t1/r", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980429.507, "task": null, "event": "recall", "goal": "d12-t2", "wanted": true}
+{"t": 1792980429.612, "task": "d12-t2/r", "event": "ask_explain", "word": "transfer", "answer": "move", "learned": true}
+{"t": 1792980429.612, "task": "d12-t2/r", "event": "ask_point", "why": "contradiction"}
+{"t": 1792980429.617, "task": "d12-t2/r", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980433.723, "task": "d14-t0", "event": "ask_explain", "word": "them", "answer": "", "learned": true}
+{"t": 1792980433.724, "task": "d14-t0", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980434.131, "task": "d14-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["jetty"]], ["shove", ["jetty/quill14.md", "quill14.md"]]]}
+{"t": 1792980435.151, "task": "d14-t0", "event": "surprise", "action": ["shove", ["jetty/quill14.md", "quill14.md"]], "predicted_ok": true, "ok": false}
+{"t": 1792980435.158, "task": "d14-t0", "event": "reverify", "tool": "shove", "replayed": "demo-259", "ok": true}
+{"t": 1792980437.836, "task": "d14-t1", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980438.478, "task": "d14-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["forge"]], ["copy", ["cobalt14.txt", "forge/cobalt14.txt"]]]}
+{"t": 1792980441.355, "task": "d14-t2", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980441.783, "task": "d14-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["ranch"]], ["shove", ["ranch/amber14.log", "amber14.log"]]]}
+{"t": 1792980445.457, "task": "d15-t0", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980488.885, "task": "d16-t0", "event": "refuse_incomplete", "why": "contradiction"}
+{"t": 1792980488.885, "task": "d16-t0", "event": "unfinished", "goal": "d16-t0", "why": "not understood"}
+{"t": 1792980489.509, "task": "d16-t1", "event": "refuse_incomplete", "why": "contradiction"}
+{"t": 1792980489.515, "task": "d16-t1", "event": "unfinished", "goal": "d16-t1", "why": "not understood"}
+{"t": 1792980490.432, "task": "d17-t0", "event": "ask_explain", "word": "discard", "answer": "delete", "learned": true}
+{"t": 1792980490.433, "task": "d17-t0", "event": "ask_check", "why": "irreversible", "unproven": ["logs"], "ok": true}
+{"t": 1792980496.008, "task": "d17-t1", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980501.036, "task": "d17-t2", "event": "ask_point", "why": "contradiction"}
+{"t": 1792980501.346, "task": "d17-t2", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["amber15.txt"]]]}
+{"t": 1792980548.281, "task": null, "event": "recall", "goal": "d16-t0", "wanted": true}
+{"t": 1792980548.414, "task": "d16-t0/r", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980549.235, "task": "d16-t0/r", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["eyrie"]], ["replicate", ["eyrie/amber16.csv", "amber16.csv"]]]}
+{"t": 1792980553.903, "task": "d16-t0/r", "event": "surprise", "action": ["copy", ["amber16.csv", "eyrie/amber16.csv"]], "predicted_ok": true, "ok": false}
+{"t": 1792980554.357, "task": "d16-t0/r", "event": "reverify", "tool": "copy", "replayed": "home-270", "ok": false}
+{"t": 1792980554.357, "task": "d16-t0/r", "event": "world_change", "tool": "copy", "set_aside_before": 319}
+{"t": 1792980555.791, "task": "d16-t0/r", "event": "rehearsal", "ok": true, "steps": 8}
+{"t": 1792980564.093, "task": null, "event": "recall", "goal": "d16-t1", "wanted": false}
+{"t": 1792980564.982, "task": "d18-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980564.985, "task": "d18-t0", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980565.197, "task": "d18-t0", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["heron18.log"]]]}
+{"t": 1792980567.39, "task": "d18-t1", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980567.975, "task": "d18-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["cabin"]], ["shove", ["cabin/amber16.csv", "amber16.csv"]]]}
+{"t": 1792980611.427, "task": "d19-t0", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980614.64, "task": "d19-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980617.749, "task": "d19-t2", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980618.424, "task": "d19-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["acorn"]], ["shove", ["acorn/marigold19.csv", "marigold19.csv"]]]}
+{"t": 1792980626.563, "task": "d20-t1", "event": "refuse_incomplete", "why": "no second object"}
+{"t": 1792980626.564, "task": "d20-t1", "event": "unfinished", "goal": "d20-t1", "why": "not understood"}
+{"t": 1792980627.559, "task": "d20-t2", "event": "refuse_ambiguous", "command": "Please make a copy of all the json documents into the dune folder and then remove the originals."}
+{"t": 1792980627.565, "task": "d20-t2", "event": "unfinished", "goal": "d20-t2", "why": "not understood"}
+{"t": 1792980628.719, "task": "d21-t0", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980629.336, "task": "d21-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["depot"]], ["shove", ["depot/cobalt21.md", "cobalt21.md"]]]}
+{"t": 1792980653.552, "task": "d21-t1", "event": "ask_point", "why": "contradiction"}
+{"t": 1792980666.727, "task": "d21-t2", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980666.729, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980666.73, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980666.731, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980666.733, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980666.734, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980666.735, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980666.737, "task": "d21-t2", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980667.975, "task": null, "event": "recall", "goal": "d20-t1", "wanted": false}
+{"t": 1792980668.609, "task": null, "event": "recall", "goal": "d20-t2", "wanted": false}
+{"t": 1792980669.707, "task": "d22-t0", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980670.649, "task": "d22-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["fort"]], ["replicate", ["fort/olive22.json", "olive22.json"]]]}
+{"t": 1792980674.465, "task": "d22-t1", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980675.314, "task": "d22-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["crypt"]], ["replicate", ["crypt/ember22.txt", "ember22.txt"]]]}
+{"t": 1792980680.055, "task": "d23-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980699.388, "task": "d23-t1", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980704.428, "task": "d24-t0", "event": "refuse_incomplete", "why": "contradiction"}
+{"t": 1792980704.429, "task": "d24-t0", "event": "unfinished", "goal": "d24-t0", "why": "not understood"}
+{"t": 1792980729.199, "task": "d24-t2", "event": "refuse_weak", "why": "irreversible"}
+{"t": 1792980729.205, "task": "d24-t2", "event": "unfinished", "goal": "d24-t2", "why": "not understood"}
+{"t": 1792980730.431, "task": "d25-t0", "event": "ask_point", "why": "weak selection"}
+{"t": 1792980730.438, "task": "d25-t0", "event": "ask_check", "why": "weak change", "ok": true}
+{"t": 1792980733.697, "task": "d25-t1", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980739.092, "task": "d25-t2", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980745.128, "task": null, "event": "recall", "goal": "d24-t0", "wanted": true}
+{"t": 1792980745.281, "task": "d24-t0/r", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980745.59, "task": "d24-t0/r", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["cobalt23.json"]]]}
+{"t": 1792980766.994, "task": null, "event": "recall", "goal": "d24-t2", "wanted": false}
+{"t": 1792980768.211, "task": "d26-t0", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980768.54, "task": "d26-t0", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["dahlia26.md"]]]}
+{"t": 1792980773.776, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.777, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.779, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.78, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.781, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.783, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.784, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980773.785, "task": "d26-t1", "event": "ask_point", "why": "nothing selected"}
+{"t": 1792980775.736, "task": "d27-t0", "event": "ask_point", "why": "contradiction"}
+{"t": 1792980775.747, "task": "d27-t0", "event": "ask_check", "why": "ambiguous", "ok": false}
+{"t": 1792980776.722, "task": "d27-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["den"]], ["replicate", ["den/amber26.txt", "amber26.txt"]]]}
+{"t": 1792980808.314, "task": "d27-t1", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980812.791, "task": "d27-t2", "event": "ask_check", "why": "ambiguous", "ok": true}
+{"t": 1792980873.515, "task": "d28-t1", "event": "refuse_ambiguous", "command": "Replicate the json files to a folder named annex and then remove the originals."}
+{"t": 1792980873.516, "task": "d28-t1", "event": "unfinished", "goal": "d28-t1", "why": "not understood"}
+{"t": 1792980874.507, "task": "d28-t2", "event": "refuse_incomplete", "why": "contradiction"}
+{"t": 1792980874.514, "task": "d28-t2", "event": "unfinished", "goal": "d28-t2", "why": "not understood"}
+{"t": 1792980885.447, "task": "d29-t1", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980886.196, "task": "d29-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["silo"]], ["shove", ["silo/birch29.log", "birch29.log"]]]}
+{"t": 1792980916.526, "task": null, "event": "recall", "goal": "d28-t1", "wanted": false}
+{"t": 1792980917.362, "task": null, "event": "recall", "goal": "d28-t2", "wanted": true}
+{"t": 1792980917.539, "task": "d28-t2/r", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980918.574, "task": "d28-t2/r", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["hut"]], ["replicate", ["hut/amber29.txt", "amber29.txt"]]]}
+{"t": 1792980929.094, "task": "d30-t0", "event": "ask_check", "why": "weak change", "ok": false}
+{"t": 1792980929.466, "task": "d30-t0", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["juniper30.log"]]]}
