@@ -132,10 +132,84 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
         summ[fname]['base_held_order_success'] = sum(r['base'] == 'held' and r['order'] == 'success' for r in fr)
         summ[fname]['base_success_order_not'] = sum(r['base'] == 'success' and r['order'] != 'success' for r in fr)
     out = {'life': str(life_dir), 'seed': seed, 'named_sel': sorted(named_s), 'named_act': sorted(named_a), 'naming': naming,
-           'summary': summ, 'rows': rows}
+           'node_s': node_s, 'node_a': node_a, 'summary': summ, 'rows': rows}
     out_file.write_text(json.dumps(out, indent=1, default=str), encoding='utf-8')
     if not keep:
         shutil.rmtree(work)
+    return out
+
+
+DEV_SUBS = {'copy': ['duplicate'], 'move': ['relocate'], 'delete': ['remove'], 'stash': ['store'], 'shred': ['destroy'],
+            'label': ['tag'], 'raise': ['lift'], 'take': ['pull'], 'show': ['display'], 'sort': ['order'], 'group': ['cluster'],
+            'files': ['documents'], 'cards': ['notes'], 'panels': ['views']}
+
+
+def run_synonyms(life_dir, seed, out_file, subs=None, body='board'):
+    """An unseen word for something already named. No new structure: alone, ATANOR may act only if the other words
+    settle the reading; otherwise it holds. With the person, one showing while saying the new phrase (a demonstration
+    for an action word, pointing for a selection word). Then: the same command alone, and the new word in another
+    pair alone (does the word, not the sentence, carry over)."""
+    from ..agent.grounding import Grounder
+    from ..teach.tutor import Tutor
+    subs = subs or DEV_SUBS
+    out_file = Path(out_file)
+    base = run(life_dir, seed, out_file.with_name(out_file.stem + '_naming.json'), forms={'train': ['H', 'S', 'T']}, body=body, keep=True)
+    work = Path(__file__).resolve().parents[3].parent / 'probe-work' / (out_file.stem + '_naming')
+    sels, acts = body_targets(body, seed)
+    spec, drift = body_spec(body), [DRIFT[body]]
+    plain = [(r['sel'], r['act']) for r in base['rows'] if r['order'] == 'success']   # understood in the words already named
+    train = ['H', 'S', 'T']
+    rows = []
+
+    def attempt(pair, words, mind):
+        h = world(work / 'syn_board', seed, drift, body)
+        t = Tutor(h, spec, f'{seed}-syn')
+        t.start(sels[pair[0]], acts[pair[1]])
+        res = Grounder(h, mind, person=None).obey(words)
+        ok = t.judge()
+        return 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else 'held')
+
+    for w in sorted(subs):
+        u = subs[w][0]
+        uses = [p for p in plain if w in words_of(train, sels[p[0]], acts[p[1]])]
+        if not uses:
+            continue
+        part = 'act' if w in english('act', acts[uses[0][1]]) else 'sel'
+        first = uses[0]
+        same = 1 if part == 'act' else 0                      # the reuse pair keeps the part with the new word
+        second = next((p for p in uses[1:] if p[same] == first[same] and p != first), None)
+        cmd = lambda p: [u if x == w else x for x in words_of(train, sels[p[0]], acts[p[1]])]
+        mind = work / 'syn_mind'
+        if mind.exists():
+            shutil.rmtree(mind)
+        shutil.copytree(work / 'mind', mind)
+        row = {'word': w, 'sub': u, 'part': part, 'pair': first, 'reuse_pair': second}
+        row['alone_first'] = attempt(first, cmd(first), mind)
+        if row['alone_first'] != 'success':
+            h = world(work / 'syn_board', seed, drift, body)
+            tut = Tutor(h, spec, f'{seed}-syn-teach')
+            tut.start(sels[first[0]], acts[first[1]])
+            g = Grounder(h, mind, person=tut)
+            new = cmd(first)
+            if part == 'act':
+                ac = g.learn_action(f'S-{w}')
+                g.name_phrase([u if x == w else x for x in english('act', acts[first[1]])], ac['content']['action'], f'S-{w}')
+            else:
+                phrase = [u if x == w else x for x in english('sel', sels[first[0]])]
+                sc = g.known_concept(f'S-{w}', phrase) or g.learn_selection(f'S-{w}')
+                if sc:
+                    g.name_phrase(phrase, sc['content']['concept'], f'S-{w}')
+                    row['taught_to_named'] = sc['content']['concept'] == base['node_s'][first[0]]
+            row['teach_help'] = dict(tut.help)
+            row['alone_after'] = attempt(first, new, mind)
+        row['reuse_alone'] = attempt(second, cmd(second), mind) if second else None
+        rows.append(row)
+    summ = {k: dict(Counter(r[k] for r in rows if r.get(k))) for k in ('alone_first', 'alone_after', 'reuse_alone')}
+    summ['n'] = len(rows)
+    summ['wrong_total'] = sum(r.get(k) == 'wrong' for r in rows for k in ('alone_first', 'alone_after', 'reuse_alone'))
+    out = {'life': str(life_dir), 'seed': seed, 'body': body, 'summary': summ, 'rows': rows}
+    out_file.write_text(json.dumps(out, indent=1, default=str), encoding='utf-8')
+    shutil.rmtree(work)
     return out
 
 
@@ -144,5 +218,11 @@ if __name__ == '__main__':
     if len(sys.argv) > 4 and sys.argv[4].startswith('sealed:'):
         forms = json.loads(Path(sys.argv[4][7:]).read_text(encoding='utf-8'))['forms']
     body = next((a[5:] for a in sys.argv[4:] if a.startswith('body:')), 'board')
-    r = run(sys.argv[1], int(sys.argv[2]), sys.argv[3], forms, body=body)
-    print(json.dumps({k: r[k] for k in ('named_sel', 'named_act', 'summary')}, indent=1))
+    syn = next((a[4:] for a in sys.argv[4:] if a.startswith('syn:')), None)
+    if syn is not None:
+        subs = json.loads(Path(syn).read_text(encoding='utf-8'))['subs'] if syn else None
+        r = run_synonyms(sys.argv[1], int(sys.argv[2]), sys.argv[3], subs, body=body)
+        print(json.dumps(r['summary'], indent=1))
+    else:
+        r = run(sys.argv[1], int(sys.argv[2]), sys.argv[3], forms, body=body)
+        print(json.dumps({k: r[k] for k in ('named_sel', 'named_act', 'summary')}, indent=1))
