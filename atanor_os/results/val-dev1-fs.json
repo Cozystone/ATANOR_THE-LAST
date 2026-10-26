@@ -1,0 +1,177 @@
+{
+ "life": "atanor_os/results/tutor-dev1-fs-en/FULL",
+ "seed": 1,
+ "body": "fs",
+ "summary": {
+  "alone_first": {
+   "held": 8
+  },
+  "alone_after": {
+   "success": 8
+  },
+  "reuse_alone": {
+   "success": 8
+  },
+  "n": 8,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "archive",
+   "sub": "records",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    0
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "attic",
+   "sub": "garret",
+   "part": "act",
+   "pair": [
+    0,
+    3
+   ],
+   "reuse_pair": [
+    1,
+    3
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "csv",
+   "sub": "comma",
+   "part": "sel",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    0,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": false,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "inbox",
+   "sub": "incoming",
+   "part": "act",
+   "pair": [
+    0,
+    1
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "json",
+   "sub": "jsondata",
+   "part": "sel",
+   "pair": [
+    3,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "log",
+   "sub": "logfile",
+   "part": "sel",
+   "pair": [
+    1,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "md",
+   "sub": "mdown",
+   "part": "sel",
+   "pair": [
+    4,
+    0
+   ],
+   "reuse_pair": [
+    4,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "txt",
+   "sub": "text",
+   "part": "sel",
+   "pair": [
+    2,
+    0
+   ],
+   "reuse_pair": [
+    2,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  }
+ ]
+}

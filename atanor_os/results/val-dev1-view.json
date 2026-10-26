@@ -1,0 +1,58 @@
+{
+ "life": "atanor_os/results/tutor-dev1-view-en/FULL",
+ "seed": 1,
+ "body": "view",
+ "summary": {
+  "alone_first": {
+   "held": 2
+  },
+  "alone_after": {
+   "success": 2
+  },
+  "reuse_alone": {
+   "success": 2
+  },
+  "n": 2,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "log",
+   "sub": "logfile",
+   "part": "act",
+   "pair": [
+    0,
+    3
+   ],
+   "reuse_pair": [
+    2,
+    3
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "md",
+   "sub": "mdown",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    2,
+    0
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  }
+ ]
+}

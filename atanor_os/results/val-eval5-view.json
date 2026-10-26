@@ -1,0 +1,112 @@
+{
+ "life": "atanor_os/results/tutor-eval5-view/FULL",
+ "seed": 5,
+ "body": "view",
+ "summary": {
+  "alone_first": {
+   "success": 1,
+   "held": 4
+  },
+  "alone_after": {
+   "success": 4
+  },
+  "reuse_alone": {
+   "success": 5
+  },
+  "n": 5,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "ext",
+   "part": "act",
+   "pair": [
+    0,
+    1
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "log",
+   "part": "act",
+   "pair": [
+    0,
+    3
+   ],
+   "reuse_pair": [
+    1,
+    3
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "md",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    0
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "name",
+   "part": "sel",
+   "pair": [
+    1,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1,
+    "contrast": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "size",
+   "part": "sel",
+   "pair": [
+    4,
+    0
+   ],
+   "reuse_pair": [
+    4,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1,
+    "contrast": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  }
+ ],
+ "note": "Sealed substitute words removed from this public copy; only the replaced canonical word is named."
+}

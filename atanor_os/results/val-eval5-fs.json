@@ -1,0 +1,170 @@
+{
+ "life": "atanor_os/results/tutor-eval5-fs/FULL",
+ "seed": 5,
+ "body": "fs",
+ "summary": {
+  "alone_first": {
+   "held": 8
+  },
+  "alone_after": {
+   "success": 8
+  },
+  "reuse_alone": {
+   "success": 8
+  },
+  "n": 8,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "archive",
+   "part": "act",
+   "pair": [
+    0,
+    1
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "attic",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    0
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "csv",
+   "part": "sel",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    0,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "json",
+   "part": "sel",
+   "pair": [
+    3,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": false,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "log",
+   "part": "sel",
+   "pair": [
+    1,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "md",
+   "part": "sel",
+   "pair": [
+    4,
+    0
+   ],
+   "reuse_pair": [
+    4,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "txt",
+   "part": "sel",
+   "pair": [
+    2,
+    0
+   ],
+   "reuse_pair": [
+    2,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "vault",
+   "part": "act",
+   "pair": [
+    0,
+    3
+   ],
+   "reuse_pair": [
+    1,
+    3
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  }
+ ],
+ "note": "Sealed substitute words removed from this public copy; only the replaced canonical word is named."
+}

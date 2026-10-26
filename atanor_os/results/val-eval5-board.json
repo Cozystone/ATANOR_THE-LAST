@@ -1,0 +1,129 @@
+{
+ "life": "atanor_os/results/tutor-eval5-board/FULL",
+ "seed": 5,
+ "body": "board",
+ "summary": {
+  "alone_first": {
+   "held": 5,
+   "success": 1
+  },
+  "alone_after": {
+   "success": 5
+  },
+  "reuse_alone": {
+   "success": 6
+  },
+  "n": 6,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "amber",
+   "part": "act",
+   "pair": [
+    0,
+    1
+   ],
+   "reuse_pair": [
+    2,
+    1
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "chore",
+   "part": "sel",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    0,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "idea",
+   "part": "sel",
+   "pair": [
+    2,
+    0
+   ],
+   "reuse_pair": [
+    2,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "plum",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    2,
+    0
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "teal",
+   "part": "sel",
+   "pair": [
+    6,
+    0
+   ],
+   "reuse_pair": [
+    6,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "urgent",
+   "part": "act",
+   "pair": [
+    0,
+    2
+   ],
+   "reuse_pair": [
+    2,
+    2
+   ],
+   "alone_first": "success",
+   "reuse_alone": "success"
+  }
+ ],
+ "note": "Sealed substitute words removed from this public copy; only the replaced canonical word is named."
+}
