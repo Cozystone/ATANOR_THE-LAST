@@ -260,10 +260,12 @@ class Grounder:
                 continue
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
-        if acted:                                          # what each changed object looked like right after
+        if acted:                                          # what each changed object looked like right before and after
             after = self.feats()
-            self.mem.events.append('acted_state', lesson=lesson,
-                                   states={o: sorted(a for a in after.get(o, ()) if a.startswith("('U'")) for o, _ in acted})
+            u = lambda f, o: sorted(a for a in f.get(o, ()) if a.startswith("('U'"))
+            self.mem.events.append('acted_state', lesson=lesson, tool=effect['tool'],
+                                   consts=[r[1] for r in effect['template'] if isinstance(r, list) and r[0] == 'K'],
+                                   states={o: u(after, o) for o, _ in acted}, before={o: u(feats, o) for o, _ in acted})
         return acted, failed
 
     LAB_BUDGET = 12
@@ -737,7 +739,8 @@ class Grounder:
         the action: the action led there later, by itself. Those values are kept as the action's later outcomes, so a
         later command does not do the same thing again to an object already on its way. A value that objects this
         action never touched also show is the world's own doing, not an outcome of the action; and so is a change on an
-        object that no longer looks as it did right after the action in anything else (it was set up anew). And a
+        object that no longer looks as it did right after the action in anything else (it was set up anew); and so is
+        a value an object of this action had right before it (DESK_EVAL4_PROTOCOL.md: an undoing, not an outcome). And a
         two-step effect moves every such object on: if some still show the immediate result while others hold other
         values, the values were scattered by something else. One object alone is not enough to tell."""
         eff = claim['content']
@@ -750,11 +753,14 @@ class Grounder:
             return (e.get('tool') == eff['tool'] and len(args) == len(eff['template'])
                     and all(args[i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
 
-        seen, touched, by_action, right_after = {}, set(), set(), {}
+        consts = [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
+        seen, touched, by_action, right_after, before = {}, set(), set(), {}, set()
         for e in reversed(self.mem.events.all()):
             if e.get('kind') == 'acted_state' and e.get('body') == self.body:
                 for o, st in e['states'].items():
                     right_after.setdefault(o, st)
+                if e.get('tool') == eff['tool'] and e.get('consts') == consts:
+                    before |= {a for st in (e.get('before') or {}).values() for a in st if self._attr(a) in attrs}
             if e.get('kind') in ('act', 'demo') and e.get('body') == self.body:
                 args = e.get('args') or []
                 objs = set(args) | ({e['object']} if e.get('object') else set())
@@ -773,7 +779,7 @@ class Grounder:
         gained = {a for a in eff['gained'] if a.startswith("('U'")}
         if len(same) < 2 or any(gained <= feats[o] for o in same):
             return None
-        new = {a for o in same for a in feats[o] if self._attr(a) in attrs and a not in known}
+        new = {a for o in same for a in feats[o] if self._attr(a) in attrs and a not in known and a not in before}
         new = sorted(a for a in new if not any(a in f for o, f in feats.items() if o not in by_action))
         if not new:
             return None
