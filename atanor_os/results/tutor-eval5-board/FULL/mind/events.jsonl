@@ -1,0 +1,510 @@
+{"id": "e0", "kind": "point", "body": "board", "core": "g1", "lesson": "L6.2-d1", "objects": ["q010", "q011"], "feats": {"q010": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q011": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e1", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L6.2-d1", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e2", "kind": "demo", "body": "board", "core": "g1", "lesson": "L6.2-d1", "tool": "stamp", "args": ["q011", "m.urgent"], "object": "q011", "gained": ["('U', 0, 'a1', 'urgent')"], "lost": ["('U', 0, 'a1', 'defect')"], "made": []}
+{"id": "e3", "kind": "confirm", "body": "board", "core": "g1", "answer": true}
+{"id": "e4", "kind": "name", "body": "board", "core": "g1", "lesson": "L6.2-d1", "symbol": "fala", "node": "k0"}
+{"id": "e5", "kind": "name", "body": "board", "core": "g1", "lesson": "L6.2-d1", "symbol": "dago", "node": "a1"}
+{"id": "e6", "kind": "point", "body": "board", "core": "g1", "lesson": "L0.1-d1", "objects": ["q012"], "feats": {"q012": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e7", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L0.1-d1", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e8", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L0.1-d1", "object": "q013", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e9", "kind": "demo", "body": "board", "core": "g1", "lesson": "L0.1-d1", "tool": "lodge", "args": ["q012", "t1"], "object": "q012", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e10", "kind": "confirm", "body": "board", "core": "g1", "answer": true}
+{"id": "e11", "kind": "name", "body": "board", "core": "g1", "lesson": "L0.1-d1", "symbol": "bev", "node": "k4"}
+{"id": "e12", "kind": "name", "body": "board", "core": "g1", "lesson": "L0.1-d1", "symbol": "dika", "node": "a5"}
+{"id": "e13", "kind": "point", "body": "board", "core": "g1", "lesson": "L5.5-d2", "objects": ["q020"], "feats": {"q020": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e14", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L5.5-d2", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e15", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L5.5-d2", "object": "q014", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e16", "kind": "demo", "body": "board", "core": "g1", "lesson": "L5.5-d2", "tool": "scrap", "args": ["q020"], "object": "q020", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e17", "kind": "confirm", "body": "board", "core": "g1", "answer": true}
+{"id": "e18", "kind": "name", "body": "board", "core": "g1", "lesson": "L5.5-d2", "symbol": "nile", "node": "k8"}
+{"id": "e19", "kind": "name", "body": "board", "core": "g1", "lesson": "L5.5-d2", "symbol": "nemu", "node": "a9"}
+{"id": "e20", "kind": "point", "body": "board", "core": "g1", "lesson": "L2.0-d2", "objects": ["q014", "q023"], "feats": {"q014": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q023": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e21", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L2.0-d2", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e22", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L2.0-d2", "object": "q013", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e23", "kind": "demo", "body": "board", "core": "g1", "lesson": "L2.0-d2", "tool": "lodge", "args": ["q023", "t3"], "object": "q023", "gained": ["('U', 0, 'a2', 'plum')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e24", "kind": "act", "body": "board", "core": "g1", "lesson": "L2.0-d2", "tool": "lodge", "args": ["q014", "t3"], "ok": true, "error": ""}
+{"id": "e25", "kind": "confirm", "body": "board", "core": "g1", "answer": true}
+{"id": "e26", "kind": "name", "body": "board", "core": "g1", "lesson": "L2.0-d2", "symbol": "kig", "node": "k12"}
+{"id": "e27", "kind": "name", "body": "board", "core": "g1", "lesson": "L2.0-d2", "symbol": "zala", "node": "a13"}
+{"id": "e28", "kind": "say", "body": "board", "core": "g1", "task": "d2-k2", "symbols": ["fala", "dago"]}
+{"id": "e29", "kind": "act", "body": "board", "core": "g1", "lesson": "d2-k2", "tool": "stamp", "args": ["q021", "m.urgent"], "ok": true, "error": ""}
+{"id": "e30", "kind": "say", "body": "board", "core": "g1", "task": "d2-k3", "symbols": ["nile", "nemu"]}
+{"id": "e31", "kind": "act", "body": "board", "core": "g1", "lesson": "d2-k3", "tool": "scrap", "args": ["q014"], "ok": true, "error": ""}
+{"id": "e32", "kind": "act", "body": "board", "core": "g1", "lesson": "d2-k3", "tool": "scrap", "args": ["q023"], "ok": true, "error": ""}
+{"id": "e33", "kind": "point", "body": "board", "core": "g1", "lesson": "L4.4-d3", "objects": ["q010", "q034"], "feats": {"q010": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q034": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e34", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L4.4-d3", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e35", "kind": "demo", "body": "board", "core": "g1", "lesson": "L4.4-d3", "tool": "unlodge", "args": ["q021"], "object": "q021", "gained": ["('U', 0, 'a2', '-')"], "lost": ["('U', 0, 'a2', 'teal')"], "made": []}
+{"id": "e36", "kind": "act", "body": "board", "core": "g1", "lesson": "L4.4-d3", "tool": "unlodge", "args": ["q010"], "ok": true, "error": ""}
+{"id": "e37", "kind": "act", "body": "board", "core": "g1", "lesson": "L4.4-d3", "tool": "unlodge", "args": ["q011"], "ok": true, "error": ""}
+{"id": "e38", "kind": "confirm", "body": "board", "core": "g1", "answer": true}
+{"id": "e39", "kind": "name", "body": "board", "core": "g1", "lesson": "L4.4-d3", "symbol": "mab", "node": "k16"}
+{"id": "e40", "kind": "name", "body": "board", "core": "g1", "lesson": "L4.4-d3", "symbol": "dogu", "node": "a17"}
+{"id": "e41", "kind": "point", "body": "board", "core": "g1", "lesson": "L5.3-d3", "objects": ["q031"], "feats": {"q031": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e42", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L5.3-d3", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e43", "kind": "contrast", "body": "board", "core": "g1", "lesson": "L5.3-d3", "object": "q033", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e44", "kind": "demo", "body": "board", "core": "g1", "lesson": "L5.3-d3", "tool": "lift", "args": ["q031", "l.high"], "object": "q031", "gained": ["('U', 0, 'a3', 'high')"], "lost": ["('U', 0, 'a3', 'low')"], "made": []}
+{"id": "e45", "kind": "confirm", "body": "board", "core": "g1", "answer": true}
+{"id": "e46", "kind": "name", "body": "board", "core": "g1", "lesson": "L5.3-d3", "symbol": "nile", "node": "k20"}
+{"id": "e47", "kind": "name", "body": "board", "core": "g1", "lesson": "L5.3-d3", "symbol": "wego", "node": "a21"}
+{"id": "e48", "kind": "say", "body": "board", "core": "g1", "task": "d3-k2", "symbols": ["kig", "zala"]}
+{"id": "e49", "kind": "act", "body": "board", "core": "g1", "lesson": "d3-k2", "tool": "lodge", "args": ["q033", "t3"], "ok": true, "error": ""}
+{"id": "e50", "kind": "say", "body": "board", "core": "g1", "task": "d3-k3", "symbols": ["nile", "nemu"]}
+{"id": "e51", "kind": "contrast", "body": "board", "core": "g1", "lesson": "d3-k3", "object": "q031", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e52", "kind": "act", "body": "board", "core": "g1", "lesson": "d3-k3", "tool": "scrap", "args": ["q031"], "ok": true, "error": ""}
+{"id": "e53", "kind": "act", "body": "board", "core": "g1", "lesson": "d3-k3", "tool": "scrap", "args": ["q033"], "ok": true, "error": ""}
+{"id": "e54", "kind": "say", "body": "board", "core": "g1", "task": "d4-k0", "symbols": ["bev", "dika"]}
+{"id": "e55", "kind": "act", "body": "board", "core": "g1", "lesson": "d4-k0", "tool": "lodge", "args": ["q042", "t1"], "ok": true, "error": ""}
+{"id": "e56", "kind": "act", "body": "board", "core": "g1", "lesson": "d4-k0", "tool": "lodge", "args": ["q043", "t1"], "ok": true, "error": ""}
+{"id": "e57", "kind": "say", "body": "board", "core": "g1", "task": "d5-k0", "symbols": ["nemu", "nile"]}
+{"id": "e58", "kind": "contrast", "body": "board", "core": "g1", "lesson": "d5-k0", "object": "q050", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e59", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k0", "tool": "scrap", "args": ["q050"], "ok": true, "error": ""}
+{"id": "e60", "kind": "say", "body": "board", "core": "g1", "task": "d5-k1", "symbols": ["mab", "zala"]}
+{"id": "e61", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k1", "tool": "lodge", "args": ["q010", "t3"], "ok": true, "error": ""}
+{"id": "e62", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k1", "tool": "lodge", "args": ["q011", "t3"], "ok": true, "error": ""}
+{"id": "e63", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k1", "tool": "lodge", "args": ["q021", "t3"], "ok": true, "error": ""}
+{"id": "e64", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k1", "tool": "lodge", "args": ["q034", "t3"], "ok": true, "error": ""}
+{"id": "e65", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k1", "tool": "lodge", "args": ["q053", "t3"], "ok": true, "error": ""}
+{"id": "e66", "kind": "say", "body": "board", "core": "g1", "task": "d5-k2", "symbols": ["fala", "dika"]}
+{"id": "e67", "kind": "act", "body": "board", "core": "g1", "lesson": "d5-k2", "tool": "lodge", "args": ["q051", "t1"], "ok": true, "error": ""}
+{"id": "e68", "kind": "say", "body": "board", "core": "g1", "task": "d6-k0", "symbols": ["fala", "dago"]}
+{"id": "e69", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k0", "tool": "stamp", "args": ["q061", "m.urgent"], "ok": true, "error": ""}
+{"id": "e70", "kind": "say", "body": "board", "core": "g1", "task": "d6-k1", "symbols": ["kig", "zala"]}
+{"id": "e71", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k1", "tool": "lodge", "args": ["q063", "t3"], "ok": true, "error": ""}
+{"id": "e72", "kind": "say", "body": "board", "core": "g1", "task": "d6-k2", "symbols": ["dogu", "mab"]}
+{"id": "e73", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q010"], "ok": true, "error": ""}
+{"id": "e74", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q011"], "ok": true, "error": ""}
+{"id": "e75", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q021"], "ok": true, "error": ""}
+{"id": "e76", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q034"], "ok": true, "error": ""}
+{"id": "e77", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q053"], "ok": true, "error": ""}
+{"id": "e78", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q060"], "ok": true, "error": ""}
+{"id": "e79", "kind": "act", "body": "board", "core": "g1", "lesson": "d6-k2", "tool": "unlodge", "args": ["q061"], "ok": true, "error": ""}
+{"id": "e80", "kind": "say", "body": "board", "core": "g1", "task": "d7-k0", "symbols": ["mab", "zala"]}
+{"id": "e81", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q010", "t3"], "ok": true, "error": ""}
+{"id": "e82", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q011", "t3"], "ok": true, "error": ""}
+{"id": "e83", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q021", "t3"], "ok": true, "error": ""}
+{"id": "e84", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q034", "t3"], "ok": true, "error": ""}
+{"id": "e85", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q053", "t3"], "ok": true, "error": ""}
+{"id": "e86", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q060", "t3"], "ok": true, "error": ""}
+{"id": "e87", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q061", "t3"], "ok": true, "error": ""}
+{"id": "e88", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q064", "t3"], "ok": true, "error": ""}
+{"id": "e89", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q071", "t3"], "ok": true, "error": ""}
+{"id": "e90", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k0", "tool": "lodge", "args": ["q072", "t3"], "ok": true, "error": ""}
+{"id": "e91", "kind": "say", "body": "board", "core": "g1", "task": "d7-k1", "symbols": ["bev", "nemu"]}
+{"id": "e92", "kind": "contrast", "body": "board", "core": "g1", "lesson": "d7-k1", "object": "q012", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e93", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k1", "tool": "scrap", "args": ["q012"], "ok": true, "error": ""}
+{"id": "e94", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k1", "tool": "scrap", "args": ["q042"], "ok": true, "error": ""}
+{"id": "e95", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k1", "tool": "scrap", "args": ["q043"], "ok": true, "error": ""}
+{"id": "e96", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k1", "tool": "scrap", "args": ["q062"], "ok": true, "error": ""}
+{"id": "e97", "kind": "say", "body": "board", "core": "g1", "task": "d7-k2", "symbols": ["nile", "nemu"]}
+{"id": "e98", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q010"], "ok": true, "error": ""}
+{"id": "e99", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q011"], "ok": true, "error": ""}
+{"id": "e100", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q021"], "ok": true, "error": ""}
+{"id": "e101", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q034"], "ok": true, "error": ""}
+{"id": "e102", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q053"], "ok": true, "error": ""}
+{"id": "e103", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q060"], "ok": true, "error": ""}
+{"id": "e104", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q061"], "ok": true, "error": ""}
+{"id": "e105", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q063"], "ok": true, "error": ""}
+{"id": "e106", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q064"], "ok": true, "error": ""}
+{"id": "e107", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q071"], "ok": true, "error": ""}
+{"id": "e108", "kind": "act", "body": "board", "core": "g1", "lesson": "d7-k2", "tool": "scrap", "args": ["q072"], "ok": true, "error": ""}
+{"id": "e109", "kind": "say", "body": "board", "core": "g1", "task": "d8-k0", "symbols": ["mab", "nemu"]}
+{"id": "e110", "kind": "act", "body": "board", "core": "g1", "lesson": "d8-k0", "tool": "scrap", "args": ["q083"], "ok": true, "error": ""}
+{"id": "e111", "kind": "say", "body": "board", "core": "g1", "task": "d8-k1", "symbols": ["kig", "zala"]}
+{"id": "e112", "kind": "act", "body": "board", "core": "g1", "lesson": "d8-k1", "tool": "lodge", "args": ["q073", "t3"], "ok": true, "error": ""}
+{"id": "e113", "kind": "act", "body": "board", "core": "g1", "lesson": "d8-k1", "tool": "lodge", "args": ["q074", "t3"], "ok": true, "error": ""}
+{"id": "e114", "kind": "act", "body": "board", "core": "g1", "lesson": "d8-k1", "tool": "lodge", "args": ["q084", "t3"], "ok": true, "error": ""}
+{"id": "e115", "kind": "say", "body": "board", "core": "g1", "task": "d8-k2", "symbols": ["bev", "dogu"]}
+{"id": "e116", "kind": "act", "body": "board", "core": "g1", "lesson": "d8-k2", "tool": "unlodge", "args": ["q081"], "ok": true, "error": ""}
+{"id": "e117", "kind": "say", "body": "board", "core": "g1", "task": "d9-k0", "symbols": ["kig", "dago"]}
+{"id": "e118", "kind": "contrast", "body": "board", "core": "g1", "lesson": "d9-k0", "object": "q073", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e119", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k0", "tool": "stamp", "args": ["q073", "m.urgent"], "ok": true, "error": ""}
+{"id": "e120", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k0", "tool": "stamp", "args": ["q074", "m.urgent"], "ok": true, "error": ""}
+{"id": "e121", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k0", "tool": "stamp", "args": ["q084", "m.urgent"], "ok": true, "error": ""}
+{"id": "e122", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k0", "tool": "stamp", "args": ["q090", "m.urgent"], "ok": true, "error": ""}
+{"id": "e123", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k0", "tool": "stamp", "args": ["q094", "m.urgent"], "ok": true, "error": ""}
+{"id": "e124", "kind": "say", "body": "board", "core": "g1", "task": "d9-k1", "symbols": ["fala", "dika"]}
+{"id": "e125", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k1", "tool": "lodge", "args": ["q090", "t1"], "ok": false, "error": "precondition"}
+{"id": "e126", "kind": "demo", "body": "board", "core": "g1", "lesson": "R1-d9", "tool": "slot", "args": ["t1", "q090"], "object": "q090", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', 'teal')"], "made": []}
+{"id": "e127", "kind": "name", "body": "board", "core": "g1", "lesson": "R1-d9", "symbol": "dika", "node": "a24"}
+{"id": "e128", "kind": "say", "body": "board", "core": "g1", "task": "d9-k2", "symbols": ["dogu", "mab"]}
+{"id": "e129", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k2", "tool": "unlodge", "args": ["q073"], "ok": true, "error": ""}
+{"id": "e130", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k2", "tool": "unlodge", "args": ["q074"], "ok": true, "error": ""}
+{"id": "e131", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k2", "tool": "unlodge", "args": ["q084"], "ok": true, "error": ""}
+{"id": "e132", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k2", "tool": "unlodge", "args": ["q090"], "ok": true, "error": ""}
+{"id": "e133", "kind": "act", "body": "board", "core": "g1", "lesson": "d9-k2", "tool": "unlodge", "args": ["q091"], "ok": true, "error": ""}
+{"id": "e134", "kind": "say", "body": "board", "core": "g1", "task": "d10-k0", "symbols": ["dogu", "mab"]}
+{"id": "e135", "kind": "act", "body": "board", "core": "g1", "lesson": "d10-k0", "tool": "unlodge", "args": ["q101"], "ok": true, "error": ""}
+{"id": "e136", "kind": "say", "body": "board", "core": "g1", "task": "d10-k1", "symbols": ["dogu", "bev"]}
+{"id": "e137", "kind": "act", "body": "board", "core": "g1", "lesson": "d10-k1", "tool": "unlodge", "args": ["q100"], "ok": true, "error": ""}
+{"id": "e138", "kind": "say", "body": "board", "core": "g1", "task": "d10-k2", "symbols": ["dika", "bev"]}
+{"id": "e139", "kind": "act", "body": "board", "core": "g1", "lesson": "d10-k2", "tool": "slot", "args": ["t1", "q081"], "ok": true, "error": ""}
+{"id": "e140", "kind": "act", "body": "board", "core": "g1", "lesson": "d10-k2", "tool": "slot", "args": ["t1", "q092"], "ok": true, "error": ""}
+{"id": "e141", "kind": "act", "body": "board", "core": "g1", "lesson": "d10-k2", "tool": "slot", "args": ["t1", "q100"], "ok": true, "error": ""}
+{"id": "e142", "kind": "point", "body": "board", "core": "g1", "lesson": "E0-d11", "objects": ["q100", "q110"], "feats": {"q100": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q110": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'slate')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e143", "kind": "name", "body": "board", "core": "g1", "lesson": "E0-d11", "symbol": "the", "node": "k4"}
+{"id": "e144", "kind": "name", "body": "board", "core": "g1", "lesson": "E0-d11", "symbol": "chore", "node": "k4"}
+{"id": "e145", "kind": "name", "body": "board", "core": "g1", "lesson": "E0-d11", "symbol": "cards", "node": "k4"}
+{"id": "e146", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E0-d11", "words": ["the", "chore", "cards"], "node": "k4"}
+{"id": "e147", "kind": "demo", "body": "board", "core": "g1", "lesson": "E1-d11", "tool": "slot", "args": ["t1", "q110"], "object": "q110", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', 'slate')"], "made": []}
+{"id": "e148", "kind": "name", "body": "board", "core": "g1", "lesson": "E1-d11", "symbol": "stash", "node": "a24"}
+{"id": "e149", "kind": "name", "body": "board", "core": "g1", "lesson": "E1-d11", "symbol": "in", "node": "a24"}
+{"id": "e150", "kind": "name", "body": "board", "core": "g1", "lesson": "E1-d11", "symbol": "amber", "node": "a24"}
+{"id": "e151", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E1-d11", "words": ["stash", "in", "amber"], "node": "a24"}
+{"id": "e152", "kind": "point", "body": "board", "core": "g1", "lesson": "E2-d11", "objects": ["q103", "q112"], "feats": {"q103": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q112": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e153", "kind": "name", "body": "board", "core": "g1", "lesson": "E2-d11", "symbol": "the", "node": "k12"}
+{"id": "e154", "kind": "name", "body": "board", "core": "g1", "lesson": "E2-d11", "symbol": "idea", "node": "k12"}
+{"id": "e155", "kind": "name", "body": "board", "core": "g1", "lesson": "E2-d11", "symbol": "cards", "node": "k12"}
+{"id": "e156", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E2-d11", "words": ["the", "idea", "cards"], "node": "k12"}
+{"id": "e157", "kind": "demo", "body": "board", "core": "g1", "lesson": "E0-d11", "tool": "slot", "args": ["t3", "q112"], "object": "q112", "gained": ["('U', 0, 'a2', 'plum')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e158", "kind": "name", "body": "board", "core": "g1", "lesson": "E0-d11", "symbol": "stash", "node": "a38"}
+{"id": "e159", "kind": "name", "body": "board", "core": "g1", "lesson": "E0-d11", "symbol": "in", "node": "a38"}
+{"id": "e160", "kind": "name", "body": "board", "core": "g1", "lesson": "E0-d11", "symbol": "plum", "node": "a38"}
+{"id": "e161", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E0-d11", "words": ["stash", "in", "plum"], "node": "a38"}
+{"id": "e162", "kind": "act", "body": "board", "core": "g1", "lesson": "E2-d11", "tool": "slot", "args": ["t3", "q103"], "ok": true, "error": ""}
+{"id": "e163", "kind": "point", "body": "board", "core": "g1", "lesson": "E5-d11", "objects": ["q103", "q112"], "feats": {"q103": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q112": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e164", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d11", "symbol": "the", "node": "k20"}
+{"id": "e165", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d11", "symbol": "cards", "node": "k20"}
+{"id": "e166", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d11", "symbol": "in", "node": "k20"}
+{"id": "e167", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d11", "symbol": "plum", "node": "k20"}
+{"id": "e168", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E5-d11", "words": ["the", "cards", "in", "plum"], "node": "k20"}
+{"id": "e169", "kind": "demo", "body": "board", "core": "g1", "lesson": "E5-d11", "tool": "scrap", "args": ["q103"], "object": "q103", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e170", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d11", "symbol": "shred", "node": "a9"}
+{"id": "e171", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E5-d11", "words": ["shred"], "node": "a9"}
+{"id": "e172", "kind": "act", "body": "board", "core": "g1", "lesson": "E5-d11", "tool": "scrap", "args": ["q112"], "ok": true, "error": ""}
+{"id": "e173", "kind": "say", "body": "board", "core": "g1", "task": "d11-k3", "symbols": ["bev", "dago"]}
+{"id": "e174", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k3", "tool": "stamp", "args": ["q081", "m.urgent"], "ok": true, "error": ""}
+{"id": "e175", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k3", "tool": "stamp", "args": ["q092", "m.urgent"], "ok": true, "error": ""}
+{"id": "e176", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k3", "tool": "stamp", "args": ["q100", "m.urgent"], "ok": true, "error": ""}
+{"id": "e177", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k3", "tool": "stamp", "args": ["q110", "m.urgent"], "ok": true, "error": ""}
+{"id": "e178", "kind": "say", "body": "board", "core": "g1", "task": "d11-k4", "symbols": ["dogu", "mab"]}
+{"id": "e179", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k4", "tool": "unlodge", "args": ["q081"], "ok": true, "error": ""}
+{"id": "e180", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k4", "tool": "unlodge", "args": ["q092"], "ok": true, "error": ""}
+{"id": "e181", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k4", "tool": "unlodge", "args": ["q100"], "ok": true, "error": ""}
+{"id": "e182", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k4", "tool": "unlodge", "args": ["q110"], "ok": true, "error": ""}
+{"id": "e183", "kind": "act", "body": "board", "core": "g1", "lesson": "d11-k4", "tool": "unlodge", "args": ["q111"], "ok": true, "error": ""}
+{"id": "e184", "kind": "say", "body": "board", "core": "g1", "task": "d12-k0", "symbols": ["shred", "the", "cards", "in", "plum"]}
+{"id": "e185", "kind": "act", "body": "board", "core": "g1", "lesson": "d12-k0", "tool": "scrap", "args": ["q120"], "ok": true, "error": ""}
+{"id": "e186", "kind": "act", "body": "board", "core": "g1", "lesson": "d12-k0", "tool": "scrap", "args": ["q121"], "ok": true, "error": ""}
+{"id": "e187", "kind": "say", "body": "board", "core": "g1", "task": "d12-k1", "symbols": ["shred", "the", "idea", "cards"]}
+{"id": "e188", "kind": "act", "body": "board", "core": "g1", "lesson": "d12-k1", "tool": "scrap", "args": ["q124"], "ok": true, "error": ""}
+{"id": "e189", "kind": "point", "body": "board", "core": "g1", "lesson": "E6-d13", "objects": ["q130"], "feats": {"q130": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e190", "kind": "name", "body": "board", "core": "g1", "lesson": "E6-d13", "symbol": "the", "node": "k0"}
+{"id": "e191", "kind": "name", "body": "board", "core": "g1", "lesson": "E6-d13", "symbol": "cards", "node": "k0"}
+{"id": "e192", "kind": "name", "body": "board", "core": "g1", "lesson": "E6-d13", "symbol": "in", "node": "k0"}
+{"id": "e193", "kind": "name", "body": "board", "core": "g1", "lesson": "E6-d13", "symbol": "teal", "node": "k0"}
+{"id": "e194", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E6-d13", "words": ["the", "cards", "in", "teal"], "node": "k0"}
+{"id": "e195", "kind": "demo", "body": "board", "core": "g1", "lesson": "E2-d13", "tool": "stamp", "args": ["q130", "m.urgent"], "object": "q130", "gained": ["('U', 0, 'a1', 'urgent')"], "lost": ["('U', 0, 'a1', 'defect')"], "made": []}
+{"id": "e196", "kind": "name", "body": "board", "core": "g1", "lesson": "E2-d13", "symbol": "label", "node": "a1"}
+{"id": "e197", "kind": "name", "body": "board", "core": "g1", "lesson": "E2-d13", "symbol": "as", "node": "a1"}
+{"id": "e198", "kind": "name", "body": "board", "core": "g1", "lesson": "E2-d13", "symbol": "urgent", "node": "a1"}
+{"id": "e199", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E2-d13", "words": ["label", "as", "urgent"], "node": "a1"}
+{"id": "e200", "kind": "point", "body": "board", "core": "g1", "lesson": "E4-d13", "objects": ["q090", "q091"], "feats": {"q090": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q091": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e201", "kind": "name", "body": "board", "core": "g1", "lesson": "E4-d13", "symbol": "the", "node": "k16"}
+{"id": "e202", "kind": "name", "body": "board", "core": "g1", "lesson": "E4-d13", "symbol": "urgent", "node": "k16"}
+{"id": "e203", "kind": "name", "body": "board", "core": "g1", "lesson": "E4-d13", "symbol": "cards", "node": "k16"}
+{"id": "e204", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E4-d13", "words": ["the", "urgent", "cards"], "node": "k16"}
+{"id": "e205", "kind": "demo", "body": "board", "core": "g1", "lesson": "E4-d13", "tool": "unlodge", "args": ["q130"], "object": "q130", "gained": ["('U', 0, 'a2', '-')"], "lost": ["('U', 0, 'a2', 'teal')"], "made": []}
+{"id": "e206", "kind": "name", "body": "board", "core": "g1", "lesson": "E4-d13", "symbol": "take", "node": "a17"}
+{"id": "e207", "kind": "name", "body": "board", "core": "g1", "lesson": "E4-d13", "symbol": "out", "node": "a17"}
+{"id": "e208", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E4-d13", "words": ["take", "out"], "node": "a17"}
+{"id": "e209", "kind": "point", "body": "board", "core": "g1", "lesson": "E5-d13", "objects": ["q131"], "feats": {"q131": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e210", "kind": "contrast", "body": "board", "core": "g1", "lesson": "E5-d13", "object": "q132", "answer": false}
+{"id": "e211", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d13", "symbol": "the", "node": "k20"}
+{"id": "e212", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d13", "symbol": "cards", "node": "k20"}
+{"id": "e213", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d13", "symbol": "in", "node": "k20"}
+{"id": "e214", "kind": "name", "body": "board", "core": "g1", "lesson": "E5-d13", "symbol": "plum", "node": "k20"}
+{"id": "e215", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E5-d13", "words": ["the", "cards", "in", "plum"], "node": "k20"}
+{"id": "e216", "kind": "demo", "body": "board", "core": "g1", "lesson": "E3-d13", "tool": "lift", "args": ["q131", "l.high"], "object": "q131", "gained": ["('U', 0, 'a3', 'high')"], "lost": ["('U', 0, 'a3', 'low')"], "made": []}
+{"id": "e217", "kind": "name", "body": "board", "core": "g1", "lesson": "E3-d13", "symbol": "raise", "node": "a21"}
+{"id": "e218", "kind": "name", "body": "board", "core": "g1", "lesson": "E3-d13", "symbol": "to", "node": "a21"}
+{"id": "e219", "kind": "name", "body": "board", "core": "g1", "lesson": "E3-d13", "symbol": "high", "node": "a21"}
+{"id": "e220", "kind": "phrase", "body": "board", "core": "g1", "lesson": "E3-d13", "words": ["raise", "to", "high"], "node": "a21"}
+{"id": "e221", "kind": "say", "body": "board", "core": "g1", "task": "d13-k3", "symbols": ["kig", "zala"]}
+{"id": "e222", "kind": "act", "body": "board", "core": "g1", "lesson": "d13-k3", "tool": "lodge", "args": ["q132", "t3"], "ok": false, "error": "precondition"}
+{"id": "e223", "kind": "demo", "body": "board", "core": "g1", "lesson": "R0-d13", "tool": "slot", "args": ["t3", "q132"], "object": "q132", "gained": ["('U', 0, 'a2', 'plum')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e224", "kind": "name", "body": "board", "core": "g1", "lesson": "R0-d13", "symbol": "zala", "node": "a38"}
+{"id": "e225", "kind": "say", "body": "board", "core": "g1", "task": "d13-k4", "symbols": ["take", "the", "cards", "in", "plum", "out"]}
+{"id": "e226", "kind": "act", "body": "board", "core": "g1", "lesson": "d13-k4", "tool": "unlodge", "args": ["q131"], "ok": true, "error": ""}
+{"id": "e227", "kind": "act", "body": "board", "core": "g1", "lesson": "d13-k4", "tool": "unlodge", "args": ["q132"], "ok": true, "error": ""}
+{"id": "e228", "kind": "say", "body": "board", "core": "g1", "task": "d13-k5", "symbols": ["kig", "zala"]}
+{"id": "e229", "kind": "contrast", "body": "board", "core": "g1", "lesson": "d13-k5", "object": "q131", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e230", "kind": "act", "body": "board", "core": "g1", "lesson": "d13-k5", "tool": "slot", "args": ["t3", "q131"], "ok": true, "error": ""}
+{"id": "e231", "kind": "act", "body": "board", "core": "g1", "lesson": "d13-k5", "tool": "slot", "args": ["t3", "q132"], "ok": true, "error": ""}
+{"id": "e232", "kind": "say", "body": "board", "core": "g1", "task": "d14-k0", "symbols": ["kig", "zala"]}
+{"id": "e233", "kind": "act", "body": "board", "core": "g1", "lesson": "d14-k0", "tool": "slot", "args": ["t3", "q142"], "ok": true, "error": ""}
+{"id": "e234", "kind": "say", "body": "board", "core": "g1", "task": "d14-k1", "symbols": ["wego", "kig"]}
+{"id": "e235", "kind": "act", "body": "board", "core": "g1", "lesson": "d14-k1", "tool": "lift", "args": ["q132", "l.high"], "ok": true, "error": ""}
+{"id": "e236", "kind": "act", "body": "board", "core": "g1", "lesson": "d14-k1", "tool": "lift", "args": ["q142", "l.high"], "ok": true, "error": ""}
+{"id": "e237", "kind": "say", "body": "board", "core": "g1", "task": "d14-k2", "symbols": ["fala", "dago"]}
+{"id": "e238", "kind": "act", "body": "board", "core": "g1", "lesson": "d14-k2", "tool": "stamp", "args": ["q140", "m.urgent"], "ok": true, "error": ""}
+{"id": "e239", "kind": "say", "body": "board", "core": "g1", "task": "d15-k0", "symbols": ["dago", "bev"]}
+{"id": "e240", "kind": "act", "body": "board", "core": "g1", "lesson": "d15-k0", "tool": "stamp", "args": ["q153", "m.urgent"], "ok": true, "error": ""}
+{"id": "e241", "kind": "act", "body": "board", "core": "g1", "lesson": "d15-k0", "tool": "stamp", "args": ["q154", "m.urgent"], "ok": true, "error": ""}
+{"id": "e242", "kind": "say", "body": "board", "core": "g1", "task": "d15-k1", "symbols": ["label", "the", "cards", "in", "plum", "as", "urgent"]}
+{"id": "e243", "kind": "act", "body": "board", "core": "g1", "lesson": "d15-k1", "tool": "stamp", "args": ["q131", "m.urgent"], "ok": true, "error": ""}
+{"id": "e244", "kind": "act", "body": "board", "core": "g1", "lesson": "d15-k1", "tool": "stamp", "args": ["q132", "m.urgent"], "ok": true, "error": ""}
+{"id": "e245", "kind": "act", "body": "board", "core": "g1", "lesson": "d15-k1", "tool": "stamp", "args": ["q142", "m.urgent"], "ok": true, "error": ""}
+{"id": "e246", "kind": "say", "body": "board", "core": "g1", "task": "d15-k2", "symbols": ["fala", "zala"]}
+{"id": "e247", "kind": "act", "body": "board", "core": "g1", "lesson": "d15-k2", "tool": "slot", "args": ["t3", "q140"], "ok": true, "error": ""}
+{"id": "e248", "kind": "say", "body": "board", "core": "g1", "task": "d16-k0", "symbols": ["shred", "the", "urgent", "cards"]}
+{"id": "e249", "kind": "say", "body": "board", "core": "g1", "task": "d16-k1", "symbols": ["zala", "mab"]}
+{"id": "e250", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q073"], "ok": true, "error": ""}
+{"id": "e251", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q074"], "ok": true, "error": ""}
+{"id": "e252", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q081"], "ok": true, "error": ""}
+{"id": "e253", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q084"], "ok": true, "error": ""}
+{"id": "e254", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q090"], "ok": true, "error": ""}
+{"id": "e255", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q091"], "ok": true, "error": ""}
+{"id": "e256", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q092"], "ok": true, "error": ""}
+{"id": "e257", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q093"], "ok": true, "error": ""}
+{"id": "e258", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q094"], "ok": true, "error": ""}
+{"id": "e259", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q100"], "ok": true, "error": ""}
+{"id": "e260", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q101"], "ok": true, "error": ""}
+{"id": "e261", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q104"], "ok": true, "error": ""}
+{"id": "e262", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q110"], "ok": true, "error": ""}
+{"id": "e263", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q111"], "ok": true, "error": ""}
+{"id": "e264", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q113"], "ok": true, "error": ""}
+{"id": "e265", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q130"], "ok": true, "error": ""}
+{"id": "e266", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q133"], "ok": true, "error": ""}
+{"id": "e267", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q141"], "ok": true, "error": ""}
+{"id": "e268", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q153"], "ok": true, "error": ""}
+{"id": "e269", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k1", "tool": "slot", "args": ["t3", "q154"], "ok": true, "error": ""}
+{"id": "e270", "kind": "say", "body": "board", "core": "g1", "task": "d16-k2", "symbols": ["take", "the", "cards", "in", "plum", "out"]}
+{"id": "e271", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q073"], "ok": true, "error": ""}
+{"id": "e272", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q074"], "ok": true, "error": ""}
+{"id": "e273", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q081"], "ok": true, "error": ""}
+{"id": "e274", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q084"], "ok": true, "error": ""}
+{"id": "e275", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q090"], "ok": true, "error": ""}
+{"id": "e276", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q091"], "ok": true, "error": ""}
+{"id": "e277", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q092"], "ok": true, "error": ""}
+{"id": "e278", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q093"], "ok": true, "error": ""}
+{"id": "e279", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q094"], "ok": true, "error": ""}
+{"id": "e280", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q100"], "ok": true, "error": ""}
+{"id": "e281", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q101"], "ok": true, "error": ""}
+{"id": "e282", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q104"], "ok": true, "error": ""}
+{"id": "e283", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q110"], "ok": true, "error": ""}
+{"id": "e284", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q111"], "ok": true, "error": ""}
+{"id": "e285", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q113"], "ok": true, "error": ""}
+{"id": "e286", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q130"], "ok": true, "error": ""}
+{"id": "e287", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q131"], "ok": true, "error": ""}
+{"id": "e288", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q132"], "ok": true, "error": ""}
+{"id": "e289", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q133"], "ok": true, "error": ""}
+{"id": "e290", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q140"], "ok": true, "error": ""}
+{"id": "e291", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q141"], "ok": true, "error": ""}
+{"id": "e292", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q142"], "ok": true, "error": ""}
+{"id": "e293", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q153"], "ok": true, "error": ""}
+{"id": "e294", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q154"], "ok": true, "error": ""}
+{"id": "e295", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q160"], "ok": true, "error": ""}
+{"id": "e296", "kind": "act", "body": "board", "core": "g1", "lesson": "d16-k2", "tool": "unlodge", "args": ["q161"], "ok": true, "error": ""}
+{"id": "e297", "kind": "say", "body": "board", "core": "g1", "task": "d17-k0", "symbols": ["kig", "dika"]}
+{"id": "e298", "kind": "act", "body": "board", "core": "g1", "lesson": "d17-k0", "tool": "slot", "args": ["t1", "q160"], "ok": true, "error": ""}
+{"id": "e299", "kind": "act", "body": "board", "core": "g1", "lesson": "d17-k0", "tool": "slot", "args": ["t1", "q162"], "ok": true, "error": ""}
+{"id": "e300", "kind": "say", "body": "board", "core": "g1", "task": "d17-k1", "symbols": ["zala", "kig"]}
+{"id": "e301", "kind": "act", "body": "board", "core": "g1", "lesson": "d17-k1", "tool": "slot", "args": ["t3", "q160"], "ok": true, "error": ""}
+{"id": "e302", "kind": "act", "body": "board", "core": "g1", "lesson": "d17-k1", "tool": "slot", "args": ["t3", "q162"], "ok": true, "error": ""}
+{"id": "e303", "kind": "say", "body": "board", "core": "g1", "task": "d17-k2", "symbols": ["raise", "the", "idea", "cards", "to", "high"]}
+{"id": "e304", "kind": "act", "body": "board", "core": "g1", "lesson": "d17-k2", "tool": "lift", "args": ["q160", "l.high"], "ok": true, "error": ""}
+{"id": "e305", "kind": "act", "body": "board", "core": "g1", "lesson": "d17-k2", "tool": "lift", "args": ["q162", "l.high"], "ok": true, "error": ""}
+{"id": "e306", "kind": "say", "body": "board", "core": "g1", "task": "d18-k0", "symbols": ["dika", "nile"]}
+{"id": "e307", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k0", "tool": "slot", "args": ["t1", "q160"], "ok": true, "error": ""}
+{"id": "e308", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k0", "tool": "slot", "args": ["t1", "q162"], "ok": true, "error": ""}
+{"id": "e309", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k0", "tool": "slot", "args": ["t1", "q180"], "ok": true, "error": ""}
+{"id": "e310", "kind": "say", "body": "board", "core": "g1", "task": "d18-k1", "symbols": ["label", "the", "chore", "cards", "as", "urgent"]}
+{"id": "e311", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k1", "tool": "stamp", "args": ["q161", "m.urgent"], "ok": true, "error": ""}
+{"id": "e312", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k1", "tool": "stamp", "args": ["q164", "m.urgent"], "ok": true, "error": ""}
+{"id": "e313", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k1", "tool": "stamp", "args": ["q171", "m.urgent"], "ok": true, "error": ""}
+{"id": "e314", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k1", "tool": "stamp", "args": ["q173", "m.urgent"], "ok": true, "error": ""}
+{"id": "e315", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k1", "tool": "stamp", "args": ["q184", "m.urgent"], "ok": true, "error": ""}
+{"id": "e316", "kind": "say", "body": "board", "core": "g1", "task": "d18-k2", "symbols": ["take", "the", "idea", "cards", "out"]}
+{"id": "e317", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k2", "tool": "unlodge", "args": ["q160"], "ok": true, "error": ""}
+{"id": "e318", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k2", "tool": "unlodge", "args": ["q162"], "ok": true, "error": ""}
+{"id": "e319", "kind": "act", "body": "board", "core": "g1", "lesson": "d18-k2", "tool": "unlodge", "args": ["q181"], "ok": true, "error": ""}
+{"id": "e320", "kind": "say", "body": "board", "core": "g1", "task": "d19-k0", "symbols": ["kig", "dika"]}
+{"id": "e321", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k0", "tool": "slot", "args": ["t1", "q160"], "ok": true, "error": ""}
+{"id": "e322", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k0", "tool": "slot", "args": ["t1", "q162"], "ok": true, "error": ""}
+{"id": "e323", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k0", "tool": "slot", "args": ["t1", "q181"], "ok": true, "error": ""}
+{"id": "e324", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k0", "tool": "slot", "args": ["t1", "q182"], "ok": true, "error": ""}
+{"id": "e325", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k0", "tool": "slot", "args": ["t1", "q190"], "ok": true, "error": ""}
+{"id": "e326", "kind": "say", "body": "board", "core": "g1", "task": "d19-k1", "symbols": ["stash", "the", "urgent", "cards", "in", "plum"]}
+{"id": "e327", "kind": "contrast", "body": "board", "core": "g1", "lesson": "d19-k1", "object": "q131", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e328", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q073"], "ok": true, "error": ""}
+{"id": "e329", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q074"], "ok": true, "error": ""}
+{"id": "e330", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q081"], "ok": true, "error": ""}
+{"id": "e331", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q084"], "ok": true, "error": ""}
+{"id": "e332", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q090"], "ok": true, "error": ""}
+{"id": "e333", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q091"], "ok": true, "error": ""}
+{"id": "e334", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q092"], "ok": true, "error": ""}
+{"id": "e335", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q093"], "ok": true, "error": ""}
+{"id": "e336", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q094"], "ok": true, "error": ""}
+{"id": "e337", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q100"], "ok": true, "error": ""}
+{"id": "e338", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q101"], "ok": true, "error": ""}
+{"id": "e339", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q104"], "ok": true, "error": ""}
+{"id": "e340", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q110"], "ok": true, "error": ""}
+{"id": "e341", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q111"], "ok": true, "error": ""}
+{"id": "e342", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q113"], "ok": true, "error": ""}
+{"id": "e343", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q130"], "ok": true, "error": ""}
+{"id": "e344", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q131"], "ok": true, "error": ""}
+{"id": "e345", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q132"], "ok": true, "error": ""}
+{"id": "e346", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q133"], "ok": true, "error": ""}
+{"id": "e347", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q140"], "ok": true, "error": ""}
+{"id": "e348", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q141"], "ok": true, "error": ""}
+{"id": "e349", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q142"], "ok": true, "error": ""}
+{"id": "e350", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q153"], "ok": true, "error": ""}
+{"id": "e351", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q154"], "ok": true, "error": ""}
+{"id": "e352", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q161"], "ok": true, "error": ""}
+{"id": "e353", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q164"], "ok": true, "error": ""}
+{"id": "e354", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q171"], "ok": true, "error": ""}
+{"id": "e355", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q173"], "ok": true, "error": ""}
+{"id": "e356", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q174"], "ok": true, "error": ""}
+{"id": "e357", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q180"], "ok": true, "error": ""}
+{"id": "e358", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k1", "tool": "slot", "args": ["t3", "q184"], "ok": true, "error": ""}
+{"id": "e359", "kind": "say", "body": "board", "core": "g1", "task": "d19-k2", "symbols": ["take", "the", "urgent", "cards", "out"]}
+{"id": "e360", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q073"], "ok": true, "error": ""}
+{"id": "e361", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q074"], "ok": true, "error": ""}
+{"id": "e362", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q081"], "ok": true, "error": ""}
+{"id": "e363", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q084"], "ok": true, "error": ""}
+{"id": "e364", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q090"], "ok": true, "error": ""}
+{"id": "e365", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q091"], "ok": true, "error": ""}
+{"id": "e366", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q092"], "ok": true, "error": ""}
+{"id": "e367", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q093"], "ok": true, "error": ""}
+{"id": "e368", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q094"], "ok": true, "error": ""}
+{"id": "e369", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q100"], "ok": true, "error": ""}
+{"id": "e370", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q101"], "ok": true, "error": ""}
+{"id": "e371", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q104"], "ok": true, "error": ""}
+{"id": "e372", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q110"], "ok": true, "error": ""}
+{"id": "e373", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q111"], "ok": true, "error": ""}
+{"id": "e374", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q113"], "ok": true, "error": ""}
+{"id": "e375", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q130"], "ok": true, "error": ""}
+{"id": "e376", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q131"], "ok": true, "error": ""}
+{"id": "e377", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q132"], "ok": true, "error": ""}
+{"id": "e378", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q133"], "ok": true, "error": ""}
+{"id": "e379", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q140"], "ok": true, "error": ""}
+{"id": "e380", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q141"], "ok": true, "error": ""}
+{"id": "e381", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q142"], "ok": true, "error": ""}
+{"id": "e382", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q153"], "ok": true, "error": ""}
+{"id": "e383", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q154"], "ok": true, "error": ""}
+{"id": "e384", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q161"], "ok": true, "error": ""}
+{"id": "e385", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q164"], "ok": true, "error": ""}
+{"id": "e386", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q171"], "ok": true, "error": ""}
+{"id": "e387", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q173"], "ok": true, "error": ""}
+{"id": "e388", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q174"], "ok": true, "error": ""}
+{"id": "e389", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q180"], "ok": true, "error": ""}
+{"id": "e390", "kind": "act", "body": "board", "core": "g1", "lesson": "d19-k2", "tool": "unlodge", "args": ["q184"], "ok": true, "error": ""}
+{"id": "e391", "kind": "say", "body": "board", "core": "g1", "task": "d20-k0", "symbols": ["take", "the", "urgent", "cards", "out"]}
+{"id": "e392", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k0", "tool": "unlodge", "args": ["q200"], "ok": true, "error": ""}
+{"id": "e393", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k0", "tool": "unlodge", "args": ["q201"], "ok": true, "error": ""}
+{"id": "e394", "kind": "say", "body": "board", "core": "g1", "task": "d20-k1", "symbols": ["kig", "dago"]}
+{"id": "e395", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k1", "tool": "stamp", "args": ["q160", "m.urgent"], "ok": true, "error": ""}
+{"id": "e396", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k1", "tool": "stamp", "args": ["q162", "m.urgent"], "ok": true, "error": ""}
+{"id": "e397", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k1", "tool": "stamp", "args": ["q181", "m.urgent"], "ok": true, "error": ""}
+{"id": "e398", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k1", "tool": "stamp", "args": ["q182", "m.urgent"], "ok": true, "error": ""}
+{"id": "e399", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k1", "tool": "stamp", "args": ["q190", "m.urgent"], "ok": true, "error": ""}
+{"id": "e400", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k1", "tool": "stamp", "args": ["q191", "m.urgent"], "ok": true, "error": ""}
+{"id": "e401", "kind": "say", "body": "board", "core": "g1", "task": "d20-k2", "symbols": ["stash", "the", "urgent", "cards", "in", "amber"]}
+{"id": "e402", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q073"], "ok": true, "error": ""}
+{"id": "e403", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q074"], "ok": true, "error": ""}
+{"id": "e404", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q081"], "ok": true, "error": ""}
+{"id": "e405", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q084"], "ok": true, "error": ""}
+{"id": "e406", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q090"], "ok": true, "error": ""}
+{"id": "e407", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q091"], "ok": true, "error": ""}
+{"id": "e408", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q092"], "ok": true, "error": ""}
+{"id": "e409", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q093"], "ok": true, "error": ""}
+{"id": "e410", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q094"], "ok": true, "error": ""}
+{"id": "e411", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q100"], "ok": true, "error": ""}
+{"id": "e412", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q101"], "ok": true, "error": ""}
+{"id": "e413", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q104"], "ok": true, "error": ""}
+{"id": "e414", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q110"], "ok": true, "error": ""}
+{"id": "e415", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q111"], "ok": true, "error": ""}
+{"id": "e416", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q113"], "ok": true, "error": ""}
+{"id": "e417", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q130"], "ok": true, "error": ""}
+{"id": "e418", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q131"], "ok": true, "error": ""}
+{"id": "e419", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q132"], "ok": true, "error": ""}
+{"id": "e420", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q133"], "ok": true, "error": ""}
+{"id": "e421", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q140"], "ok": true, "error": ""}
+{"id": "e422", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q141"], "ok": true, "error": ""}
+{"id": "e423", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q142"], "ok": true, "error": ""}
+{"id": "e424", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q153"], "ok": true, "error": ""}
+{"id": "e425", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q154"], "ok": true, "error": ""}
+{"id": "e426", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q161"], "ok": true, "error": ""}
+{"id": "e427", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q164"], "ok": true, "error": ""}
+{"id": "e428", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q171"], "ok": true, "error": ""}
+{"id": "e429", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q173"], "ok": true, "error": ""}
+{"id": "e430", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q174"], "ok": true, "error": ""}
+{"id": "e431", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q180"], "ok": true, "error": ""}
+{"id": "e432", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q184"], "ok": true, "error": ""}
+{"id": "e433", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q200"], "ok": true, "error": ""}
+{"id": "e434", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q201"], "ok": true, "error": ""}
+{"id": "e435", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q203"], "ok": true, "error": ""}
+{"id": "e436", "kind": "act", "body": "board", "core": "g1", "lesson": "d20-k2", "tool": "slot", "args": ["t1", "q204"], "ok": true, "error": ""}
+{"id": "e437", "kind": "say", "body": "board", "core": "g1", "task": "d21-k0", "symbols": ["take", "the", "idea", "cards", "out"]}
+{"id": "e438", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k0", "tool": "unlodge", "args": ["q211"], "ok": true, "error": ""}
+{"id": "e439", "kind": "say", "body": "board", "core": "g1", "task": "d21-k1", "symbols": ["mab", "nemu"]}
+{"id": "e440", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q073"], "ok": true, "error": ""}
+{"id": "e441", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q074"], "ok": true, "error": ""}
+{"id": "e442", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q081"], "ok": true, "error": ""}
+{"id": "e443", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q084"], "ok": true, "error": ""}
+{"id": "e444", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q090"], "ok": true, "error": ""}
+{"id": "e445", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q091"], "ok": true, "error": ""}
+{"id": "e446", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q092"], "ok": true, "error": ""}
+{"id": "e447", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q093"], "ok": true, "error": ""}
+{"id": "e448", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q094"], "ok": true, "error": ""}
+{"id": "e449", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q100"], "ok": true, "error": ""}
+{"id": "e450", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q101"], "ok": true, "error": ""}
+{"id": "e451", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q104"], "ok": true, "error": ""}
+{"id": "e452", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q110"], "ok": true, "error": ""}
+{"id": "e453", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q111"], "ok": true, "error": ""}
+{"id": "e454", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q113"], "ok": true, "error": ""}
+{"id": "e455", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q130"], "ok": true, "error": ""}
+{"id": "e456", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q131"], "ok": true, "error": ""}
+{"id": "e457", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q132"], "ok": true, "error": ""}
+{"id": "e458", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q133"], "ok": true, "error": ""}
+{"id": "e459", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q140"], "ok": true, "error": ""}
+{"id": "e460", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q141"], "ok": true, "error": ""}
+{"id": "e461", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q142"], "ok": true, "error": ""}
+{"id": "e462", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q153"], "ok": true, "error": ""}
+{"id": "e463", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q154"], "ok": true, "error": ""}
+{"id": "e464", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q160"], "ok": true, "error": ""}
+{"id": "e465", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q161"], "ok": true, "error": ""}
+{"id": "e466", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q162"], "ok": true, "error": ""}
+{"id": "e467", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q164"], "ok": true, "error": ""}
+{"id": "e468", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q171"], "ok": true, "error": ""}
+{"id": "e469", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q173"], "ok": true, "error": ""}
+{"id": "e470", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q174"], "ok": true, "error": ""}
+{"id": "e471", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q180"], "ok": true, "error": ""}
+{"id": "e472", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q181"], "ok": true, "error": ""}
+{"id": "e473", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q182"], "ok": true, "error": ""}
+{"id": "e474", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q184"], "ok": true, "error": ""}
+{"id": "e475", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q190"], "ok": true, "error": ""}
+{"id": "e476", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q191"], "ok": true, "error": ""}
+{"id": "e477", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q200"], "ok": true, "error": ""}
+{"id": "e478", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q201"], "ok": true, "error": ""}
+{"id": "e479", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q203"], "ok": true, "error": ""}
+{"id": "e480", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q204"], "ok": true, "error": ""}
+{"id": "e481", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k1", "tool": "scrap", "args": ["q210"], "ok": true, "error": ""}
+{"id": "e482", "kind": "say", "body": "board", "core": "g1", "task": "d21-k2", "symbols": ["kig", "dago"]}
+{"id": "e483", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k2", "tool": "stamp", "args": ["q211", "m.urgent"], "ok": true, "error": ""}
+{"id": "e484", "kind": "act", "body": "board", "core": "g1", "lesson": "d21-k2", "tool": "stamp", "args": ["q213", "m.urgent"], "ok": true, "error": ""}
+{"id": "e485", "kind": "say", "body": "board", "core": "g1", "task": "d22-k0", "symbols": ["label", "the", "cards", "in", "teal", "as", "urgent"]}
+{"id": "e486", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k0", "tool": "stamp", "args": ["q220", "m.urgent"], "ok": true, "error": ""}
+{"id": "e487", "kind": "say", "body": "board", "core": "g1", "task": "d22-k1", "symbols": ["stash", "the", "chore", "cards", "in", "plum"]}
+{"id": "e488", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k1", "tool": "slot", "args": ["t3", "q221"], "ok": true, "error": ""}
+{"id": "e489", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k1", "tool": "slot", "args": ["t3", "q222"], "ok": true, "error": ""}
+{"id": "e490", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k1", "tool": "slot", "args": ["t3", "q223"], "ok": true, "error": ""}
+{"id": "e491", "kind": "say", "body": "board", "core": "g1", "task": "d22-k2", "symbols": ["stash", "the", "cards", "in", "plum", "in", "amber"]}
+{"id": "e492", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k2", "tool": "slot", "args": ["t1", "q221"], "ok": true, "error": ""}
+{"id": "e493", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k2", "tool": "slot", "args": ["t1", "q222"], "ok": true, "error": ""}
+{"id": "e494", "kind": "act", "body": "board", "core": "g1", "lesson": "d22-k2", "tool": "slot", "args": ["t1", "q223"], "ok": true, "error": ""}
+{"id": "e495", "kind": "say", "body": "board", "core": "g1", "task": "d23-k0", "symbols": ["stash", "the", "cards", "in", "plum", "in", "amber"]}
+{"id": "e496", "kind": "act", "body": "board", "core": "g1", "lesson": "d23-k0", "tool": "slot", "args": ["t1", "q231"], "ok": true, "error": ""}
+{"id": "e497", "kind": "say", "body": "board", "core": "g1", "task": "d23-k1", "symbols": ["bev", "dika"]}
+{"id": "e498", "kind": "act", "body": "board", "core": "g1", "lesson": "d23-k1", "tool": "slot", "args": ["t1", "q234"], "ok": true, "error": ""}
+{"id": "e499", "kind": "say", "body": "board", "core": "g1", "task": "d23-k2", "symbols": ["dogu", "mab"]}
+{"id": "e500", "kind": "act", "body": "board", "core": "g1", "lesson": "d23-k2", "tool": "unlodge", "args": ["q220"], "ok": true, "error": ""}
+{"id": "e501", "kind": "say", "body": "board", "core": "g1", "task": "d24-k0", "symbols": ["dika", "bev"]}
+{"id": "e502", "kind": "act", "body": "board", "core": "g1", "lesson": "d24-k0", "tool": "slot", "args": ["t1", "q240"], "ok": true, "error": ""}
+{"id": "e503", "kind": "say", "body": "board", "core": "g1", "task": "d24-k1", "symbols": ["take", "the", "urgent", "cards", "out"]}
+{"id": "e504", "kind": "act", "body": "board", "core": "g1", "lesson": "d24-k1", "tool": "unlodge", "args": ["q241"], "ok": true, "error": ""}
+{"id": "e505", "kind": "say", "body": "board", "core": "g1", "task": "d24-k2", "symbols": ["kig", "zala"]}
+{"id": "e506", "kind": "act", "body": "board", "core": "g1", "lesson": "d24-k2", "tool": "slot", "args": ["t3", "q224"], "ok": true, "error": ""}
+{"id": "e507", "kind": "act", "body": "board", "core": "g1", "lesson": "d24-k2", "tool": "slot", "args": ["t3", "q231"], "ok": true, "error": ""}
+{"id": "e508", "kind": "act", "body": "board", "core": "g1", "lesson": "d24-k2", "tool": "slot", "args": ["t3", "q233"], "ok": true, "error": ""}
+{"id": "e509", "kind": "act", "body": "board", "core": "g1", "lesson": "d24-k2", "tool": "slot", "args": ["t3", "q242"], "ok": true, "error": ""}

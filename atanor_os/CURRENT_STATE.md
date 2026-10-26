@@ -118,6 +118,7 @@
 | 접지 교사 생활, 평가 시드 3, 세 몸 × 다섯 조건 | grounding g1(동결 후) | snap-tutor-g2 | 끝남, `GROUNDING_REPORT.md`에 기록 |
 | 영어 구절 순서 구조: 시드 4 보드 생활(FULL) + 봉인 표현 넷, BASE 대 ORDER | grounding + order (697df49) | snap-tutor-g3 (동결) | 끝남: 넷 모두 17/21 대 16/21, 틀림 0. 채택, 효과 작음 |
 | 묻고 나서 이름 붙이기 + 어순: 시드 9 보드 생활(FULL) g3 대 g4 + 봉인 넷 | grounding (ddb6281) | snap-tutor-g3, snap-tutor-g4 (동결) | 끝남: g4 탐침 23/23 대 BASE 15/23, 생활 영어 22/22, 틀림 0 |
+| 영어 세 몸: 시드 5 생활(FULL) 보드·파일·화면 + 봉인 넷 | grounding (d6f598d) | snap-tutor-g5 (동결) | 끝남: 탐침 전부 성공, 생활 영어 57/59 첫 시도, 틀림 0 |
 | P9 지연 시험 | P9 동결 작업 공간 | p9-delayed-frozen | 2026-10-27 22:45 KST 자동 1회 |
 
 ## 6. 다음 세대: 상호작용 접지 교사 + 온톨로지 장기기억 (`GROUNDING_REPORT.md`)

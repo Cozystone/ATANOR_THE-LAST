@@ -1,0 +1,760 @@
+{
+ "life": "atanor_os\\results\\tutor-eval5-view\\FULL",
+ "seed": 5,
+ "named_sel": [
+  0,
+  1,
+  2,
+  4
+ ],
+ "named_act": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "naming": [
+  {
+   "sel": 0,
+   "act": 2,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "named": false
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  }
+ ],
+ "summary": {
+  "act_first": {
+   "base": {
+    "success": 13
+   },
+   "order": {
+    "success": 13
+   },
+   "base_reading": {
+    "meant": 13
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 13
+   },
+   "order_held_why": {},
+   "n": 13,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  },
+  "sel_first": {
+   "base": {
+    "success": 13
+   },
+   "order": {
+    "success": 13
+   },
+   "base_reading": {
+    "meant": 13
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 13
+   },
+   "order_held_why": {},
+   "n": 13,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  },
+  "fillers_split": {
+   "base": {
+    "success": 13
+   },
+   "order": {
+    "success": 13
+   },
+   "base_reading": {
+    "meant": 13
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 13
+   },
+   "order_held_why": {},
+   "n": 13,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  },
+  "sel_first_fillers": {
+   "base": {
+    "success": 13
+   },
+   "order": {
+    "success": 13
+   },
+   "base_reading": {
+    "meant": 13
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 13
+   },
+   "order_held_why": {},
+   "n": 13,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  }
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  }
+ ],
+ "note": "Sealed command words removed from this public copy; forms are named only. Full file kept outside the repository."
+}
