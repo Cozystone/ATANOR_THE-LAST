@@ -188,3 +188,87 @@ class ViewTeacher(Teacher):
 
 
 from ..world.view_world import ViewWorkspace  # noqa: E402  (after the class: the module is evaluator-side only)
+
+
+class BoardTeacher(Teacher):
+    """The person using the task board. Knows the command's meaning: which cards (by mark or by tray), the tool, and
+    its second object (a tray, a mark object or a level object). The truth is computed on the board as it is now."""
+    ATTR = {'lodge': 'tray', 'stamp': 'mark', 'lift': 'level'}
+
+    def begin(self, task):
+        self.task = task
+        self.before = json.loads(json.dumps(self.home._read()))
+        key, val = task['select']
+        cards = self.before['cards']
+        self.truth = sorted(c for c, v in cards.items() if (BOARD_TRAYS.get(v['tray'], '-') if key == 'tray' else v[key]) == val)
+
+    def explain(self, word):
+        self.help['explain'] += 1
+        m = self.task.get('phrases', {}).get('explain_map', {})
+        return m.get(word)
+
+    def point(self, command):
+        self.help['point'] += 1
+        return {'objects': list(self.truth), 'dest': self.task.get('second')}
+
+    def _steps(self, objs):
+        t, s = self.task['tool'], self.task.get('second')
+        drift = getattr(self.home, 'drift', ())
+        out = []
+        for o in objs:                                         # the person knows how the board works now
+            if t == 'lodge':
+                out.append(('slot', (s, o)) if 'lodge_retired' in drift else ('lodge', (o, s)))
+            elif t == 'stamp':
+                out.append(('brand', (s, o)) if 'stamp_retired' in drift else ('stamp', (o, s)))
+            elif t == 'lift':
+                out.append(('lift', (o, s)))
+            else:
+                out.append((t, (o,)))
+        return out
+
+    def demonstrate(self, command, o, dest):
+        self.help['demonstrate'] += 1
+        return self._steps([o])
+
+    def demonstrate_goal(self, goal):
+        self.help['demonstrate_goal'] += 1
+        return self._steps(self.truth)
+
+    def check(self, proposal):
+        self.help['check'] += 1
+        ch = {(it[0], it[1]): it[2] for it in proposal['change'] if len(it) == 3}
+        t = self.task['tool']
+        if t == 'scrap':
+            ok_change = ch.get(('o', 'kind')) == 'absent'
+        elif t == 'unlodge':
+            ok_change = ch.get(('o', 'tray')) == '-'
+        else:
+            ok_change = ('o', self.ATTR[t]) in ch and ch.get(('o', 'kind')) != 'absent' and ch.get(('o', self.ATTR[t])) != '-'
+        return ok_change and sorted(proposal['objects']) == self.truth and (proposal['dest'] or None) == (self.task.get('second') or None)
+
+    def judge(self):
+        now = self.home._read()['cards']
+        t, s = self.task['tool'], self.task.get('second')
+        ok = True
+        for c, v in self.before['cards'].items():
+            cur = now.get(c)
+            if c not in self.truth:
+                ok &= cur == v
+                continue
+            if t == 'scrap':
+                ok &= cur is None
+            elif cur is None:
+                ok = False
+            elif t == 'lodge':
+                ok &= cur['tray'] == s and cur['mark'] == v['mark'] and cur['level'] == v['level']
+            elif t == 'unlodge':
+                ok &= cur['tray'] == '-' and cur['mark'] == v['mark']
+            elif t == 'stamp':
+                ok &= cur['mark'] == s[2:] and cur['tray'] == v['tray']
+            elif t == 'lift':
+                ok &= cur['level'] == s[2:] and cur['tray'] == v['tray'] and cur['mark'] == v['mark']
+        return bool(ok)
+
+
+import json  # noqa: E402
+from ..world.board_world import TRAYS as BOARD_TRAYS  # noqa: E402

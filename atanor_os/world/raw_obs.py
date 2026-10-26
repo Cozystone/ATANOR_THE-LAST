@@ -6,25 +6,30 @@ filesystem: a0 = exists (0/1), a1 = is_dir (0/1), a2 = name-suffix token, a3 = c
             without its last path segment (structural containment; not named).
 view:       a0..a4 = the object's five observed tokens (kind, filter, sort, group, value), names removed;
             no relations.
+board:      a0..a4 = the object's five observed tokens (kind, mark, tray, level, value), names removed;
+            no relations.
 `to_human` is the deterministic inverse used only to hand predicted states to the planner and judge
 (goals are written in the human attributes); it is an action interface, not concept learning.
 """
 from .fs_world import parent_of
 
-IDENTITY = {'fs': ('a3',), 'view': ()}
-KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',)}       # provided: which raw attributes make up an argument's kind
+IDENTITY = {'fs': ('a3',), 'view': (), 'board': ()}
+KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',)}       # provided: which raw attributes make up an argument's kind
 
 
 def names_of(body, obj):
-    """String attribute values of an object that a sentence may use to name it (identity attributes excluded)."""
+    """String attribute values of an object that a sentence may use to name it (identity and kind attributes excluded:
+    a kind is what every object of that kind shares, not a name; the file body's kinds are 0/1 and never were names)."""
     return frozenset(v for k, v in raw_attrs(body, obj).items()
-                     if k not in IDENTITY[body] and isinstance(v, str) and v not in ('-', '', None))
+                     if k not in IDENTITY[body] and k not in KIND_ATTRS[body] and isinstance(v, str) and v not in ('-', '', None))
 
 
 def raw_attrs(body, obj):
     if body == 'fs':
         k = obj.get('kind')
         return {'a0': 0 if k == 'absent' else 1, 'a1': 1 if k == 'dir' else 0, 'a2': obj.get('ext'), 'a3': obj.get('hash')}
+    if body == 'board':
+        return {'a0': obj.get('kind'), 'a1': obj.get('mark'), 'a2': obj.get('tray'), 'a3': obj.get('level'), 'a4': obj.get('value')}
     return {'a0': obj.get('kind'), 'a1': obj.get('filter'), 'a2': obj.get('sort'), 'a3': obj.get('group'), 'a4': obj.get('value')}
 
 
@@ -47,6 +52,8 @@ def to_human(body, raw, old):
         kind = 'absent' if raw['a0'] == 0 else ('dir' if raw['a1'] == 1 else 'file')
         h = raw['a3'] if kind == 'file' else '-'
         return {**old, 'kind': kind, 'hash': h if h not in (None, 'unknown') or kind != 'file' else 'unknown', 'ext': raw['a2']}
+    if body == 'board':
+        return {**old, 'kind': raw['a0'], 'mark': raw['a1'], 'tray': raw['a2'], 'level': raw['a3'], 'value': raw['a4']}
     return {**old, 'kind': raw['a0'], 'filter': raw['a1'], 'sort': raw['a2'], 'group': raw['a3'], 'value': raw['a4']}
 
 
