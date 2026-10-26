@@ -1,0 +1,350 @@
+{"id": "e0", "kind": "point", "body": "view", "core": "g1", "lesson": "L4.2-d1", "objects": ["p1"], "feats": {"p1": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e1", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L4.2-d1", "object": "p3", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e2", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L4.2-d1", "object": "p2", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e3", "kind": "demo", "body": "view", "core": "g1", "lesson": "L4.2-d1", "tool": "group", "args": ["p1", "grp:ext"], "object": "p1", "gained": ["('U', 0, 'a3', 'ext')"], "lost": ["('U', 0, 'a3', 'none')"], "made": []}
+{"id": "e4", "kind": "confirm", "body": "view", "core": "g1", "answer": true}
+{"id": "e5", "kind": "name", "body": "view", "core": "g1", "lesson": "L4.2-d1", "symbol": "rado", "node": "k0"}
+{"id": "e6", "kind": "name", "body": "view", "core": "g1", "lesson": "L4.2-d1", "symbol": "tasu", "node": "a1"}
+{"id": "e7", "kind": "point", "body": "view", "core": "g1", "lesson": "L3.1-d1", "objects": ["p3"], "feats": {"p3": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e8", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L3.1-d1", "object": "p2", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e9", "kind": "demo", "body": "view", "core": "g1", "lesson": "L3.1-d1", "tool": "sort", "args": ["p3", "key:ext"], "object": "p3", "gained": ["('U', 0, 'a2', 'ext')"], "lost": ["('U', 0, 'a2', 'name')"], "made": []}
+{"id": "e10", "kind": "confirm", "body": "view", "core": "g1", "answer": true}
+{"id": "e11", "kind": "name", "body": "view", "core": "g1", "lesson": "L3.1-d1", "symbol": "gop", "node": "k4"}
+{"id": "e12", "kind": "name", "body": "view", "core": "g1", "lesson": "L3.1-d1", "symbol": "damu", "node": "a5"}
+{"id": "e13", "kind": "point", "body": "view", "core": "g1", "lesson": "L1.0-d2", "objects": ["p1", "p2"], "feats": {"p1": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"], "p2": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'txt')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e14", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L1.0-d2", "object": "cmp", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'absent')", "('U', 0, 'a1', '-')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', '-')", "('U', 0, 'a4', '-')"]}
+{"id": "e15", "kind": "demo", "body": "view", "core": "g1", "lesson": "L1.0-d2", "tool": "filter", "args": ["p2", "ext:md"], "object": "p2", "gained": ["('U', 0, 'a1', 'md')"], "lost": ["('U', 0, 'a1', 'txt')"], "made": []}
+{"id": "e16", "kind": "act", "body": "view", "core": "g1", "lesson": "L1.0-d2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e17", "kind": "act", "body": "view", "core": "g1", "lesson": "L1.0-d2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e18", "kind": "confirm", "body": "view", "core": "g1", "answer": true}
+{"id": "e19", "kind": "name", "body": "view", "core": "g1", "lesson": "L1.0-d2", "symbol": "pupi", "node": "k8"}
+{"id": "e20", "kind": "name", "body": "view", "core": "g1", "lesson": "L1.0-d2", "symbol": "bobu", "node": "a9"}
+{"id": "e21", "kind": "point", "body": "view", "core": "g1", "lesson": "L2.3-d2", "objects": ["p1", "p2"], "feats": {"p1": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"], "p2": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e22", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L2.3-d2", "object": "cmp", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'absent')", "('U', 0, 'a1', '-')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', '-')", "('U', 0, 'a4', '-')"]}
+{"id": "e23", "kind": "demo", "body": "view", "core": "g1", "lesson": "L2.3-d2", "tool": "filter", "args": ["p1", "ext:log"], "object": "p1", "gained": ["('U', 0, 'a1', 'log')"], "lost": ["('U', 0, 'a1', 'md')"], "made": []}
+{"id": "e24", "kind": "act", "body": "view", "core": "g1", "lesson": "L2.3-d2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e25", "kind": "act", "body": "view", "core": "g1", "lesson": "L2.3-d2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e26", "kind": "confirm", "body": "view", "core": "g1", "answer": true}
+{"id": "e27", "kind": "name", "body": "view", "core": "g1", "lesson": "L2.3-d2", "symbol": "gad", "node": "k12"}
+{"id": "e28", "kind": "name", "body": "view", "core": "g1", "lesson": "L2.3-d2", "symbol": "gedo", "node": "a13"}
+{"id": "e29", "kind": "say", "body": "view", "core": "g1", "task": "d2-k2", "symbols": ["pupi", "bobu"]}
+{"id": "e30", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e31", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e32", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e33", "kind": "say", "body": "view", "core": "g1", "task": "d2-k3", "symbols": ["gedo", "gad"]}
+{"id": "e34", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k3", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e35", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k3", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e36", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k3", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e37", "kind": "say", "body": "view", "core": "g1", "task": "d2-k4", "symbols": ["bobu", "pupi"]}
+{"id": "e38", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k4", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e39", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k4", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e40", "kind": "act", "body": "view", "core": "g1", "lesson": "d2-k4", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e41", "kind": "point", "body": "view", "core": "g1", "lesson": "L0.0-d3", "objects": ["p1", "p2"], "feats": {"p1": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"], "p2": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e42", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L0.0-d3", "object": "p3", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e43", "kind": "demo", "body": "view", "core": "g1", "lesson": "L0.0-d3", "tool": "filter", "args": ["p1", "ext:md"], "object": "p1", "gained": ["('U', 0, 'a1', 'md')"], "lost": ["('U', 0, 'a1', 'all')"], "made": []}
+{"id": "e44", "kind": "act", "body": "view", "core": "g1", "lesson": "L0.0-d3", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e45", "kind": "confirm", "body": "view", "core": "g1", "answer": true}
+{"id": "e46", "kind": "name", "body": "view", "core": "g1", "lesson": "L0.0-d3", "symbol": "zago", "node": "k16"}
+{"id": "e47", "kind": "name", "body": "view", "core": "g1", "lesson": "L0.0-d3", "symbol": "bobu", "node": "a9"}
+{"id": "e48", "kind": "point", "body": "view", "core": "g1", "lesson": "L3.1-d3", "objects": ["p3"], "feats": {"p3": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e49", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L3.1-d3", "object": "p1", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e50", "kind": "contrast", "body": "view", "core": "g1", "lesson": "L3.1-d3", "object": "p2", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e51", "kind": "demo", "body": "view", "core": "g1", "lesson": "L3.1-d3", "tool": "sort", "args": ["p3", "key:ext"], "object": "p3", "gained": ["('U', 0, 'a2', 'ext')"], "lost": ["('U', 0, 'a2', 'name')"], "made": []}
+{"id": "e52", "kind": "confirm", "body": "view", "core": "g1", "answer": true}
+{"id": "e53", "kind": "name", "body": "view", "core": "g1", "lesson": "L3.1-d3", "symbol": "gop", "node": "k18"}
+{"id": "e54", "kind": "name", "body": "view", "core": "g1", "lesson": "L3.1-d3", "symbol": "damu", "node": "a5"}
+{"id": "e55", "kind": "say", "body": "view", "core": "g1", "task": "d3-k2", "symbols": ["gad", "gedo"]}
+{"id": "e56", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d3-k2", "object": "p3", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'ext')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e57", "kind": "act", "body": "view", "core": "g1", "lesson": "d3-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e58", "kind": "act", "body": "view", "core": "g1", "lesson": "d3-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e59", "kind": "act", "body": "view", "core": "g1", "lesson": "d3-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e60", "kind": "say", "body": "view", "core": "g1", "task": "d3-k3", "symbols": ["bobu", "pupi"]}
+{"id": "e61", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d3-k3", "object": "p1", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'log')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e62", "kind": "act", "body": "view", "core": "g1", "lesson": "d3-k3", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e63", "kind": "say", "body": "view", "core": "g1", "task": "d3-k4", "symbols": ["gad", "gedo"]}
+{"id": "e64", "kind": "act", "body": "view", "core": "g1", "lesson": "d3-k4", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e65", "kind": "say", "body": "view", "core": "g1", "task": "d4-k0", "symbols": ["bobu", "pupi"]}
+{"id": "e66", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k0", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e67", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k0", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e68", "kind": "say", "body": "view", "core": "g1", "task": "d4-k1", "symbols": ["gedo", "gad"]}
+{"id": "e69", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k1", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e70", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k1", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e71", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k1", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e72", "kind": "say", "body": "view", "core": "g1", "task": "d4-k2", "symbols": ["bobu", "pupi"]}
+{"id": "e73", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e74", "kind": "act", "body": "view", "core": "g1", "lesson": "d4-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e75", "kind": "say", "body": "view", "core": "g1", "task": "d5-k0", "symbols": ["zago", "bobu"]}
+{"id": "e76", "kind": "act", "body": "view", "core": "g1", "lesson": "d5-k0", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e77", "kind": "say", "body": "view", "core": "g1", "task": "d5-k1", "symbols": ["pupi", "damu"]}
+{"id": "e78", "kind": "act", "body": "view", "core": "g1", "lesson": "d5-k1", "tool": "sort", "args": ["p1", "key:ext"], "ok": true, "error": ""}
+{"id": "e79", "kind": "say", "body": "view", "core": "g1", "task": "d5-k2", "symbols": ["gad", "gedo"]}
+{"id": "e80", "kind": "act", "body": "view", "core": "g1", "lesson": "d5-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e81", "kind": "act", "body": "view", "core": "g1", "lesson": "d5-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e82", "kind": "act", "body": "view", "core": "g1", "lesson": "d5-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e83", "kind": "say", "body": "view", "core": "g1", "task": "d6-k0", "symbols": ["damu", "gad"]}
+{"id": "e84", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k0", "tool": "sort", "args": ["p1", "key:ext"], "ok": true, "error": ""}
+{"id": "e85", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k0", "tool": "sort", "args": ["p2", "key:ext"], "ok": true, "error": ""}
+{"id": "e86", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k0", "tool": "sort", "args": ["p3", "key:ext"], "ok": true, "error": ""}
+{"id": "e87", "kind": "say", "body": "view", "core": "g1", "task": "d6-k1", "symbols": ["gop", "bobu"]}
+{"id": "e88", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d6-k1", "object": "p1", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'ext')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e89", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k1", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e90", "kind": "say", "body": "view", "core": "g1", "task": "d6-k2", "symbols": ["gad", "gedo"]}
+{"id": "e91", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e92", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e93", "kind": "act", "body": "view", "core": "g1", "lesson": "d6-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e94", "kind": "say", "body": "view", "core": "g1", "task": "d7-k0", "symbols": ["gop", "gedo"]}
+{"id": "e95", "kind": "act", "body": "view", "core": "g1", "lesson": "d7-k0", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e96", "kind": "act", "body": "view", "core": "g1", "lesson": "d7-k0", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e97", "kind": "say", "body": "view", "core": "g1", "task": "d7-k1", "symbols": ["zago", "bobu"]}
+{"id": "e98", "kind": "act", "body": "view", "core": "g1", "lesson": "d7-k1", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e99", "kind": "say", "body": "view", "core": "g1", "task": "d7-k2", "symbols": ["bobu", "pupi"]}
+{"id": "e100", "kind": "act", "body": "view", "core": "g1", "lesson": "d7-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e101", "kind": "say", "body": "view", "core": "g1", "task": "d8-k0", "symbols": ["gop", "damu"]}
+{"id": "e102", "kind": "act", "body": "view", "core": "g1", "lesson": "d8-k0", "tool": "sort", "args": ["p3", "key:ext"], "ok": true, "error": ""}
+{"id": "e103", "kind": "say", "body": "view", "core": "g1", "task": "d8-k1", "symbols": ["tasu", "zago"]}
+{"id": "e104", "kind": "act", "body": "view", "core": "g1", "lesson": "d8-k1", "tool": "group", "args": ["p1", "grp:ext"], "ok": true, "error": ""}
+{"id": "e105", "kind": "say", "body": "view", "core": "g1", "task": "d8-k2", "symbols": ["zago", "gedo"]}
+{"id": "e106", "kind": "say", "body": "view", "core": "g1", "task": "d9-k0", "symbols": ["gad", "gedo"]}
+{"id": "e107", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k0", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e108", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k0", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e109", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k0", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e110", "kind": "say", "body": "view", "core": "g1", "task": "d9-k1", "symbols": ["gad", "damu"]}
+{"id": "e111", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k1", "tool": "sort", "args": ["p1", "key:ext"], "ok": false, "error": "precondition"}
+{"id": "e112", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k1", "tool": "sort", "args": ["p2", "key:ext"], "ok": false, "error": "precondition"}
+{"id": "e113", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k1", "tool": "sort", "args": ["p3", "key:ext"], "ok": false, "error": "precondition"}
+{"id": "e114", "kind": "demo", "body": "view", "core": "g1", "lesson": "R1-d9", "tool": "rank", "args": ["key:ext", "p3"], "object": "p3", "gained": ["('U', 0, 'a2', 'ext')"], "lost": ["('U', 0, 'a2', 'size')"], "made": []}
+{"id": "e115", "kind": "name", "body": "view", "core": "g1", "lesson": "R1-d9", "symbol": "damu", "node": "a20"}
+{"id": "e116", "kind": "act", "body": "view", "core": "g1", "lesson": "R1-d9", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e117", "kind": "act", "body": "view", "core": "g1", "lesson": "R1-d9", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e118", "kind": "say", "body": "view", "core": "g1", "task": "d9-k2", "symbols": ["bobu", "gad"]}
+{"id": "e119", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e120", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e121", "kind": "act", "body": "view", "core": "g1", "lesson": "d9-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e122", "kind": "say", "body": "view", "core": "g1", "task": "d10-k0", "symbols": ["tasu", "gad"]}
+{"id": "e123", "kind": "act", "body": "view", "core": "g1", "lesson": "d10-k0", "tool": "group", "args": ["p1", "grp:ext"], "ok": true, "error": ""}
+{"id": "e124", "kind": "act", "body": "view", "core": "g1", "lesson": "d10-k0", "tool": "group", "args": ["p2", "grp:ext"], "ok": true, "error": ""}
+{"id": "e125", "kind": "act", "body": "view", "core": "g1", "lesson": "d10-k0", "tool": "group", "args": ["p3", "grp:ext"], "ok": true, "error": ""}
+{"id": "e126", "kind": "say", "body": "view", "core": "g1", "task": "d10-k1", "symbols": ["bobu", "zago"]}
+{"id": "e127", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d10-k1", "object": "p1", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'ext')", "('U', 0, 'a4', '-')"]}
+{"id": "e128", "kind": "act", "body": "view", "core": "g1", "lesson": "d10-k1", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e129", "kind": "act", "body": "view", "core": "g1", "lesson": "d10-k1", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e130", "kind": "act", "body": "view", "core": "g1", "lesson": "d10-k1", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e131", "kind": "point", "body": "view", "core": "g1", "lesson": "E3-d11", "objects": ["p1"], "feats": {"p1": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e132", "kind": "contrast", "body": "view", "core": "g1", "lesson": "E3-d11", "object": "p2", "answer": false}
+{"id": "e133", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d11", "symbol": "the", "node": "k18"}
+{"id": "e134", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d11", "symbol": "panels", "node": "k18"}
+{"id": "e135", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d11", "symbol": "showing", "node": "k18"}
+{"id": "e136", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d11", "symbol": "csv", "node": "k18"}
+{"id": "e137", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E3-d11", "words": ["the", "panels", "showing", "csv"], "node": "k18"}
+{"id": "e138", "kind": "demo", "body": "view", "core": "g1", "lesson": "E1-d11", "tool": "rank", "args": ["key:ext", "p1"], "object": "p1", "gained": ["('U', 0, 'a2', 'ext')"], "lost": ["('U', 0, 'a2', 'size')"], "made": []}
+{"id": "e139", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "sort", "node": "a20"}
+{"id": "e140", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "by", "node": "a20"}
+{"id": "e141", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "ext", "node": "a20"}
+{"id": "e142", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E1-d11", "words": ["sort", "by", "ext"], "node": "a20"}
+{"id": "e143", "kind": "point", "body": "view", "core": "g1", "lesson": "E4-d11", "objects": ["p2"], "feats": {"p2": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e144", "kind": "contrast", "body": "view", "core": "g1", "lesson": "E4-d11", "object": "p1", "answer": false}
+{"id": "e145", "kind": "name", "body": "view", "core": "g1", "lesson": "E4-d11", "symbol": "the", "node": "k0"}
+{"id": "e146", "kind": "name", "body": "view", "core": "g1", "lesson": "E4-d11", "symbol": "panels", "node": "k0"}
+{"id": "e147", "kind": "name", "body": "view", "core": "g1", "lesson": "E4-d11", "symbol": "sorted", "node": "k0"}
+{"id": "e148", "kind": "name", "body": "view", "core": "g1", "lesson": "E4-d11", "symbol": "by", "node": "k0"}
+{"id": "e149", "kind": "name", "body": "view", "core": "g1", "lesson": "E4-d11", "symbol": "size", "node": "k0"}
+{"id": "e150", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E4-d11", "words": ["the", "panels", "sorted", "by", "size"], "node": "k0"}
+{"id": "e151", "kind": "demo", "body": "view", "core": "g1", "lesson": "E2-d11", "tool": "group", "args": ["p2", "grp:ext"], "object": "p2", "gained": ["('U', 0, 'a3', 'ext')"], "lost": ["('U', 0, 'a3', 'none')"], "made": []}
+{"id": "e152", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d11", "symbol": "group", "node": "a1"}
+{"id": "e153", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d11", "symbol": "by", "node": "a1"}
+{"id": "e154", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d11", "symbol": "ext", "node": "a1"}
+{"id": "e155", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E2-d11", "words": ["group", "by", "ext"], "node": "a1"}
+{"id": "e156", "kind": "point", "body": "view", "core": "g1", "lesson": "E1-d11", "objects": ["p3"], "feats": {"p3": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'txt')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e157", "kind": "contrast", "body": "view", "core": "g1", "lesson": "E1-d11", "object": "p1", "answer": false}
+{"id": "e158", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "the", "node": "k8"}
+{"id": "e159", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "panels", "node": "k8"}
+{"id": "e160", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "sorted", "node": "k8"}
+{"id": "e161", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "by", "node": "k8"}
+{"id": "e162", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d11", "symbol": "name", "node": "k8"}
+{"id": "e163", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E1-d11", "words": ["the", "panels", "sorted", "by", "name"], "node": "k8"}
+{"id": "e164", "kind": "demo", "body": "view", "core": "g1", "lesson": "E0-d11", "tool": "filter", "args": ["p3", "ext:md"], "object": "p3", "gained": ["('U', 0, 'a1', 'md')"], "lost": ["('U', 0, 'a1', 'txt')"], "made": []}
+{"id": "e165", "kind": "name", "body": "view", "core": "g1", "lesson": "E0-d11", "symbol": "show", "node": "a9"}
+{"id": "e166", "kind": "name", "body": "view", "core": "g1", "lesson": "E0-d11", "symbol": "only", "node": "a9"}
+{"id": "e167", "kind": "name", "body": "view", "core": "g1", "lesson": "E0-d11", "symbol": "md", "node": "a9"}
+{"id": "e168", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E0-d11", "words": ["show", "only", "md"], "node": "a9"}
+{"id": "e169", "kind": "say", "body": "view", "core": "g1", "task": "d11-k3", "symbols": ["bobu", "zago"]}
+{"id": "e170", "kind": "act", "body": "view", "core": "g1", "lesson": "d11-k3", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e171", "kind": "say", "body": "view", "core": "g1", "task": "d11-k4", "symbols": ["pupi", "damu"]}
+{"id": "e172", "kind": "act", "body": "view", "core": "g1", "lesson": "d11-k4", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e173", "kind": "say", "body": "view", "core": "g1", "task": "d11-k5", "symbols": ["gedo", "gad"]}
+{"id": "e174", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d11-k5", "object": "p2", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'ext')", "('U', 0, 'a4', '-')"]}
+{"id": "e175", "kind": "act", "body": "view", "core": "g1", "lesson": "d11-k5", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e176", "kind": "act", "body": "view", "core": "g1", "lesson": "d11-k5", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e177", "kind": "say", "body": "view", "core": "g1", "task": "d12-k0", "symbols": ["sort", "the", "panels", "sorted", "by", "size", "by", "ext"]}
+{"id": "e178", "kind": "act", "body": "view", "core": "g1", "lesson": "d12-k0", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e179", "kind": "say", "body": "view", "core": "g1", "task": "d12-k1", "symbols": ["sort", "the", "panels", "sorted", "by", "name", "by", "ext"]}
+{"id": "e180", "kind": "act", "body": "view", "core": "g1", "lesson": "d12-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e181", "kind": "act", "body": "view", "core": "g1", "lesson": "d12-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e182", "kind": "say", "body": "view", "core": "g1", "task": "d12-k2", "symbols": ["zago", "gedo"]}
+{"id": "e183", "kind": "act", "body": "view", "core": "g1", "lesson": "d12-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e184", "kind": "act", "body": "view", "core": "g1", "lesson": "d12-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e185", "kind": "act", "body": "view", "core": "g1", "lesson": "d12-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e186", "kind": "point", "body": "view", "core": "g1", "lesson": "E2-d13", "objects": ["p1", "p3"], "feats": {"p1": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'txt')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"], "p3": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e187", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d13", "symbol": "the", "node": "k12"}
+{"id": "e188", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d13", "symbol": "ungrouped", "node": "k12"}
+{"id": "e189", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d13", "symbol": "panels", "node": "k12"}
+{"id": "e190", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E2-d13", "words": ["the", "ungrouped", "panels"], "node": "k12"}
+{"id": "e191", "kind": "demo", "body": "view", "core": "g1", "lesson": "E3-d13", "tool": "filter", "args": ["p2", "ext:log"], "object": "p2", "gained": ["('U', 0, 'a1', 'log')"], "lost": ["('U', 0, 'a1', 'all')"], "made": []}
+{"id": "e192", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d13", "symbol": "show", "node": "a13"}
+{"id": "e193", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d13", "symbol": "only", "node": "a13"}
+{"id": "e194", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d13", "symbol": "log", "node": "a13"}
+{"id": "e195", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E3-d13", "words": ["show", "only", "log"], "node": "a13"}
+{"id": "e196", "kind": "act", "body": "view", "core": "g1", "lesson": "E2-d13", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e197", "kind": "act", "body": "view", "core": "g1", "lesson": "E2-d13", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e198", "kind": "point", "body": "view", "core": "g1", "lesson": "E1-d13", "objects": ["p2", "p3"], "feats": {"p2": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'log')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"], "p3": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'log')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e199", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d13", "symbol": "the", "node": "k8"}
+{"id": "e200", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d13", "symbol": "panels", "node": "k8"}
+{"id": "e201", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d13", "symbol": "sorted", "node": "k8"}
+{"id": "e202", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d13", "symbol": "by", "node": "k8"}
+{"id": "e203", "kind": "name", "body": "view", "core": "g1", "lesson": "E1-d13", "symbol": "name", "node": "k8"}
+{"id": "e204", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E1-d13", "words": ["the", "panels", "sorted", "by", "name"], "node": "k8"}
+{"id": "e205", "kind": "demo", "body": "view", "core": "g1", "lesson": "E0-d13", "tool": "filter", "args": ["p1", "ext:md"], "object": "p1", "gained": ["('U', 0, 'a1', 'md')"], "lost": ["('U', 0, 'a1', 'log')"], "made": []}
+{"id": "e206", "kind": "name", "body": "view", "core": "g1", "lesson": "E0-d13", "symbol": "show", "node": "a9"}
+{"id": "e207", "kind": "name", "body": "view", "core": "g1", "lesson": "E0-d13", "symbol": "only", "node": "a9"}
+{"id": "e208", "kind": "name", "body": "view", "core": "g1", "lesson": "E0-d13", "symbol": "md", "node": "a9"}
+{"id": "e209", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E0-d13", "words": ["show", "only", "md"], "node": "a9"}
+{"id": "e210", "kind": "act", "body": "view", "core": "g1", "lesson": "E1-d13", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e211", "kind": "act", "body": "view", "core": "g1", "lesson": "E1-d13", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e212", "kind": "point", "body": "view", "core": "g1", "lesson": "E2-d13", "objects": ["p2", "p3"], "feats": {"p2": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"], "p3": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'md')", "('U', 0, 'a2', 'name')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}}
+{"id": "e213", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d13", "symbol": "the", "node": "k12"}
+{"id": "e214", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d13", "symbol": "ungrouped", "node": "k12"}
+{"id": "e215", "kind": "name", "body": "view", "core": "g1", "lesson": "E2-d13", "symbol": "panels", "node": "k12"}
+{"id": "e216", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E2-d13", "words": ["the", "ungrouped", "panels"], "node": "k12"}
+{"id": "e217", "kind": "demo", "body": "view", "core": "g1", "lesson": "E3-d13", "tool": "filter", "args": ["p3", "ext:log"], "object": "p3", "gained": ["('U', 0, 'a1', 'log')"], "lost": ["('U', 0, 'a1', 'md')"], "made": []}
+{"id": "e218", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d13", "symbol": "show", "node": "a13"}
+{"id": "e219", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d13", "symbol": "only", "node": "a13"}
+{"id": "e220", "kind": "name", "body": "view", "core": "g1", "lesson": "E3-d13", "symbol": "log", "node": "a13"}
+{"id": "e221", "kind": "phrase", "body": "view", "core": "g1", "lesson": "E3-d13", "words": ["show", "only", "log"], "node": "a13"}
+{"id": "e222", "kind": "act", "body": "view", "core": "g1", "lesson": "E2-d13", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e223", "kind": "act", "body": "view", "core": "g1", "lesson": "E2-d13", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e224", "kind": "say", "body": "view", "core": "g1", "task": "d13-k3", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e225", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k3", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e226", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k3", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e227", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k3", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e228", "kind": "say", "body": "view", "core": "g1", "task": "d13-k4", "symbols": ["pupi", "gedo"]}
+{"id": "e229", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k4", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e230", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k4", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e231", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k4", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e232", "kind": "say", "body": "view", "core": "g1", "task": "d13-k5", "symbols": ["bobu", "pupi"]}
+{"id": "e233", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k5", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e234", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k5", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e235", "kind": "act", "body": "view", "core": "g1", "lesson": "d13-k5", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e236", "kind": "say", "body": "view", "core": "g1", "task": "d14-k0", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e237", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k0", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e238", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k0", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e239", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k0", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e240", "kind": "say", "body": "view", "core": "g1", "task": "d14-k1", "symbols": ["gedo", "gad"]}
+{"id": "e241", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k1", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e242", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k1", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e243", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k1", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e244", "kind": "say", "body": "view", "core": "g1", "task": "d14-k2", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e245", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e246", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e247", "kind": "act", "body": "view", "core": "g1", "lesson": "d14-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e248", "kind": "say", "body": "view", "core": "g1", "task": "d15-k0", "symbols": ["show", "the", "ungrouped", "panels", "only", "log"]}
+{"id": "e249", "kind": "act", "body": "view", "core": "g1", "lesson": "d15-k0", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e250", "kind": "act", "body": "view", "core": "g1", "lesson": "d15-k0", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e251", "kind": "act", "body": "view", "core": "g1", "lesson": "d15-k0", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e252", "kind": "say", "body": "view", "core": "g1", "task": "d15-k1", "symbols": ["sort", "the", "ungrouped", "panels", "by", "ext"]}
+{"id": "e253", "kind": "act", "body": "view", "core": "g1", "lesson": "d15-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e254", "kind": "act", "body": "view", "core": "g1", "lesson": "d15-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e255", "kind": "act", "body": "view", "core": "g1", "lesson": "d15-k1", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e256", "kind": "say", "body": "view", "core": "g1", "task": "d16-k0", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e257", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k0", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e258", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k0", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e259", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k0", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e260", "kind": "say", "body": "view", "core": "g1", "task": "d16-k1", "symbols": ["sort", "the", "panels", "sorted", "by", "name", "by", "ext"]}
+{"id": "e261", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e262", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e263", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k1", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e264", "kind": "say", "body": "view", "core": "g1", "task": "d16-k2", "symbols": ["gad", "gedo"]}
+{"id": "e265", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e266", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e267", "kind": "act", "body": "view", "core": "g1", "lesson": "d16-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e268", "kind": "say", "body": "view", "core": "g1", "task": "d17-k0", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e269", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k0", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e270", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k0", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e271", "kind": "say", "body": "view", "core": "g1", "task": "d17-k1", "symbols": ["sort", "the", "panels", "sorted", "by", "name", "by", "ext"]}
+{"id": "e272", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e273", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e274", "kind": "say", "body": "view", "core": "g1", "task": "d17-k2", "symbols": ["gedo", "gad"]}
+{"id": "e275", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e276", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e277", "kind": "act", "body": "view", "core": "g1", "lesson": "d17-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e278", "kind": "say", "body": "view", "core": "g1", "task": "d18-k0", "symbols": ["show", "the", "panels", "sorted", "by", "size", "only", "log"]}
+{"id": "e279", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d18-k0", "object": "p1", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'csv')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'none')", "('U', 0, 'a4', '-')"]}
+{"id": "e280", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k0", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e281", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k0", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e282", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k0", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e283", "kind": "say", "body": "view", "core": "g1", "task": "d18-k1", "symbols": ["gad", "damu"]}
+{"id": "e284", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e285", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e286", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k1", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e287", "kind": "say", "body": "view", "core": "g1", "task": "d18-k2", "symbols": ["gad", "bobu"]}
+{"id": "e288", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e289", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e290", "kind": "act", "body": "view", "core": "g1", "lesson": "d18-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e291", "kind": "say", "body": "view", "core": "g1", "task": "d19-k0", "symbols": ["rado", "damu"]}
+{"id": "e292", "kind": "act", "body": "view", "core": "g1", "lesson": "d19-k0", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e293", "kind": "act", "body": "view", "core": "g1", "lesson": "d19-k0", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e294", "kind": "say", "body": "view", "core": "g1", "task": "d19-k1", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "log"]}
+{"id": "e295", "kind": "act", "body": "view", "core": "g1", "lesson": "d19-k1", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e296", "kind": "say", "body": "view", "core": "g1", "task": "d19-k2", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e297", "kind": "act", "body": "view", "core": "g1", "lesson": "d19-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e298", "kind": "say", "body": "view", "core": "g1", "task": "d20-k0", "symbols": ["gedo", "pupi"]}
+{"id": "e299", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k0", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e300", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k0", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e301", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k0", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e302", "kind": "say", "body": "view", "core": "g1", "task": "d20-k1", "symbols": ["sort", "the", "panels", "sorted", "by", "name", "by", "ext"]}
+{"id": "e303", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e304", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e305", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k1", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e306", "kind": "say", "body": "view", "core": "g1", "task": "d20-k2", "symbols": ["bobu", "gad"]}
+{"id": "e307", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e308", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e309", "kind": "act", "body": "view", "core": "g1", "lesson": "d20-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e310", "kind": "say", "body": "view", "core": "g1", "task": "d21-k0", "symbols": ["gad", "tasu"]}
+{"id": "e311", "kind": "act", "body": "view", "core": "g1", "lesson": "d21-k0", "tool": "group", "args": ["p1", "grp:ext"], "ok": true, "error": ""}
+{"id": "e312", "kind": "act", "body": "view", "core": "g1", "lesson": "d21-k0", "tool": "group", "args": ["p2", "grp:ext"], "ok": true, "error": ""}
+{"id": "e313", "kind": "act", "body": "view", "core": "g1", "lesson": "d21-k0", "tool": "group", "args": ["p3", "grp:ext"], "ok": true, "error": ""}
+{"id": "e314", "kind": "say", "body": "view", "core": "g1", "task": "d21-k1", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e315", "kind": "act", "body": "view", "core": "g1", "lesson": "d21-k1", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e316", "kind": "act", "body": "view", "core": "g1", "lesson": "d21-k1", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e317", "kind": "say", "body": "view", "core": "g1", "task": "d21-k2", "symbols": ["bobu", "rado"]}
+{"id": "e318", "kind": "contrast", "body": "view", "core": "g1", "lesson": "d21-k2", "object": "p3", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'panel')", "('U', 0, 'a1', 'all')", "('U', 0, 'a2', 'size')", "('U', 0, 'a3', 'ext')", "('U', 0, 'a4', '-')"]}
+{"id": "e319", "kind": "act", "body": "view", "core": "g1", "lesson": "d21-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e320", "kind": "say", "body": "view", "core": "g1", "task": "d22-k0", "symbols": ["zago", "bobu"]}
+{"id": "e321", "kind": "act", "body": "view", "core": "g1", "lesson": "d22-k0", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e322", "kind": "say", "body": "view", "core": "g1", "task": "d22-k1", "symbols": ["gad", "bobu"]}
+{"id": "e323", "kind": "act", "body": "view", "core": "g1", "lesson": "d22-k1", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e324", "kind": "act", "body": "view", "core": "g1", "lesson": "d22-k1", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e325", "kind": "say", "body": "view", "core": "g1", "task": "d22-k2", "symbols": ["gad", "gedo"]}
+{"id": "e326", "kind": "act", "body": "view", "core": "g1", "lesson": "d22-k2", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e327", "kind": "act", "body": "view", "core": "g1", "lesson": "d22-k2", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e328", "kind": "act", "body": "view", "core": "g1", "lesson": "d22-k2", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e329", "kind": "say", "body": "view", "core": "g1", "task": "d23-k0", "symbols": ["gedo", "zago"]}
+{"id": "e330", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k0", "tool": "filter", "args": ["p1", "ext:log"], "ok": true, "error": ""}
+{"id": "e331", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k0", "tool": "filter", "args": ["p2", "ext:log"], "ok": true, "error": ""}
+{"id": "e332", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k0", "tool": "filter", "args": ["p3", "ext:log"], "ok": true, "error": ""}
+{"id": "e333", "kind": "say", "body": "view", "core": "g1", "task": "d23-k1", "symbols": ["sort", "the", "ungrouped", "panels", "by", "ext"]}
+{"id": "e334", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k1", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}
+{"id": "e335", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k1", "tool": "rank", "args": ["key:ext", "p2"], "ok": true, "error": ""}
+{"id": "e336", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k1", "tool": "rank", "args": ["key:ext", "p3"], "ok": true, "error": ""}
+{"id": "e337", "kind": "say", "body": "view", "core": "g1", "task": "d23-k2", "symbols": ["bobu", "gad"]}
+{"id": "e338", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k2", "tool": "filter", "args": ["p1", "ext:md"], "ok": true, "error": ""}
+{"id": "e339", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k2", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e340", "kind": "act", "body": "view", "core": "g1", "lesson": "d23-k2", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e341", "kind": "say", "body": "view", "core": "g1", "task": "d24-k0", "symbols": ["tasu", "gad"]}
+{"id": "e342", "kind": "act", "body": "view", "core": "g1", "lesson": "d24-k0", "tool": "group", "args": ["p1", "grp:ext"], "ok": true, "error": ""}
+{"id": "e343", "kind": "act", "body": "view", "core": "g1", "lesson": "d24-k0", "tool": "group", "args": ["p2", "grp:ext"], "ok": true, "error": ""}
+{"id": "e344", "kind": "act", "body": "view", "core": "g1", "lesson": "d24-k0", "tool": "group", "args": ["p3", "grp:ext"], "ok": true, "error": ""}
+{"id": "e345", "kind": "say", "body": "view", "core": "g1", "task": "d24-k1", "symbols": ["show", "the", "panels", "sorted", "by", "name", "only", "md"]}
+{"id": "e346", "kind": "act", "body": "view", "core": "g1", "lesson": "d24-k1", "tool": "filter", "args": ["p2", "ext:md"], "ok": true, "error": ""}
+{"id": "e347", "kind": "act", "body": "view", "core": "g1", "lesson": "d24-k1", "tool": "filter", "args": ["p3", "ext:md"], "ok": true, "error": ""}
+{"id": "e348", "kind": "say", "body": "view", "core": "g1", "task": "d24-k2", "symbols": ["sort", "the", "panels", "sorted", "by", "size", "by", "ext"]}
+{"id": "e349", "kind": "act", "body": "view", "core": "g1", "lesson": "d24-k2", "tool": "rank", "args": ["key:ext", "p1"], "ok": true, "error": ""}

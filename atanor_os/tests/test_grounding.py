@@ -116,3 +116,21 @@ def test_a_name_goes_to_the_known_concept_the_person_confirms_by_contrast(tmp_pa
     tut.point = lambda k=2: ['a', 'b']            # both pointed cards fit both known concepts
     got = g.known_concept('L')
     assert got['content']['concept'] == 'k1' and tut.help['contrast'] >= 1
+
+
+def test_a_tie_between_readings_that_would_do_the_same_is_not_ambiguous(tmp_path):
+    """One name on two concepts that pick the same objects: acting is safe; on concepts that pick different ones it holds."""
+    ws = _board(tmp_path)
+    tut = Tutor(ws, BoardSpec, 1)
+    tut.start({'kind': 'card', 'mark': 'idea'}, {'tool': 'scrap'})
+    g = Grounder(ws, tmp_path / 'mind', person=tut)
+    sc = g.learn_selection('L')
+    ac = g.learn_action('L')
+    twin = g.mem.claims.add('selects', {**sc['content'], 'concept': 'k99'}, [], 'inferred', g.scope)
+    for node in (sc['content']['concept'], 'k99'):
+        g.bind('mip', node, 'L')
+    g.bind('dax', ac['content']['action'], 'L')
+    assert g.resolve(['dax', 'mip'])[0] is not None
+    other = [a for a in g.feats()['c0'] if "'a1'" in a]
+    g.mem.claims.revise(twin['id'], content={**twin['content'], 'atoms': other})
+    assert g.resolve(['dax', 'mip'])[0] is None or set(g.extension(other, g.feats())) == set(g.extension(sc['content']['atoms'], g.feats()))

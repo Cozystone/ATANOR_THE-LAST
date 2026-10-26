@@ -1,0 +1,1140 @@
+{
+ "life": "atanor_os\\results\\tutor-dev1-fs-en\\FULL",
+ "seed": 1,
+ "named_sel": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "named_act": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "naming": [
+  {
+   "sel": 0,
+   "act": 0,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  }
+ ],
+ "summary": {
+  "train": {
+   "base": {
+    "success": 25
+   },
+   "order": {
+    "success": 25
+   },
+   "base_reading": {
+    "meant": 25
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 25
+   },
+   "order_held_why": {},
+   "n": 25,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  },
+  "dev": {
+   "base": {
+    "success": 25
+   },
+   "order": {
+    "success": 25
+   },
+   "base_reading": {
+    "meant": 25
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 25
+   },
+   "order_held_why": {},
+   "n": 25,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  }
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "copy",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "archive"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "archive",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "copy",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "attic"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "csv",
+    "files",
+    "into",
+    "attic",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "delete",
+    "the",
+    "csv",
+    "files"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "delete",
+    "the",
+    "csv",
+    "files",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "log",
+    "files",
+    "into",
+    "archive"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "log",
+    "files",
+    "into",
+    "archive",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "log",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "log",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "log",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "log",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "log",
+    "files",
+    "into",
+    "attic"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "log",
+    "files",
+    "into",
+    "attic",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "delete",
+    "the",
+    "log",
+    "files"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "delete",
+    "the",
+    "log",
+    "files",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "archive"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "archive",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "move",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "attic"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "txt",
+    "files",
+    "into",
+    "attic",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "delete",
+    "the",
+    "txt",
+    "files"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "delete",
+    "the",
+    "txt",
+    "files",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "copy",
+    "the",
+    "json",
+    "files",
+    "into",
+    "archive"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "json",
+    "files",
+    "into",
+    "archive",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "json",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "json",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "json",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "json",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "json",
+    "files",
+    "into",
+    "attic"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "json",
+    "files",
+    "into",
+    "attic",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "delete",
+    "the",
+    "json",
+    "files"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "delete",
+    "the",
+    "json",
+    "files",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "md",
+    "files",
+    "into",
+    "archive"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "md",
+    "files",
+    "into",
+    "archive",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "copy",
+    "the",
+    "md",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "copy",
+    "the",
+    "md",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "move",
+    "the",
+    "md",
+    "files",
+    "into",
+    "inbox"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "md",
+    "files",
+    "into",
+    "inbox",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "move",
+    "the",
+    "md",
+    "files",
+    "into",
+    "attic"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "move",
+    "the",
+    "md",
+    "files",
+    "into",
+    "attic",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "delete",
+    "the",
+    "md",
+    "files"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "delete",
+    "the",
+    "md",
+    "files",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  }
+ ]
+}

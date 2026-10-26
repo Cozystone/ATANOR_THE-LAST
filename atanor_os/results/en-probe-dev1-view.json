@@ -1,0 +1,255 @@
+{
+ "life": "atanor_os\\results\\tutor-dev1-view-en\\FULL",
+ "seed": 1,
+ "named_sel": [
+  0,
+  2
+ ],
+ "named_act": [
+  0,
+  3
+ ],
+ "naming": [
+  {
+   "sel": 0,
+   "act": 0,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "named": false
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "named": true,
+   "sel_named": true,
+   "sel_known": true,
+   "confirmed": true
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "named": false
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "named": false
+  }
+ ],
+ "summary": {
+  "train": {
+   "base": {
+    "success": 4
+   },
+   "order": {
+    "success": 4
+   },
+   "base_reading": {
+    "meant": 4
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 4
+   },
+   "order_held_why": {},
+   "n": 4,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  },
+  "dev": {
+   "base": {
+    "success": 4
+   },
+   "order": {
+    "success": 4
+   },
+   "base_reading": {
+    "meant": 4
+   },
+   "base_held_why": {},
+   "order_reading": {
+    "meant": 4
+   },
+   "order_held_why": {},
+   "n": 4,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  }
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "show",
+    "the",
+    "unfiltered",
+    "panels",
+    "only",
+    "md"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "show",
+    "the",
+    "unfiltered",
+    "panels",
+    "only",
+    "md",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "show",
+    "the",
+    "unfiltered",
+    "panels",
+    "only",
+    "log"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "show",
+    "the",
+    "unfiltered",
+    "panels",
+    "only",
+    "log",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "show",
+    "the",
+    "ungrouped",
+    "panels",
+    "only",
+    "md"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "show",
+    "the",
+    "ungrouped",
+    "panels",
+    "only",
+    "md",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "show",
+    "the",
+    "ungrouped",
+    "panels",
+    "only",
+    "log"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "show",
+    "the",
+    "ungrouped",
+    "panels",
+    "only",
+    "log",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  }
+ ]
+}

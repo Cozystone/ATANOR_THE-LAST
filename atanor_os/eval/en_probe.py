@@ -5,7 +5,7 @@ each command twice: with the joint explanation alone (BASE) and with phrase posi
 
 Forms: 'train' (the life's own order) and 'dev' (development only) here; sealed forms come from a file outside the
 repository and are run once, on an evaluation seed, in a frozen snapshot.
-Usage: python -m atanor_os.eval.en_probe <life_FULL_dir> <seed> <out.json> [sealed:<path>]
+Usage: python -m atanor_os.eval.en_probe <life_FULL_dir> <seed> <out.json> [sealed:<path>] [body:fs|view]
 """
 import json
 import shutil
@@ -13,7 +13,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from .tutor_life import DRIFT, body_spec, body_targets, day_inflow, english
+from .tutor_life import DRIFT, body_spec, body_targets, day_inflow, english, make_home
 
 DEV_FORMS = {'train': ['H', 'S', 'T'], 'dev': ['please', 'H', 'S', 'T', 'now']}
 
@@ -26,21 +26,29 @@ def words_of(form, sel, act):
     return out
 
 
-def board(root, seed, drift):
-    from ..world.board_world import BoardWorkspace
+def world(root, seed, drift, body='board'):
+    """A fresh world ATANOR has never seen: new board cards (some already in trays), new files, or the day's panels."""
     if root.exists():
         shutil.rmtree(root)
-    home = BoardWorkspace(root)
-    for d in range(30, 38):                             # new cards ATANOR has never seen, some already in trays
-        home.add_cards({f'p{d}{k}': c for k, c in day_inflow(seed, d).items()})
+    if body == 'board':
+        from ..world.board_world import BoardWorkspace
+        home = BoardWorkspace(root)
+        for d in range(30, 38):
+            home.add_cards({f'p{d}{k}': c for k, c in day_inflow(seed, d).items()})
+    else:
+        for d in (30, 31, 32) if body == 'fs' else (30,):
+            home = make_home(body, root, seed, d)
     home.drift = frozenset(drift)
     return home
 
 
 def todo(spec, home, tut, act):
+    """The objects still to act on, or none if the person knows the action cannot be done on them here."""
     st = home.observe(home.existing())
     rest = [o for o in tut.truth if not spec.shows(act, o, st)]
-    if act['tool'] in ('lift', 'unlodge') and any(st[o]['tray'] == '-' for o in rest):
+    if spec.BODY == 'board' and act['tool'] in ('lift', 'unlodge') and any(st[o]['tray'] == '-' for o in rest):
+        return []
+    if spec.BODY == 'view' and act['tool'] == 'group' and any(st[o]['filter'] != 'all' for o in rest):
         return []
     return rest
 
@@ -60,7 +68,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
     S = json.loads((life_dir / 'tutor_state.json').read_text(encoding='utf-8'))
     taught = [tuple(p) for p in S['taught']]
 
-    home = board(work / 'board', seed, drift)          # naming session, the person present
+    home = world(work / 'board', seed, drift, body)          # naming session, the person present
     tut = Tutor(home, spec, f'{seed}-en-probe')
     g = Grounder(home, work / 'mind', person=tut)
     named_s, named_a, naming, node_s, node_a = set(), set(), [], {}, {}
@@ -71,7 +79,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
         if not todo(spec, home, tut, acts[a]):
             naming.append({'sel': s, 'act': a, 'named': False})
             continue
-        known = g.known_concept(f'P{s}')          # the person points while saying the phrase; contrast if unclear
+        known = g.known_concept(f'P{s}', english('sel', sels[s]))          # the person points while saying the phrase; contrast if unclear
         sc = known or g.learn_selection(f'P{s}')
         cands = [sc] if sc else []
         if cands:
@@ -79,9 +87,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
             named_s.add(s)
             node_s[s] = cands[0]['content']['concept']
         ac = g.learn_action(f'P{a}')
-        same = [x for x in g.mem.claims.claims('effect') if x['content']['tool'] == ac['content']['tool']
-                and x['content']['gained'] == ac['content']['gained'] and x['id'] != ac['id']]
-        node_a[a] = (same[0] if same else ac)['content']['action']
+        node_a[a] = ac['content']['action']             # learn_action reuses an action only when the whole call matches
         g.name_phrase(english('act', acts[a]), node_a[a], f'P{a}')
         named_a.add(a)
         if cands:
@@ -91,7 +97,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
     rows = []
     for s in sorted(named_s):
         for a in sorted(named_a):
-            base_home = board(work / 'cmd_board', seed, drift)
+            base_home = world(work / 'cmd_board', seed, drift, body)
             t0 = Tutor(base_home, spec, f'{seed}-en-cmd')
             t0.start(sels[s], acts[a])
             if not todo(spec, base_home, t0, acts[a]):
@@ -100,7 +106,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
                 words = words_of(form, sels[s], acts[a])
                 row = {'sel': s, 'act': a, 'form': fname, 'taught_pair': (s, a) in taught, 'words': words}
                 for st in (None, 'order'):             # BASE is the explicit comparison; ORDER became the default
-                    h = board(work / 'cmd_board', seed, drift)
+                    h = world(work / 'cmd_board', seed, drift, body)
                     if (work / 'cmd_mind').exists():
                         shutil.rmtree(work / 'cmd_mind')
                     shutil.copytree(work / 'mind', work / 'cmd_mind')
@@ -137,5 +143,6 @@ if __name__ == '__main__':
     forms = None
     if len(sys.argv) > 4 and sys.argv[4].startswith('sealed:'):
         forms = json.loads(Path(sys.argv[4][7:]).read_text(encoding='utf-8'))['forms']
-    r = run(sys.argv[1], int(sys.argv[2]), sys.argv[3], forms)
+    body = next((a[5:] for a in sys.argv[4:] if a.startswith('body:')), 'board')
+    r = run(sys.argv[1], int(sys.argv[2]), sys.argv[3], forms, body=body)
     print(json.dumps({k: r[k] for k in ('named_sel', 'named_act', 'summary')}, indent=1))

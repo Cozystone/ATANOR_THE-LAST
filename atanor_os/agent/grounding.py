@@ -119,10 +119,11 @@ class Grounder:
         g.save()
         return claim
 
-    def known_concept(self, lesson):
+    def known_concept(self, lesson, phrase=None):
         """The person points while saying a name: which concept already shared is meant? The known concepts that fit the
         pointed objects are told apart by contrast questions (the object that splits them most evenly). None if no single
-        one is left (the caller then learns a new concept from pointing)."""
+        one is left (the caller then learns a new concept from pointing). Concepts this world cannot split: one that
+        already carries this phrase keeps it; else one with no other name (a new name is for something not yet named)."""
         feats = self.feats()
         pts = self.person.point()
         self.counts['point'] += 1
@@ -146,7 +147,11 @@ class Grounder:
             cands = [c for c in cands if (o in ext(c)) == ans]
         if not cands or (len({ext(c) for c in cands}) > 1 and not self.passive):
             return None
-        return sorted(cands, key=lambda c: (len(ext(c)), c['id']))[0]
+        said = [list(x) for x in (phrase,)] if phrase else []
+        def names(c):
+            return self._phrases(c['content']['concept'])
+        return sorted(cands, key=lambda c: (not any(p in names(c) for p in said), bool(names(c)) and not any(p in names(c) for p in said),
+                                            len(ext(c)), c['id']))[0]
 
     # ---------------------------------------------------------------- action concepts
     def learn_action(self, lesson):
@@ -401,7 +406,14 @@ class Grounder:
             return (base, self._order_score(words, s, a)) if self.structure == 'order' else (base,)
         scored = sorted(((key(s, a), s, a) for s in sel_n for a in act_n), reverse=True)
         unknown = [w for w, ns in nodes.items() if not ns]
-        if not scored or (len(scored) > 1 and scored[0][0] == scored[1][0]):
+        if not scored:
+            return None, None, unknown
+        feats = self.feats()
+        def does(s, a):                                    # what a reading would do here: which objects, which call
+            e = defs[a]['claim']['content']
+            return (tuple(self.extension(defs[s]['claim']['content']['atoms'], feats)), e['tool'], json.dumps(e['template']))
+        top = [(s, a) for k, s, a in scored if k == scored[0][0]]
+        if len({does(s, a) for s, a in top}) > 1:          # a tie is ambiguous only if the readings would act differently
             return None, None, unknown
         _, s, a = scored[0]
         return defs[s], defs[a], unknown

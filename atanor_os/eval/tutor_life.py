@@ -35,18 +35,35 @@ def targets(seed):
 
 
 def english(kind, spec):
-    """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection."""
+    """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection.
+    Evaluator side only: the learner never sees this table, only the person saying the phrase while pointing or showing."""
     if kind == 'sel':
+        if spec['kind'] == 'file':
+            return ['the', spec['ext'], 'files']
+        if spec['kind'] == 'panel':
+            if 'sort' in spec:
+                return ['the', 'panels', 'sorted', 'by', spec['sort']]
+            if 'group' in spec:
+                return ['the', 'ungrouped', 'panels']
+            return ['the', 'unfiltered', 'panels'] if spec['filter'] == 'all' else ['the', 'panels', 'showing', spec['filter']]
         if 'mark' in spec and 'tray' in spec:
             return ['the', spec['mark'], 'cards', 'in', spec['tray']]
         return ['the', spec['mark'], 'cards'] if 'mark' in spec else ['the', 'cards', 'in', spec['tray']]
-    t = spec['tool']
+    t, v = spec['tool'], spec.get('second')
+    if t in ('copy', 'move'):
+        return [t, 'into', v]
+    if t == 'delete':
+        return ['delete']
+    if t == 'filter':
+        return ['show', 'only', v.split(':', 1)[1]]
+    if t in ('sort', 'group'):
+        return [t, 'by', v.split(':', 1)[1]]
     if t == 'lodge':
-        return ['stash', 'in', TRAYS[spec['second']]]
+        return ['stash', 'in', TRAYS[v]]
     if t == 'stamp':
-        return ['label', 'as', spec['second'][2:]]
+        return ['label', 'as', v[2:]]
     if t == 'lift':
-        return ['raise', 'to', spec['second'][2:]]
+        return ['raise', 'to', v[2:]]
     return {'unlodge': ['take', 'out'], 'scrap': ['shred']}[t]
 
 
@@ -118,11 +135,11 @@ def plan(seed, days=24, body='board'):
         ev = []
         if d <= 4 and user:
             ev += [['lesson'], ['lesson']]
-        if d in (11, 13) and user and body == 'board':
+        if d in (11, 13) and user:
             ev += [['english'], ['english'], ['english']]
         for _ in range(3 if d >= 2 else 0):
             kind = 'C' if d >= 5 and rng.random() < 0.5 else 'B'
-            lang = 'en' if d >= 12 and body == 'board' and rng.random() < 0.5 else 'sym'
+            lang = 'en' if d >= 12 and rng.random() < 0.5 else 'sym'
             ev.append(['test', kind, lang])
         out.append({'day': d, 'user': user, 'drift': [DRIFT[body]] if d >= 9 else [], 'events': ev})
     return out
@@ -224,7 +241,7 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
                 s, a = c
                 row.update(sel=s, act=a)
                 tut.start(sels[s], acts[a])
-                sc = g.known_concept(f'E{s}-d{day_no}')   # the person points while saying the phrase; contrast if unclear
+                sc = g.known_concept(f'E{s}-d{day_no}', english('sel', sels[s]))   # the person points while saying the phrase; contrast if unclear
                 row['english_sel_known'] = bool(sc)
                 sc = sc or g.learn_selection(f'E{s}-d{day_no}')
                 cands = [sc] if sc else []
@@ -232,9 +249,8 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
                     g.name_phrase(english('sel', sels[s]), sc['content']['concept'], f'E{s}-d{day_no}')
                     S['en_sel'].append(s)
                 ac = g.learn_action(f'E{a}-d{day_no}')    # demonstrate while saying the action phrase
-                same = [x for x in g.mem.claims.claims('effect') if x['content']['tool'] == ac['content']['tool']
-                        and x['content']['gained'] == ac['content']['gained'] and x['id'] != ac['id']]
-                node = (same[0] if same else ac)['content']['action']
+                same = ac.get('v', 1) > 1                 # learn_action reuses an action only when the whole call matches
+                node = ac['content']['action']
                 g.name_phrase(english('act', acts[a]), node, f'E{a}-d{day_no}')
                 S['en_act'].append(a)
                 row['english_act_matched_existing'] = bool(same)
