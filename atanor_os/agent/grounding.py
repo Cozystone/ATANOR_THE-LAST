@@ -26,9 +26,11 @@ QUESTION_BUDGET = 6
 
 
 class Grounder:
-    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program'):
+    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
+                 experiment=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
+        self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -46,9 +48,10 @@ class Grounder:
         g.save()
 
     # ---------------------------------------------------------------- perception
-    def feats(self):
-        objs = self.home.existing()
-        st = self.home.observe(objs)
+    def feats(self, home=None):
+        home = home or self.home
+        objs = home.existing()
+        st = home.observe(objs)
         return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
 
     @staticmethod
@@ -243,6 +246,45 @@ class Grounder:
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
         return acted, failed
+
+    LAB_BUDGET = 12
+
+    def _experiment(self, claim, o, task):
+        """The remembered call no longer brings its change. In a lab copy, try the body's other tools that take as many
+        arguments, with the same arguments in every order, on the object that failed. A call that brings the remembered
+        change revises the action claim (a new version; the old one stays, and so do its names)."""
+        eff = claim['content']
+        args = [self._arg(r, o) for r in eff['template']]
+        tools = getattr(self.home, 'tools', lambda: {})()
+        lab_root = self.dir / 'lab'
+        tried = 0
+        for tool in sorted(t for t, n in tools.items() if n == len(args) and t != eff['tool']):
+            for order in itertools.permutations(range(len(args))):
+                if tried >= self.LAB_BUDGET:
+                    return None
+                tried += 1
+                lab = self.home.lab_copy(lab_root, list(dict.fromkeys([o] + args)))
+                before = self.feats(lab)
+                call = [args[i] for i in order]
+                try:
+                    res = lab.execute(tool, tuple(call), self.caps)
+                except ValueError:
+                    res = {'ok': False}
+                self.counts['lab_actions'] += 1
+                after = self.feats(lab)
+                ev = self.mem.events.append('experiment', task=task, tool=tool, args=call, ok=res.get('ok'))
+                gained = {a for a in eff['gained'] if a != "('gone',)"}
+                brought = (o not in after) if "('gone',)" in eff['gained'] else (o in after and gained <= after[o] and not gained <= before.get(o, frozenset()))
+                if res.get('ok') and brought:
+                    template = [eff['template'][i] for i in order]
+                    new = self.mem.claims.revise(claim['id'], content={**eff, 'tool': tool, 'template': template}, support=[ev],
+                                                 status='active', origin='observed')
+                    g = self.mem.graph
+                    g.link(eff['action'], 'uses', g.node(f'tool:{tool}', 'tool'), new['id'])
+                    g.save()
+                    self.counts['experiments_found'] += 1
+                    return new
+        return None
 
     # ---------------------------------------------------------------- symbols
     def bind(self, symbol, node, lesson=None, replace=False):
@@ -506,6 +548,10 @@ class Grounder:
         if failed and acts[0]['claim'].get('id'):
             self.mem.counter(acts[0]['claim']['id'], failed[0][1])       # the tool did not do what the claim said
             self.counts['effect_counterexamples'] += 1
+            found = self._experiment(acts[0]['claim'], failed[0][0], task) if self.experiment else None
+            if found:                                                     # another way does it: carry on with that
+                more, failed = self.apply(sel, found['content'], lesson=task)
+                acted += more
         return {'ok': not failed, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed], 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
 
