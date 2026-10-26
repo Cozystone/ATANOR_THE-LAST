@@ -466,10 +466,10 @@ class Grounder:
         if not scored:
             return None, None, unknown
         feats = self.feats()
-        def does(s, a):                                    # what a reading would bring about here: which objects, which change
-            e = defs[a]['claim']['content']
+        def does(s, a):                                    # what a reading would bring about here: which objects, what they end as
+            e = defs[a]['claim']['content']                # ('lost' says only where the demonstrated object happened to come from)
             return (tuple(self.extension(defs[s]['claim']['content']['atoms'], feats)),
-                    json.dumps([e.get('gained'), e.get('lost'), e.get('made')]))
+                    json.dumps([sorted(e.get('gained') or []), sorted(e.get('made') or [])]))
         top = [(s, a) for k, s, a in scored if k == scored[0][0]]
         self._tied = None
         if len({does(s, a) for s, a in top}) > 1:          # a tie is ambiguous only if the readings would end differently
