@@ -120,6 +120,25 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 seq.append('success' if ok and res.get('ok') else ('tool_failed' if res.get('failed') else
                                                                    ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why'))))))
             revision.append({'sel': s, 'act': a, 'first': seq[0], 'second': seq[1]})
+    double = []                                            # file body only: two tools the course never saw stop at once
+    if body == 'fs':
+        two = ['move_retired', 'delete_retired']
+        if (work / 'm').exists():
+            shutil.rmtree(work / 'm')
+        shutil.copytree(mind_dir, work / 'm')              # one mind for the whole sequence, as a day alone
+        for s in sorted(int(k) for k in names['sel']):
+            for a in sorted(int(k) for k in names['act']):
+                if acts[a]['tool'] not in ('move', 'delete'):
+                    continue
+                h = world(work / 'b', eval_seed, list(drift) + two, body)
+                t = Tutor(h, spec, f'eval-{eval_seed}')
+                t.start(sels[s], acts[a])
+                if not todo(spec, h, t, acts[a]):
+                    continue
+                res = Grounder(h, work / 'm', person=None, source='evaluator').obey([names['act'][str(a)], names['sel'][str(s)]])
+                ok = t.judge()
+                double.append({'sel': s, 'act': a, 'tool': acts[a]['tool'], 'outcome': 'success' if ok and res.get('ok') else
+                               ('tool_failed' if res.get('failed') else ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why')))))})
     shutil.rmtree(work)
     summ = {}
     for r in rows:
@@ -128,7 +147,8 @@ def evaluate(course, eval_seed, out_file, sealed=None):
     out = {'course': str(course), 'eval_seed': eval_seed, 'summary': {k: dict(v) for k, v in summ.items()},
            'held_why': dict(Counter(r['why'] for r in rows if r['outcome'] == 'held')), 'rows': rows,
            'unseen_change': {'n': len(revision), 'first': dict(Counter(r['first'] for r in revision)),
-                             'second': dict(Counter(r['second'] for r in revision)), 'rows': revision}}
+                             'second': dict(Counter(r['second'] for r in revision)), 'rows': revision},
+           'double_change': {'n': len(double), 'outcomes': dict(Counter(r['outcome'] for r in double)), 'rows': double}}
     out_file.write_text(json.dumps(out, indent=1), encoding='utf-8')
     return out
 
