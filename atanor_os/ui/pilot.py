@@ -60,7 +60,10 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
         elif k == 'demo':
             st = tut.home.observe(tut.home.existing())
             rest = [o for o in tut.truth if not tut.spec.shows(tut.act, o, st)] or tut.truth
+            if p.get('error') and len(rest) > 1:           # the last one did not work: show it on another object
+                rest = [x for x in rest if x != getattr(tut, '_last_demo', None)] or rest
             o = tut.rng.choice(rest)
+            tut._last_demo = o
             tool, args = tut.spec.steps(tut.act, o, getattr(tut.home, 'drift', ()))
             ans = {'tool': tool, 'args': list(args), 'object': o}
         elif k == 'show':                                  # is this what was meant? (honest, like every confirmation)

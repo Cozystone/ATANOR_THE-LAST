@@ -70,7 +70,7 @@ class HumanPerson:
         """The person does the action once on one card; the board executes it as the person's own action."""
         self.help['demo'] += 1
         err = None
-        while True:
+        for _ in range(3):                                 # after three actions that do not work, the person gives up
             d = self.ask('demo', error=err)
             args = tuple(a for a in d['args'] if a)
             try:
@@ -81,6 +81,7 @@ class HumanPerson:
                 card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file')), args[0])   # the object acted on
                 return {'tool': d['tool'], 'args': list(args), 'object': card}
             err = f"그 행동은 되지 않았습니다 ({res.get('error')}). 다른 카드나 값으로 다시 보여 주세요."
+        raise Cancelled()
 
 
 def classify(row):
