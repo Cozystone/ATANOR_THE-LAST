@@ -53,8 +53,9 @@ PER_SESSION = 4
 
 
 class Teacher:
-    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0, body='board', mind=None):
+    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0, body='board', mind=None, per_session=PER_SESSION):
         self.root = Path(root)
+        self.per_session = per_session                     # the teacher's budget: activities per session
         self.mind = Path(mind) if mind else self.root / 'mind'
         self.body = body
         self.spec = body_spec(body)
@@ -239,7 +240,7 @@ class Teacher:
         """Back after a day away: ATANOR asks about what it held alone; the teacher says whether it is still wanted and
         answers its questions (reads the unfinished-goal list only to know which of its own commands these are)."""
         p = self.mind / 'pending.json'
-        for _ in range(PER_SESSION):
+        for _ in range(self.per_session):
             items = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
             if not items:
                 return
@@ -348,11 +349,11 @@ class Teacher:
         if away:                                           # nobody to help: ATANOR alone, judged afterwards
             pairs = [(s, a) for s in sorted(self.named_s) for a in sorted(self.named_a) if self.feasible(s, a)]
             self.rng.shuffle(pairs)
-            for s, a in pairs[:PER_SESSION]:
+            for s, a in pairs[:self.per_session]:
                 self.command(s, a, 'away', alone=True)
             return
         done, seen = 0, set()
-        while done < PER_SESSION:
+        while done < self.per_session:
             cands = [c for c in self.candidates(i) if (c[1], c[3], c[4]) not in seen]
             if not cands:
                 break
@@ -392,7 +393,7 @@ class Teacher:
                     self.phrase(s, a)
                     done += 1
         cands = [p for p in pairs if p[0] in self.named_s and p[1] in self.named_a and self.feasible(*p)]
-        for j, (s, a) in enumerate(cands[:PER_SESSION]):
+        for j, (s, a) in enumerate(cands[:self.per_session]):
             self.command(s, a, 'away' if away else 'fixed', alone=away or j % 2 == 0)
 
     def run(self, n_sessions=15):
