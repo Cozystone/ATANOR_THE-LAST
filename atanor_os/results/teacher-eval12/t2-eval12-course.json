@@ -1,0 +1,91 @@
+{
+ "sessions": 15,
+ "dates": [
+  "2026-11-01",
+  "2026-11-02",
+  "2026-11-03",
+  "2026-11-04",
+  "2026-11-06",
+  "2026-11-07",
+  "2026-11-09",
+  "2026-11-10",
+  "2026-11-12",
+  "2026-11-14",
+  "2026-11-15",
+  "2026-11-17"
+ ],
+ "lessons": 14,
+ "lessons_confirmed": 14,
+ "help_per_lesson": {
+  "point": 1.0,
+  "contrast": 2.07,
+  "demo": 1.0
+ },
+ "phrases_named": 18,
+ "phrases_on_known_concept": 17,
+ "commands": 37,
+ "outcomes": {
+  "success": 36,
+  "tool_failed": 1
+ },
+ "failure_classes": {
+  "tool model: the action did not do what was remembered": 1
+ },
+ "reuse_after_sessions": {
+  "same day / with person": {
+   "n": 2,
+   "success": 2,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 2
+  },
+  "1-2 days / with person": {
+   "n": 6,
+   "success": 6,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 6
+  },
+  "1-2 days / alone": {
+   "n": 5,
+   "success": 5,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 4
+  },
+  "3-6 days / with person": {
+   "n": 4,
+   "success": 4,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 3
+  },
+  "3-6 days / alone": {
+   "n": 6,
+   "success": 6,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 6
+  },
+  "7+ days / alone": {
+   "n": 6,
+   "success": 5,
+   "wrong": 0,
+   "held": 1,
+   "on_new_cards": 4
+  },
+  "7+ days / with person": {
+   "n": 4,
+   "success": 4,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 4
+  }
+ },
+ "claims_by_source": {
+  "synthetic_teacher": 70
+ },
+ "events_by_source": {
+  "synthetic_teacher": 562
+ }
+}

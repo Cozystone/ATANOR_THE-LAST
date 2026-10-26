@@ -1,0 +1,88 @@
+{
+ "sessions": 15,
+ "dates": [
+  "2026-11-01",
+  "2026-11-02",
+  "2026-11-03",
+  "2026-11-04",
+  "2026-11-06",
+  "2026-11-07",
+  "2026-11-09",
+  "2026-11-10",
+  "2026-11-12",
+  "2026-11-14",
+  "2026-11-15",
+  "2026-11-17"
+ ],
+ "lessons": 8,
+ "lessons_confirmed": 7,
+ "help_per_lesson": {
+  "point": 0.88,
+  "contrast": 1.12,
+  "demo": 0.88
+ },
+ "phrases_named": 6,
+ "phrases_on_known_concept": 6,
+ "commands": 45,
+ "outcomes": {
+  "success": 37,
+  "held": 7,
+  "tool_failed": 1
+ },
+ "failure_classes": {
+  "grounding: no shared criterion": 1,
+  "safety hold: concept undecided here": 2,
+  "tool model: the action did not do what was remembered": 1,
+  "grounding: contradicted by the person, to be taught again": 5
+ },
+ "reuse_after_sessions": {
+  "1-2 days / alone": {
+   "n": 5,
+   "success": 4,
+   "wrong": 0,
+   "held": 1,
+   "on_new_cards": 3
+  },
+  "1-2 days / with person": {
+   "n": 4,
+   "success": 4,
+   "wrong": 0,
+   "held": 0,
+   "on_new_cards": 3
+  },
+  "3-6 days / alone": {
+   "n": 7,
+   "success": 6,
+   "wrong": 0,
+   "held": 1,
+   "on_new_cards": 5
+  },
+  "3-6 days / with person": {
+   "n": 12,
+   "success": 11,
+   "wrong": 0,
+   "held": 1,
+   "on_new_cards": 10
+  },
+  "7+ days / alone": {
+   "n": 12,
+   "success": 9,
+   "wrong": 0,
+   "held": 3,
+   "on_new_cards": 8
+  },
+  "7+ days / with person": {
+   "n": 5,
+   "success": 3,
+   "wrong": 0,
+   "held": 2,
+   "on_new_cards": 3
+  }
+ },
+ "claims_by_source": {
+  "fixed_curriculum": 38
+ },
+ "events_by_source": {
+  "fixed_curriculum": 296
+ }
+}
