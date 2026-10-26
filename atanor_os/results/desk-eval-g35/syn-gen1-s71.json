@@ -1,0 +1,352 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\desk-s71\\gen1\\desk",
+ "eval_seed": 171,
+ "summary": {
+  "alone_first": {
+   "success": 6,
+   "wrong": 1,
+   "held": 6
+  },
+  "alone_after": {
+   "success": 7
+  },
+  "reuse_alone": {
+   "success": 11
+  },
+  "n": 13,
+  "plain_pairs": 20,
+  "wrong_total": 1,
+  "wrong_but_judged_right": 0
+ },
+ "rows": [
+  {
+   "word": "archive",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    0
+   ],
+   "alone_first": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "blue",
+   "part": "sel",
+   "pair": [
+    5,
+    0
+   ],
+   "reuse_pair": [
+    5,
+    1
+   ],
+   "alone_first": {
+    "outcome": "wrong",
+    "judge": false,
+    "why": null
+   },
+   "teach_help": {
+    "point": 1,
+    "contrast": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "complete",
+   "part": "act",
+   "pair": [
+    3,
+    4
+   ],
+   "reuse_pair": null,
+   "alone_first": {
+    "outcome": "held",
+    "judge": false,
+    "why": "unresolved"
+   },
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": null
+  },
+  {
+   "word": "drafts",
+   "part": "sel",
+   "pair": [
+    2,
+    1
+   ],
+   "reuse_pair": [
+    2,
+    6
+   ],
+   "alone_first": {
+    "outcome": "held",
+    "judge": false,
+    "why": "unresolved"
+   },
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "file",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    0
+   ],
+   "alone_first": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "green",
+   "part": "act",
+   "pair": [
+    0,
+    1
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "messages",
+   "part": "sel",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    0,
+    1
+   ],
+   "alone_first": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "notes",
+   "part": "sel",
+   "pair": [
+    4,
+    0
+   ],
+   "reuse_pair": [
+    4,
+    1
+   ],
+   "alone_first": {
+    "outcome": "held",
+    "judge": false,
+    "why": "unresolved"
+   },
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "pin",
+   "part": "act",
+   "pair": [
+    4,
+    5
+   ],
+   "reuse_pair": [
+    5,
+    5
+   ],
+   "alone_first": {
+    "outcome": "held",
+    "judge": false,
+    "why": "unresolved"
+   },
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "read",
+   "part": "act",
+   "pair": [
+    0,
+    2
+   ],
+   "reuse_pair": null,
+   "alone_first": {
+    "outcome": "held",
+    "judge": false,
+    "why": "unresolved"
+   },
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": null
+  },
+  {
+   "word": "red",
+   "part": "sel",
+   "pair": [
+    1,
+    1
+   ],
+   "reuse_pair": [
+    1,
+    6
+   ],
+   "alone_first": {
+    "outcome": "held",
+    "judge": false,
+    "why": "unresolved"
+   },
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "tag",
+   "part": "act",
+   "pair": [
+    0,
+    1
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  },
+  {
+   "word": "tasks",
+   "part": "sel",
+   "pair": [
+    3,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    1
+   ],
+   "alone_first": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   },
+   "reuse_alone": {
+    "outcome": "success",
+    "judge": true,
+    "why": null
+   }
+  }
+ ]
+}
