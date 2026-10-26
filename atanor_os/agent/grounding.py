@@ -742,7 +742,8 @@ class Grounder:
         object that no longer looks as it did right after the action in anything else (it was set up anew); and so is
         a value an object of this action had right before it (DESK_EVAL4_PROTOCOL.md: an undoing, not an outcome). And a
         two-step effect moves every such object on: if some still show the immediate result while others hold other
-        values, the values were scattered by something else. One object alone is not enough to tell."""
+        values, the values were scattered by something else. One object alone is not enough to tell. And a value that
+        objects last handled by other actions also moved to is a change of the whole world (DESK_EVAL5_PROTOCOL.md)."""
         eff = claim['content']
         if 'X' not in eff['template']:
             return None
@@ -754,7 +755,7 @@ class Grounder:
                     and all(args[i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
 
         consts = [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
-        seen, touched, by_action, right_after, before = {}, set(), set(), {}, set()
+        seen, touched, by_action, right_after, before, last_other = {}, set(), set(), {}, set(), set()
         for e in reversed(self.mem.events.all()):
             if e.get('kind') == 'acted_state' and e.get('body') == self.body:
                 for o, st in e['states'].items():
@@ -769,6 +770,8 @@ class Grounder:
                 if (e.get('kind') == 'act' and e.get('ok') and this_action(e, args)
                         and args[xi] not in touched and args[xi] not in seen):
                     seen[args[xi]] = e
+                if e.get('kind') == 'act' and e.get('ok') and not this_action(e, args):
+                    last_other |= {o for o in objs if o not in touched}    # last handled by another action
                 touched |= objs
         if not seen:
             return None
@@ -781,6 +784,9 @@ class Grounder:
             return None
         new = {a for o in same for a in feats[o] if self._attr(a) in attrs and a not in known and a not in before}
         new = sorted(a for a in new if not any(a in f for o, f in feats.items() if o not in by_action))
+        moved_elsewhere = {a for o in last_other if o in feats and o in right_after
+                           for a in feats[o] if self._attr(a) in attrs and a not in right_after[o]}
+        new = [a for a in new if a not in moved_elsewhere]
         if not new:
             return None
         self.counts['later_outcomes'] += len(new)
