@@ -191,6 +191,21 @@ class Session:
         self.log(event='session', new_cards=new)
         self.say(f'{n}번째 세션입니다. 새 대상 {len(new)}개가 들어왔습니다.')
 
+    def setup_scene(self, scene, reason=''):
+        """The teacher lays out the materials (like a person arranging cards before a lesson): the body's own scene
+        setup, not a tool action and not a write to ATANOR. Recorded as teacher_scene_setup in the session log only."""
+        if self.body != 'view':
+            raise ValueError('scene setup is provided for the screen body')
+        from ..world.view_world import ViewWorkspace
+        import shutil
+        drift = self.home.drift
+        data = self.home.data
+        shutil.rmtree(self.root / 'view')
+        self.home = ViewWorkspace(self.root / 'view', data, spec=scene)
+        self.home.drift = drift
+        self.person.home = self.home
+        self.log(event='teacher_scene_setup', scene=scene, reason=reason)
+
     def lesson_id(self):
         self.state['k'] += 1
         self.save()

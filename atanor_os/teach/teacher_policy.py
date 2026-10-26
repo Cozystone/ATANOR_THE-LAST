@@ -16,6 +16,9 @@ What it reads, and what it does about it (most urgent first):
   new        a target nobody has taught yet -> a lesson, paired with something already shared (reuse)
   combo      names never used together -> a command for the new combination
   recall     a name not used for 5+ days -> ATANOR alone, then judged
+  contrastive curriculum (c1, screen body) before a new name or phrase for a selection, the teacher checks that its
+             candidate meanings pick different objects in the scene; if not, it lays out a scene where they do (the
+             body's scene setup, logged as teacher_scene_setup), or holds the name if no such scene exists
   phrase     after the first week, an English phrase for something shared (t4: only on a day when what it picks
              differs from what every other named selection picks, so the phrase cannot land on a shared concept)
 Every 4th session the teacher is away: ATANOR gets commands alone and is only judged afterwards.
@@ -26,6 +29,7 @@ Every decision is logged (teacher_log.jsonl): policy version, session, activity,
 truth used (the cards meant), and the range of ATANOR's events the activity produced.
 """
 import datetime
+import itertools
 import json
 import random
 import shutil
@@ -38,7 +42,7 @@ from ..ui.pilot import DAYS, Clock, drive, write_names
 from ..ui.teach_server import Session
 from .tutor import Tutor, symbols
 
-POLICIES = ('t1', 't2', 't4')
+POLICIES = ('t1', 't2', 't4', 'c1')
 
 
 class _NotWanted:
@@ -92,9 +96,9 @@ class Teacher:
         cs = [claim['content']['atoms']] + claim['content'].get('alternatives', [])
         return len({tuple(sorted(o for o, f in feats.items() if set(c) <= f)) for c in cs}) > 1
 
-    def feats(self):
+    def feats(self, home=None):
         from ..agent.concepts import FAMILIES_ALL, atoms
-        home = self.sess.home
+        home = home or self.sess.home
         objs = home.existing()
         st = home.observe(objs)
         return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
@@ -103,6 +107,68 @@ class Teacher:
     def feasible(self, s, a):
         self.tut.start(self.sels[s], self.acts[a])
         return bool(todo(self.spec, self.sess.home, self.tut, self.acts[a]))
+
+    # ------------------------------------------------------------ contrastive curriculum (c1)
+    ATTR = {'view': {'kind': 'a0', 'filter': 'a1', 'sort': 'a2', 'group': 'a3'}}
+    SCENE_VALUES = {'filter': ['all', 'csv', 'txt', 'md', 'log', 'json'], 'sort': ['name', 'size', 'ext'], 'group': ['none', 'ext']}
+    SCENE_TRIES = 300
+
+    def contrastive(self, s, home=None):
+        """Do the meanings ATANOR could take for selection s actually pick different objects here? Every criterion of
+        one or two observed atoms that all meant objects share must pick another set than the meant one, unless it
+        already contains the selection's own defining atoms (then it is the same meaning)."""
+        home = home or self.sess.home
+        st = home.observe(home.existing())
+        truth = frozenset(o for o, a in st.items() if self.spec.member(o, a, self.sels[s]))
+        feats = self.feats(home)
+        if not truth or len(truth) == len(feats):
+            return False
+        attr = self.ATTR[self.body]
+        own = {repr(('U', 0, attr[k], v)) for k, v in self.sels[s].items() if k in attr and k != 'kind'}   # kind is shared by all
+        shared = sorted(frozenset.intersection(*[feats[o] for o in truth]))
+        for k in (1, 2):
+            for h in itertools.combinations(shared, k):
+                if own <= set(h):
+                    continue
+                if frozenset(o for o, f in feats.items() if set(h) <= f) == truth:
+                    return False
+        return True
+
+    def contrastive_scene(self, s, a):
+        """A screen (the body's scene layout) where s's candidate meanings part ways and action a can be shown;
+        computed on lab screens, never by acting on the real one. None if there is no such scene."""
+        from ..world.view_world import ViewWorkspace
+        home = self.sess.home
+        rng = random.Random(f'scene-{self.seed}-{self.sess.state["session"]}-{s}-{a}')
+        for _ in range(self.SCENE_TRIES):
+            scene = {p: {'kind': 'panel', **{k: rng.choice(v) for k, v in self.SCENE_VALUES.items()}} for p in ('p1', 'p2', 'p3')}
+            lab_root = self.root / 'teacher_lab'
+            if lab_root.exists():
+                shutil.rmtree(lab_root)
+            lab = ViewWorkspace(lab_root, home.data, spec=scene)
+            lab.drift = home.drift
+            if not self.contrastive(s, lab):
+                continue
+            self.tut.home = lab
+            ok = self.feasible(s, a)
+            self.tut.home = home
+            if ok:
+                return scene
+        return None
+
+    def ensure_contrast(self, s, a, why):
+        """c1: before giving s a name, make sure its candidate meanings split in the scene; set one up if needed."""
+        if self.policy != 'c1' or self.body != 'view':
+            return True
+        if self.contrastive(s):
+            return True
+        scene = self.contrastive_scene(s, a)
+        if scene is None:
+            self.log('hold', 'no contrastive scene', s, a, self._events(), part=why)
+            return False
+        self.sess.setup_scene(scene, reason=f'{why}: candidate meanings of the selection part ways')
+        self.tut.home = self.sess.home
+        return True
 
     def distinct_today(self, s):
         """t4 (teacher's own world truth): does selection s pick, today, objects no other named selection picks alike?"""
@@ -139,6 +205,8 @@ class Teacher:
         return json.loads((self.root / 'log.jsonl').read_text(encoding='utf-8').splitlines()[-1])
 
     def lesson(self, s, a, reason, claim=None):
+        if reason == 'new' and s not in self.named_s and not self.ensure_contrast(s, a, 'new name'):
+            return                                         # no scene can tell its meanings apart: do not name it yet
         e0 = self._events()
         self.tut.start(self.sels[s], self.acts[a])
         self.sess.start('teach')
@@ -197,6 +265,8 @@ class Teacher:
                 self.log('phrase', 'resay', s, a, e0, part=part, outcome=self.last_row().get('outcome'))
 
     def phrase(self, s, a):
+        if not self.ensure_contrast(s, a, 'phrase'):
+            return
         e0 = self._events()
         for part, words in (('selection', english('sel', self.sels[s])), ('action', english('act', self.acts[a]))):
             self.tut.start(self.sels[s], self.acts[a])
