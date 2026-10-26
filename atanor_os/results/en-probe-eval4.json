@@ -1,0 +1,1181 @@
+{
+ "life": "atanor_os\\results\\tutor-eval4-board\\FULL",
+ "seed": 4,
+ "named_sel": [
+  0,
+  1,
+  2,
+  5,
+  6
+ ],
+ "named_act": [
+  0,
+  1,
+  3,
+  4,
+  5
+ ],
+ "naming": [
+  {
+   "sel": 0,
+   "act": 1,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "named": true,
+   "sel_named": true,
+   "confirmed": false
+  },
+  {
+   "sel": 7,
+   "act": 2,
+   "named": false
+  }
+ ],
+ "summary": {
+  "act_first": {
+   "base": {
+    "success": 16,
+    "held": 5
+   },
+   "order": {
+    "success": 17,
+    "held": 4
+   },
+   "base_reading": {
+    "meant": 16,
+    "none": 5
+   },
+   "base_held_why": {
+    "unresolved": 5
+   },
+   "order_reading": {
+    "meant": 17,
+    "none": 4
+   },
+   "order_held_why": {
+    "unresolved": 4
+   },
+   "n": 21,
+   "base_held_order_success": 1,
+   "base_success_order_not": 0
+  },
+  "sel_first": {
+   "base": {
+    "success": 16,
+    "held": 5
+   },
+   "order": {
+    "success": 17,
+    "held": 4
+   },
+   "base_reading": {
+    "meant": 16,
+    "none": 5
+   },
+   "base_held_why": {
+    "unresolved": 5
+   },
+   "order_reading": {
+    "meant": 17,
+    "none": 4
+   },
+   "order_held_why": {
+    "unresolved": 4
+   },
+   "n": 21,
+   "base_held_order_success": 1,
+   "base_success_order_not": 0
+  },
+  "fillers_split": {
+   "base": {
+    "success": 16,
+    "held": 5
+   },
+   "order": {
+    "success": 17,
+    "held": 4
+   },
+   "base_reading": {
+    "meant": 16,
+    "none": 5
+   },
+   "base_held_why": {
+    "unresolved": 5
+   },
+   "order_reading": {
+    "meant": 17,
+    "none": 4
+   },
+   "order_held_why": {
+    "unresolved": 4
+   },
+   "n": 21,
+   "base_held_order_success": 1,
+   "base_success_order_not": 0
+  },
+  "sel_first_fillers": {
+   "base": {
+    "success": 16,
+    "held": 5
+   },
+   "order": {
+    "success": 17,
+    "held": 4
+   },
+   "base_reading": {
+    "meant": 16,
+    "none": 5
+   },
+   "base_held_why": {
+    "unresolved": 5
+   },
+   "order_reading": {
+    "meant": 17,
+    "none": 4
+   },
+   "order_held_why": {
+    "unresolved": 4
+   },
+   "n": 21,
+   "base_held_order_success": 1,
+   "base_success_order_not": 0
+  }
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 1,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 1,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 1,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 1,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "form": "act_first",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "form": "sel_first",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "form": "fillers_split",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "form": "sel_first_fillers",
+   "taught_pair": true,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "form": "act_first",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "form": "sel_first",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "form": "fillers_split",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "form": "sel_first_fillers",
+   "taught_pair": false,
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "unresolved",
+   "order_reading": "none"
+  }
+ ],
+ "note": "Sealed command words removed from this public copy; forms are named only. Full file kept outside the repository."
+}

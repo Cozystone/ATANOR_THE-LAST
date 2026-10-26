@@ -26,9 +26,9 @@ QUESTION_BUDGET = 6
 
 
 class Grounder:
-    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure=None):
+    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order'):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
-        self.structure = structure                 # None (joint explanation only) or 'order' (phrase positions)
+        self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.body = getattr(home, 'BODY', '?')
         self.dir = Path(mind_dir)
         self.mem = Memory(self.dir, events_readable=mode in ('FULL', 'RAW'), persist_claims=mode in ('FULL', 'ONTO'),

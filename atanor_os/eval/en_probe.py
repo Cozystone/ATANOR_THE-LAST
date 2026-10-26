@@ -100,7 +100,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
             for fname, form in forms.items():
                 words = words_of(form, sels[s], acts[a])
                 row = {'sel': s, 'act': a, 'form': fname, 'taught_pair': (s, a) in taught, 'words': words}
-                for st in (None, 'order'):
+                for st in (None, 'order'):             # BASE is the explicit comparison; ORDER became the default
                     h = board(work / 'cmd_board', seed, drift)
                     if (work / 'cmd_mind').exists():
                         shutil.rmtree(work / 'cmd_mind')

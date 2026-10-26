@@ -114,7 +114,7 @@
 | 화면 90일 생활, 시드 23 (LIFE, FRESH) | v24 | snap-v24 (동결) | 끝남, 3절에 기록 |
 | 합성 90일 생활, 시드 45 (LIFE, FRESH) | v24 | snap-v24 (동결) | 실행 중 |
 | 접지 교사 생활, 평가 시드 3, 세 몸 × 다섯 조건 | grounding g1(동결 후) | snap-tutor-g2 | 끝남, `GROUNDING_REPORT.md`에 기록 |
-| 영어 구절 순서 구조: 시드 4 보드 생활(FULL) + 봉인 표현 넷, BASE 대 ORDER | grounding + order (697df49) | snap-tutor-g3 (동결) | 실행 중 |
+| 영어 구절 순서 구조: 시드 4 보드 생활(FULL) + 봉인 표현 넷, BASE 대 ORDER | grounding + order (697df49) | snap-tutor-g3 (동결) | 끝남: 넷 모두 17/21 대 16/21, 틀림 0. 채택, 효과 작음 |
 | P9 지연 시험 | P9 동결 작업 공간 | p9-delayed-frozen | 2026-10-27 22:45 KST 자동 1회 |
 
 ## 6. 다음 세대: 상호작용 접지 교사 + 온톨로지 장기기억 (`GROUNDING_REPORT.md`)
