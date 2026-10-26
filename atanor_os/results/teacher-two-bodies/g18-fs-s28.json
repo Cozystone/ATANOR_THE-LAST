@@ -1,0 +1,763 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\g18-fs-s28",
+ "eval_seed": 128,
+ "summary": {
+  "taught": {
+   "success": 11
+  },
+  "english": {
+   "success": 60,
+   "held": 20
+  },
+  "combo": {
+   "success": 9
+  }
+ },
+ "held_why": {
+  "unresolved": 20
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 5,
+  "first": {
+   "success": 5
+  },
+  "second": {
+   "success": 5
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 3,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 4,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   }
+  ]
+ },
+ "note": "Sealed English forms are named only."
+}
