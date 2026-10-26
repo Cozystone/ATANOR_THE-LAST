@@ -1,0 +1,662 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\r2-g37-s103\\gen1\\view",
+ "eval_seed": 203,
+ "summary": {
+  "taught": {
+   "held": 4,
+   "success": 6
+  },
+  "english": {
+   "held": 16,
+   "success": 32,
+   "wrong": 8
+  },
+  "combo": {
+   "success": 4
+  }
+ },
+ "held_why": {
+  "needs recheck": 4,
+  "unknown word in place of a deciding word": 16
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:lead",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:tail",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:mid",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:lead",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:tail",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:mid",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "wrong"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:lead",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:tail",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:mid",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:lead",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:tail",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:mid",
+   "why": "unknown word in place of a deciding word",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 8,
+  "first": {
+   "held:needs recheck": 4,
+   "success": 4
+  },
+  "second": {
+   "held:needs recheck": 4,
+   "success": 4
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 0,
+    "first": "held:needs recheck",
+    "second": "held:needs recheck"
+   },
+   {
+    "sel": 0,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 1,
+    "act": 0,
+    "first": "held:needs recheck",
+    "second": "held:needs recheck"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "first": "held:needs recheck",
+    "second": "held:needs recheck"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 4,
+    "act": 0,
+    "first": "held:needs recheck",
+    "second": "held:needs recheck"
+   },
+   {
+    "sel": 4,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   }
+  ]
+ },
+ "double_change": {
+  "n": 0,
+  "outcomes": {},
+  "rows": []
+ },
+ "oracle": {
+  "n": 14,
+  "success": 14,
+  "rows": [
+   {
+    "sel": 0,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 0,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "sel": 0,
+    "act": 2,
+    "outcome": "success"
+   },
+   {
+    "sel": 0,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 2,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 3,
+    "outcome": "success"
+   }
+  ]
+ },
+ "delayed": {
+  "n": 0,
+  "carried_out": 0,
+  "resend_attempts": 0,
+  "rows": []
+ }
+}
