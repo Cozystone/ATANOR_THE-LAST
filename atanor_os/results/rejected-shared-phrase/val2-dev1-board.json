@@ -1,0 +1,134 @@
+{
+ "life": "atanor_os/results/tutor-dev1-board-en/FULL",
+ "seed": 1,
+ "body": "board",
+ "summary": {
+  "alone_first": {
+   "held": 5,
+   "success": 1
+  },
+  "alone_after": {
+   "success": 5
+  },
+  "reuse_alone": {
+   "success": 6
+  },
+  "n": 6,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "amber",
+   "sub": "yellow",
+   "part": "act",
+   "pair": [
+    1,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    0
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "defect",
+   "sub": "fault",
+   "part": "sel",
+   "pair": [
+    1,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "idea",
+   "sub": "thought",
+   "part": "act",
+   "pair": [
+    1,
+    2
+   ],
+   "reuse_pair": [
+    3,
+    2
+   ],
+   "alone_first": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "memo",
+   "sub": "notice",
+   "part": "sel",
+   "pair": [
+    3,
+    0
+   ],
+   "reuse_pair": [
+    3,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "teal",
+   "sub": "turquoise",
+   "part": "act",
+   "pair": [
+    1,
+    1
+   ],
+   "reuse_pair": [
+    3,
+    1
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "urgent",
+   "sub": "rush",
+   "part": "sel",
+   "pair": [
+    4,
+    0
+   ],
+   "reuse_pair": [
+    4,
+    1
+   ],
+   "alone_first": "held",
+   "taught_to_named": true,
+   "teach_help": {
+    "point": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  }
+ ]
+}
