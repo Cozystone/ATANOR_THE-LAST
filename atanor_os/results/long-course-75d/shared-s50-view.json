@@ -1,0 +1,303 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\l25-shared-s50\\view",
+ "eval_seed": 150,
+ "summary": {
+  "combo": {
+   "held": 1,
+   "success": 3
+  },
+  "taught": {
+   "held": 2,
+   "success": 3
+  },
+  "english": {
+   "success": 24
+  }
+ },
+ "held_why": {
+  "ambiguous generalization": 3
+ },
+ "rows": [
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "combo",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 6,
+  "first": {
+   "held:ambiguous generalization": 2,
+   "success": 4
+  },
+  "second": {
+   "held:ambiguous generalization": 2,
+   "success": 4
+  },
+  "rows": [
+   {
+    "sel": 1,
+    "act": 0,
+    "first": "held:ambiguous generalization",
+    "second": "held:ambiguous generalization"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "first": "held:ambiguous generalization",
+    "second": "held:ambiguous generalization"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 3,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 3,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   }
+  ]
+ },
+ "note": "Sealed English forms are named only."
+}
