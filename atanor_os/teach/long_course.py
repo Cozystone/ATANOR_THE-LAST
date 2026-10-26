@@ -18,7 +18,7 @@ BODIES = ('board', 'fs', 'view')
 CHANGE_FROM = {'board': 6, 'fs': 12, 'view': 18}          # each body's tool stops working on a different day
 
 
-def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None, noise=0.0, budget=4, bodies=BODIES):
+def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None, noise=0.0, budget=3, bodies=BODIES):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     ap.add_argument('--staggered', action='store_true', help='tool changes on different days per body')
     ap.add_argument('--noise', type=float, default=0.0, help='chance of a human-like slip in pointing or a contrast answer')
     ap.add_argument('--policy', default='t2')
-    ap.add_argument('--budget', type=int, default=4, help='teacher activities per session')
+    ap.add_argument('--budget', type=int, default=3, help='teacher activities per session')
     a = ap.parse_args()
     run(a.root, a.seed, a.per_body, shared=not a.separate, change_from=CHANGE_FROM if a.staggered else None, noise=a.noise, policy=a.policy, budget=a.budget)
     print('done', a.root)

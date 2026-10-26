@@ -49,7 +49,7 @@ class _NotWanted:
     """Answers a recall question with 'no longer wanted' (the task cannot be done any more)."""
     truth, before = [], {}
 
-PER_SESSION = 4
+PER_SESSION = 3                                     # budget 3 (TEACHER_REPORT: the knee; generation 1 default)
 
 
 class Teacher:
