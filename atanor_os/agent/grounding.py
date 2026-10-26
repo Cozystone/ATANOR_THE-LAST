@@ -176,13 +176,18 @@ class Grounder:
         gained = sorted(fa[x] - fb.get(x, frozenset())) if x in fa else ["('gone',)"]
         lost = sorted(fb.get(x, frozenset()) - fa.get(x, frozenset()))
         made = sorted({a for r in template if isinstance(r, list) and r[0] == 'C' for a in fa.get(self.home.compose(r[1], x), ())})
+        own = fb.get(x, frozenset())
+        same = {self._attr(a) for a in own} - {None}
+        made_rel = sorted({(f"('=x', '{self._attr(a)}')" if self._attr(a) in same and a in own else a) for a in made})   # what the
+        # made object took from the object acted on is recorded as such, so two demonstrations on different objects agree
         ev = self.mem.events.append('demo', lesson=lesson, tool=demo['tool'], args=demo['args'], object=x, gained=gained, lost=lost, made=made)
         same = [c for c in self.mem.claims.claims('effect') if c['content']['tool'] == demo['tool']
                 and c['content']['template'] == template and c['content']['gained'] == gained]
         if same:
             return self.mem.claims.revise(same[0]['id'], support=[ev], status='active')
         aid = f'a{len(self.mem.claims.claims(usable=False))}'
-        content = {'action': aid, 'tool': demo['tool'], 'template': template, 'gained': gained, 'lost': lost, 'made': made, 'lesson': lesson}
+        content = {'action': aid, 'tool': demo['tool'], 'template': template, 'gained': gained, 'lost': lost, 'made': made,
+                   'made_rel': made_rel, 'lesson': lesson}
         claim = self.mem.claims.add('effect', content, [ev], 'observed', self.scope)
         g = self.mem.graph
         g.node(aid, 'action')
@@ -470,7 +475,8 @@ class Grounder:
         def does(s, a):                                    # what a reading would bring about here: which objects, what they end as
             e = defs[a]['claim']['content']                # ('lost' says only where the demonstrated object happened to come from)
             return (tuple(self.extension(defs[s]['claim']['content']['atoms'], feats)),
-                    json.dumps([sorted(e.get('gained') or []), sorted(e.get('made') or [])]))
+                    json.dumps([sorted(e.get('gained') or []), sorted(e.get('made_rel', e.get('made')) or []),
+                                sorted(json.dumps(r) for r in e['template'])]))   # roles in any order: where things go
         top = [(s, a) for k, s, a in scored if k == scored[0][0]]
         self._tied = None
         if len({does(s, a) for s, a in top}) > 1:          # a tie is ambiguous only if the readings would end differently
