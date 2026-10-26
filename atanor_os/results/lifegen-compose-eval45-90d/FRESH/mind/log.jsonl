@@ -1,0 +1,16 @@
+{"t": 1792988706.562, "task": "d90-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["eastmill"]], ["move", ["ember90.json", "eastmill/ember90.json"]]]}
+{"t": 1792988709.392, "task": "d90-t0", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792988713.217, "task": "d90-t0", "event": "experiment_resolved", "lab_actions": 1}
+{"t": 1792988717.003, "task": "d90-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792988727.821, "task": "d90-t1", "event": "ask_check", "unknown": ["replicate", "all", "files"], "ok": false}
+{"t": 1792988727.824, "task": "d90-t1", "event": "ask_explain", "word": "replicate", "answer": "copy", "learned": false}
+{"t": 1792988727.827, "task": "d90-t1", "event": "ask_explain", "word": "all", "answer": "", "learned": true}
+{"t": 1792988730.618, "task": "d90-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westbasin"]], ["replicate", ["westbasin/ember89.md", "ember89.md"]]]}
+{"t": 1792988735.548, "task": "d90-t1", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792988757.25, "task": "d90-t2", "event": "ask_explain", "word": "shift", "answer": "move", "learned": false}
+{"t": 1792988757.254, "task": "d90-t2", "event": "ask_explain", "word": "spreadsheets", "answer": "csv files", "learned": true}
+{"t": 1792988759.157, "task": "d90-t2", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["westfort"]], ["move", ["birch90.csv", "westfort/birch90.csv"]]]}
+{"t": 1792988764.012, "task": "d90-t2", "event": "surprise", "action": ["move", ["birch90.csv", "westfort/birch90.csv"]], "predicted_ok": true, "ok": false}
+{"t": 1792988764.019, "task": "d90-t2", "event": "reverify", "tool": "move", "replayed": "demo-28", "ok": true}
+{"t": 1792988771.064, "task": "d90-t2", "event": "method_choice", "experiment_cost": 0.23, "ask_cost": 3, "user": true}
+{"t": 1792988772.038, "task": "d90-t2", "event": "experiment_resolved", "how": "analogy", "lab_actions": 4}

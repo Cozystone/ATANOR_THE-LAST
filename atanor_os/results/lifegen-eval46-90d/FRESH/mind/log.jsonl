@@ -1,0 +1,9 @@
+{"t": 1792987814.806, "task": "d90-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["birch90.md"]]]}
+{"t": 1792987818.186, "task": "d90-t0", "event": "rehearsal", "ok": true, "steps": 10}
+{"t": 1792987852.97, "task": "d90-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792987852.976, "task": "d90-t1", "event": "ask_explain", "word": "make", "answer": "copy", "learned": false}
+{"t": 1792987857.024, "task": "d90-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["northcellar"]], ["replicate", ["northcellar/ember90.txt", "ember90.txt"]]]}
+{"t": 1792987861.53, "task": "d90-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792987872.257, "task": "d90-t2", "event": "ask_explain", "word": "back", "answer": "copy", "learned": true}
+{"t": 1792987872.263, "task": "d90-t2", "event": "ask_explain", "word": "up", "answer": "copy", "learned": true}
+{"t": 1792987876.219, "task": "d90-t2", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["easthut"]], ["replicate", ["easthut/amber89.log", "amber89.log"]]]}
