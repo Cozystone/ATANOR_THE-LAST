@@ -211,6 +211,10 @@ class Grounder:
     def _arg(self, r, o):
         return o if r == 'X' else (self.home.compose(r[1], o) if r[0] == 'C' else r[1])
 
+    def _made_exists(self, effect, f_now, o):
+        made = [r for r in effect['template'] if isinstance(r, list) and r[0] == 'C']
+        return bool(made) and all(self._arg(r, o) in f_now for r in made) and o in f_now
+
     def _done(self, effect, f_before, f_now, o):
         """The object already shows what the action produces."""
         made = [r for r in effect['template'] if isinstance(r, list) and r[0] == 'C']
@@ -573,6 +577,11 @@ class Grounder:
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
         acted, failed = self.apply(sel, act, lesson=task)
+        now = self.feats()
+        blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
+        if blocked:                                        # what it would make is already there: a block, not a counter-example
+            self.counts['blocked'] += len(blocked)
+            failed = [x for x in failed if x not in blocked]
         if failed and acts[0]['claim'].get('id'):
             self.mem.counter(acts[0]['claim']['id'], failed[0][1])       # the tool did not do what the claim said
             self.counts['effect_counterexamples'] += 1

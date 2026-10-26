@@ -45,7 +45,7 @@ def world(root, seed, drift, body='board'):
 def todo(spec, home, tut, act):
     """The objects still to act on, or none if the person knows the action cannot be done on them here."""
     st = home.observe(home.existing())
-    rest = [o for o in tut.truth if not spec.shows(act, o, st)]
+    rest = [o for o in tut.truth if not spec.shows(act, o, st) and getattr(spec, 'possible', lambda a, x, s: True)(act, o, st)]
     if spec.BODY == 'board' and act['tool'] in ('lift', 'unlodge') and any(st[o]['tray'] == '-' for o in rest):
         return []
     if spec.BODY == 'view' and act['tool'] == 'group' and any(st[o]['filter'] != 'all' for o in rest):

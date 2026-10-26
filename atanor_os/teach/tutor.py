@@ -89,6 +89,12 @@ class FsSpec:
         return gone if t == 'delete' else (made and not gone if t == 'copy' else made and gone)
 
     @staticmethod
+    def possible(act, o, state):
+        """A person does not expect a copy or move onto a file that is already there."""
+        d = act.get('second')
+        return act['tool'] == 'delete' or state.get(f'{d}/{o}', {'kind': 'absent'})['kind'] == 'absent'
+
+    @staticmethod
     def may_change(act, o, truth):
         """The folder's new children and the folder itself may change."""
         d = act.get('second')
@@ -172,7 +178,8 @@ class Tutor:
         for o, a in self.before.items():
             cur = now.get(o)
             if o in self.truth:
-                if not self.spec.shows(self.act, o, now):
+                possible = getattr(self.spec, 'possible', lambda act, o, st: True)(self.act, o, self.before)
+                if possible and not self.spec.shows(self.act, o, now):
                     return False
             elif cur != a and not (cur is None and a['kind'] == 'absent') and not self.spec.may_change(self.act, o, self.truth):
                 return False
