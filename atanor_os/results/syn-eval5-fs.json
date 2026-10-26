@@ -1,0 +1,86 @@
+{
+ "life": "atanor_os/results/tutor-eval5-fs/FULL",
+ "seed": 5,
+ "body": "fs",
+ "summary": {
+  "alone_first": {
+   "success": 2,
+   "held": 2
+  },
+  "alone_after": {
+   "success": 2
+  },
+  "reuse_alone": {
+   "success": 4
+  },
+  "n": 4,
+  "wrong_total": 0
+ },
+ "rows": [
+  {
+   "word": "copy",
+   "part": "act",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    1,
+    0
+   ],
+   "alone_first": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "delete",
+   "part": "act",
+   "pair": [
+    0,
+    4
+   ],
+   "reuse_pair": [
+    1,
+    4
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "files",
+   "part": "sel",
+   "pair": [
+    0,
+    0
+   ],
+   "reuse_pair": [
+    0,
+    1
+   ],
+   "alone_first": "success",
+   "reuse_alone": "success"
+  },
+  {
+   "word": "move",
+   "part": "act",
+   "pair": [
+    0,
+    2
+   ],
+   "reuse_pair": [
+    1,
+    2
+   ],
+   "alone_first": "held",
+   "teach_help": {
+    "demo": 1
+   },
+   "alone_after": "success",
+   "reuse_alone": "success"
+  }
+ ],
+ "note": "Sealed substitute words removed from this public copy; only the replaced canonical word is named."
+}
