@@ -424,19 +424,66 @@ class Grounder:
         if not scored:
             return None, None, unknown
         feats = self.feats()
-        def does(s, a):                                    # what a reading would do here: which objects, which call
+        def does(s, a):                                    # what a reading would bring about here: which objects, which change
             e = defs[a]['claim']['content']
-            return (tuple(self.extension(defs[s]['claim']['content']['atoms'], feats)), e['tool'], json.dumps(e['template']))
+            return (tuple(self.extension(defs[s]['claim']['content']['atoms'], feats)),
+                    json.dumps([e.get('gained'), e.get('lost'), e.get('made')]))
         top = [(s, a) for k, s, a in scored if k == scored[0][0]]
-        if len({does(s, a) for s, a in top}) > 1:          # a tie is ambiguous only if the readings would act differently
+        self._tied = None
+        if len({does(s, a) for s, a in top}) > 1:          # a tie is ambiguous only if the readings would end differently
+            self._tied = {'readings': top, 'defs': defs, 'nodes': nodes, 'does': does}
             return None, None, unknown
-        _, s, a = scored[0]
+        # the same objects and the same change: carry it out the way most recently shown (an older way may be retired)
+        order = lambda n: int(''.join(ch for ch in (defs[n]['claim'].get('id') or 'c0') if ch.isdigit()) or 0)
+        s, a = max(top, key=lambda r: (order(r[1]), order(r[0])))
         return defs[s], defs[a], unknown
+
+    def _ask_between(self, task):
+        """With the person there: tied readings that pick different objects are told apart by a contrast question about
+        an object some of them pick and others do not. The word links that sent the command to the readings the person
+        ruled out are superseded on those readings (they stay on the reading that was meant)."""
+        t = self._tied
+        if not t or self.person is None or self.passive:
+            return None
+        feats = self.feats()
+        ext = lambda r: frozenset(t['does'](*r)[0])
+        live = list(t['readings'])
+        for _ in range(QUESTION_BUDGET):
+            if len({t['does'](*r) for r in live}) <= 1:
+                break
+            exts = [ext(r) for r in live]
+            split = sorted(frozenset.union(*exts) - frozenset.intersection(*exts))
+            if not split:
+                break                                      # same objects, different action: a question about objects cannot help
+            o = min(split, key=lambda x: (abs(sum(x in e for e in exts) - len(exts) / 2), x))
+            ans = self.person.contrast(o)
+            self.counts['contrast'] += 1
+            ev = self.mem.events.append('contrast', lesson=task, object=o, answer=ans, feats=sorted(feats[o]), why='between readings')
+            live = [r for r, e in zip(live, exts) if (o in e) == ans]
+        if not live or len({t['does'](*r) for r in live}) > 1:
+            return None
+        win_s, win_a = live[0]
+        for s, a in t['readings']:
+            if s == win_s:
+                continue
+            for w, ns in t['nodes'].items():               # a word that pointed at both: it does not mean the ruled-out one
+                if s in ns and win_s in ns:
+                    for c in self.mem.claims.claims('denotes'):
+                        if c['content']['symbol'] == w and c['content']['refers'] == s:
+                            self.mem.claims.revise(c['id'], counter=[ev], status='superseded')
+                            self.mem.graph.unlink_claim(c['id'])
+        self.mem.graph.save()
+        self.counts['asked_between'] += 1
+        return t['defs'][win_s], t['defs'][win_a]
 
     def obey(self, symbols, task=None):
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone."""
         ev = self.mem.events.append('say', task=task, symbols=list(symbols))
         sel_d, act_d, unknown = self.resolve(symbols)
+        if sel_d is None and getattr(self, '_tied', None):
+            settled = self._ask_between(task)
+            if settled:
+                sel_d, act_d = settled
         if sel_d is None:
             self.counts['held_unresolved'] += 1
             return {'ok': False, 'why': 'unresolved', 'unknown': unknown, 'event': ev}
