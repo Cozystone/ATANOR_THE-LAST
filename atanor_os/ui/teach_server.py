@@ -115,8 +115,10 @@ def readable_atom(a):
 
 
 class Session:
-    def __init__(self, root, seed=1):
+    def __init__(self, root, seed=1, source='human', clock=None):
         self.root = Path(root)
+        self.source = source                              # 'human' for a real person; a scripted pilot uses 'pilot'
+        self.clock = clock or datetime.datetime.now       # a pilot may simulate days passing
         self.root.mkdir(parents=True, exist_ok=True)
         self.sp = self.root / 'state.json'
         self.state = json.loads(self.sp.read_text(encoding='utf-8')) if self.sp.exists() else {'session': 0, 'seed': seed, 'taught': {}, 'k': 0}
@@ -134,7 +136,7 @@ class Session:
         self.sp.write_text(json.dumps(self.state, ensure_ascii=False, indent=1), encoding='utf-8')
 
     def log(self, **row):
-        row = {'at': datetime.datetime.now().isoformat(timespec='seconds'), 'session': self.state['session'], **row}
+        row = {'at': self.clock().isoformat(timespec='seconds'), 'session': self.state['session'], 'source': self.source, **row}
         with open(self.root / 'log.jsonl', 'a', encoding='utf-8') as f:
             f.write(json.dumps(row, ensure_ascii=False, default=str) + '\n')
         return row
@@ -144,7 +146,7 @@ class Session:
         self.messages = self.messages[-40:]
 
     def grounder(self, with_person=True):
-        return Grounder(self.home, self.root / 'mind', person=self.person if with_person else None, source='human')
+        return Grounder(self.home, self.root / 'mind', person=self.person if with_person else None, source=self.source)
 
     def new_session(self):
         """A new day: new cards arrive (some already in trays); what was taught stays only in ATANOR's memory."""
@@ -214,7 +216,7 @@ class Session:
             sym = (names.get(part) or '').strip()
             if sym:
                 g.bind(sym, node, lid, replace=True)
-                self.state['taught'][sym] = {'session': self.state['session'], 'date': datetime.date.today().isoformat(), 'part': part,
+                self.state['taught'][sym] = {'session': self.state['session'], 'date': self.clock().date().isoformat(), 'part': part,
                                              'node': node, 'lesson': lid}
                 row.setdefault('named', {})[part] = sym
         self.save()
@@ -242,7 +244,7 @@ class Session:
             ac = g.learn_action(lid)
             node, known = ac['content']['action'], ac.get('v', 1) > 1
         g.name_phrase(words, node, lid)
-        self.state['taught'][' '.join(words)] = {'session': self.state['session'], 'date': datetime.date.today().isoformat(),
+        self.state['taught'][' '.join(words)] = {'session': self.state['session'], 'date': self.clock().date().isoformat(),
                                                  'part': part, 'node': node, 'lesson': lid, 'phrase': True}
         self.save()
         self.log(event='name', lesson=lid, part=part, phrase=words, node=node, known_concept=known, outcome='success')
