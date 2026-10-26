@@ -260,6 +260,10 @@ class Grounder:
                 continue
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
+        if acted:                                          # what each changed object looked like right after
+            after = self.feats()
+            self.mem.events.append('acted_state', lesson=lesson,
+                                   states={o: sorted(a for a in after.get(o, ()) if a.startswith("('U'")) for o, _ in acted})
         return acted, failed
 
     LAB_BUDGET = 12
@@ -701,19 +705,32 @@ class Grounder:
         """DESK_EVAL2_PROTOCOL.md: an action's effect may come in two steps. Objects this action changed earlier, that
         nothing done here touched since, and whose changed attribute now holds a value neither before nor right after
         the action: the action led there later, by itself. Those values are kept as the action's later outcomes, so a
-        later command does not do the same thing again to an object already on its way."""
+        later command does not do the same thing again to an object already on its way. A value that objects this
+        action never touched also show is the world's own doing, not an outcome of the action; and so is a change on an
+        object that no longer looks as it did right after the action in anything else (it was set up anew). And a
+        two-step effect moves every such object on: if some still show the immediate result while others hold other
+        values, the values were scattered by something else. One object alone is not enough to tell."""
         eff = claim['content']
         if 'X' not in eff['template']:
             return None
         xi, attrs = eff['template'].index('X'), self._rewritten(eff)
         if not attrs:
             return None
-        seen, touched = {}, set()
+        def this_action(e, args):                          # the same tool with the same constant arguments
+            return (e.get('tool') == eff['tool'] and len(args) == len(eff['template'])
+                    and all(args[i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
+
+        seen, touched, by_action, right_after = {}, set(), set(), {}
         for e in reversed(self.mem.events.all()):
+            if e.get('kind') == 'acted_state' and e.get('body') == self.body:
+                for o, st in e['states'].items():
+                    right_after.setdefault(o, st)
             if e.get('kind') in ('act', 'demo') and e.get('body') == self.body:
                 args = e.get('args') or []
                 objs = set(args) | ({e['object']} if e.get('object') else set())
-                if (e.get('kind') == 'act' and e.get('ok') and e.get('tool') == eff['tool'] and len(args) == len(eff['template'])
+                if this_action(e, args):
+                    by_action.add(args[xi])
+                if (e.get('kind') == 'act' and e.get('ok') and this_action(e, args)
                         and args[xi] not in touched and args[xi] not in seen):
                     seen[args[xi]] = e
                 touched |= objs
@@ -721,7 +738,13 @@ class Grounder:
             return None
         feats = self.feats()
         known = set(eff['gained']) | set(eff['lost']) | set(eff.get('later', ()))
-        new = sorted({a for o in seen if o in feats for a in feats[o] if self._attr(a) in attrs and a not in known})
+        rest = lambda atoms: {a for a in atoms if a.startswith("('U'") and self._attr(a) not in attrs}
+        same = [o for o in seen if o in feats and o in right_after and rest(feats[o]) == rest(right_after[o])]
+        gained = {a for a in eff['gained'] if a.startswith("('U'")}
+        if len(same) < 2 or any(gained <= feats[o] for o in same):
+            return None
+        new = {a for o in same for a in feats[o] if self._attr(a) in attrs and a not in known}
+        new = sorted(a for a in new if not any(a in f for o, f in feats.items() if o not in by_action))
         if not new:
             return None
         self.counts['later_outcomes'] += len(new)
