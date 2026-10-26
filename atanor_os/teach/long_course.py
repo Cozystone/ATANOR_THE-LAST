@@ -18,17 +18,17 @@ BODIES = ('board', 'fs', 'view')
 CHANGE_FROM = {'board': 6, 'fs': 12, 'view': 18}          # each body's tool stops working on a different day
 
 
-def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None, noise=0.0, budget=4):
+def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None, noise=0.0, budget=4, bodies=BODIES):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
     root.mkdir(parents=True)
-    change_from = change_from or {b: 9 for b in BODIES}
+    change_from = change_from or {b: 9 for b in bodies}
     teachers = {b: Teacher(root / b, seed, drift_from=change_from[b], policy=policy, body=b, noise=noise, per_session=budget,
-                           mind=(root / 'mind') if shared else (root / b / 'mind')) for b in BODIES}
+                           mind=(root / 'mind') if shared else (root / b / 'mind')) for b in bodies}
     for i in range(per_body):
-        for j, b in enumerate(BODIES):
-            teachers[b].session(i, day=i * len(BODIES) + j)      # one session a day, bodies in turn
+        for j, b in enumerate(bodies):
+            teachers[b].session(i, day=i * len(bodies) + j)      # one session a day, bodies in turn
     for t in teachers.values():
         t.finish()
     return teachers

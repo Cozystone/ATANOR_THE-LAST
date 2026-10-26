@@ -66,6 +66,11 @@ class HumanPerson:
         self.help['contrast'] += 1
         return bool(self.ask('contrast', object=obj)['yes'])
 
+    def propose(self, effect):
+        """ATANOR asks, before acting, whether a word means an action it already knows here."""
+        self.help['propose'] += 1
+        return bool(self.ask('propose', tool=effect['tool'], note=f"이 낱말은 '{effect['tool']}' 행동을 말하나요?")['yes'])
+
     def demo(self):
         """The person does the action once on one card; the board executes it as the person's own action."""
         self.help['demo'] += 1
@@ -119,7 +124,8 @@ def readable_atom(a):
 
 
 class Session:
-    def __init__(self, root, seed=1, source='human', clock=None, body='board', mind=None):
+    def __init__(self, root, seed=1, source='human', clock=None, body='board', mind=None, transfer=False):
+        self.transfer = transfer                          # TRANSFER_PROTOCOL.md experiment (off by default)
         self.mind = Path(mind) if mind else Path(root) / 'mind'   # one mind may live in several bodies' sandboxes
         self.body = body                                  # 'board' (with a screen) or 'fs' (a sandbox folder; no screen yet)
         self.root = Path(root)
@@ -164,7 +170,7 @@ class Session:
         self.messages = self.messages[-40:]
 
     def grounder(self, with_person=True):
-        return Grounder(self.home, self.mind, person=self.person if with_person else None, source=self.source)
+        return Grounder(self.home, self.mind, person=self.person if with_person else None, source=self.source, transfer=self.transfer)
 
     def new_session(self):
         """A new day: new cards arrive (some already in trays); what was taught stays only in ATANOR's memory."""

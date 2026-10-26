@@ -27,10 +27,11 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True):
+                 experiment=True, transfer=False):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
+        self.transfer = transfer                   # (pre-registered experiment) a word from another body for 'make it vanish'
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -601,6 +602,28 @@ class Grounder:
             self.drop_pending(symbols)
         return res
 
+    GONE = "('gone',)"
+
+    def _propose_from_other_body(self, unknown, task):
+        """TRANSFER_PROTOCOL.md: a word unknown here, bound in another body to an action whose observed change is that the
+        object vanishes, and exactly one such action learned here: ask the person (before acting) whether that is it."""
+        everywhere = self.mem.claims.claims('effect')
+        vanish = lambda c: self.GONE in c['content']['gained'] and not c['content'].get('made')   # vanishes, nothing made
+        here = [c for c in everywhere if self._in_scope(c) and vanish(c)]
+        if len(here) != 1:
+            return False
+        for w in unknown:
+            elsewhere = [c for c in self.mem.claims.claims('denotes') if c['content']['symbol'] == w and not self._in_scope(c)]
+            if not any(vanish(e) for e in everywhere if e['content']['action'] in {d['content']['refers'] for d in elsewhere}):
+                continue
+            ok = self.person.propose(here[0]['content'])
+            self.counts['transfer_proposals'] += 1
+            self.mem.events.append('propose', task=task, word=w, action=here[0]['content']['action'], answer=ok)
+            if ok:
+                self.bind(w, here[0]['content']['action'], task)
+                return True
+        return False
+
     def pending(self):
         p = self.dir / 'pending.json'
         return json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
@@ -618,6 +641,9 @@ class Grounder:
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone."""
         ev = self.mem.events.append('say', task=task, symbols=list(symbols))
         sel_d, act_d, unknown = self.resolve(symbols)
+        if sel_d is None and unknown and self.transfer and hasattr(self.person, 'propose'):
+            if self._propose_from_other_body(unknown, task):
+                sel_d, act_d, unknown = self.resolve(symbols)
         if sel_d is None and getattr(self, '_tied', None):
             settled = self._ask_between(task)
             if settled:
