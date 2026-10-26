@@ -1,0 +1,169 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\g16-n0.2-f-s23",
+ "eval_seed": 123,
+ "summary": {
+  "taught": {
+   "success": 2,
+   "held": 1
+  },
+  "english": {
+   "held": 16
+  },
+  "combo": {
+   "held": 1
+  }
+ },
+ "held_why": {
+  "needs recheck": 16,
+  "ambiguous generalization": 2
+ },
+ "rows": [
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "combo",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "needs recheck",
+   "outcome": "held"
+  }
+ ],
+ "unseen_change": {
+  "n": 0,
+  "first": {},
+  "second": {},
+  "rows": []
+ },
+ "note": "Sealed English forms are named only."
+}

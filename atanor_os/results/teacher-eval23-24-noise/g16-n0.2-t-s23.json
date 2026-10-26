@@ -1,0 +1,258 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\g16-n0.2-t-s23",
+ "eval_seed": 123,
+ "summary": {
+  "taught": {
+   "success": 11
+  },
+  "combo": {
+   "success": 9
+  },
+  "english": {
+   "held": 8
+  }
+ },
+ "held_why": {
+  "unresolved": 8
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 5,
+  "first": {
+   "success": 5
+  },
+  "second": {
+   "success": 5
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 2,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 2,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 3,
+    "act": 2,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 5,
+    "act": 2,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 6,
+    "act": 2,
+    "first": "success",
+    "second": "success"
+   }
+  ]
+ },
+ "note": "Sealed English forms are named only."
+}
