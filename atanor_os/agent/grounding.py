@@ -536,7 +536,10 @@ class Grounder:
             node = (d['claim']['content'].get('concept') or d['claim']['content'].get('action'))
             kind = d['claim']['kind']
             same_kind = lambda ns: {n for n in ns if (self._definition(n) or {}).get('kind') == kind}
-            for ph in self._phrases(node):
+            phrases = self._phrases(node)
+            if any(all(w in said for w in ph) for ph in phrases):
+                continue                                   # one of its phrases was said whole
+            for ph in phrases:
                 rest = [w for w in ph if w in said]
                 gone = [w for w in ph if w not in said]
                 if not rest or not gone:
