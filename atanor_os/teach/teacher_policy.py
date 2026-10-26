@@ -1,4 +1,4 @@
-"""A long-term synthetic teacher for ATANOR (source 'synthetic_teacher', policy t1).
+"""A long-term synthetic teacher for ATANOR (source 'synthetic_teacher', policies t1 and t2).
 
 It teaches the way a person does and only through the interface a person uses (ui.teach_server.Session: the teach /
 name / command jobs and the answers to ATANOR's questions: point, demo, contrast answer, confirm, names). It never
@@ -8,10 +8,11 @@ ATANOR any other way would make a run INVALID (tests/test_teacher_policy.py chec
 
 What it reads, and what it does about it (most urgent first):
   recheck    a claim the person contradicted (needs_recheck), or a tool that stopped doing what was remembered
-             -> teach that selection/action again
+             -> teach that selection/action again (t2: then say its English phrase again, so the phrase follows)
   conflict   one name on several things -> teach it again (the old link is superseded)
-  undecided  a taught selection whose criteria still disagree on today's cards -> teach it again, pointing at the
-             cards that rule out the most wrong criteria
+  undecided  a taught selection whose criteria still disagree on today's cards -> t1: teach it again, pointing at the
+             cards that rule out the most wrong criteria; t2: use it in a command with the teacher there, so ATANOR's
+             own contrast questions revise the same concept (re-teaching makes a new concept and strands its phrases)
   new        a target nobody has taught yet -> a lesson, paired with something already shared (reuse)
   combo      names never used together -> a command for the new combination
   recall     a name not used for 5+ days -> ATANOR alone, then judged
@@ -36,13 +37,14 @@ from ..ui.pilot import DAYS, Clock, drive, write_names
 from ..ui.teach_server import Session
 from .tutor import BoardSpec, Tutor, symbols
 
-POLICY = 't1'
+POLICIES = ('t1', 't2')
 PER_SESSION = 4
 
 
 class Teacher:
-    def __init__(self, root, seed=1, drift_from=9):
+    def __init__(self, root, seed=1, drift_from=9, policy='t2'):
         self.root = Path(root)
+        self.policy = policy
         self.seed = seed
         self.clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
         self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock)
@@ -108,7 +110,7 @@ class Teacher:
         return sum(1 for _ in open(p, encoding='utf-8')) if p.exists() else 0
 
     def log(self, activity, reason, s, a, e0, **extra):
-        row = {'policy': POLICY, 'session': self.sess.state['session'], 'at': self.clock().isoformat(), 'activity': activity,
+        row = {'policy': self.policy, 'session': self.sess.state['session'], 'at': self.clock().isoformat(), 'activity': activity,
                'reason': reason, 'sel': self.sels[s] if s is not None else None, 'act': self.acts[a] if a is not None else None,
                'truth': list(self.tut.truth), 'events': [e0, self._events()], **extra}
         with open(self.root / 'teacher_log.jsonl', 'a', encoding='utf-8') as f:
@@ -141,6 +143,16 @@ class Teacher:
         self.log('command', reason, s, a, e0, lang=lang, alone=alone, outcome=r.get('outcome'), why=r.get('why'))
         return r
 
+    def resay(self, s, a):
+        """t2: after teaching a selection or action again, say again the English phrase it had, so the phrase follows it."""
+        for part, has, words in (('selection', any(x == s for x, _ in self.en), english('sel', self.sels[s])),
+                                 ('action', any(y == a for _, y in self.en), english('act', self.acts[a]))):
+            if has and self.feasible(s, a):
+                e0 = self._events()
+                self.sess.start('name', part=part, phrase=' '.join(words))
+                drive(self.sess, self.tut, {})
+                self.log('phrase', 'resay', s, a, e0, part=part, outcome=self.last_row().get('outcome'))
+
     def phrase(self, s, a):
         e0 = self._events()
         for part, words in (('selection', english('sel', self.sels[s])), ('action', english('act', self.acts[a]))):
@@ -165,7 +177,10 @@ class Teacher:
             elif st['conflict']:
                 out.append((4, 'conflict', 'lesson', s, a, None))
             elif st['claims'] and self.undecided(st['claims'][0]):
-                out.append((3, 'undecided', 'lesson', s, a, st['claims'][0]))
+                if self.policy == 't1':
+                    out.append((3, 'undecided', 'lesson', s, a, st['claims'][0]))
+                else:                                      # t2: use it with the teacher there; ATANOR asks and revises in place
+                    out.append((3, 'undecided', 'supervised', s, a, None))
         for a in sorted(self.named_a):
             st = self.state_of(self.sym[20 + a], by_node, refers)
             if st['recheck'] or st['conflict']:
@@ -222,6 +237,10 @@ class Teacher:
             seen.add((reason, s, a))
             if kind == 'lesson':
                 self.lesson(s, a, reason, claim)
+                if self.policy != 't1' and reason in ('recheck', 'conflict'):
+                    self.resay(s, a)
+            elif kind == 'supervised':
+                self.command(s, a, reason, alone=False)
             elif kind == 'phrase':
                 self.phrase(s, a)
             else:
@@ -241,11 +260,11 @@ class Teacher:
         return self
 
 
-def run(root, seed=1, n_sessions=15, drift_from=9):
+def run(root, seed=1, n_sessions=15, drift_from=9, policy='t2'):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
-    return Teacher(root, seed, drift_from).run(n_sessions)
+    return Teacher(root, seed, drift_from, policy).run(n_sessions)
 
 
 if __name__ == '__main__':
@@ -255,6 +274,7 @@ if __name__ == '__main__':
     ap.add_argument('--seed', type=int, default=1)
     ap.add_argument('--sessions', type=int, default=15)
     ap.add_argument('--drift-from', type=int, default=9)
+    ap.add_argument('--policy', default='t2', choices=POLICIES)
     a = ap.parse_args()
-    run(a.root, a.seed, a.sessions, a.drift_from)
+    run(a.root, a.seed, a.sessions, a.drift_from, a.policy)
     print('done', a.root)
