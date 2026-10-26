@@ -121,7 +121,8 @@
 | 영어 세 몸: 시드 5 생활(FULL) 보드·파일·화면 + 봉인 넷 | grounding (d6f598d) | snap-tutor-g5 (동결) | 끝남: 탐침 전부 성공, 생활 영어 57/59 첫 시도, 틀림 0 |
 | 봉인 동의어: 시드 5 생활(세 몸), 새 구조 없음 | grounding (g5 = g6 학습기) | snap-tutor-g6 (동결) | 끝남: 혼자 9/14, 시범 뒤 5/5, 다른 짝 13/13, 틀림 0 |
 | 봉인 값 동의어: 시드 5 생활(세 몸), 새 구조 없음 | grounding (g6) | snap-tutor-g6 (동결) | 끝남: 혼자 보류 17/19 틀림 0, 한 번 보인 뒤 17/17, 다른 짝 19/19 |
-| P9 지연 시험 | P9 동결 작업 공간 | p9-delayed-frozen | 2026-10-27 22:45 KST 자동 1회 |
+| 실제 사용자 보드 교수 세션(10–20회, 며칠에 걸쳐) | grounding + `ui/teach_server.py` | sandbox `user-sandbox/board-1` | 준비됨. 세션은 사람이 해야 한다(`USER_SESSIONS.md`) |
+| P9 지연 시험 | P9 동결 작업 공간 | p9-delayed-frozen | 2026-10-27 22:45 KST 자동 1회, 개발 흐름과 독립 |
 
 ## 6. 다음 세대: 상호작용 접지 교사 + 온톨로지 장기기억 (`GROUNDING_REPORT.md`)
 

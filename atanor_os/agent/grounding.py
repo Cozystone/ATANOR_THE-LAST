@@ -26,16 +26,24 @@ QUESTION_BUDGET = 6
 
 
 class Grounder:
-    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order'):
+    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program'):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
+        self.source = source                       # whose teaching this experience comes from: 'program' (the regression
+                                                   # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
         self.dir = Path(mind_dir)
         self.mem = Memory(self.dir, events_readable=mode in ('FULL', 'RAW'), persist_claims=mode in ('FULL', 'ONTO'),
-                          stamp={'body': self.body, 'core': core})
+                          stamp={'body': self.body, 'core': core, 'source': source})
         self.caps = {c: True for c in set(getattr(home, 'CAPABILITY', {}).values())}
         self.counts = Counter()
-        self.scope = {'body': self.body, 'core': core}
+        self.scope = {'body': self.body, 'core': core, 'source': source}
+
+    def _from_source(self, node, claim):
+        """The ontology keeps where a concept, action or name came from (a real person or the program tutor)."""
+        g = self.mem.graph
+        g.link(node, 'learned_from', g.node(f'source:{self.source}', 'source'), claim['id'])
+        g.save()
 
     # ---------------------------------------------------------------- perception
     def feats(self):
@@ -117,6 +125,7 @@ class Grounder:
         for o in pts:
             g.link(g.node(o, 'object'), 'pointed_as', cid, claim['id'])
         g.save()
+        self._from_source(cid, claim)
         return claim
 
     def known_concept(self, lesson, phrase=None):
@@ -176,6 +185,7 @@ class Grounder:
         g.node(aid, 'action')
         g.link(aid, 'uses', g.node(f"tool:{demo['tool']}", 'tool'), claim['id'])
         g.save()
+        self._from_source(aid, claim)
         return claim
 
     def _role(self, a, x, feats):
@@ -256,6 +266,7 @@ class Grounder:
         g = self.mem.graph
         g.link(g.node(f'sym:{symbol}', 'symbol'), 'denotes', node, c['id'])
         g.save()
+        self._from_source(f'sym:{symbol}', c)
         return c
 
     def name_phrase(self, words, node, lesson=None):

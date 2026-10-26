@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATANOR 보드 교사</title>
+<style>
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6a66; --line: #dddbd4;
+  --accent: #2f5d8a; --accent-ink: #ffffff; --warn: #a0522d; --ok: #2e7d4f; --bad: #b3261e;
+  --sel: #2f5d8a; --ask: #c27c0e;
+  --amber: #e8b04a; --teal: #3b9a95; --plum: #8e4f8f; --slate: #6c7a89;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #161615; --panel: #20201e; --ink: #ecebe6; --muted: #a3a29c; --line: #3a3936;
+          --accent: #7fb0e0; --accent-ink: #0d1b28; --sel: #7fb0e0; --ask: #f0b450; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; }
+header { padding: 12px 16px; border-bottom: 1px solid var(--line); display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+header h1 { font-size: 16px; margin: 0; }
+header .sub { color: var(--muted); }
+main { display: grid; grid-template-columns: minmax(0, 3fr) minmax(300px, 2fr); gap: 16px; padding: 16px; }
+@media (max-width: 860px) { main { grid-template-columns: 1fr; } }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+h2 { font-size: 13px; text-transform: none; color: var(--muted); margin: 0 0 8px; font-weight: 600; }
+.board { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 560px) { .board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.zone { border: 1px dashed var(--line); border-radius: 8px; padding: 6px; min-height: 140px; }
+.zone .zt { font-size: 12px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.card { border: 1px solid var(--line); border-radius: 6px; padding: 5px 6px; margin-bottom: 5px; cursor: pointer; background: var(--bg); user-select: none; }
+.card .id { font-size: 10px; color: var(--muted); }
+.card .mk { font-weight: 600; }
+.card .lv { font-size: 11px; color: var(--muted); }
+.card.sel { outline: 2px solid var(--sel); }
+.card.ask { outline: 3px solid var(--ask); }
+.card.acted { box-shadow: inset 4px 0 0 var(--ok); }
+.card.failed { box-shadow: inset 4px 0 0 var(--bad); }
+.prompt { border-left: 4px solid var(--ask); padding: 8px 10px; background: var(--bg); border-radius: 6px; margin-bottom: 10px; }
+.prompt.idle { border-left-color: var(--line); color: var(--muted); }
+button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 6px; padding: 5px 10px; cursor: pointer; margin: 2px 4px 2px 0; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.ok { border-color: var(--ok); color: var(--ok); }
+button.bad { border-color: var(--bad); color: var(--bad); }
+button:disabled { opacity: .45; cursor: default; }
+input[type=text] { font: inherit; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); width: 100%; margin: 3px 0; }
+.row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 4px 0; }
+.log { max-height: 160px; overflow: auto; font-size: 12px; color: var(--muted); }
+.claim { border-top: 1px solid var(--line); padding: 6px 0; font-size: 12px; }
+.claim b { color: var(--ink); }
+.tag { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 10px; border: 1px solid var(--line); margin-right: 4px; color: var(--muted); }
+.tag.human { border-color: var(--accent); color: var(--accent); }
+.tag.recheck { border-color: var(--warn); color: var(--warn); }
+.muted { color: var(--muted); }
+details summary { cursor: pointer; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>ATANOR 보드 교사</h1>
+  <span class="sub" id="sess"></span>
+  <span class="sub">가리키기 · 한 번 시범 · 대조 질문에 답하기 · 확인. 실제 사용자 데이터나 시스템에는 닿지 않는 별도 보드입니다.</span>
+</header>
+<main>
+  <section>
+    <h2>보드</h2>
+    <div class="board" id="board"></div>
+  </section>
+  <div>
+    <section>
+      <h2>ATANOR가 묻는 것</h2>
+      <div id="prompt" class="prompt idle">지금은 묻는 것이 없습니다.</div>
+      <div id="controls"></div>
+    </section>
+    <section style="margin-top:12px">
+      <h2>시작하기</h2>
+      <div class="row"><button class="primary" id="bTeach">가르치기 (가리키기 → 시범 → 확인 → 이름)</button></div>
+      <div class="row" style="width:100%">
+        <input type="text" id="phrase" placeholder="이미 배운 것에 붙일 말 (예: the idea cards)">
+        <button id="bNameSel">선택에 이름 붙이기</button><button id="bNameAct">행동에 이름 붙이기</button>
+      </div>
+      <div class="row" style="width:100%">
+        <input type="text" id="cmd" placeholder="명령 (기호나 영어, 예: dax mip)">
+        <button id="bCmdAlone">혼자 하게 하기</button><button id="bCmdWith">내가 옆에 있을 때</button>
+      </div>
+      <div class="row"><button id="bSession">새 세션 (새 카드가 들어옴)</button><button id="bCancel">지금 질문 취소</button></div>
+      <div class="log" id="log"></div>
+    </section>
+    <section style="margin-top:12px">
+      <h2>ATANOR가 배운 것 (근거와 반례)</h2>
+      <div id="memory" class="muted">아직 없습니다.</div>
+    </section>
+  </div>
+</main>
+<script>
+const HUE = {amber: 'var(--amber)', teal: 'var(--teal)', plum: 'var(--plum)', slate: 'var(--slate)'};
+const TOOL_KO = {stamp: '표시 붙이기', lodge: '상자에 넣기', unlodge: '상자에서 꺼내기', lift: '높이 바꾸기', scrap: '버리기', slot: '상자에 넣기(새 도구)', brand: '표시 붙이기(새 도구)'};
+let S = null, picked = new Set(), demoCard = null, lastPending = null, drawnBusy = null, boardSig = null, memSig = null;
+
+async function api(path, body) {
+  const r = await fetch(path, body === undefined ? {} : {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+  return r.json();
+}
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) { if (k === 'class') e.className = v; else if (k.startsWith('on')) e[k] = v; else e.setAttribute(k, v); }
+  for (const k of kids) e.append(k);
+  return e;
+}
+function answer(a) { picked = new Set(); demoCard = null; api('/api/answer', a).then(refresh); }
+
+function drawBoard() {
+  const b = document.getElementById('board'); b.innerHTML = '';
+  const zones = [['-', '상자 없음', null]].concat(Object.entries(S.trays).map(([t, h]) => [t, `상자 ${h}`, h]));
+  const p = S.pending || {};
+  const acted = new Set((p.acted || []).concat()), failed = new Set(p.failed || []);
+  for (const [tid, label, hue] of zones) {
+    const z = el('div', {class: 'zone'}, el('div', {class: 'zt'}, hue ? el('span', {class: 'dot', style: `background:${HUE[hue]}`}) : '', label));
+    for (const [cid, c] of Object.entries(S.cards).sort()) {
+      if (c.tray !== tid) continue;
+      let cls = 'card';
+      if (picked.has(cid) || demoCard === cid) cls += ' sel';
+      if (p.kind === 'contrast' && p.object === cid) cls += ' ask';
+      if (acted.has(cid)) cls += ' acted';
+      if (failed.has(cid)) cls += ' failed';
+      const card = el('div', {class: cls, title: cid}, el('div', {class: 'mk'}, c.mark), el('div', {class: 'lv'}, `높이 ${c.level}`), el('div', {class: 'id'}, cid));
+      card.onclick = () => {
+        if (p.kind === 'point') { picked.has(cid) ? picked.delete(cid) : picked.add(cid); drawBoard(); drawControls(); }
+        else if (p.kind === 'demo') { demoCard = cid; drawBoard(); drawControls(); }
+      };
+      z.append(card);
+    }
+    b.append(z);
+  }
+}
+
+function drawControls() {
+  const p = S.pending, box = document.getElementById('controls'), pr = document.getElementById('prompt');
+  box.innerHTML = '';
+  if (!p) { pr.className = 'prompt idle'; pr.textContent = S.busy ? 'ATANOR가 생각하는 중입니다…' : '지금은 묻는 것이 없습니다.'; return; }
+  pr.className = 'prompt';
+  if (p.kind === 'point') {
+    pr.textContent = '뜻하는 카드를 몇 장 눌러 가리켜 주세요(두 장이면 충분합니다).';
+    box.append(el('button', {class: 'primary', onclick: () => answer({objects: [...picked]}), ...(picked.size ? {} : {disabled: ''})}, `다 가리켰어요 (${picked.size}장)`));
+  } else if (p.kind === 'contrast') {
+    const c = S.cards[p.object] || {};
+    pr.textContent = `이 카드도 뜻하는 것에 들어가나요? ${p.object} (${c.mark || p.object}, 상자 ${S.trays[c.tray] || '없음'}, 높이 ${c.level || '-'})`;
+    box.append(el('button', {class: 'ok', onclick: () => answer({yes: true})}, '네, 들어가요'), el('button', {class: 'bad', onclick: () => answer({yes: false})}, '아니요'));
+  } else if (p.kind === 'demo') {
+    pr.textContent = (p.error ? p.error + ' ' : '') + '카드 한 장을 누르고, 그 카드에 할 행동을 고르세요.' + (demoCard ? ` 고른 카드: ${demoCard}` : '');
+    if (demoCard) {
+      const tools = S.tools;
+      for (const t of Object.keys(tools)) {
+        if (t === 'stamp' || t === 'brand') S.marks.forEach(m => box.append(el('button', {onclick: () => answer({tool: t, args: t === 'brand' ? [`m.${m}`, demoCard] : [demoCard, `m.${m}`]})}, `${TOOL_KO[t]}: ${m}`)));
+        else if (t === 'lodge' || t === 'slot') Object.entries(S.trays).forEach(([tid, h]) => box.append(el('button', {onclick: () => answer({tool: t, args: t === 'slot' ? [tid, demoCard] : [demoCard, tid]})}, `${TOOL_KO[t]}: ${h}`)));
+        else if (t === 'lift') S.levels.forEach(l => box.append(el('button', {onclick: () => answer({tool: t, args: [demoCard, `l.${l}`]})}, `${TOOL_KO[t]}: ${l}`)));
+        else box.append(el('button', {onclick: () => answer({tool: t, args: [demoCard]})}, TOOL_KO[t] || t));
+      }
+    }
+  } else if (p.kind === 'confirm' || p.kind === 'judge') {
+    pr.textContent = `${p.note} 바뀐 카드: ${(p.acted || []).join(', ') || '없음'}${(p.failed || []).length ? ' / 실패: ' + p.failed.join(', ') : ''}`;
+    box.append(el('button', {class: 'ok', onclick: () => answer({ok: true})}, '맞아요'),
+               el('button', {class: 'bad', onclick: () => answer({ok: false, reason: 'cards'})}, '틀렸어요: 카드가 틀림'),
+               el('button', {class: 'bad', onclick: () => answer({ok: false, reason: 'result'})}, '틀렸어요: 행동 결과가 틀림'));
+  } else if (p.kind === 'name') {
+    pr.textContent = p.note;
+    const a = el('input', {type: 'text', placeholder: '선택의 이름 (예: mip)'}), b = el('input', {type: 'text', placeholder: '행동의 이름 (예: dax)'});
+    box.append(a, b, el('button', {class: 'primary', onclick: () => answer({selection: a.value, action: b.value})}, '이름 붙이기'));
+  }
+}
+
+function drawMemory() {
+  const m = document.getElementById('memory');
+  if (!S.memory.length) { m.textContent = '아직 없습니다.'; return; }
+  m.innerHTML = '';
+  for (const c of S.memory.slice().reverse()) {
+    const head = c.kind === 'selects' ? `선택 ${c.node}: ${c.criterion.join(' 그리고 ')}` : `행동 ${c.node}: ${c.tool} → ${c.gained.join(', ') || '(대상이 사라짐/변화 없음)'}`;
+    const names = c.names.concat(c.phrases);
+    const sup = Object.entries(c.support).map(([k, v]) => `${k} ${v}`).join(', ');
+    const d = el('div', {class: 'claim'},
+      el('div', {}, el('b', {}, head)),
+      el('div', {}, el('span', {class: 'tag' + (c.source === 'human' ? ' human' : '')}, c.source === 'human' ? '사람에게 배움' : (c.source || '이전 기록')),
+        el('span', {class: 'tag'}, c.origin === 'observed' ? '관찰' : (c.origin === 'inferred' ? '가설' : c.origin)),
+        el('span', {class: 'tag' + (c.status === 'needs_recheck' ? ' recheck' : '')}, c.status), el('span', {class: 'tag'}, `확신 ${c.confidence}`), el('span', {class: 'tag'}, `v${c.v}`)),
+      el('div', {class: 'muted'}, `근거: ${sup || '없음'}${c.contrasts && c.contrasts.length ? ' · 대조 답 ' + c.contrasts.join(' ') : ''} · 반례 ${c.counter}`),
+      el('div', {class: 'muted'}, `이름: ${names.length ? names.join(' / ') : '없음'} · 수업 ${c.lesson || '-'}`));
+    if (c.alternatives && c.alternatives.length) d.append(el('details', {}, el('summary', {}, `아직 가르지 못한 다른 기준 ${c.alternatives.length}개`), el('div', {class: 'muted'}, c.alternatives.map(a => a.join(' 그리고 ')).join(' | '))));
+    m.append(d);
+  }
+}
+
+async function refresh() {
+  S = await api('/api/state');
+  const key = S.pending ? S.pending.n : null;
+  const changed = key !== lastPending || (!S.pending && drawnBusy !== S.busy);
+  if (key !== lastPending) { picked = new Set(); demoCard = null; lastPending = key; }
+  document.getElementById('sess').textContent = `${S.session}번째 세션`;
+  const bsig = JSON.stringify([S.cards, S.pending]), msig = JSON.stringify(S.memory);
+  if (bsig !== boardSig || changed) { drawBoard(); boardSig = bsig; }   // redraw only on change (clicks stay on the same element)
+  if (msig !== memSig) { drawMemory(); memSig = msig; }
+  if (changed) { drawControls(); drawnBusy = S.busy; }        // keep what the person is typing
+  if (S.messages.length) document.getElementById('log').innerHTML = S.messages.slice().reverse().map(m => `<div>${m.at} ${m.text.replace(/</g, '&lt;')}</div>`).join('');
+  const busy = S.busy;
+  for (const id of ['bTeach', 'bNameSel', 'bNameAct', 'bCmdAlone', 'bCmdWith', 'bSession']) document.getElementById(id).disabled = busy;
+}
+document.getElementById('bTeach').onclick = () => api('/api/start', {job: 'teach'}).then(refresh);
+document.getElementById('bNameSel').onclick = () => api('/api/start', {job: 'name', part: 'selection', phrase: document.getElementById('phrase').value}).then(refresh);
+document.getElementById('bNameAct').onclick = () => api('/api/start', {job: 'name', part: 'action', phrase: document.getElementById('phrase').value}).then(refresh);
+document.getElementById('bCmdAlone').onclick = () => api('/api/start', {job: 'command', text: document.getElementById('cmd').value, alone: true}).then(refresh);
+document.getElementById('bCmdWith').onclick = () => api('/api/start', {job: 'command', text: document.getElementById('cmd').value, alone: false}).then(refresh);
+document.getElementById('bSession').onclick = () => api('/api/start', {job: 'session'}).then(refresh);
+document.getElementById('bCancel').onclick = () => api('/api/cancel', {}).then(refresh);
+refresh(); setInterval(refresh, 800);
+</script>
+</body>
+</html>
