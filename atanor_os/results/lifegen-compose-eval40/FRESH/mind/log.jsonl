@@ -1,0 +1,9 @@
+{"t": 1792973104.123, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["villa"]], ["shove", ["villa/amber28.txt", "amber28.txt"]]]}
+{"t": 1792973105.067, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 7}
+{"t": 1792973113.379, "task": "d30-t1", "event": "ask_check", "unknown": ["delete", "separated", "and", "logs"], "ok": false}
+{"t": 1792973113.38, "task": "d30-t1", "event": "ask_explain", "word": "delete", "answer": null, "learned": false}
+{"t": 1792973113.381, "task": "d30-t1", "event": "ask_explain", "word": "separated", "answer": "csv files", "learned": true}
+{"t": 1792973113.384, "task": "d30-t1", "event": "ask_check", "unknown": ["delete", "and", "logs"], "ok": false}
+{"t": 1792973113.798, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["delete", ["birch27.csv"]]]}
+{"t": 1792973146.908, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973147.569, "task": "d30-t1", "event": "rehearsal", "ok": false, "steps": 1}

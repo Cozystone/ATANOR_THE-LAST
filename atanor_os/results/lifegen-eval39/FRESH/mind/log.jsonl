@@ -1,0 +1,10 @@
+{"t": 1792973429.239, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["zap", ["fennel28.json"]]]}
+{"t": 1792973438.364, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973439.063, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973454.897, "task": "d30-t1", "event": "ask_check", "unknown": ["kindly", "back", "up", "the", "into", "a", "new", "folder", "named", "igloo"], "ok": false}
+{"t": 1792973454.899, "task": "d30-t1", "event": "ask_explain", "word": "kindly", "answer": "", "learned": true}
+{"t": 1792973454.901, "task": "d30-t1", "event": "ask_explain", "word": "back", "answer": "copy", "learned": false}
+{"t": 1792973456.047, "task": "d30-t1", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["igloo"]], ["replicate", ["igloo/saffron30.md", "saffron30.md"]]]}
+{"t": 1792973457.381, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792973461.036, "task": "d30-t2", "event": "ask_point", "why": "weak selection"}
+{"t": 1792973461.044, "task": "d30-t2", "event": "ask_check", "why": "weak change", "ok": true}

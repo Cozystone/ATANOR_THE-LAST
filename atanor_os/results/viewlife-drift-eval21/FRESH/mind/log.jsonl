@@ -1,0 +1,6 @@
+{"t": 1792972298.48, "task": "d30-t0", "event": "demonstration", "pid": "25058de642", "pattern": [["o", "kind", "panel"], ["o", "sort", "=D.value"]], "steps": [["rank", ["key:ext", "p2"]]]}
+{"t": 1792972298.494, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 1}
+{"t": 1792972298.515, "task": "d30-t1", "event": "ask_explain", "word": "please", "answer": "", "learned": true}
+{"t": 1792972298.515, "task": "d30-t1", "event": "ask_explain", "word": "cluster", "answer": "group", "learned": false}
+{"t": 1792972298.52, "task": "d30-t1", "event": "demonstration", "pid": "9db53db05e", "pattern": [["o", "group", "=D.value"], ["o", "kind", "panel"]], "steps": [["group", ["p1", "grp:ext"]]]}
+{"t": 1792972298.528, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 1}

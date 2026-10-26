@@ -1,0 +1,13 @@
+{"t": 1792973952.978, "task": "d30-t0", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["nook"]], ["move", ["birch30.log", "nook/birch30.log"]]]}
+{"t": 1792973961.229, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973962.04, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973964.081, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973964.886, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792973974.916, "task": "d30-t1", "event": "ask_explain", "word": "erase", "answer": "delete", "learned": false}
+{"t": 1792973974.918, "task": "d30-t1", "event": "ask_explain", "word": "files", "answer": null, "learned": false}
+{"t": 1792973975.33, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["amber30.md"]]]}
+{"t": 1792973976.864, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 6}
+{"t": 1792973980.854, "task": "d30-t2", "event": "ask_check", "unknown": ["get", "rid", "of", "as", "well", "as"], "ok": false}
+{"t": 1792973980.856, "task": "d30-t2", "event": "ask_explain", "word": "get", "answer": "delete", "learned": false}
+{"t": 1792973980.859, "task": "d30-t2", "event": "ask_explain", "word": "rid", "answer": "delete", "learned": false}
+{"t": 1792973981.187, "task": "d30-t2", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["lilac30.txt"]]]}
