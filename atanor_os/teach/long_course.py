@@ -15,12 +15,16 @@ from .teacher_policy import Teacher
 BODIES = ('board', 'fs', 'view')
 
 
-def run(root, seed=1, per_body=15, shared=True, policy='t2'):
+CHANGE_FROM = {'board': 6, 'fs': 12, 'view': 18}          # each body's tool stops working on a different day
+
+
+def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
     root.mkdir(parents=True)
-    teachers = {b: Teacher(root / b, seed, drift_from=9, policy=policy, body=b,
+    change_from = change_from or {b: 9 for b in BODIES}
+    teachers = {b: Teacher(root / b, seed, drift_from=change_from[b], policy=policy, body=b,
                            mind=(root / 'mind') if shared else (root / b / 'mind')) for b in BODIES}
     for i in range(per_body):
         for j, b in enumerate(BODIES):
@@ -36,6 +40,23 @@ if __name__ == '__main__':
     ap.add_argument('--seed', type=int, default=1)
     ap.add_argument('--per-body', type=int, default=15)
     ap.add_argument('--separate', action='store_true')
+    ap.add_argument('--staggered', action='store_true', help='tool changes on different days per body')
     a = ap.parse_args()
-    run(a.root, a.seed, a.per_body, shared=not a.separate)
+    run(a.root, a.seed, a.per_body, shared=not a.separate, change_from=CHANGE_FROM if a.staggered else None)
     print('done', a.root)
+
+
+def curves(body_dir, block=5):
+    """Per body, in blocks of sessions: questions the person answered (lesson + command help, confirmations left out),
+    and how many commands given with nobody there succeeded."""
+    import json
+    rows = [json.loads(l) for l in (Path(body_dir) / 'log.jsonl').read_text(encoding='utf-8').splitlines()]
+    out = []
+    last = max(r['session'] for r in rows)
+    for lo in range(1, last + 1, block):
+        b = [r for r in rows if lo <= r['session'] < lo + block]
+        q = sum(v for r in b if r['event'] in ('lesson', 'command', 'name') for k, v in (r.get('help') or {}).items() if k != 'confirm')
+        alone = [r for r in b if r['event'] == 'command' and r.get('alone') and not r.get('recalled')]
+        out.append({'sessions': f'{lo}-{min(lo + block - 1, last)}', 'questions': q, 'lessons': sum(r['event'] == 'lesson' for r in b),
+                    'alone': f"{sum(r['outcome'] == 'success' for r in alone)}/{len(alone)}"})
+    return out

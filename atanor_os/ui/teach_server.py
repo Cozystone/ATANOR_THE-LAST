@@ -309,6 +309,7 @@ class Session:
         words = text.lower().split()
         if not words:
             return
+        h0 = Counter(self.person.help)
         g = self.grounder(with_person=not alone)
         res = g.obey(words, task=f"C{self.state['session']}.{self.state['k']}")
         if recalled:
@@ -333,6 +334,7 @@ class Session:
         born = self.state.get('born', {})
         row['acted_new_cards'] = [o for o in row['acted'] if first is not None and born.get(o, 0) > first]
         row['failure_class'] = classify(row)
+        row['help'] = dict(Counter(self.person.help) - h0)
         self.log(**row)
 
     def job_recall(self, index=0):
