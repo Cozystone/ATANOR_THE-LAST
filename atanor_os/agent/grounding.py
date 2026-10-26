@@ -27,11 +27,11 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=False):
+                 experiment=True, transfer=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
-        self.transfer = transfer                   # (pre-registered experiment) a word from another body for 'make it vanish'
+        self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')

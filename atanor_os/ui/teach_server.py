@@ -124,8 +124,8 @@ def readable_atom(a):
 
 
 class Session:
-    def __init__(self, root, seed=1, source='human', clock=None, body='board', mind=None, transfer=False):
-        self.transfer = transfer                          # TRANSFER_PROTOCOL.md experiment (off by default)
+    def __init__(self, root, seed=1, source='human', clock=None, body='board', mind=None, transfer=True):
+        self.transfer = transfer                          # TRANSFER_PROTOCOL.md (PASS, narrow)
         self.mind = Path(mind) if mind else Path(root) / 'mind'   # one mind may live in several bodies' sandboxes
         self.body = body                                  # 'board' (with a screen) or 'fs' (a sandbox folder; no screen yet)
         self.root = Path(root)

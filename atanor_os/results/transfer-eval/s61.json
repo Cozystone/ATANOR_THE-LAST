@@ -1,0 +1,17 @@
+{
+ "seed": 61,
+ "results": [
+  {
+   "from": "board",
+   "to": "fs",
+   "testable": false,
+   "note": "board: no English phrase taught for its vanish action"
+  },
+  {
+   "from": "fs",
+   "to": "board",
+   "testable": false,
+   "note": "board: vanish action not taught"
+  }
+ ]
+}
