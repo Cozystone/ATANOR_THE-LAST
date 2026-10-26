@@ -5,6 +5,8 @@ gives commands with nobody there, on a world of new cards from another seed, som
   taught   a selection and an action that were taught together
   combo    a named selection with a named action never taught together
   english  sealed English forms (from a file outside the repository) for things that got English phrases
+  unseen change  the stamp tool stops working (the course never had this); the same command twice on one mind copy:
+           the first should fail without a wrong act, the second should change course (hold) rather than fail again
 Every command runs on a fresh copy of the mind and the board, so one test cannot teach the next. What each name
 means comes from names.json, the teaching side's own record of what it meant. Holding is not success.
 Usage: python -m atanor_os.eval.teacher_eval <course_dir> <eval_seed> <out.json> [sealed:<path>]
@@ -81,13 +83,36 @@ def evaluate(course, eval_seed, out_file, sealed=None, drift=DRIFT):
                 rows.append({'sel': s, 'act': a, 'kind': kind, 'why': res.get('why'),
                              'outcome': 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else
                                                                                ('missed' if res.get('ok') else 'held'))})
+    revision = []                                          # a world change the course never had: the stamp tool stops
+    for s in sorted(int(k) for k in names['sel']):
+        for a in sorted(int(k) for k in names['act']):
+            if acts[a]['tool'] != 'stamp':
+                continue
+            h = world(work / 'b', eval_seed, list(drift) + ['stamp_retired'])
+            t = Tutor(h, BoardSpec, f'eval-{eval_seed}')
+            t.start(sels[s], acts[a])
+            if not todo(BoardSpec, h, t, acts[a]):
+                continue
+            if (work / 'm').exists():
+                shutil.rmtree(work / 'm')
+            shutil.copytree(course / 'mind', work / 'm')
+            seq = []
+            for _ in range(2):                             # the same mind twice: does the failure change what it does next?
+                t.start(sels[s], acts[a])
+                res = Grounder(h, work / 'm', person=None, source='evaluator').obey([names['act'][str(a)], names['sel'][str(s)]])
+                ok = t.judge()
+                seq.append('success' if ok and res.get('ok') else ('tool_failed' if res.get('failed') else
+                                                                   ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why'))))))
+            revision.append({'sel': s, 'act': a, 'first': seq[0], 'second': seq[1]})
     shutil.rmtree(work)
     summ = {}
     for r in rows:
         k = r['kind'].split(':')[0]
         summ.setdefault(k, Counter())[r['outcome']] += 1
     out = {'course': str(course), 'eval_seed': eval_seed, 'summary': {k: dict(v) for k, v in summ.items()},
-           'held_why': dict(Counter(r['why'] for r in rows if r['outcome'] == 'held')), 'rows': rows}
+           'held_why': dict(Counter(r['why'] for r in rows if r['outcome'] == 'held')), 'rows': rows,
+           'unseen_change': {'n': len(revision), 'first': dict(Counter(r['first'] for r in revision)),
+                             'second': dict(Counter(r['second'] for r in revision)), 'rows': revision}}
     out_file.write_text(json.dumps(out, indent=1), encoding='utf-8')
     return out
 
@@ -95,4 +120,4 @@ def evaluate(course, eval_seed, out_file, sealed=None, drift=DRIFT):
 if __name__ == '__main__':
     sealed = next((a[7:] for a in sys.argv[4:] if a.startswith('sealed:')), None)
     r = evaluate(sys.argv[1], int(sys.argv[2]), sys.argv[3], sealed)
-    print(json.dumps({k: r[k] for k in ('summary', 'held_why')}, indent=1))
+    print(json.dumps({k: r[k] for k in ('summary', 'held_why')} | {'unseen_change': {k: v for k, v in r['unseen_change'].items() if k != 'rows'}}, indent=1))
