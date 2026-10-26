@@ -48,10 +48,10 @@ class BoardWorkspace:
         tmp.replace(self.path)
 
     def add_cards(self, cards):
-        """The world: new cards arrive (each {'mark': m}); they start in no tray, at the low level."""
+        """The world: new cards arrive (each {'mark': m}, optionally already in a tray id); they start at the low level."""
         spec = self._read()
         for cid, c in cards.items():
-            spec['cards'][cid] = {'mark': c['mark'], 'tray': '-', 'level': 'low'}
+            spec['cards'][cid] = {'mark': c['mark'], 'tray': c.get('tray', '-'), 'level': 'low'}
         self._write(spec)
 
     @staticmethod

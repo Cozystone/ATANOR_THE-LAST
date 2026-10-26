@@ -1,0 +1,10 @@
+{"t": 1792982276.181, "task": "d30-t0", "event": "demonstration", "pid": "4ffda95714", "pattern": [["o", "kind", "card"], ["o", "level", "=D.value"]], "steps": [["lift", ["q234", "l.high"]]]}
+{"t": 1792982276.226, "task": "d30-t0", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792982276.303, "task": "d30-t1", "event": "ask_explain", "word": "pull", "answer": "take", "learned": false}
+{"t": 1792982276.304, "task": "d30-t1", "event": "ask_explain", "word": "everything", "answer": "", "learned": true}
+{"t": 1792982276.328, "task": "d30-t1", "event": "demonstration", "pid": "fa95c38341", "pattern": [["o", "kind", "card"], ["o", "tray", "-"]], "steps": [["unlodge", ["q234"]]]}
+{"t": 1792982276.358, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 2}
+{"t": 1792982276.427, "task": "d30-t2", "event": "ask_explain", "word": "stash", "answer": null, "learned": false}
+{"t": 1792982276.428, "task": "d30-t2", "event": "ask_explain", "word": "all", "answer": "", "learned": true}
+{"t": 1792982276.453, "task": "d30-t2", "event": "demonstration", "pid": "10750b642b", "pattern": [["o", "kind", "card"], ["o", "tray", "=D.value"]], "steps": [["slot", ["t4", "q302"]]]}
+{"t": 1792982276.476, "task": "d30-t2", "event": "rehearsal", "ok": true, "steps": 1}

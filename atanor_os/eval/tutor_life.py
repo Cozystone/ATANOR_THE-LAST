@@ -1,0 +1,266 @@
+"""A taught life on the board without sentences first (evaluator side). Each day is a new process (memory persists only
+through the mind directory, as in every life). The person decides each day, on the board as it is, what makes sense to
+teach or ask (a lesson or a command is only posed if there are objects it applies to and the action can be done).
+Phases:
+  A  lessons, no words: point at a few objects meant, ATANOR asks contrast questions, one demonstration, ATANOR does the
+     rest, the person confirms; then the person NAMES the selection and the action with arbitrary per-seed symbols.
+  B  symbol commands for a selection and an action that were taught together.
+  C  new combinations: a taught selection with a taught action never shown together.
+  -  from day 9 a world change (one tool stops working, a new one appears): a counter-example to action claims.
+  D  English: the person attaches English phrases to concepts already shared (pointing / demonstrating while saying the
+     phrase), then gives English commands, including new combinations.
+Every fourth day nobody is there. Conditions: FULL, ONTO (claims and graph kept, past raw events unreadable), RAW (only
+raw events kept; concepts re-derived from them), NONE (memory wiped every day), PASSIVE (FULL memory, no contrast questions).
+"""
+import itertools
+import json
+import random
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+from .life_gen_board import MARKS, TRAYS, inflow as card_inflow
+
+PKG = Path(__file__).resolve().parents[1]
+HUE_TRAY = {h: t for t, h in TRAYS.items()}
+
+
+def targets(seed):
+    rng = random.Random(f'tutor-targets-{seed}')
+    sels = [{'kind': 'card', 'mark': m} for m in sorted(MARKS)] + [{'kind': 'card', 'tray': h} for h in rng.sample(sorted(HUE_TRAY), 2)] +            [{'kind': 'card', 'mark': m, 'tray': h} for m, h in zip(rng.sample(sorted(MARKS), 2), rng.sample(sorted(HUE_TRAY), 2))]   # conjunctions
+    acts = [{'tool': 'lodge', 'second': t} for t in rng.sample(sorted(TRAYS), 2)] + \
+           [{'tool': 'stamp', 'second': f'm.{m}'} for m in rng.sample(sorted(MARKS), 1)] + [{'tool': 'lift', 'second': 'l.high'}, {'tool': 'unlodge'}, {'tool': 'scrap'}]
+    return sels, acts
+
+
+def english(kind, spec):
+    """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection."""
+    if kind == 'sel':
+        if 'mark' in spec and 'tray' in spec:
+            return ['the', spec['mark'], 'cards', 'in', spec['tray']]
+        return ['the', spec['mark'], 'cards'] if 'mark' in spec else ['the', 'cards', 'in', spec['tray']]
+    t = spec['tool']
+    if t == 'lodge':
+        return ['stash', 'in', TRAYS[spec['second']]]
+    if t == 'stamp':
+        return ['label', 'as', spec['second'][2:]]
+    if t == 'lift':
+        return ['raise', 'to', spec['second'][2:]]
+    return {'unlodge': ['take', 'out'], 'scrap': ['shred']}[t]
+
+
+def plan(seed, days=24):
+    """Which kinds of events each day has (the concrete objects are chosen by the person on the day's board)."""
+    rng = random.Random(f'tutor-plan-{seed}')
+    out = []
+    for d in range(1, days + 1):
+        user = d <= 2 or d % 4 != 0
+        ev = []
+        if d <= 4 and user:
+            ev += [['lesson'], ['lesson']]
+        if d in (11, 13) and user:
+            ev += [['english'], ['english'], ['english']]
+        for _ in range(3 if d >= 2 else 0):
+            kind = 'C' if d >= 5 and rng.random() < 0.5 else 'B'
+            lang = 'en' if d >= 12 and rng.random() < 0.5 else 'sym'
+            ev.append(['test', kind, lang])
+        out.append({'day': d, 'user': user, 'drift': ['lodge_retired'] if d >= 9 else [], 'events': ev})
+    return out
+
+
+def day_inflow(seed, day):
+    """New cards arrive; some were already put in a tray by others."""
+    rng = random.Random(f'tutor-inflow-{seed}-{day}')
+    cards = card_inflow(seed, day)
+    for cid in sorted(cards)[:2]:
+        cards[cid]['tray'] = rng.choice(sorted(TRAYS))
+    return cards
+
+
+def run_day(cond, seed, day_no, root, days=24):
+    from ..agent.grounding import Grounder
+    from ..teach.tutor import BoardSpec, Tutor, symbols
+    from ..world.board_world import BoardWorkspace
+    root = Path(root)
+    sels, acts = targets(seed)
+    day = plan(seed, days)[day_no - 1]
+    home = BoardWorkspace(root / 'board', create=not (root / 'board').exists())
+    home.add_cards(day_inflow(seed, day_no))
+    home.drift = frozenset(day['drift'])
+    if cond == 'NONE' and (root / 'mind').exists():
+        shutil.rmtree(root / 'mind')
+    sp = root / 'tutor_state.json'                     # the person's own memory of what was taught (evaluator side)
+    S = json.loads(sp.read_text(encoding='utf-8')) if sp.exists() else {'taught': [], 'sym_sel': [], 'sym_act': [], 'en_sel': [], 'en_act': []}
+    if cond == 'NONE':                                 # the person knows ATANOR forgets nothing it was told... it does forget here
+        pass
+    sym = symbols(seed)
+    sym_sel = {j: sym[j] for j in range(len(sels))}
+    sym_act = {j: sym[20 + j] for j in range(len(acts))}
+    tut = Tutor(home, BoardSpec, f'{seed}-{day_no}')
+    mode = {'FULL': 'FULL', 'ONTO': 'ONTO', 'RAW': 'RAW', 'NONE': 'FULL', 'PASSIVE': 'FULL'}[cond]
+    g = Grounder(home, root / 'mind', person=tut if day['user'] else None, mode=mode, passive=cond == 'PASSIVE')
+    rng = random.Random(f'tutor-choice-{seed}-{day_no}')
+    rows = []
+
+    def feasible(s, a):
+        tut.start(sels[s], acts[a])
+        st = home.observe(home.existing())
+        todo = [o for o in tut.truth if not BoardSpec.shows(acts[a], st.get(o))]
+        if acts[a]['tool'] in ('lift', 'unlodge') and any(st[o]['tray'] == '-' for o in todo):
+            return False                               # the person knows these need cards in a tray
+        return bool(todo)
+
+    def pick(cands, prefer=None):
+        cands = list(cands)
+        rng.shuffle(cands)
+        if prefer:
+            cands.sort(key=prefer)
+        return next(((s, a) for s, a in cands if feasible(s, a)), None)
+
+    def teach(s, a, row, names=('sym',)):
+        """A lesson: point, contrast questions, one demonstration, ATANOR does the rest, confirm; then the names."""
+        tut.start(sels[s], acts[a])
+        lid = f'L{s}.{a}-d{day_no}'
+        sc = g.learn_selection(lid)
+        row['criterion_ok'] = bool(sc) and g.extension(sc['content']['atoms'], g.feats()) == tut.truth
+        ac = g.learn_action(lid)
+        acted, failed = g.apply(sc['content'], ac['content'], lid) if sc else ([], [])
+        ok = tut.confirm()
+        g.reply(ok)
+        row.update(reproduced=ok, acted=len(acted), failed=len(failed))
+        for lang in names:
+            if lang == 'sym':
+                if sc:
+                    g.bind(sym_sel[s], sc['content']['concept'], lid, replace=True)
+                g.bind(sym_act[a], ac['content']['action'], lid, replace=True)
+            else:
+                for w in english('sel', sels[s]) if sc else []:
+                    g.bind(w, sc['content']['concept'], lid)
+                for w in english('act', acts[a]):
+                    g.bind(w, ac['content']['action'], lid)
+        if [s, a] not in S['taught']:
+            S['taught'].append([s, a])
+        for key, j in (('sym_sel', s), ('sym_act', a)) if 'sym' in names else ():
+            if j not in S[key]:
+                S[key].append(j)
+
+    for k, e in enumerate(day['events']):
+        h0 = dict(tut.help)
+        row = {'day': day_no, 'k': k, 'user': day['user'], 'event': e[0], 'drift': day['drift']}
+        if e[0] == 'lesson':
+            ts = {x for x, _ in S['taught']}
+            ta = {y for _, y in S['taught']}
+            c = pick(itertools.product(range(len(sels)), range(len(acts))), prefer=lambda p: (p[0] in ts) + (p[1] in ta))
+            if c is None:
+                row['outcome'] = 'nothing to teach'
+            else:
+                row.update(sel=c[0], act=c[1])
+                teach(c[0], c[1], row)
+        elif e[0] == 'english':
+            c = pick([tuple(p) for p in S['taught']], prefer=lambda p: (p[0] in S['en_sel']) + (p[1] in S['en_act']))
+            if c is None:
+                row['outcome'] = 'nothing to name'
+            else:
+                s, a = c
+                row.update(sel=s, act=a)
+                tut.start(sels[s], acts[a])
+                pts = tut.point()                      # gesture at the objects while saying the phrase
+                feats = g.feats()
+                cands = [x for x in g.mem.claims.claims('selects') if all(set(x['content']['atoms']) <= feats[o] for o in pts)]
+                cands = sorted(cands, key=lambda x: (len(g.extension(x['content']['atoms'], feats)), x['id']))
+                if cands:
+                    for w in english('sel', sels[s]):
+                        g.bind(w, cands[0]['content']['concept'], f'E{s}-d{day_no}')
+                    S['en_sel'].append(s)
+                row['english_sel_candidates'] = len(cands)
+                ac = g.learn_action(f'E{a}-d{day_no}')    # demonstrate while saying the action phrase
+                same = [x for x in g.mem.claims.claims('effect') if x['content']['tool'] == ac['content']['tool']
+                        and x['content']['gained'] == ac['content']['gained'] and x['id'] != ac['id']]
+                node = (same[0] if same else ac)['content']['action']
+                for w in english('act', acts[a]):
+                    g.bind(w, node, f'E{a}-d{day_no}')
+                S['en_act'].append(a)
+                row['english_act_matched_existing'] = bool(same)
+                if cands:
+                    g.apply(cands[0]['content'], ac['content'], f'E{s}-d{day_no}')
+                row['reproduced'] = tut.confirm()
+        else:
+            _, kind, lang = e
+            named_s = S['sym_sel'] if lang == 'sym' else S['en_sel']
+            named_a = S['sym_act'] if lang == 'sym' else S['en_act']
+            taught = [tuple(p) for p in S['taught']]
+            if kind == 'B':
+                cands = [p for p in taught if p[0] in named_s and p[1] in named_a]
+            else:
+                cands = [(s, a) for s in set(named_s) for a in set(named_a) if (s, a) not in taught]
+            c = pick(cands)
+            row.update(kind=kind, lang=lang)
+            if c is None:
+                row['outcome'] = 'infeasible'
+                rows.append(row)
+                continue
+            s, a = c
+            row.update(sel=s, act=a)
+            tut.start(sels[s], acts[a])
+            if lang == 'sym':
+                words = [sym_act[a], sym_sel[s]]
+                random.Random(f'{seed}-{day_no}-{k}').shuffle(words)
+            else:
+                ea = english('act', acts[a])
+                words = ea[:1] + english('sel', sels[s]) + ea[1:]
+            row['words'] = words
+            look = g.lookup(sym_sel[s]) if lang == 'sym' else None
+            if look and look['kind'] == 'selects':
+                ext = g.extension(look['claim']['content']['atoms'], g.feats())
+                row['retrieval_ok'] = ext == tut.truth
+            res = g.obey(words, task=f'd{day_no}-k{k}')
+            row['used_claims'] = res.get('used')
+            if not res.get('ok') and day['user'] and res.get('why') == 'unresolved':
+                teach(s, a, row, names=(lang,))       # the person re-teaches (counted as help)
+                row['retaught'] = True
+            elif not res.get('ok') and day['user'] and res.get('failed'):
+                ac = g.learn_action(f'R{a}-d{day_no}')   # the tool did not do what was remembered: shown again
+                for w in ([sym_act[a]] if lang == 'sym' else english('act', acts[a])):
+                    g.bind(w, ac['content']['action'], f'R{a}-d{day_no}', replace=lang == 'sym')
+                sc = g.lookup(sym_sel[s]) if lang == 'sym' else None
+                if sc:
+                    g.apply(sc['claim']['content'], ac['content'], f'R{a}-d{day_no}')
+                row['redemonstrated'] = True
+            ok = tut.judge()
+            acted = bool(res.get('acted'))
+            row.update(outcome='success' if ok else ('wrong' if acted else 'held'), first_try=res.get('ok', False) and ok,
+                       why=res.get('why'), retrieved_as=res.get('retrieved_as'))
+        row['help'] = {q: tut.help[q] - h0.get(q, 0) for q in tut.help if tut.help[q] - h0.get(q, 0)}
+        rows.append(row)
+    sp.write_text(json.dumps(S), encoding='utf-8')
+    counts = dict(g.counts)
+    with open(root / 'days.jsonl', 'a', encoding='utf-8') as f:
+        for r in rows:
+            f.write(json.dumps({**r, 'counts': counts}, default=str) + '\n')
+    return rows
+
+
+def _content(g, words):
+    """English: a word that has been bound to exactly one internal node stands for it; the others say nothing."""
+    out = []
+    for w in words:
+        if g.mode == 'RAW':
+            nodes = {e['node'] for e in g.mem.events.all() if e['kind'] == 'name' and e.get('symbol') == w}
+        else:
+            nodes = {c['content']['refers'] for c in g.mem.claims.claims('denotes') if c['content']['symbol'] == w}
+        if len(nodes) == 1:
+            out.append(w)
+    return out
+
+
+def run(seed, out, conds=('FULL', 'ONTO', 'RAW', 'NONE', 'PASSIVE'), days=24):
+    out = Path(out)
+    for c in conds:
+        root = out / c
+        if root.exists():
+            shutil.rmtree(root)
+        root.mkdir(parents=True)
+        for d in range(1, days + 1):
+            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.tutor_life import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days})'],
+                           cwd=PKG.parent, check=True)

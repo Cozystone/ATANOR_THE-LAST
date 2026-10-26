@@ -1,0 +1,74 @@
+"""Ontology memory and the grounding learner: events are append-only, claims keep their versions and evidence, outside
+proposals are never acted on, concepts come from pointing and contrast, symbols bind to existing concepts, and a
+restart with only claims (ONTO) or only raw events (RAW) still finds them. No body or English word in either module."""
+import random
+from pathlib import Path
+
+from atanor_os.agent.grounding import Grounder
+from atanor_os.agent.memory import Memory
+from atanor_os.teach.tutor import BoardSpec, Tutor, symbols
+from atanor_os.world.board_world import BoardWorkspace
+
+
+def test_memory_modules_know_no_body_or_word():
+    for f in ('memory.py', 'grounding.py'):
+        src = (Path(__file__).resolve().parents[1] / 'agent' / f).read_text(encoding='utf-8')
+        for word in ("'card'", "'tray'", "'file'", "'panel'", "'urgent'", "'lodge'", "'copy'", "'board'", "'fs'", "'view'"):
+            assert word not in src, (f, word)
+
+
+def test_claims_keep_versions_and_proposals_are_never_used(tmp_path):
+    m = Memory(tmp_path)
+    e1 = m.events.append('point', objects=['x'])
+    c = m.claims.add('selects', {'concept': 'k0', 'atoms': ['a']}, [e1], 'inferred', {'body': 'b', 'core': 'g1'})
+    e2 = m.events.append('contrast', object='y', answer=False)
+    m.counter(c['id'], e2)
+    m.claims.revise(c['id'], content={'concept': 'k0', 'atoms': ['a', 'b']}, support=[e2])
+    vs = [v for v in m.claims.versions if v['id'] == c['id']]
+    assert vs[0]['content']['atoms'] == ['a'] and m.claims.current(c['id'])['content']['atoms'] == ['a', 'b']
+    assert m.claims.current(c['id'])['support'] == [e1, e2] and e2 in m.claims.current(c['id'])['counter']
+    p = m.propose('selects', {'concept': 'k9', 'atoms': ['z']}, 'suggested by an outside reader')
+    assert p['status'] == 'proposal' and p['id'] not in {x['id'] for x in m.claims.claims()}
+    lines = (tmp_path / 'events.jsonl').read_text(encoding='utf-8').splitlines()
+    assert len(lines) == 2                                     # events are only appended
+
+
+def _board(tmp_path):
+    ws = BoardWorkspace(tmp_path / 'board')
+    r = random.Random(5)
+    ws.add_cards({f'c{i}': {'mark': r.choice(['urgent', 'idea', 'memo']), 'tray': r.choice(['-', 't1', 't2'])} for i in range(30)})
+    return ws
+
+
+def test_a_conjunction_is_found_by_pointing_and_contrast_and_reused_after_restart(tmp_path):
+    ws = _board(tmp_path)
+    tut = Tutor(ws, BoardSpec, 1)
+    sel, act = {'kind': 'card', 'mark': 'idea', 'tray': 'amber'}, {'tool': 'lift', 'second': 'l.high'}
+    tut.start(sel, act)
+    assert len(tut.truth) >= 2
+    g = Grounder(ws, tmp_path / 'mind', person=tut)
+    sc = g.learn_selection('L')
+    assert g.extension(sc['content']['atoms'], g.feats()) == tut.truth
+    ac = g.learn_action('L')
+    g.apply(sc['content'], ac['content'], 'L')
+    assert tut.confirm()
+    sym = symbols(1)
+    g.bind(sym[0], sc['content']['concept'], 'L')
+    g.bind(sym[1], ac['content']['action'], 'L')
+    ws.add_cards({'n1': {'mark': 'idea', 'tray': 't1'}, 'n2': {'mark': 'idea'}, 'n3': {'mark': 'memo', 'tray': 't1'}})
+    for mode in ('ONTO', 'RAW'):
+        g2 = Grounder(ws, tmp_path / 'mind', person=None, mode=mode)
+        look = g2.lookup(sym[0])
+        assert look and set(g2.extension(look['claim']['content']['atoms'], g2.feats())) >= {'n1'}
+        assert 'n2' not in g2.extension(look['claim']['content']['atoms'], g2.feats()) and 'n3' not in g2.extension(look['claim']['content']['atoms'], g2.feats())
+    tut.start(sel, act)
+    g3 = Grounder(ws, tmp_path / 'mind', person=None, mode='ONTO')
+    res = g3.obey([sym[1], sym[0]])
+    assert res['ok'] and tut.judge(), res
+
+
+def test_an_unknown_symbol_is_held_alone(tmp_path):
+    ws = _board(tmp_path)
+    g = Grounder(ws, tmp_path / 'mind', person=None)
+    res = g.obey(['zuvo', 'kepa'])
+    assert not res['ok'] and res['why'] == 'unresolved'
