@@ -1,0 +1,383 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\fixed-eval11",
+ "eval_seed": 111,
+ "summary": {
+  "combo": {
+   "held": 5,
+   "success": 7
+  },
+  "taught": {
+   "success": 4,
+   "held": 3
+  },
+  "english": {
+   "held": 12,
+   "success": 20
+  }
+ },
+ "held_why": {
+  "needs recheck": 13,
+  "unresolved": 4,
+  "ambiguous generalization": 3
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "combo",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "note": "Sealed English forms are named only (their words are kept outside the repository)."
+}
