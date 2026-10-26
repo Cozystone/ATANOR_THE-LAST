@@ -78,7 +78,8 @@ class HumanPerson:
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             if res['ok']:
-                return {'tool': d['tool'], 'args': list(args), 'object': args[0]}
+                card = d.get('object') or next((a for a in args if self.home.kind(a) == 'card'), args[0])   # the card acted on
+                return {'tool': d['tool'], 'args': list(args), 'object': card}
             err = f"그 행동은 되지 않았습니다 ({res.get('error')}). 다른 카드나 값으로 다시 보여 주세요."
 
 

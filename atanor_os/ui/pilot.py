@@ -30,7 +30,7 @@ class Clock:
         return self.t
 
 
-def drive(sess, tut, names, timeout=30, noise=0.0, rng=None):
+def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
     """Answer the job's questions until it ends. noise: the chance that a pointing includes a card not meant, or that a
     contrast answer is the wrong one (people make such slips); confirmations are always honest."""
     t0 = time.time()
@@ -44,7 +44,7 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None):
             continue
         k = p['kind']
         if k == 'point':
-            pts = tut.point()
+            pts = pointer(tut) if pointer else tut.point()      # a teacher may choose the most informative cards
             others = sorted(set(tut.before) - set(tut.truth) - set(pts))
             others = [o for o in others if tut.before[o].get('kind') == 'card']
             if noise and others and rng.random() < noise:
@@ -62,12 +62,14 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None):
             rest = [o for o in tut.truth if not BoardSpec.shows(tut.act, o, st)] or tut.truth
             o = tut.rng.choice(rest)
             tool, args = BoardSpec.steps(tut.act, o, getattr(tut.home, 'drift', ()))
-            ans = {'tool': tool, 'args': list(args)}
+            ans = {'tool': tool, 'args': list(args), 'object': o}
         elif k == 'show':                                  # is this what was meant? (honest, like every confirmation)
             ans = {'ok': set(p['objects']) == set(tut.truth)}
         elif k in ('confirm', 'judge'):
             ok = tut.judge()
-            ans = {'ok': ok, 'reason': None if ok else 'cards'}
+            acted = set(p.get('acted') or [])
+            wrong_cards = bool(acted - set(tut.truth)) or not acted   # acted on cards not meant, or on none of them
+            ans = {'ok': ok, 'reason': None if ok else ('cards' if wrong_cards else 'result')}
         elif k == 'name':
             ans = names
         else:
@@ -78,12 +80,12 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None):
     sess.job.join()
 
 
-def run(root, seed=7, n_sessions=15, noise=0.0):
+def run(root, seed=7, n_sessions=15, noise=0.0, drift_from=None, source='pilot'):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
     clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
-    sess = Session(root, seed=seed, source='pilot', clock=clock)
+    sess = Session(root, seed=seed, source=source, clock=clock)
     sels, acts = targets(seed)
     sym = symbols(seed)
     rng = random.Random(f'pilot-{seed}')
@@ -118,6 +120,8 @@ def run(root, seed=7, n_sessions=15, noise=0.0):
         clock.t = datetime.datetime(2026, 11, 1, 10, 0) + datetime.timedelta(days=DAYS[i], minutes=i)
         if i:
             sess.new_session()
+        if drift_from is not None and i >= drift_from:
+            sess.home.drift = frozenset(['lodge_retired'])     # the world changes: one tool stops working
         pairs = [(s, a) for s in range(len(sels)) for a in range(len(acts))]
         rng.shuffle(pairs)
         if i < 3:                                          # first sessions: lessons with symbols
@@ -146,7 +150,16 @@ def run(root, seed=7, n_sessions=15, noise=0.0):
                 if not feasible(s, a):
                     continue
             command(s, a, lang, alone=(j % 2 == 0))
+    write_names(root, seed, {('s', x) for k, x in sym_named if k == 's'} | {('a', x) for k, x in sym_named if k == 'a'},
+                {q for _, q in en_named}, sym)
     return sess
+
+
+def write_names(root, seed, named, en_pairs, sym):
+    """What the teaching side meant by each name it gave (read only by the evaluator, never by the learner)."""
+    out = {'seed': seed, 'sel': {str(x): sym[x] for k, x in named if k == 's'}, 'act': {str(x): sym[20 + x] for k, x in named if k == 'a'},
+           'en_sel': sorted({s for s, _ in en_pairs}), 'en_act': sorted({a for _, a in en_pairs})}
+    (Path(root) / 'names.json').write_text(json.dumps(out, indent=1), encoding='utf-8')
 
 
 if __name__ == '__main__':
@@ -155,8 +168,9 @@ if __name__ == '__main__':
     ap.add_argument('--seed', type=int, default=7)
     ap.add_argument('--sessions', type=int, default=15)
     ap.add_argument('--noise', type=float, default=0.0)
+    ap.add_argument('--drift-from', type=int, default=None)
     a = ap.parse_args()
-    sess = run(a.root, a.seed, a.sessions, a.noise)
+    sess = run(a.root, a.seed, a.sessions, a.noise, a.drift_from)
     sess.save()
     print('slips', sess.state.get('pilot_slips'))
     print('done', a.root)

@@ -1,0 +1,421 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\teach-dev1",
+ "eval_seed": 101,
+ "summary": {
+  "taught": {
+   "success": 13
+  },
+  "english": {
+   "held": 16,
+   "success": 12
+  },
+  "combo": {
+   "success": 16
+  }
+ },
+ "held_why": {
+  "unresolved": 8,
+  "ambiguous generalization": 8
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:train",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:dev",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:train",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:dev",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:train",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:dev",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:train",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:dev",
+   "why": "unresolved",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:train",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:dev",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:train",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:dev",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "kind": "english:train",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "kind": "english:dev",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "kind": "english:train",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "kind": "english:dev",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  }
+ ]
+}

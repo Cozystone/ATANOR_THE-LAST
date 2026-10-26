@@ -1,0 +1,260 @@
+"""A long-term synthetic teacher for ATANOR (source 'synthetic_teacher', policy t1).
+
+It teaches the way a person does and only through the interface a person uses (ui.teach_server.Session: the teach /
+name / command jobs and the answers to ATANOR's questions: point, demo, contrast answer, confirm, names). It never
+writes to ATANOR's memory or calls the learner: it READS ATANOR's ontology (claims, statuses, alternatives, the
+session log) to decide what to teach next, the way a teacher watches a pupil. Writing a concept or an action into
+ATANOR any other way would make a run INVALID (tests/test_teacher_policy.py checks this module for it).
+
+What it reads, and what it does about it (most urgent first):
+  recheck    a claim the person contradicted (needs_recheck), or a tool that stopped doing what was remembered
+             -> teach that selection/action again
+  conflict   one name on several things -> teach it again (the old link is superseded)
+  undecided  a taught selection whose criteria still disagree on today's cards -> teach it again, pointing at the
+             cards that rule out the most wrong criteria
+  new        a target nobody has taught yet -> a lesson, paired with something already shared (reuse)
+  combo      names never used together -> a command for the new combination
+  recall     a name not used for 5+ days -> ATANOR alone, then judged
+  phrase     after the first week, an English phrase for something shared
+Every 4th session the teacher is away: ATANOR gets commands alone and is only judged afterwards.
+
+The teacher sees only its training world and its training phrases. The evaluator (eval/teacher_eval.py) uses other
+seeds, other cards and sealed expressions, and nothing of it reaches here.
+Every decision is logged (teacher_log.jsonl): policy version, session, activity, reason, the targets meant, the world
+truth used (the cards meant), and the range of ATANOR's events the activity produced.
+"""
+import datetime
+import json
+import random
+import shutil
+from pathlib import Path
+
+from ..agent.memory import Memory
+from ..eval.en_probe import todo
+from ..eval.tutor_life import english, targets
+from ..ui.pilot import DAYS, Clock, drive, write_names
+from ..ui.teach_server import Session
+from .tutor import BoardSpec, Tutor, symbols
+
+POLICY = 't1'
+PER_SESSION = 4
+
+
+class Teacher:
+    def __init__(self, root, seed=1, drift_from=9):
+        self.root = Path(root)
+        self.seed = seed
+        self.clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
+        self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock)
+        self.sels, self.acts = targets(seed)
+        self.sym = symbols(seed)
+        self.tut = Tutor(self.sess.home, BoardSpec, f'teacher-{seed}')
+        self.rng = random.Random(f'teacher-{seed}')
+        self.drift_from = drift_from
+        self.named_s, self.named_a, self.en = set(), set(), set()       # the teacher's own memory of what it named
+        self.used_pairs, self.last_used = set(), {}
+
+    # ------------------------------------------------------------ reading ATANOR (read only)
+    def read(self):
+        mem = Memory(self.root / 'mind', events_readable=False)
+        claims = {c['id']: c for c in mem.claims.claims()}
+        by_node = {(c['content'].get('concept') or c['content'].get('action')): c for c in claims.values() if c['kind'] in ('selects', 'effect')}
+        refers = {}
+        for c in mem.claims.claims('denotes'):
+            refers.setdefault(c['content']['symbol'], []).append(c)
+        return by_node, refers
+
+    def state_of(self, symbol, by_node, refers):
+        links = refers.get(symbol, [])
+        nodes = {c['content']['refers'] for c in links}
+        recheck = any(c['status'] == 'needs_recheck' for c in links) or any(by_node.get(n, {}).get('status') == 'needs_recheck' for n in nodes)
+        return {'nodes': nodes, 'recheck': recheck, 'conflict': len(nodes) > 1,
+                'alts': max((len(by_node.get(n, {}).get('content', {}).get('alternatives', [])) for n in nodes), default=0),
+                'claims': [by_node[n] for n in nodes if n in by_node]}
+
+    def undecided(self, claim):
+        """Do the criteria ATANOR still holds possible for this selection pick different cards today?"""
+        feats = self.feats()
+        cs = [claim['content']['atoms']] + claim['content'].get('alternatives', [])
+        return len({tuple(sorted(o for o, f in feats.items() if set(c) <= f)) for c in cs}) > 1
+
+    def feats(self):
+        from ..agent.concepts import FAMILIES_ALL, atoms
+        home = self.sess.home
+        objs = home.existing()
+        st = home.observe(objs)
+        return {o: frozenset(repr(a) for a in atoms('board', st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
+
+    # ------------------------------------------------------------ teaching through the interface only
+    def feasible(self, s, a):
+        self.tut.start(self.sels[s], self.acts[a])
+        return bool(todo(BoardSpec, self.sess.home, self.tut, self.acts[a]))
+
+    def informative_pointer(self, claim):
+        """Point at the meant cards that rule out the most criteria ATANOR still keeps besides the right one."""
+        def pick(tut):
+            if not claim:
+                return tut.point()
+            feats = self.feats()
+            alts = [set(a) for a in claim['content'].get('alternatives', [])] + [set(claim['content']['atoms'])]
+            score = lambda o: sum(not (a <= feats[o]) for a in alts)
+            ranked = sorted(tut.truth, key=lambda o: (-score(o), o))
+            tut.help['point'] += 1
+            return ranked[:2]
+        return pick
+
+    def _events(self):
+        p = self.root / 'mind' / 'events.jsonl'
+        return sum(1 for _ in open(p, encoding='utf-8')) if p.exists() else 0
+
+    def log(self, activity, reason, s, a, e0, **extra):
+        row = {'policy': POLICY, 'session': self.sess.state['session'], 'at': self.clock().isoformat(), 'activity': activity,
+               'reason': reason, 'sel': self.sels[s] if s is not None else None, 'act': self.acts[a] if a is not None else None,
+               'truth': list(self.tut.truth), 'events': [e0, self._events()], **extra}
+        with open(self.root / 'teacher_log.jsonl', 'a', encoding='utf-8') as f:
+            f.write(json.dumps(row, ensure_ascii=False, default=str) + '\n')
+
+    def last_row(self):
+        return json.loads((self.root / 'log.jsonl').read_text(encoding='utf-8').splitlines()[-1])
+
+    def lesson(self, s, a, reason, claim=None):
+        e0 = self._events()
+        self.tut.start(self.sels[s], self.acts[a])
+        self.sess.start('teach')
+        drive(self.sess, self.tut, {'selection': self.sym[s], 'action': self.sym[20 + a]}, pointer=self.informative_pointer(claim))
+        r = self.last_row()
+        if r.get('event') == 'lesson' and r.get('named'):
+            self.named_s.add(s)
+            self.named_a.add(a)
+        self.log('lesson', reason, s, a, e0, outcome=r.get('outcome'))
+
+    def command(self, s, a, reason, alone, lang='sym'):
+        e0 = self._events()
+        self.tut.start(self.sels[s], self.acts[a])
+        words = [self.sym[20 + a], self.sym[s]] if lang == 'sym' else english('act', self.acts[a])[:1] + english('sel', self.sels[s]) + english('act', self.acts[a])[1:]
+        self.sess.start('command', text=' '.join(words), alone=alone)
+        drive(self.sess, self.tut, {})
+        r = self.last_row()
+        self.used_pairs.add((s, a))
+        for k in (('s', s), ('a', a)):
+            self.last_used[k] = self.clock().date()
+        self.log('command', reason, s, a, e0, lang=lang, alone=alone, outcome=r.get('outcome'), why=r.get('why'))
+        return r
+
+    def phrase(self, s, a):
+        e0 = self._events()
+        for part, words in (('selection', english('sel', self.sels[s])), ('action', english('act', self.acts[a]))):
+            self.tut.start(self.sels[s], self.acts[a])
+            self.sess.start('name', part=part, phrase=' '.join(words))
+            drive(self.sess, self.tut, {})
+        if self.last_row().get('outcome') == 'success':
+            self.en.add((s, a))
+        self.log('phrase', 'phrase', s, a, e0)
+
+    # ------------------------------------------------------------ choosing the next lesson
+    def candidates(self, i):
+        by_node, refers = self.read()
+        out = []
+        for s in sorted(self.named_s):
+            st = self.state_of(self.sym[s], by_node, refers)
+            a = next((a for a in sorted(self.named_a) if self.feasible(s, a)), None)
+            if a is None:
+                continue
+            if st['recheck']:
+                out.append((5, 'recheck', 'lesson', s, a, st['claims'][0] if st['claims'] else None))
+            elif st['conflict']:
+                out.append((4, 'conflict', 'lesson', s, a, None))
+            elif st['claims'] and self.undecided(st['claims'][0]):
+                out.append((3, 'undecided', 'lesson', s, a, st['claims'][0]))
+        for a in sorted(self.named_a):
+            st = self.state_of(self.sym[20 + a], by_node, refers)
+            if st['recheck'] or st['conflict']:
+                s = next((s for s in sorted(self.named_s) if self.feasible(s, a)), None)
+                if s is not None:
+                    out.append((5 if st['recheck'] else 4, 'recheck' if st['recheck'] else 'conflict', 'lesson', s, a, None))
+        new_s = [s for s in range(len(self.sels)) if s not in self.named_s]
+        new_a = [a for a in range(len(self.acts)) if a not in self.named_a]
+        for s in new_s:                                    # a new selection paired with an action already shared (reuse)
+            a = next((a for a in sorted(self.named_a) + new_a if self.feasible(s, a)), None)
+            if a is not None:
+                out.append((2, 'new', 'lesson', s, a, None))
+        for a in new_a:
+            s = next((s for s in sorted(self.named_s) + new_s if self.feasible(s, a)), None)
+            if s is not None:
+                out.append((2, 'new', 'lesson', s, a, None))
+        for s in sorted(self.named_s):
+            for a in sorted(self.named_a):
+                if (s, a) not in self.used_pairs and self.feasible(s, a):
+                    out.append((2, 'combo', 'command', s, a, None))
+        today = self.clock().date()
+        for s in sorted(self.named_s):
+            for a in sorted(self.named_a):
+                age = min((today - self.last_used.get(k, today)).days for k in (('s', s), ('a', a)))
+                if age >= 5 and self.feasible(s, a):
+                    out.append((1, 'recall', 'command', s, a, None))
+        if i >= 6:
+            for s, a in sorted(self.used_pairs):
+                if (s, a) not in self.en and s in self.named_s and a in self.named_a and self.feasible(s, a):
+                    out.append((2, 'phrase', 'phrase', s, a, None))
+        self.rng.shuffle(out)
+        out.sort(key=lambda x: -x[0])
+        return out
+
+    def session(self, i):
+        self.clock.t = datetime.datetime(2026, 11, 1, 10, 0) + datetime.timedelta(days=DAYS[i], minutes=i)
+        if i:
+            self.sess.new_session()
+        if self.drift_from is not None and i >= self.drift_from:
+            self.sess.home.drift = frozenset(['lodge_retired'])
+        away = i >= 3 and i % 4 == 3
+        if away:                                           # nobody to help: ATANOR alone, judged afterwards
+            pairs = [(s, a) for s in sorted(self.named_s) for a in sorted(self.named_a) if self.feasible(s, a)]
+            self.rng.shuffle(pairs)
+            for s, a in pairs[:PER_SESSION]:
+                self.command(s, a, 'away', alone=True)
+            return
+        done, seen = 0, set()
+        while done < PER_SESSION:
+            cands = [c for c in self.candidates(i) if (c[1], c[3], c[4]) not in seen]
+            if not cands:
+                break
+            prio, reason, kind, s, a, claim = cands[0]
+            seen.add((reason, s, a))
+            if kind == 'lesson':
+                self.lesson(s, a, reason, claim)
+            elif kind == 'phrase':
+                self.phrase(s, a)
+            else:
+                r = self.command(s, a, reason, alone=reason == 'recall' or done % 2 == 0)
+                if r.get('why') == 'needs recheck' and self.feasible(s, a):
+                    self.lesson(s, a, 'recheck')
+                    done += 1
+                if self.en and reason == 'combo' and (s, a) in self.en:
+                    self.command(s, a, 'combo-en', alone=True, lang='en')
+            done += 1
+
+    def run(self, n_sessions=15):
+        for i in range(n_sessions):
+            self.session(i)
+        write_names(self.root, self.seed, {('s', x) for x in self.named_s} | {('a', x) for x in self.named_a}, self.en, self.sym)
+        self.sess.save()
+        return self
+
+
+def run(root, seed=1, n_sessions=15, drift_from=9):
+    root = Path(root)
+    if root.exists():
+        shutil.rmtree(root)
+    return Teacher(root, seed, drift_from).run(n_sessions)
+
+
+if __name__ == '__main__':
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument('root')
+    ap.add_argument('--seed', type=int, default=1)
+    ap.add_argument('--sessions', type=int, default=15)
+    ap.add_argument('--drift-from', type=int, default=9)
+    a = ap.parse_args()
+    run(a.root, a.seed, a.sessions, a.drift_from)
+    print('done', a.root)

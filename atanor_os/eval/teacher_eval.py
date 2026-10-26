@@ -1,0 +1,98 @@
+"""Evaluation after a course of teaching (evaluator side; never seen by the teacher).
+
+Takes the mind a course left (by the synthetic teacher, or by a fixed curriculum for comparison) and, on a COPY of it,
+gives commands with nobody there, on a world of new cards from another seed, some days after the course:
+  taught   a selection and an action that were taught together
+  combo    a named selection with a named action never taught together
+  english  sealed English forms (from a file outside the repository) for things that got English phrases
+Every command runs on a fresh copy of the mind and the board, so one test cannot teach the next. What each name
+means comes from names.json, the teaching side's own record of what it meant. Holding is not success.
+Usage: python -m atanor_os.eval.teacher_eval <course_dir> <eval_seed> <out.json> [sealed:<path>]
+"""
+import json
+import shutil
+import sys
+from collections import Counter
+from pathlib import Path
+
+from .en_probe import DEV_FORMS, todo, words_of
+from .tutor_life import day_inflow, targets
+from ..teach.tutor import BoardSpec, Tutor
+
+DRIFT = ['lodge_retired']
+
+
+def world(root, eval_seed, drift):
+    from ..world.board_world import BoardWorkspace
+    if root.exists():
+        shutil.rmtree(root)
+    home = BoardWorkspace(root)
+    for d in range(40, 48):
+        home.add_cards({f'e{d}{k}': c for k, c in day_inflow(eval_seed, d).items()})
+    home.drift = frozenset(drift)
+    return home
+
+
+def evaluate(course, eval_seed, out_file, sealed=None, drift=DRIFT):
+    from ..agent.grounding import Grounder
+    course, out_file = Path(course), Path(out_file)
+    names = json.loads((course / 'names.json').read_text(encoding='utf-8'))
+    sels, acts = targets(names['seed'])                    # the meanings the teaching side gave its names
+    log = [json.loads(l) for l in (course / 'log.jsonl').read_text(encoding='utf-8').splitlines()]
+    tlog = course / 'teacher_log.jsonl'
+    pairs_taught = set()
+    if tlog.exists():
+        for r in map(json.loads, tlog.read_text(encoding='utf-8').splitlines()):
+            if r['activity'] == 'lesson' and r.get('outcome') == 'success':
+                pairs_taught.add((sels.index(r['sel']), acts.index(r['act'])))
+    else:
+        for r in log:
+            if r['event'] == 'lesson' and r.get('named'):
+                sym_s, sym_a = r['named'].get('selection'), r['named'].get('action')
+                s = next((int(k) for k, v in names['sel'].items() if v == sym_s), None)
+                a = next((int(k) for k, v in names['act'].items() if v == sym_a), None)
+                if s is not None and a is not None:
+                    pairs_taught.add((s, a))
+    work = Path(__file__).resolve().parents[3].parent / 'probe-work' / out_file.stem
+    if work.exists():
+        shutil.rmtree(work)
+    work.mkdir(parents=True)
+    forms = json.loads(Path(sealed).read_text(encoding='utf-8'))['forms'] if sealed else DEV_FORMS   # dev forms only in development
+    rows = []
+    for s in sorted(int(k) for k in names['sel']):
+        for a in sorted(int(k) for k in names['act']):
+            base = world(work / 'b', eval_seed, drift)
+            t0 = Tutor(base, BoardSpec, f'eval-{eval_seed}')
+            t0.start(sels[s], acts[a])
+            if not todo(BoardSpec, base, t0, acts[a]):
+                continue
+            tests = [('taught' if (s, a) in pairs_taught else 'combo', [names['act'][str(a)], names['sel'][str(s)]])]
+            if s in names['en_sel'] and a in names['en_act']:
+                tests += [(f'english:{f}', words_of(form, sels[s], acts[a])) for f, form in forms.items()]
+            for kind, words in tests:
+                h = world(work / 'b', eval_seed, drift)
+                if (work / 'm').exists():
+                    shutil.rmtree(work / 'm')
+                shutil.copytree(course / 'mind', work / 'm')
+                t = Tutor(h, BoardSpec, f'eval-{eval_seed}')
+                t.start(sels[s], acts[a])
+                res = Grounder(h, work / 'm', person=None, source='evaluator').obey(words)
+                ok = t.judge()
+                rows.append({'sel': s, 'act': a, 'kind': kind, 'why': res.get('why'),
+                             'outcome': 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else
+                                                                               ('missed' if res.get('ok') else 'held'))})
+    shutil.rmtree(work)
+    summ = {}
+    for r in rows:
+        k = r['kind'].split(':')[0]
+        summ.setdefault(k, Counter())[r['outcome']] += 1
+    out = {'course': str(course), 'eval_seed': eval_seed, 'summary': {k: dict(v) for k, v in summ.items()},
+           'held_why': dict(Counter(r['why'] for r in rows if r['outcome'] == 'held')), 'rows': rows}
+    out_file.write_text(json.dumps(out, indent=1), encoding='utf-8')
+    return out
+
+
+if __name__ == '__main__':
+    sealed = next((a[7:] for a in sys.argv[4:] if a.startswith('sealed:')), None)
+    r = evaluate(sys.argv[1], int(sys.argv[2]), sys.argv[3], sealed)
+    print(json.dumps({k: r[k] for k in ('summary', 'held_why')}, indent=1))

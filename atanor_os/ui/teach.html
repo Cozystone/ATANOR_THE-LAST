@@ -152,10 +152,10 @@ function drawControls() {
     if (demoCard) {
       const tools = S.tools;
       for (const t of Object.keys(tools)) {
-        if (t === 'stamp' || t === 'brand') S.marks.forEach(m => box.append(el('button', {onclick: () => answer({tool: t, args: t === 'brand' ? [`m.${m}`, demoCard] : [demoCard, `m.${m}`]})}, `${TOOL_KO[t]}: ${m}`)));
-        else if (t === 'lodge' || t === 'slot') Object.entries(S.trays).forEach(([tid, h]) => box.append(el('button', {onclick: () => answer({tool: t, args: t === 'slot' ? [tid, demoCard] : [demoCard, tid]})}, `${TOOL_KO[t]}: ${h}`)));
-        else if (t === 'lift') S.levels.forEach(l => box.append(el('button', {onclick: () => answer({tool: t, args: [demoCard, `l.${l}`]})}, `${TOOL_KO[t]}: ${l}`)));
-        else box.append(el('button', {onclick: () => answer({tool: t, args: [demoCard]})}, TOOL_KO[t] || t));
+        if (t === 'stamp' || t === 'brand') S.marks.forEach(m => box.append(el('button', {onclick: () => answer({tool: t, object: demoCard, args: t === 'brand' ? [`m.${m}`, demoCard] : [demoCard, `m.${m}`]})}, `${TOOL_KO[t]}: ${m}`)));
+        else if (t === 'lodge' || t === 'slot') Object.entries(S.trays).forEach(([tid, h]) => box.append(el('button', {onclick: () => answer({tool: t, object: demoCard, args: t === 'slot' ? [tid, demoCard] : [demoCard, tid]})}, `${TOOL_KO[t]}: ${h}`)));
+        else if (t === 'lift') S.levels.forEach(l => box.append(el('button', {onclick: () => answer({tool: t, object: demoCard, args: [demoCard, `l.${l}`]})}, `${TOOL_KO[t]}: ${l}`)));
+        else box.append(el('button', {onclick: () => answer({tool: t, object: demoCard, args: [demoCard]})}, TOOL_KO[t] || t));
       }
     }
   } else if (p.kind === 'confirm' || p.kind === 'judge') {
