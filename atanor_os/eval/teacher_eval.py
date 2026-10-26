@@ -52,6 +52,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
     course, out_file = Path(course), Path(out_file)
     names = json.loads((course / 'names.json').read_text(encoding='utf-8'))
     body = names.get('body', 'board')
+    mind_dir = Path(names['mind']) if names.get('mind') else course / 'mind'
     sels, acts = body_targets(body, names['seed'])         # the meanings the teaching side gave its names
     spec, drift = body_spec(body), [BODY_DRIFT[body]]
     unseen_tool, unseen_drift = UNSEEN[body]
@@ -90,7 +91,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 h = world(work / 'b', eval_seed, drift, body)
                 if (work / 'm').exists():
                     shutil.rmtree(work / 'm')
-                shutil.copytree(course / 'mind', work / 'm')
+                shutil.copytree(mind_dir, work / 'm')
                 t = Tutor(h, spec, f'eval-{eval_seed}')
                 t.start(sels[s], acts[a])
                 res = Grounder(h, work / 'm', person=None, source='evaluator').obey(words)
@@ -110,7 +111,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 continue
             if (work / 'm').exists():
                 shutil.rmtree(work / 'm')
-            shutil.copytree(course / 'mind', work / 'm')
+            shutil.copytree(mind_dir, work / 'm')
             seq = []
             for _ in range(2):                             # the same mind twice: does the failure change what it does next?
                 t.start(sels[s], acts[a])

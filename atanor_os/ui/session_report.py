@@ -55,7 +55,9 @@ def summary(root):
     out['recalled_later'] = dict(Counter(r['outcome'] for r in cmds if r.get('recalled')))
     out['recall_not_wanted'] = sum(1 for r in rows if r['event'] == 'recall')
     try:
-        mem = Memory(root / 'mind', events_readable=True)
+        names = root / 'names.json'
+        mind = json.loads(names.read_text(encoding='utf-8')).get('mind') if names.exists() else None
+        mem = Memory(Path(mind) if mind else root / 'mind', events_readable=True)
         out['claims_by_source'] = dict(Counter((c.get('scope') or {}).get('source') for c in mem.claims.claims()))
         out['events_by_source'] = dict(Counter(e.get('source') for e in mem.events.all()))
     except (OSError, ValueError):

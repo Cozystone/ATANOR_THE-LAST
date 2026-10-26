@@ -301,7 +301,7 @@ class Grounder:
         """The person names something. replace: the person is re-teaching what this symbol means, so its earlier links
         become superseded (kept, with this naming as their counter-evidence)."""
         ev = self.mem.events.append('name', lesson=lesson, symbol=symbol, node=node)
-        old = [c for c in self.mem.claims.claims('denotes') if c['content']['symbol'] == symbol]
+        old = [c for c in self.mem.claims.claims('denotes') if c['content']['symbol'] == symbol and self._in_scope(c)]   # this body only
         if any(c['content']['refers'] == node for c in old):
             c = next(c for c in old if c['content']['refers'] == node)
             if replace:
@@ -328,7 +328,8 @@ class Grounder:
         for w in words:
             self.bind(w, node, lesson)
         ev = self.mem.events.append('phrase', lesson=lesson, words=list(words), node=node)
-        same = [c for c in self.mem.claims.claims('phrase') if c['content']['refers'] == node and c['content']['words'] == list(words)]
+        same = [c for c in self.mem.claims.claims('phrase') if c['content']['refers'] == node and c['content']['words'] == list(words)
+                and self._in_scope(c)]
         if same:
             return self.mem.claims.revise(same[0]['id'], support=[ev])
         c = self.mem.claims.add('phrase', {'words': list(words), 'refers': node, 'lesson': lesson}, [ev], 'user_said', self.scope)
@@ -388,10 +389,10 @@ class Grounder:
         that contradict it are dropped."""
         if self.mode == 'RAW' or not old_nodes:
             return
-        new = next((c for c in self.mem.claims.claims('selects') if c['content']['concept'] == node), None)
+        new = next((c for c in self.mem.claims.claims('selects') if c['content']['concept'] == node and self._in_scope(c)), None)
         if not new:
             return
-        olds = [c for c in self.mem.claims.claims('selects', usable=False) if c['content']['concept'] in old_nodes]
+        olds = [c for c in self.mem.claims.claims('selects', usable=False) if c['content']['concept'] in old_nodes and self._in_scope(c)]
         evidence, used = [], []
         for c in olds:
             for eid in c['support']:

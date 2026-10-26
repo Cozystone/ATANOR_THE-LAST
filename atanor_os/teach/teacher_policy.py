@@ -53,8 +53,9 @@ PER_SESSION = 4
 
 
 class Teacher:
-    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0, body='board'):
+    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0, body='board', mind=None):
         self.root = Path(root)
+        self.mind = Path(mind) if mind else self.root / 'mind'
         self.body = body
         self.spec = body_spec(body)
         self.policy = policy
@@ -62,7 +63,7 @@ class Teacher:
         self.nrng = random.Random(f'teacher-noise-{seed}')
         self.seed = seed
         self.clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
-        self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock, body=body)
+        self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock, body=body, mind=self.mind)
         self.sels, self.acts = body_targets(body, seed)
         self.sym = symbols(seed)
         self.tut = Tutor(self.sess.home, self.spec, f'teacher-{seed}')
@@ -74,12 +75,14 @@ class Teacher:
 
     # ------------------------------------------------------------ reading ATANOR (read only)
     def read(self):
-        mem = Memory(self.root / 'mind', events_readable=False)
-        claims = {c['id']: c for c in mem.claims.claims()}
+        mem = Memory(self.mind, events_readable=False)
+        here = lambda c: (c.get('scope') or {}).get('body') in (None, self.body)   # what ATANOR learned in this body
+        claims = {c['id']: c for c in mem.claims.claims() if here(c)}
         by_node = {(c['content'].get('concept') or c['content'].get('action')): c for c in claims.values() if c['kind'] in ('selects', 'effect')}
         refers = {}
         for c in mem.claims.claims('denotes'):
-            refers.setdefault(c['content']['symbol'], []).append(c)
+            if here(c):
+                refers.setdefault(c['content']['symbol'], []).append(c)
         return by_node, refers
 
     def state_of(self, symbol, by_node, refers):
@@ -191,7 +194,7 @@ class Teacher:
         return pick
 
     def _events(self):
-        p = self.root / 'mind' / 'events.jsonl'
+        p = self.mind / 'events.jsonl'
         return sum(1 for _ in open(p, encoding='utf-8')) if p.exists() else 0
 
     def log(self, activity, reason, s, a, e0, **extra):
@@ -235,7 +238,7 @@ class Teacher:
     def recall_pending(self):
         """Back after a day away: ATANOR asks about what it held alone; the teacher says whether it is still wanted and
         answers its questions (reads the unfinished-goal list only to know which of its own commands these are)."""
-        p = self.root / 'mind' / 'pending.json'
+        p = self.mind / 'pending.json'
         for _ in range(PER_SESSION):
             items = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
             if not items:
@@ -330,8 +333,8 @@ class Teacher:
         out.sort(key=lambda x: -x[0])
         return out
 
-    def session(self, i):
-        self.clock.t = datetime.datetime(2026, 11, 1, 10, 0) + datetime.timedelta(days=DAYS[i], minutes=i)
+    def session(self, i, day=None):
+        self.clock.t = datetime.datetime(2026, 11, 1, 10, 0) + datetime.timedelta(days=DAYS[i] if day is None else day, minutes=i)
         if i:
             self.sess.new_session()
             self.tut.home = self.sess.home                 # the screen body is set up anew each day
@@ -373,7 +376,11 @@ class Teacher:
     def run(self, n_sessions=15):
         for i in range(n_sessions):
             self.session(i)
-        write_names(self.root, self.seed, {('s', x) for x in self.named_s} | {('a', x) for x in self.named_a}, self.en, self.sym, self.body)
+        self.finish()
+        return self
+
+    def finish(self):
+        write_names(self.root, self.seed, {('s', x) for x in self.named_s} | {('a', x) for x in self.named_a}, self.en, self.sym, self.body, self.mind)
         self.sess.save()
         return self
 

@@ -134,3 +134,20 @@ def test_a_tie_between_readings_that_would_do_the_same_is_not_ambiguous(tmp_path
     other = [a for a in g.feats()['c0'] if "'a1'" in a]
     g.mem.claims.revise(twin['id'], content={**twin['content'], 'atoms': other})
     assert g.resolve(['dax', 'mip'])[0] is None or set(g.extension(other, g.feats())) == set(g.extension(sc['content']['atoms'], g.feats()))
+
+
+def test_teaching_a_symbol_again_in_one_body_leaves_its_meaning_in_another(tmp_path):
+    """One mind, two bodies, the same symbol: re-teaching it on the file body does not supersede it on the board."""
+    from atanor_os.world.fs_world import Workspace
+    ws = _board(tmp_path)
+    tut = Tutor(ws, BoardSpec, 1)
+    tut.start({'kind': 'card', 'mark': 'idea'}, {'tool': 'scrap'})
+    g = Grounder(ws, tmp_path / 'mind', person=tut)
+    sc = g.learn_selection('L')
+    g.bind('mip', sc['content']['concept'], 'L', replace=True)
+    fs = Workspace(tmp_path / 'home')
+    g2 = Grounder(fs, tmp_path / 'mind', person=None)
+    g2.bind('mip', 'k-file', 'F', replace=True)
+    still = [c for c in Grounder(ws, tmp_path / 'mind').mem.claims.claims('denotes') if c['content']['symbol'] == 'mip'
+             and (c.get('scope') or {}).get('body') == 'board']
+    assert still and still[0]['status'] == 'active'

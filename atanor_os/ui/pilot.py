@@ -160,9 +160,9 @@ def run(root, seed=7, n_sessions=15, noise=0.0, drift_from=None, source='pilot')
     return sess
 
 
-def write_names(root, seed, named, en_pairs, sym, body='board'):
+def write_names(root, seed, named, en_pairs, sym, body='board', mind=None):
     """What the teaching side meant by each name it gave (read only by the evaluator, never by the learner)."""
-    out = {'seed': seed, 'body': body, 'sel': {str(x): sym[x] for k, x in named if k == 's'}, 'act': {str(x): sym[20 + x] for k, x in named if k == 'a'},
+    out = {'seed': seed, 'body': body, 'mind': str(mind) if mind else None, 'sel': {str(x): sym[x] for k, x in named if k == 's'}, 'act': {str(x): sym[20 + x] for k, x in named if k == 'a'},
            'en_sel': sorted({s for s, _ in en_pairs}), 'en_act': sorted({a for _, a in en_pairs})}
     (Path(root) / 'names.json').write_text(json.dumps(out, indent=1), encoding='utf-8')
 

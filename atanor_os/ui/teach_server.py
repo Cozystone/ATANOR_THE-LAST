@@ -119,7 +119,8 @@ def readable_atom(a):
 
 
 class Session:
-    def __init__(self, root, seed=1, source='human', clock=None, body='board'):
+    def __init__(self, root, seed=1, source='human', clock=None, body='board', mind=None):
+        self.mind = Path(mind) if mind else Path(root) / 'mind'   # one mind may live in several bodies' sandboxes
         self.body = body                                  # 'board' (with a screen) or 'fs' (a sandbox folder; no screen yet)
         self.root = Path(root)
         self.source = source                              # 'human' for a real person; a scripted pilot uses 'pilot'
@@ -163,7 +164,7 @@ class Session:
         self.messages = self.messages[-40:]
 
     def grounder(self, with_person=True):
-        return Grounder(self.home, self.root / 'mind', person=self.person if with_person else None, source=self.source)
+        return Grounder(self.home, self.mind, person=self.person if with_person else None, source=self.source)
 
     def new_session(self):
         """A new day: new cards arrive (some already in trays); what was taught stays only in ATANOR's memory."""
@@ -351,7 +352,7 @@ class Session:
 
     # ------------------------------------------------------------ views
     def memory_view(self):
-        mem = Memory(self.root / 'mind', events_readable=True)
+        mem = Memory(self.mind, events_readable=True)
         ev = {e['id']: e for e in mem.events.all()}
         names = {}
         for c in mem.claims.claims('denotes'):
