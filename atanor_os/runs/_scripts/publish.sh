@@ -30,8 +30,11 @@ else
 fi
 
 mirrored=$( "${G[@]}" log --format=%B 2>/dev/null | sed -n 's/^Source: developmental-research@\([0-9a-f]*\)$/\1/p' || true)
+# Compare full hashes: abbreviations grow as the repository grows (7 -> 8 characters), so a Source line written with a
+# shorter abbreviation must still count as mirrored (once, it did not, and every commit started replaying).
+mirrored_full=$(for m in $mirrored; do git -C "$DEV" rev-parse --verify -q "$m^{commit}" 2>/dev/null || true; done | sort -u)
 for c in $before $after; do
-  if grep -qx "$c" <<<"$mirrored"; then continue; fi
+  if grep -qx "$(git -C "$DEV" rev-parse "$c")" <<<"$mirrored_full"; then continue; fi
   find "$PUB" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
   if grep -qx "$c" <<<"$after"; then
     git -C "$DEV" archive "$c" | tar -x -C "$PUB"
