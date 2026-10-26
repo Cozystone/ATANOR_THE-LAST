@@ -78,7 +78,7 @@ class HumanPerson:
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             if res['ok']:
-                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file')), args[0])   # the object acted on
+                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file', 'panel')), args[0])   # the object acted on
                 return {'tool': d['tool'], 'args': list(args), 'object': card}
             err = f"그 행동은 되지 않았습니다 ({res.get('error')}). 다른 카드나 값으로 다시 보여 주세요."
         raise Cancelled()
@@ -129,6 +129,9 @@ class Session:
         self.state = json.loads(self.sp.read_text(encoding='utf-8')) if self.sp.exists() else {'session': 0, 'seed': seed, 'taught': {}, 'k': 0}
         if body == 'board':
             self.home = BoardWorkspace(self.root / 'board', create=not (self.root / 'board').exists())
+        elif body == 'view':
+            from ..eval.tutor_life import make_home
+            self.home = make_home('view', self.root, seed, 100 + self.state['session'])
         else:
             from ..eval.tutor_life import FS_FOLDERS
             from ..world.fs_world import Workspace
@@ -171,6 +174,12 @@ class Session:
             rng = random.Random(f"user-board-{self.state['seed']}-{n}")
             self.home.add_cards({f's{n}c{k}': {'mark': rng.choice(MARKS), **({'tray': rng.choice(sorted(TRAYS))} if rng.random() < 0.5 else {})}
                                  for k in range(CARDS_PER_SESSION)})
+        elif self.body == 'view':                          # the screen is set up again each day (others changed it)
+            from ..eval.tutor_life import make_home
+            drift = self.home.drift
+            self.home = make_home('view', self.root, self.state['seed'], 100 + n)
+            self.home.drift = drift
+            self.person.home = self.home
         else:
             from ..eval.life_gen import inflow as file_inflow
             file_inflow(self.home, 100 + n, self.state['seed'])

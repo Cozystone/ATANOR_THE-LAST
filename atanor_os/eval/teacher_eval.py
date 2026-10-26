@@ -21,7 +21,7 @@ from .en_probe import DEV_FORMS, todo, words_of
 from .tutor_life import DRIFT as BODY_DRIFT, FS_FOLDERS, body_spec, body_targets, day_inflow
 from ..teach.tutor import Tutor
 
-UNSEEN = {'board': ('stamp', 'stamp_retired'), 'fs': ('move', 'move_retired')}   # a change the course never had
+UNSEEN = {'board': ('stamp', 'stamp_retired'), 'fs': ('move', 'move_retired'), 'view': ('filter', 'filter_retired')}   # never in the course
 
 
 def world(root, eval_seed, drift, body='board'):
@@ -32,6 +32,9 @@ def world(root, eval_seed, drift, body='board'):
         home = BoardWorkspace(root)
         for d in range(40, 48):
             home.add_cards({f'e{d}{k}': c for k, c in day_inflow(eval_seed, d).items()})
+    elif body == 'view':
+        from .tutor_life import make_home
+        home = make_home('view', root, eval_seed, 40)
     else:
         from ..world.fs_world import Workspace
         from .life_gen import inflow as file_inflow

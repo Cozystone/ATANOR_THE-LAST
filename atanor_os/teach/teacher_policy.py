@@ -224,6 +224,7 @@ class Teacher:
         self.clock.t = datetime.datetime(2026, 11, 1, 10, 0) + datetime.timedelta(days=DAYS[i], minutes=i)
         if i:
             self.sess.new_session()
+            self.tut.home = self.sess.home                 # the screen body is set up anew each day
         if self.drift_from is not None and i >= self.drift_from:
             self.sess.home.drift = frozenset([DRIFT[self.body]])
         away = i >= 3 and i % 4 == 3
@@ -281,7 +282,7 @@ if __name__ == '__main__':
     ap.add_argument('--drift-from', type=int, default=9)
     ap.add_argument('--policy', default='t2', choices=POLICIES)
     ap.add_argument('--noise', type=float, default=0.0)
-    ap.add_argument('--body', default='board', choices=('board', 'fs'))
+    ap.add_argument('--body', default='board', choices=('board', 'fs', 'view'))
     a = ap.parse_args()
     t = run(a.root, a.seed, a.sessions, a.drift_from, a.policy, a.noise, a.body)
     print('slips', t.sess.state.get('pilot_slips'))
