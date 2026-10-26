@@ -480,6 +480,24 @@ class Grounder:
         s, a = max(top, key=lambda r: (order(r[1]), order(r[0])))
         return defs[s], defs[a], unknown
 
+    def _deciding_word_missing(self, words, *chosen):
+        """Does the reading leave unsaid a word of its phrase that told its concept apart from others sharing the rest of
+        the phrase (bound to fewer of them than the said words are), while an unheard word stands in the command?"""
+        said = set(words)
+        for d in chosen:
+            node = (d['claim']['content'].get('concept') or d['claim']['content'].get('action'))
+            kind = d['claim']['kind']
+            same_kind = lambda ns: {n for n in ns if (self._definition(n) or {}).get('kind') == kind}
+            for ph in self._phrases(node):
+                rest = [w for w in ph if w in said]
+                gone = [w for w in ph if w not in said]
+                if not rest or not gone:
+                    continue
+                shared = set.intersection(*[same_kind(self._nodes(w)) for w in rest])
+                if any(same_kind(self._nodes(w)) < shared for w in gone):
+                    return True
+        return False
+
     def _ask_between(self, task):
         """With the person there: tied readings that pick different objects are told apart by a contrast question about
         an object some of them pick and others do not. The word links that sent the command to the readings the person
@@ -530,6 +548,9 @@ class Grounder:
             self.counts['held_unresolved'] += 1
             return {'ok': False, 'why': 'unresolved', 'unknown': unknown, 'event': ev}
         sels, acts = [sel_d], [act_d]
+        if unknown and self._deciding_word_missing(symbols, sel_d, act_d):
+            self.counts['held_substituted'] += 1           # an unheard word stands where the deciding word should be
+            return {'ok': False, 'why': 'unknown word in place of a deciding word', 'unknown': unknown, 'event': ev}
         if any((d.get('claim') or {}).get('status') == 'needs_recheck' for d in (sel_d, act_d)):
             self.counts['held_recheck'] += 1                   # contradicted by the person: to be taught again first
             return {'ok': False, 'why': 'needs recheck', 'event': ev, 'used': [sel_d['via'], act_d['via']]}

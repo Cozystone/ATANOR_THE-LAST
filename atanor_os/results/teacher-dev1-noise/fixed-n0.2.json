@@ -1,0 +1,130 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\n-fixed-dev1",
+ "eval_seed": 101,
+ "summary": {
+  "combo": {
+   "success": 1
+  },
+  "english": {
+   "success": 8
+  },
+  "taught": {
+   "success": 1,
+   "held": 2
+  }
+ },
+ "held_why": {
+  "needs recheck": 2
+ },
+ "rows": [
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "kind": "english:train",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "kind": "english:dev",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 2,
+  "first": {
+   "success": 1,
+   "held:needs recheck": 1
+  },
+  "second": {
+   "success": 1,
+   "held:needs recheck": 1
+  },
+  "rows": [
+   {
+    "sel": 1,
+    "act": 2,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 6,
+    "act": 2,
+    "first": "held:needs recheck",
+    "second": "held:needs recheck"
+   }
+  ]
+ }
+}

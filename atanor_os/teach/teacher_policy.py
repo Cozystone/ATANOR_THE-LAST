@@ -42,9 +42,11 @@ PER_SESSION = 4
 
 
 class Teacher:
-    def __init__(self, root, seed=1, drift_from=9, policy='t2'):
+    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0):
         self.root = Path(root)
         self.policy = policy
+        self.noise = noise                                 # chance of a slip in pointing or in a contrast answer (people slip)
+        self.nrng = random.Random(f'teacher-noise-{seed}')
         self.seed = seed
         self.clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
         self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock)
@@ -123,7 +125,8 @@ class Teacher:
         e0 = self._events()
         self.tut.start(self.sels[s], self.acts[a])
         self.sess.start('teach')
-        drive(self.sess, self.tut, {'selection': self.sym[s], 'action': self.sym[20 + a]}, pointer=self.informative_pointer(claim))
+        drive(self.sess, self.tut, {'selection': self.sym[s], 'action': self.sym[20 + a]}, pointer=self.informative_pointer(claim),
+              noise=self.noise, rng=self.nrng)
         r = self.last_row()
         if r.get('event') == 'lesson' and r.get('named'):
             self.named_s.add(s)
@@ -135,7 +138,7 @@ class Teacher:
         self.tut.start(self.sels[s], self.acts[a])
         words = [self.sym[20 + a], self.sym[s]] if lang == 'sym' else english('act', self.acts[a])[:1] + english('sel', self.sels[s]) + english('act', self.acts[a])[1:]
         self.sess.start('command', text=' '.join(words), alone=alone)
-        drive(self.sess, self.tut, {})
+        drive(self.sess, self.tut, {}, noise=self.noise, rng=self.nrng)
         r = self.last_row()
         self.used_pairs.add((s, a))
         for k in (('s', s), ('a', a)):
@@ -150,7 +153,7 @@ class Teacher:
             if has and self.feasible(s, a):
                 e0 = self._events()
                 self.sess.start('name', part=part, phrase=' '.join(words))
-                drive(self.sess, self.tut, {})
+                drive(self.sess, self.tut, {}, noise=self.noise, rng=self.nrng)
                 self.log('phrase', 'resay', s, a, e0, part=part, outcome=self.last_row().get('outcome'))
 
     def phrase(self, s, a):
@@ -158,7 +161,7 @@ class Teacher:
         for part, words in (('selection', english('sel', self.sels[s])), ('action', english('act', self.acts[a]))):
             self.tut.start(self.sels[s], self.acts[a])
             self.sess.start('name', part=part, phrase=' '.join(words))
-            drive(self.sess, self.tut, {})
+            drive(self.sess, self.tut, {}, noise=self.noise, rng=self.nrng)
         if self.last_row().get('outcome') == 'success':
             self.en.add((s, a))
         self.log('phrase', 'phrase', s, a, e0)
@@ -260,11 +263,11 @@ class Teacher:
         return self
 
 
-def run(root, seed=1, n_sessions=15, drift_from=9, policy='t2'):
+def run(root, seed=1, n_sessions=15, drift_from=9, policy='t2', noise=0.0):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
-    return Teacher(root, seed, drift_from, policy).run(n_sessions)
+    return Teacher(root, seed, drift_from, policy, noise).run(n_sessions)
 
 
 if __name__ == '__main__':
@@ -275,6 +278,8 @@ if __name__ == '__main__':
     ap.add_argument('--sessions', type=int, default=15)
     ap.add_argument('--drift-from', type=int, default=9)
     ap.add_argument('--policy', default='t2', choices=POLICIES)
+    ap.add_argument('--noise', type=float, default=0.0)
     a = ap.parse_args()
-    run(a.root, a.seed, a.sessions, a.drift_from, a.policy)
+    t = run(a.root, a.seed, a.sessions, a.drift_from, a.policy, a.noise)
+    print('slips', t.sess.state.get('pilot_slips'))
     print('done', a.root)
