@@ -587,7 +587,33 @@ class Grounder:
         self.counts['asked_between'] += 1
         return t['defs'][win_s], t['defs'][win_a]
 
+    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word')
+
     def obey(self, symbols, task=None):
+        """A command made of symbols or words (in any order). Never acts on an unresolved reading alone; a command held
+        with nobody there is kept as an unfinished goal, to be asked about when the person is back."""
+        res = self._obey(symbols, task)
+        if self.person is None and not res.get('ok') and not res.get('acted') and res.get('why') in self.HELD:
+            items = [x for x in self.pending() if x['words'] != list(symbols)]
+            self._set_pending(items + [{'words': list(symbols), 'why': res['why'], 'task': task, 'event': res.get('event')}])
+        elif res.get('ok'):
+            self.drop_pending(symbols)
+        return res
+
+    def pending(self):
+        p = self.dir / 'pending.json'
+        return json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+
+    def _set_pending(self, items):
+        (self.dir / 'pending.json').write_text(json.dumps(items, ensure_ascii=False), encoding='utf-8')
+
+    def drop_pending(self, symbols):
+        items = self.pending()
+        rest = [x for x in items if x['words'] != list(symbols)]
+        if len(rest) != len(items):
+            self._set_pending(rest)
+
+    def _obey(self, symbols, task=None):
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone."""
         ev = self.mem.events.append('say', task=task, symbols=list(symbols))
         sel_d, act_d, unknown = self.resolve(symbols)

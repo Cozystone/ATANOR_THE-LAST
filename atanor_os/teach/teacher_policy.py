@@ -39,6 +39,12 @@ from ..ui.teach_server import Session
 from .tutor import Tutor, symbols
 
 POLICIES = ('t1', 't2', 't4')
+
+
+class _NotWanted:
+    """Answers a recall question with 'no longer wanted' (the task cannot be done any more)."""
+    truth, before = [], {}
+
 PER_SESSION = 4
 
 
@@ -60,6 +66,7 @@ class Teacher:
         self.drift_from = drift_from
         self.named_s, self.named_a, self.en = set(), set(), set()       # the teacher's own memory of what it named
         self.used_pairs, self.last_used = set(), {}
+        self.said = {}                                     # the teacher's own record: command words -> what it meant
 
     # ------------------------------------------------------------ reading ATANOR (read only)
     def read(self):
@@ -147,6 +154,7 @@ class Teacher:
         e0 = self._events()
         self.tut.start(self.sels[s], self.acts[a])
         words = [self.sym[20 + a], self.sym[s]] if lang == 'sym' else english('act', self.acts[a])[:1] + english('sel', self.sels[s]) + english('act', self.acts[a])[1:]
+        self.said[tuple(words)] = (s, a)
         self.sess.start('command', text=' '.join(words), alone=alone)
         drive(self.sess, self.tut, {}, noise=self.noise, rng=self.nrng)
         r = self.last_row()
@@ -155,6 +163,28 @@ class Teacher:
             self.last_used[k] = self.clock().date()
         self.log('command', reason, s, a, e0, lang=lang, alone=alone, outcome=r.get('outcome'), why=r.get('why'))
         return r
+
+    def recall_pending(self):
+        """Back after a day away: ATANOR asks about what it held alone; the teacher says whether it is still wanted and
+        answers its questions (reads the unfinished-goal list only to know which of its own commands these are)."""
+        p = self.root / 'mind' / 'pending.json'
+        for _ in range(PER_SESSION):
+            items = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+            if not items:
+                return
+            pair = self.said.get(tuple(items[0]['words']))
+            if pair is None or not self.feasible(*pair):
+                e0 = self._events()
+                self.tut.start(self.sels[pair[0]], self.acts[pair[1]]) if pair else None
+                self.sess.start('recall', index=0)
+                drive(self.sess, _NotWanted(), {})
+                self.log('recall', 'not wanted', pair[0] if pair else None, pair[1] if pair else None, e0)
+                continue
+            e0 = self._events()
+            self.tut.start(self.sels[pair[0]], self.acts[pair[1]])
+            self.sess.start('recall', index=0)
+            drive(self.sess, self.tut, {}, noise=self.noise, rng=self.nrng)
+            self.log('recall', 'recall', pair[0], pair[1], e0, outcome=self.last_row().get('outcome'), held_why=items[0]['why'])
 
     def resay(self, s, a):
         """t2: after teaching a selection or action again, say again the English phrase it had, so the phrase follows it."""
@@ -238,6 +268,8 @@ class Teacher:
         if self.drift_from is not None and i >= self.drift_from:
             self.sess.home.drift = frozenset([DRIFT[self.body]])
         away = i >= 3 and i % 4 == 3
+        if not away:
+            self.recall_pending()
         if away:                                           # nobody to help: ATANOR alone, judged afterwards
             pairs = [(s, a) for s in sorted(self.named_s) for a in sorted(self.named_a) if self.feasible(s, a)]
             self.rng.shuffle(pairs)

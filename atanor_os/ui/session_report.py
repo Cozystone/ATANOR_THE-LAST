@@ -50,6 +50,10 @@ def summary(root):
         b[r['outcome'] if r['outcome'] in ('success', 'wrong', 'held') else 'held'] += 1
         b['on_new_cards'] += bool(r['outcome'] == 'success' and r.get('acted_new_cards'))
     out['reuse_after_sessions'] = reuse
+    away = [r for r in cmds if r['alone'] and not r.get('recalled')]
+    out['alone_commands'] = dict(Counter(r['outcome'] for r in away))
+    out['recalled_later'] = dict(Counter(r['outcome'] for r in cmds if r.get('recalled')))
+    out['recall_not_wanted'] = sum(1 for r in rows if r['event'] == 'recall')
     try:
         mem = Memory(root / 'mind', events_readable=True)
         out['claims_by_source'] = dict(Counter((c.get('scope') or {}).get('source') for c in mem.claims.claims()))

@@ -73,6 +73,8 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
             acted = set(p.get('acted') or [])
             wrong_cards = bool(acted - set(tut.truth)) or not acted   # acted on cards not meant, or on none of them
             ans = {'ok': ok, 'reason': None if ok else ('cards' if wrong_cards else 'result')}
+        elif k == 'recall':                                # still wanted, unless the person can no longer have it done
+            ans = {'yes': not isinstance(tut, type) and bool(getattr(tut, 'truth', None))}
         elif k == 'name':
             ans = names
         else:

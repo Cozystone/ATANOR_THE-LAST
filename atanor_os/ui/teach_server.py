@@ -289,13 +289,15 @@ class Session:
         self.log(event='name', lesson=lid, part=part, phrase=words, node=node, known_concept=known, outcome='success')
         self.say(f'"{phrase}"를 {"이미 배운" if known else "새로 배운"} {node}에 붙였습니다.')
 
-    def job_command(self, text, alone):
+    def job_command(self, text, alone, recalled=None):
         words = text.lower().split()
         if not words:
             return
         g = self.grounder(with_person=not alone)
         res = g.obey(words, task=f"C{self.state['session']}.{self.state['k']}")
-        row = {'event': 'command', 'words': words, 'alone': alone, 'why': res.get('why'), 'unknown': res.get('unknown', []),
+        if recalled:
+            g.drop_pending(words)
+        row = {'event': 'command', 'words': words, 'alone': alone, 'recalled': recalled, 'why': res.get('why'), 'unknown': res.get('unknown', []),
                'acted': res.get('acted', []), 'failed': res.get('failed', []), 'used': res.get('used'), 'retrieved_as': res.get('retrieved_as')}
         if not res.get('ok') and not res.get('acted') and not res.get('failed'):
             row['outcome'] = 'held'
@@ -316,6 +318,21 @@ class Session:
         row['acted_new_cards'] = [o for o in row['acted'] if first is not None and born.get(o, 0) > first]
         row['failure_class'] = classify(row)
         self.log(**row)
+
+    def job_recall(self, index=0):
+        """The person is back: ATANOR asks about a command it held while alone; if still wanted, it does it now, with
+        the person there to answer its questions."""
+        g = self.grounder()
+        items = g.pending()
+        if index >= len(items):
+            return
+        item = items[index]
+        ans = self.person.ask('recall', words=item['words'], why=item['why'], note=f"혼자일 때 하지 못한 일입니다: \"{' '.join(item['words'])}\". 아직 원하시나요?")
+        if not ans.get('yes'):
+            g.drop_pending(item['words'])
+            self.log(event='recall', words=item['words'], held_why=item['why'], outcome='no longer wanted')
+            return
+        self.job_command(' '.join(item['words']), alone=False, recalled=item['why'])
 
     # ------------------------------------------------------------ views
     def memory_view(self):
@@ -407,7 +424,7 @@ def make_handler(sess):
                         return self._send(409, {'error': 'busy'})
                     sess.new_session()
                     return self._send(200, {'ok': True})
-                if kind not in ('teach', 'name', 'command'):
+                if kind not in ('teach', 'name', 'command', 'recall'):
                     return self._send(400, {'error': 'unknown job'})
                 return self._send(200 if sess.start(kind, **body) else 409, {'ok': True})
             self._send(404, {'error': 'not found'})
