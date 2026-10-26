@@ -1,5 +1,6 @@
 """Summary of a tutor life (evaluator side): A (no words), B (symbols), C (new combinations), D (English), memory."""
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -24,6 +25,18 @@ def summary(run_dir):
     drift = [r for r in rows if r['event'] == 'test' and r.get('drift') and r.get('outcome') not in ('infeasible', None)]
     out['after_change_first_try'] = f"{sum(bool(r.get('first_try')) for r in drift)}/{len(drift)}"
     out['redemonstrated'] = sum(bool(r.get('redemonstrated')) for r in rows)
+    m = re.search(r'tutor-[a-z]+(\d+)-(board|fs|view)', str(run_dir))
+    if m:                                               # revision after the counter-example: commands with the changed tool
+        from .tutor_life import body_targets, DRIFT
+        seed, body = int(m.group(1)), m.group(2)
+        tool = {'board': 'lodge', 'fs': 'copy', 'view': 'sort'}[body]
+        acts = body_targets(body, seed)[1]
+        hit = [r for r in drift if acts[r['act']]['tool'] == tool]
+        first = next((i for i, r in enumerate(hit) if r.get('first_try')), None)
+        out['changed_tool_commands'] = len(hit)
+        out['commands_until_unaided'] = first if first is not None else f'none in {len(hit)}'
+    wrong_used = [r for r in rows if r.get('outcome') == 'wrong']
+    out['wrong_claim_use'] = f"{len(wrong_used)}/{sum(1 for r in rows if r.get('used_claims'))}"
     out['wrong_total'] = sum(r.get('outcome') == 'wrong' for r in rows)
     out['questions_total'] = sum(v for r in rows for q, v in r.get('help', {}).items() if q != 'confirm')
     return out

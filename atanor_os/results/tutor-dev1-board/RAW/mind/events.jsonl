@@ -1,0 +1,448 @@
+{"id": "e0", "kind": "point", "lesson": "L3.4-d1", "objects": ["q010", "q013"], "feats": {"q010": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', 'slate')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q013": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e1", "kind": "contrast", "lesson": "L3.4-d1", "object": "q011", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e2", "kind": "demo", "lesson": "L3.4-d1", "tool": "unlodge", "args": ["q010"], "object": "q010", "gained": ["('U', 0, 'a2', '-')"], "lost": ["('U', 0, 'a2', 'slate')"], "made": []}
+{"id": "e3", "kind": "confirm", "answer": true}
+{"id": "e4", "kind": "name", "lesson": "L3.4-d1", "symbol": "gop", "node": "k0"}
+{"id": "e5", "kind": "name", "lesson": "L3.4-d1", "symbol": "tofa", "node": "a1"}
+{"id": "e6", "kind": "point", "lesson": "L1.5-d1", "objects": ["q014"], "feats": {"q014": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e7", "kind": "contrast", "lesson": "L1.5-d1", "object": "q011", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e8", "kind": "contrast", "lesson": "L1.5-d1", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e9", "kind": "demo", "lesson": "L1.5-d1", "tool": "scrap", "args": ["q014"], "object": "q014", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e10", "kind": "confirm", "answer": true}
+{"id": "e11", "kind": "name", "lesson": "L1.5-d1", "symbol": "pupi", "node": "k4"}
+{"id": "e12", "kind": "name", "lesson": "L1.5-d1", "symbol": "seko", "node": "a5"}
+{"id": "e13", "kind": "point", "lesson": "L6.2-d2", "objects": ["q011"], "feats": {"q011": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e14", "kind": "contrast", "lesson": "L6.2-d2", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e15", "kind": "contrast", "lesson": "L6.2-d2", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e16", "kind": "demo", "lesson": "L6.2-d2", "tool": "stamp", "args": ["q011", "m.idea"], "object": "q011", "gained": ["('U', 0, 'a1', 'idea')"], "lost": ["('U', 0, 'a1', 'chore')"], "made": []}
+{"id": "e17", "kind": "confirm", "answer": true}
+{"id": "e18", "kind": "name", "lesson": "L6.2-d2", "symbol": "wek", "node": "k0"}
+{"id": "e19", "kind": "name", "lesson": "L6.2-d2", "symbol": "tasu", "node": "a1"}
+{"id": "e20", "kind": "point", "lesson": "L7.3-d2", "objects": ["q011"], "feats": {"q011": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e21", "kind": "contrast", "lesson": "L7.3-d2", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e22", "kind": "demo", "lesson": "L7.3-d2", "tool": "lift", "args": ["q011", "l.high"], "object": "q011", "gained": ["('U', 0, 'a3', 'high')"], "lost": ["('U', 0, 'a3', 'low')"], "made": []}
+{"id": "e23", "kind": "confirm", "answer": true}
+{"id": "e24", "kind": "name", "lesson": "L7.3-d2", "symbol": "rew", "node": "k4"}
+{"id": "e25", "kind": "name", "lesson": "L7.3-d2", "symbol": "gedo", "node": "a5"}
+{"id": "e26", "kind": "say", "task": "d2-k2", "symbols": ["pupi", "seko"]}
+{"id": "e27", "kind": "act", "lesson": "d2-k2", "tool": "scrap", "args": ["q021"], "ok": true, "error": ""}
+{"id": "e28", "kind": "act", "lesson": "d2-k2", "tool": "scrap", "args": ["q022"], "ok": true, "error": ""}
+{"id": "e29", "kind": "point", "lesson": "L5.1-d3", "objects": ["q020"], "feats": {"q020": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e30", "kind": "contrast", "lesson": "L5.1-d3", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e31", "kind": "contrast", "lesson": "L5.1-d3", "object": "q024", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e32", "kind": "demo", "lesson": "L5.1-d3", "tool": "lodge", "args": ["q020", "t2"], "object": "q020", "gained": ["('U', 0, 'a2', 'teal')"], "lost": ["('U', 0, 'a2', 'amber')"], "made": []}
+{"id": "e33", "kind": "confirm", "answer": true}
+{"id": "e34", "kind": "name", "lesson": "L5.1-d3", "symbol": "gaw", "node": "k0"}
+{"id": "e35", "kind": "name", "lesson": "L5.1-d3", "symbol": "damu", "node": "a1"}
+{"id": "e36", "kind": "point", "lesson": "L4.0-d3", "objects": ["q020", "q024"], "feats": {"q020": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q024": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e37", "kind": "contrast", "lesson": "L4.0-d3", "object": "q011", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e38", "kind": "contrast", "lesson": "L4.0-d3", "object": "q010", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e39", "kind": "demo", "lesson": "L4.0-d3", "tool": "lodge", "args": ["q020", "t1"], "object": "q020", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', 'teal')"], "made": []}
+{"id": "e40", "kind": "act", "lesson": "L4.0-d3", "tool": "lodge", "args": ["q024", "t1"], "ok": true, "error": ""}
+{"id": "e41", "kind": "confirm", "answer": true}
+{"id": "e42", "kind": "name", "lesson": "L4.0-d3", "symbol": "rado", "node": "k4"}
+{"id": "e43", "kind": "name", "lesson": "L4.0-d3", "symbol": "bobu", "node": "a5"}
+{"id": "e44", "kind": "say", "task": "d3-k2", "symbols": ["gaw", "damu"]}
+{"id": "e45", "kind": "act", "lesson": "d3-k2", "tool": "lodge", "args": ["q020", "t2"], "ok": true, "error": ""}
+{"id": "e46", "kind": "act", "lesson": "d3-k2", "tool": "lodge", "args": ["q024", "t2"], "ok": true, "error": ""}
+{"id": "e47", "kind": "say", "task": "d3-k3", "symbols": ["tasu", "wek"]}
+{"id": "e48", "kind": "act", "lesson": "d3-k3", "tool": "stamp", "args": ["q020", "m.idea"], "ok": true, "error": ""}
+{"id": "e49", "kind": "act", "lesson": "d3-k3", "tool": "stamp", "args": ["q024", "m.idea"], "ok": true, "error": ""}
+{"id": "e50", "kind": "act", "lesson": "d3-k3", "tool": "stamp", "args": ["q031", "m.idea"], "ok": true, "error": ""}
+{"id": "e51", "kind": "say", "task": "d3-k4", "symbols": ["rew", "gedo"]}
+{"id": "e52", "kind": "act", "lesson": "d3-k4", "tool": "lift", "args": ["q020", "l.high"], "ok": true, "error": ""}
+{"id": "e53", "kind": "act", "lesson": "d3-k4", "tool": "lift", "args": ["q024", "l.high"], "ok": true, "error": ""}
+{"id": "e54", "kind": "act", "lesson": "d3-k4", "tool": "lift", "args": ["q031", "l.high"], "ok": true, "error": ""}
+{"id": "e55", "kind": "say", "task": "d4-k0", "symbols": ["bobu", "rado"]}
+{"id": "e56", "kind": "act", "lesson": "d4-k0", "tool": "lodge", "args": ["q040", "t1"], "ok": true, "error": ""}
+{"id": "e57", "kind": "act", "lesson": "d4-k0", "tool": "lodge", "args": ["q043", "t1"], "ok": true, "error": ""}
+{"id": "e58", "kind": "say", "task": "d4-k1", "symbols": ["seko", "pupi"]}
+{"id": "e59", "kind": "act", "lesson": "d4-k1", "tool": "scrap", "args": ["q030"], "ok": true, "error": ""}
+{"id": "e60", "kind": "act", "lesson": "d4-k1", "tool": "scrap", "args": ["q034"], "ok": true, "error": ""}
+{"id": "e61", "kind": "act", "lesson": "d4-k1", "tool": "scrap", "args": ["q044"], "ok": true, "error": ""}
+{"id": "e62", "kind": "say", "task": "d4-k2", "symbols": ["damu", "gaw"]}
+{"id": "e63", "kind": "act", "lesson": "d4-k2", "tool": "lodge", "args": ["q040", "t2"], "ok": true, "error": ""}
+{"id": "e64", "kind": "act", "lesson": "d4-k2", "tool": "lodge", "args": ["q043", "t2"], "ok": true, "error": ""}
+{"id": "e65", "kind": "say", "task": "d5-k0", "symbols": ["rado", "bobu"]}
+{"id": "e66", "kind": "act", "lesson": "d5-k0", "tool": "lodge", "args": ["q040", "t1"], "ok": true, "error": ""}
+{"id": "e67", "kind": "act", "lesson": "d5-k0", "tool": "lodge", "args": ["q043", "t1"], "ok": true, "error": ""}
+{"id": "e68", "kind": "act", "lesson": "d5-k0", "tool": "lodge", "args": ["q050", "t1"], "ok": true, "error": ""}
+{"id": "e69", "kind": "say", "task": "d5-k1", "symbols": ["rado", "gedo"]}
+{"id": "e70", "kind": "act", "lesson": "d5-k1", "tool": "lift", "args": ["q040", "l.high"], "ok": true, "error": ""}
+{"id": "e71", "kind": "act", "lesson": "d5-k1", "tool": "lift", "args": ["q043", "l.high"], "ok": true, "error": ""}
+{"id": "e72", "kind": "act", "lesson": "d5-k1", "tool": "lift", "args": ["q050", "l.high"], "ok": true, "error": ""}
+{"id": "e73", "kind": "say", "task": "d5-k2", "symbols": ["gaw", "damu"]}
+{"id": "e74", "kind": "act", "lesson": "d5-k2", "tool": "lodge", "args": ["q040", "t2"], "ok": true, "error": ""}
+{"id": "e75", "kind": "act", "lesson": "d5-k2", "tool": "lodge", "args": ["q043", "t2"], "ok": true, "error": ""}
+{"id": "e76", "kind": "act", "lesson": "d5-k2", "tool": "lodge", "args": ["q050", "t2"], "ok": true, "error": ""}
+{"id": "e77", "kind": "say", "task": "d6-k0", "symbols": ["damu", "pupi"]}
+{"id": "e78", "kind": "act", "lesson": "d6-k0", "tool": "lodge", "args": ["q062", "t2"], "ok": true, "error": ""}
+{"id": "e79", "kind": "act", "lesson": "d6-k0", "tool": "lodge", "args": ["q063", "t2"], "ok": true, "error": ""}
+{"id": "e80", "kind": "say", "task": "d6-k1", "symbols": ["gaw", "tasu"]}
+{"id": "e81", "kind": "act", "lesson": "d6-k1", "tool": "stamp", "args": ["q060", "m.idea"], "ok": true, "error": ""}
+{"id": "e82", "kind": "say", "task": "d6-k2", "symbols": ["wek", "tasu"]}
+{"id": "e83", "kind": "act", "lesson": "d6-k2", "tool": "stamp", "args": ["q040", "m.idea"], "ok": true, "error": ""}
+{"id": "e84", "kind": "act", "lesson": "d6-k2", "tool": "stamp", "args": ["q043", "m.idea"], "ok": true, "error": ""}
+{"id": "e85", "kind": "act", "lesson": "d6-k2", "tool": "stamp", "args": ["q050", "m.idea"], "ok": true, "error": ""}
+{"id": "e86", "kind": "act", "lesson": "d6-k2", "tool": "stamp", "args": ["q062", "m.idea"], "ok": true, "error": ""}
+{"id": "e87", "kind": "act", "lesson": "d6-k2", "tool": "stamp", "args": ["q063", "m.idea"], "ok": true, "error": ""}
+{"id": "e88", "kind": "say", "task": "d7-k0", "symbols": ["gop", "seko"]}
+{"id": "e89", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q010"], "ok": true, "error": ""}
+{"id": "e90", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q013"], "ok": true, "error": ""}
+{"id": "e91", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q023"], "ok": true, "error": ""}
+{"id": "e92", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q033"], "ok": true, "error": ""}
+{"id": "e93", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q042"], "ok": true, "error": ""}
+{"id": "e94", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q064"], "ok": true, "error": ""}
+{"id": "e95", "kind": "act", "lesson": "d7-k0", "tool": "scrap", "args": ["q070"], "ok": true, "error": ""}
+{"id": "e96", "kind": "say", "task": "d7-k1", "symbols": ["gaw", "damu"]}
+{"id": "e97", "kind": "act", "lesson": "d7-k1", "tool": "lodge", "args": ["q060", "t2"], "ok": true, "error": ""}
+{"id": "e98", "kind": "say", "task": "d7-k2", "symbols": ["seko", "pupi"]}
+{"id": "e99", "kind": "act", "lesson": "d7-k2", "tool": "scrap", "args": ["q072"], "ok": true, "error": ""}
+{"id": "e100", "kind": "say", "task": "d8-k0", "symbols": ["gaw", "damu"]}
+{"id": "e101", "kind": "act", "lesson": "d8-k0", "tool": "lodge", "args": ["q081", "t2"], "ok": true, "error": ""}
+{"id": "e102", "kind": "say", "task": "d8-k1", "symbols": ["tasu", "pupi"]}
+{"id": "e103", "kind": "act", "lesson": "d8-k1", "tool": "stamp", "args": ["q080", "m.idea"], "ok": true, "error": ""}
+{"id": "e104", "kind": "say", "task": "d8-k2", "symbols": ["rew", "tofa"]}
+{"id": "e105", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q011"], "ok": true, "error": ""}
+{"id": "e106", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q020"], "ok": true, "error": ""}
+{"id": "e107", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q024"], "ok": true, "error": ""}
+{"id": "e108", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q031"], "ok": true, "error": ""}
+{"id": "e109", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q040"], "ok": true, "error": ""}
+{"id": "e110", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q041"], "ok": true, "error": ""}
+{"id": "e111", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q043"], "ok": true, "error": ""}
+{"id": "e112", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q050"], "ok": true, "error": ""}
+{"id": "e113", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q060"], "ok": true, "error": ""}
+{"id": "e114", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q061"], "ok": true, "error": ""}
+{"id": "e115", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q062"], "ok": true, "error": ""}
+{"id": "e116", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q063"], "ok": true, "error": ""}
+{"id": "e117", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q071"], "ok": true, "error": ""}
+{"id": "e118", "kind": "act", "lesson": "d8-k2", "tool": "unlodge", "args": ["q080"], "ok": true, "error": ""}
+{"id": "e119", "kind": "say", "task": "d9-k0", "symbols": ["rew", "gedo"]}
+{"id": "e120", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q041", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e121", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q054", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e122", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q060", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e123", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q061", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e124", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q062", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e125", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q063", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e126", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q071", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e127", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q073", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e128", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q080", "l.high"], "ok": false, "error": "precondition"}
+{"id": "e129", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q090", "l.high"], "ok": true, "error": ""}
+{"id": "e130", "kind": "act", "lesson": "d9-k0", "tool": "lift", "args": ["q091", "l.high"], "ok": true, "error": ""}
+{"id": "e131", "kind": "demo", "lesson": "R3-d9", "tool": "lift", "args": ["q091", "l.high"], "object": "q091", "gained": [], "lost": [], "made": []}
+{"id": "e132", "kind": "name", "lesson": "R3-d9", "symbol": "gedo", "node": "a0"}
+{"id": "e133", "kind": "say", "task": "d9-k1", "symbols": ["wek", "gedo"]}
+{"id": "e134", "kind": "point", "lesson": "L6.3-d9", "objects": ["q081", "q091"], "feats": {"q081": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q091": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}}
+{"id": "e135", "kind": "contrast", "lesson": "L6.3-d9", "object": "q011", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e136", "kind": "demo", "lesson": "L6.3-d9", "tool": "lift", "args": ["q081", "l.high"], "object": "q081", "gained": ["('U', 0, 'a3', 'high')"], "lost": ["('U', 0, 'a3', 'low')"], "made": []}
+{"id": "e137", "kind": "confirm", "answer": true}
+{"id": "e138", "kind": "name", "lesson": "L6.3-d9", "symbol": "wek", "node": "k2"}
+{"id": "e139", "kind": "name", "lesson": "L6.3-d9", "symbol": "gedo", "node": "a3"}
+{"id": "e140", "kind": "say", "task": "d9-k2", "symbols": ["tofa", "rew"]}
+{"id": "e141", "kind": "act", "lesson": "d9-k2", "tool": "unlodge", "args": ["q090"], "ok": true, "error": ""}
+{"id": "e142", "kind": "act", "lesson": "d9-k2", "tool": "unlodge", "args": ["q091"], "ok": true, "error": ""}
+{"id": "e143", "kind": "say", "task": "d10-k0", "symbols": ["tasu", "gaw"]}
+{"id": "e144", "kind": "act", "lesson": "d10-k0", "tool": "stamp", "args": ["q101", "m.idea"], "ok": true, "error": ""}
+{"id": "e145", "kind": "say", "task": "d10-k1", "symbols": ["tasu", "wek"]}
+{"id": "e146", "kind": "point", "lesson": "L6.2-d10", "objects": ["q081"], "feats": {"q081": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}}
+{"id": "e147", "kind": "contrast", "lesson": "L6.2-d10", "object": "q011", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e148", "kind": "contrast", "lesson": "L6.2-d10", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e149", "kind": "demo", "lesson": "L6.2-d10", "tool": "stamp", "args": ["q081", "m.idea"], "object": "q081", "gained": ["('U', 0, 'a1', 'idea')"], "lost": ["('U', 0, 'a1', 'chore')"], "made": []}
+{"id": "e150", "kind": "confirm", "answer": true}
+{"id": "e151", "kind": "name", "lesson": "L6.2-d10", "symbol": "wek", "node": "k0"}
+{"id": "e152", "kind": "name", "lesson": "L6.2-d10", "symbol": "tasu", "node": "a1"}
+{"id": "e153", "kind": "say", "task": "d10-k2", "symbols": ["gaw", "damu"]}
+{"id": "e154", "kind": "act", "lesson": "d10-k2", "tool": "lodge", "args": ["q101", "t2"], "ok": false, "error": "precondition"}
+{"id": "e155", "kind": "demo", "lesson": "R1-d10", "tool": "slot", "args": ["t2", "q101"], "object": "q101", "gained": ["('U', 0, 'a2', 'teal')"], "lost": ["('U', 0, 'a2', 'amber')"], "made": []}
+{"id": "e156", "kind": "name", "lesson": "R1-d10", "symbol": "damu", "node": "a4"}
+{"id": "e157", "kind": "demo", "lesson": "E4-d11", "tool": "unlodge", "args": ["q110"], "object": "q110", "gained": ["('U', 0, 'a2', '-')"], "lost": ["('U', 0, 'a2', 'plum')"], "made": []}
+{"id": "e158", "kind": "name", "lesson": "E4-d11", "symbol": "take", "node": "a0"}
+{"id": "e159", "kind": "name", "lesson": "E4-d11", "symbol": "out", "node": "a0"}
+{"id": "e160", "kind": "demo", "lesson": "E3-d11", "tool": "lift", "args": ["q101", "l.high"], "object": "q101", "gained": ["('U', 0, 'a3', 'high')"], "lost": ["('U', 0, 'a3', 'low')"], "made": []}
+{"id": "e161", "kind": "name", "lesson": "E3-d11", "symbol": "raise", "node": "a3"}
+{"id": "e162", "kind": "name", "lesson": "E3-d11", "symbol": "to", "node": "a3"}
+{"id": "e163", "kind": "name", "lesson": "E3-d11", "symbol": "high", "node": "a3"}
+{"id": "e164", "kind": "demo", "lesson": "E0-d11", "tool": "slot", "args": ["t1", "q102"], "object": "q102", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e165", "kind": "name", "lesson": "E0-d11", "symbol": "stash", "node": "a7"}
+{"id": "e166", "kind": "name", "lesson": "E0-d11", "symbol": "in", "node": "a7"}
+{"id": "e167", "kind": "name", "lesson": "E0-d11", "symbol": "amber", "node": "a7"}
+{"id": "e168", "kind": "say", "task": "d11-k3", "symbols": ["bobu", "rado"]}
+{"id": "e169", "kind": "act", "lesson": "d11-k3", "tool": "lodge", "args": ["q074", "t1"], "ok": false, "error": "precondition"}
+{"id": "e170", "kind": "act", "lesson": "d11-k3", "tool": "lodge", "args": ["q082", "t1"], "ok": false, "error": "precondition"}
+{"id": "e171", "kind": "act", "lesson": "d11-k3", "tool": "lodge", "args": ["q083", "t1"], "ok": false, "error": "precondition"}
+{"id": "e172", "kind": "act", "lesson": "d11-k3", "tool": "lodge", "args": ["q084", "t1"], "ok": false, "error": "precondition"}
+{"id": "e173", "kind": "act", "lesson": "d11-k3", "tool": "lodge", "args": ["q093", "t1"], "ok": false, "error": "precondition"}
+{"id": "e174", "kind": "act", "lesson": "d11-k3", "tool": "lodge", "args": ["q112", "t1"], "ok": false, "error": "precondition"}
+{"id": "e175", "kind": "demo", "lesson": "R0-d11", "tool": "slot", "args": ["t1", "q093"], "object": "q093", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e176", "kind": "name", "lesson": "R0-d11", "symbol": "bobu", "node": "a7"}
+{"id": "e177", "kind": "act", "lesson": "R0-d11", "tool": "slot", "args": ["t1", "q074"], "ok": true, "error": ""}
+{"id": "e178", "kind": "act", "lesson": "R0-d11", "tool": "slot", "args": ["t1", "q082"], "ok": true, "error": ""}
+{"id": "e179", "kind": "act", "lesson": "R0-d11", "tool": "slot", "args": ["t1", "q083"], "ok": true, "error": ""}
+{"id": "e180", "kind": "act", "lesson": "R0-d11", "tool": "slot", "args": ["t1", "q084"], "ok": true, "error": ""}
+{"id": "e181", "kind": "act", "lesson": "R0-d11", "tool": "slot", "args": ["t1", "q112"], "ok": true, "error": ""}
+{"id": "e182", "kind": "say", "task": "d11-k4", "symbols": ["rado", "tofa"]}
+{"id": "e183", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q074"], "ok": true, "error": ""}
+{"id": "e184", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q082"], "ok": true, "error": ""}
+{"id": "e185", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q083"], "ok": true, "error": ""}
+{"id": "e186", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q084"], "ok": true, "error": ""}
+{"id": "e187", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q093"], "ok": true, "error": ""}
+{"id": "e188", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q102"], "ok": true, "error": ""}
+{"id": "e189", "kind": "act", "lesson": "d11-k4", "tool": "unlodge", "args": ["q112"], "ok": true, "error": ""}
+{"id": "e190", "kind": "say", "task": "d11-k5", "symbols": ["bobu", "rado"]}
+{"id": "e191", "kind": "point", "lesson": "L4.0-d11", "objects": ["q082", "q093"], "feats": {"q082": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q093": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e192", "kind": "contrast", "lesson": "L4.0-d11", "object": "q011", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'idea')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'high')", "('U', 0, 'a4', '-')"]}
+{"id": "e193", "kind": "contrast", "lesson": "L4.0-d11", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e194", "kind": "demo", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q112"], "object": "q112", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e195", "kind": "act", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q074"], "ok": true, "error": ""}
+{"id": "e196", "kind": "act", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q082"], "ok": true, "error": ""}
+{"id": "e197", "kind": "act", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q083"], "ok": true, "error": ""}
+{"id": "e198", "kind": "act", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q084"], "ok": true, "error": ""}
+{"id": "e199", "kind": "act", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q093"], "ok": true, "error": ""}
+{"id": "e200", "kind": "act", "lesson": "L4.0-d11", "tool": "slot", "args": ["t1", "q102"], "ok": true, "error": ""}
+{"id": "e201", "kind": "confirm", "answer": true}
+{"id": "e202", "kind": "name", "lesson": "L4.0-d11", "symbol": "rado", "node": "k12"}
+{"id": "e203", "kind": "name", "lesson": "L4.0-d11", "symbol": "bobu", "node": "a7"}
+{"id": "e204", "kind": "say", "task": "d12-k2", "symbols": ["wek", "tofa"]}
+{"id": "e205", "kind": "demo", "lesson": "E1-d13", "tool": "slot", "args": ["t2", "q093"], "object": "q093", "gained": ["('U', 0, 'a2', 'teal')"], "lost": ["('U', 0, 'a2', 'amber')"], "made": []}
+{"id": "e206", "kind": "name", "lesson": "E1-d13", "symbol": "stash", "node": "a0"}
+{"id": "e207", "kind": "name", "lesson": "E1-d13", "symbol": "in", "node": "a0"}
+{"id": "e208", "kind": "name", "lesson": "E1-d13", "symbol": "teal", "node": "a0"}
+{"id": "e209", "kind": "demo", "lesson": "E2-d13", "tool": "stamp", "args": ["q093", "m.idea"], "object": "q093", "gained": ["('U', 0, 'a1', 'idea')"], "lost": ["('U', 0, 'a1', 'urgent')"], "made": []}
+{"id": "e210", "kind": "name", "lesson": "E2-d13", "symbol": "label", "node": "a4"}
+{"id": "e211", "kind": "name", "lesson": "E2-d13", "symbol": "as", "node": "a4"}
+{"id": "e212", "kind": "name", "lesson": "E2-d13", "symbol": "idea", "node": "a4"}
+{"id": "e213", "kind": "demo", "lesson": "E3-d13", "tool": "lift", "args": ["q093", "l.high"], "object": "q093", "gained": ["('U', 0, 'a3', 'high')"], "lost": ["('U', 0, 'a3', 'low')"], "made": []}
+{"id": "e214", "kind": "name", "lesson": "E3-d13", "symbol": "raise", "node": "a8"}
+{"id": "e215", "kind": "name", "lesson": "E3-d13", "symbol": "to", "node": "a8"}
+{"id": "e216", "kind": "name", "lesson": "E3-d13", "symbol": "high", "node": "a8"}
+{"id": "e217", "kind": "say", "task": "d13-k4", "symbols": ["rew", "seko"]}
+{"id": "e218", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q011"], "ok": true, "error": ""}
+{"id": "e219", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q020"], "ok": true, "error": ""}
+{"id": "e220", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q024"], "ok": true, "error": ""}
+{"id": "e221", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q031"], "ok": true, "error": ""}
+{"id": "e222", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q040"], "ok": true, "error": ""}
+{"id": "e223", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q041"], "ok": true, "error": ""}
+{"id": "e224", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q043"], "ok": true, "error": ""}
+{"id": "e225", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q050"], "ok": true, "error": ""}
+{"id": "e226", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q054"], "ok": true, "error": ""}
+{"id": "e227", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q060"], "ok": true, "error": ""}
+{"id": "e228", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q061"], "ok": true, "error": ""}
+{"id": "e229", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q062"], "ok": true, "error": ""}
+{"id": "e230", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q063"], "ok": true, "error": ""}
+{"id": "e231", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q071"], "ok": true, "error": ""}
+{"id": "e232", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q073"], "ok": true, "error": ""}
+{"id": "e233", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q080"], "ok": true, "error": ""}
+{"id": "e234", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q081"], "ok": true, "error": ""}
+{"id": "e235", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q090"], "ok": true, "error": ""}
+{"id": "e236", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q091"], "ok": true, "error": ""}
+{"id": "e237", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q093"], "ok": true, "error": ""}
+{"id": "e238", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q101"], "ok": true, "error": ""}
+{"id": "e239", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q111"], "ok": true, "error": ""}
+{"id": "e240", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q113"], "ok": true, "error": ""}
+{"id": "e241", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q114"], "ok": true, "error": ""}
+{"id": "e242", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q120"], "ok": true, "error": ""}
+{"id": "e243", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q121"], "ok": true, "error": ""}
+{"id": "e244", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q122"], "ok": true, "error": ""}
+{"id": "e245", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q123"], "ok": true, "error": ""}
+{"id": "e246", "kind": "act", "lesson": "d13-k4", "tool": "scrap", "args": ["q131"], "ok": true, "error": ""}
+{"id": "e247", "kind": "say", "task": "d13-k5", "symbols": ["damu", "gaw"]}
+{"id": "e248", "kind": "point", "lesson": "L5.1-d13", "objects": ["q074", "q084"], "feats": {"q074": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q084": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e249", "kind": "contrast", "lesson": "L5.1-d13", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e250", "kind": "contrast", "lesson": "L5.1-d13", "object": "q130", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e251", "kind": "demo", "lesson": "L5.1-d13", "tool": "slot", "args": ["t2", "q082"], "object": "q082", "gained": ["('U', 0, 'a2', 'teal')"], "lost": ["('U', 0, 'a2', 'amber')"], "made": []}
+{"id": "e252", "kind": "act", "lesson": "L5.1-d13", "tool": "slot", "args": ["t2", "q074"], "ok": true, "error": ""}
+{"id": "e253", "kind": "act", "lesson": "L5.1-d13", "tool": "slot", "args": ["t2", "q083"], "ok": true, "error": ""}
+{"id": "e254", "kind": "act", "lesson": "L5.1-d13", "tool": "slot", "args": ["t2", "q084"], "ok": true, "error": ""}
+{"id": "e255", "kind": "act", "lesson": "L5.1-d13", "tool": "slot", "args": ["t2", "q102"], "ok": true, "error": ""}
+{"id": "e256", "kind": "act", "lesson": "L5.1-d13", "tool": "slot", "args": ["t2", "q112"], "ok": true, "error": ""}
+{"id": "e257", "kind": "confirm", "answer": true}
+{"id": "e258", "kind": "name", "lesson": "L5.1-d13", "symbol": "gaw", "node": "k12"}
+{"id": "e259", "kind": "name", "lesson": "L5.1-d13", "symbol": "damu", "node": "a0"}
+{"id": "e260", "kind": "say", "task": "d14-k1", "symbols": ["bobu", "rado"]}
+{"id": "e261", "kind": "point", "lesson": "L4.0-d14", "objects": ["q130", "q140"], "feats": {"q130": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q140": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e262", "kind": "contrast", "lesson": "L4.0-d14", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e263", "kind": "demo", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q083"], "object": "q083", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', 'teal')"], "made": []}
+{"id": "e264", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q074"], "ok": true, "error": ""}
+{"id": "e265", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q082"], "ok": true, "error": ""}
+{"id": "e266", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q084"], "ok": true, "error": ""}
+{"id": "e267", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q102"], "ok": true, "error": ""}
+{"id": "e268", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q112"], "ok": true, "error": ""}
+{"id": "e269", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q130"], "ok": true, "error": ""}
+{"id": "e270", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q133"], "ok": true, "error": ""}
+{"id": "e271", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q140"], "ok": true, "error": ""}
+{"id": "e272", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q142"], "ok": true, "error": ""}
+{"id": "e273", "kind": "act", "lesson": "L4.0-d14", "tool": "slot", "args": ["t1", "q144"], "ok": true, "error": ""}
+{"id": "e274", "kind": "confirm", "answer": true}
+{"id": "e275", "kind": "name", "lesson": "L4.0-d14", "symbol": "rado", "node": "k0"}
+{"id": "e276", "kind": "name", "lesson": "L4.0-d14", "symbol": "bobu", "node": "a1"}
+{"id": "e277", "kind": "say", "task": "d15-k2", "symbols": ["rado", "bobu"]}
+{"id": "e278", "kind": "point", "lesson": "L4.0-d15", "objects": ["q102", "q130"], "feats": {"q102": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q130": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e279", "kind": "contrast", "lesson": "L4.0-d15", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e280", "kind": "contrast", "lesson": "L4.0-d15", "object": "q141", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e281", "kind": "contrast", "lesson": "L4.0-d15", "object": "q154", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e282", "kind": "demo", "lesson": "L4.0-d15", "tool": "slot", "args": ["t1", "q154"], "object": "q154", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e283", "kind": "confirm", "answer": true}
+{"id": "e284", "kind": "name", "lesson": "L4.0-d15", "symbol": "rado", "node": "k0"}
+{"id": "e285", "kind": "name", "lesson": "L4.0-d15", "symbol": "bobu", "node": "a1"}
+{"id": "e286", "kind": "say", "task": "d16-k2", "symbols": ["pupi", "seko"]}
+{"id": "e287", "kind": "act", "lesson": "d16-k2", "tool": "scrap", "args": ["q141"], "ok": true, "error": ""}
+{"id": "e288", "kind": "act", "lesson": "d16-k2", "tool": "scrap", "args": ["q143"], "ok": true, "error": ""}
+{"id": "e289", "kind": "act", "lesson": "d16-k2", "tool": "scrap", "args": ["q161"], "ok": true, "error": ""}
+{"id": "e290", "kind": "say", "task": "d17-k2", "symbols": ["damu", "gaw"]}
+{"id": "e291", "kind": "point", "lesson": "L5.1-d17", "objects": ["q074", "q154"], "feats": {"q074": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q154": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e292", "kind": "contrast", "lesson": "L5.1-d17", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e293", "kind": "contrast", "lesson": "L5.1-d17", "object": "q150", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e294", "kind": "demo", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q150"], "object": "q150", "gained": ["('U', 0, 'a2', 'teal')"], "lost": ["('U', 0, 'a2', 'amber')"], "made": []}
+{"id": "e295", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q074"], "ok": true, "error": ""}
+{"id": "e296", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q082"], "ok": true, "error": ""}
+{"id": "e297", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q083"], "ok": true, "error": ""}
+{"id": "e298", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q084"], "ok": true, "error": ""}
+{"id": "e299", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q102"], "ok": true, "error": ""}
+{"id": "e300", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q112"], "ok": true, "error": ""}
+{"id": "e301", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q130"], "ok": true, "error": ""}
+{"id": "e302", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q133"], "ok": true, "error": ""}
+{"id": "e303", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q140"], "ok": true, "error": ""}
+{"id": "e304", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q142"], "ok": true, "error": ""}
+{"id": "e305", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q144"], "ok": true, "error": ""}
+{"id": "e306", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q154"], "ok": true, "error": ""}
+{"id": "e307", "kind": "act", "lesson": "L5.1-d17", "tool": "slot", "args": ["t2", "q170"], "ok": true, "error": ""}
+{"id": "e308", "kind": "confirm", "answer": true}
+{"id": "e309", "kind": "name", "lesson": "L5.1-d17", "symbol": "gaw", "node": "k0"}
+{"id": "e310", "kind": "name", "lesson": "L5.1-d17", "symbol": "damu", "node": "a1"}
+{"id": "e311", "kind": "say", "task": "d18-k1", "symbols": ["wek", "tofa"]}
+{"id": "e312", "kind": "point", "lesson": "L6.4-d18", "objects": ["q082", "q084"], "feats": {"q082": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q084": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e313", "kind": "contrast", "lesson": "L6.4-d18", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e314", "kind": "contrast", "lesson": "L6.4-d18", "object": "q150", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e315", "kind": "demo", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q082"], "object": "q082", "gained": ["('U', 0, 'a2', '-')"], "lost": ["('U', 0, 'a2', 'teal')"], "made": []}
+{"id": "e316", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q074"], "ok": true, "error": ""}
+{"id": "e317", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q083"], "ok": true, "error": ""}
+{"id": "e318", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q084"], "ok": true, "error": ""}
+{"id": "e319", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q102"], "ok": true, "error": ""}
+{"id": "e320", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q112"], "ok": true, "error": ""}
+{"id": "e321", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q130"], "ok": true, "error": ""}
+{"id": "e322", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q133"], "ok": true, "error": ""}
+{"id": "e323", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q140"], "ok": true, "error": ""}
+{"id": "e324", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q142"], "ok": true, "error": ""}
+{"id": "e325", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q144"], "ok": true, "error": ""}
+{"id": "e326", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q150"], "ok": true, "error": ""}
+{"id": "e327", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q154"], "ok": true, "error": ""}
+{"id": "e328", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q170"], "ok": true, "error": ""}
+{"id": "e329", "kind": "act", "lesson": "L6.4-d18", "tool": "unlodge", "args": ["q181"], "ok": true, "error": ""}
+{"id": "e330", "kind": "confirm", "answer": true}
+{"id": "e331", "kind": "name", "lesson": "L6.4-d18", "symbol": "wek", "node": "k0"}
+{"id": "e332", "kind": "name", "lesson": "L6.4-d18", "symbol": "tofa", "node": "a1"}
+{"id": "e333", "kind": "say", "task": "d18-k2", "symbols": ["pupi", "bobu"]}
+{"id": "e334", "kind": "point", "lesson": "L1.0-d18", "objects": ["q170", "q184"], "feats": {"q170": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q184": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e335", "kind": "contrast", "lesson": "L1.0-d18", "object": "q051", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e336", "kind": "contrast", "lesson": "L1.0-d18", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e337", "kind": "demo", "lesson": "L1.0-d18", "tool": "slot", "args": ["t1", "q170"], "object": "q170", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e338", "kind": "act", "lesson": "L1.0-d18", "tool": "slot", "args": ["t1", "q184"], "ok": true, "error": ""}
+{"id": "e339", "kind": "confirm", "answer": true}
+{"id": "e340", "kind": "name", "lesson": "L1.0-d18", "symbol": "pupi", "node": "k4"}
+{"id": "e341", "kind": "name", "lesson": "L1.0-d18", "symbol": "bobu", "node": "a5"}
+{"id": "e342", "kind": "say", "task": "d19-k0", "symbols": ["gaw", "seko"]}
+{"id": "e343", "kind": "point", "lesson": "L5.5-d19", "objects": ["q184", "q190"], "feats": {"q184": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q190": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e344", "kind": "contrast", "lesson": "L5.5-d19", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e345", "kind": "contrast", "lesson": "L5.5-d19", "object": "q192", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e346", "kind": "demo", "lesson": "L5.5-d19", "tool": "scrap", "args": ["q184"], "object": "q184", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e347", "kind": "act", "lesson": "L5.5-d19", "tool": "scrap", "args": ["q170"], "ok": true, "error": ""}
+{"id": "e348", "kind": "act", "lesson": "L5.5-d19", "tool": "scrap", "args": ["q190"], "ok": true, "error": ""}
+{"id": "e349", "kind": "confirm", "answer": true}
+{"id": "e350", "kind": "name", "lesson": "L5.5-d19", "symbol": "gaw", "node": "k0"}
+{"id": "e351", "kind": "name", "lesson": "L5.5-d19", "symbol": "seko", "node": "a1"}
+{"id": "e352", "kind": "say", "task": "d20-k0", "symbols": ["damu", "pupi"]}
+{"id": "e353", "kind": "say", "task": "d20-k2", "symbols": ["damu", "pupi"]}
+{"id": "e354", "kind": "say", "task": "d21-k0", "symbols": ["gop", "bobu"]}
+{"id": "e355", "kind": "point", "lesson": "L3.0-d21", "objects": ["q163", "q201"], "feats": {"q163": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q201": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', 'slate')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e356", "kind": "contrast", "lesson": "L3.0-d21", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e357", "kind": "demo", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q201"], "object": "q201", "gained": ["('U', 0, 'a2', 'amber')"], "lost": ["('U', 0, 'a2', 'slate')"], "made": []}
+{"id": "e358", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q094"], "ok": true, "error": ""}
+{"id": "e359", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q110"], "ok": true, "error": ""}
+{"id": "e360", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q124"], "ok": true, "error": ""}
+{"id": "e361", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q134"], "ok": true, "error": ""}
+{"id": "e362", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q163"], "ok": true, "error": ""}
+{"id": "e363", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q164"], "ok": true, "error": ""}
+{"id": "e364", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q183"], "ok": true, "error": ""}
+{"id": "e365", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q210"], "ok": true, "error": ""}
+{"id": "e366", "kind": "act", "lesson": "L3.0-d21", "tool": "slot", "args": ["t1", "q212"], "ok": true, "error": ""}
+{"id": "e367", "kind": "confirm", "answer": true}
+{"id": "e368", "kind": "name", "lesson": "L3.0-d21", "symbol": "gop", "node": "k0"}
+{"id": "e369", "kind": "name", "lesson": "L3.0-d21", "symbol": "bobu", "node": "a1"}
+{"id": "e370", "kind": "say", "task": "d21-k2", "symbols": ["seko", "gop"]}
+{"id": "e371", "kind": "point", "lesson": "L3.5-d21", "objects": ["q110", "q201"], "feats": {"q110": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q201": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e372", "kind": "contrast", "lesson": "L3.5-d21", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e373", "kind": "contrast", "lesson": "L3.5-d21", "object": "q211", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e374", "kind": "demo", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q124"], "object": "q124", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e375", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q094"], "ok": true, "error": ""}
+{"id": "e376", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q110"], "ok": true, "error": ""}
+{"id": "e377", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q134"], "ok": true, "error": ""}
+{"id": "e378", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q163"], "ok": true, "error": ""}
+{"id": "e379", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q164"], "ok": true, "error": ""}
+{"id": "e380", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q183"], "ok": true, "error": ""}
+{"id": "e381", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q201"], "ok": true, "error": ""}
+{"id": "e382", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q210"], "ok": true, "error": ""}
+{"id": "e383", "kind": "act", "lesson": "L3.5-d21", "tool": "scrap", "args": ["q212"], "ok": true, "error": ""}
+{"id": "e384", "kind": "confirm", "answer": true}
+{"id": "e385", "kind": "name", "lesson": "L3.5-d21", "symbol": "gop", "node": "k4"}
+{"id": "e386", "kind": "name", "lesson": "L3.5-d21", "symbol": "seko", "node": "a5"}
+{"id": "e387", "kind": "say", "task": "d22-k0", "symbols": ["gaw", "seko"]}
+{"id": "e388", "kind": "point", "lesson": "L5.5-d22", "objects": ["q211", "q220"], "feats": {"q211": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q220": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e389", "kind": "contrast", "lesson": "L5.5-d22", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e390", "kind": "demo", "lesson": "L5.5-d22", "tool": "scrap", "args": ["q211"], "object": "q211", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'amber')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e391", "kind": "act", "lesson": "L5.5-d22", "tool": "scrap", "args": ["q220"], "ok": true, "error": ""}
+{"id": "e392", "kind": "confirm", "answer": true}
+{"id": "e393", "kind": "name", "lesson": "L5.5-d22", "symbol": "gaw", "node": "k0"}
+{"id": "e394", "kind": "name", "lesson": "L5.5-d22", "symbol": "seko", "node": "a1"}
+{"id": "e395", "kind": "say", "task": "d22-k1", "symbols": ["gop", "tasu"]}
+{"id": "e396", "kind": "point", "lesson": "L3.2-d22", "objects": ["q222", "q224"], "feats": {"q222": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q224": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'memo')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e397", "kind": "contrast", "lesson": "L3.2-d22", "object": "q051", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e398", "kind": "contrast", "lesson": "L3.2-d22", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e399", "kind": "demo", "lesson": "L3.2-d22", "tool": "stamp", "args": ["q223", "m.idea"], "object": "q223", "gained": ["('U', 0, 'a1', 'idea')"], "lost": ["('U', 0, 'a1', 'memo')"], "made": []}
+{"id": "e400", "kind": "act", "lesson": "L3.2-d22", "tool": "stamp", "args": ["q222", "m.idea"], "ok": true, "error": ""}
+{"id": "e401", "kind": "act", "lesson": "L3.2-d22", "tool": "stamp", "args": ["q224", "m.idea"], "ok": true, "error": ""}
+{"id": "e402", "kind": "confirm", "answer": true}
+{"id": "e403", "kind": "name", "lesson": "L3.2-d22", "symbol": "gop", "node": "k4"}
+{"id": "e404", "kind": "name", "lesson": "L3.2-d22", "symbol": "tasu", "node": "a5"}
+{"id": "e405", "kind": "say", "task": "d22-k2", "symbols": ["pupi", "seko"]}
+{"id": "e406", "kind": "point", "lesson": "L1.5-d22", "objects": ["q200", "q204"], "feats": {"q200": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', 'slate')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q204": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e407", "kind": "contrast", "lesson": "L1.5-d22", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e408", "kind": "demo", "lesson": "L1.5-d22", "tool": "scrap", "args": ["q192"], "object": "q192", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'defect')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e409", "kind": "act", "lesson": "L1.5-d22", "tool": "scrap", "args": ["q200"], "ok": true, "error": ""}
+{"id": "e410", "kind": "act", "lesson": "L1.5-d22", "tool": "scrap", "args": ["q204"], "ok": true, "error": ""}
+{"id": "e411", "kind": "confirm", "answer": true}
+{"id": "e412", "kind": "name", "lesson": "L1.5-d22", "symbol": "pupi", "node": "k8"}
+{"id": "e413", "kind": "name", "lesson": "L1.5-d22", "symbol": "seko", "node": "a1"}
+{"id": "e414", "kind": "say", "task": "d23-k0", "symbols": ["seko", "wek"]}
+{"id": "e415", "kind": "point", "lesson": "L6.5-d23", "objects": ["q231"], "feats": {"q231": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e416", "kind": "contrast", "lesson": "L6.5-d23", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e417", "kind": "contrast", "lesson": "L6.5-d23", "object": "q074", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e418", "kind": "demo", "lesson": "L6.5-d23", "tool": "scrap", "args": ["q231"], "object": "q231", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'teal')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "made": []}
+{"id": "e419", "kind": "confirm", "answer": true}
+{"id": "e420", "kind": "name", "lesson": "L6.5-d23", "symbol": "wek", "node": "k0"}
+{"id": "e421", "kind": "name", "lesson": "L6.5-d23", "symbol": "seko", "node": "a1"}
+{"id": "e422", "kind": "say", "task": "d23-k2", "symbols": ["damu", "rado"]}
+{"id": "e423", "kind": "point", "lesson": "L4.1-d23", "objects": ["q194", "q213"], "feats": {"q194": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"], "q213": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}}
+{"id": "e424", "kind": "contrast", "lesson": "L4.1-d23", "object": "q051", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e425", "kind": "contrast", "lesson": "L4.1-d23", "object": "q012", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'chore')", "('U', 0, 'a2', '-')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e426", "kind": "contrast", "lesson": "L4.1-d23", "object": "q221", "answer": true, "feats": ["('N', 0)", "('U', 0, 'a0', 'card')", "('U', 0, 'a1', 'urgent')", "('U', 0, 'a2', 'plum')", "('U', 0, 'a3', 'low')", "('U', 0, 'a4', '-')"]}
+{"id": "e427", "kind": "demo", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q074"], "object": "q074", "gained": ["('U', 0, 'a2', 'teal')"], "lost": ["('U', 0, 'a2', '-')"], "made": []}
+{"id": "e428", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q082"], "ok": true, "error": ""}
+{"id": "e429", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q083"], "ok": true, "error": ""}
+{"id": "e430", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q084"], "ok": true, "error": ""}
+{"id": "e431", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q102"], "ok": true, "error": ""}
+{"id": "e432", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q112"], "ok": true, "error": ""}
+{"id": "e433", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q130"], "ok": true, "error": ""}
+{"id": "e434", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q133"], "ok": true, "error": ""}
+{"id": "e435", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q140"], "ok": true, "error": ""}
+{"id": "e436", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q142"], "ok": true, "error": ""}
+{"id": "e437", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q144"], "ok": true, "error": ""}
+{"id": "e438", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q154"], "ok": true, "error": ""}
+{"id": "e439", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q174"], "ok": true, "error": ""}
+{"id": "e440", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q181"], "ok": true, "error": ""}
+{"id": "e441", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q194"], "ok": true, "error": ""}
+{"id": "e442", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q213"], "ok": true, "error": ""}
+{"id": "e443", "kind": "act", "lesson": "L4.1-d23", "tool": "slot", "args": ["t2", "q221"], "ok": true, "error": ""}
+{"id": "e444", "kind": "confirm", "answer": true}
+{"id": "e445", "kind": "name", "lesson": "L4.1-d23", "symbol": "rado", "node": "k4"}
+{"id": "e446", "kind": "name", "lesson": "L4.1-d23", "symbol": "damu", "node": "a5"}
+{"id": "e447", "kind": "say", "task": "d24-k0", "symbols": ["tasu", "gaw"]}

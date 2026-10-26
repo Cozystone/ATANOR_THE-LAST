@@ -1,0 +1,749 @@
+{"id": "e0", "kind": "point", "lesson": "L0.1-d1", "objects": ["fennel1.csv", "lilac1.csv"], "feats": {"fennel1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "lilac1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e1", "kind": "contrast", "lesson": "L0.1-d1", "object": "cobalt1.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e2", "kind": "demo", "lesson": "L0.1-d1", "tool": "copy", "args": ["lilac1.csv", "inbox/lilac1.csv"], "object": "lilac1.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e3", "kind": "act", "lesson": "L0.1-d1", "tool": "copy", "args": ["fennel1.csv", "inbox/fennel1.csv"], "ok": true, "error": ""}
+{"id": "e4", "kind": "confirm", "answer": true}
+{"id": "e5", "kind": "name", "lesson": "L0.1-d1", "symbol": "zago", "node": "k0"}
+{"id": "e6", "kind": "name", "lesson": "L0.1-d1", "symbol": "damu", "node": "a1"}
+{"id": "e7", "kind": "point", "lesson": "L3.0-d1", "objects": ["garnet1.json", "saffron1.json"], "feats": {"garnet1.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "saffron1.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e8", "kind": "contrast", "lesson": "L3.0-d1", "object": "cobalt1.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e9", "kind": "demo", "lesson": "L3.0-d1", "tool": "copy", "args": ["garnet1.json", "archive/garnet1.json"], "object": "garnet1.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e10", "kind": "act", "lesson": "L3.0-d1", "tool": "copy", "args": ["saffron1.json", "archive/saffron1.json"], "ok": true, "error": ""}
+{"id": "e11", "kind": "confirm", "answer": true}
+{"id": "e12", "kind": "name", "lesson": "L3.0-d1", "symbol": "gop", "node": "k4"}
+{"id": "e13", "kind": "name", "lesson": "L3.0-d1", "symbol": "bobu", "node": "a5"}
+{"id": "e14", "kind": "point", "lesson": "L1.4-d2", "objects": ["ember2.log", "thistle1.log"], "feats": {"ember2.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "thistle1.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e15", "kind": "contrast", "lesson": "L1.4-d2", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e16", "kind": "demo", "lesson": "L1.4-d2", "tool": "delete", "args": ["umber2.log"], "object": "umber2.log", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "made": []}
+{"id": "e17", "kind": "act", "lesson": "L1.4-d2", "tool": "delete", "args": ["cobalt1.log"], "ok": true, "error": ""}
+{"id": "e18", "kind": "act", "lesson": "L1.4-d2", "tool": "delete", "args": ["ember2.log"], "ok": true, "error": ""}
+{"id": "e19", "kind": "act", "lesson": "L1.4-d2", "tool": "delete", "args": ["thistle1.log"], "ok": true, "error": ""}
+{"id": "e20", "kind": "confirm", "answer": true}
+{"id": "e21", "kind": "name", "lesson": "L1.4-d2", "symbol": "pupi", "node": "k0"}
+{"id": "e22", "kind": "name", "lesson": "L1.4-d2", "symbol": "tofa", "node": "a1"}
+{"id": "e23", "kind": "point", "lesson": "L4.2-d2", "objects": ["marigold2.md", "olive2.md"], "feats": {"marigold2.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "olive2.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e24", "kind": "contrast", "lesson": "L4.2-d2", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e25", "kind": "demo", "lesson": "L4.2-d2", "tool": "move", "args": ["juniper1.md", "inbox/juniper1.md"], "object": "juniper1.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e26", "kind": "act", "lesson": "L4.2-d2", "tool": "move", "args": ["marigold2.md", "inbox/marigold2.md"], "ok": true, "error": ""}
+{"id": "e27", "kind": "act", "lesson": "L4.2-d2", "tool": "move", "args": ["olive2.md", "inbox/olive2.md"], "ok": true, "error": ""}
+{"id": "e28", "kind": "act", "lesson": "L4.2-d2", "tool": "move", "args": ["yarrow1.md", "inbox/yarrow1.md"], "ok": true, "error": ""}
+{"id": "e29", "kind": "confirm", "answer": true}
+{"id": "e30", "kind": "name", "lesson": "L4.2-d2", "symbol": "rado", "node": "k4"}
+{"id": "e31", "kind": "name", "lesson": "L4.2-d2", "symbol": "tasu", "node": "a5"}
+{"id": "e32", "kind": "say", "task": "d2-k2", "symbols": ["gop", "bobu"]}
+{"id": "e33", "kind": "say", "task": "d2-k3", "symbols": ["bobu", "gop"]}
+{"id": "e34", "kind": "say", "task": "d2-k4", "symbols": ["bobu", "gop"]}
+{"id": "e35", "kind": "point", "lesson": "L2.3-d3", "objects": ["amber3.txt", "quill1.txt"], "feats": {"amber3.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "quill1.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e36", "kind": "contrast", "lesson": "L2.3-d3", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e37", "kind": "demo", "lesson": "L2.3-d3", "tool": "move", "args": ["russet2.txt", "attic/russet2.txt"], "object": "russet2.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e38", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["amber3.txt", "attic/amber3.txt"], "ok": true, "error": ""}
+{"id": "e39", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["birch2.txt", "attic/birch2.txt"], "ok": true, "error": ""}
+{"id": "e40", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["kestrel1.txt", "attic/kestrel1.txt"], "ok": true, "error": ""}
+{"id": "e41", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["marigold3.txt", "attic/marigold3.txt"], "ok": true, "error": ""}
+{"id": "e42", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["quill1.txt", "attic/quill1.txt"], "ok": true, "error": ""}
+{"id": "e43", "kind": "confirm", "answer": true}
+{"id": "e44", "kind": "name", "lesson": "L2.3-d3", "symbol": "gad", "node": "k0"}
+{"id": "e45", "kind": "name", "lesson": "L2.3-d3", "symbol": "gedo", "node": "a1"}
+{"id": "e46", "kind": "point", "lesson": "L0.0-d3", "objects": ["fennel1.csv", "nutmeg2.csv"], "feats": {"fennel1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "nutmeg2.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e47", "kind": "contrast", "lesson": "L0.0-d3", "object": "ember3.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e48", "kind": "contrast", "lesson": "L0.0-d3", "object": "inbox/fennel1.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e49", "kind": "demo", "lesson": "L0.0-d3", "tool": "copy", "args": ["fennel1.csv", "archive/fennel1.csv"], "object": "fennel1.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e50", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["amber2.csv", "archive/amber2.csv"], "ok": true, "error": ""}
+{"id": "e51", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["kestrel3.csv", "archive/kestrel3.csv"], "ok": true, "error": ""}
+{"id": "e52", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["lilac1.csv", "archive/lilac1.csv"], "ok": true, "error": ""}
+{"id": "e53", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["nutmeg2.csv", "archive/nutmeg2.csv"], "ok": true, "error": ""}
+{"id": "e54", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["nutmeg3.csv", "archive/nutmeg3.csv"], "ok": true, "error": ""}
+{"id": "e55", "kind": "confirm", "answer": true}
+{"id": "e56", "kind": "name", "lesson": "L0.0-d3", "symbol": "zago", "node": "k4"}
+{"id": "e57", "kind": "name", "lesson": "L0.0-d3", "symbol": "bobu", "node": "a5"}
+{"id": "e58", "kind": "say", "task": "d3-k2", "symbols": ["pupi", "tofa"]}
+{"id": "e59", "kind": "act", "lesson": "d3-k2", "tool": "delete", "args": ["indigo3.log"], "ok": true, "error": ""}
+{"id": "e60", "kind": "act", "lesson": "d3-k2", "tool": "delete", "args": ["russet3.log"], "ok": true, "error": ""}
+{"id": "e61", "kind": "say", "task": "d3-k3", "symbols": ["tasu", "rado"]}
+{"id": "e62", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["ember3.md", "inbox/juniper1.md"], "ok": false, "error": ""}
+{"id": "e63", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["heron3.md", "inbox/juniper1.md"], "ok": false, "error": ""}
+{"id": "e64", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["inbox/marigold2.md", "inbox/juniper1.md"], "ok": false, "error": ""}
+{"id": "e65", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["inbox/olive2.md", "inbox/juniper1.md"], "ok": false, "error": ""}
+{"id": "e66", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["inbox/yarrow1.md", "inbox/juniper1.md"], "ok": false, "error": ""}
+{"id": "e67", "kind": "demo", "lesson": "R2-d3", "tool": "move", "args": ["heron3.md", "inbox/heron3.md"], "object": "heron3.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e68", "kind": "name", "lesson": "R2-d3", "symbol": "tasu", "node": "a8"}
+{"id": "e69", "kind": "act", "lesson": "R2-d3", "tool": "move", "args": ["ember3.md", "inbox/ember3.md"], "ok": true, "error": ""}
+{"id": "e70", "kind": "say", "task": "d3-k4", "symbols": ["zago", "damu"]}
+{"id": "e71", "kind": "point", "lesson": "L0.1-d3", "objects": ["fennel1.csv", "lilac1.csv"], "feats": {"fennel1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "lilac1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e72", "kind": "contrast", "lesson": "L0.1-d3", "object": "archive/amber2.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e73", "kind": "contrast", "lesson": "L0.1-d3", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e74", "kind": "contrast", "lesson": "L0.1-d3", "object": "garnet1.json", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e75", "kind": "demo", "lesson": "L0.1-d3", "tool": "copy", "args": ["amber2.csv", "inbox/amber2.csv"], "object": "amber2.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e76", "kind": "act", "lesson": "L0.1-d3", "tool": "copy", "args": ["kestrel3.csv", "inbox/kestrel3.csv"], "ok": true, "error": ""}
+{"id": "e77", "kind": "act", "lesson": "L0.1-d3", "tool": "copy", "args": ["nutmeg2.csv", "inbox/nutmeg2.csv"], "ok": true, "error": ""}
+{"id": "e78", "kind": "act", "lesson": "L0.1-d3", "tool": "copy", "args": ["nutmeg3.csv", "inbox/nutmeg3.csv"], "ok": true, "error": ""}
+{"id": "e79", "kind": "confirm", "answer": true}
+{"id": "e80", "kind": "name", "lesson": "L0.1-d3", "symbol": "zago", "node": "k10"}
+{"id": "e81", "kind": "name", "lesson": "L0.1-d3", "symbol": "damu", "node": "a11"}
+{"id": "e82", "kind": "say", "task": "d4-k0", "symbols": ["bobu", "zago"]}
+{"id": "e83", "kind": "say", "task": "d4-k1", "symbols": ["tofa", "pupi"]}
+{"id": "e84", "kind": "act", "lesson": "d4-k1", "tool": "delete", "args": ["indigo4.log"], "ok": true, "error": ""}
+{"id": "e85", "kind": "act", "lesson": "d4-k1", "tool": "delete", "args": ["kestrel4.log"], "ok": true, "error": ""}
+{"id": "e86", "kind": "say", "task": "d4-k2", "symbols": ["damu", "zago"]}
+{"id": "e87", "kind": "say", "task": "d5-k0", "symbols": ["zago", "bobu"]}
+{"id": "e88", "kind": "point", "lesson": "L0.0-d5", "objects": ["kestrel3.csv", "lilac1.csv"], "feats": {"kestrel3.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "lilac1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e89", "kind": "contrast", "lesson": "L0.0-d5", "object": "archive/amber2.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e90", "kind": "contrast", "lesson": "L0.0-d5", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e91", "kind": "contrast", "lesson": "L0.0-d5", "object": "birch4.txt", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e92", "kind": "demo", "lesson": "L0.0-d5", "tool": "copy", "args": ["amber5.csv", "archive/amber5.csv"], "object": "amber5.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e93", "kind": "act", "lesson": "L0.0-d5", "tool": "copy", "args": ["amber4.csv", "archive/amber4.csv"], "ok": true, "error": ""}
+{"id": "e94", "kind": "act", "lesson": "L0.0-d5", "tool": "copy", "args": ["lilac4.csv", "archive/lilac4.csv"], "ok": true, "error": ""}
+{"id": "e95", "kind": "act", "lesson": "L0.0-d5", "tool": "copy", "args": ["marigold5.csv", "archive/marigold5.csv"], "ok": true, "error": ""}
+{"id": "e96", "kind": "confirm", "answer": true}
+{"id": "e97", "kind": "name", "lesson": "L0.0-d5", "symbol": "zago", "node": "k0"}
+{"id": "e98", "kind": "name", "lesson": "L0.0-d5", "symbol": "bobu", "node": "a1"}
+{"id": "e99", "kind": "say", "task": "d5-k1", "symbols": ["rado", "tofa"]}
+{"id": "e100", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["dahlia5.md"], "ok": true, "error": ""}
+{"id": "e101", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["fennel4.md"], "ok": true, "error": ""}
+{"id": "e102", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["garnet5.md"], "ok": true, "error": ""}
+{"id": "e103", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["inbox/ember3.md"], "ok": true, "error": ""}
+{"id": "e104", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["inbox/heron3.md"], "ok": true, "error": ""}
+{"id": "e105", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["inbox/juniper1.md"], "ok": true, "error": ""}
+{"id": "e106", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["inbox/marigold2.md"], "ok": true, "error": ""}
+{"id": "e107", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["inbox/olive2.md"], "ok": true, "error": ""}
+{"id": "e108", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["inbox/yarrow1.md"], "ok": true, "error": ""}
+{"id": "e109", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["nutmeg4.md"], "ok": true, "error": ""}
+{"id": "e110", "kind": "say", "task": "d5-k2", "symbols": ["pupi", "tofa"]}
+{"id": "e111", "kind": "act", "lesson": "d5-k2", "tool": "delete", "args": ["juniper5.log"], "ok": true, "error": ""}
+{"id": "e112", "kind": "act", "lesson": "d5-k2", "tool": "delete", "args": ["russet5.log"], "ok": true, "error": ""}
+{"id": "e113", "kind": "say", "task": "d6-k0", "symbols": ["tofa", "rado"]}
+{"id": "e114", "kind": "act", "lesson": "d6-k0", "tool": "delete", "args": ["garnet6.md"], "ok": true, "error": ""}
+{"id": "e115", "kind": "act", "lesson": "d6-k0", "tool": "delete", "args": ["quill6.md"], "ok": true, "error": ""}
+{"id": "e116", "kind": "say", "task": "d6-k1", "symbols": ["pupi", "gedo"]}
+{"id": "e117", "kind": "act", "lesson": "d6-k1", "tool": "move", "args": ["saffron6.log", "attic/russet2.txt"], "ok": false, "error": ""}
+{"id": "e118", "kind": "act", "lesson": "d6-k1", "tool": "move", "args": ["violet6.log", "attic/russet2.txt"], "ok": false, "error": ""}
+{"id": "e119", "kind": "demo", "lesson": "R3-d6", "tool": "move", "args": ["saffron6.log", "attic/saffron6.log"], "object": "saffron6.log", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e120", "kind": "name", "lesson": "R3-d6", "symbol": "gedo", "node": "a0"}
+{"id": "e121", "kind": "act", "lesson": "R3-d6", "tool": "move", "args": ["violet6.log", "attic/violet6.log"], "ok": true, "error": ""}
+{"id": "e122", "kind": "say", "task": "d6-k2", "symbols": ["zago", "damu"]}
+{"id": "e123", "kind": "point", "lesson": "L0.1-d6", "objects": ["amber2.csv", "marigold5.csv"], "feats": {"amber2.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "marigold5.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e124", "kind": "contrast", "lesson": "L0.1-d6", "object": "archive/amber2.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e125", "kind": "contrast", "lesson": "L0.1-d6", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e126", "kind": "contrast", "lesson": "L0.1-d6", "object": "birch4.txt", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e127", "kind": "demo", "lesson": "L0.1-d6", "tool": "copy", "args": ["amber4.csv", "inbox/amber4.csv"], "object": "amber4.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e128", "kind": "act", "lesson": "L0.1-d6", "tool": "copy", "args": ["amber5.csv", "inbox/amber5.csv"], "ok": true, "error": ""}
+{"id": "e129", "kind": "act", "lesson": "L0.1-d6", "tool": "copy", "args": ["amber6.csv", "inbox/amber6.csv"], "ok": true, "error": ""}
+{"id": "e130", "kind": "act", "lesson": "L0.1-d6", "tool": "copy", "args": ["lilac4.csv", "inbox/lilac4.csv"], "ok": true, "error": ""}
+{"id": "e131", "kind": "act", "lesson": "L0.1-d6", "tool": "copy", "args": ["marigold5.csv", "inbox/marigold5.csv"], "ok": true, "error": ""}
+{"id": "e132", "kind": "act", "lesson": "L0.1-d6", "tool": "copy", "args": ["marigold6.csv", "inbox/marigold6.csv"], "ok": true, "error": ""}
+{"id": "e133", "kind": "confirm", "answer": true}
+{"id": "e134", "kind": "name", "lesson": "L0.1-d6", "symbol": "zago", "node": "k2"}
+{"id": "e135", "kind": "name", "lesson": "L0.1-d6", "symbol": "damu", "node": "a3"}
+{"id": "e136", "kind": "say", "task": "d7-k0", "symbols": ["pupi", "tasu"]}
+{"id": "e137", "kind": "point", "lesson": "L1.2-d7", "objects": ["fennel7.log", "quill7.log"], "feats": {"fennel7.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "quill7.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e138", "kind": "contrast", "lesson": "L1.2-d7", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e139", "kind": "contrast", "lesson": "L1.2-d7", "object": "attic/saffron6.log", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e140", "kind": "demo", "lesson": "L1.2-d7", "tool": "move", "args": ["fennel7.log", "inbox/fennel7.log"], "object": "fennel7.log", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e141", "kind": "act", "lesson": "L1.2-d7", "tool": "move", "args": ["quill7.log", "inbox/quill7.log"], "ok": true, "error": ""}
+{"id": "e142", "kind": "confirm", "answer": true}
+{"id": "e143", "kind": "name", "lesson": "L1.2-d7", "symbol": "pupi", "node": "k0"}
+{"id": "e144", "kind": "name", "lesson": "L1.2-d7", "symbol": "tasu", "node": "a1"}
+{"id": "e145", "kind": "say", "task": "d7-k1", "symbols": ["gop", "bobu"]}
+{"id": "e146", "kind": "point", "lesson": "L3.0-d7", "objects": ["cobalt5.json", "walnut7.json"], "feats": {"cobalt5.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "walnut7.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e147", "kind": "contrast", "lesson": "L3.0-d7", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e148", "kind": "contrast", "lesson": "L3.0-d7", "object": "archive/garnet1.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e149", "kind": "demo", "lesson": "L3.0-d7", "tool": "copy", "args": ["walnut7.json", "archive/walnut7.json"], "object": "walnut7.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e150", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["cobalt5.json", "archive/cobalt5.json"], "ok": true, "error": ""}
+{"id": "e151", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["cobalt6.json", "archive/cobalt6.json"], "ok": true, "error": ""}
+{"id": "e152", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["garnet3.json", "archive/garnet3.json"], "ok": true, "error": ""}
+{"id": "e153", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["indigo7.json", "archive/indigo7.json"], "ok": true, "error": ""}
+{"id": "e154", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["poppy5.json", "archive/poppy5.json"], "ok": true, "error": ""}
+{"id": "e155", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["saffron4.json", "archive/saffron4.json"], "ok": true, "error": ""}
+{"id": "e156", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["thistle2.json", "archive/thistle2.json"], "ok": true, "error": ""}
+{"id": "e157", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["thistle4.json", "archive/thistle4.json"], "ok": true, "error": ""}
+{"id": "e158", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["violet2.json", "archive/violet2.json"], "ok": true, "error": ""}
+{"id": "e159", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["walnut3.json", "archive/walnut3.json"], "ok": true, "error": ""}
+{"id": "e160", "kind": "act", "lesson": "L3.0-d7", "tool": "copy", "args": ["walnut6.json", "archive/walnut6.json"], "ok": true, "error": ""}
+{"id": "e161", "kind": "confirm", "answer": true}
+{"id": "e162", "kind": "name", "lesson": "L3.0-d7", "symbol": "gop", "node": "k4"}
+{"id": "e163", "kind": "name", "lesson": "L3.0-d7", "symbol": "bobu", "node": "a5"}
+{"id": "e164", "kind": "say", "task": "d7-k2", "symbols": ["tasu", "rado"]}
+{"id": "e165", "kind": "point", "lesson": "L4.2-d7", "objects": ["lilac7.md", "poppy7.md"], "feats": {"lilac7.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "poppy7.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e166", "kind": "contrast", "lesson": "L4.2-d7", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e167", "kind": "demo", "lesson": "L4.2-d7", "tool": "move", "args": ["poppy7.md", "inbox/poppy7.md"], "object": "poppy7.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e168", "kind": "act", "lesson": "L4.2-d7", "tool": "move", "args": ["lilac7.md", "inbox/lilac7.md"], "ok": true, "error": ""}
+{"id": "e169", "kind": "confirm", "answer": true}
+{"id": "e170", "kind": "name", "lesson": "L4.2-d7", "symbol": "rado", "node": "k8"}
+{"id": "e171", "kind": "name", "lesson": "L4.2-d7", "symbol": "tasu", "node": "a1"}
+{"id": "e172", "kind": "say", "task": "d8-k0", "symbols": ["gad", "gedo"]}
+{"id": "e173", "kind": "say", "task": "d8-k1", "symbols": ["gedo", "zago"]}
+{"id": "e174", "kind": "say", "task": "d8-k2", "symbols": ["zago", "gedo"]}
+{"id": "e175", "kind": "say", "task": "d9-k0", "symbols": ["gop", "bobu"]}
+{"id": "e176", "kind": "point", "lesson": "L3.0-d9", "objects": ["cobalt9.json", "thistle4.json"], "feats": {"cobalt9.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "thistle4.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e177", "kind": "contrast", "lesson": "L3.0-d9", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e178", "kind": "contrast", "lesson": "L3.0-d9", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e179", "kind": "demo", "lesson": "L3.0-d9", "tool": "replicate", "args": ["archive/juniper8.json", "juniper8.json"], "object": "juniper8.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e180", "kind": "act", "lesson": "L3.0-d9", "tool": "replicate", "args": ["archive/cobalt9.json", "cobalt9.json"], "ok": true, "error": ""}
+{"id": "e181", "kind": "act", "lesson": "L3.0-d9", "tool": "replicate", "args": ["archive/umber9.json", "umber9.json"], "ok": true, "error": ""}
+{"id": "e182", "kind": "act", "lesson": "L3.0-d9", "tool": "replicate", "args": ["archive/yarrow8.json", "yarrow8.json"], "ok": true, "error": ""}
+{"id": "e183", "kind": "confirm", "answer": true}
+{"id": "e184", "kind": "name", "lesson": "L3.0-d9", "symbol": "gop", "node": "k0"}
+{"id": "e185", "kind": "name", "lesson": "L3.0-d9", "symbol": "bobu", "node": "a1"}
+{"id": "e186", "kind": "say", "task": "d9-k1", "symbols": ["rado", "tofa"]}
+{"id": "e187", "kind": "point", "lesson": "L4.4-d9", "objects": ["olive8.md", "thistle9.md"], "feats": {"olive8.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "thistle9.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e188", "kind": "contrast", "lesson": "L4.4-d9", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e189", "kind": "contrast", "lesson": "L4.4-d9", "object": "inbox/lilac7.md", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e190", "kind": "demo", "lesson": "L4.4-d9", "tool": "delete", "args": ["kestrel8.md"], "object": "kestrel8.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": []}
+{"id": "e191", "kind": "act", "lesson": "L4.4-d9", "tool": "delete", "args": ["olive8.md"], "ok": true, "error": ""}
+{"id": "e192", "kind": "act", "lesson": "L4.4-d9", "tool": "delete", "args": ["quill9.md"], "ok": true, "error": ""}
+{"id": "e193", "kind": "act", "lesson": "L4.4-d9", "tool": "delete", "args": ["thistle9.md"], "ok": true, "error": ""}
+{"id": "e194", "kind": "confirm", "answer": true}
+{"id": "e195", "kind": "name", "lesson": "L4.4-d9", "symbol": "rado", "node": "k4"}
+{"id": "e196", "kind": "name", "lesson": "L4.4-d9", "symbol": "tofa", "node": "a5"}
+{"id": "e197", "kind": "say", "task": "d9-k2", "symbols": ["tofa", "gad"]}
+{"id": "e198", "kind": "point", "lesson": "L2.4-d9", "objects": ["birch5.txt", "violet5.txt"], "feats": {"birch5.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "violet5.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e199", "kind": "contrast", "lesson": "L2.4-d9", "object": "amber2.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e200", "kind": "contrast", "lesson": "L2.4-d9", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e201", "kind": "demo", "lesson": "L2.4-d9", "tool": "delete", "args": ["indigo9.txt"], "object": "indigo9.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": []}
+{"id": "e202", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["birch4.txt"], "ok": true, "error": ""}
+{"id": "e203", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["birch5.txt"], "ok": true, "error": ""}
+{"id": "e204", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["cobalt4.txt"], "ok": true, "error": ""}
+{"id": "e205", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["ember8.txt"], "ok": true, "error": ""}
+{"id": "e206", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["garnet9.txt"], "ok": true, "error": ""}
+{"id": "e207", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["russet7.txt"], "ok": true, "error": ""}
+{"id": "e208", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["umber6.txt"], "ok": true, "error": ""}
+{"id": "e209", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["violet5.txt"], "ok": true, "error": ""}
+{"id": "e210", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["violet7.txt"], "ok": true, "error": ""}
+{"id": "e211", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["violet8.txt"], "ok": true, "error": ""}
+{"id": "e212", "kind": "act", "lesson": "L2.4-d9", "tool": "delete", "args": ["yarrow6.txt"], "ok": true, "error": ""}
+{"id": "e213", "kind": "confirm", "answer": true}
+{"id": "e214", "kind": "name", "lesson": "L2.4-d9", "symbol": "gad", "node": "k8"}
+{"id": "e215", "kind": "name", "lesson": "L2.4-d9", "symbol": "tofa", "node": "a5"}
+{"id": "e216", "kind": "say", "task": "d10-k0", "symbols": ["damu", "gop"]}
+{"id": "e217", "kind": "point", "lesson": "L3.1-d10", "objects": ["saffron1.json", "violet2.json"], "feats": {"saffron1.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "violet2.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e218", "kind": "contrast", "lesson": "L3.1-d10", "object": "amber10.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e219", "kind": "contrast", "lesson": "L3.1-d10", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e220", "kind": "demo", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/walnut6.json", "walnut6.json"], "object": "walnut6.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e221", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/cobalt5.json", "cobalt5.json"], "ok": true, "error": ""}
+{"id": "e222", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/cobalt6.json", "cobalt6.json"], "ok": true, "error": ""}
+{"id": "e223", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/cobalt9.json", "cobalt9.json"], "ok": true, "error": ""}
+{"id": "e224", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/garnet1.json", "garnet1.json"], "ok": true, "error": ""}
+{"id": "e225", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/garnet3.json", "garnet3.json"], "ok": true, "error": ""}
+{"id": "e226", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/indigo7.json", "indigo7.json"], "ok": true, "error": ""}
+{"id": "e227", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/juniper8.json", "juniper8.json"], "ok": true, "error": ""}
+{"id": "e228", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/poppy5.json", "poppy5.json"], "ok": true, "error": ""}
+{"id": "e229", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/quill10.json", "quill10.json"], "ok": true, "error": ""}
+{"id": "e230", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/russet10.json", "russet10.json"], "ok": true, "error": ""}
+{"id": "e231", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/saffron1.json", "saffron1.json"], "ok": true, "error": ""}
+{"id": "e232", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/saffron4.json", "saffron4.json"], "ok": true, "error": ""}
+{"id": "e233", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/thistle2.json", "thistle2.json"], "ok": true, "error": ""}
+{"id": "e234", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/thistle4.json", "thistle4.json"], "ok": true, "error": ""}
+{"id": "e235", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/umber9.json", "umber9.json"], "ok": true, "error": ""}
+{"id": "e236", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/violet2.json", "violet2.json"], "ok": true, "error": ""}
+{"id": "e237", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/walnut3.json", "walnut3.json"], "ok": true, "error": ""}
+{"id": "e238", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/walnut7.json", "walnut7.json"], "ok": true, "error": ""}
+{"id": "e239", "kind": "act", "lesson": "L3.1-d10", "tool": "replicate", "args": ["inbox/yarrow8.json", "yarrow8.json"], "ok": true, "error": ""}
+{"id": "e240", "kind": "confirm", "answer": true}
+{"id": "e241", "kind": "name", "lesson": "L3.1-d10", "symbol": "gop", "node": "k0"}
+{"id": "e242", "kind": "name", "lesson": "L3.1-d10", "symbol": "damu", "node": "a1"}
+{"id": "e243", "kind": "say", "task": "d10-k1", "symbols": ["tasu", "pupi"]}
+{"id": "e244", "kind": "point", "lesson": "L1.2-d10", "objects": ["juniper10.log", "yarrow10.log"], "feats": {"juniper10.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "yarrow10.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e245", "kind": "contrast", "lesson": "L1.2-d10", "object": "amber10.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e246", "kind": "contrast", "lesson": "L1.2-d10", "object": "attic/saffron6.log", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e247", "kind": "demo", "lesson": "L1.2-d10", "tool": "move", "args": ["thistle8.log", "inbox/thistle8.log"], "object": "thistle8.log", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e248", "kind": "act", "lesson": "L1.2-d10", "tool": "move", "args": ["dahlia9.log", "inbox/dahlia9.log"], "ok": true, "error": ""}
+{"id": "e249", "kind": "act", "lesson": "L1.2-d10", "tool": "move", "args": ["juniper10.log", "inbox/juniper10.log"], "ok": true, "error": ""}
+{"id": "e250", "kind": "act", "lesson": "L1.2-d10", "tool": "move", "args": ["juniper9.log", "inbox/juniper9.log"], "ok": true, "error": ""}
+{"id": "e251", "kind": "act", "lesson": "L1.2-d10", "tool": "move", "args": ["lilac8.log", "inbox/lilac8.log"], "ok": true, "error": ""}
+{"id": "e252", "kind": "act", "lesson": "L1.2-d10", "tool": "move", "args": ["yarrow10.log", "inbox/yarrow10.log"], "ok": true, "error": ""}
+{"id": "e253", "kind": "confirm", "answer": true}
+{"id": "e254", "kind": "name", "lesson": "L1.2-d10", "symbol": "pupi", "node": "k4"}
+{"id": "e255", "kind": "name", "lesson": "L1.2-d10", "symbol": "tasu", "node": "a5"}
+{"id": "e256", "kind": "say", "task": "d10-k2", "symbols": ["gad", "gedo"]}
+{"id": "e257", "kind": "point", "lesson": "L2.3-d10", "objects": ["heron10.txt", "poppy10.txt"], "feats": {"heron10.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "poppy10.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e258", "kind": "contrast", "lesson": "L2.3-d10", "object": "amber10.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e259", "kind": "contrast", "lesson": "L2.3-d10", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e260", "kind": "demo", "lesson": "L2.3-d10", "tool": "move", "args": ["heron10.txt", "attic/heron10.txt"], "object": "heron10.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e261", "kind": "act", "lesson": "L2.3-d10", "tool": "move", "args": ["poppy10.txt", "attic/poppy10.txt"], "ok": true, "error": ""}
+{"id": "e262", "kind": "confirm", "answer": true}
+{"id": "e263", "kind": "name", "lesson": "L2.3-d10", "symbol": "gad", "node": "k8"}
+{"id": "e264", "kind": "name", "lesson": "L2.3-d10", "symbol": "gedo", "node": "a9"}
+{"id": "e265", "kind": "say", "task": "d11-k0", "symbols": ["zago", "bobu"]}
+{"id": "e266", "kind": "point", "lesson": "L0.0-d11", "objects": ["garnet7.csv", "russet11.csv"], "feats": {"garnet7.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "russet11.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e267", "kind": "contrast", "lesson": "L0.0-d11", "object": "archive/amber2.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e268", "kind": "contrast", "lesson": "L0.0-d11", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e269", "kind": "contrast", "lesson": "L0.0-d11", "object": "cobalt11.txt", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e270", "kind": "demo", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/russet11.csv", "russet11.csv"], "object": "russet11.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e271", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/amber10.csv", "amber10.csv"], "ok": true, "error": ""}
+{"id": "e272", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/amber6.csv", "amber6.csv"], "ok": true, "error": ""}
+{"id": "e273", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/birch8.csv", "birch8.csv"], "ok": true, "error": ""}
+{"id": "e274", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/garnet7.csv", "garnet7.csv"], "ok": true, "error": ""}
+{"id": "e275", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/heron9.csv", "heron9.csv"], "ok": true, "error": ""}
+{"id": "e276", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/indigo8.csv", "indigo8.csv"], "ok": true, "error": ""}
+{"id": "e277", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/marigold6.csv", "marigold6.csv"], "ok": true, "error": ""}
+{"id": "e278", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/quill11.csv", "quill11.csv"], "ok": true, "error": ""}
+{"id": "e279", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/violet10.csv", "violet10.csv"], "ok": true, "error": ""}
+{"id": "e280", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/walnut9.csv", "walnut9.csv"], "ok": true, "error": ""}
+{"id": "e281", "kind": "act", "lesson": "L0.0-d11", "tool": "replicate", "args": ["archive/yarrow7.csv", "yarrow7.csv"], "ok": true, "error": ""}
+{"id": "e282", "kind": "confirm", "answer": true}
+{"id": "e283", "kind": "name", "lesson": "L0.0-d11", "symbol": "zago", "node": "k0"}
+{"id": "e284", "kind": "name", "lesson": "L0.0-d11", "symbol": "bobu", "node": "a1"}
+{"id": "e285", "kind": "say", "task": "d11-k1", "symbols": ["tofa", "gop"]}
+{"id": "e286", "kind": "point", "lesson": "L3.4-d11", "objects": ["poppy5.json", "violet2.json"], "feats": {"poppy5.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "violet2.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e287", "kind": "contrast", "lesson": "L3.4-d11", "object": "amber10.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e288", "kind": "contrast", "lesson": "L3.4-d11", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e289", "kind": "demo", "lesson": "L3.4-d11", "tool": "delete", "args": ["garnet3.json"], "object": "garnet3.json", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "made": []}
+{"id": "e290", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["cobalt5.json"], "ok": true, "error": ""}
+{"id": "e291", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["cobalt6.json"], "ok": true, "error": ""}
+{"id": "e292", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["cobalt9.json"], "ok": true, "error": ""}
+{"id": "e293", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["fennel11.json"], "ok": true, "error": ""}
+{"id": "e294", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["garnet1.json"], "ok": true, "error": ""}
+{"id": "e295", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["indigo7.json"], "ok": true, "error": ""}
+{"id": "e296", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["juniper8.json"], "ok": true, "error": ""}
+{"id": "e297", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["marigold11.json"], "ok": true, "error": ""}
+{"id": "e298", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["poppy5.json"], "ok": true, "error": ""}
+{"id": "e299", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["quill10.json"], "ok": true, "error": ""}
+{"id": "e300", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["russet10.json"], "ok": true, "error": ""}
+{"id": "e301", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["saffron1.json"], "ok": true, "error": ""}
+{"id": "e302", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["saffron4.json"], "ok": true, "error": ""}
+{"id": "e303", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["thistle2.json"], "ok": true, "error": ""}
+{"id": "e304", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["thistle4.json"], "ok": true, "error": ""}
+{"id": "e305", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["umber9.json"], "ok": true, "error": ""}
+{"id": "e306", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["violet2.json"], "ok": true, "error": ""}
+{"id": "e307", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["walnut3.json"], "ok": true, "error": ""}
+{"id": "e308", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["walnut6.json"], "ok": true, "error": ""}
+{"id": "e309", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["walnut7.json"], "ok": true, "error": ""}
+{"id": "e310", "kind": "act", "lesson": "L3.4-d11", "tool": "delete", "args": ["yarrow8.json"], "ok": true, "error": ""}
+{"id": "e311", "kind": "confirm", "answer": true}
+{"id": "e312", "kind": "name", "lesson": "L3.4-d11", "symbol": "gop", "node": "k4"}
+{"id": "e313", "kind": "name", "lesson": "L3.4-d11", "symbol": "tofa", "node": "a5"}
+{"id": "e314", "kind": "say", "task": "d11-k2", "symbols": ["gedo", "gad"]}
+{"id": "e315", "kind": "point", "lesson": "L2.3-d11", "objects": ["cobalt11.txt", "indigo11.txt"], "feats": {"cobalt11.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "indigo11.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e316", "kind": "contrast", "lesson": "L2.3-d11", "object": "amber10.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e317", "kind": "contrast", "lesson": "L2.3-d11", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e318", "kind": "demo", "lesson": "L2.3-d11", "tool": "move", "args": ["cobalt11.txt", "attic/cobalt11.txt"], "object": "cobalt11.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e319", "kind": "act", "lesson": "L2.3-d11", "tool": "move", "args": ["indigo11.txt", "attic/indigo11.txt"], "ok": true, "error": ""}
+{"id": "e320", "kind": "confirm", "answer": true}
+{"id": "e321", "kind": "name", "lesson": "L2.3-d11", "symbol": "gad", "node": "k8"}
+{"id": "e322", "kind": "name", "lesson": "L2.3-d11", "symbol": "gedo", "node": "a9"}
+{"id": "e323", "kind": "say", "task": "d12-k0", "symbols": ["damu", "pupi"]}
+{"id": "e324", "kind": "say", "task": "d12-k1", "symbols": ["gad", "bobu"]}
+{"id": "e325", "kind": "say", "task": "d12-k2", "symbols": ["gop", "tasu"]}
+{"id": "e326", "kind": "say", "task": "d13-k0", "symbols": ["tasu", "gad"]}
+{"id": "e327", "kind": "point", "lesson": "L2.2-d13", "objects": ["dahlia13.txt", "walnut13.txt"], "feats": {"dahlia13.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "walnut13.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e328", "kind": "contrast", "lesson": "L2.2-d13", "object": "amber10.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e329", "kind": "contrast", "lesson": "L2.2-d13", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e330", "kind": "demo", "lesson": "L2.2-d13", "tool": "move", "args": ["marigold12.txt", "inbox/marigold12.txt"], "object": "marigold12.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e331", "kind": "act", "lesson": "L2.2-d13", "tool": "move", "args": ["dahlia13.txt", "inbox/dahlia13.txt"], "ok": true, "error": ""}
+{"id": "e332", "kind": "act", "lesson": "L2.2-d13", "tool": "move", "args": ["indigo12.txt", "inbox/indigo12.txt"], "ok": true, "error": ""}
+{"id": "e333", "kind": "act", "lesson": "L2.2-d13", "tool": "move", "args": ["walnut13.txt", "inbox/walnut13.txt"], "ok": true, "error": ""}
+{"id": "e334", "kind": "confirm", "answer": true}
+{"id": "e335", "kind": "name", "lesson": "L2.2-d13", "symbol": "gad", "node": "k0"}
+{"id": "e336", "kind": "name", "lesson": "L2.2-d13", "symbol": "tasu", "node": "a1"}
+{"id": "e337", "kind": "say", "task": "d13-k1", "symbols": ["zago", "gedo"]}
+{"id": "e338", "kind": "point", "lesson": "L0.3-d13", "objects": ["indigo8.csv", "quill11.csv"], "feats": {"indigo8.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "quill11.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e339", "kind": "contrast", "lesson": "L0.3-d13", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e340", "kind": "contrast", "lesson": "L0.3-d13", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e341", "kind": "contrast", "lesson": "L0.3-d13", "object": "birch13.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e342", "kind": "demo", "lesson": "L0.3-d13", "tool": "move", "args": ["violet10.csv", "attic/violet10.csv"], "object": "violet10.csv", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e343", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["amber10.csv", "attic/amber10.csv"], "ok": true, "error": ""}
+{"id": "e344", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["amber2.csv", "attic/amber2.csv"], "ok": true, "error": ""}
+{"id": "e345", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["amber4.csv", "attic/amber4.csv"], "ok": true, "error": ""}
+{"id": "e346", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["amber5.csv", "attic/amber5.csv"], "ok": true, "error": ""}
+{"id": "e347", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["amber6.csv", "attic/amber6.csv"], "ok": true, "error": ""}
+{"id": "e348", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["birch8.csv", "attic/birch8.csv"], "ok": true, "error": ""}
+{"id": "e349", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["fennel1.csv", "attic/fennel1.csv"], "ok": true, "error": ""}
+{"id": "e350", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["garnet7.csv", "attic/garnet7.csv"], "ok": true, "error": ""}
+{"id": "e351", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["heron9.csv", "attic/heron9.csv"], "ok": true, "error": ""}
+{"id": "e352", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["indigo8.csv", "attic/indigo8.csv"], "ok": true, "error": ""}
+{"id": "e353", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["kestrel3.csv", "attic/kestrel3.csv"], "ok": true, "error": ""}
+{"id": "e354", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["lilac1.csv", "attic/lilac1.csv"], "ok": true, "error": ""}
+{"id": "e355", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["lilac13.csv", "attic/lilac13.csv"], "ok": true, "error": ""}
+{"id": "e356", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["lilac4.csv", "attic/lilac4.csv"], "ok": true, "error": ""}
+{"id": "e357", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["marigold5.csv", "attic/marigold5.csv"], "ok": true, "error": ""}
+{"id": "e358", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["marigold6.csv", "attic/marigold6.csv"], "ok": true, "error": ""}
+{"id": "e359", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["nutmeg2.csv", "attic/nutmeg2.csv"], "ok": true, "error": ""}
+{"id": "e360", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["nutmeg3.csv", "attic/nutmeg3.csv"], "ok": true, "error": ""}
+{"id": "e361", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["olive13.csv", "attic/olive13.csv"], "ok": true, "error": ""}
+{"id": "e362", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["poppy12.csv", "attic/poppy12.csv"], "ok": true, "error": ""}
+{"id": "e363", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["quill11.csv", "attic/quill11.csv"], "ok": true, "error": ""}
+{"id": "e364", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["russet11.csv", "attic/russet11.csv"], "ok": true, "error": ""}
+{"id": "e365", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["russet12.csv", "attic/russet12.csv"], "ok": true, "error": ""}
+{"id": "e366", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["walnut9.csv", "attic/walnut9.csv"], "ok": true, "error": ""}
+{"id": "e367", "kind": "act", "lesson": "L0.3-d13", "tool": "move", "args": ["yarrow7.csv", "attic/yarrow7.csv"], "ok": true, "error": ""}
+{"id": "e368", "kind": "confirm", "answer": true}
+{"id": "e369", "kind": "name", "lesson": "L0.3-d13", "symbol": "zago", "node": "k4"}
+{"id": "e370", "kind": "name", "lesson": "L0.3-d13", "symbol": "gedo", "node": "a5"}
+{"id": "e371", "kind": "say", "task": "d13-k2", "symbols": ["bobu", "gop"]}
+{"id": "e372", "kind": "point", "lesson": "L3.0-d13", "objects": ["ember12.json", "saffron12.json"], "feats": {"ember12.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "saffron12.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e373", "kind": "contrast", "lesson": "L3.0-d13", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e374", "kind": "contrast", "lesson": "L3.0-d13", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e375", "kind": "contrast", "lesson": "L3.0-d13", "object": "birch13.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e376", "kind": "demo", "lesson": "L3.0-d13", "tool": "replicate", "args": ["archive/saffron12.json", "saffron12.json"], "object": "saffron12.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e377", "kind": "act", "lesson": "L3.0-d13", "tool": "replicate", "args": ["archive/ember12.json", "ember12.json"], "ok": true, "error": ""}
+{"id": "e378", "kind": "act", "lesson": "L3.0-d13", "tool": "replicate", "args": ["archive/heron13.json", "heron13.json"], "ok": true, "error": ""}
+{"id": "e379", "kind": "act", "lesson": "L3.0-d13", "tool": "replicate", "args": ["archive/quill13.json", "quill13.json"], "ok": true, "error": ""}
+{"id": "e380", "kind": "confirm", "answer": true}
+{"id": "e381", "kind": "name", "lesson": "L3.0-d13", "symbol": "gop", "node": "k8"}
+{"id": "e382", "kind": "name", "lesson": "L3.0-d13", "symbol": "bobu", "node": "a9"}
+{"id": "e383", "kind": "say", "task": "d14-k0", "symbols": ["tofa", "rado"]}
+{"id": "e384", "kind": "point", "lesson": "L4.4-d14", "objects": ["kestrel11.md", "nutmeg12.md"], "feats": {"kestrel11.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "nutmeg12.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e385", "kind": "contrast", "lesson": "L4.4-d14", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e386", "kind": "contrast", "lesson": "L4.4-d14", "object": "inbox/lilac7.md", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e387", "kind": "demo", "lesson": "L4.4-d14", "tool": "delete", "args": ["fennel13.md"], "object": "fennel13.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": []}
+{"id": "e388", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["birch13.md"], "ok": true, "error": ""}
+{"id": "e389", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["dahlia14.md"], "ok": true, "error": ""}
+{"id": "e390", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["garnet10.md"], "ok": true, "error": ""}
+{"id": "e391", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["heron14.md"], "ok": true, "error": ""}
+{"id": "e392", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["juniper11.md"], "ok": true, "error": ""}
+{"id": "e393", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["kestrel11.md"], "ok": true, "error": ""}
+{"id": "e394", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["nutmeg10.md"], "ok": true, "error": ""}
+{"id": "e395", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["nutmeg12.md"], "ok": true, "error": ""}
+{"id": "e396", "kind": "act", "lesson": "L4.4-d14", "tool": "delete", "args": ["walnut12.md"], "ok": true, "error": ""}
+{"id": "e397", "kind": "confirm", "answer": true}
+{"id": "e398", "kind": "name", "lesson": "L4.4-d14", "symbol": "rado", "node": "k0"}
+{"id": "e399", "kind": "name", "lesson": "L4.4-d14", "symbol": "tofa", "node": "a1"}
+{"id": "e400", "kind": "say", "task": "d14-k1", "symbols": ["gedo", "gop"]}
+{"id": "e401", "kind": "point", "lesson": "L3.3-d14", "objects": ["olive14.json", "quill13.json"], "feats": {"olive14.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "quill13.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e402", "kind": "contrast", "lesson": "L3.3-d14", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e403", "kind": "contrast", "lesson": "L3.3-d14", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e404", "kind": "contrast", "lesson": "L3.3-d14", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e405", "kind": "demo", "lesson": "L3.3-d14", "tool": "move", "args": ["russet14.json", "attic/russet14.json"], "object": "russet14.json", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e406", "kind": "act", "lesson": "L3.3-d14", "tool": "move", "args": ["ember12.json", "attic/ember12.json"], "ok": true, "error": ""}
+{"id": "e407", "kind": "act", "lesson": "L3.3-d14", "tool": "move", "args": ["heron13.json", "attic/heron13.json"], "ok": true, "error": ""}
+{"id": "e408", "kind": "act", "lesson": "L3.3-d14", "tool": "move", "args": ["olive14.json", "attic/olive14.json"], "ok": true, "error": ""}
+{"id": "e409", "kind": "act", "lesson": "L3.3-d14", "tool": "move", "args": ["quill13.json", "attic/quill13.json"], "ok": true, "error": ""}
+{"id": "e410", "kind": "act", "lesson": "L3.3-d14", "tool": "move", "args": ["saffron12.json", "attic/saffron12.json"], "ok": true, "error": ""}
+{"id": "e411", "kind": "confirm", "answer": true}
+{"id": "e412", "kind": "name", "lesson": "L3.3-d14", "symbol": "gop", "node": "k4"}
+{"id": "e413", "kind": "name", "lesson": "L3.3-d14", "symbol": "gedo", "node": "a5"}
+{"id": "e414", "kind": "say", "task": "d14-k2", "symbols": ["bobu", "pupi"]}
+{"id": "e415", "kind": "point", "lesson": "L1.0-d14", "objects": ["lilac11.log", "umber13.log"], "feats": {"lilac11.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "umber13.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e416", "kind": "contrast", "lesson": "L1.0-d14", "object": "attic/saffron6.log", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e417", "kind": "contrast", "lesson": "L1.0-d14", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e418", "kind": "contrast", "lesson": "L1.0-d14", "object": "cobalt14.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e419", "kind": "demo", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/lilac11.log", "lilac11.log"], "object": "lilac11.log", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e420", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/birch14.log", "birch14.log"], "ok": true, "error": ""}
+{"id": "e421", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/fennel14.log", "fennel14.log"], "ok": true, "error": ""}
+{"id": "e422", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/heron11.log", "heron11.log"], "ok": true, "error": ""}
+{"id": "e423", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/lilac12.log", "lilac12.log"], "ok": true, "error": ""}
+{"id": "e424", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/russet13.log", "russet13.log"], "ok": true, "error": ""}
+{"id": "e425", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/thistle12.log", "thistle12.log"], "ok": true, "error": ""}
+{"id": "e426", "kind": "act", "lesson": "L1.0-d14", "tool": "replicate", "args": ["archive/umber13.log", "umber13.log"], "ok": true, "error": ""}
+{"id": "e427", "kind": "confirm", "answer": true}
+{"id": "e428", "kind": "name", "lesson": "L1.0-d14", "symbol": "pupi", "node": "k8"}
+{"id": "e429", "kind": "name", "lesson": "L1.0-d14", "symbol": "bobu", "node": "a9"}
+{"id": "e430", "kind": "say", "task": "d15-k0", "symbols": ["bobu", "pupi"]}
+{"id": "e431", "kind": "point", "lesson": "L1.0-d15", "objects": ["indigo15.log", "lilac12.log"], "feats": {"indigo15.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "lilac12.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e432", "kind": "contrast", "lesson": "L1.0-d15", "object": "archive/birch14.log", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e433", "kind": "contrast", "lesson": "L1.0-d15", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e434", "kind": "contrast", "lesson": "L1.0-d15", "object": "cobalt14.csv", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e435", "kind": "demo", "lesson": "L1.0-d15", "tool": "replicate", "args": ["archive/garnet15.log", "garnet15.log"], "object": "garnet15.log", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e436", "kind": "act", "lesson": "L1.0-d15", "tool": "replicate", "args": ["archive/indigo15.log", "indigo15.log"], "ok": true, "error": ""}
+{"id": "e437", "kind": "confirm", "answer": true}
+{"id": "e438", "kind": "name", "lesson": "L1.0-d15", "symbol": "pupi", "node": "k0"}
+{"id": "e439", "kind": "name", "lesson": "L1.0-d15", "symbol": "bobu", "node": "a1"}
+{"id": "e440", "kind": "say", "task": "d15-k1", "symbols": ["gop", "gedo"]}
+{"id": "e441", "kind": "point", "lesson": "L3.3-d15", "objects": ["ember15.json", "russet15.json"], "feats": {"ember15.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "russet15.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e442", "kind": "contrast", "lesson": "L3.3-d15", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e443", "kind": "contrast", "lesson": "L3.3-d15", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e444", "kind": "contrast", "lesson": "L3.3-d15", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e445", "kind": "demo", "lesson": "L3.3-d15", "tool": "move", "args": ["ember15.json", "attic/ember15.json"], "object": "ember15.json", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e446", "kind": "act", "lesson": "L3.3-d15", "tool": "move", "args": ["russet15.json", "attic/russet15.json"], "ok": true, "error": ""}
+{"id": "e447", "kind": "confirm", "answer": true}
+{"id": "e448", "kind": "name", "lesson": "L3.3-d15", "symbol": "gop", "node": "k4"}
+{"id": "e449", "kind": "name", "lesson": "L3.3-d15", "symbol": "gedo", "node": "a5"}
+{"id": "e450", "kind": "say", "task": "d15-k2", "symbols": ["zago", "gedo"]}
+{"id": "e451", "kind": "point", "lesson": "L0.3-d15", "objects": ["lilac15.csv", "saffron14.csv"], "feats": {"lilac15.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "saffron14.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e452", "kind": "contrast", "lesson": "L0.3-d15", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e453", "kind": "contrast", "lesson": "L0.3-d15", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e454", "kind": "contrast", "lesson": "L0.3-d15", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e455", "kind": "demo", "lesson": "L0.3-d15", "tool": "move", "args": ["saffron14.csv", "attic/saffron14.csv"], "object": "saffron14.csv", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e456", "kind": "act", "lesson": "L0.3-d15", "tool": "move", "args": ["cobalt14.csv", "attic/cobalt14.csv"], "ok": true, "error": ""}
+{"id": "e457", "kind": "act", "lesson": "L0.3-d15", "tool": "move", "args": ["dahlia15.csv", "attic/dahlia15.csv"], "ok": true, "error": ""}
+{"id": "e458", "kind": "act", "lesson": "L0.3-d15", "tool": "move", "args": ["lilac15.csv", "attic/lilac15.csv"], "ok": true, "error": ""}
+{"id": "e459", "kind": "confirm", "answer": true}
+{"id": "e460", "kind": "name", "lesson": "L0.3-d15", "symbol": "zago", "node": "k8"}
+{"id": "e461", "kind": "name", "lesson": "L0.3-d15", "symbol": "gedo", "node": "a5"}
+{"id": "e462", "kind": "say", "task": "d16-k0", "symbols": ["gedo", "gop"]}
+{"id": "e463", "kind": "say", "task": "d16-k1", "symbols": ["zago", "tasu"]}
+{"id": "e464", "kind": "say", "task": "d16-k2", "symbols": ["zago", "bobu"]}
+{"id": "e465", "kind": "say", "task": "d17-k0", "symbols": ["zago", "damu"]}
+{"id": "e466", "kind": "point", "lesson": "L0.1-d17", "objects": ["fennel16.csv", "poppy17.csv"], "feats": {"fennel16.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "poppy17.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e467", "kind": "contrast", "lesson": "L0.1-d17", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e468", "kind": "contrast", "lesson": "L0.1-d17", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e469", "kind": "contrast", "lesson": "L0.1-d17", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e470", "kind": "demo", "lesson": "L0.1-d17", "tool": "replicate", "args": ["inbox/quill17.csv", "quill17.csv"], "object": "quill17.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e471", "kind": "act", "lesson": "L0.1-d17", "tool": "replicate", "args": ["inbox/fennel16.csv", "fennel16.csv"], "ok": true, "error": ""}
+{"id": "e472", "kind": "act", "lesson": "L0.1-d17", "tool": "replicate", "args": ["inbox/garnet16.csv", "garnet16.csv"], "ok": true, "error": ""}
+{"id": "e473", "kind": "act", "lesson": "L0.1-d17", "tool": "replicate", "args": ["inbox/poppy17.csv", "poppy17.csv"], "ok": true, "error": ""}
+{"id": "e474", "kind": "confirm", "answer": true}
+{"id": "e475", "kind": "name", "lesson": "L0.1-d17", "symbol": "zago", "node": "k0"}
+{"id": "e476", "kind": "name", "lesson": "L0.1-d17", "symbol": "damu", "node": "a1"}
+{"id": "e477", "kind": "say", "task": "d17-k1", "symbols": ["gop", "damu"]}
+{"id": "e478", "kind": "point", "lesson": "L3.1-d17", "objects": ["heron16.json", "yarrow17.json"], "feats": {"heron16.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "yarrow17.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e479", "kind": "contrast", "lesson": "L3.1-d17", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e480", "kind": "contrast", "lesson": "L3.1-d17", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e481", "kind": "contrast", "lesson": "L3.1-d17", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e482", "kind": "demo", "lesson": "L3.1-d17", "tool": "replicate", "args": ["inbox/yarrow17.json", "yarrow17.json"], "object": "yarrow17.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e483", "kind": "act", "lesson": "L3.1-d17", "tool": "replicate", "args": ["inbox/heron16.json", "heron16.json"], "ok": true, "error": ""}
+{"id": "e484", "kind": "act", "lesson": "L3.1-d17", "tool": "replicate", "args": ["inbox/lilac17.json", "lilac17.json"], "ok": true, "error": ""}
+{"id": "e485", "kind": "act", "lesson": "L3.1-d17", "tool": "replicate", "args": ["inbox/thistle16.json", "thistle16.json"], "ok": true, "error": ""}
+{"id": "e486", "kind": "confirm", "answer": true}
+{"id": "e487", "kind": "name", "lesson": "L3.1-d17", "symbol": "gop", "node": "k4"}
+{"id": "e488", "kind": "name", "lesson": "L3.1-d17", "symbol": "damu", "node": "a1"}
+{"id": "e489", "kind": "say", "task": "d17-k2", "symbols": ["tasu", "zago"]}
+{"id": "e490", "kind": "point", "lesson": "L0.2-d17", "objects": ["fennel16.csv", "garnet16.csv"], "feats": {"fennel16.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "garnet16.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e491", "kind": "contrast", "lesson": "L0.2-d17", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e492", "kind": "contrast", "lesson": "L0.2-d17", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e493", "kind": "contrast", "lesson": "L0.2-d17", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e494", "kind": "demo", "lesson": "L0.2-d17", "tool": "move", "args": ["fennel16.csv", "inbox/fennel16.csv"], "object": "fennel16.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e495", "kind": "confirm", "answer": false}
+{"id": "e496", "kind": "name", "lesson": "L0.2-d17", "symbol": "zago", "node": "k6"}
+{"id": "e497", "kind": "name", "lesson": "L0.2-d17", "symbol": "tasu", "node": "a7"}
+{"id": "e498", "kind": "say", "task": "d18-k0", "symbols": ["zago", "damu"]}
+{"id": "e499", "kind": "point", "lesson": "L0.1-d18", "objects": ["fennel16.csv", "garnet16.csv"], "feats": {"fennel16.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "garnet16.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e500", "kind": "contrast", "lesson": "L0.1-d18", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e501", "kind": "contrast", "lesson": "L0.1-d18", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e502", "kind": "contrast", "lesson": "L0.1-d18", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e503", "kind": "demo", "lesson": "L0.1-d18", "tool": "replicate", "args": ["inbox/poppy18.csv", "poppy18.csv"], "object": "poppy18.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e504", "kind": "act", "lesson": "L0.1-d18", "tool": "replicate", "args": ["inbox/saffron18.csv", "saffron18.csv"], "ok": true, "error": ""}
+{"id": "e505", "kind": "confirm", "answer": true}
+{"id": "e506", "kind": "name", "lesson": "L0.1-d18", "symbol": "zago", "node": "k0"}
+{"id": "e507", "kind": "name", "lesson": "L0.1-d18", "symbol": "damu", "node": "a1"}
+{"id": "e508", "kind": "say", "task": "d18-k1", "symbols": ["pupi", "damu"]}
+{"id": "e509", "kind": "point", "lesson": "L1.1-d18", "objects": ["birch14.log", "garnet15.log"], "feats": {"birch14.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "garnet15.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e510", "kind": "contrast", "lesson": "L1.1-d18", "object": "archive/birch14.log", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e511", "kind": "contrast", "lesson": "L1.1-d18", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e512", "kind": "contrast", "lesson": "L1.1-d18", "object": "birch18.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e513", "kind": "demo", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/birch17.log", "birch17.log"], "object": "birch17.log", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e514", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/birch14.log", "birch14.log"], "ok": true, "error": ""}
+{"id": "e515", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/birch16.log", "birch16.log"], "ok": true, "error": ""}
+{"id": "e516", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/fennel14.log", "fennel14.log"], "ok": true, "error": ""}
+{"id": "e517", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/garnet15.log", "garnet15.log"], "ok": true, "error": ""}
+{"id": "e518", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/heron11.log", "heron11.log"], "ok": true, "error": ""}
+{"id": "e519", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/heron17.log", "heron17.log"], "ok": true, "error": ""}
+{"id": "e520", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/indigo15.log", "indigo15.log"], "ok": true, "error": ""}
+{"id": "e521", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/lilac11.log", "lilac11.log"], "ok": true, "error": ""}
+{"id": "e522", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/lilac12.log", "lilac12.log"], "ok": true, "error": ""}
+{"id": "e523", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/lilac18.log", "lilac18.log"], "ok": true, "error": ""}
+{"id": "e524", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/russet13.log", "russet13.log"], "ok": true, "error": ""}
+{"id": "e525", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/saffron16.log", "saffron16.log"], "ok": true, "error": ""}
+{"id": "e526", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/thistle12.log", "thistle12.log"], "ok": true, "error": ""}
+{"id": "e527", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/umber13.log", "umber13.log"], "ok": true, "error": ""}
+{"id": "e528", "kind": "act", "lesson": "L1.1-d18", "tool": "replicate", "args": ["inbox/umber18.log", "umber18.log"], "ok": true, "error": ""}
+{"id": "e529", "kind": "confirm", "answer": true}
+{"id": "e530", "kind": "name", "lesson": "L1.1-d18", "symbol": "pupi", "node": "k4"}
+{"id": "e531", "kind": "name", "lesson": "L1.1-d18", "symbol": "damu", "node": "a1"}
+{"id": "e532", "kind": "say", "task": "d18-k2", "symbols": ["rado", "damu"]}
+{"id": "e533", "kind": "point", "lesson": "L4.1-d18", "objects": ["heron18.md", "umber16.md"], "feats": {"heron18.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "umber16.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e534", "kind": "contrast", "lesson": "L4.1-d18", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e535", "kind": "contrast", "lesson": "L4.1-d18", "object": "inbox/lilac7.md", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e536", "kind": "demo", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/kestrel15.md", "kestrel15.md"], "object": "kestrel15.md", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e537", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/birch18.md", "birch18.md"], "ok": true, "error": ""}
+{"id": "e538", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/cobalt15.md", "cobalt15.md"], "ok": true, "error": ""}
+{"id": "e539", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/heron18.md", "heron18.md"], "ok": true, "error": ""}
+{"id": "e540", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/juniper17.md", "juniper17.md"], "ok": true, "error": ""}
+{"id": "e541", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/kestrel16.md", "kestrel16.md"], "ok": true, "error": ""}
+{"id": "e542", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/marigold17.md", "marigold17.md"], "ok": true, "error": ""}
+{"id": "e543", "kind": "act", "lesson": "L4.1-d18", "tool": "replicate", "args": ["inbox/umber16.md", "umber16.md"], "ok": true, "error": ""}
+{"id": "e544", "kind": "confirm", "answer": true}
+{"id": "e545", "kind": "name", "lesson": "L4.1-d18", "symbol": "rado", "node": "k6"}
+{"id": "e546", "kind": "name", "lesson": "L4.1-d18", "symbol": "damu", "node": "a1"}
+{"id": "e547", "kind": "say", "task": "d19-k0", "symbols": ["zago", "tofa"]}
+{"id": "e548", "kind": "point", "lesson": "L0.4-d19", "objects": ["poppy17.csv", "quill17.csv"], "feats": {"poppy17.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "quill17.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e549", "kind": "contrast", "lesson": "L0.4-d19", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e550", "kind": "contrast", "lesson": "L0.4-d19", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e551", "kind": "contrast", "lesson": "L0.4-d19", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e552", "kind": "demo", "lesson": "L0.4-d19", "tool": "delete", "args": ["saffron18.csv"], "object": "saffron18.csv", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "made": []}
+{"id": "e553", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["fennel16.csv"], "ok": true, "error": ""}
+{"id": "e554", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["garnet16.csv"], "ok": true, "error": ""}
+{"id": "e555", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["lilac19.csv"], "ok": true, "error": ""}
+{"id": "e556", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["poppy17.csv"], "ok": true, "error": ""}
+{"id": "e557", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["poppy18.csv"], "ok": true, "error": ""}
+{"id": "e558", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["quill17.csv"], "ok": true, "error": ""}
+{"id": "e559", "kind": "act", "lesson": "L0.4-d19", "tool": "delete", "args": ["thistle19.csv"], "ok": true, "error": ""}
+{"id": "e560", "kind": "confirm", "answer": true}
+{"id": "e561", "kind": "name", "lesson": "L0.4-d19", "symbol": "zago", "node": "k0"}
+{"id": "e562", "kind": "name", "lesson": "L0.4-d19", "symbol": "tofa", "node": "a1"}
+{"id": "e563", "kind": "say", "task": "d19-k1", "symbols": ["tofa", "rado"]}
+{"id": "e564", "kind": "point", "lesson": "L4.4-d19", "objects": ["dahlia19.md", "kestrel16.md"], "feats": {"dahlia19.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "kestrel16.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e565", "kind": "contrast", "lesson": "L4.4-d19", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e566", "kind": "contrast", "lesson": "L4.4-d19", "object": "inbox/birch18.md", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e567", "kind": "demo", "lesson": "L4.4-d19", "tool": "delete", "args": ["dahlia19.md"], "object": "dahlia19.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": []}
+{"id": "e568", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["birch18.md"], "ok": true, "error": ""}
+{"id": "e569", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["cobalt15.md"], "ok": true, "error": ""}
+{"id": "e570", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["garnet19.md"], "ok": true, "error": ""}
+{"id": "e571", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["heron18.md"], "ok": true, "error": ""}
+{"id": "e572", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["juniper17.md"], "ok": true, "error": ""}
+{"id": "e573", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["kestrel15.md"], "ok": true, "error": ""}
+{"id": "e574", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["kestrel16.md"], "ok": true, "error": ""}
+{"id": "e575", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["marigold17.md"], "ok": true, "error": ""}
+{"id": "e576", "kind": "act", "lesson": "L4.4-d19", "tool": "delete", "args": ["umber16.md"], "ok": true, "error": ""}
+{"id": "e577", "kind": "confirm", "answer": true}
+{"id": "e578", "kind": "name", "lesson": "L4.4-d19", "symbol": "rado", "node": "k4"}
+{"id": "e579", "kind": "name", "lesson": "L4.4-d19", "symbol": "tofa", "node": "a1"}
+{"id": "e580", "kind": "say", "task": "d19-k2", "symbols": ["gop", "gedo"]}
+{"id": "e581", "kind": "point", "lesson": "L3.3-d19", "objects": ["indigo18.json", "walnut19.json"], "feats": {"indigo18.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "walnut19.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e582", "kind": "contrast", "lesson": "L3.3-d19", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e583", "kind": "contrast", "lesson": "L3.3-d19", "object": "archive", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 1)", "('U', 0, 'a2', '-')"]}
+{"id": "e584", "kind": "contrast", "lesson": "L3.3-d19", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e585", "kind": "demo", "lesson": "L3.3-d19", "tool": "move", "args": ["yarrow17.json", "attic/yarrow17.json"], "object": "yarrow17.json", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e586", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["heron16.json", "attic/heron16.json"], "ok": true, "error": ""}
+{"id": "e587", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["indigo18.json", "attic/indigo18.json"], "ok": true, "error": ""}
+{"id": "e588", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["indigo19.json", "attic/indigo19.json"], "ok": true, "error": ""}
+{"id": "e589", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["lilac17.json", "attic/lilac17.json"], "ok": true, "error": ""}
+{"id": "e590", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["olive18.json", "attic/olive18.json"], "ok": true, "error": ""}
+{"id": "e591", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["thistle16.json", "attic/thistle16.json"], "ok": true, "error": ""}
+{"id": "e592", "kind": "act", "lesson": "L3.3-d19", "tool": "move", "args": ["walnut19.json", "attic/walnut19.json"], "ok": true, "error": ""}
+{"id": "e593", "kind": "confirm", "answer": true}
+{"id": "e594", "kind": "name", "lesson": "L3.3-d19", "symbol": "gop", "node": "k6"}
+{"id": "e595", "kind": "name", "lesson": "L3.3-d19", "symbol": "gedo", "node": "a7"}
+{"id": "e596", "kind": "say", "task": "d20-k0", "symbols": ["damu", "zago"]}
+{"id": "e597", "kind": "say", "task": "d20-k1", "symbols": ["pupi", "gedo"]}
+{"id": "e598", "kind": "say", "task": "d20-k2", "symbols": ["bobu", "rado"]}
+{"id": "e599", "kind": "say", "task": "d21-k0", "symbols": ["gad", "damu"]}
+{"id": "e600", "kind": "point", "lesson": "L2.1-d21", "objects": ["saffron20.txt", "umber15.txt"], "feats": {"saffron20.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "umber15.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e601", "kind": "contrast", "lesson": "L2.1-d21", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e602", "kind": "contrast", "lesson": "L2.1-d21", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e603", "kind": "demo", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/yarrow21.txt", "yarrow21.txt"], "object": "yarrow21.txt", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e604", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/dahlia17.txt", "dahlia17.txt"], "ok": true, "error": ""}
+{"id": "e605", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/garnet18.txt", "garnet18.txt"], "ok": true, "error": ""}
+{"id": "e606", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/garnet21.txt", "garnet21.txt"], "ok": true, "error": ""}
+{"id": "e607", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/juniper16.txt", "juniper16.txt"], "ok": true, "error": ""}
+{"id": "e608", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/kestrel14.txt", "kestrel14.txt"], "ok": true, "error": ""}
+{"id": "e609", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/nutmeg18.txt", "nutmeg18.txt"], "ok": true, "error": ""}
+{"id": "e610", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/olive19.txt", "olive19.txt"], "ok": true, "error": ""}
+{"id": "e611", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/quill15.txt", "quill15.txt"], "ok": true, "error": ""}
+{"id": "e612", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/saffron20.txt", "saffron20.txt"], "ok": true, "error": ""}
+{"id": "e613", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/umber15.txt", "umber15.txt"], "ok": true, "error": ""}
+{"id": "e614", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/violet14.txt", "violet14.txt"], "ok": true, "error": ""}
+{"id": "e615", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/violet16.txt", "violet16.txt"], "ok": true, "error": ""}
+{"id": "e616", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/violet19.txt", "violet19.txt"], "ok": true, "error": ""}
+{"id": "e617", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/violet20.txt", "violet20.txt"], "ok": true, "error": ""}
+{"id": "e618", "kind": "act", "lesson": "L2.1-d21", "tool": "replicate", "args": ["inbox/walnut17.txt", "walnut17.txt"], "ok": true, "error": ""}
+{"id": "e619", "kind": "confirm", "answer": true}
+{"id": "e620", "kind": "name", "lesson": "L2.1-d21", "symbol": "gad", "node": "k0"}
+{"id": "e621", "kind": "name", "lesson": "L2.1-d21", "symbol": "damu", "node": "a1"}
+{"id": "e622", "kind": "say", "task": "d21-k1", "symbols": ["gad", "gedo"]}
+{"id": "e623", "kind": "point", "lesson": "L2.3-d21", "objects": ["garnet18.txt", "walnut17.txt"], "feats": {"garnet18.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "walnut17.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e624", "kind": "contrast", "lesson": "L2.3-d21", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e625", "kind": "contrast", "lesson": "L2.3-d21", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e626", "kind": "demo", "lesson": "L2.3-d21", "tool": "move", "args": ["yarrow21.txt", "attic/yarrow21.txt"], "object": "yarrow21.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e627", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["dahlia17.txt", "attic/dahlia17.txt"], "ok": true, "error": ""}
+{"id": "e628", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["garnet18.txt", "attic/garnet18.txt"], "ok": true, "error": ""}
+{"id": "e629", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["garnet21.txt", "attic/garnet21.txt"], "ok": true, "error": ""}
+{"id": "e630", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["juniper16.txt", "attic/juniper16.txt"], "ok": true, "error": ""}
+{"id": "e631", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["kestrel14.txt", "attic/kestrel14.txt"], "ok": true, "error": ""}
+{"id": "e632", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["nutmeg18.txt", "attic/nutmeg18.txt"], "ok": true, "error": ""}
+{"id": "e633", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["olive19.txt", "attic/olive19.txt"], "ok": true, "error": ""}
+{"id": "e634", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["quill15.txt", "attic/quill15.txt"], "ok": true, "error": ""}
+{"id": "e635", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["saffron20.txt", "attic/saffron20.txt"], "ok": true, "error": ""}
+{"id": "e636", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["umber15.txt", "attic/umber15.txt"], "ok": true, "error": ""}
+{"id": "e637", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["violet14.txt", "attic/violet14.txt"], "ok": true, "error": ""}
+{"id": "e638", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["violet16.txt", "attic/violet16.txt"], "ok": true, "error": ""}
+{"id": "e639", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["violet19.txt", "attic/violet19.txt"], "ok": true, "error": ""}
+{"id": "e640", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["violet20.txt", "attic/violet20.txt"], "ok": true, "error": ""}
+{"id": "e641", "kind": "act", "lesson": "L2.3-d21", "tool": "move", "args": ["walnut17.txt", "attic/walnut17.txt"], "ok": true, "error": ""}
+{"id": "e642", "kind": "confirm", "answer": true}
+{"id": "e643", "kind": "name", "lesson": "L2.3-d21", "symbol": "gad", "node": "k4"}
+{"id": "e644", "kind": "name", "lesson": "L2.3-d21", "symbol": "gedo", "node": "a5"}
+{"id": "e645", "kind": "say", "task": "d21-k2", "symbols": ["gedo", "zago"]}
+{"id": "e646", "kind": "point", "lesson": "L0.3-d21", "objects": ["lilac21.csv", "saffron21.csv"], "feats": {"lilac21.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "saffron21.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e647", "kind": "contrast", "lesson": "L0.3-d21", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e648", "kind": "contrast", "lesson": "L0.3-d21", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e649", "kind": "demo", "lesson": "L0.3-d21", "tool": "move", "args": ["cobalt20.csv", "attic/cobalt20.csv"], "object": "cobalt20.csv", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e650", "kind": "act", "lesson": "L0.3-d21", "tool": "move", "args": ["lilac21.csv", "attic/lilac21.csv"], "ok": true, "error": ""}
+{"id": "e651", "kind": "act", "lesson": "L0.3-d21", "tool": "move", "args": ["olive20.csv", "attic/olive20.csv"], "ok": true, "error": ""}
+{"id": "e652", "kind": "act", "lesson": "L0.3-d21", "tool": "move", "args": ["saffron21.csv", "attic/saffron21.csv"], "ok": true, "error": ""}
+{"id": "e653", "kind": "confirm", "answer": true}
+{"id": "e654", "kind": "name", "lesson": "L0.3-d21", "symbol": "zago", "node": "k8"}
+{"id": "e655", "kind": "name", "lesson": "L0.3-d21", "symbol": "gedo", "node": "a5"}
+{"id": "e656", "kind": "say", "task": "d22-k0", "symbols": ["zago", "gedo"]}
+{"id": "e657", "kind": "point", "lesson": "L0.3-d22", "objects": ["marigold22.csv", "russet22.csv"], "feats": {"marigold22.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "russet22.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e658", "kind": "contrast", "lesson": "L0.3-d22", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e659", "kind": "contrast", "lesson": "L0.3-d22", "object": "archive/amber10.csv", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e660", "kind": "demo", "lesson": "L0.3-d22", "tool": "move", "args": ["marigold22.csv", "attic/marigold22.csv"], "object": "marigold22.csv", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e661", "kind": "act", "lesson": "L0.3-d22", "tool": "move", "args": ["russet22.csv", "attic/russet22.csv"], "ok": true, "error": ""}
+{"id": "e662", "kind": "confirm", "answer": true}
+{"id": "e663", "kind": "name", "lesson": "L0.3-d22", "symbol": "zago", "node": "k0"}
+{"id": "e664", "kind": "name", "lesson": "L0.3-d22", "symbol": "gedo", "node": "a1"}
+{"id": "e665", "kind": "say", "task": "d22-k1", "symbols": ["rado", "bobu"]}
+{"id": "e666", "kind": "point", "lesson": "L4.0-d22", "objects": ["cobalt22.md", "yarrow20.md"], "feats": {"cobalt22.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "yarrow20.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e667", "kind": "contrast", "lesson": "L4.0-d22", "object": "birch14.log", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e668", "kind": "contrast", "lesson": "L4.0-d22", "object": "inbox/birch18.md", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e669", "kind": "demo", "lesson": "L4.0-d22", "tool": "replicate", "args": ["archive/thistle20.md", "thistle20.md"], "object": "thistle20.md", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e670", "kind": "act", "lesson": "L4.0-d22", "tool": "replicate", "args": ["archive/amber21.md", "amber21.md"], "ok": true, "error": ""}
+{"id": "e671", "kind": "act", "lesson": "L4.0-d22", "tool": "replicate", "args": ["archive/cobalt22.md", "cobalt22.md"], "ok": true, "error": ""}
+{"id": "e672", "kind": "act", "lesson": "L4.0-d22", "tool": "replicate", "args": ["archive/quill22.md", "quill22.md"], "ok": true, "error": ""}
+{"id": "e673", "kind": "act", "lesson": "L4.0-d22", "tool": "replicate", "args": ["archive/thistle21.md", "thistle21.md"], "ok": true, "error": ""}
+{"id": "e674", "kind": "act", "lesson": "L4.0-d22", "tool": "replicate", "args": ["archive/yarrow20.md", "yarrow20.md"], "ok": true, "error": ""}
+{"id": "e675", "kind": "confirm", "answer": true}
+{"id": "e676", "kind": "name", "lesson": "L4.0-d22", "symbol": "rado", "node": "k4"}
+{"id": "e677", "kind": "name", "lesson": "L4.0-d22", "symbol": "bobu", "node": "a5"}
+{"id": "e678", "kind": "say", "task": "d22-k2", "symbols": ["gad", "bobu"]}
+{"id": "e679", "kind": "point", "lesson": "L2.0-d22", "objects": ["kestrel22.txt", "walnut22.txt"], "feats": {"kestrel22.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "walnut22.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e680", "kind": "contrast", "lesson": "L2.0-d22", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e681", "kind": "contrast", "lesson": "L2.0-d22", "object": "attic/amber3.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e682", "kind": "demo", "lesson": "L2.0-d22", "tool": "replicate", "args": ["archive/kestrel22.txt", "kestrel22.txt"], "object": "kestrel22.txt", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e683", "kind": "act", "lesson": "L2.0-d22", "tool": "replicate", "args": ["archive/walnut22.txt", "walnut22.txt"], "ok": true, "error": ""}
+{"id": "e684", "kind": "confirm", "answer": true}
+{"id": "e685", "kind": "name", "lesson": "L2.0-d22", "symbol": "gad", "node": "k8"}
+{"id": "e686", "kind": "name", "lesson": "L2.0-d22", "symbol": "bobu", "node": "a5"}
+{"id": "e687", "kind": "say", "task": "d23-k0", "symbols": ["gedo", "pupi"]}
+{"id": "e688", "kind": "point", "lesson": "L1.3-d23", "objects": ["fennel14.log", "saffron16.log"], "feats": {"fennel14.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "saffron16.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e689", "kind": "contrast", "lesson": "L1.3-d23", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e690", "kind": "contrast", "lesson": "L1.3-d23", "object": "archive/birch14.log", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e691", "kind": "demo", "lesson": "L1.3-d23", "tool": "move", "args": ["lilac11.log", "attic/lilac11.log"], "object": "lilac11.log", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}
+{"id": "e692", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["birch14.log", "attic/birch14.log"], "ok": true, "error": ""}
+{"id": "e693", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["birch16.log", "attic/birch16.log"], "ok": true, "error": ""}
+{"id": "e694", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["birch17.log", "attic/birch17.log"], "ok": true, "error": ""}
+{"id": "e695", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["birch22.log", "attic/birch22.log"], "ok": true, "error": ""}
+{"id": "e696", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["birch23.log", "attic/birch23.log"], "ok": true, "error": ""}
+{"id": "e697", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["ember19.log", "attic/ember19.log"], "ok": true, "error": ""}
+{"id": "e698", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["ember20.log", "attic/ember20.log"], "ok": true, "error": ""}
+{"id": "e699", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["fennel14.log", "attic/fennel14.log"], "ok": true, "error": ""}
+{"id": "e700", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["fennel19.log", "attic/fennel19.log"], "ok": true, "error": ""}
+{"id": "e701", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["garnet15.log", "attic/garnet15.log"], "ok": true, "error": ""}
+{"id": "e702", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["heron11.log", "attic/heron11.log"], "ok": true, "error": ""}
+{"id": "e703", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["heron17.log", "attic/heron17.log"], "ok": true, "error": ""}
+{"id": "e704", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["indigo15.log", "attic/indigo15.log"], "ok": true, "error": ""}
+{"id": "e705", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["lilac12.log", "attic/lilac12.log"], "ok": true, "error": ""}
+{"id": "e706", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["lilac18.log", "attic/lilac18.log"], "ok": true, "error": ""}
+{"id": "e707", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["marigold20.log", "attic/marigold20.log"], "ok": true, "error": ""}
+{"id": "e708", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["nutmeg22.log", "attic/nutmeg22.log"], "ok": true, "error": ""}
+{"id": "e709", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["quill21.log", "attic/quill21.log"], "ok": true, "error": ""}
+{"id": "e710", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["russet13.log", "attic/russet13.log"], "ok": true, "error": ""}
+{"id": "e711", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["russet23.log", "attic/russet23.log"], "ok": true, "error": ""}
+{"id": "e712", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["saffron16.log", "attic/saffron16.log"], "ok": true, "error": ""}
+{"id": "e713", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["thistle12.log", "attic/thistle12.log"], "ok": true, "error": ""}
+{"id": "e714", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["umber13.log", "attic/umber13.log"], "ok": true, "error": ""}
+{"id": "e715", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["umber18.log", "attic/umber18.log"], "ok": true, "error": ""}
+{"id": "e716", "kind": "act", "lesson": "L1.3-d23", "tool": "move", "args": ["umber21.log", "attic/umber21.log"], "ok": true, "error": ""}
+{"id": "e717", "kind": "confirm", "answer": true}
+{"id": "e718", "kind": "name", "lesson": "L1.3-d23", "symbol": "pupi", "node": "k0"}
+{"id": "e719", "kind": "name", "lesson": "L1.3-d23", "symbol": "gedo", "node": "a1"}
+{"id": "e720", "kind": "say", "task": "d23-k1", "symbols": ["bobu", "gop"]}
+{"id": "e721", "kind": "point", "lesson": "L3.0-d23", "objects": ["poppy21.json", "walnut21.json"], "feats": {"poppy21.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "walnut21.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e722", "kind": "contrast", "lesson": "L3.0-d23", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e723", "kind": "contrast", "lesson": "L3.0-d23", "object": "archive/cobalt5.json", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e724", "kind": "demo", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/ember22.json", "ember22.json"], "object": "ember22.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e725", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/ember23.json", "ember23.json"], "ok": true, "error": ""}
+{"id": "e726", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/fennel20.json", "fennel20.json"], "ok": true, "error": ""}
+{"id": "e727", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/poppy21.json", "poppy21.json"], "ok": true, "error": ""}
+{"id": "e728", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/russet20.json", "russet20.json"], "ok": true, "error": ""}
+{"id": "e729", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/umber23.json", "umber23.json"], "ok": true, "error": ""}
+{"id": "e730", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/violet22.json", "violet22.json"], "ok": true, "error": ""}
+{"id": "e731", "kind": "act", "lesson": "L3.0-d23", "tool": "replicate", "args": ["archive/walnut21.json", "walnut21.json"], "ok": true, "error": ""}
+{"id": "e732", "kind": "confirm", "answer": true}
+{"id": "e733", "kind": "name", "lesson": "L3.0-d23", "symbol": "gop", "node": "k4"}
+{"id": "e734", "kind": "name", "lesson": "L3.0-d23", "symbol": "bobu", "node": "a5"}
+{"id": "e735", "kind": "say", "task": "d23-k2", "symbols": ["damu", "gad"]}
+{"id": "e736", "kind": "point", "lesson": "L2.1-d23", "objects": ["kestrel22.txt", "marigold23.txt"], "feats": {"kestrel22.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "marigold23.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e737", "kind": "contrast", "lesson": "L2.1-d23", "object": "amber21.md", "answer": false, "feats": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e738", "kind": "contrast", "lesson": "L2.1-d23", "object": "archive/kestrel22.txt", "answer": false, "feats": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e739", "kind": "demo", "lesson": "L2.1-d23", "tool": "replicate", "args": ["inbox/poppy23.txt", "poppy23.txt"], "object": "poppy23.txt", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e740", "kind": "act", "lesson": "L2.1-d23", "tool": "replicate", "args": ["inbox/kestrel22.txt", "kestrel22.txt"], "ok": true, "error": ""}
+{"id": "e741", "kind": "act", "lesson": "L2.1-d23", "tool": "replicate", "args": ["inbox/marigold23.txt", "marigold23.txt"], "ok": true, "error": ""}
+{"id": "e742", "kind": "act", "lesson": "L2.1-d23", "tool": "replicate", "args": ["inbox/walnut22.txt", "walnut22.txt"], "ok": true, "error": ""}
+{"id": "e743", "kind": "confirm", "answer": true}
+{"id": "e744", "kind": "name", "lesson": "L2.1-d23", "symbol": "gad", "node": "k8"}
+{"id": "e745", "kind": "name", "lesson": "L2.1-d23", "symbol": "damu", "node": "a9"}
+{"id": "e746", "kind": "say", "task": "d24-k0", "symbols": ["gedo", "rado"]}
+{"id": "e747", "kind": "say", "task": "d24-k1", "symbols": ["gedo", "rado"]}
+{"id": "e748", "kind": "say", "task": "d24-k2", "symbols": ["gedo", "rado"]}

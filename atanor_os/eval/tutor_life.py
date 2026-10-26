@@ -50,7 +50,66 @@ def english(kind, spec):
     return {'unlodge': ['take', 'out'], 'scrap': ['shred']}[t]
 
 
-def plan(seed, days=24):
+FS_EXTS = ['csv', 'log', 'txt', 'json', 'md']
+FS_FOLDERS = ['archive', 'inbox', 'vault', 'attic']
+VIEW_PANELS = ('p1', 'p2', 'p3')
+
+
+def body_targets(body, seed):
+    rng = random.Random(f'tutor-targets-{body}-{seed}')
+    if body == 'board':
+        return targets(seed)
+    if body == 'fs':
+        sels = [{'kind': 'file', 'ext': e} for e in FS_EXTS]
+        acts = [{'tool': 'copy', 'second': d} for d in rng.sample(FS_FOLDERS, 2)] +                [{'tool': 'move', 'second': d} for d in rng.sample(FS_FOLDERS, 2)] + [{'tool': 'delete'}]
+        return sels, acts
+    sels = [{'kind': 'panel', 'filter': 'all'}, {'kind': 'panel', 'sort': 'name'}, {'kind': 'panel', 'group': 'none'},
+            {'kind': 'panel', 'filter': 'csv'}, {'kind': 'panel', 'sort': 'size'}]
+    acts = [{'tool': 'filter', 'second': 'ext:md'}, {'tool': 'sort', 'second': 'key:ext'}, {'tool': 'group', 'second': 'grp:ext'},
+            {'tool': 'filter', 'second': 'ext:log'}]
+    return sels, acts
+
+
+def make_home(body, root, seed, day_no):
+    """The day's world: it persists; new things arrive (board cards, files) or others change it (screen panels)."""
+    root = Path(root)
+    if body == 'board':
+        from ..world.board_world import BoardWorkspace
+        home = BoardWorkspace(root / 'board', create=not (root / 'board').exists())
+        home.add_cards(day_inflow(seed, day_no))
+        return home
+    if body == 'fs':
+        from ..world.fs_world import Workspace
+        from .life_gen import inflow as file_inflow
+        new = not (root / 'home').exists()
+        home = Workspace(root / 'home', create=new)
+        if new:
+            for d in FS_FOLDERS:
+                (home.root / d).mkdir()
+        file_inflow(home, day_no, seed)
+        return home
+    from ..world.fs_world import Workspace
+    from ..world.view_world import ViewWorkspace
+    data = Workspace(root / 'data', create=not (root / 'data').exists())
+    rng = random.Random(f'tutor-view-{seed}-{day_no}')
+    for i, ext in enumerate(FS_EXTS):
+        (data.root / f'd{day_no}_{i}.{ext}').write_bytes(f'{day_no} {i}\n'.encode())
+    spec = {p: {'kind': 'panel', 'filter': rng.choice(['all', 'all', 'csv', 'txt']), 'sort': rng.choice(['name', 'name', 'size']),
+                'group': 'none'} for p in VIEW_PANELS}
+    if (root / 'view').exists():
+        shutil.rmtree(root / 'view')
+    return ViewWorkspace(root / 'view', data, spec=spec)
+
+
+def body_spec(body):
+    from ..teach.tutor import BoardSpec, FsSpec, ViewSpec
+    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec}[body]
+
+
+DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired'}
+
+
+def plan(seed, days=24, body='board'):
     """Which kinds of events each day has (the concrete objects are chosen by the person on the day's board)."""
     rng = random.Random(f'tutor-plan-{seed}')
     out = []
@@ -59,13 +118,13 @@ def plan(seed, days=24):
         ev = []
         if d <= 4 and user:
             ev += [['lesson'], ['lesson']]
-        if d in (11, 13) and user:
+        if d in (11, 13) and user and body == 'board':
             ev += [['english'], ['english'], ['english']]
         for _ in range(3 if d >= 2 else 0):
             kind = 'C' if d >= 5 and rng.random() < 0.5 else 'B'
-            lang = 'en' if d >= 12 and rng.random() < 0.5 else 'sym'
+            lang = 'en' if d >= 12 and body == 'board' and rng.random() < 0.5 else 'sym'
             ev.append(['test', kind, lang])
-        out.append({'day': d, 'user': user, 'drift': ['lodge_retired'] if d >= 9 else [], 'events': ev})
+        out.append({'day': d, 'user': user, 'drift': [DRIFT[body]] if d >= 9 else [], 'events': ev})
     return out
 
 
@@ -78,16 +137,15 @@ def day_inflow(seed, day):
     return cards
 
 
-def run_day(cond, seed, day_no, root, days=24):
+def run_day(cond, seed, day_no, root, days=24, body='board'):
     from ..agent.grounding import Grounder
-    from ..teach.tutor import BoardSpec, Tutor, symbols
-    from ..world.board_world import BoardWorkspace
+    from ..teach.tutor import Tutor, symbols
     root = Path(root)
-    sels, acts = targets(seed)
-    day = plan(seed, days)[day_no - 1]
-    home = BoardWorkspace(root / 'board', create=not (root / 'board').exists())
-    home.add_cards(day_inflow(seed, day_no))
+    sels, acts = body_targets(body, seed)
+    day = plan(seed, days, body)[day_no - 1]
+    home = make_home(body, root, seed, day_no)
     home.drift = frozenset(day['drift'])
+    BoardSpec = body_spec(body)
     if cond == 'NONE' and (root / 'mind').exists():
         shutil.rmtree(root / 'mind')
     sp = root / 'tutor_state.json'                     # the person's own memory of what was taught (evaluator side)
@@ -106,9 +164,11 @@ def run_day(cond, seed, day_no, root, days=24):
     def feasible(s, a):
         tut.start(sels[s], acts[a])
         st = home.observe(home.existing())
-        todo = [o for o in tut.truth if not BoardSpec.shows(acts[a], st.get(o))]
-        if acts[a]['tool'] in ('lift', 'unlodge') and any(st[o]['tray'] == '-' for o in todo):
+        todo = [o for o in tut.truth if not BoardSpec.shows(acts[a], o, st)]
+        if body == 'board' and acts[a]['tool'] in ('lift', 'unlodge') and any(st[o]['tray'] == '-' for o in todo):
             return False                               # the person knows these need cards in a tray
+        if body == 'view' and acts[a]['tool'] == 'group' and any(st[o]['filter'] != 'all' for o in todo):
+            return False                               # grouping needs the unfiltered list
         return bool(todo)
 
     def pick(cands, prefer=None):
@@ -254,7 +314,7 @@ def _content(g, words):
     return out
 
 
-def run(seed, out, conds=('FULL', 'ONTO', 'RAW', 'NONE', 'PASSIVE'), days=24):
+def run(seed, out, conds=('FULL', 'ONTO', 'RAW', 'NONE', 'PASSIVE'), days=24, body='board'):
     out = Path(out)
     for c in conds:
         root = out / c
@@ -262,5 +322,5 @@ def run(seed, out, conds=('FULL', 'ONTO', 'RAW', 'NONE', 'PASSIVE'), days=24):
             shutil.rmtree(root)
         root.mkdir(parents=True)
         for d in range(1, days + 1):
-            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.tutor_life import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days})'],
+            subprocess.run([sys.executable, '-c', f'from atanor_os.eval.tutor_life import run_day; run_day({c!r}, {seed}, {d}, {str(root)!r}, {days}, {body!r})'],
                            cwd=PKG.parent, check=True)

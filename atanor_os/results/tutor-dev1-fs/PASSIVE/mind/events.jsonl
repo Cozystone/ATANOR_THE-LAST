@@ -1,0 +1,422 @@
+{"id": "e0", "kind": "point", "lesson": "L0.1-d1", "objects": ["fennel1.csv", "lilac1.csv"], "feats": {"fennel1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "lilac1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e1", "kind": "demo", "lesson": "L0.1-d1", "tool": "copy", "args": ["lilac1.csv", "inbox/lilac1.csv"], "object": "lilac1.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e2", "kind": "act", "lesson": "L0.1-d1", "tool": "copy", "args": ["fennel1.csv", "inbox/fennel1.csv"], "ok": true, "error": ""}
+{"id": "e3", "kind": "confirm", "answer": true}
+{"id": "e4", "kind": "name", "lesson": "L0.1-d1", "symbol": "zago", "node": "k0"}
+{"id": "e5", "kind": "name", "lesson": "L0.1-d1", "symbol": "damu", "node": "a1"}
+{"id": "e6", "kind": "point", "lesson": "L3.0-d1", "objects": ["garnet1.json", "saffron1.json"], "feats": {"garnet1.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"], "saffron1.json": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}}
+{"id": "e7", "kind": "demo", "lesson": "L3.0-d1", "tool": "copy", "args": ["garnet1.json", "archive/garnet1.json"], "object": "garnet1.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e8", "kind": "act", "lesson": "L3.0-d1", "tool": "copy", "args": ["saffron1.json", "archive/saffron1.json"], "ok": true, "error": ""}
+{"id": "e9", "kind": "confirm", "answer": true}
+{"id": "e10", "kind": "name", "lesson": "L3.0-d1", "symbol": "gop", "node": "k4"}
+{"id": "e11", "kind": "name", "lesson": "L3.0-d1", "symbol": "bobu", "node": "a5"}
+{"id": "e12", "kind": "point", "lesson": "L1.4-d2", "objects": ["ember2.log", "thistle1.log"], "feats": {"ember2.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "thistle1.log": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"]}}
+{"id": "e13", "kind": "demo", "lesson": "L1.4-d2", "tool": "delete", "args": ["umber2.log"], "object": "umber2.log", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'log')"], "made": []}
+{"id": "e14", "kind": "act", "lesson": "L1.4-d2", "tool": "delete", "args": ["cobalt1.log"], "ok": true, "error": ""}
+{"id": "e15", "kind": "act", "lesson": "L1.4-d2", "tool": "delete", "args": ["ember2.log"], "ok": true, "error": ""}
+{"id": "e16", "kind": "act", "lesson": "L1.4-d2", "tool": "delete", "args": ["thistle1.log"], "ok": true, "error": ""}
+{"id": "e17", "kind": "confirm", "answer": true}
+{"id": "e18", "kind": "name", "lesson": "L1.4-d2", "symbol": "pupi", "node": "k8"}
+{"id": "e19", "kind": "name", "lesson": "L1.4-d2", "symbol": "tofa", "node": "a9"}
+{"id": "e20", "kind": "point", "lesson": "L4.2-d2", "objects": ["marigold2.md", "olive2.md"], "feats": {"marigold2.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "olive2.md": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}}
+{"id": "e21", "kind": "demo", "lesson": "L4.2-d2", "tool": "move", "args": ["juniper1.md", "inbox/juniper1.md"], "object": "juniper1.md", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'md')"]}
+{"id": "e22", "kind": "act", "lesson": "L4.2-d2", "tool": "move", "args": ["marigold2.md", "inbox/marigold2.md"], "ok": true, "error": ""}
+{"id": "e23", "kind": "act", "lesson": "L4.2-d2", "tool": "move", "args": ["olive2.md", "inbox/olive2.md"], "ok": true, "error": ""}
+{"id": "e24", "kind": "act", "lesson": "L4.2-d2", "tool": "move", "args": ["yarrow1.md", "inbox/yarrow1.md"], "ok": true, "error": ""}
+{"id": "e25", "kind": "confirm", "answer": true}
+{"id": "e26", "kind": "name", "lesson": "L4.2-d2", "symbol": "rado", "node": "k12"}
+{"id": "e27", "kind": "name", "lesson": "L4.2-d2", "symbol": "tasu", "node": "a13"}
+{"id": "e28", "kind": "say", "task": "d2-k2", "symbols": ["gop", "bobu"]}
+{"id": "e29", "kind": "act", "lesson": "d2-k2", "tool": "copy", "args": ["thistle2.json", "archive/thistle2.json"], "ok": true, "error": ""}
+{"id": "e30", "kind": "act", "lesson": "d2-k2", "tool": "copy", "args": ["violet2.json", "archive/violet2.json"], "ok": true, "error": ""}
+{"id": "e31", "kind": "say", "task": "d2-k3", "symbols": ["damu", "zago"]}
+{"id": "e32", "kind": "act", "lesson": "d2-k3", "tool": "copy", "args": ["amber2.csv", "inbox/amber2.csv"], "ok": true, "error": ""}
+{"id": "e33", "kind": "act", "lesson": "d2-k3", "tool": "copy", "args": ["nutmeg2.csv", "inbox/nutmeg2.csv"], "ok": true, "error": ""}
+{"id": "e34", "kind": "point", "lesson": "L2.3-d3", "objects": ["amber3.txt", "quill1.txt"], "feats": {"amber3.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "quill1.txt": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}}
+{"id": "e35", "kind": "demo", "lesson": "L2.3-d3", "tool": "move", "args": ["russet2.txt", "attic/russet2.txt"], "object": "russet2.txt", "gained": ["('gone',)"], "lost": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'txt')"]}
+{"id": "e36", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["amber3.txt", "attic/amber3.txt"], "ok": true, "error": ""}
+{"id": "e37", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["birch2.txt", "attic/birch2.txt"], "ok": true, "error": ""}
+{"id": "e38", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["kestrel1.txt", "attic/kestrel1.txt"], "ok": true, "error": ""}
+{"id": "e39", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["marigold3.txt", "attic/marigold3.txt"], "ok": true, "error": ""}
+{"id": "e40", "kind": "act", "lesson": "L2.3-d3", "tool": "move", "args": ["quill1.txt", "attic/quill1.txt"], "ok": true, "error": ""}
+{"id": "e41", "kind": "confirm", "answer": true}
+{"id": "e42", "kind": "name", "lesson": "L2.3-d3", "symbol": "gad", "node": "k16"}
+{"id": "e43", "kind": "name", "lesson": "L2.3-d3", "symbol": "gedo", "node": "a17"}
+{"id": "e44", "kind": "point", "lesson": "L0.0-d3", "objects": ["fennel1.csv", "nutmeg2.csv"], "feats": {"fennel1.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"], "nutmeg2.csv": ["('N', 0)", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}}
+{"id": "e45", "kind": "demo", "lesson": "L0.0-d3", "tool": "copy", "args": ["fennel1.csv", "archive/fennel1.csv"], "object": "fennel1.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e46", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["amber2.csv", "archive/amber2.csv"], "ok": true, "error": ""}
+{"id": "e47", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["kestrel3.csv", "archive/kestrel3.csv"], "ok": true, "error": ""}
+{"id": "e48", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["lilac1.csv", "archive/lilac1.csv"], "ok": true, "error": ""}
+{"id": "e49", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["nutmeg2.csv", "archive/nutmeg2.csv"], "ok": true, "error": ""}
+{"id": "e50", "kind": "act", "lesson": "L0.0-d3", "tool": "copy", "args": ["nutmeg3.csv", "archive/nutmeg3.csv"], "ok": true, "error": ""}
+{"id": "e51", "kind": "confirm", "answer": true}
+{"id": "e52", "kind": "name", "lesson": "L0.0-d3", "symbol": "zago", "node": "k20"}
+{"id": "e53", "kind": "name", "lesson": "L0.0-d3", "symbol": "bobu", "node": "a5"}
+{"id": "e54", "kind": "say", "task": "d3-k2", "symbols": ["pupi", "tofa"]}
+{"id": "e55", "kind": "act", "lesson": "d3-k2", "tool": "delete", "args": ["indigo3.log"], "ok": true, "error": ""}
+{"id": "e56", "kind": "act", "lesson": "d3-k2", "tool": "delete", "args": ["russet3.log"], "ok": true, "error": ""}
+{"id": "e57", "kind": "say", "task": "d3-k3", "symbols": ["tasu", "rado"]}
+{"id": "e58", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["ember3.md", "inbox/ember3.md"], "ok": true, "error": ""}
+{"id": "e59", "kind": "act", "lesson": "d3-k3", "tool": "move", "args": ["heron3.md", "inbox/heron3.md"], "ok": true, "error": ""}
+{"id": "e60", "kind": "say", "task": "d3-k4", "symbols": ["zago", "damu"]}
+{"id": "e61", "kind": "act", "lesson": "d3-k4", "tool": "copy", "args": ["kestrel3.csv", "inbox/kestrel3.csv"], "ok": true, "error": ""}
+{"id": "e62", "kind": "act", "lesson": "d3-k4", "tool": "copy", "args": ["nutmeg3.csv", "inbox/nutmeg3.csv"], "ok": true, "error": ""}
+{"id": "e63", "kind": "say", "task": "d4-k0", "symbols": ["bobu", "zago"]}
+{"id": "e64", "kind": "act", "lesson": "d4-k0", "tool": "copy", "args": ["amber4.csv", "archive/amber4.csv"], "ok": true, "error": ""}
+{"id": "e65", "kind": "act", "lesson": "d4-k0", "tool": "copy", "args": ["lilac4.csv", "archive/lilac4.csv"], "ok": true, "error": ""}
+{"id": "e66", "kind": "say", "task": "d4-k1", "symbols": ["tofa", "pupi"]}
+{"id": "e67", "kind": "act", "lesson": "d4-k1", "tool": "delete", "args": ["indigo4.log"], "ok": true, "error": ""}
+{"id": "e68", "kind": "act", "lesson": "d4-k1", "tool": "delete", "args": ["kestrel4.log"], "ok": true, "error": ""}
+{"id": "e69", "kind": "say", "task": "d4-k2", "symbols": ["damu", "zago"]}
+{"id": "e70", "kind": "act", "lesson": "d4-k2", "tool": "copy", "args": ["amber4.csv", "inbox/amber4.csv"], "ok": true, "error": ""}
+{"id": "e71", "kind": "act", "lesson": "d4-k2", "tool": "copy", "args": ["lilac4.csv", "inbox/lilac4.csv"], "ok": true, "error": ""}
+{"id": "e72", "kind": "say", "task": "d5-k0", "symbols": ["zago", "bobu"]}
+{"id": "e73", "kind": "act", "lesson": "d5-k0", "tool": "copy", "args": ["amber5.csv", "archive/amber5.csv"], "ok": true, "error": ""}
+{"id": "e74", "kind": "act", "lesson": "d5-k0", "tool": "copy", "args": ["marigold5.csv", "archive/marigold5.csv"], "ok": true, "error": ""}
+{"id": "e75", "kind": "say", "task": "d5-k1", "symbols": ["rado", "tofa"]}
+{"id": "e76", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["dahlia5.md"], "ok": true, "error": ""}
+{"id": "e77", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["fennel4.md"], "ok": true, "error": ""}
+{"id": "e78", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["garnet5.md"], "ok": true, "error": ""}
+{"id": "e79", "kind": "act", "lesson": "d5-k1", "tool": "delete", "args": ["nutmeg4.md"], "ok": true, "error": ""}
+{"id": "e80", "kind": "say", "task": "d5-k2", "symbols": ["pupi", "tofa"]}
+{"id": "e81", "kind": "act", "lesson": "d5-k2", "tool": "delete", "args": ["juniper5.log"], "ok": true, "error": ""}
+{"id": "e82", "kind": "act", "lesson": "d5-k2", "tool": "delete", "args": ["russet5.log"], "ok": true, "error": ""}
+{"id": "e83", "kind": "say", "task": "d6-k0", "symbols": ["tofa", "rado"]}
+{"id": "e84", "kind": "act", "lesson": "d6-k0", "tool": "delete", "args": ["garnet6.md"], "ok": true, "error": ""}
+{"id": "e85", "kind": "act", "lesson": "d6-k0", "tool": "delete", "args": ["quill6.md"], "ok": true, "error": ""}
+{"id": "e86", "kind": "say", "task": "d6-k1", "symbols": ["pupi", "gedo"]}
+{"id": "e87", "kind": "act", "lesson": "d6-k1", "tool": "move", "args": ["saffron6.log", "attic/saffron6.log"], "ok": true, "error": ""}
+{"id": "e88", "kind": "act", "lesson": "d6-k1", "tool": "move", "args": ["violet6.log", "attic/violet6.log"], "ok": true, "error": ""}
+{"id": "e89", "kind": "say", "task": "d6-k2", "symbols": ["zago", "damu"]}
+{"id": "e90", "kind": "act", "lesson": "d6-k2", "tool": "copy", "args": ["amber5.csv", "inbox/amber5.csv"], "ok": true, "error": ""}
+{"id": "e91", "kind": "act", "lesson": "d6-k2", "tool": "copy", "args": ["amber6.csv", "inbox/amber6.csv"], "ok": true, "error": ""}
+{"id": "e92", "kind": "act", "lesson": "d6-k2", "tool": "copy", "args": ["marigold5.csv", "inbox/marigold5.csv"], "ok": true, "error": ""}
+{"id": "e93", "kind": "act", "lesson": "d6-k2", "tool": "copy", "args": ["marigold6.csv", "inbox/marigold6.csv"], "ok": true, "error": ""}
+{"id": "e94", "kind": "say", "task": "d7-k0", "symbols": ["pupi", "tasu"]}
+{"id": "e95", "kind": "act", "lesson": "d7-k0", "tool": "move", "args": ["fennel7.log", "inbox/fennel7.log"], "ok": true, "error": ""}
+{"id": "e96", "kind": "act", "lesson": "d7-k0", "tool": "move", "args": ["quill7.log", "inbox/quill7.log"], "ok": true, "error": ""}
+{"id": "e97", "kind": "say", "task": "d7-k1", "symbols": ["gop", "bobu"]}
+{"id": "e98", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["cobalt5.json", "archive/cobalt5.json"], "ok": true, "error": ""}
+{"id": "e99", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["cobalt6.json", "archive/cobalt6.json"], "ok": true, "error": ""}
+{"id": "e100", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["garnet3.json", "archive/garnet3.json"], "ok": true, "error": ""}
+{"id": "e101", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["indigo7.json", "archive/indigo7.json"], "ok": true, "error": ""}
+{"id": "e102", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["poppy5.json", "archive/poppy5.json"], "ok": true, "error": ""}
+{"id": "e103", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["saffron4.json", "archive/saffron4.json"], "ok": true, "error": ""}
+{"id": "e104", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["thistle4.json", "archive/thistle4.json"], "ok": true, "error": ""}
+{"id": "e105", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["walnut3.json", "archive/walnut3.json"], "ok": true, "error": ""}
+{"id": "e106", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["walnut6.json", "archive/walnut6.json"], "ok": true, "error": ""}
+{"id": "e107", "kind": "act", "lesson": "d7-k1", "tool": "copy", "args": ["walnut7.json", "archive/walnut7.json"], "ok": true, "error": ""}
+{"id": "e108", "kind": "say", "task": "d7-k2", "symbols": ["damu", "zago"]}
+{"id": "e109", "kind": "act", "lesson": "d7-k2", "tool": "copy", "args": ["garnet7.csv", "inbox/garnet7.csv"], "ok": true, "error": ""}
+{"id": "e110", "kind": "act", "lesson": "d7-k2", "tool": "copy", "args": ["yarrow7.csv", "inbox/yarrow7.csv"], "ok": true, "error": ""}
+{"id": "e111", "kind": "say", "task": "d8-k0", "symbols": ["gad", "gedo"]}
+{"id": "e112", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["birch4.txt", "attic/birch4.txt"], "ok": true, "error": ""}
+{"id": "e113", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["birch5.txt", "attic/birch5.txt"], "ok": true, "error": ""}
+{"id": "e114", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["cobalt4.txt", "attic/cobalt4.txt"], "ok": true, "error": ""}
+{"id": "e115", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["ember8.txt", "attic/ember8.txt"], "ok": true, "error": ""}
+{"id": "e116", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["russet7.txt", "attic/russet7.txt"], "ok": true, "error": ""}
+{"id": "e117", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["umber6.txt", "attic/umber6.txt"], "ok": true, "error": ""}
+{"id": "e118", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["violet5.txt", "attic/violet5.txt"], "ok": true, "error": ""}
+{"id": "e119", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["violet7.txt", "attic/violet7.txt"], "ok": true, "error": ""}
+{"id": "e120", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["violet8.txt", "attic/violet8.txt"], "ok": true, "error": ""}
+{"id": "e121", "kind": "act", "lesson": "d8-k0", "tool": "move", "args": ["yarrow6.txt", "attic/yarrow6.txt"], "ok": true, "error": ""}
+{"id": "e122", "kind": "say", "task": "d8-k1", "symbols": ["tasu", "gop"]}
+{"id": "e123", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["cobalt5.json", "inbox/cobalt5.json"], "ok": true, "error": ""}
+{"id": "e124", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["cobalt6.json", "inbox/cobalt6.json"], "ok": true, "error": ""}
+{"id": "e125", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["garnet1.json", "inbox/garnet1.json"], "ok": true, "error": ""}
+{"id": "e126", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["garnet3.json", "inbox/garnet3.json"], "ok": true, "error": ""}
+{"id": "e127", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["indigo7.json", "inbox/indigo7.json"], "ok": true, "error": ""}
+{"id": "e128", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["juniper8.json", "inbox/juniper8.json"], "ok": true, "error": ""}
+{"id": "e129", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["poppy5.json", "inbox/poppy5.json"], "ok": true, "error": ""}
+{"id": "e130", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["saffron1.json", "inbox/saffron1.json"], "ok": true, "error": ""}
+{"id": "e131", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["saffron4.json", "inbox/saffron4.json"], "ok": true, "error": ""}
+{"id": "e132", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["thistle2.json", "inbox/thistle2.json"], "ok": true, "error": ""}
+{"id": "e133", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["thistle4.json", "inbox/thistle4.json"], "ok": true, "error": ""}
+{"id": "e134", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["violet2.json", "inbox/violet2.json"], "ok": true, "error": ""}
+{"id": "e135", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["walnut3.json", "inbox/walnut3.json"], "ok": true, "error": ""}
+{"id": "e136", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["walnut6.json", "inbox/walnut6.json"], "ok": true, "error": ""}
+{"id": "e137", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["walnut7.json", "inbox/walnut7.json"], "ok": true, "error": ""}
+{"id": "e138", "kind": "act", "lesson": "d8-k1", "tool": "move", "args": ["yarrow8.json", "inbox/yarrow8.json"], "ok": true, "error": ""}
+{"id": "e139", "kind": "say", "task": "d8-k2", "symbols": ["zago", "gedo"]}
+{"id": "e140", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["amber2.csv", "attic/amber2.csv"], "ok": true, "error": ""}
+{"id": "e141", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["amber4.csv", "attic/amber4.csv"], "ok": true, "error": ""}
+{"id": "e142", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["amber5.csv", "attic/amber5.csv"], "ok": true, "error": ""}
+{"id": "e143", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["amber6.csv", "attic/amber6.csv"], "ok": true, "error": ""}
+{"id": "e144", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["birch8.csv", "attic/birch8.csv"], "ok": true, "error": ""}
+{"id": "e145", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["fennel1.csv", "attic/fennel1.csv"], "ok": true, "error": ""}
+{"id": "e146", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["garnet7.csv", "attic/garnet7.csv"], "ok": true, "error": ""}
+{"id": "e147", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["indigo8.csv", "attic/indigo8.csv"], "ok": true, "error": ""}
+{"id": "e148", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["kestrel3.csv", "attic/kestrel3.csv"], "ok": true, "error": ""}
+{"id": "e149", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["lilac1.csv", "attic/lilac1.csv"], "ok": true, "error": ""}
+{"id": "e150", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["lilac4.csv", "attic/lilac4.csv"], "ok": true, "error": ""}
+{"id": "e151", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["marigold5.csv", "attic/marigold5.csv"], "ok": true, "error": ""}
+{"id": "e152", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["marigold6.csv", "attic/marigold6.csv"], "ok": true, "error": ""}
+{"id": "e153", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["nutmeg2.csv", "attic/nutmeg2.csv"], "ok": true, "error": ""}
+{"id": "e154", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["nutmeg3.csv", "attic/nutmeg3.csv"], "ok": true, "error": ""}
+{"id": "e155", "kind": "act", "lesson": "d8-k2", "tool": "move", "args": ["yarrow7.csv", "attic/yarrow7.csv"], "ok": true, "error": ""}
+{"id": "e156", "kind": "say", "task": "d9-k0", "symbols": ["rado", "tasu"]}
+{"id": "e157", "kind": "act", "lesson": "d9-k0", "tool": "move", "args": ["kestrel8.md", "inbox/kestrel8.md"], "ok": true, "error": ""}
+{"id": "e158", "kind": "act", "lesson": "d9-k0", "tool": "move", "args": ["lilac7.md", "inbox/lilac7.md"], "ok": true, "error": ""}
+{"id": "e159", "kind": "act", "lesson": "d9-k0", "tool": "move", "args": ["olive8.md", "inbox/olive8.md"], "ok": true, "error": ""}
+{"id": "e160", "kind": "act", "lesson": "d9-k0", "tool": "move", "args": ["poppy7.md", "inbox/poppy7.md"], "ok": true, "error": ""}
+{"id": "e161", "kind": "act", "lesson": "d9-k0", "tool": "move", "args": ["quill9.md", "inbox/quill9.md"], "ok": true, "error": ""}
+{"id": "e162", "kind": "act", "lesson": "d9-k0", "tool": "move", "args": ["thistle9.md", "inbox/thistle9.md"], "ok": true, "error": ""}
+{"id": "e163", "kind": "say", "task": "d9-k1", "symbols": ["zago", "gedo"]}
+{"id": "e164", "kind": "act", "lesson": "d9-k1", "tool": "move", "args": ["heron9.csv", "attic/heron9.csv"], "ok": true, "error": ""}
+{"id": "e165", "kind": "act", "lesson": "d9-k1", "tool": "move", "args": ["walnut9.csv", "attic/walnut9.csv"], "ok": true, "error": ""}
+{"id": "e166", "kind": "say", "task": "d9-k2", "symbols": ["gedo", "gop"]}
+{"id": "e167", "kind": "act", "lesson": "d9-k2", "tool": "move", "args": ["cobalt9.json", "attic/cobalt9.json"], "ok": true, "error": ""}
+{"id": "e168", "kind": "act", "lesson": "d9-k2", "tool": "move", "args": ["umber9.json", "attic/umber9.json"], "ok": true, "error": ""}
+{"id": "e169", "kind": "say", "task": "d10-k0", "symbols": ["damu", "gop"]}
+{"id": "e170", "kind": "act", "lesson": "d10-k0", "tool": "copy", "args": ["quill10.json", "inbox/quill10.json"], "ok": false, "error": ""}
+{"id": "e171", "kind": "act", "lesson": "d10-k0", "tool": "copy", "args": ["russet10.json", "inbox/russet10.json"], "ok": false, "error": ""}
+{"id": "e172", "kind": "demo", "lesson": "R1-d10", "tool": "replicate", "args": ["inbox/russet10.json", "russet10.json"], "object": "russet10.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e173", "kind": "name", "lesson": "R1-d10", "symbol": "damu", "node": "a22"}
+{"id": "e174", "kind": "act", "lesson": "R1-d10", "tool": "replicate", "args": ["inbox/quill10.json", "quill10.json"], "ok": true, "error": ""}
+{"id": "e175", "kind": "say", "task": "d10-k1", "symbols": ["tofa", "pupi"]}
+{"id": "e176", "kind": "act", "lesson": "d10-k1", "tool": "delete", "args": ["dahlia9.log"], "ok": true, "error": ""}
+{"id": "e177", "kind": "act", "lesson": "d10-k1", "tool": "delete", "args": ["juniper10.log"], "ok": true, "error": ""}
+{"id": "e178", "kind": "act", "lesson": "d10-k1", "tool": "delete", "args": ["juniper9.log"], "ok": true, "error": ""}
+{"id": "e179", "kind": "act", "lesson": "d10-k1", "tool": "delete", "args": ["lilac8.log"], "ok": true, "error": ""}
+{"id": "e180", "kind": "act", "lesson": "d10-k1", "tool": "delete", "args": ["thistle8.log"], "ok": true, "error": ""}
+{"id": "e181", "kind": "act", "lesson": "d10-k1", "tool": "delete", "args": ["yarrow10.log"], "ok": true, "error": ""}
+{"id": "e182", "kind": "say", "task": "d10-k2", "symbols": ["rado", "tasu"]}
+{"id": "e183", "kind": "act", "lesson": "d10-k2", "tool": "move", "args": ["garnet10.md", "inbox/garnet10.md"], "ok": true, "error": ""}
+{"id": "e184", "kind": "act", "lesson": "d10-k2", "tool": "move", "args": ["nutmeg10.md", "inbox/nutmeg10.md"], "ok": true, "error": ""}
+{"id": "e185", "kind": "say", "task": "d11-k0", "symbols": ["zago", "damu"]}
+{"id": "e186", "kind": "act", "lesson": "d11-k0", "tool": "replicate", "args": ["inbox/amber10.csv", "amber10.csv"], "ok": true, "error": ""}
+{"id": "e187", "kind": "act", "lesson": "d11-k0", "tool": "replicate", "args": ["inbox/quill11.csv", "quill11.csv"], "ok": true, "error": ""}
+{"id": "e188", "kind": "act", "lesson": "d11-k0", "tool": "replicate", "args": ["inbox/russet11.csv", "russet11.csv"], "ok": true, "error": ""}
+{"id": "e189", "kind": "act", "lesson": "d11-k0", "tool": "replicate", "args": ["inbox/violet10.csv", "violet10.csv"], "ok": true, "error": ""}
+{"id": "e190", "kind": "say", "task": "d11-k1", "symbols": ["tasu", "gop"]}
+{"id": "e191", "kind": "act", "lesson": "d11-k1", "tool": "move", "args": ["fennel11.json", "inbox/fennel11.json"], "ok": true, "error": ""}
+{"id": "e192", "kind": "act", "lesson": "d11-k1", "tool": "move", "args": ["marigold11.json", "inbox/marigold11.json"], "ok": true, "error": ""}
+{"id": "e193", "kind": "act", "lesson": "d11-k1", "tool": "move", "args": ["quill10.json", "inbox/quill10.json"], "ok": false, "error": ""}
+{"id": "e194", "kind": "act", "lesson": "d11-k1", "tool": "move", "args": ["russet10.json", "inbox/russet10.json"], "ok": false, "error": ""}
+{"id": "e195", "kind": "demo", "lesson": "R2-d11", "tool": "move", "args": ["quill10.json", "inbox/quill10.json"], "object": "quill10.json", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'json')"]}
+{"id": "e196", "kind": "name", "lesson": "R2-d11", "symbol": "tasu", "node": "a24"}
+{"id": "e197", "kind": "say", "task": "d11-k2", "symbols": ["bobu", "zago"]}
+{"id": "e198", "kind": "act", "lesson": "d11-k2", "tool": "copy", "args": ["amber10.csv", "archive/amber10.csv"], "ok": false, "error": ""}
+{"id": "e199", "kind": "act", "lesson": "d11-k2", "tool": "copy", "args": ["quill11.csv", "archive/quill11.csv"], "ok": false, "error": ""}
+{"id": "e200", "kind": "act", "lesson": "d11-k2", "tool": "copy", "args": ["russet11.csv", "archive/russet11.csv"], "ok": false, "error": ""}
+{"id": "e201", "kind": "act", "lesson": "d11-k2", "tool": "copy", "args": ["violet10.csv", "archive/violet10.csv"], "ok": false, "error": ""}
+{"id": "e202", "kind": "demo", "lesson": "R0-d11", "tool": "replicate", "args": ["archive/russet11.csv", "russet11.csv"], "object": "russet11.csv", "gained": [], "lost": [], "made": ["('S', 0, 'a0', 1)", "('S', 0, 'a1', 1)", "('S', 0, 'a2', '-')", "('U', 0, 'a0', 1)", "('U', 0, 'a1', 0)", "('U', 0, 'a2', 'csv')"]}
+{"id": "e203", "kind": "name", "lesson": "R0-d11", "symbol": "bobu", "node": "a26"}
+{"id": "e204", "kind": "act", "lesson": "R0-d11", "tool": "replicate", "args": ["archive/amber10.csv", "amber10.csv"], "ok": true, "error": ""}
+{"id": "e205", "kind": "act", "lesson": "R0-d11", "tool": "replicate", "args": ["archive/quill11.csv", "quill11.csv"], "ok": true, "error": ""}
+{"id": "e206", "kind": "act", "lesson": "R0-d11", "tool": "replicate", "args": ["archive/violet10.csv", "violet10.csv"], "ok": true, "error": ""}
+{"id": "e207", "kind": "say", "task": "d12-k0", "symbols": ["damu", "gad"]}
+{"id": "e208", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/cobalt11.txt", "cobalt11.txt"], "ok": true, "error": ""}
+{"id": "e209", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/garnet9.txt", "garnet9.txt"], "ok": true, "error": ""}
+{"id": "e210", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/heron10.txt", "heron10.txt"], "ok": true, "error": ""}
+{"id": "e211", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/indigo11.txt", "indigo11.txt"], "ok": true, "error": ""}
+{"id": "e212", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/indigo12.txt", "indigo12.txt"], "ok": true, "error": ""}
+{"id": "e213", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/indigo9.txt", "indigo9.txt"], "ok": true, "error": ""}
+{"id": "e214", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/marigold12.txt", "marigold12.txt"], "ok": true, "error": ""}
+{"id": "e215", "kind": "act", "lesson": "d12-k0", "tool": "replicate", "args": ["inbox/poppy10.txt", "poppy10.txt"], "ok": true, "error": ""}
+{"id": "e216", "kind": "say", "task": "d12-k1", "symbols": ["pupi", "bobu"]}
+{"id": "e217", "kind": "act", "lesson": "d12-k1", "tool": "replicate", "args": ["archive/heron11.log", "heron11.log"], "ok": true, "error": ""}
+{"id": "e218", "kind": "act", "lesson": "d12-k1", "tool": "replicate", "args": ["archive/lilac11.log", "lilac11.log"], "ok": true, "error": ""}
+{"id": "e219", "kind": "act", "lesson": "d12-k1", "tool": "replicate", "args": ["archive/lilac12.log", "lilac12.log"], "ok": true, "error": ""}
+{"id": "e220", "kind": "act", "lesson": "d12-k1", "tool": "replicate", "args": ["archive/thistle12.log", "thistle12.log"], "ok": true, "error": ""}
+{"id": "e221", "kind": "say", "task": "d12-k2", "symbols": ["rado", "gedo"]}
+{"id": "e222", "kind": "act", "lesson": "d12-k2", "tool": "move", "args": ["juniper11.md", "attic/juniper11.md"], "ok": true, "error": ""}
+{"id": "e223", "kind": "act", "lesson": "d12-k2", "tool": "move", "args": ["kestrel11.md", "attic/kestrel11.md"], "ok": true, "error": ""}
+{"id": "e224", "kind": "act", "lesson": "d12-k2", "tool": "move", "args": ["nutmeg12.md", "attic/nutmeg12.md"], "ok": true, "error": ""}
+{"id": "e225", "kind": "act", "lesson": "d12-k2", "tool": "move", "args": ["walnut12.md", "attic/walnut12.md"], "ok": true, "error": ""}
+{"id": "e226", "kind": "say", "task": "d13-k0", "symbols": ["gedo", "pupi"]}
+{"id": "e227", "kind": "act", "lesson": "d13-k0", "tool": "move", "args": ["heron11.log", "attic/heron11.log"], "ok": true, "error": ""}
+{"id": "e228", "kind": "act", "lesson": "d13-k0", "tool": "move", "args": ["lilac11.log", "attic/lilac11.log"], "ok": true, "error": ""}
+{"id": "e229", "kind": "act", "lesson": "d13-k0", "tool": "move", "args": ["lilac12.log", "attic/lilac12.log"], "ok": true, "error": ""}
+{"id": "e230", "kind": "act", "lesson": "d13-k0", "tool": "move", "args": ["russet13.log", "attic/russet13.log"], "ok": true, "error": ""}
+{"id": "e231", "kind": "act", "lesson": "d13-k0", "tool": "move", "args": ["thistle12.log", "attic/thistle12.log"], "ok": true, "error": ""}
+{"id": "e232", "kind": "act", "lesson": "d13-k0", "tool": "move", "args": ["umber13.log", "attic/umber13.log"], "ok": true, "error": ""}
+{"id": "e233", "kind": "say", "task": "d13-k1", "symbols": ["rado", "bobu"]}
+{"id": "e234", "kind": "act", "lesson": "d13-k1", "tool": "replicate", "args": ["archive/birch13.md", "birch13.md"], "ok": true, "error": ""}
+{"id": "e235", "kind": "act", "lesson": "d13-k1", "tool": "replicate", "args": ["archive/fennel13.md", "fennel13.md"], "ok": true, "error": ""}
+{"id": "e236", "kind": "say", "task": "d13-k2", "symbols": ["bobu", "zago"]}
+{"id": "e237", "kind": "act", "lesson": "d13-k2", "tool": "replicate", "args": ["archive/lilac13.csv", "lilac13.csv"], "ok": true, "error": ""}
+{"id": "e238", "kind": "act", "lesson": "d13-k2", "tool": "replicate", "args": ["archive/olive13.csv", "olive13.csv"], "ok": true, "error": ""}
+{"id": "e239", "kind": "act", "lesson": "d13-k2", "tool": "replicate", "args": ["archive/poppy12.csv", "poppy12.csv"], "ok": true, "error": ""}
+{"id": "e240", "kind": "act", "lesson": "d13-k2", "tool": "replicate", "args": ["archive/russet12.csv", "russet12.csv"], "ok": true, "error": ""}
+{"id": "e241", "kind": "say", "task": "d14-k0", "symbols": ["tasu", "rado"]}
+{"id": "e242", "kind": "act", "lesson": "d14-k0", "tool": "move", "args": ["birch13.md", "inbox/birch13.md"], "ok": true, "error": ""}
+{"id": "e243", "kind": "act", "lesson": "d14-k0", "tool": "move", "args": ["dahlia14.md", "inbox/dahlia14.md"], "ok": true, "error": ""}
+{"id": "e244", "kind": "act", "lesson": "d14-k0", "tool": "move", "args": ["fennel13.md", "inbox/fennel13.md"], "ok": true, "error": ""}
+{"id": "e245", "kind": "act", "lesson": "d14-k0", "tool": "move", "args": ["heron14.md", "inbox/heron14.md"], "ok": true, "error": ""}
+{"id": "e246", "kind": "say", "task": "d14-k1", "symbols": ["tofa", "gad"]}
+{"id": "e247", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["cobalt11.txt"], "ok": true, "error": ""}
+{"id": "e248", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["dahlia13.txt"], "ok": true, "error": ""}
+{"id": "e249", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["garnet9.txt"], "ok": true, "error": ""}
+{"id": "e250", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["heron10.txt"], "ok": true, "error": ""}
+{"id": "e251", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["indigo11.txt"], "ok": true, "error": ""}
+{"id": "e252", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["indigo12.txt"], "ok": true, "error": ""}
+{"id": "e253", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["indigo9.txt"], "ok": true, "error": ""}
+{"id": "e254", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["kestrel14.txt"], "ok": true, "error": ""}
+{"id": "e255", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["marigold12.txt"], "ok": true, "error": ""}
+{"id": "e256", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["poppy10.txt"], "ok": true, "error": ""}
+{"id": "e257", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["violet14.txt"], "ok": true, "error": ""}
+{"id": "e258", "kind": "act", "lesson": "d14-k1", "tool": "delete", "args": ["walnut13.txt"], "ok": true, "error": ""}
+{"id": "e259", "kind": "say", "task": "d14-k2", "symbols": ["gedo", "gop"]}
+{"id": "e260", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["ember12.json", "attic/ember12.json"], "ok": true, "error": ""}
+{"id": "e261", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["heron13.json", "attic/heron13.json"], "ok": true, "error": ""}
+{"id": "e262", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["olive14.json", "attic/olive14.json"], "ok": true, "error": ""}
+{"id": "e263", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["quill10.json", "attic/quill10.json"], "ok": true, "error": ""}
+{"id": "e264", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["quill13.json", "attic/quill13.json"], "ok": true, "error": ""}
+{"id": "e265", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["russet10.json", "attic/russet10.json"], "ok": true, "error": ""}
+{"id": "e266", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["russet14.json", "attic/russet14.json"], "ok": true, "error": ""}
+{"id": "e267", "kind": "act", "lesson": "d14-k2", "tool": "move", "args": ["saffron12.json", "attic/saffron12.json"], "ok": true, "error": ""}
+{"id": "e268", "kind": "say", "task": "d15-k0", "symbols": ["bobu", "gop"]}
+{"id": "e269", "kind": "act", "lesson": "d15-k0", "tool": "replicate", "args": ["archive/ember15.json", "ember15.json"], "ok": true, "error": ""}
+{"id": "e270", "kind": "act", "lesson": "d15-k0", "tool": "replicate", "args": ["archive/russet15.json", "russet15.json"], "ok": true, "error": ""}
+{"id": "e271", "kind": "say", "task": "d15-k1", "symbols": ["zago", "bobu"]}
+{"id": "e272", "kind": "act", "lesson": "d15-k1", "tool": "replicate", "args": ["archive/cobalt14.csv", "cobalt14.csv"], "ok": true, "error": ""}
+{"id": "e273", "kind": "act", "lesson": "d15-k1", "tool": "replicate", "args": ["archive/dahlia15.csv", "dahlia15.csv"], "ok": true, "error": ""}
+{"id": "e274", "kind": "act", "lesson": "d15-k1", "tool": "replicate", "args": ["archive/lilac15.csv", "lilac15.csv"], "ok": true, "error": ""}
+{"id": "e275", "kind": "act", "lesson": "d15-k1", "tool": "replicate", "args": ["archive/saffron14.csv", "saffron14.csv"], "ok": true, "error": ""}
+{"id": "e276", "kind": "say", "task": "d15-k2", "symbols": ["pupi", "tofa"]}
+{"id": "e277", "kind": "act", "lesson": "d15-k2", "tool": "delete", "args": ["birch14.log"], "ok": true, "error": ""}
+{"id": "e278", "kind": "act", "lesson": "d15-k2", "tool": "delete", "args": ["fennel14.log"], "ok": true, "error": ""}
+{"id": "e279", "kind": "act", "lesson": "d15-k2", "tool": "delete", "args": ["garnet15.log"], "ok": true, "error": ""}
+{"id": "e280", "kind": "act", "lesson": "d15-k2", "tool": "delete", "args": ["indigo15.log"], "ok": true, "error": ""}
+{"id": "e281", "kind": "say", "task": "d16-k0", "symbols": ["tofa", "pupi"]}
+{"id": "e282", "kind": "act", "lesson": "d16-k0", "tool": "delete", "args": ["birch16.log"], "ok": true, "error": ""}
+{"id": "e283", "kind": "act", "lesson": "d16-k0", "tool": "delete", "args": ["saffron16.log"], "ok": true, "error": ""}
+{"id": "e284", "kind": "say", "task": "d16-k1", "symbols": ["zago", "gedo"]}
+{"id": "e285", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["amber10.csv", "attic/amber10.csv"], "ok": true, "error": ""}
+{"id": "e286", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["cobalt14.csv", "attic/cobalt14.csv"], "ok": true, "error": ""}
+{"id": "e287", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["dahlia15.csv", "attic/dahlia15.csv"], "ok": true, "error": ""}
+{"id": "e288", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["fennel16.csv", "attic/fennel16.csv"], "ok": true, "error": ""}
+{"id": "e289", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["garnet16.csv", "attic/garnet16.csv"], "ok": true, "error": ""}
+{"id": "e290", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["lilac13.csv", "attic/lilac13.csv"], "ok": true, "error": ""}
+{"id": "e291", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["lilac15.csv", "attic/lilac15.csv"], "ok": true, "error": ""}
+{"id": "e292", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["olive13.csv", "attic/olive13.csv"], "ok": true, "error": ""}
+{"id": "e293", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["poppy12.csv", "attic/poppy12.csv"], "ok": true, "error": ""}
+{"id": "e294", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["quill11.csv", "attic/quill11.csv"], "ok": true, "error": ""}
+{"id": "e295", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["russet11.csv", "attic/russet11.csv"], "ok": true, "error": ""}
+{"id": "e296", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["russet12.csv", "attic/russet12.csv"], "ok": true, "error": ""}
+{"id": "e297", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["saffron14.csv", "attic/saffron14.csv"], "ok": true, "error": ""}
+{"id": "e298", "kind": "act", "lesson": "d16-k1", "tool": "move", "args": ["violet10.csv", "attic/violet10.csv"], "ok": true, "error": ""}
+{"id": "e299", "kind": "say", "task": "d16-k2", "symbols": ["gop", "bobu"]}
+{"id": "e300", "kind": "act", "lesson": "d16-k2", "tool": "replicate", "args": ["archive/heron16.json", "heron16.json"], "ok": true, "error": ""}
+{"id": "e301", "kind": "act", "lesson": "d16-k2", "tool": "replicate", "args": ["archive/thistle16.json", "thistle16.json"], "ok": true, "error": ""}
+{"id": "e302", "kind": "say", "task": "d17-k0", "symbols": ["zago", "bobu"]}
+{"id": "e303", "kind": "act", "lesson": "d17-k0", "tool": "replicate", "args": ["archive/poppy17.csv", "poppy17.csv"], "ok": true, "error": ""}
+{"id": "e304", "kind": "act", "lesson": "d17-k0", "tool": "replicate", "args": ["archive/quill17.csv", "quill17.csv"], "ok": true, "error": ""}
+{"id": "e305", "kind": "say", "task": "d17-k1", "symbols": ["gop", "bobu"]}
+{"id": "e306", "kind": "act", "lesson": "d17-k1", "tool": "replicate", "args": ["archive/lilac17.json", "lilac17.json"], "ok": true, "error": ""}
+{"id": "e307", "kind": "act", "lesson": "d17-k1", "tool": "replicate", "args": ["archive/yarrow17.json", "yarrow17.json"], "ok": true, "error": ""}
+{"id": "e308", "kind": "say", "task": "d17-k2", "symbols": ["tasu", "gad"]}
+{"id": "e309", "kind": "act", "lesson": "d17-k2", "tool": "move", "args": ["dahlia17.txt", "inbox/dahlia17.txt"], "ok": true, "error": ""}
+{"id": "e310", "kind": "act", "lesson": "d17-k2", "tool": "move", "args": ["juniper16.txt", "inbox/juniper16.txt"], "ok": true, "error": ""}
+{"id": "e311", "kind": "act", "lesson": "d17-k2", "tool": "move", "args": ["quill15.txt", "inbox/quill15.txt"], "ok": true, "error": ""}
+{"id": "e312", "kind": "act", "lesson": "d17-k2", "tool": "move", "args": ["umber15.txt", "inbox/umber15.txt"], "ok": true, "error": ""}
+{"id": "e313", "kind": "act", "lesson": "d17-k2", "tool": "move", "args": ["violet16.txt", "inbox/violet16.txt"], "ok": true, "error": ""}
+{"id": "e314", "kind": "act", "lesson": "d17-k2", "tool": "move", "args": ["walnut17.txt", "inbox/walnut17.txt"], "ok": true, "error": ""}
+{"id": "e315", "kind": "say", "task": "d18-k0", "symbols": ["pupi", "tofa"]}
+{"id": "e316", "kind": "act", "lesson": "d18-k0", "tool": "delete", "args": ["birch17.log"], "ok": true, "error": ""}
+{"id": "e317", "kind": "act", "lesson": "d18-k0", "tool": "delete", "args": ["heron17.log"], "ok": true, "error": ""}
+{"id": "e318", "kind": "act", "lesson": "d18-k0", "tool": "delete", "args": ["lilac18.log"], "ok": true, "error": ""}
+{"id": "e319", "kind": "act", "lesson": "d18-k0", "tool": "delete", "args": ["umber18.log"], "ok": true, "error": ""}
+{"id": "e320", "kind": "say", "task": "d18-k1", "symbols": ["zago", "tofa"]}
+{"id": "e321", "kind": "act", "lesson": "d18-k1", "tool": "delete", "args": ["poppy17.csv"], "ok": true, "error": ""}
+{"id": "e322", "kind": "act", "lesson": "d18-k1", "tool": "delete", "args": ["poppy18.csv"], "ok": true, "error": ""}
+{"id": "e323", "kind": "act", "lesson": "d18-k1", "tool": "delete", "args": ["quill17.csv"], "ok": true, "error": ""}
+{"id": "e324", "kind": "act", "lesson": "d18-k1", "tool": "delete", "args": ["saffron18.csv"], "ok": true, "error": ""}
+{"id": "e325", "kind": "say", "task": "d18-k2", "symbols": ["gop", "damu"]}
+{"id": "e326", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/ember15.json", "ember15.json"], "ok": true, "error": ""}
+{"id": "e327", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/heron16.json", "heron16.json"], "ok": true, "error": ""}
+{"id": "e328", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/indigo18.json", "indigo18.json"], "ok": true, "error": ""}
+{"id": "e329", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/lilac17.json", "lilac17.json"], "ok": true, "error": ""}
+{"id": "e330", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/olive18.json", "olive18.json"], "ok": true, "error": ""}
+{"id": "e331", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/russet15.json", "russet15.json"], "ok": true, "error": ""}
+{"id": "e332", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/thistle16.json", "thistle16.json"], "ok": true, "error": ""}
+{"id": "e333", "kind": "act", "lesson": "d18-k2", "tool": "replicate", "args": ["inbox/yarrow17.json", "yarrow17.json"], "ok": true, "error": ""}
+{"id": "e334", "kind": "say", "task": "d19-k0", "symbols": ["pupi", "bobu"]}
+{"id": "e335", "kind": "act", "lesson": "d19-k0", "tool": "replicate", "args": ["archive/ember19.log", "ember19.log"], "ok": true, "error": ""}
+{"id": "e336", "kind": "act", "lesson": "d19-k0", "tool": "replicate", "args": ["archive/fennel19.log", "fennel19.log"], "ok": true, "error": ""}
+{"id": "e337", "kind": "say", "task": "d19-k1", "symbols": ["damu", "zago"]}
+{"id": "e338", "kind": "act", "lesson": "d19-k1", "tool": "replicate", "args": ["inbox/lilac19.csv", "lilac19.csv"], "ok": true, "error": ""}
+{"id": "e339", "kind": "act", "lesson": "d19-k1", "tool": "replicate", "args": ["inbox/thistle19.csv", "thistle19.csv"], "ok": true, "error": ""}
+{"id": "e340", "kind": "say", "task": "d19-k2", "symbols": ["zago", "bobu"]}
+{"id": "e341", "kind": "act", "lesson": "d19-k2", "tool": "replicate", "args": ["archive/lilac19.csv", "lilac19.csv"], "ok": true, "error": ""}
+{"id": "e342", "kind": "act", "lesson": "d19-k2", "tool": "replicate", "args": ["archive/thistle19.csv", "thistle19.csv"], "ok": true, "error": ""}
+{"id": "e343", "kind": "say", "task": "d20-k0", "symbols": ["tasu", "rado"]}
+{"id": "e344", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["birch18.md", "inbox/birch18.md"], "ok": true, "error": ""}
+{"id": "e345", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["cobalt15.md", "inbox/cobalt15.md"], "ok": true, "error": ""}
+{"id": "e346", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["dahlia19.md", "inbox/dahlia19.md"], "ok": true, "error": ""}
+{"id": "e347", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["garnet19.md", "inbox/garnet19.md"], "ok": true, "error": ""}
+{"id": "e348", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["heron18.md", "inbox/heron18.md"], "ok": true, "error": ""}
+{"id": "e349", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["juniper17.md", "inbox/juniper17.md"], "ok": true, "error": ""}
+{"id": "e350", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["kestrel15.md", "inbox/kestrel15.md"], "ok": true, "error": ""}
+{"id": "e351", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["kestrel16.md", "inbox/kestrel16.md"], "ok": true, "error": ""}
+{"id": "e352", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["marigold17.md", "inbox/marigold17.md"], "ok": true, "error": ""}
+{"id": "e353", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["thistle20.md", "inbox/thistle20.md"], "ok": true, "error": ""}
+{"id": "e354", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["umber16.md", "inbox/umber16.md"], "ok": true, "error": ""}
+{"id": "e355", "kind": "act", "lesson": "d20-k0", "tool": "move", "args": ["yarrow20.md", "inbox/yarrow20.md"], "ok": true, "error": ""}
+{"id": "e356", "kind": "say", "task": "d20-k1", "symbols": ["gop", "damu"]}
+{"id": "e357", "kind": "act", "lesson": "d20-k1", "tool": "replicate", "args": ["inbox/fennel20.json", "fennel20.json"], "ok": true, "error": ""}
+{"id": "e358", "kind": "act", "lesson": "d20-k1", "tool": "replicate", "args": ["inbox/indigo19.json", "indigo19.json"], "ok": true, "error": ""}
+{"id": "e359", "kind": "act", "lesson": "d20-k1", "tool": "replicate", "args": ["inbox/russet20.json", "russet20.json"], "ok": true, "error": ""}
+{"id": "e360", "kind": "act", "lesson": "d20-k1", "tool": "replicate", "args": ["inbox/walnut19.json", "walnut19.json"], "ok": true, "error": ""}
+{"id": "e361", "kind": "say", "task": "d20-k2", "symbols": ["gedo", "zago"]}
+{"id": "e362", "kind": "act", "lesson": "d20-k2", "tool": "move", "args": ["cobalt20.csv", "attic/cobalt20.csv"], "ok": true, "error": ""}
+{"id": "e363", "kind": "act", "lesson": "d20-k2", "tool": "move", "args": ["lilac19.csv", "attic/lilac19.csv"], "ok": true, "error": ""}
+{"id": "e364", "kind": "act", "lesson": "d20-k2", "tool": "move", "args": ["olive20.csv", "attic/olive20.csv"], "ok": true, "error": ""}
+{"id": "e365", "kind": "act", "lesson": "d20-k2", "tool": "move", "args": ["thistle19.csv", "attic/thistle19.csv"], "ok": true, "error": ""}
+{"id": "e366", "kind": "say", "task": "d21-k0", "symbols": ["pupi", "tasu"]}
+{"id": "e367", "kind": "act", "lesson": "d21-k0", "tool": "move", "args": ["ember19.log", "inbox/ember19.log"], "ok": true, "error": ""}
+{"id": "e368", "kind": "act", "lesson": "d21-k0", "tool": "move", "args": ["ember20.log", "inbox/ember20.log"], "ok": true, "error": ""}
+{"id": "e369", "kind": "act", "lesson": "d21-k0", "tool": "move", "args": ["fennel19.log", "inbox/fennel19.log"], "ok": true, "error": ""}
+{"id": "e370", "kind": "act", "lesson": "d21-k0", "tool": "move", "args": ["marigold20.log", "inbox/marigold20.log"], "ok": true, "error": ""}
+{"id": "e371", "kind": "act", "lesson": "d21-k0", "tool": "move", "args": ["quill21.log", "inbox/quill21.log"], "ok": true, "error": ""}
+{"id": "e372", "kind": "act", "lesson": "d21-k0", "tool": "move", "args": ["umber21.log", "inbox/umber21.log"], "ok": true, "error": ""}
+{"id": "e373", "kind": "say", "task": "d21-k1", "symbols": ["rado", "tasu"]}
+{"id": "e374", "kind": "act", "lesson": "d21-k1", "tool": "move", "args": ["amber21.md", "inbox/amber21.md"], "ok": true, "error": ""}
+{"id": "e375", "kind": "act", "lesson": "d21-k1", "tool": "move", "args": ["thistle21.md", "inbox/thistle21.md"], "ok": true, "error": ""}
+{"id": "e376", "kind": "say", "task": "d21-k2", "symbols": ["bobu", "zago"]}
+{"id": "e377", "kind": "act", "lesson": "d21-k2", "tool": "replicate", "args": ["archive/lilac21.csv", "lilac21.csv"], "ok": true, "error": ""}
+{"id": "e378", "kind": "act", "lesson": "d21-k2", "tool": "replicate", "args": ["archive/saffron21.csv", "saffron21.csv"], "ok": true, "error": ""}
+{"id": "e379", "kind": "say", "task": "d22-k0", "symbols": ["gad", "gedo"]}
+{"id": "e380", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["garnet18.txt", "attic/garnet18.txt"], "ok": true, "error": ""}
+{"id": "e381", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["garnet21.txt", "attic/garnet21.txt"], "ok": true, "error": ""}
+{"id": "e382", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["kestrel22.txt", "attic/kestrel22.txt"], "ok": true, "error": ""}
+{"id": "e383", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["nutmeg18.txt", "attic/nutmeg18.txt"], "ok": true, "error": ""}
+{"id": "e384", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["olive19.txt", "attic/olive19.txt"], "ok": true, "error": ""}
+{"id": "e385", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["saffron20.txt", "attic/saffron20.txt"], "ok": true, "error": ""}
+{"id": "e386", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["violet19.txt", "attic/violet19.txt"], "ok": true, "error": ""}
+{"id": "e387", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["violet20.txt", "attic/violet20.txt"], "ok": true, "error": ""}
+{"id": "e388", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["walnut22.txt", "attic/walnut22.txt"], "ok": true, "error": ""}
+{"id": "e389", "kind": "act", "lesson": "d22-k0", "tool": "move", "args": ["yarrow21.txt", "attic/yarrow21.txt"], "ok": true, "error": ""}
+{"id": "e390", "kind": "say", "task": "d22-k1", "symbols": ["gop", "damu"]}
+{"id": "e391", "kind": "act", "lesson": "d22-k1", "tool": "replicate", "args": ["inbox/ember22.json", "ember22.json"], "ok": true, "error": ""}
+{"id": "e392", "kind": "act", "lesson": "d22-k1", "tool": "replicate", "args": ["inbox/poppy21.json", "poppy21.json"], "ok": true, "error": ""}
+{"id": "e393", "kind": "act", "lesson": "d22-k1", "tool": "replicate", "args": ["inbox/violet22.json", "violet22.json"], "ok": true, "error": ""}
+{"id": "e394", "kind": "act", "lesson": "d22-k1", "tool": "replicate", "args": ["inbox/walnut21.json", "walnut21.json"], "ok": true, "error": ""}
+{"id": "e395", "kind": "say", "task": "d22-k2", "symbols": ["gop", "tasu"]}
+{"id": "e396", "kind": "say", "task": "d23-k0", "symbols": ["bobu", "pupi"]}
+{"id": "e397", "kind": "act", "lesson": "d23-k0", "tool": "replicate", "args": ["archive/birch22.log", "birch22.log"], "ok": true, "error": ""}
+{"id": "e398", "kind": "act", "lesson": "d23-k0", "tool": "replicate", "args": ["archive/birch23.log", "birch23.log"], "ok": true, "error": ""}
+{"id": "e399", "kind": "act", "lesson": "d23-k0", "tool": "replicate", "args": ["archive/nutmeg22.log", "nutmeg22.log"], "ok": true, "error": ""}
+{"id": "e400", "kind": "act", "lesson": "d23-k0", "tool": "replicate", "args": ["archive/russet23.log", "russet23.log"], "ok": true, "error": ""}
+{"id": "e401", "kind": "say", "task": "d23-k1", "symbols": ["gedo", "gad"]}
+{"id": "e402", "kind": "act", "lesson": "d23-k1", "tool": "move", "args": ["marigold23.txt", "attic/marigold23.txt"], "ok": true, "error": ""}
+{"id": "e403", "kind": "act", "lesson": "d23-k1", "tool": "move", "args": ["poppy23.txt", "attic/poppy23.txt"], "ok": true, "error": ""}
+{"id": "e404", "kind": "say", "task": "d23-k2", "symbols": ["tasu", "rado"]}
+{"id": "e405", "kind": "act", "lesson": "d23-k2", "tool": "move", "args": ["cobalt22.md", "inbox/cobalt22.md"], "ok": true, "error": ""}
+{"id": "e406", "kind": "act", "lesson": "d23-k2", "tool": "move", "args": ["fennel23.md", "inbox/fennel23.md"], "ok": true, "error": ""}
+{"id": "e407", "kind": "act", "lesson": "d23-k2", "tool": "move", "args": ["quill22.md", "inbox/quill22.md"], "ok": true, "error": ""}
+{"id": "e408", "kind": "act", "lesson": "d23-k2", "tool": "move", "args": ["quill23.md", "inbox/quill23.md"], "ok": true, "error": ""}
+{"id": "e409", "kind": "say", "task": "d24-k0", "symbols": ["bobu", "gad"]}
+{"id": "e410", "kind": "act", "lesson": "d24-k0", "tool": "replicate", "args": ["archive/quill24.txt", "quill24.txt"], "ok": true, "error": ""}
+{"id": "e411", "kind": "act", "lesson": "d24-k0", "tool": "replicate", "args": ["archive/russet24.txt", "russet24.txt"], "ok": true, "error": ""}
+{"id": "e412", "kind": "say", "task": "d24-k1", "symbols": ["damu", "pupi"]}
+{"id": "e413", "kind": "act", "lesson": "d24-k1", "tool": "replicate", "args": ["inbox/birch22.log", "birch22.log"], "ok": true, "error": ""}
+{"id": "e414", "kind": "act", "lesson": "d24-k1", "tool": "replicate", "args": ["inbox/birch23.log", "birch23.log"], "ok": true, "error": ""}
+{"id": "e415", "kind": "act", "lesson": "d24-k1", "tool": "replicate", "args": ["inbox/kestrel24.log", "kestrel24.log"], "ok": true, "error": ""}
+{"id": "e416", "kind": "act", "lesson": "d24-k1", "tool": "replicate", "args": ["inbox/lilac24.log", "lilac24.log"], "ok": true, "error": ""}
+{"id": "e417", "kind": "act", "lesson": "d24-k1", "tool": "replicate", "args": ["inbox/nutmeg22.log", "nutmeg22.log"], "ok": true, "error": ""}
+{"id": "e418", "kind": "act", "lesson": "d24-k1", "tool": "replicate", "args": ["inbox/russet23.log", "russet23.log"], "ok": true, "error": ""}
+{"id": "e419", "kind": "say", "task": "d24-k2", "symbols": ["damu", "rado"]}
+{"id": "e420", "kind": "act", "lesson": "d24-k2", "tool": "replicate", "args": ["inbox/olive24.md", "olive24.md"], "ok": true, "error": ""}
+{"id": "e421", "kind": "act", "lesson": "d24-k2", "tool": "replicate", "args": ["inbox/yarrow24.md", "yarrow24.md"], "ok": true, "error": ""}

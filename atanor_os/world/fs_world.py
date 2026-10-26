@@ -123,6 +123,10 @@ class Workspace:
                 target.write_bytes(b'placeholder' + bytes([10]))
         return lab
 
+    def compose(self, container, obj):
+        """The id an object would have inside a container (the body's own naming; offered to learners as composition)."""
+        return f"{container}/{obj.rsplit('/', 1)[-1]}"
+
     def existing(self):
         out = []
         for dirpath, dirs, files in os.walk(self.root):

@@ -37,8 +37,13 @@ class BoardSpec:
         return (t, (o,))
 
     @staticmethod
-    def shows(act, a):
-        """Does an object (human attributes, or None if gone) show the action's result?"""
+    def member(o, a, sel):
+        return a is not None and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def shows(act, o, state):
+        """Does the object show the action's result on this state?"""
+        a = state.get(o)
         t, s = act['tool'], act.get('second')
         if t == 'scrap':
             return a is None or a['kind'] == 'absent'
@@ -55,6 +60,72 @@ class BoardSpec:
         return False
 
 
+BoardSpec.may_change = staticmethod(lambda act, o, truth: False)
+
+
+class FsSpec:
+    """The file body: the objects meant are top-level files; copy and move put them into an existing folder."""
+    BODY = 'fs'
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and '/' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, d = act['tool'], act.get('second')
+        if t == 'copy':
+            return ('replicate', (f'{d}/{o}', o)) if 'copy_retired' in drift else ('copy', (o, f'{d}/{o}'))
+        if t == 'move':
+            return ('shove', (f'{d}/{o}', o)) if 'move_retired' in drift else ('move', (o, f'{d}/{o}'))
+        return ('zap', (o,)) if 'delete_retired' in drift else ('delete', (o,))
+
+    @staticmethod
+    def shows(act, o, state):
+        t, d = act['tool'], act.get('second')
+        a, c = state.get(o), state.get(f'{d}/{o}') if d else None
+        gone = a is None or a['kind'] == 'absent'
+        made = c is not None and c['kind'] == 'file'
+        return gone if t == 'delete' else (made and not gone if t == 'copy' else made and gone)
+
+    @staticmethod
+    def may_change(act, o, truth):
+        """The folder's new children and the folder itself may change."""
+        d = act.get('second')
+        return bool(d) and (o == d or o.startswith(d + '/'))
+
+
+class ViewSpec:
+    """The screen body: the objects meant are panels; tools set a panel's filter, sort or group, or close it."""
+    BODY = 'view'
+    ATTR = {'filter': 'filter', 'sort': 'sort', 'group': 'group'}
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and ':' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, v = act['tool'], act.get('second')
+        if t == 'filter' and 'filter_retired' in drift:
+            return ('sift', (v, o))
+        if t == 'sort' and 'sort_retired' in drift:
+            return ('rank', (v, o))
+        return (t, (o, v)) if v else (t, (o,))
+
+    @staticmethod
+    def shows(act, o, state):
+        a = state.get(o)
+        t, v = act['tool'], act.get('second')
+        if t == 'close':
+            return a is None or a['kind'] == 'absent'
+        return a is not None and a['kind'] == 'panel' and a[ViewSpec.ATTR[t]] == v.split(':', 1)[1]
+
+    @staticmethod
+    def may_change(act, o, truth):
+        return False
+
+
 class Tutor:
     def __init__(self, home, spec, seed):
         self.home, self.spec = home, spec
@@ -65,13 +136,13 @@ class Tutor:
     def _state(self):
         return self.home.observe(self.home.existing())
 
-    def matches(self, a):
-        return a is not None and all(a.get(k) == v for k, v in self.sel.items())
+    def matches(self, o, a):
+        return self.spec.member(o, a, self.sel)
 
     def start(self, sel, act=None):
         self.sel, self.act = sel, act
         self.before = self._state()
-        self.truth = sorted(o for o, a in self.before.items() if self.matches(a))
+        self.truth = sorted(o for o, a in self.before.items() if self.matches(o, a))
         self.pointed = set()
 
     # --- the non-verbal events
@@ -89,7 +160,7 @@ class Tutor:
     def demo(self):
         self.help['demo'] += 1
         st = self._state()
-        todo = [o for o in self.truth if not self.spec.shows(self.act, st.get(o))]
+        todo = [o for o in self.truth if not self.spec.shows(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
         self.home.execute(tool, args, {c: True for c in set(getattr(self.home, 'CAPABILITY', {}).values())})
@@ -101,9 +172,9 @@ class Tutor:
         for o, a in self.before.items():
             cur = now.get(o)
             if o in self.truth:
-                if not self.spec.shows(self.act, cur):
+                if not self.spec.shows(self.act, o, now):
                     return False
-            elif cur != a and not (cur is None and a['kind'] == 'absent'):
+            elif cur != a and not (cur is None and a['kind'] == 'absent') and not self.spec.may_change(self.act, o, self.truth):
                 return False
         return True
 

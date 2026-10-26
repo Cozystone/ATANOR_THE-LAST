@@ -39,7 +39,7 @@ class Grounder:
     def feats(self):
         objs = self.home.existing()
         st = self.home.observe(objs)
-        return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] == 'U') for o in objs}
+        return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
 
     @staticmethod
     def extension(cond, feats):
@@ -104,9 +104,8 @@ class Grounder:
         crit, evs = self.settle(set(pts), set(), feats, lesson=lesson)
         if crit is None:
             return None
-        same = [c for c in self.mem.claims.claims('selects') if c['content']['atoms'] == crit['atoms']]
-        if same:                                             # the same concept again: more evidence, not a new node
-            return self.mem.claims.revise(same[0]['id'], support=[ev] + evs, status='active')
+        # two lessons whose evidence could not be told apart are still two concepts (the person may name them apart);
+        # a symbol taught again replaces its earlier link (bind(replace=True)), so no node is reused here
         cid = f'k{len(self.mem.claims.claims(usable=False))}'
         claim = self.mem.claims.add('selects', {'concept': cid, **crit, 'lesson': lesson}, [ev] + evs, 'inferred', self.scope)
         g = self.mem.graph
@@ -125,16 +124,17 @@ class Grounder:
         self.counts['demo'] += 1
         fa = self.feats()
         x = demo['object']
-        template = ['X' if a == x else ['K', a] for a in demo['args']]
+        template = [self._role(a, x, fb) for a in demo['args']]
         gained = sorted(fa[x] - fb.get(x, frozenset())) if x in fa else ["('gone',)"]
         lost = sorted(fb.get(x, frozenset()) - fa.get(x, frozenset()))
-        ev = self.mem.events.append('demo', lesson=lesson, tool=demo['tool'], args=demo['args'], object=x, gained=gained, lost=lost)
+        made = sorted({a for r in template if isinstance(r, list) and r[0] == 'C' for a in fa.get(self.home.compose(r[1], x), ())})
+        ev = self.mem.events.append('demo', lesson=lesson, tool=demo['tool'], args=demo['args'], object=x, gained=gained, lost=lost, made=made)
         same = [c for c in self.mem.claims.claims('effect') if c['content']['tool'] == demo['tool']
                 and c['content']['template'] == template and c['content']['gained'] == gained]
         if same:
             return self.mem.claims.revise(same[0]['id'], support=[ev], status='active')
         aid = f'a{len(self.mem.claims.claims(usable=False))}'
-        content = {'action': aid, 'tool': demo['tool'], 'template': template, 'gained': gained, 'lost': lost, 'lesson': lesson}
+        content = {'action': aid, 'tool': demo['tool'], 'template': template, 'gained': gained, 'lost': lost, 'made': made, 'lesson': lesson}
         claim = self.mem.claims.add('effect', content, [ev], 'observed', self.scope)
         g = self.mem.graph
         g.node(aid, 'action')
@@ -142,10 +142,30 @@ class Grounder:
         g.save()
         return claim
 
+    def _role(self, a, x, feats):
+        """An argument of a demonstrated call, as a role: the object acted on, an object the world composes from a
+        container and it (when the body offers composition), or a constant object."""
+        if a == x:
+            return 'X'
+        compose = getattr(self.home, 'compose', None)
+        if compose:
+            for k in feats:
+                if k != x and compose(k, x) == a:
+                    return ['C', k]
+        return ['K', a]
+
+    def _arg(self, r, o):
+        return o if r == 'X' else (self.home.compose(r[1], o) if r[0] == 'C' else r[1])
+
     def _done(self, effect, f_before, f_now, o):
         """The object already shows what the action produces."""
+        made = [r for r in effect['template'] if isinstance(r, list) and r[0] == 'C']
+        if made and not all(self._arg(r, o) in f_now for r in made):
+            return False
         if any(a == "('gone',)" for a in effect['gained']):
             return o not in f_now
+        if made:
+            return True
         gained = {a for a in effect['gained'] if a != "('gone',)"}
         return o in f_now and gained <= f_now[o]
 
@@ -166,7 +186,7 @@ class Grounder:
         for o in ext:
             if self._done(effect, feats, feats, o):
                 continue
-            args = tuple(o if a == 'X' else a[1] for a in effect['template'])
+            args = tuple(self._arg(a, o) for a in effect['template'])
             if len(set(args)) != len(args):
                 continue
             try:
@@ -295,8 +315,7 @@ class Grounder:
         sels, acts = [sel_d], [act_d]
         sel, act = sels[0]['claim']['content'], acts[0]['claim']['content']
         feats = self.feats()
-        rewritten = self._rewritten(act)
-        alts = [a for a in sel.get('alternatives', []) if not any(self._attr(x) in rewritten for x in a)]
+        alts = sel.get('alternatives', [])
         todo = lambda cond: [o for o in self.extension(cond, feats) if not self._done(act, feats, feats, o)]
         ext = self.extension(sel['atoms'], feats)
         disagree = any(todo(a) != todo(sel['atoms']) for a in alts)   # only objects still to act on matter
