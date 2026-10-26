@@ -203,7 +203,7 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
     sym_act = {j: sym[20 + j] for j in range(len(acts))}
     tut = Tutor(home, BoardSpec, f'{seed}-{day_no}')
     mode = {'FULL': 'FULL', 'ONTO': 'ONTO', 'RAW': 'RAW', 'NONE': 'FULL', 'PASSIVE': 'FULL'}[cond]
-    g = Grounder(home, root / 'mind', person=tut if day['user'] else None, mode=mode, passive=cond == 'PASSIVE')
+    g = Grounder(home, root / 'mind', person=tut if day['user'] else None, mode=mode, passive=cond == 'PASSIVE', caps={c: True for c in set(getattr(home, 'CAPABILITY', {}).values())})
     rng = random.Random(f'tutor-choice-{seed}-{day_no}')
     rows = []
 

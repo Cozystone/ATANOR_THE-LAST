@@ -164,8 +164,8 @@ class DeskSpec:
 
     @staticmethod
     def possible(act, o, state):
-        """A person does not expect a locked message to move or be read, a blocked task to be done or moved, or a
-        failed draft to be sent again here."""
+        """A person does not expect a locked message to move or be read, a blocked task to be done, or a failed draft
+        to be sent again here (the world's own rules: a blocked task can still be filed)."""
         a = state.get(o) or {}
         t = act['tool']
         fits = {'read': ('message',), 'send': ('draft',), 'complete': ('task',), 'pin': ('note',), 'file': ('message', 'note', 'task')}
@@ -173,7 +173,7 @@ class DeskSpec:
             return False                                   # a person does not ask to read a task or send a note
         if a.get('status') == 'locked' and t in ('file', 'read'):
             return False
-        if a.get('status') == 'blocked' and t in ('complete', 'file'):
+        if a.get('status') == 'blocked' and t == 'complete':
             return False
         return not (t == 'send' and a.get('status') == 'failed')
 
@@ -191,6 +191,10 @@ class Tutor:
 
     def _state(self):
         return self.home.observe(self.home.existing())
+
+    def grants(self):
+        """The capabilities this person gives with a command: all the body lists."""
+        return {c: True for c in set(getattr(self.home, 'CAPABILITY', {}).values())}
 
     def matches(self, o, a):
         return self.spec.member(o, a, self.sel)
@@ -219,7 +223,7 @@ class Tutor:
         todo = [o for o in self.truth if not self.spec.shows(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
-        self.home.execute(tool, args, {c: True for c in set(getattr(self.home, 'CAPABILITY', {}).values())})
+        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY == 'desk' else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
     def judge(self):

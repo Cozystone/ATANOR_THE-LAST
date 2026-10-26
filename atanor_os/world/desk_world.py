@@ -11,6 +11,7 @@ same five attributes: kind, place, status, tag, value. Tool preconditions are en
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import random
 import shutil
@@ -62,7 +63,7 @@ class DeskWorkspace:
             spec['items'][iid] = {'kind': k, 'place': it.get('place', HOME[k]), 'status': status, 'tag': it.get('tag', 'none'),
                                   'locked': False, 'blocked': False}
         self._write(spec)
-        self._log(event='arrive', items=sorted(items))
+        self._log(event='arrive', actor='outside', items={iid: spec['items'][iid] for iid in sorted(items)}, after=self.fingerprint())
 
     def tick(self):
         """Time passes: queued drafts are sent (or fail), some sent drafts bring a reply, and the outside world locks or
@@ -87,7 +88,7 @@ class DeskWorkspace:
                 it['blocked'] = not it['blocked']
                 changes.append((iid, 'blocked' if it['blocked'] else 'unblocked'))
         self._write(spec)
-        self._log(event='tick', tick=spec['tick'], changes=changes)
+        self._log(event='tick', actor='outside', tick=spec['tick'], changes=changes, after=self.fingerprint())
         return changes
 
     # ------------------------------------------------------------ observation
@@ -143,20 +144,27 @@ class DeskWorkspace:
         return out
 
     # ------------------------------------------------------------ action
-    def execute(self, tool, args, capabilities):
+    def fingerprint(self):
+        """A short hash of the whole state (for the log: which state an action met and left)."""
+        return hashlib.sha256(self.path.read_bytes()).hexdigest()[:12]
+
+    def execute(self, tool, args, capabilities, actor='learner'):
+        """actor is for the log only: 'learner' (default), 'teacher', 'person', 'evaluator'."""
         t0 = time.perf_counter()
         tools = self.tools()
+        before = self.fingerprint()
         if tool not in tools or len(args) != tools[tool] or len(set(args)) != len(args):
+            self._log(event='invalid', actor=actor, tool=tool, args=list(args), before=before)
             raise ValueError('invalid action')
         cap = CAPABILITY.get(tool)
         if cap and not capabilities.get(cap):
-            self._log(event='act', tool=tool, args=list(args), ok=False, error='blocked')
+            self._log(event='act', actor=actor, tool=tool, args=list(args), ok=False, error='blocked', before=before, after=before)
             return {'ok': False, 'blocked': True, 'error': f'capability {cap} not granted', 'ms': 0.0}
         spec = self._read()
         ok = getattr(self, '_tool_' + tool)(spec, *args)
         if ok:
             self._write(spec)
-        self._log(event='act', tool=tool, args=list(args), ok=bool(ok))
+        self._log(event='act', actor=actor, tool=tool, args=list(args), ok=bool(ok), before=before, after=self.fingerprint())
         return {'ok': bool(ok), 'blocked': False, 'error': '' if ok else 'precondition', 'ms': (time.perf_counter() - t0) * 1000}
 
     @staticmethod

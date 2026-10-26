@@ -27,7 +27,7 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True):
+                 experiment=True, transfer=True, caps=None):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
@@ -38,7 +38,8 @@ class Grounder:
         self.dir = Path(mind_dir)
         self.mem = Memory(self.dir, events_readable=mode in ('FULL', 'RAW'), persist_claims=mode in ('FULL', 'ONTO'),
                           stamp={'body': self.body, 'core': core, 'source': source})
-        self.caps = {c: True for c in set(getattr(home, 'CAPABILITY', {}).values())}
+        # capabilities are given by whoever gives the command (a person, the evaluator), never taken from the body's list
+        self.caps = dict(caps) if caps is not None else dict(getattr(person, 'grants', lambda: {})())
         self.counts = Counter()
         self.scope = {'body': self.body, 'core': core, 'source': source}
 
@@ -226,7 +227,7 @@ class Grounder:
         if made:
             return True
         gained = {a for a in effect['gained'] if a != "('gone',)"}
-        return o in f_now and gained <= f_now[o]
+        return o in f_now and (gained <= f_now[o] or any(a in f_now[o] for a in effect.get('later', ())))
 
     @staticmethod
     def _attr(atom_repr):
@@ -239,6 +240,7 @@ class Grounder:
 
     def apply(self, sel, effect, lesson=None):
         """Do the action on every object the concept picks that does not show its effect yet."""
+        self.refused = []
         feats = self.feats()
         ext = self.extension(sel['atoms'], feats)
         acted, failed = [], []
@@ -253,6 +255,9 @@ class Grounder:
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'))
+            if res.get('blocked'):                         # not permitted: says nothing about what the tool does
+                self.refused.append(o)
+                continue
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
         return acted, failed
@@ -658,6 +663,10 @@ class Grounder:
         if any((d.get('claim') or {}).get('status') == 'needs_recheck' for d in (sel_d, act_d)):
             self.counts['held_recheck'] += 1                   # contradicted by the person: to be taught again first
             return {'ok': False, 'why': 'needs recheck', 'event': ev, 'used': [sel_d['via'], act_d['via']]}
+        if acts[0]['claim'].get('id'):
+            later = self._later_outcomes(acts[0]['claim'])
+            if later:
+                acts[0] = {**acts[0], 'claim': later}
         sel, act = sels[0]['claim']['content'], acts[0]['claim']['content']
         feats = self.feats()
         alts = sel.get('alternatives', [])
@@ -682,8 +691,42 @@ class Grounder:
             if found:                                                     # another way does it: carry on with that
                 more, failed = self.apply(sel, found['content'], lesson=task)
                 acted += more
-        return {'ok': not failed, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed], 'selection': ext,
+        if self.refused:
+            self.counts['refused'] += len(self.refused)
+        return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
+                'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
+
+    def _later_outcomes(self, claim):
+        """DESK_EVAL2_PROTOCOL.md: an action's effect may come in two steps. Objects this action changed earlier, that
+        nothing done here touched since, and whose changed attribute now holds a value neither before nor right after
+        the action: the action led there later, by itself. Those values are kept as the action's later outcomes, so a
+        later command does not do the same thing again to an object already on its way."""
+        eff = claim['content']
+        if 'X' not in eff['template']:
+            return None
+        xi, attrs = eff['template'].index('X'), self._rewritten(eff)
+        if not attrs:
+            return None
+        seen, touched = {}, set()
+        for e in reversed(self.mem.events.all()):
+            if e.get('kind') in ('act', 'demo') and e.get('body') == self.body:
+                args = e.get('args') or []
+                objs = set(args) | ({e['object']} if e.get('object') else set())
+                if (e.get('kind') == 'act' and e.get('ok') and e.get('tool') == eff['tool'] and len(args) == len(eff['template'])
+                        and args[xi] not in touched and args[xi] not in seen):
+                    seen[args[xi]] = e
+                touched |= objs
+        if not seen:
+            return None
+        feats = self.feats()
+        known = set(eff['gained']) | set(eff['lost']) | set(eff.get('later', ()))
+        new = sorted({a for o in seen if o in feats for a in feats[o] if self._attr(a) in attrs and a not in known})
+        if not new:
+            return None
+        self.counts['later_outcomes'] += len(new)
+        later = sorted((known - set(eff['gained']) - set(eff['lost'])) | set(new))
+        return self.mem.claims.revise(claim['id'], content={**eff, 'later': later}, status=claim['status'], origin='observed')
 
     def _resettle(self, sel_hit, feats, task):
         """With the person: ask contrast questions now to choose between criteria that disagree on the present objects."""

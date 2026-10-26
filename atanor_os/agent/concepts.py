@@ -21,7 +21,12 @@ import json
 import math
 from collections import Counter, defaultdict
 
-from ..world.raw_obs import IDENTITY, neighbours, raw_attrs, recompute_derived, to_human
+from ..world.raw_obs import IDENTITY, KIND_ATTRS, neighbours, raw_attrs, recompute_derived, to_human
+
+
+def _kinds(body):
+    """The raw attributes that make up an argument's kind, as the adapter declares them (provided)."""
+    return KIND_ATTRS.get(body, ('a0',))
 
 FAMILIES_ALL = ('U', 'E', 'S', 'N')
 FAMILIES_FLAT = ('U', 'E')
@@ -89,7 +94,9 @@ def _type_key(body, state, args):
             key.append(None)
             continue
         r = raw_attrs(body, state[a])
-        key.append((_hashable(r['a0']), bool(neighbours(body, state, a))))   # first anonymous attribute + related object present
+        ks = _kinds(body)
+        kind = _hashable(r[ks[0]]) if len(ks) == 1 else tuple(_hashable(r[k]) for k in ks)
+        key.append((kind, bool(neighbours(body, state, a))))   # the declared kind attributes + related object present
     return tuple(key)
 
 
@@ -156,7 +163,7 @@ def induce(body, exps, families=FAMILIES_ALL, concepts=None, extra_fails=None, a
             pre = set(frozenset.intersection(*(at(e) for e in g)))
             unexplained = [s for s, w in fails if pre <= s]
             rest = [(s, w) for s, w in fails if not pre <= s]
-            for a in sorted(pre, key=lambda a: (a[0] == 'U' and a[2] == 'a0', repr(a))):   # the type-like atom last
+            for a in sorted(pre, key=lambda a: (a[0] == 'U' and a[2] in _kinds(body), repr(a))):   # the kind atoms last
                 if not any((pre - {a}) <= s for s, w in rest):
                     pre.discard(a)
             ev = {repr(a): sum(w for s, w in rest if (pre - {a}) <= s and a not in s) for a in pre}
@@ -458,8 +465,8 @@ def revise_b(rep, new_exps, budget=None, verifier=None):
                 continue                                     # no conflict: the stored evidence stands
             d = {'tool': tool, 'atom': list(it['atom']), 'evidence': it['w'], 'conflicting_successes': len(hits)}
             # re-verification re-creates the conflicting situation: the stored conjunction minus the condition,
-            # with the argument types (first raw attribute) the new success had
-            like = frozenset(a for a in hits[0] if a[0] == 'U' and a[2] == 'a0')
+            # with the argument kinds (the declared kind attributes) the new success had
+            like = frozenset(a for a in hits[0] if a[0] == 'U' and a[2] in _kinds(rep.body))
             outcome = verifier(rep.body, tool, it['set'] | like, it['atom'], concepts) if verifier else None
             if outcome is True:
                 d['decision'], d['why'] = 'revise', 're-verified: the action succeeds now without this condition'
@@ -484,14 +491,14 @@ def revise_b(rep, new_exps, budget=None, verifier=None):
     kept_old = dropped_old = 0
     for tool in sorted(set(rep.rules) | set(new_rules)):
         new_g = new_rules.get(tool, [])
-        new_keys = {_key_of(g) for g in new_g}
+        new_keys = {_key_of(g, _kinds(rep.body)) for g in new_g}
         old = []
         for g in rep.rules.get(tool, []):
             pre = frozenset(map(tuple, g['pre']))
             if any(pre <= s for s in new_fail_atoms.get(tool, [])) or any((tool, gi, a) in retired for gi, gg in enumerate(rep.rules[tool]) if gg is g for a in pre):
                 dropped_old += 1                             # contradicted by a new failure, or relies on retired evidence
                 continue
-            if _key_of(g) in new_keys:
+            if _key_of(g, _kinds(rep.body)) in new_keys:
                 continue
             old.append(g)
             kept_old += 1
@@ -515,8 +522,8 @@ def revise_b(rep, new_exps, budget=None, verifier=None):
     return out, change
 
 
-def _key_of(g):
-    return tuple(sorted(repr(tuple(a)) for a in g['pre'] if tuple(a)[0] == 'U' and tuple(a)[2] == 'a0'))
+def _key_of(g, kinds=('a0',)):
+    return tuple(sorted(repr(tuple(a)) for a in g['pre'] if tuple(a)[0] == 'U' and tuple(a)[2] in kinds))
 
 
 def _expand_ev(g, concepts):

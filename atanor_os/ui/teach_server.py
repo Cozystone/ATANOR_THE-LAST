@@ -25,7 +25,7 @@ from collections import Counter
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from ..agent.grounding import Grounder
+from ..agent.learners import make as make_learner
 from ..agent.memory import ClaimLedger, Memory
 from ..world.board_world import LEVELS, MARKS, TRAYS, BoardWorkspace
 
@@ -79,7 +79,8 @@ class HumanPerson:
             d = self.ask('demo', error=err)
             args = tuple(a for a in d['args'] if a)
             try:
-                res = self.home.execute(d['tool'], args, {c: True for c in set(self.home.CAPABILITY.values())})
+                res = self.home.execute(d['tool'], args, {c: True for c in set(self.home.CAPABILITY.values())},
+                                        **({'actor': 'person'} if getattr(self.home, 'BODY', '') == 'desk' else {}))
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             if res['ok']:
@@ -172,8 +173,14 @@ class Session:
         self.messages.append({'at': time.strftime('%H:%M:%S'), 'text': text})
         self.messages = self.messages[-40:]
 
+    @property
+    def grants(self):
+        """The session's capabilities: given by the one who gives the commands (here, all the body lists)."""
+        return {c: True for c in set(getattr(self.home, 'CAPABILITY', {}).values())}
+
     def grounder(self, with_person=True):
-        return Grounder(self.home, self.mind, person=self.person if with_person else None, source=self.source, transfer=self.transfer)
+        return make_learner(self.home, self.mind, person=self.person if with_person else None, source=self.source, transfer=self.transfer,
+                        caps=self.grants)   # the one giving the commands grants the body's capabilities
 
     def new_session(self):
         """A new day: new cards arrive (some already in trays); what was taught stays only in ATANOR's memory."""

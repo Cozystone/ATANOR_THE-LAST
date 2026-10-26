@@ -65,7 +65,7 @@ def synonyms(course, eval_seed, subs, out_file):
         t.start(sels[pair[0]], acts[pair[1]])
         if not todo(spec, h, t, acts[pair[1]]):
             return None
-        res = Grounder(h, mind, person=None, source='evaluator').obey(words)
+        res = Grounder(h, mind, person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey(words)
         ok = t.judge()
         return {'outcome': 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else
                                                                     ('missed' if res.get('ok') else 'held')),
@@ -98,7 +98,7 @@ def synonyms(course, eval_seed, subs, out_file):
             h = world(work / 'b', eval_seed, drift, 'desk')
             tut = Tutor(h, spec, f'eval-{eval_seed}-syn-teach')
             tut.start(sels[first[0]], acts[first[1]])
-            g = Grounder(h, mind, person=tut, source='evaluator')
+            g = Grounder(h, mind, person=tut, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())})
             if part == 'act':
                 ac = g.learn_action(f'S-{w}')
                 if ac:

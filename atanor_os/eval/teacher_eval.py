@@ -56,7 +56,7 @@ def world(root, eval_seed, drift, body='board'):
 
 
 def evaluate(course, eval_seed, out_file, sealed=None):
-    from ..agent.grounding import Grounder
+    from ..agent.learners import make as Grounder         # the current learner, or the frozen copy (ATANOR_LEARNER)
     course, out_file = Path(course), Path(out_file)
     names = json.loads((course / 'names.json').read_text(encoding='utf-8'))
     body = names.get('body', 'board')
@@ -102,7 +102,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 shutil.copytree(mind_dir, work / 'm')
                 t = Tutor(h, spec, f'eval-{eval_seed}')
                 t.start(sels[s], acts[a])
-                res = Grounder(h, work / 'm', person=None, source='evaluator').obey(words)
+                res = Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey(words)
                 ok = t.judge()
                 rows.append({'sel': s, 'act': a, 'kind': kind, 'why': res.get('why'),
                              'outcome': 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else
@@ -123,7 +123,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
             seq = []
             for _ in range(2):                             # the same mind twice: does the failure change what it does next?
                 t.start(sels[s], acts[a])
-                res = Grounder(h, work / 'm', person=None, source='evaluator').obey([names['act'][str(a)], names['sel'][str(s)]])
+                res = Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey([names['act'][str(a)], names['sel'][str(s)]])
                 ok = t.judge()
                 seq.append('success' if ok and res.get('ok') else ('tool_failed' if res.get('failed') else
                                                                    ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why'))))))
@@ -160,12 +160,12 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 shutil.copytree(mind_dir, work / 'm')
                 words = [names['act'][str(a)], names['sel'][str(s)]]
                 truth = list(t.truth)
-                Grounder(h, work / 'm', person=None, source='evaluator').obey(words)
+                Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey(words)
                 h.tick()
                 st = h.observe(h.existing())
                 carried = all((st.get(o) or {}).get('status') in ('queued', 'sent', 'failed') for o in truth)
                 n0 = sum(1 for _ in open(h.root / 'world_log.jsonl', encoding='utf-8'))
-                Grounder(h, work / 'm', person=None, source='evaluator').obey(words)       # the same command again
+                Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey(words)       # the same command again
                 again = [json.loads(l) for l in open(h.root / 'world_log.jsonl', encoding='utf-8')][n0:]
                 resend = sum(1 for r in again if r.get('event') == 'act' and r.get('tool') == 'send' and r['args'][0] in truth)
                 delayed.append({'sel': s, 'act': a, 'carried_out': carried, 'resend_attempts': resend})
@@ -184,7 +184,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 t.start(sels[s], acts[a])
                 if not todo(spec, h, t, acts[a]):
                     continue
-                res = Grounder(h, work / 'm', person=None, source='evaluator').obey([names['act'][str(a)], names['sel'][str(s)]])
+                res = Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey([names['act'][str(a)], names['sel'][str(s)]])
                 ok = t.judge()
                 double.append({'sel': s, 'act': a, 'tool': acts[a]['tool'], 'outcome': 'success' if ok and res.get('ok') else
                                ('tool_failed' if res.get('failed') else ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why')))))})

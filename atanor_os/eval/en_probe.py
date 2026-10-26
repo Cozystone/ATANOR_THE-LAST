@@ -70,7 +70,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
 
     home = world(work / 'board', seed, drift, body)          # naming session, the person present
     tut = Tutor(home, spec, f'{seed}-en-probe')
-    g = Grounder(home, work / 'mind', person=tut)
+    g = Grounder(home, work / 'mind', person=tut, caps={c: True for c in set(getattr(home, 'CAPABILITY', {}).values())})
     named_s, named_a, naming, node_s, node_a = set(), set(), [], {}, {}
     for s, a in sorted(taught):
         if s in named_s and a in named_a:
@@ -112,7 +112,7 @@ def run(life_dir, seed, out_file, forms=None, body='board', keep=False):
                     shutil.copytree(work / 'mind', work / 'cmd_mind')
                     t = Tutor(h, spec, f'{seed}-en-cmd')
                     t.start(sels[s], acts[a])
-                    gr = Grounder(h, work / 'cmd_mind', person=None, structure=st)
+                    gr = Grounder(h, work / 'cmd_mind', person=None, structure=st, caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())})
                     sd, ad, _ = gr.resolve(words)       # the reading, recorded apart from what was then done
                     res = gr.obey(words)
                     ok = t.judge()
@@ -165,7 +165,7 @@ def run_synonyms(life_dir, seed, out_file, subs=None, body='board'):
         h = world(work / 'syn_board', seed, drift, body)
         t = Tutor(h, spec, f'{seed}-syn')
         t.start(sels[pair[0]], acts[pair[1]])
-        res = Grounder(h, mind, person=None).obey(words)
+        res = Grounder(h, mind, person=None, caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey(words)
         ok = t.judge()
         return 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else 'held')
 
@@ -189,7 +189,7 @@ def run_synonyms(life_dir, seed, out_file, subs=None, body='board'):
             h = world(work / 'syn_board', seed, drift, body)
             tut = Tutor(h, spec, f'{seed}-syn-teach')
             tut.start(sels[first[0]], acts[first[1]])
-            g = Grounder(h, mind, person=tut)
+            g = Grounder(h, mind, person=tut, caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())})
             new = cmd(first)
             if part == 'act':
                 ac = g.learn_action(f'S-{w}')
