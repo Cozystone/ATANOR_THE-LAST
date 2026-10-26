@@ -1,0 +1,146 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\lp-f0-s55\\view",
+ "eval_seed": 155,
+ "summary": {
+  "combo": {
+   "success": 3
+  },
+  "english": {
+   "success": 8
+  },
+  "taught": {
+   "success": 3
+  }
+ },
+ "held_why": {},
+ "rows": [
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 3,
+  "first": {
+   "success": 3
+  },
+  "second": {
+   "success": 3
+  },
+  "rows": [
+   {
+    "sel": 1,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 4,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   }
+  ]
+ },
+ "note": "Sealed English forms are named only."
+}
