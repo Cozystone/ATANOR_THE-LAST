@@ -1,4 +1,5 @@
-"""DESK_EVAL2_PROTOCOL.md runner for one course seed and one learner (ATANOR_LEARNER: 'g35' frozen, else current).
+"""DESK_EVAL2_PROTOCOL.md / DESK_EVAL3_PROTOCOL.md runner for one course seed and one learner (ATANOR_LEARNER: 'g35' or
+'g36' frozen, else current).
   NONE   an empty mind taught on the desk (25 sessions), evaluated by desk_eval2
   THREE  the 75-day three-body course (one mind), evaluated per body by teacher_eval (the regression check)
   GEN1   (current learner only) the THREE mind then taught on the desk, evaluated by desk_eval2
@@ -34,16 +35,18 @@ def run(seed, out_dir, sealed=None, en=None):
     Teacher(base / 'none' / 'desk', seed=seed, drift_from=DESK_CHANGE_FROM, body='desk', mind=base / 'none' / 'mind').run(DESK_SESSIONS)
     r = desk_eval2.evaluate(base / 'none' / 'desk', 100 + seed, out_dir / f'r2-{who}-none-s{seed}.json', sealed)
     out['none'] = {k: v for k, v in r.items() if k not in ('rows',)} | {'synonyms': r['synonyms']['summary']}
+    out['none']['modifier'] = {k: v for k, v in r['modifier'].items() if k != 'rows'}
     shutil.copy(base / 'none' / 'desk' / 'log.jsonl', out_dir / f'r2-{who}-none-s{seed}-course-log.jsonl')
     long_course(base / 'gen1', seed, per_body=25, shared=True, change_from=CHANGE_FROM)
     out['three'] = {}
     for b in ('board', 'fs', 'view'):
         r = teacher_eval.evaluate(base / 'gen1' / b, 100 + seed, out_dir / f'r2-{who}-three-{b}-s{seed}.json', en)
         out['three'][b] = short(r)
-    if who != 'g35':
+    if who == 'current':
         Teacher(base / 'gen1' / 'desk', seed=seed, drift_from=DESK_CHANGE_FROM, body='desk', mind=base / 'gen1' / 'mind').run(DESK_SESSIONS)
         r = desk_eval2.evaluate(base / 'gen1' / 'desk', 100 + seed, out_dir / f'r2-{who}-gen1-s{seed}.json', sealed)
         out['gen1'] = {k: v for k, v in r.items() if k not in ('rows',)} | {'synonyms': r['synonyms']['summary']}
+        out['gen1']['modifier'] = {k: v for k, v in r['modifier'].items() if k != 'rows'}
         shutil.copy(base / 'gen1' / 'desk' / 'log.jsonl', out_dir / f'r2-{who}-gen1-s{seed}-course-log.jsonl')
     for part in ('none', 'gen1'):
         if part in out:

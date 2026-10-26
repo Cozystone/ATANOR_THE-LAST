@@ -560,6 +560,36 @@ class Grounder:
                     return True
         return False
 
+    def _sibling_slot(self, words, unknown, *chosen):
+        """DESK_EVAL3_PROTOCOL.md: the command holds another known phrase of the same kind with one word replaced by an
+        unheard word, and the replaced word is one that sets that phrase apart (it is in none of the chosen node's
+        phrases). The unheard word may be that phrase's deciding word said another way, so the reading is not settled,
+        even when a broader phrase was said whole. The rest of that phrase must be heard around it, and some of what is
+        heard must tell nodes apart (a word every node of this kind is named with marks no place)."""
+        said = list(words)
+        for d in chosen:
+            node = d['claim']['content'].get('concept') or d['claim']['content'].get('action')
+            kind = d['claim']['kind']
+            own = {w for p in self._phrases(node) for w in p}
+            named = [c for c in self.mem.claims.claims('phrase') if self._in_scope(c)
+                     and (self._definition(c['content']['refers']) or {}).get('kind') == kind]
+            every = {c['content']['refers'] for c in named}
+            tells = lambda w: {c['content']['refers'] for c in named if w in c['content']['words']} != every
+            for c in named:
+                other = c['content']['refers']
+                if other == node:
+                    continue
+                q = c['content']['words']
+                for i, w in enumerate(q):
+                    if w in own or not any(tells(q[k]) for k in range(len(q)) if k != i):
+                        continue
+                    for j in range(len(said) - len(q) + 1):
+                        seg = said[j:j + len(q)]
+                        if seg[i] in unknown and all(seg[k] == q[k] for k in range(len(q)) if k != i):
+                            self.counts['held_sibling_slot'] += 1
+                            return True
+        return False
+
     def _ask_between(self, task):
         """With the person there: tied readings that pick different objects are told apart by a contrast question about
         an object some of them pick and others do not. The word links that sent the command to the readings the person
@@ -661,7 +691,7 @@ class Grounder:
             self.counts['held_unresolved'] += 1
             return {'ok': False, 'why': 'unresolved', 'unknown': unknown, 'event': ev}
         sels, acts = [sel_d], [act_d]
-        if unknown and self._deciding_word_missing(symbols, sel_d, act_d):
+        if unknown and (self._deciding_word_missing(symbols, sel_d, act_d) or self._sibling_slot(symbols, unknown, sel_d, act_d)):
             self.counts['held_substituted'] += 1           # an unheard word stands where the deciding word should be
             return {'ok': False, 'why': 'unknown word in place of a deciding word', 'unknown': unknown, 'event': ev}
         if any((d.get('claim') or {}).get('status') == 'needs_recheck' for d in (sel_d, act_d)):

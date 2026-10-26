@@ -10,6 +10,9 @@
                       Three worlds per seed (arrivals on days 40-44, 45-49, 50-54).
   synonyms            new sealed substitutes; words of two-word action phrases are 'redundant' and kept apart.
   English             new sealed forms.
+  modifier (round 3)  two English-named selections whose phrases differ by one added word: that word replaced by its
+                      sealed substitute in the narrower phrase, with each English-named action, alone. Acting on the
+                      broader set is wrong; holding is not.
 The learner is the current one, or the frozen generation-1 copy (agent/learners.py, ATANOR_LEARNER=g35).
 Usage: python -m atanor_os.eval.desk_eval2 <course_dir> <eval_seed> <out.json> [sealed:<desk2_sealed.json>]
 """
@@ -180,14 +183,33 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 else:
                     delayed.append(row)
     syn = synonyms(names, sels, acts, spec, drift, eval_seed, sd['subs'], fresh, work, cmd)
+    modifier, untested = [], []
+    for n in names['en_sel']:
+        for b in names['en_sel']:
+            pn, pb = english('sel', sels[n]), english('sel', sels[b])
+            if len(pn) != len(pb) + 1 or [w for w in pn if w not in pb] == [] or [w for w in pn if w not in pb][0] in pb:
+                continue
+            extra = next(w for w in pn if w not in pb)
+            if [w for w in pn if w != extra] != pb:
+                continue
+            if extra not in sd['subs']:
+                untested.append({'narrow': n, 'broad': b, 'word': extra})
+                continue
+            for a in names['en_act']:
+                h, t = setup(drift, n, a)
+                if not something_to_do(spec, acts[a], t):
+                    continue
+                words = [sd['subs'][extra][0] if x == extra else x for x in words_of(['H', 'S', 'T'], sels[n], acts[a])]
+                res = cmd(h, words, fresh())
+                modifier.append({'narrow': n, 'broad': b, 'act': a, 'word': extra, 'outcome': outcome(spec, acts[a], t, res), 'why': res.get('why')})
     shutil.rmtree(work)
     summ = {}
     for r in rows:
         summ.setdefault(r['kind'].split(':')[0], Counter())[r['outcome']] += 1
-    commands = (len(rows) + len(unseen) + sum(r['second'] is not None for r in unseen) + 2 * len(delayed)
+    commands = (len(rows) + len(unseen) + sum(r['second'] is not None for r in unseen) + 2 * len(delayed) + len(modifier)
                 + sum(1 for r in syn['rows'] for k in ('alone_first', 'alone_after', 'reuse_alone') if r.get(k)))
     wrong = (sum(r['outcome'] == 'wrong' for r in rows) + sum(r['first'] == 'wrong' for r in unseen)
-             + sum(r['second'] == 'wrong' for r in unseen) + syn['summary']['wrong_total'])
+             + sum(r['second'] == 'wrong' for r in unseen) + syn['summary']['wrong_total'] + sum(r['outcome'] == 'wrong' for r in modifier))
     out = {'course': str(course), 'eval_seed': eval_seed, 'learner': learner_name(),
            'summary': {k: dict(v) for k, v in summ.items()},
            'held_why': dict(Counter(r['why'] for r in rows if r['outcome'] == 'held')), 'rows': rows,
@@ -201,7 +223,9 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                       'delayed': {'n': sum(r['part'] == 'delayed' for r in orc),
                                   'good': sum(r['part'] == 'delayed' and r['outcome'] == 'success' for r in orc)},
                       'rows': orc},
-           'synonyms': syn, 'commands': commands, 'wrong': wrong}
+           'synonyms': syn, 'modifier': {'n': len(modifier), 'outcomes': dict(Counter(r['outcome'] for r in modifier)),
+                                         'untested': untested, 'rows': modifier},
+           'commands': commands, 'wrong': wrong}
     out_file.write_text(json.dumps(out, indent=1), encoding='utf-8')
     return out
 
@@ -268,4 +292,4 @@ if __name__ == '__main__':
     r = evaluate(sys.argv[1], int(sys.argv[2]), sys.argv[3], sealed)
     print(json.dumps({k: r[k] for k in ('learner', 'summary', 'commands', 'wrong')}
                      | {k: {kk: vv for kk, vv in r[k].items() if kk != 'rows'} for k in ('unseen_change', 'delayed', 'oracle')}
-                     | {'synonyms': r['synonyms']['summary']}, indent=1))
+                     | {'synonyms': r['synonyms']['summary'], 'modifier': {k: v for k, v in r['modifier'].items() if k != 'rows'}}, indent=1))
