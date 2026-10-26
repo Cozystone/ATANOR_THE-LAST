@@ -35,6 +35,19 @@ def summary(run_dir):
         first = next((i for i, r in enumerate(hit) if r.get('first_try')), None)
         out['changed_tool_commands'] = len(hit)
         out['commands_until_unaided'] = first if first is not None else f'none in {len(hit)}'
+    taught_day = {}                                     # reuse after time: days since the selection was last taught
+    by_age = {'0-2': [0, 0], '3-6': [0, 0], '7+': [0, 0]}
+    for r in rows:
+        if r['event'] == 'lesson' and 'sel' in r:
+            taught_day[r['sel']] = r['day']
+        if r['event'] == 'test' and r.get('lang') == 'sym' and r.get('outcome') not in ('infeasible', None) and r.get('sel') in taught_day:
+            age = r['day'] - taught_day[r['sel']]
+            k = '0-2' if age <= 2 else ('3-6' if age <= 6 else '7+')
+            by_age[k][0] += bool(r.get('first_try'))
+            by_age[k][1] += 1
+            if r.get('retaught'):
+                taught_day[r['sel']] = r['day']
+    out['reuse_by_age'] = {k: f'{a}/{n}' for k, (a, n) in by_age.items()}
     wrong_used = [r for r in rows if r.get('outcome') == 'wrong']
     out['wrong_claim_use'] = f"{len(wrong_used)}/{sum(1 for r in rows if r.get('used_claims'))}"
     out['wrong_total'] = sum(r.get('outcome') == 'wrong' for r in rows)
