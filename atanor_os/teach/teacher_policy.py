@@ -32,27 +32,29 @@ from pathlib import Path
 
 from ..agent.memory import Memory
 from ..eval.en_probe import todo
-from ..eval.tutor_life import english, targets
+from ..eval.tutor_life import DRIFT, body_spec, body_targets, english
 from ..ui.pilot import DAYS, Clock, drive, write_names
 from ..ui.teach_server import Session
-from .tutor import BoardSpec, Tutor, symbols
+from .tutor import Tutor, symbols
 
 POLICIES = ('t1', 't2')
 PER_SESSION = 4
 
 
 class Teacher:
-    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0):
+    def __init__(self, root, seed=1, drift_from=9, policy='t2', noise=0.0, body='board'):
         self.root = Path(root)
+        self.body = body
+        self.spec = body_spec(body)
         self.policy = policy
         self.noise = noise                                 # chance of a slip in pointing or in a contrast answer (people slip)
         self.nrng = random.Random(f'teacher-noise-{seed}')
         self.seed = seed
         self.clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
-        self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock)
-        self.sels, self.acts = targets(seed)
+        self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock, body=body)
+        self.sels, self.acts = body_targets(body, seed)
         self.sym = symbols(seed)
-        self.tut = Tutor(self.sess.home, BoardSpec, f'teacher-{seed}')
+        self.tut = Tutor(self.sess.home, self.spec, f'teacher-{seed}')
         self.rng = random.Random(f'teacher-{seed}')
         self.drift_from = drift_from
         self.named_s, self.named_a, self.en = set(), set(), set()       # the teacher's own memory of what it named
@@ -87,12 +89,12 @@ class Teacher:
         home = self.sess.home
         objs = home.existing()
         st = home.observe(objs)
-        return {o: frozenset(repr(a) for a in atoms('board', st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
+        return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
 
     # ------------------------------------------------------------ teaching through the interface only
     def feasible(self, s, a):
         self.tut.start(self.sels[s], self.acts[a])
-        return bool(todo(BoardSpec, self.sess.home, self.tut, self.acts[a]))
+        return bool(todo(self.spec, self.sess.home, self.tut, self.acts[a]))
 
     def informative_pointer(self, claim):
         """Point at the meant cards that rule out the most criteria ATANOR still keeps besides the right one."""
@@ -223,7 +225,7 @@ class Teacher:
         if i:
             self.sess.new_session()
         if self.drift_from is not None and i >= self.drift_from:
-            self.sess.home.drift = frozenset(['lodge_retired'])
+            self.sess.home.drift = frozenset([DRIFT[self.body]])
         away = i >= 3 and i % 4 == 3
         if away:                                           # nobody to help: ATANOR alone, judged afterwards
             pairs = [(s, a) for s in sorted(self.named_s) for a in sorted(self.named_a) if self.feasible(s, a)]
@@ -258,16 +260,16 @@ class Teacher:
     def run(self, n_sessions=15):
         for i in range(n_sessions):
             self.session(i)
-        write_names(self.root, self.seed, {('s', x) for x in self.named_s} | {('a', x) for x in self.named_a}, self.en, self.sym)
+        write_names(self.root, self.seed, {('s', x) for x in self.named_s} | {('a', x) for x in self.named_a}, self.en, self.sym, self.body)
         self.sess.save()
         return self
 
 
-def run(root, seed=1, n_sessions=15, drift_from=9, policy='t2', noise=0.0):
+def run(root, seed=1, n_sessions=15, drift_from=9, policy='t2', noise=0.0, body='board'):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
-    return Teacher(root, seed, drift_from, policy, noise).run(n_sessions)
+    return Teacher(root, seed, drift_from, policy, noise, body).run(n_sessions)
 
 
 if __name__ == '__main__':
@@ -279,7 +281,8 @@ if __name__ == '__main__':
     ap.add_argument('--drift-from', type=int, default=9)
     ap.add_argument('--policy', default='t2', choices=POLICIES)
     ap.add_argument('--noise', type=float, default=0.0)
+    ap.add_argument('--body', default='board', choices=('board', 'fs'))
     a = ap.parse_args()
-    t = run(a.root, a.seed, a.sessions, a.drift_from, a.policy, a.noise)
+    t = run(a.root, a.seed, a.sessions, a.drift_from, a.policy, a.noise, a.body)
     print('slips', t.sess.state.get('pilot_slips'))
     print('done', a.root)

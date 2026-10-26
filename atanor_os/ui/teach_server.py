@@ -78,7 +78,7 @@ class HumanPerson:
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             if res['ok']:
-                card = d.get('object') or next((a for a in args if self.home.kind(a) == 'card'), args[0])   # the card acted on
+                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file')), args[0])   # the object acted on
                 return {'tool': d['tool'], 'args': list(args), 'object': card}
             err = f"그 행동은 되지 않았습니다 ({res.get('error')}). 다른 카드나 값으로 다시 보여 주세요."
 
@@ -118,14 +118,24 @@ def readable_atom(a):
 
 
 class Session:
-    def __init__(self, root, seed=1, source='human', clock=None):
+    def __init__(self, root, seed=1, source='human', clock=None, body='board'):
+        self.body = body                                  # 'board' (with a screen) or 'fs' (a sandbox folder; no screen yet)
         self.root = Path(root)
         self.source = source                              # 'human' for a real person; a scripted pilot uses 'pilot'
         self.clock = clock or datetime.datetime.now       # a pilot may simulate days passing
         self.root.mkdir(parents=True, exist_ok=True)
         self.sp = self.root / 'state.json'
         self.state = json.loads(self.sp.read_text(encoding='utf-8')) if self.sp.exists() else {'session': 0, 'seed': seed, 'taught': {}, 'k': 0}
-        self.home = BoardWorkspace(self.root / 'board', create=not (self.root / 'board').exists())
+        if body == 'board':
+            self.home = BoardWorkspace(self.root / 'board', create=not (self.root / 'board').exists())
+        else:
+            from ..eval.tutor_life import FS_FOLDERS
+            from ..world.fs_world import Workspace
+            new = not (self.root / 'home').exists()
+            self.home = Workspace(self.root / 'home', create=new)
+            if new:
+                for d in FS_FOLDERS:
+                    (self.home.root / d).mkdir()
         self.home.drift = frozenset()
         self.person = HumanPerson(self.home)
         self.job = None
@@ -155,13 +165,21 @@ class Session:
         """A new day: new cards arrive (some already in trays); what was taught stays only in ATANOR's memory."""
         self.state['session'] += 1
         n = self.state['session']
-        rng = random.Random(f"user-board-{self.state['seed']}-{n}")
-        cards = {f's{n}c{k}': {'mark': rng.choice(MARKS), **({'tray': rng.choice(sorted(TRAYS))} if rng.random() < 0.5 else {})}
-                 for k in range(CARDS_PER_SESSION)}
-        self.home.add_cards(cards)
+        before = set(self.home.existing())
+        if self.body == 'board':
+            rng = random.Random(f"user-board-{self.state['seed']}-{n}")
+            self.home.add_cards({f's{n}c{k}': {'mark': rng.choice(MARKS), **({'tray': rng.choice(sorted(TRAYS))} if rng.random() < 0.5 else {})}
+                                 for k in range(CARDS_PER_SESSION)})
+        else:
+            from ..eval.life_gen import inflow as file_inflow
+            file_inflow(self.home, 100 + n, self.state['seed'])
+        new = sorted(set(self.home.existing()) - before)
+        born = self.state.setdefault('born', {})
+        for o in new:
+            born[o] = n                                    # when each object first appeared (for reuse on new objects)
         self.save()
-        self.log(event='session', new_cards=sorted(cards))
-        self.say(f'{n}번째 세션입니다. 새 카드 {len(cards)}장이 들어왔습니다.')
+        self.log(event='session', new_cards=new)
+        self.say(f'{n}번째 세션입니다. 새 대상 {len(new)}개가 들어왔습니다.')
 
     def lesson_id(self):
         self.state['k'] += 1
@@ -265,7 +283,6 @@ class Session:
         words = text.lower().split()
         if not words:
             return
-        before = set(self.home._read()['cards'])
         g = self.grounder(with_person=not alone)
         res = g.obey(words, task=f"C{self.state['session']}.{self.state['k']}")
         row = {'event': 'command', 'words': words, 'alone': alone, 'why': res.get('why'), 'unknown': res.get('unknown', []),
@@ -285,7 +302,8 @@ class Session:
         taught = {w: self.state['taught'][w] for w in self.state['taught'] if all(x in words for x in w.split())}
         row['taught_words'] = {w: {'session': t['session'], 'date': t['date']} for w, t in taught.items()}
         first = min((t['session'] for t in taught.values()), default=None)
-        row['acted_new_cards'] = [o for o in row['acted'] if first is not None and o.startswith('s') and int(o[1:].split('c')[0]) > first]
+        born = self.state.get('born', {})
+        row['acted_new_cards'] = [o for o in row['acted'] if first is not None and born.get(o, 0) > first]
         row['failure_class'] = classify(row)
         self.log(**row)
 
@@ -324,7 +342,7 @@ class Session:
     def view(self):
         for _ in range(5):
             try:
-                cards = self.home._read()['cards']
+                cards = self.home._read()['cards'] if self.body == 'board' else {}
                 break
             except (OSError, ValueError):
                 time.sleep(0.05)

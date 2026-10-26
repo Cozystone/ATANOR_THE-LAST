@@ -263,7 +263,7 @@ class Grounder:
                 if tried >= self.LAB_BUDGET:
                     return None
                 tried += 1
-                lab = self.home.lab_copy(lab_root, list(dict.fromkeys([o] + args)))
+                lab = self.home.lab_copy(lab_root, self.home.existing())   # the whole present world, so containers come too
                 before = self.feats(lab)
                 call = [args[i] for i in order]
                 try:
@@ -273,8 +273,9 @@ class Grounder:
                 self.counts['lab_actions'] += 1
                 after = self.feats(lab)
                 ev = self.mem.events.append('experiment', task=task, tool=tool, args=call, ok=res.get('ok'))
-                gained = {a for a in eff['gained'] if a != "('gone',)"}
-                brought = (o not in after) if "('gone',)" in eff['gained'] else (o in after and gained <= after[o] and not gained <= before.get(o, frozenset()))
+                brought = not self._done(eff, before, before, o) and self._done(eff, before, after, o)   # the remembered change, now
+                if "('gone',)" not in eff['gained'] and o not in after:
+                    brought = False                        # and nothing it never did: the object did not vanish before
                 if res.get('ok') and brought:
                     template = [eff['template'][i] for i in order]
                     new = self.mem.claims.revise(claim['id'], content={**eff, 'tool': tool, 'template': template}, support=[ev],

@@ -46,7 +46,7 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
         if k == 'point':
             pts = pointer(tut) if pointer else tut.point()      # a teacher may choose the most informative cards
             others = sorted(set(tut.before) - set(tut.truth) - set(pts))
-            others = [o for o in others if tut.before[o].get('kind') == 'card']
+            others = [o for o in others if tut.before[o].get('kind') in ('card', 'file')]
             if noise and others and rng.random() < noise:
                 pts = pts[:1] + [rng.choice(others)]
                 slips['point'] += 1
@@ -59,9 +59,9 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
             ans = {'yes': yes}
         elif k == 'demo':
             st = tut.home.observe(tut.home.existing())
-            rest = [o for o in tut.truth if not BoardSpec.shows(tut.act, o, st)] or tut.truth
+            rest = [o for o in tut.truth if not tut.spec.shows(tut.act, o, st)] or tut.truth
             o = tut.rng.choice(rest)
-            tool, args = BoardSpec.steps(tut.act, o, getattr(tut.home, 'drift', ()))
+            tool, args = tut.spec.steps(tut.act, o, getattr(tut.home, 'drift', ()))
             ans = {'tool': tool, 'args': list(args), 'object': o}
         elif k == 'show':                                  # is this what was meant? (honest, like every confirmation)
             ans = {'ok': set(p['objects']) == set(tut.truth)}
@@ -155,9 +155,9 @@ def run(root, seed=7, n_sessions=15, noise=0.0, drift_from=None, source='pilot')
     return sess
 
 
-def write_names(root, seed, named, en_pairs, sym):
+def write_names(root, seed, named, en_pairs, sym, body='board'):
     """What the teaching side meant by each name it gave (read only by the evaluator, never by the learner)."""
-    out = {'seed': seed, 'sel': {str(x): sym[x] for k, x in named if k == 's'}, 'act': {str(x): sym[20 + x] for k, x in named if k == 'a'},
+    out = {'seed': seed, 'body': body, 'sel': {str(x): sym[x] for k, x in named if k == 's'}, 'act': {str(x): sym[20 + x] for k, x in named if k == 'a'},
            'en_sel': sorted({s for s, _ in en_pairs}), 'en_act': sorted({a for _, a in en_pairs})}
     (Path(root) / 'names.json').write_text(json.dumps(out, indent=1), encoding='utf-8')
 

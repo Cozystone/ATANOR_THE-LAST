@@ -18,28 +18,40 @@ from collections import Counter
 from pathlib import Path
 
 from .en_probe import DEV_FORMS, todo, words_of
-from .tutor_life import day_inflow, targets
-from ..teach.tutor import BoardSpec, Tutor
+from .tutor_life import DRIFT as BODY_DRIFT, FS_FOLDERS, body_spec, body_targets, day_inflow
+from ..teach.tutor import Tutor
 
-DRIFT = ['lodge_retired']
+UNSEEN = {'board': ('stamp', 'stamp_retired'), 'fs': ('move', 'move_retired')}   # a change the course never had
 
 
-def world(root, eval_seed, drift):
-    from ..world.board_world import BoardWorkspace
+def world(root, eval_seed, drift, body='board'):
     if root.exists():
         shutil.rmtree(root)
-    home = BoardWorkspace(root)
-    for d in range(40, 48):
-        home.add_cards({f'e{d}{k}': c for k, c in day_inflow(eval_seed, d).items()})
+    if body == 'board':
+        from ..world.board_world import BoardWorkspace
+        home = BoardWorkspace(root)
+        for d in range(40, 48):
+            home.add_cards({f'e{d}{k}': c for k, c in day_inflow(eval_seed, d).items()})
+    else:
+        from ..world.fs_world import Workspace
+        from .life_gen import inflow as file_inflow
+        home = Workspace(root)
+        for d in FS_FOLDERS:
+            (home.root / d).mkdir()
+        for d in (40, 41, 42):
+            file_inflow(home, d, eval_seed)
     home.drift = frozenset(drift)
     return home
 
 
-def evaluate(course, eval_seed, out_file, sealed=None, drift=DRIFT):
+def evaluate(course, eval_seed, out_file, sealed=None):
     from ..agent.grounding import Grounder
     course, out_file = Path(course), Path(out_file)
     names = json.loads((course / 'names.json').read_text(encoding='utf-8'))
-    sels, acts = targets(names['seed'])                    # the meanings the teaching side gave its names
+    body = names.get('body', 'board')
+    sels, acts = body_targets(body, names['seed'])         # the meanings the teaching side gave its names
+    spec, drift = body_spec(body), [BODY_DRIFT[body]]
+    unseen_tool, unseen_drift = UNSEEN[body]
     log = [json.loads(l) for l in (course / 'log.jsonl').read_text(encoding='utf-8').splitlines()]
     tlog = course / 'teacher_log.jsonl'
     pairs_taught = set()
@@ -63,35 +75,35 @@ def evaluate(course, eval_seed, out_file, sealed=None, drift=DRIFT):
     rows = []
     for s in sorted(int(k) for k in names['sel']):
         for a in sorted(int(k) for k in names['act']):
-            base = world(work / 'b', eval_seed, drift)
-            t0 = Tutor(base, BoardSpec, f'eval-{eval_seed}')
+            base = world(work / 'b', eval_seed, drift, body)
+            t0 = Tutor(base, spec, f'eval-{eval_seed}')
             t0.start(sels[s], acts[a])
-            if not todo(BoardSpec, base, t0, acts[a]):
+            if not todo(spec, base, t0, acts[a]):
                 continue
             tests = [('taught' if (s, a) in pairs_taught else 'combo', [names['act'][str(a)], names['sel'][str(s)]])]
             if s in names['en_sel'] and a in names['en_act']:
                 tests += [(f'english:{f}', words_of(form, sels[s], acts[a])) for f, form in forms.items()]
             for kind, words in tests:
-                h = world(work / 'b', eval_seed, drift)
+                h = world(work / 'b', eval_seed, drift, body)
                 if (work / 'm').exists():
                     shutil.rmtree(work / 'm')
                 shutil.copytree(course / 'mind', work / 'm')
-                t = Tutor(h, BoardSpec, f'eval-{eval_seed}')
+                t = Tutor(h, spec, f'eval-{eval_seed}')
                 t.start(sels[s], acts[a])
                 res = Grounder(h, work / 'm', person=None, source='evaluator').obey(words)
                 ok = t.judge()
                 rows.append({'sel': s, 'act': a, 'kind': kind, 'why': res.get('why'),
                              'outcome': 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else
                                                                                ('missed' if res.get('ok') else 'held'))})
-    revision = []                                          # a world change the course never had: the stamp tool stops
+    revision = []                                          # a world change the course never had: one tool stops
     for s in sorted(int(k) for k in names['sel']):
         for a in sorted(int(k) for k in names['act']):
-            if acts[a]['tool'] != 'stamp':
+            if acts[a]['tool'] != unseen_tool:
                 continue
-            h = world(work / 'b', eval_seed, list(drift) + ['stamp_retired'])
-            t = Tutor(h, BoardSpec, f'eval-{eval_seed}')
+            h = world(work / 'b', eval_seed, list(drift) + [unseen_drift], body)
+            t = Tutor(h, spec, f'eval-{eval_seed}')
             t.start(sels[s], acts[a])
-            if not todo(BoardSpec, h, t, acts[a]):
+            if not todo(spec, h, t, acts[a]):
                 continue
             if (work / 'm').exists():
                 shutil.rmtree(work / 'm')
