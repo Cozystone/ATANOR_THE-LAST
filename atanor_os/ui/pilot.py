@@ -63,6 +63,8 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None):
             o = tut.rng.choice(rest)
             tool, args = BoardSpec.steps(tut.act, o, getattr(tut.home, 'drift', ()))
             ans = {'tool': tool, 'args': list(args)}
+        elif k == 'show':                                  # is this what was meant? (honest, like every confirmation)
+            ans = {'ok': set(p['objects']) == set(tut.truth)}
         elif k in ('confirm', 'judge'):
             ok = tut.judge()
             ans = {'ok': ok, 'reason': None if ok else 'cards'}

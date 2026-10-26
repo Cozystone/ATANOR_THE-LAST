@@ -241,6 +241,14 @@ class Session:
                 self.log(event='name', lesson=lid, phrase=words, outcome='no criterion', failure_class='grounding: no shared criterion')
                 return
             node, known = sc['content']['concept'], sc['content'].get('lesson') != lid
+            picks = g.extension(sc['content']['atoms'], g.feats())
+            seen = self.person.ask('show', objects=picks, note=f'"{phrase}"는 이 카드들을 말하는 건가요?')
+            ev = g.reply(bool(seen['ok']), used=[sc['id']], reason='cards')
+            if not seen['ok']:                             # a name is attached only to what the person agrees it means
+                self.say('붙이지 않았습니다. 그 기준은 다시 확인이 필요한 것으로 남겼습니다.')
+                self.log(event='name', lesson=lid, phrase=words, node=node, known_concept=known, outcome='wrong',
+                         reason='cards', failure_class='grounding: wrong cards')
+                return
         else:
             self.say(f'"{phrase}"라고 말하며 한 장에 그 행동을 보여 주세요.')
             ac = g.learn_action(lid)

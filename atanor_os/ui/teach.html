@@ -114,7 +114,7 @@ function drawBoard() {
   const b = document.getElementById('board'); b.innerHTML = '';
   const zones = [['-', '상자 없음', null]].concat(Object.entries(S.trays).map(([t, h]) => [t, `상자 ${h}`, h]));
   const p = S.pending || {};
-  const acted = new Set((p.acted || []).concat()), failed = new Set(p.failed || []);
+  const acted = new Set((p.acted || []).concat(p.kind === 'show' ? (p.objects || []) : [])), failed = new Set(p.failed || []);
   for (const [tid, label, hue] of zones) {
     const z = el('div', {class: 'zone'}, el('div', {class: 'zt'}, hue ? el('span', {class: 'dot', style: `background:${HUE[hue]}`}) : '', label));
     for (const [cid, c] of Object.entries(S.cards).sort()) {
@@ -163,6 +163,10 @@ function drawControls() {
     box.append(el('button', {class: 'ok', onclick: () => answer({ok: true})}, '맞아요'),
                el('button', {class: 'bad', onclick: () => answer({ok: false, reason: 'cards'})}, '틀렸어요: 카드가 틀림'),
                el('button', {class: 'bad', onclick: () => answer({ok: false, reason: 'result'})}, '틀렸어요: 행동 결과가 틀림'));
+  } else if (p.kind === 'show') {
+    pr.textContent = `${p.note} 고른 카드: ${(p.objects || []).join(', ') || '없음'}`;
+    box.append(el('button', {class: 'ok', onclick: () => answer({ok: true})}, '네, 그 카드들이에요'),
+               el('button', {class: 'bad', onclick: () => answer({ok: false})}, '아니요'));
   } else if (p.kind === 'name') {
     pr.textContent = p.note;
     const a = el('input', {type: 'text', placeholder: '선택의 이름 (예: mip)'}), b = el('input', {type: 'text', placeholder: '행동의 이름 (예: dax)'});
