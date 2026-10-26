@@ -26,8 +26,9 @@ QUESTION_BUDGET = 6
 
 
 class Grounder:
-    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False):
+    def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure=None):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
+        self.structure = structure                 # None (joint explanation only) or 'order' (phrase positions)
         self.body = getattr(home, 'BODY', '?')
         self.dir = Path(mind_dir)
         self.mem = Memory(self.dir, events_readable=mode in ('FULL', 'RAW'), persist_claims=mode in ('FULL', 'ONTO'),
@@ -223,6 +224,66 @@ class Grounder:
         g.save()
         return c
 
+    def name_phrase(self, words, node, lesson=None):
+        """The person says a phrase of several words while pointing or demonstrating: each word is bound as a symbol, and
+        the order in which they were said is kept as one more user_said claim (used only with structure='order')."""
+        for w in words:
+            self.bind(w, node, lesson)
+        ev = self.mem.events.append('phrase', lesson=lesson, words=list(words), node=node)
+        same = [c for c in self.mem.claims.claims('phrase') if c['content']['refers'] == node and c['content']['words'] == list(words)]
+        if same:
+            return self.mem.claims.revise(same[0]['id'], support=[ev])
+        c = self.mem.claims.add('phrase', {'words': list(words), 'refers': node, 'lesson': lesson}, [ev], 'user_said', self.scope)
+        g = self.mem.graph
+        g.link(node, 'said_as', g.node(f'phrase:{c["id"]}', 'phrase'), c['id'])
+        g.save()
+        return c
+
+    def _phrases(self, node):
+        if self.mode == 'RAW':
+            ps = [e['words'] for e in self.mem.events.all() if e['kind'] == 'phrase' and e.get('node') == node and e.get('body') in (None, self.body)]
+        else:
+            ps = [c['content']['words'] for c in self.mem.claims.claims('phrase') if c['content']['refers'] == node and self._in_scope(c)]
+        return [list(p) for p in {tuple(p) for p in ps}]
+
+    @staticmethod
+    def _align(words, p, q):
+        """Most command words that can be read as two phrases at once: each phrase's words in the order it was said
+        (words may be left out or come between), every command word read at most once, and the two readings not crossing
+        (one phrase may sit inside the other, but p q p q is not a reading). Positions only; no word is known."""
+        from functools import lru_cache
+        n = len(words)
+
+        @lru_cache(maxsize=None)
+        def best(i, jp, jq, runs):
+            if i == n:
+                return 0
+            out = best(i + 1, jp, jq, runs)                         # this word is read by neither phrase
+            for lab, ph, j in (('p', p, jp), ('q', q, jq)):
+                r = runs if runs and runs[-1] == lab else runs + lab
+                if len(r) > 3:                                     # p q p q: the phrases would cross
+                    continue
+                for k in range(j, len(ph)):
+                    if ph[k] == words[i]:
+                        nxt = (k + 1, jq) if lab == 'p' else (jp, k + 1)
+                        out = max(out, 1 + best(i + 1, nxt[0], nxt[1], r))
+                        break                                      # the earliest match leaves the most room
+            return out
+        return best(0, 0, 0, '')
+
+    def _order_score(self, words, s, a):
+        """(words read in order, minus words of the two phrases left unsaid): a phrase said only in part is a weaker
+        reading than one said whole."""
+        ps, pa = self._phrases(s), self._phrases(a)
+        if not ps or not pa:
+            return (0, 0)
+        out = []
+        for x in ps:
+            for y in pa:
+                k = self._align(tuple(words), tuple(x), tuple(y))
+                out.append((k, k - len(x) - len(y)))
+        return max(out)
+
     def _in_scope(self, c):
         """A claim learned in another body (or under another core) says nothing about this one."""
         sc = c.get('scope') or {}
@@ -306,7 +367,10 @@ class Grounder:
                     defs[n] = d
         sel_n = [n for n, d in defs.items() if d and d['kind'] == 'selects']
         act_n = [n for n, d in defs.items() if d and d['kind'] == 'effect']
-        scored = sorted(((sum(1 for ns in nodes.values() if s in ns or a in ns), s, a) for s in sel_n for a in act_n), reverse=True)
+        def key(s, a):
+            base = sum(1 for ns in nodes.values() if s in ns or a in ns)
+            return (base, self._order_score(words, s, a)) if self.structure == 'order' else (base,)
+        scored = sorted(((key(s, a), s, a) for s in sel_n for a in act_n), reverse=True)
         unknown = [w for w, ns in nodes.items() if not ns]
         if not scored or (len(scored) > 1 and scored[0][0] == scored[1][0]):
             return None, None, unknown

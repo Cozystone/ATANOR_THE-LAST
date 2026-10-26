@@ -92,3 +92,12 @@ def test_claims_from_another_body_are_not_used(tmp_path):
     res = g2.obey(['dax', 'mip'])
     assert not res['ok'] and fs.kind('a.csv') == 'file'
     assert Grounder(ws, tmp_path / 'mind', person=None).resolve(['dax', 'mip'])[0] is not None
+
+
+def test_phrase_order_reads_positions_only():
+    """Two phrases read at once: each in its own order, never crossing; a phrase said whole beats one said in part."""
+    al = Grounder._align
+    w = ('p', 'x', 'y', 'q', 'r', 'z')              # p [x y q] r z : the second phrase sits inside the first
+    assert al(w, ('p', 'r', 'z'), ('x', 'y', 'q')) == 6
+    assert al(w, ('p', 'q', 'z'), ('x', 'y', 'r')) < 6     # would cross: p x q r z
+    assert al(('b', 'a'), ('a', 'b'), ('c',)) == 1          # order counts, not only membership

@@ -1,0 +1,1129 @@
+{
+ "life": "atanor_os\\results\\tutor-dev1-board\\FULL",
+ "seed": 1,
+ "named_sel": [
+  1,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "named_act": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "naming": [
+  {
+   "sel": 1,
+   "act": 5,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "named": false
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  },
+  {
+   "sel": 7,
+   "act": 3,
+   "named": true,
+   "sel_named": true,
+   "confirmed": true
+  }
+ ],
+ "summary": {
+  "train": {
+   "base": {
+    "success": 19,
+    "held": 5
+   },
+   "order": {
+    "success": 19,
+    "held": 5
+   },
+   "base_reading": {
+    "meant": 19,
+    "none": 5
+   },
+   "base_held_why": {
+    "unresolved": 5
+   },
+   "order_reading": {
+    "meant": 24
+   },
+   "order_held_why": {
+    "ambiguous generalization": 5
+   },
+   "n": 24,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  },
+  "dev": {
+   "base": {
+    "success": 19,
+    "held": 5
+   },
+   "order": {
+    "success": 19,
+    "held": 5
+   },
+   "base_reading": {
+    "meant": 19,
+    "none": 5
+   },
+   "base_held_why": {
+    "unresolved": 5
+   },
+   "order_reading": {
+    "meant": 24
+   },
+   "order_held_why": {
+    "ambiguous generalization": 5
+   },
+   "n": 24,
+   "base_held_order_success": 0,
+   "base_success_order_not": 0
+  }
+ },
+ "rows": [
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "defect",
+    "cards",
+    "in",
+    "amber"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "defect",
+    "cards",
+    "in",
+    "amber",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "defect",
+    "cards",
+    "in",
+    "teal"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "defect",
+    "cards",
+    "in",
+    "teal",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "label",
+    "the",
+    "defect",
+    "cards",
+    "as",
+    "idea"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "label",
+    "the",
+    "defect",
+    "cards",
+    "as",
+    "idea",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "take",
+    "the",
+    "defect",
+    "cards",
+    "out"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "take",
+    "the",
+    "defect",
+    "cards",
+    "out",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "shred",
+    "the",
+    "defect",
+    "cards"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "shred",
+    "the",
+    "defect",
+    "cards",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "memo",
+    "cards",
+    "in",
+    "amber"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "memo",
+    "cards",
+    "in",
+    "amber",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "memo",
+    "cards",
+    "in",
+    "teal"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "memo",
+    "cards",
+    "in",
+    "teal",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "label",
+    "the",
+    "memo",
+    "cards",
+    "as",
+    "idea"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "label",
+    "the",
+    "memo",
+    "cards",
+    "as",
+    "idea",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "take",
+    "the",
+    "memo",
+    "cards",
+    "out"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "take",
+    "the",
+    "memo",
+    "cards",
+    "out",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "shred",
+    "the",
+    "memo",
+    "cards"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "shred",
+    "the",
+    "memo",
+    "cards",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "stash",
+    "the",
+    "urgent",
+    "cards",
+    "in",
+    "amber"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "urgent",
+    "cards",
+    "in",
+    "amber",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "urgent",
+    "cards",
+    "in",
+    "teal"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "urgent",
+    "cards",
+    "in",
+    "teal",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "label",
+    "the",
+    "urgent",
+    "cards",
+    "as",
+    "idea"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "label",
+    "the",
+    "urgent",
+    "cards",
+    "as",
+    "idea",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "take",
+    "the",
+    "urgent",
+    "cards",
+    "out"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "take",
+    "the",
+    "urgent",
+    "cards",
+    "out",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "shred",
+    "the",
+    "urgent",
+    "cards"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "shred",
+    "the",
+    "urgent",
+    "cards",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "in",
+    "amber"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "in",
+    "amber",
+    "now"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "label",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "as",
+    "idea"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 2,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "label",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "as",
+    "idea",
+    "now"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "raise",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "to",
+    "high"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "raise",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "to",
+    "high",
+    "now"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "take",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "out"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "take",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "out",
+    "now"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "shred",
+    "the",
+    "cards",
+    "in",
+    "teal"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 6,
+   "act": 5,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "shred",
+    "the",
+    "cards",
+    "in",
+    "teal",
+    "now"
+   ],
+   "base": "held",
+   "base_why": "unresolved",
+   "base_reading": "none",
+   "order": "held",
+   "order_why": "ambiguous generalization",
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 0,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "stash",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "in",
+    "amber"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 0,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "stash",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "in",
+    "amber",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 3,
+   "form": "train",
+   "taught_pair": true,
+   "words": [
+    "raise",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "to",
+    "high"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 3,
+   "form": "dev",
+   "taught_pair": true,
+   "words": [
+    "please",
+    "raise",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "to",
+    "high",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 4,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "take",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "out"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 4,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "take",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "out",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 5,
+   "form": "train",
+   "taught_pair": false,
+   "words": [
+    "shred",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  },
+  {
+   "sel": 7,
+   "act": 5,
+   "form": "dev",
+   "taught_pair": false,
+   "words": [
+    "please",
+    "shred",
+    "the",
+    "idea",
+    "cards",
+    "in",
+    "teal",
+    "now"
+   ],
+   "base": "success",
+   "base_why": null,
+   "base_reading": "meant",
+   "order": "success",
+   "order_why": null,
+   "order_reading": "meant"
+  }
+ ]
+}

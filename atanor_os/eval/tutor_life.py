@@ -195,10 +195,9 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
                     g.bind(sym_sel[s], sc['content']['concept'], lid, replace=True)
                 g.bind(sym_act[a], ac['content']['action'], lid, replace=True)
             else:
-                for w in english('sel', sels[s]) if sc else []:
-                    g.bind(w, sc['content']['concept'], lid)
-                for w in english('act', acts[a]):
-                    g.bind(w, ac['content']['action'], lid)
+                if sc:
+                    g.name_phrase(english('sel', sels[s]), sc['content']['concept'], lid)
+                g.name_phrase(english('act', acts[a]), ac['content']['action'], lid)
         if [s, a] not in S['taught']:
             S['taught'].append([s, a])
         for key, j in (('sym_sel', s), ('sym_act', a)) if 'sym' in names else ():
@@ -230,16 +229,14 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
                 cands = [x for x in g.mem.claims.claims('selects') if all(set(x['content']['atoms']) <= feats[o] for o in pts)]
                 cands = sorted(cands, key=lambda x: (len(g.extension(x['content']['atoms'], feats)), x['id']))
                 if cands:
-                    for w in english('sel', sels[s]):
-                        g.bind(w, cands[0]['content']['concept'], f'E{s}-d{day_no}')
+                    g.name_phrase(english('sel', sels[s]), cands[0]['content']['concept'], f'E{s}-d{day_no}')
                     S['en_sel'].append(s)
                 row['english_sel_candidates'] = len(cands)
                 ac = g.learn_action(f'E{a}-d{day_no}')    # demonstrate while saying the action phrase
                 same = [x for x in g.mem.claims.claims('effect') if x['content']['tool'] == ac['content']['tool']
                         and x['content']['gained'] == ac['content']['gained'] and x['id'] != ac['id']]
                 node = (same[0] if same else ac)['content']['action']
-                for w in english('act', acts[a]):
-                    g.bind(w, node, f'E{a}-d{day_no}')
+                g.name_phrase(english('act', acts[a]), node, f'E{a}-d{day_no}')
                 S['en_act'].append(a)
                 row['english_act_matched_existing'] = bool(same)
                 if cands:
@@ -281,8 +278,10 @@ def run_day(cond, seed, day_no, root, days=24, body='board'):
                 row['retaught'] = True
             elif not res.get('ok') and day['user'] and res.get('failed'):
                 ac = g.learn_action(f'R{a}-d{day_no}')   # the tool did not do what was remembered: shown again
-                for w in ([sym_act[a]] if lang == 'sym' else english('act', acts[a])):
-                    g.bind(w, ac['content']['action'], f'R{a}-d{day_no}', replace=lang == 'sym')
+                if lang == 'sym':
+                    g.bind(sym_act[a], ac['content']['action'], f'R{a}-d{day_no}', replace=True)
+                else:
+                    g.name_phrase(english('act', acts[a]), ac['content']['action'], f'R{a}-d{day_no}')
                 sc = g.lookup(sym_sel[s]) if lang == 'sym' else None
                 if sc:
                     g.apply(sc['claim']['content'], ac['content'], f'R{a}-d{day_no}')
