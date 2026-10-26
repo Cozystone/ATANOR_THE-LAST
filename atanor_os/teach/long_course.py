@@ -18,13 +18,13 @@ BODIES = ('board', 'fs', 'view')
 CHANGE_FROM = {'board': 6, 'fs': 12, 'view': 18}          # each body's tool stops working on a different day
 
 
-def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None):
+def run(root, seed=1, per_body=15, shared=True, policy='t2', change_from=None, noise=0.0):
     root = Path(root)
     if root.exists():
         shutil.rmtree(root)
     root.mkdir(parents=True)
     change_from = change_from or {b: 9 for b in BODIES}
-    teachers = {b: Teacher(root / b, seed, drift_from=change_from[b], policy=policy, body=b,
+    teachers = {b: Teacher(root / b, seed, drift_from=change_from[b], policy=policy, body=b, noise=noise,
                            mind=(root / 'mind') if shared else (root / b / 'mind')) for b in BODIES}
     for i in range(per_body):
         for j, b in enumerate(BODIES):
@@ -41,8 +41,9 @@ if __name__ == '__main__':
     ap.add_argument('--per-body', type=int, default=15)
     ap.add_argument('--separate', action='store_true')
     ap.add_argument('--staggered', action='store_true', help='tool changes on different days per body')
+    ap.add_argument('--noise', type=float, default=0.0, help='chance of a human-like slip in pointing or a contrast answer')
     a = ap.parse_args()
-    run(a.root, a.seed, a.per_body, shared=not a.separate, change_from=CHANGE_FROM if a.staggered else None)
+    run(a.root, a.seed, a.per_body, shared=not a.separate, change_from=CHANGE_FROM if a.staggered else None, noise=a.noise)
     print('done', a.root)
 
 
