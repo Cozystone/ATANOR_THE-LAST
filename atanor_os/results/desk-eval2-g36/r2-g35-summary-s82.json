@@ -1,0 +1,152 @@
+{
+ "learner": "g35",
+ "seed": 82,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-g35-s82\\none\\desk",
+  "eval_seed": 182,
+  "learner": "g35",
+  "summary": {
+   "taught": {
+    "success": 10
+   },
+   "english": {
+    "success": 84,
+    "partial": 84
+   },
+   "combo": {
+    "partial": 21,
+    "success": 11
+   }
+  },
+  "held_why": {},
+  "unseen_change": {
+   "n": 6,
+   "first": {
+    "success": 6
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 24,
+   "retry_failed": 2
+  },
+  "oracle": {
+   "main": {
+    "n": 42,
+    "good": 42
+   },
+   "unseen": {
+    "n": 6,
+    "good": 6
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "wrong": 1,
+    "held": 9,
+    "success": 3
+   },
+   "alone_after": {
+    "success": 8,
+    "partial": 2
+   },
+   "reuse_alone": {
+    "success": 12,
+    "partial": 1
+   },
+   "redundant": {
+    "alone_first": {
+     "success": 4
+    },
+    "alone_after": {},
+    "reuse_alone": {
+     "partial": 2,
+     "success": 2
+    }
+   },
+   "n": 13,
+   "n_redundant": 4,
+   "plain_pairs": 42,
+   "wrong_total": 1
+  },
+  "commands": 266,
+  "wrong": 1
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11
+    },
+    "english": {
+     "success": 84
+    },
+    "combo": {
+     "success": 16
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 6
+    },
+    "second": {
+     "success": 6
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 8
+    },
+    "english": {
+     "success": 100
+    },
+    "combo": {
+     "success": 17
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 10
+    },
+    "second": {
+     "success": 10
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "taught": {
+     "success": 8
+    },
+    "english": {
+     "success": 68
+    },
+    "combo": {
+     "success": 9
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 10
+    },
+    "second": {
+     "success": 10
+    }
+   }
+  }
+ }
+}
