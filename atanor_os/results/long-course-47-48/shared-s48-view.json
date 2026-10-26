@@ -1,0 +1,158 @@
+{
+ "course": "D:\\ATANOR-experiments\\2026-09-19\\user-sandbox\\long-shared-s48\\view",
+ "eval_seed": 148,
+ "summary": {
+  "taught": {
+   "success": 1,
+   "held": 2
+  },
+  "combo": {
+   "success": 2,
+   "held": 1
+  },
+  "english": {
+   "success": 8
+  }
+ },
+ "held_why": {
+  "ambiguous generalization": 3
+ },
+ "rows": [
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "combo",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "taught",
+   "why": "ambiguous generalization",
+   "outcome": "held"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:act_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:sel_first",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:fillers_split",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:sel_first_fillers",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 4,
+  "first": {
+   "success": 2,
+   "held:ambiguous generalization": 2
+  },
+  "second": {
+   "success": 2,
+   "held:ambiguous generalization": 2
+  },
+  "rows": [
+   {
+    "sel": 1,
+    "act": 0,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "first": "success",
+    "second": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "first": "held:ambiguous generalization",
+    "second": "held:ambiguous generalization"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "first": "held:ambiguous generalization",
+    "second": "held:ambiguous generalization"
+   }
+  ]
+ },
+ "note": "Sealed English forms are named only."
+}
