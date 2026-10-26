@@ -8,13 +8,15 @@ view:       a0..a4 = the object's five observed tokens (kind, filter, sort, grou
             no relations.
 board:      a0..a4 = the object's five observed tokens (kind, mark, tray, level, value), names removed;
             no relations.
+desk:       a0..a4 = the object's five observed tokens (kind, place, status, tag, value), names removed;
+            no relations.
 `to_human` is the deterministic inverse used only to hand predicted states to the planner and judge
 (goals are written in the human attributes); it is an action interface, not concept learning.
 """
 from .fs_world import parent_of
 
-IDENTITY = {'fs': ('a3',), 'view': (), 'board': ()}
-KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',)}       # provided: which raw attributes make up an argument's kind
+IDENTITY = {'fs': ('a3',), 'view': (), 'board': (), 'desk': ()}
+KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',), 'desk': ('a0',)}       # provided: which raw attributes make up an argument's kind
 
 
 def names_of(body, obj):
@@ -30,6 +32,8 @@ def raw_attrs(body, obj):
         return {'a0': 0 if k == 'absent' else 1, 'a1': 1 if k == 'dir' else 0, 'a2': obj.get('ext'), 'a3': obj.get('hash')}
     if body == 'board':
         return {'a0': obj.get('kind'), 'a1': obj.get('mark'), 'a2': obj.get('tray'), 'a3': obj.get('level'), 'a4': obj.get('value')}
+    if body == 'desk':
+        return {'a0': obj.get('kind'), 'a1': obj.get('place'), 'a2': obj.get('status'), 'a3': obj.get('tag'), 'a4': obj.get('value')}
     return {'a0': obj.get('kind'), 'a1': obj.get('filter'), 'a2': obj.get('sort'), 'a3': obj.get('group'), 'a4': obj.get('value')}
 
 
@@ -54,6 +58,8 @@ def to_human(body, raw, old):
         return {**old, 'kind': kind, 'hash': h if h not in (None, 'unknown') or kind != 'file' else 'unknown', 'ext': raw['a2']}
     if body == 'board':
         return {**old, 'kind': raw['a0'], 'mark': raw['a1'], 'tray': raw['a2'], 'level': raw['a3'], 'value': raw['a4']}
+    if body == 'desk':
+        return {**old, 'kind': raw['a0'], 'place': raw['a1'], 'status': raw['a2'], 'tag': raw['a3'], 'value': raw['a4']}
     return {**old, 'kind': raw['a0'], 'filter': raw['a1'], 'sort': raw['a2'], 'group': raw['a3'], 'value': raw['a4']}
 
 

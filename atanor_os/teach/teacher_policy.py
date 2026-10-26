@@ -424,7 +424,7 @@ if __name__ == '__main__':
     ap.add_argument('--drift-from', type=int, default=9)
     ap.add_argument('--policy', default='t2', choices=POLICIES)
     ap.add_argument('--noise', type=float, default=0.0)
-    ap.add_argument('--body', default='board', choices=('board', 'fs', 'view'))
+    ap.add_argument('--body', default='board', choices=('board', 'fs', 'view', 'desk'))
     a = ap.parse_args()
     t = run(a.root, a.seed, a.sessions, a.drift_from, a.policy, a.noise, a.body)
     print('slips', t.sess.state.get('pilot_slips'))

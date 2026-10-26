@@ -21,7 +21,8 @@ from .en_probe import DEV_FORMS, todo, words_of
 from .tutor_life import DRIFT as BODY_DRIFT, FS_FOLDERS, body_spec, body_targets, day_inflow
 from ..teach.tutor import Tutor
 
-UNSEEN = {'board': ('stamp', 'stamp_retired'), 'fs': ('move', 'move_retired'), 'view': ('filter', 'filter_retired')}   # never in the course
+UNSEEN = {'board': ('stamp', 'stamp_retired'), 'fs': ('move', 'move_retired'), 'view': ('filter', 'filter_retired'),
+          'desk': ('tag', 'tag_retired')}   # never in the course
 
 
 def world(root, eval_seed, drift, body='board'):
@@ -35,6 +36,13 @@ def world(root, eval_seed, drift, body='board'):
     elif body == 'view':
         from .tutor_life import make_home
         home = make_home('view', root, eval_seed, 40)
+    elif body == 'desk':
+        from ..world.desk_world import DeskWorkspace
+        from .tutor_life import desk_inflow
+        home = DeskWorkspace(root, seed=eval_seed)
+        for d in range(40, 45):
+            home.add_items(desk_inflow(eval_seed, d))
+        home.tick()                                        # some outside changes before the day starts
     else:
         from ..world.fs_world import Workspace
         from .life_gen import inflow as file_inflow
@@ -120,6 +128,47 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 seq.append('success' if ok and res.get('ok') else ('tool_failed' if res.get('failed') else
                                                                    ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why'))))))
             revision.append({'sel': s, 'act': a, 'first': seq[0], 'second': seq[1]})
+    oracle = []                                            # knows the answer: the right tool calls, done directly
+    for s in sorted(int(k) for k in names['sel']):
+        for a in sorted(int(k) for k in names['act']):
+            h = world(work / 'b', eval_seed, drift, body)
+            t = Tutor(h, spec, f'eval-{eval_seed}')
+            t.start(sels[s], acts[a])
+            rest = todo(spec, h, t, acts[a])
+            if not rest:
+                continue
+            for o in rest:
+                tool, args = spec.steps(acts[a], o, h.drift)
+                try:
+                    h.execute(tool, args, {c: True for c in set(getattr(h, 'CAPABILITY', {}).values())})
+                except ValueError:
+                    pass
+            oracle.append({'sel': s, 'act': a, 'outcome': 'success' if t.judge() else 'fail'})
+    delayed = []                                           # desk only: the outcome of send comes later
+    if body == 'desk':
+        for s in sorted(int(k) for k in names['sel']):
+            for a in sorted(int(k) for k in names['act']):
+                if acts[a]['tool'] != 'send':
+                    continue
+                h = world(work / 'b', eval_seed, drift, body)
+                t = Tutor(h, spec, f'eval-{eval_seed}')
+                t.start(sels[s], acts[a])
+                if not todo(spec, h, t, acts[a]):
+                    continue
+                if (work / 'm').exists():
+                    shutil.rmtree(work / 'm')
+                shutil.copytree(mind_dir, work / 'm')
+                words = [names['act'][str(a)], names['sel'][str(s)]]
+                truth = list(t.truth)
+                Grounder(h, work / 'm', person=None, source='evaluator').obey(words)
+                h.tick()
+                st = h.observe(h.existing())
+                carried = all((st.get(o) or {}).get('status') in ('queued', 'sent', 'failed') for o in truth)
+                n0 = sum(1 for _ in open(h.root / 'world_log.jsonl', encoding='utf-8'))
+                Grounder(h, work / 'm', person=None, source='evaluator').obey(words)       # the same command again
+                again = [json.loads(l) for l in open(h.root / 'world_log.jsonl', encoding='utf-8')][n0:]
+                resend = sum(1 for r in again if r.get('event') == 'act' and r.get('tool') == 'send' and r['args'][0] in truth)
+                delayed.append({'sel': s, 'act': a, 'carried_out': carried, 'resend_attempts': resend})
     double = []                                            # file body only: two tools the course never saw stop at once
     if body == 'fs':
         two = ['move_retired', 'delete_retired']
@@ -148,7 +197,10 @@ def evaluate(course, eval_seed, out_file, sealed=None):
            'held_why': dict(Counter(r['why'] for r in rows if r['outcome'] == 'held')), 'rows': rows,
            'unseen_change': {'n': len(revision), 'first': dict(Counter(r['first'] for r in revision)),
                              'second': dict(Counter(r['second'] for r in revision)), 'rows': revision},
-           'double_change': {'n': len(double), 'outcomes': dict(Counter(r['outcome'] for r in double)), 'rows': double}}
+           'double_change': {'n': len(double), 'outcomes': dict(Counter(r['outcome'] for r in double)), 'rows': double},
+           'oracle': {'n': len(oracle), 'success': sum(r['outcome'] == 'success' for r in oracle), 'rows': oracle},
+           'delayed': {'n': len(delayed), 'carried_out': sum(r['carried_out'] for r in delayed),
+                       'resend_attempts': sum(r['resend_attempts'] for r in delayed), 'rows': delayed}}
     out_file.write_text(json.dumps(out, indent=1), encoding='utf-8')
     return out
 

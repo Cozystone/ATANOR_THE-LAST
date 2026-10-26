@@ -132,6 +132,56 @@ class ViewSpec:
         return False
 
 
+class DeskSpec:
+    """The desk body: the objects meant are items; file and tag take a place or tag object; send's outcome comes later."""
+    BODY = 'desk'
+    ATTR = {'file': 'place', 'tag': 'tag'}
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and '.' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, v = act['tool'], act.get('second')
+        if t == 'file':
+            return ('shelve', (v, o)) if 'file_retired' in drift else ('file', (o, v))
+        if t == 'tag':
+            return ('mark', (v, o)) if 'tag_retired' in drift else ('tag', (o, v))
+        return (t, (o,))
+
+    @staticmethod
+    def shows(act, o, state):
+        a = state.get(o)
+        t, v = act['tool'], act.get('second')
+        if t == 'purge':
+            return a is None or a['kind'] == 'absent'
+        if a is None or a['kind'] == 'absent':
+            return False
+        if t in DeskSpec.ATTR:
+            return a[DeskSpec.ATTR[t]] == v[2:]
+        return a['status'] in {'read': ('read',), 'send': ('queued', 'sent'), 'complete': ('done',), 'pin': ('pinned',)}[t]
+
+    @staticmethod
+    def possible(act, o, state):
+        """A person does not expect a locked message to move or be read, a blocked task to be done or moved, or a
+        failed draft to be sent again here."""
+        a = state.get(o) or {}
+        t = act['tool']
+        fits = {'read': ('message',), 'send': ('draft',), 'complete': ('task',), 'pin': ('note',), 'file': ('message', 'note', 'task')}
+        if t in fits and a.get('kind') not in fits[t]:
+            return False                                   # a person does not ask to read a task or send a note
+        if a.get('status') == 'locked' and t in ('file', 'read'):
+            return False
+        if a.get('status') == 'blocked' and t in ('complete', 'file'):
+            return False
+        return not (t == 'send' and a.get('status') == 'failed')
+
+    @staticmethod
+    def may_change(act, o, truth):
+        return False
+
+
 class Tutor:
     def __init__(self, home, spec, seed):
         self.home, self.spec = home, spec

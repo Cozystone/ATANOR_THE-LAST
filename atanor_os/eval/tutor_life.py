@@ -38,6 +38,10 @@ def english(kind, spec):
     """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection.
     Evaluator side only: the learner never sees this table, only the person saying the phrase while pointing or showing."""
     if kind == 'sel':
+        if spec['kind'] in ('message', 'draft', 'task', 'note'):
+            noun = {'message': 'messages', 'draft': 'drafts', 'task': 'tasks', 'note': 'notes'}[spec['kind']]
+            adj = [spec[k] for k in ('status', 'tag') if k in spec]
+            return ['the'] + adj + [noun] + (['in', spec['place']] if 'place' in spec else [])
         if spec['kind'] == 'file':
             return ['the', spec['ext'], 'files']
         if spec['kind'] == 'panel':
@@ -50,6 +54,12 @@ def english(kind, spec):
             return ['the', spec['mark'], 'cards', 'in', spec['tray']]
         return ['the', spec['mark'], 'cards'] if 'mark' in spec else ['the', 'cards', 'in', spec['tray']]
     t, v = spec['tool'], spec.get('second')
+    if t == 'file':
+        return ['file', 'in', v[2:]]
+    if t == 'tag':
+        return ['tag', 'as', v[2:]]
+    if t in ('read', 'send', 'complete', 'pin', 'purge'):
+        return [t]
     if t in ('copy', 'move'):
         return [t, 'into', v]
     if t == 'delete':
@@ -76,6 +86,12 @@ def body_targets(body, seed):
     rng = random.Random(f'tutor-targets-{body}-{seed}')
     if body == 'board':
         return targets(seed)
+    if body == 'desk':
+        sels = [{'kind': 'message', 'status': 'unread'}, {'kind': 'message', 'tag': 'red'}, {'kind': 'draft'},
+                {'kind': 'task', 'status': 'open'}, {'kind': 'note'}, {'kind': 'note', 'tag': 'blue'}]
+        acts = [{'tool': 'file', 'second': 'f.archive'}, {'tool': 'tag', 'second': 't.' + rng.choice(['red', 'blue', 'green'])},
+                {'tool': 'read'}, {'tool': 'send'}, {'tool': 'complete'}, {'tool': 'pin'}, {'tool': 'purge'}]
+        return sels, acts
     if body == 'fs':
         sels = [{'kind': 'file', 'ext': e} for e in FS_EXTS]
         acts = [{'tool': 'copy', 'second': d} for d in rng.sample(FS_FOLDERS, 2)] +                [{'tool': 'move', 'second': d} for d in rng.sample(FS_FOLDERS, 2)] + [{'tool': 'delete'}]
@@ -94,6 +110,12 @@ def make_home(body, root, seed, day_no):
         from ..world.board_world import BoardWorkspace
         home = BoardWorkspace(root / 'board', create=not (root / 'board').exists())
         home.add_cards(day_inflow(seed, day_no))
+        return home
+    if body == 'desk':
+        from ..world.desk_world import DeskWorkspace
+        home = DeskWorkspace(root / 'desk', create=not (root / 'desk').exists(), seed=seed)
+        home.add_items(desk_inflow(seed, day_no))
+        home.tick()                                        # time passes between days: outside changes, sent drafts
         return home
     if body == 'fs':
         from ..world.fs_world import Workspace
@@ -119,11 +141,18 @@ def make_home(body, root, seed, day_no):
 
 
 def body_spec(body):
-    from ..teach.tutor import BoardSpec, FsSpec, ViewSpec
-    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec}[body]
+    from ..teach.tutor import BoardSpec, DeskSpec, FsSpec, ViewSpec
+    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec}[body]
 
 
-DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired'}
+DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired', 'desk': 'file_retired'}
+
+
+def desk_inflow(seed, day, n=8):
+    """New desk items arrive (seeded): messages, drafts, tasks and notes with tags."""
+    rng = random.Random(f'desk-inflow-{seed}-{day}')
+    return {f'i{day}k{k}': {'kind': rng.choice(['message', 'message', 'draft', 'task', 'note']),
+                            'tag': rng.choice(['none', 'red', 'blue', 'green'])} for k in range(n)}
 
 
 def plan(seed, days=24, body='board'):
