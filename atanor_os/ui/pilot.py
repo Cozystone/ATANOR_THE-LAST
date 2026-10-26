@@ -19,7 +19,7 @@ from ..eval.tutor_life import english, targets
 from ..teach.tutor import BoardSpec, Tutor, symbols
 from .teach_server import Session
 
-DAYS = [0, 0, 1, 2, 2, 3, 5, 6, 6, 8, 9, 11, 13, 14, 16, 18, 20, 21, 23, 25]
+DAYS = [0, 0, 1, 2, 2, 3, 5, 6, 6, 8, 9, 11, 13, 14, 16, 18, 20, 21, 23, 25, 27, 28, 30, 32, 33, 35, 37, 38, 40, 42]
 
 
 class Clock:
