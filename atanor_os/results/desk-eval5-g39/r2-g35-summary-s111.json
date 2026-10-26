@@ -1,0 +1,160 @@
+{
+ "learner": "g35",
+ "seed": 111,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-g35-s111\\none\\desk",
+  "eval_seed": 211,
+  "learner": "g35",
+  "summary": {
+   "taught": {
+    "success": 11
+   },
+   "english": {
+    "success": 88,
+    "partial": 76
+   },
+   "combo": {
+    "success": 11,
+    "partial": 19
+   }
+  },
+  "held_why": {},
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 32,
+   "retry_failed": 2
+  },
+  "oracle": {
+   "main": {
+    "n": 41,
+    "good": 41
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "held": 2,
+    "success": 1
+   },
+   "alone_after": {
+    "success": 2
+   },
+   "reuse_alone": {
+    "success": 3
+   },
+   "redundant": {
+    "alone_first": {
+     "success": 3
+    },
+    "alone_after": {},
+    "reuse_alone": {
+     "success": 3
+    }
+   },
+   "n": 3,
+   "n_redundant": 3,
+   "plain_pairs": 41,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 6,
+   "outcomes": {
+    "wrong": 3,
+    "partial": 3
+   },
+   "untested": []
+  },
+  "commands": 236,
+  "wrong": 3
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11
+    },
+    "english": {
+     "success": 124
+    },
+    "combo": {
+     "success": 25
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 6
+    },
+    "second": {
+     "success": 6
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 8
+    },
+    "english": {
+     "success": 60
+    },
+    "combo": {
+     "success": 12
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 8,
+    "first": {
+     "success": 8
+    },
+    "second": {
+     "success": 6,
+     "held:ambiguous generalization": 2
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "taught": {
+     "success": 7
+    },
+    "english": {
+     "held": 28,
+     "success": 28
+    },
+    "combo": {
+     "success": 7
+    }
+   },
+   "held_why": {
+    "unresolved": 28
+   },
+   "unseen_change": {
+    "n": 8,
+    "first": {
+     "success": 8
+    },
+    "second": {
+     "success": 8
+    }
+   }
+  }
+ }
+}
