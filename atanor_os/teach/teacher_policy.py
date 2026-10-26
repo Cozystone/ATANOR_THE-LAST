@@ -42,7 +42,7 @@ from ..ui.pilot import DAYS, Clock, drive, write_names
 from ..ui.teach_server import Session
 from .tutor import Tutor, symbols
 
-POLICIES = ('t1', 't2', 't4', 'c1')
+POLICIES = ('t1', 't2', 't4', 'c1', 'f0')
 
 
 class _NotWanted:
@@ -341,6 +341,8 @@ class Teacher:
         if self.drift_from is not None and i >= self.drift_from:
             self.sess.home.drift = frozenset([DRIFT[self.body]])
         away = i >= 3 and i % 4 == 3
+        if self.policy == 'f0':                            # fixed curriculum: the same budget, no reading of ATANOR
+            return self.fixed_session(i, away)
         if not away:
             self.recall_pending()
         if away:                                           # nobody to help: ATANOR alone, judged afterwards
@@ -372,6 +374,26 @@ class Teacher:
                 if self.en and reason == 'combo' and (s, a) in self.en:
                     self.command(s, a, 'combo-en', alone=True, lang='en')
             done += 1
+
+    def fixed_session(self, i, away):
+        """The comparison curriculum (as the earlier pilot): lessons on random feasible pairs in the first three sessions,
+        English phrases for taught pairs in sessions 8 and 10, otherwise commands on named pairs (alone every other one,
+        and on days away). It never reads ATANOR's memory."""
+        pairs = [(s, a) for s in range(len(self.sels)) for a in range(len(self.acts))]
+        self.rng.shuffle(pairs)
+        if i < 3:
+            for s, a in [p for p in pairs if self.feasible(*p)][:2]:
+                self.lesson(s, a, 'fixed')
+            return
+        if i in (7, 9) and not away:
+            done = 0
+            for s, a in sorted(self.used_pairs):
+                if (s, a) not in self.en and done < 2 and self.feasible(s, a):
+                    self.phrase(s, a)
+                    done += 1
+        cands = [p for p in pairs if p[0] in self.named_s and p[1] in self.named_a and self.feasible(*p)]
+        for j, (s, a) in enumerate(cands[:PER_SESSION]):
+            self.command(s, a, 'away' if away else 'fixed', alone=away or j % 2 == 0)
 
     def run(self, n_sessions=15):
         for i in range(n_sessions):

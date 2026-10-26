@@ -42,8 +42,9 @@ if __name__ == '__main__':
     ap.add_argument('--separate', action='store_true')
     ap.add_argument('--staggered', action='store_true', help='tool changes on different days per body')
     ap.add_argument('--noise', type=float, default=0.0, help='chance of a human-like slip in pointing or a contrast answer')
+    ap.add_argument('--policy', default='t2')
     a = ap.parse_args()
-    run(a.root, a.seed, a.per_body, shared=not a.separate, change_from=CHANGE_FROM if a.staggered else None, noise=a.noise)
+    run(a.root, a.seed, a.per_body, shared=not a.separate, change_from=CHANGE_FROM if a.staggered else None, noise=a.noise, policy=a.policy)
     print('done', a.root)
 
 
