@@ -1,0 +1,462 @@
+{
+ "cases": {
+  "make a copy of the markdown and <V> files into a new folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "throw away all comma separated files": [
+   "3922670d9f",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 1,
+  "a copy": 1,
+  "a copy|855e9bb242": 1,
+  "a new": 1,
+  "a new|855e9bb242": 1,
+  "all": 1,
+  "all comma": 1,
+  "all comma|3922670d9f": 1,
+  "all|3922670d9f": 1,
+  "and": 1,
+  "and txt": 1,
+  "and txt|855e9bb242": 1,
+  "and|855e9bb242": 1,
+  "away": 1,
+  "away all": 1,
+  "away all|3922670d9f": 1,
+  "away|3922670d9f": 1,
+  "a|855e9bb242": 1,
+  "comma": 1,
+  "comma separated": 1,
+  "comma separated|3922670d9f": 1,
+  "comma|3922670d9f": 1,
+  "copy": 1,
+  "copy of": 1,
+  "copy of|855e9bb242": 1,
+  "copy|855e9bb242": 1,
+  "files": 2,
+  "files into": 1,
+  "files into|855e9bb242": 1,
+  "files|3922670d9f": 1,
+  "files|855e9bb242": 1,
+  "folder": 1,
+  "folder named": 1,
+  "folder named|855e9bb242": 1,
+  "folder|855e9bb242": 1,
+  "grotto": 1,
+  "grotto|855e9bb242": 1,
+  "into": 1,
+  "into a": 1,
+  "into a|855e9bb242": 1,
+  "into|855e9bb242": 1,
+  "make": 1,
+  "make a": 1,
+  "make a|855e9bb242": 1,
+  "make|855e9bb242": 1,
+  "markdown": 1,
+  "markdown and": 1,
+  "markdown and|855e9bb242": 1,
+  "markdown|855e9bb242": 1,
+  "named": 1,
+  "named|855e9bb242": 1,
+  "new": 1,
+  "new folder": 1,
+  "new folder|855e9bb242": 1,
+  "new|855e9bb242": 1,
+  "of": 1,
+  "of the": 1,
+  "of the|855e9bb242": 1,
+  "of|855e9bb242": 1,
+  "separated": 1,
+  "separated files": 1,
+  "separated files|3922670d9f": 1,
+  "separated|3922670d9f": 1,
+  "the": 1,
+  "the markdown": 1,
+  "the markdown|855e9bb242": 1,
+  "the|855e9bb242": 1,
+  "throw": 1,
+  "throw away": 1,
+  "throw away|3922670d9f": 1,
+  "throw|3922670d9f": 1,
+  "txt": 1,
+  "txt files": 1,
+  "txt files|855e9bb242": 1,
+  "txt|855e9bb242": 1
+ },
+ "d_disc": {},
+ "d_n": {},
+ "defined": {},
+ "disc_uses": {
+  "all": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "away": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "comma": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "files": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "separated": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "throw": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "txt": [
+   [],
+   []
+  ]
+ },
+ "dmeaning": {},
+ "duses": {},
+ "join": {},
+ "join_n": {},
+ "marker": {
+  "named": 2
+ },
+ "meaning": {
+  "all": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "away": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "comma": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "separated": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "throw": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "txt": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ]
+ },
+ "mode": "general",
+ "neutral": [],
+ "pattern_of": {
+  "a": {
+   "855e9bb242": 2
+  },
+  "a copy": {
+   "855e9bb242": 2
+  },
+  "a new": {
+   "855e9bb242": 2
+  },
+  "all": {
+   "3922670d9f": 2
+  },
+  "all comma": {
+   "3922670d9f": 2
+  },
+  "and": {
+   "855e9bb242": 2
+  },
+  "away": {
+   "3922670d9f": 2
+  },
+  "away all": {
+   "3922670d9f": 2
+  },
+  "comma": {
+   "3922670d9f": 2
+  },
+  "comma separated": {
+   "3922670d9f": 2
+  },
+  "copy": {
+   "855e9bb242": 2
+  },
+  "copy of": {
+   "855e9bb242": 2
+  },
+  "files": {
+   "3922670d9f": 2,
+   "855e9bb242": 2
+  },
+  "files into": {
+   "855e9bb242": 2
+  },
+  "folder": {
+   "855e9bb242": 2
+  },
+  "folder named": {
+   "855e9bb242": 2
+  },
+  "into": {
+   "855e9bb242": 2
+  },
+  "into a": {
+   "855e9bb242": 2
+  },
+  "make": {
+   "855e9bb242": 2
+  },
+  "make a": {
+   "855e9bb242": 2
+  },
+  "markdown": {
+   "855e9bb242": 2
+  },
+  "markdown and": {
+   "855e9bb242": 2
+  },
+  "named": {
+   "855e9bb242": 2
+  },
+  "new": {
+   "855e9bb242": 2
+  },
+  "new folder": {
+   "855e9bb242": 2
+  },
+  "of": {
+   "855e9bb242": 2
+  },
+  "of the": {
+   "855e9bb242": 2
+  },
+  "separated": {
+   "3922670d9f": 2
+  },
+  "separated files": {
+   "3922670d9f": 2
+  },
+  "the": {
+   "855e9bb242": 2
+  },
+  "the markdown": {
+   "855e9bb242": 2
+  },
+  "throw": {
+   "3922670d9f": 2
+  },
+  "throw away": {
+   "3922670d9f": 2
+  },
+  "txt": {
+   "855e9bb242": 2
+  }
+ },
+ "pointed": {},
+ "prev_n": {
+  "a": 4,
+  "all": 2,
+  "and": 2,
+  "away": 2,
+  "comma": 2,
+  "copy": 2,
+  "files": 2,
+  "folder": 2,
+  "into": 2,
+  "make": 2,
+  "markdown": 2,
+  "named": 2,
+  "new": 2,
+  "of": 2,
+  "separated": 2,
+  "the": 2,
+  "throw": 2,
+  "txt": 2
+ },
+ "uses": {
+  "all": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "away": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "comma": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "files": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "separated": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "throw": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "txt": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ]
+ },
+ "value_atoms": {
+  "csv": "('U', 0, 'a2', 'csv')",
+  "json": "('U', 0, 'a2', 'json')",
+  "log": "('U', 0, 'a2', 'log')",
+  "md": "('U', 0, 'a2', 'md')",
+  "txt": "('U', 0, 'a2', 'txt')"
+ },
+ "value_rule": [
+  0,
+  0
+ ],
+ "word_n": {
+  "a": 2,
+  "all": 2,
+  "and": 2,
+  "away": 2,
+  "comma": 2,
+  "copy": 2,
+  "files": 4,
+  "folder": 2,
+  "into": 2,
+  "make": 2,
+  "markdown": 2,
+  "named": 2,
+  "new": 2,
+  "of": 2,
+  "separated": 2,
+  "the": 2,
+  "throw": 2,
+  "txt": 2
+ }
+}

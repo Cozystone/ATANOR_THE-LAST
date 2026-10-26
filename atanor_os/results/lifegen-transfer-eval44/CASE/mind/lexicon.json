@@ -1,0 +1,7511 @@
+{
+ "cases": {
+  "back up all <V> documents into a new folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "carry all the <V> files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "carry all the logs and markdown files into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "carry all the markdown files and all the <V> files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "carry every <V> file into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "clone all <V> files into the <D> folder": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "clone the markdown files into <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "delete all <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "delete all markdown files plus <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "delete all spreadsheets": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "delete the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "duplicate the <V> files into the <D> folder": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "erase every markdown file": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "erase the spreadsheets": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "get rid of all the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "kindly back up all <V> and markdown files to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly back up all the logs and markdown files into <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly back up the markdown files into the <D> folder": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "kindly carry the <V> files into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "kindly clone all the <V> markdown and comma separated files into a new folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly clone all the text files and <V> documents into a folder called <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly discard all the comma separated files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "kindly duplicate all <V> files as well as <V> files into a folder called <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly duplicate all the <V> and comma separated files into a folder called <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly make a copy of the <V> and comma separated files into a new folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "kindly move all the <V> and comma separated files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly move all the <V> files into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "kindly put away all the <V> files and logs into a folder called <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly relocate all <V> documents into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "kindly relocate all markdown files along with logs into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "kindly relocate all the <V> documents as well as comma separated files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly relocate all the <V> files to a folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "kindly remove all comma separated and text files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly replicate all <V> files and spreadsheets to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly replicate all comma separated files into the <D> folder": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "kindly replicate all the <V> files to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "kindly replicate the markdown files into a folder called <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "kindly shift all the <V> files and logs into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "kindly throw away the <V> files plus <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "kindly transfer all the <V> files and <V> documents into a folder called <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "make a copy of all the <V> documents and <V> files into a folder called <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "move all the markdown files into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "please back up all spreadsheets to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "please back up every <V> file into a folder called <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "please clone all the <V> files to a folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "please copy all <V> files <V> files and logs into <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "please discard all <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "please discard the <V> files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "please erase the comma separated files": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "please move the <V> and comma separated files into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "please move the <V> documents into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "please put away all the <V> files along with logs into a new folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "please remove every <V> file": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "please replicate every spreadsheets into a new folder named <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "please shift every text file into a new folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "please transfer all <V> files into a new folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "please transfer all text files into a new folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "put away all the text files as well as <V> documents into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "put away every logs into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "put away every logs to a folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "relocate all the <V> files into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "remove every <V> file": [
+   "22204eb435",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "replicate all the markdown files into the <D> folder": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "replicate every <V> documents into <D>": [
+   "855e9bb242",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "shift all <V> files to a folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "shift all the <V> files into a folder called <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "shift all the comma separated files into a new folder named <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "shift all the spreadsheets text files and <V> files into the <D> folder": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "shift the <V> files and <V> documents into <D>": [
+   "d9877acc19",
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ]
+ },
+ "confirmed": {
+  "a": 26,
+  "a copy": 2,
+  "a copy|855e9bb242": 2,
+  "a folder": 17,
+  "a folder|855e9bb242": 11,
+  "a folder|d9877acc19": 6,
+  "a new": 9,
+  "a new|855e9bb242": 4,
+  "a new|d9877acc19": 5,
+  "acorn": 1,
+  "acorn|d9877acc19": 1,
+  "all": 45,
+  "all comma": 2,
+  "all comma|22204eb435": 1,
+  "all comma|855e9bb242": 1,
+  "all csv": 1,
+  "all csv|855e9bb242": 1,
+  "all json": 4,
+  "all json|855e9bb242": 3,
+  "all json|d9877acc19": 1,
+  "all log": 3,
+  "all log|22204eb435": 1,
+  "all log|d9877acc19": 2,
+  "all markdown": 2,
+  "all markdown|22204eb435": 1,
+  "all markdown|d9877acc19": 1,
+  "all md": 2,
+  "all md|22204eb435": 1,
+  "all md|855e9bb242": 1,
+  "all spreadsheets": 2,
+  "all spreadsheets|22204eb435": 1,
+  "all spreadsheets|855e9bb242": 1,
+  "all text": 1,
+  "all text|d9877acc19": 1,
+  "all the": 27,
+  "all the|22204eb435": 2,
+  "all the|855e9bb242": 8,
+  "all the|d9877acc19": 17,
+  "all txt": 1,
+  "all txt|855e9bb242": 1,
+  "all|22204eb435": 7,
+  "all|855e9bb242": 16,
+  "all|d9877acc19": 22,
+  "along": 2,
+  "along with": 2,
+  "along with|d9877acc19": 2,
+  "along|d9877acc19": 2,
+  "and": 19,
+  "and all": 1,
+  "and all|d9877acc19": 1,
+  "and comma": 5,
+  "and comma|855e9bb242": 3,
+  "and comma|d9877acc19": 2,
+  "and json": 4,
+  "and json|855e9bb242": 1,
+  "and json|d9877acc19": 3,
+  "and logs": 3,
+  "and logs|855e9bb242": 1,
+  "and logs|d9877acc19": 2,
+  "and markdown": 3,
+  "and markdown|855e9bb242": 2,
+  "and markdown|d9877acc19": 1,
+  "and spreadsheets": 1,
+  "and spreadsheets|855e9bb242": 1,
+  "and text": 1,
+  "and text|22204eb435": 1,
+  "and txt": 1,
+  "and txt|855e9bb242": 1,
+  "and|22204eb435": 1,
+  "and|855e9bb242": 9,
+  "and|d9877acc19": 9,
+  "annex": 1,
+  "annex|855e9bb242": 1,
+  "as": 3,
+  "as comma": 1,
+  "as comma|d9877acc19": 1,
+  "as json": 1,
+  "as json|d9877acc19": 1,
+  "as log": 1,
+  "as log|855e9bb242": 1,
+  "as well": 3,
+  "as well|855e9bb242": 1,
+  "as well|d9877acc19": 2,
+  "as|855e9bb242": 1,
+  "as|d9877acc19": 2,
+  "attic": 1,
+  "attic|d9877acc19": 1,
+  "away": 6,
+  "away all": 3,
+  "away all|d9877acc19": 3,
+  "away every": 2,
+  "away every|d9877acc19": 2,
+  "away the": 1,
+  "away the|22204eb435": 1,
+  "away|22204eb435": 1,
+  "away|d9877acc19": 5,
+  "a|855e9bb242": 15,
+  "a|d9877acc19": 11,
+  "back": 6,
+  "back up": 6,
+  "back up|855e9bb242": 6,
+  "back|855e9bb242": 6,
+  "barn": 1,
+  "barn|855e9bb242": 1,
+  "bay": 1,
+  "bay|d9877acc19": 1,
+  "bunker": 1,
+  "bunker|d9877acc19": 1,
+  "cabin": 1,
+  "cabin|855e9bb242": 1,
+  "called": 9,
+  "called|855e9bb242": 6,
+  "called|d9877acc19": 3,
+  "carry": 5,
+  "carry all": 3,
+  "carry all|d9877acc19": 3,
+  "carry every": 1,
+  "carry every|d9877acc19": 1,
+  "carry the": 1,
+  "carry the|d9877acc19": 1,
+  "carry|d9877acc19": 5,
+  "cellar": 1,
+  "cellar|855e9bb242": 1,
+  "clone": 5,
+  "clone all": 4,
+  "clone all|855e9bb242": 4,
+  "clone the": 1,
+  "clone the|855e9bb242": 1,
+  "clone|855e9bb242": 5,
+  "comma": 11,
+  "comma separated": 11,
+  "comma separated|22204eb435": 3,
+  "comma separated|855e9bb242": 4,
+  "comma separated|d9877acc19": 4,
+  "comma|22204eb435": 3,
+  "comma|855e9bb242": 4,
+  "comma|d9877acc19": 4,
+  "copy": 3,
+  "copy all": 1,
+  "copy all|855e9bb242": 1,
+  "copy of": 2,
+  "copy of|855e9bb242": 2,
+  "copy|855e9bb242": 3,
+  "cove": 1,
+  "cove|d9877acc19": 1,
+  "crypt": 1,
+  "crypt|d9877acc19": 1,
+  "csv": 7,
+  "csv file": 1,
+  "csv files": 6,
+  "csv files|22204eb435": 1,
+  "csv files|855e9bb242": 2,
+  "csv files|d9877acc19": 3,
+  "csv file|22204eb435": 1,
+  "csv|22204eb435": 2,
+  "csv|855e9bb242": 2,
+  "csv|d9877acc19": 3,
+  "delete": 4,
+  "delete all": 3,
+  "delete all|22204eb435": 3,
+  "delete the": 1,
+  "delete the|22204eb435": 1,
+  "delete|22204eb435": 4,
+  "den": 1,
+  "den|d9877acc19": 1,
+  "depot": 1,
+  "depot|855e9bb242": 1,
+  "discard": 3,
+  "discard all": 2,
+  "discard all|22204eb435": 2,
+  "discard the": 1,
+  "discard the|22204eb435": 1,
+  "discard|22204eb435": 3,
+  "documents": 10,
+  "documents and": 1,
+  "documents and|855e9bb242": 1,
+  "documents as": 1,
+  "documents as|d9877acc19": 1,
+  "documents into": 8,
+  "documents into|855e9bb242": 3,
+  "documents into|d9877acc19": 5,
+  "documents|855e9bb242": 4,
+  "documents|d9877acc19": 6,
+  "dune": 1,
+  "dune|d9877acc19": 1,
+  "duplicate": 3,
+  "duplicate all": 2,
+  "duplicate all|855e9bb242": 2,
+  "duplicate the": 1,
+  "duplicate the|855e9bb242": 1,
+  "duplicate|855e9bb242": 3,
+  "eastattic": 1,
+  "eastattic|d9877acc19": 1,
+  "eastcove": 1,
+  "eastcove|855e9bb242": 1,
+  "easteyrie": 1,
+  "easteyrie|d9877acc19": 1,
+  "erase": 3,
+  "erase every": 1,
+  "erase every|22204eb435": 1,
+  "erase the": 2,
+  "erase the|22204eb435": 2,
+  "erase|22204eb435": 3,
+  "estate": 1,
+  "estate|855e9bb242": 1,
+  "every": 10,
+  "every csv": 1,
+  "every csv|22204eb435": 1,
+  "every json": 1,
+  "every json|855e9bb242": 1,
+  "every log": 3,
+  "every logs": 2,
+  "every logs|d9877acc19": 2,
+  "every log|22204eb435": 1,
+  "every log|855e9bb242": 1,
+  "every log|d9877acc19": 1,
+  "every markdown": 1,
+  "every markdown|22204eb435": 1,
+  "every spreadsheets": 1,
+  "every spreadsheets|855e9bb242": 1,
+  "every text": 1,
+  "every text|d9877acc19": 1,
+  "every|22204eb435": 3,
+  "every|855e9bb242": 3,
+  "every|d9877acc19": 4,
+  "eyrie": 1,
+  "eyrie|855e9bb242": 1,
+  "file": 6,
+  "file into": 3,
+  "file into|855e9bb242": 1,
+  "file into|d9877acc19": 2,
+  "files": 53,
+  "files along": 2,
+  "files along|d9877acc19": 2,
+  "files and": 9,
+  "files and|855e9bb242": 3,
+  "files and|d9877acc19": 6,
+  "files as": 2,
+  "files as|855e9bb242": 1,
+  "files as|d9877acc19": 1,
+  "files into": 28,
+  "files into|855e9bb242": 13,
+  "files into|d9877acc19": 15,
+  "files json": 1,
+  "files json|855e9bb242": 1,
+  "files plus": 2,
+  "files plus|22204eb435": 2,
+  "files to": 5,
+  "files to|855e9bb242": 3,
+  "files to|d9877acc19": 2,
+  "files|22204eb435": 10,
+  "files|855e9bb242": 19,
+  "files|d9877acc19": 24,
+  "file|22204eb435": 3,
+  "file|855e9bb242": 1,
+  "file|d9877acc19": 2,
+  "folder": 41,
+  "folder called": 9,
+  "folder called|855e9bb242": 6,
+  "folder called|d9877acc19": 3,
+  "folder named": 17,
+  "folder named|855e9bb242": 9,
+  "folder named|d9877acc19": 8,
+  "folder|855e9bb242": 20,
+  "folder|d9877acc19": 21,
+  "forge": 1,
+  "forge|d9877acc19": 1,
+  "fort": 1,
+  "fort|855e9bb242": 1,
+  "garret": 1,
+  "garret|855e9bb242": 1,
+  "get": 1,
+  "get rid": 1,
+  "get rid|22204eb435": 1,
+  "get|22204eb435": 1,
+  "grotto": 1,
+  "grotto|855e9bb242": 1,
+  "hangar": 1,
+  "hangar|855e9bb242": 1,
+  "hut": 1,
+  "hut|855e9bb242": 1,
+  "igloo": 1,
+  "igloo|855e9bb242": 1,
+  "inlet": 1,
+  "inlet|d9877acc19": 1,
+  "into": 46,
+  "into a": 18,
+  "into a|855e9bb242": 10,
+  "into a|d9877acc19": 8,
+  "into the": 15,
+  "into the|855e9bb242": 5,
+  "into the|d9877acc19": 10,
+  "into|855e9bb242": 19,
+  "into|d9877acc19": 27,
+  "jetty": 1,
+  "jetty|855e9bb242": 1,
+  "json": 16,
+  "json and": 1,
+  "json and|855e9bb242": 1,
+  "json documents": 10,
+  "json documents|855e9bb242": 4,
+  "json documents|d9877acc19": 6,
+  "json files": 5,
+  "json files|22204eb435": 1,
+  "json files|855e9bb242": 3,
+  "json files|d9877acc19": 1,
+  "json|22204eb435": 1,
+  "json|855e9bb242": 8,
+  "json|d9877acc19": 7,
+  "keep": 1,
+  "keep|d9877acc19": 1,
+  "kindly": 25,
+  "kindly back": 3,
+  "kindly back|855e9bb242": 3,
+  "kindly carry": 1,
+  "kindly carry|d9877acc19": 1,
+  "kindly clone": 2,
+  "kindly clone|855e9bb242": 2,
+  "kindly discard": 1,
+  "kindly discard|22204eb435": 1,
+  "kindly duplicate": 2,
+  "kindly duplicate|855e9bb242": 2,
+  "kindly make": 1,
+  "kindly make|855e9bb242": 1,
+  "kindly move": 2,
+  "kindly move|d9877acc19": 2,
+  "kindly put": 1,
+  "kindly put|d9877acc19": 1,
+  "kindly relocate": 4,
+  "kindly relocate|d9877acc19": 4,
+  "kindly remove": 1,
+  "kindly remove|22204eb435": 1,
+  "kindly replicate": 4,
+  "kindly replicate|855e9bb242": 4,
+  "kindly shift": 1,
+  "kindly shift|d9877acc19": 1,
+  "kindly throw": 1,
+  "kindly throw|22204eb435": 1,
+  "kindly transfer": 1,
+  "kindly transfer|d9877acc19": 1,
+  "kindly|22204eb435": 3,
+  "kindly|855e9bb242": 12,
+  "kindly|d9877acc19": 10,
+  "kiosk": 1,
+  "kiosk|d9877acc19": 1,
+  "larder": 1,
+  "larder|855e9bb242": 1,
+  "lodge": 1,
+  "lodge|d9877acc19": 1,
+  "loft": 1,
+  "loft|855e9bb242": 1,
+  "log": 11,
+  "log and": 1,
+  "log and|855e9bb242": 1,
+  "log file": 3,
+  "log files": 6,
+  "log files|22204eb435": 3,
+  "log files|855e9bb242": 1,
+  "log files|d9877acc19": 2,
+  "log file|22204eb435": 1,
+  "log file|855e9bb242": 1,
+  "log file|d9877acc19": 1,
+  "log markdown": 1,
+  "log markdown|855e9bb242": 1,
+  "logs": 9,
+  "logs and": 2,
+  "logs and|855e9bb242": 1,
+  "logs and|d9877acc19": 1,
+  "logs into": 6,
+  "logs into|855e9bb242": 1,
+  "logs into|d9877acc19": 5,
+  "logs to": 1,
+  "logs to|d9877acc19": 1,
+  "logs|855e9bb242": 2,
+  "logs|d9877acc19": 7,
+  "log|22204eb435": 4,
+  "log|855e9bb242": 4,
+  "log|d9877acc19": 3,
+  "make": 2,
+  "make a": 2,
+  "make a|855e9bb242": 2,
+  "make|855e9bb242": 2,
+  "manor": 1,
+  "manor|d9877acc19": 1,
+  "markdown": 13,
+  "markdown and": 1,
+  "markdown and|855e9bb242": 1,
+  "markdown file": 1,
+  "markdown files": 11,
+  "markdown files|22204eb435": 1,
+  "markdown files|855e9bb242": 6,
+  "markdown files|d9877acc19": 4,
+  "markdown file|22204eb435": 1,
+  "markdown|22204eb435": 2,
+  "markdown|855e9bb242": 7,
+  "markdown|d9877acc19": 4,
+  "md": 9,
+  "md and": 2,
+  "md and|855e9bb242": 1,
+  "md and|d9877acc19": 1,
+  "md files": 7,
+  "md files|22204eb435": 2,
+  "md files|855e9bb242": 1,
+  "md files|d9877acc19": 4,
+  "md|22204eb435": 2,
+  "md|855e9bb242": 2,
+  "md|d9877acc19": 5,
+  "mill": 1,
+  "mill|855e9bb242": 1,
+  "move": 5,
+  "move all": 3,
+  "move all|d9877acc19": 3,
+  "move the": 2,
+  "move the|d9877acc19": 2,
+  "move|d9877acc19": 5,
+  "named": 17,
+  "named|855e9bb242": 9,
+  "named|d9877acc19": 8,
+  "nest": 1,
+  "nest|d9877acc19": 1,
+  "new": 9,
+  "new folder": 9,
+  "new folder|855e9bb242": 4,
+  "new folder|d9877acc19": 5,
+  "new|855e9bb242": 4,
+  "new|d9877acc19": 5,
+  "niche": 1,
+  "niche|855e9bb242": 1,
+  "nook": 1,
+  "nook|d9877acc19": 1,
+  "northfort": 1,
+  "northfort|d9877acc19": 1,
+  "northtower": 1,
+  "northtower|855e9bb242": 1,
+  "oasis": 1,
+  "oasis|d9877acc19": 1,
+  "of": 3,
+  "of all": 2,
+  "of all|22204eb435": 1,
+  "of all|855e9bb242": 1,
+  "of the": 1,
+  "of the|855e9bb242": 1,
+  "of|22204eb435": 1,
+  "of|855e9bb242": 2,
+  "pantry": 1,
+  "pantry|855e9bb242": 1,
+  "pier": 1,
+  "pier|855e9bb242": 1,
+  "please": 15,
+  "please back": 2,
+  "please back|855e9bb242": 2,
+  "please clone": 1,
+  "please clone|855e9bb242": 1,
+  "please copy": 1,
+  "please copy|855e9bb242": 1,
+  "please discard": 2,
+  "please discard|22204eb435": 2,
+  "please erase": 1,
+  "please erase|22204eb435": 1,
+  "please move": 2,
+  "please move|d9877acc19": 2,
+  "please put": 1,
+  "please put|d9877acc19": 1,
+  "please remove": 1,
+  "please remove|22204eb435": 1,
+  "please replicate": 1,
+  "please replicate|855e9bb242": 1,
+  "please shift": 1,
+  "please shift|d9877acc19": 1,
+  "please transfer": 2,
+  "please transfer|d9877acc19": 2,
+  "please|22204eb435": 4,
+  "please|855e9bb242": 5,
+  "please|d9877acc19": 6,
+  "plus": 2,
+  "plus csv": 1,
+  "plus csv|22204eb435": 1,
+  "plus md": 1,
+  "plus md|22204eb435": 1,
+  "plus|22204eb435": 2,
+  "put": 5,
+  "put away": 5,
+  "put away|d9877acc19": 5,
+  "put|d9877acc19": 5,
+  "quay": 1,
+  "quay|d9877acc19": 1,
+  "ranch": 1,
+  "ranch|d9877acc19": 1,
+  "relocate": 5,
+  "relocate all": 5,
+  "relocate all|d9877acc19": 5,
+  "relocate|d9877acc19": 5,
+  "remove": 3,
+  "remove all": 1,
+  "remove all|22204eb435": 1,
+  "remove every": 2,
+  "remove every|22204eb435": 2,
+  "remove|22204eb435": 3,
+  "replicate": 7,
+  "replicate all": 4,
+  "replicate all|855e9bb242": 4,
+  "replicate every": 2,
+  "replicate every|855e9bb242": 2,
+  "replicate the": 1,
+  "replicate the|855e9bb242": 1,
+  "replicate|855e9bb242": 7,
+  "rid": 1,
+  "rid of": 1,
+  "rid of|22204eb435": 1,
+  "rid|22204eb435": 1,
+  "roost": 1,
+  "roost|855e9bb242": 1,
+  "separated": 11,
+  "separated and": 1,
+  "separated and|22204eb435": 1,
+  "separated files": 10,
+  "separated files|22204eb435": 2,
+  "separated files|855e9bb242": 4,
+  "separated files|d9877acc19": 4,
+  "separated|22204eb435": 3,
+  "separated|855e9bb242": 4,
+  "separated|d9877acc19": 4,
+  "shed": 1,
+  "shed|d9877acc19": 1,
+  "shift": 7,
+  "shift all": 5,
+  "shift all|d9877acc19": 5,
+  "shift every": 1,
+  "shift every|d9877acc19": 1,
+  "shift the": 1,
+  "shift the|d9877acc19": 1,
+  "shift|d9877acc19": 7,
+  "spreadsheets": 6,
+  "spreadsheets into": 1,
+  "spreadsheets into|855e9bb242": 1,
+  "spreadsheets text": 1,
+  "spreadsheets text|d9877acc19": 1,
+  "spreadsheets to": 2,
+  "spreadsheets to|855e9bb242": 2,
+  "spreadsheets|22204eb435": 2,
+  "spreadsheets|855e9bb242": 3,
+  "spreadsheets|d9877acc19": 1,
+  "text": 6,
+  "text file": 1,
+  "text files": 5,
+  "text files|22204eb435": 1,
+  "text files|855e9bb242": 1,
+  "text files|d9877acc19": 3,
+  "text file|d9877acc19": 1,
+  "text|22204eb435": 1,
+  "text|855e9bb242": 1,
+  "text|d9877acc19": 4,
+  "the": 45,
+  "the comma": 3,
+  "the comma|22204eb435": 2,
+  "the comma|d9877acc19": 1,
+  "the csv": 4,
+  "the csv|855e9bb242": 1,
+  "the csv|d9877acc19": 3,
+  "the json": 5,
+  "the json|22204eb435": 1,
+  "the json|855e9bb242": 2,
+  "the json|d9877acc19": 2,
+  "the log": 4,
+  "the logs": 2,
+  "the logs|855e9bb242": 1,
+  "the logs|d9877acc19": 1,
+  "the log|22204eb435": 2,
+  "the log|855e9bb242": 2,
+  "the markdown": 6,
+  "the markdown|855e9bb242": 4,
+  "the markdown|d9877acc19": 2,
+  "the md": 6,
+  "the md|855e9bb242": 1,
+  "the md|d9877acc19": 5,
+  "the spreadsheets": 2,
+  "the spreadsheets|22204eb435": 1,
+  "the spreadsheets|d9877acc19": 1,
+  "the text": 2,
+  "the text|855e9bb242": 1,
+  "the text|d9877acc19": 1,
+  "the txt": 8,
+  "the txt|22204eb435": 1,
+  "the txt|855e9bb242": 1,
+  "the txt|d9877acc19": 6,
+  "the|22204eb435": 7,
+  "the|855e9bb242": 15,
+  "the|d9877acc19": 23,
+  "throw": 1,
+  "throw away": 1,
+  "throw away|22204eb435": 1,
+  "throw|22204eb435": 1,
+  "to": 8,
+  "to a": 8,
+  "to a|855e9bb242": 5,
+  "to a|d9877acc19": 3,
+  "tower": 1,
+  "tower|d9877acc19": 1,
+  "to|855e9bb242": 5,
+  "to|d9877acc19": 3,
+  "transfer": 3,
+  "transfer all": 3,
+  "transfer all|d9877acc19": 3,
+  "transfer|d9877acc19": 3,
+  "turret": 1,
+  "turret|d9877acc19": 1,
+  "txt": 10,
+  "txt and": 1,
+  "txt and|d9877acc19": 1,
+  "txt files": 9,
+  "txt files|22204eb435": 1,
+  "txt files|855e9bb242": 3,
+  "txt files|d9877acc19": 5,
+  "txt|22204eb435": 1,
+  "txt|855e9bb242": 3,
+  "txt|d9877acc19": 6,
+  "up": 6,
+  "up all": 4,
+  "up all|855e9bb242": 4,
+  "up every": 1,
+  "up every|855e9bb242": 1,
+  "up the": 1,
+  "up the|855e9bb242": 1,
+  "up|855e9bb242": 6,
+  "vault": 1,
+  "vault|d9877acc19": 1,
+  "villa": 1,
+  "villa|d9877acc19": 1,
+  "warren": 1,
+  "warren|d9877acc19": 1,
+  "well": 3,
+  "well as": 3,
+  "well as|855e9bb242": 1,
+  "well as|d9877acc19": 2,
+  "well|855e9bb242": 1,
+  "well|d9877acc19": 2,
+  "westlarder": 1,
+  "westlarder|855e9bb242": 1,
+  "with": 2,
+  "with logs": 2,
+  "with logs|d9877acc19": 2,
+  "with|d9877acc19": 2,
+  "yard": 1,
+  "yard|d9877acc19": 1,
+  "zenith": 1,
+  "zenith|d9877acc19": 1
+ },
+ "d_disc": {},
+ "d_n": {},
+ "defined": {
+  "all": 1,
+  "away": 1,
+  "comma": 1,
+  "documents": 1,
+  "duplicate": 1,
+  "kindly": 1,
+  "logs": 1,
+  "markdown": 1,
+  "put": 1,
+  "relocate": 1,
+  "separated": 1,
+  "text": 1,
+  "throw": 1,
+  "to": 1
+ },
+ "disc_uses": {
+  "a": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "along": [
+   [],
+   [],
+   [],
+   []
+  ],
+  "and": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "away": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "back": [
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "called": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "carry": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "clone": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "comma": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "copy": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   []
+  ],
+  "csv": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "delete": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "discard": [
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   []
+  ],
+  "documents": [
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "duplicate": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   []
+  ],
+  "erase": [
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "every": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "file": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "files": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "folder": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "get": [
+   [],
+   []
+  ],
+  "into": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "json": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "log": [
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "logs": [
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "make": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   []
+  ],
+  "markdown": [
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "md": [
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "move": [
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "named": [
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "new": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "of": [
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   []
+  ],
+  "please": [
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "put": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "relocate": [
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "remove": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "replicate": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "rid": [
+   [],
+   []
+  ],
+  "separated": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "shift": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "spreadsheets": [
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "text": [
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "the": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   []
+  ],
+  "throw": [
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "transfer": [
+   [],
+   [],
+   [],
+   []
+  ],
+  "txt": [
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "up": [
+   [],
+   [],
+   [],
+   [],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "with": [
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "dmeaning": {},
+ "duses": {},
+ "join": {
+  "all": 6,
+  "and": 14,
+  "as": 4,
+  "csv": 2,
+  "files": 16,
+  "plus": 4,
+  "the": 4,
+  "well": 4
+ },
+ "join_n": {
+  "all": 8,
+  "and": 14,
+  "as": 4,
+  "csv": 2,
+  "files": 16,
+  "plus": 4,
+  "the": 4,
+  "well": 4
+ },
+ "marker": {
+  "called": 18,
+  "into": 26,
+  "named": 34,
+  "the": 30
+ },
+ "meaning": {
+  "a": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "along": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "and": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "away": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "back": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "called": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "carry": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "clone": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "comma": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "copy": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "csv": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "delete": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "discard": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "documents": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "duplicate": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "erase": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "every": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "file": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "files": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "folder": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "get": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "into": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "json": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'json')"
+  ],
+  "log": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "logs": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "make": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "markdown": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "md": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'md')"
+  ],
+  "move": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "named": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "new": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "of": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "please": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "put": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "relocate": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "remove": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "replicate": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "rid": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'log')"
+  ],
+  "separated": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "shift": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "spreadsheets": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'csv')"
+  ],
+  "text": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "the": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "throw": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "transfer": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "txt": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)",
+   "('U', 0, 'a2', 'txt')"
+  ],
+  "up": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ],
+  "with": [
+   "('N', 0)",
+   "('U', 0, 'a0', 1)",
+   "('U', 0, 'a1', 0)"
+  ]
+ },
+ "mode": "case",
+ "neutral": [
+  "all",
+  "kindly",
+  "to"
+ ],
+ "pattern_of": {
+  "a": {
+   "855e9bb242": 30,
+   "d9877acc19": 22
+  },
+  "a copy": {
+   "855e9bb242": 4
+  },
+  "a folder": {
+   "855e9bb242": 22,
+   "d9877acc19": 12
+  },
+  "a new": {
+   "855e9bb242": 8,
+   "d9877acc19": 10
+  },
+  "all": {
+   "22204eb435": 14,
+   "855e9bb242": 32,
+   "d9877acc19": 44
+  },
+  "all comma": {
+   "22204eb435": 2,
+   "855e9bb242": 2
+  },
+  "all markdown": {
+   "22204eb435": 2,
+   "d9877acc19": 2
+  },
+  "all spreadsheets": {
+   "22204eb435": 2,
+   "855e9bb242": 2
+  },
+  "all text": {
+   "d9877acc19": 2
+  },
+  "all the": {
+   "22204eb435": 4,
+   "855e9bb242": 16,
+   "d9877acc19": 36
+  },
+  "along": {
+   "d9877acc19": 4
+  },
+  "along with": {
+   "d9877acc19": 4
+  },
+  "and": {
+   "22204eb435": 2,
+   "855e9bb242": 18,
+   "d9877acc19": 18
+  },
+  "and all": {
+   "d9877acc19": 2
+  },
+  "and comma": {
+   "855e9bb242": 6,
+   "d9877acc19": 4
+  },
+  "and logs": {
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "and markdown": {
+   "855e9bb242": 4,
+   "d9877acc19": 2
+  },
+  "and spreadsheets": {
+   "855e9bb242": 2
+  },
+  "and text": {
+   "22204eb435": 2
+  },
+  "as": {
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "as comma": {
+   "d9877acc19": 2
+  },
+  "as well": {
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "away": {
+   "22204eb435": 2,
+   "d9877acc19": 10
+  },
+  "away all": {
+   "d9877acc19": 6
+  },
+  "away every": {
+   "d9877acc19": 4
+  },
+  "away the": {
+   "22204eb435": 2
+  },
+  "back": {
+   "855e9bb242": 12
+  },
+  "back up": {
+   "855e9bb242": 12
+  },
+  "called": {
+   "855e9bb242": 12,
+   "d9877acc19": 6
+  },
+  "carry": {
+   "d9877acc19": 10
+  },
+  "carry all": {
+   "d9877acc19": 6
+  },
+  "carry every": {
+   "d9877acc19": 2
+  },
+  "carry the": {
+   "d9877acc19": 2
+  },
+  "clone": {
+   "855e9bb242": 10
+  },
+  "clone all": {
+   "855e9bb242": 8
+  },
+  "clone the": {
+   "855e9bb242": 2
+  },
+  "comma": {
+   "22204eb435": 6,
+   "855e9bb242": 8,
+   "d9877acc19": 8
+  },
+  "comma separated": {
+   "22204eb435": 6,
+   "855e9bb242": 8,
+   "d9877acc19": 8
+  },
+  "copy": {
+   "855e9bb242": 6
+  },
+  "copy all": {
+   "855e9bb242": 2
+  },
+  "copy of": {
+   "855e9bb242": 4
+  },
+  "csv": {
+   "22204eb435": 4,
+   "855e9bb242": 4,
+   "d9877acc19": 6
+  },
+  "delete": {
+   "22204eb435": 8
+  },
+  "delete all": {
+   "22204eb435": 6
+  },
+  "delete the": {
+   "22204eb435": 2
+  },
+  "discard": {
+   "22204eb435": 6
+  },
+  "discard all": {
+   "22204eb435": 4
+  },
+  "discard the": {
+   "22204eb435": 2
+  },
+  "documents": {
+   "855e9bb242": 8,
+   "d9877acc19": 12
+  },
+  "documents and": {
+   "855e9bb242": 2
+  },
+  "documents as": {
+   "d9877acc19": 2
+  },
+  "documents into": {
+   "855e9bb242": 6,
+   "d9877acc19": 10
+  },
+  "duplicate": {
+   "855e9bb242": 6
+  },
+  "duplicate all": {
+   "855e9bb242": 4
+  },
+  "duplicate the": {
+   "855e9bb242": 2
+  },
+  "erase": {
+   "22204eb435": 6
+  },
+  "erase every": {
+   "22204eb435": 2
+  },
+  "erase the": {
+   "22204eb435": 4
+  },
+  "every": {
+   "22204eb435": 6,
+   "855e9bb242": 6,
+   "d9877acc19": 8
+  },
+  "every logs": {
+   "d9877acc19": 4
+  },
+  "every markdown": {
+   "22204eb435": 2
+  },
+  "every spreadsheets": {
+   "855e9bb242": 2
+  },
+  "every text": {
+   "d9877acc19": 2
+  },
+  "file": {
+   "22204eb435": 6,
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "file into": {
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "files": {
+   "22204eb435": 20,
+   "855e9bb242": 38,
+   "d9877acc19": 48
+  },
+  "files along": {
+   "d9877acc19": 4
+  },
+  "files and": {
+   "855e9bb242": 6,
+   "d9877acc19": 12
+  },
+  "files as": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "files into": {
+   "855e9bb242": 26,
+   "d9877acc19": 30
+  },
+  "files plus": {
+   "22204eb435": 4
+  },
+  "files to": {
+   "855e9bb242": 6,
+   "d9877acc19": 4
+  },
+  "folder": {
+   "855e9bb242": 40,
+   "d9877acc19": 42
+  },
+  "folder called": {
+   "855e9bb242": 12,
+   "d9877acc19": 6
+  },
+  "folder named": {
+   "855e9bb242": 18,
+   "d9877acc19": 16
+  },
+  "get": {
+   "22204eb435": 2
+  },
+  "get rid": {
+   "22204eb435": 2
+  },
+  "into": {
+   "855e9bb242": 38,
+   "d9877acc19": 54
+  },
+  "into a": {
+   "855e9bb242": 20,
+   "d9877acc19": 16
+  },
+  "into the": {
+   "855e9bb242": 10,
+   "d9877acc19": 20
+  },
+  "json": {
+   "22204eb435": 2,
+   "855e9bb242": 16,
+   "d9877acc19": 14
+  },
+  "kindly": {
+   "22204eb435": 6,
+   "855e9bb242": 24,
+   "d9877acc19": 20
+  },
+  "kindly back": {
+   "855e9bb242": 6
+  },
+  "kindly carry": {
+   "d9877acc19": 2
+  },
+  "kindly clone": {
+   "855e9bb242": 4
+  },
+  "kindly discard": {
+   "22204eb435": 2
+  },
+  "kindly duplicate": {
+   "855e9bb242": 4
+  },
+  "kindly make": {
+   "855e9bb242": 2
+  },
+  "kindly move": {
+   "d9877acc19": 4
+  },
+  "kindly put": {
+   "d9877acc19": 2
+  },
+  "kindly relocate": {
+   "d9877acc19": 8
+  },
+  "kindly remove": {
+   "22204eb435": 2
+  },
+  "kindly replicate": {
+   "855e9bb242": 8
+  },
+  "kindly shift": {
+   "d9877acc19": 2
+  },
+  "kindly throw": {
+   "22204eb435": 2
+  },
+  "kindly transfer": {
+   "d9877acc19": 2
+  },
+  "log": {
+   "22204eb435": 8,
+   "855e9bb242": 8,
+   "d9877acc19": 6
+  },
+  "logs": {
+   "855e9bb242": 4,
+   "d9877acc19": 14
+  },
+  "logs and": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "logs into": {
+   "855e9bb242": 2,
+   "d9877acc19": 10
+  },
+  "logs to": {
+   "d9877acc19": 2
+  },
+  "make": {
+   "855e9bb242": 4
+  },
+  "make a": {
+   "855e9bb242": 4
+  },
+  "markdown": {
+   "22204eb435": 4,
+   "855e9bb242": 14,
+   "d9877acc19": 8
+  },
+  "markdown and": {
+   "855e9bb242": 2
+  },
+  "markdown file": {
+   "22204eb435": 2
+  },
+  "markdown files": {
+   "22204eb435": 2,
+   "855e9bb242": 12,
+   "d9877acc19": 8
+  },
+  "md": {
+   "22204eb435": 4,
+   "855e9bb242": 4,
+   "d9877acc19": 10
+  },
+  "move": {
+   "d9877acc19": 10
+  },
+  "move all": {
+   "d9877acc19": 6
+  },
+  "move the": {
+   "d9877acc19": 4
+  },
+  "named": {
+   "855e9bb242": 18,
+   "d9877acc19": 16
+  },
+  "new": {
+   "855e9bb242": 8,
+   "d9877acc19": 10
+  },
+  "new folder": {
+   "855e9bb242": 8,
+   "d9877acc19": 10
+  },
+  "of": {
+   "22204eb435": 2,
+   "855e9bb242": 4
+  },
+  "of all": {
+   "22204eb435": 2,
+   "855e9bb242": 2
+  },
+  "of the": {
+   "855e9bb242": 2
+  },
+  "please": {
+   "22204eb435": 8,
+   "855e9bb242": 10,
+   "d9877acc19": 12
+  },
+  "please back": {
+   "855e9bb242": 4
+  },
+  "please clone": {
+   "855e9bb242": 2
+  },
+  "please copy": {
+   "855e9bb242": 2
+  },
+  "please discard": {
+   "22204eb435": 4
+  },
+  "please erase": {
+   "22204eb435": 2
+  },
+  "please move": {
+   "d9877acc19": 4
+  },
+  "please put": {
+   "d9877acc19": 2
+  },
+  "please remove": {
+   "22204eb435": 2
+  },
+  "please replicate": {
+   "855e9bb242": 2
+  },
+  "please shift": {
+   "d9877acc19": 2
+  },
+  "please transfer": {
+   "d9877acc19": 4
+  },
+  "plus": {
+   "22204eb435": 4
+  },
+  "put": {
+   "d9877acc19": 10
+  },
+  "put away": {
+   "d9877acc19": 10
+  },
+  "relocate": {
+   "d9877acc19": 10
+  },
+  "relocate all": {
+   "d9877acc19": 10
+  },
+  "remove": {
+   "22204eb435": 6
+  },
+  "remove all": {
+   "22204eb435": 2
+  },
+  "remove every": {
+   "22204eb435": 4
+  },
+  "replicate": {
+   "855e9bb242": 14
+  },
+  "replicate all": {
+   "855e9bb242": 8
+  },
+  "replicate every": {
+   "855e9bb242": 4
+  },
+  "replicate the": {
+   "855e9bb242": 2
+  },
+  "rid": {
+   "22204eb435": 2
+  },
+  "rid of": {
+   "22204eb435": 2
+  },
+  "separated": {
+   "22204eb435": 6,
+   "855e9bb242": 8,
+   "d9877acc19": 8
+  },
+  "separated and": {
+   "22204eb435": 2
+  },
+  "separated files": {
+   "22204eb435": 4,
+   "855e9bb242": 8,
+   "d9877acc19": 8
+  },
+  "shift": {
+   "d9877acc19": 14
+  },
+  "shift all": {
+   "d9877acc19": 10
+  },
+  "shift every": {
+   "d9877acc19": 2
+  },
+  "shift the": {
+   "d9877acc19": 2
+  },
+  "spreadsheets": {
+   "22204eb435": 4,
+   "855e9bb242": 6,
+   "d9877acc19": 2
+  },
+  "spreadsheets into": {
+   "855e9bb242": 2
+  },
+  "spreadsheets text": {
+   "d9877acc19": 2
+  },
+  "spreadsheets to": {
+   "855e9bb242": 4
+  },
+  "text": {
+   "22204eb435": 2,
+   "855e9bb242": 2,
+   "d9877acc19": 8
+  },
+  "text file": {
+   "d9877acc19": 2
+  },
+  "text files": {
+   "22204eb435": 2,
+   "855e9bb242": 2,
+   "d9877acc19": 6
+  },
+  "the": {
+   "22204eb435": 14,
+   "855e9bb242": 30,
+   "d9877acc19": 46
+  },
+  "the comma": {
+   "22204eb435": 4,
+   "d9877acc19": 2
+  },
+  "the logs": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "the markdown": {
+   "855e9bb242": 8,
+   "d9877acc19": 4
+  },
+  "the spreadsheets": {
+   "22204eb435": 2,
+   "d9877acc19": 2
+  },
+  "the text": {
+   "855e9bb242": 2,
+   "d9877acc19": 2
+  },
+  "throw": {
+   "22204eb435": 2
+  },
+  "throw away": {
+   "22204eb435": 2
+  },
+  "to": {
+   "855e9bb242": 10,
+   "d9877acc19": 6
+  },
+  "to a": {
+   "855e9bb242": 10,
+   "d9877acc19": 6
+  },
+  "transfer": {
+   "d9877acc19": 6
+  },
+  "transfer all": {
+   "d9877acc19": 6
+  },
+  "txt": {
+   "22204eb435": 2,
+   "855e9bb242": 6,
+   "d9877acc19": 12
+  },
+  "up": {
+   "855e9bb242": 12
+  },
+  "up all": {
+   "855e9bb242": 8
+  },
+  "up every": {
+   "855e9bb242": 2
+  },
+  "up the": {
+   "855e9bb242": 2
+  },
+  "well": {
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "well as": {
+   "855e9bb242": 2,
+   "d9877acc19": 4
+  },
+  "with": {
+   "d9877acc19": 4
+  },
+  "with logs": {
+   "d9877acc19": 4
+  }
+ },
+ "pointed": {},
+ "prev_n": {
+  "a": 56,
+  "all": 92,
+  "along": 4,
+  "and": 38,
+  "as": 12,
+  "away": 12,
+  "back": 12,
+  "called": 18,
+  "carry": 10,
+  "clone": 10,
+  "comma": 22,
+  "copy": 6,
+  "csv": 14,
+  "delete": 8,
+  "discard": 6,
+  "documents": 20,
+  "duplicate": 6,
+  "erase": 6,
+  "every": 20,
+  "file": 6,
+  "files": 98,
+  "folder": 52,
+  "get": 2,
+  "into": 92,
+  "json": 32,
+  "kindly": 50,
+  "log": 22,
+  "logs": 18,
+  "make": 4,
+  "markdown": 26,
+  "md": 18,
+  "move": 10,
+  "named": 34,
+  "new": 18,
+  "of": 6,
+  "please": 30,
+  "plus": 4,
+  "put": 10,
+  "relocate": 10,
+  "remove": 6,
+  "replicate": 14,
+  "rid": 2,
+  "separated": 22,
+  "shift": 14,
+  "spreadsheets": 8,
+  "text": 12,
+  "the": 114,
+  "throw": 2,
+  "to": 16,
+  "transfer": 6,
+  "txt": 20,
+  "up": 12,
+  "well": 6,
+  "with": 4
+ },
+ "uses": {
+  "a": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "along": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "and": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "away": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "back": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "called": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "carry": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "clone": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "comma": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "copy": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "csv": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "delete": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "discard": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "documents": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "duplicate": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "erase": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "every": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "file": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "files": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "folder": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "get": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "into": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "json": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "log": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "logs": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "make": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "markdown": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "md": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "move": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "named": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "new": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "of": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "please": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "put": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "relocate": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "remove": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "replicate": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "rid": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "separated": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "shift": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "spreadsheets": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ]
+  ],
+  "text": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "the": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ]
+  ],
+  "throw": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ]
+  ],
+  "transfer": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ]
+  ],
+  "txt": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ]
+  ],
+  "up": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'log')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'json')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'csv')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ],
+  "with": [
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'txt')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ],
+   [
+    "('N', 0)",
+    "('U', 0, 'a0', 1)",
+    "('U', 0, 'a1', 0)",
+    "('U', 0, 'a2', 'md')"
+   ]
+  ]
+ },
+ "value_atoms": {
+  "csv": "('U', 0, 'a2', 'csv')",
+  "json": "('U', 0, 'a2', 'json')",
+  "log": "('U', 0, 'a2', 'log')",
+  "md": "('U', 0, 'a2', 'md')",
+  "txt": "('U', 0, 'a2', 'txt')"
+ },
+ "value_rule": [
+  88,
+  90
+ ],
+ "word_n": {
+  "a": 52,
+  "all": 91,
+  "along": 4,
+  "and": 38,
+  "as": 6,
+  "away": 13,
+  "back": 12,
+  "called": 18,
+  "carry": 10,
+  "clone": 10,
+  "comma": 23,
+  "copy": 6,
+  "csv": 14,
+  "delete": 8,
+  "discard": 6,
+  "documents": 21,
+  "duplicate": 7,
+  "erase": 6,
+  "every": 20,
+  "file": 12,
+  "files": 106,
+  "folder": 82,
+  "get": 2,
+  "into": 92,
+  "json": 32,
+  "kindly": 51,
+  "log": 22,
+  "logs": 19,
+  "make": 4,
+  "markdown": 27,
+  "md": 18,
+  "move": 10,
+  "named": 34,
+  "new": 18,
+  "of": 6,
+  "please": 30,
+  "plus": 4,
+  "put": 11,
+  "relocate": 11,
+  "remove": 6,
+  "replicate": 14,
+  "rid": 2,
+  "separated": 23,
+  "shift": 14,
+  "spreadsheets": 12,
+  "text": 13,
+  "the": 90,
+  "throw": 3,
+  "to": 17,
+  "transfer": 6,
+  "txt": 20,
+  "up": 12,
+  "well": 6,
+  "with": 4
+ }
+}

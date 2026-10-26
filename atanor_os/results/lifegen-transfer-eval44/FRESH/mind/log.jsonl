@@ -1,0 +1,14 @@
+{"t": 1792977890.766, "task": "d30-t0", "event": "demonstration", "pid": "3922670d9f", "pattern": [["o", "hash", "-"], ["o", "kind", "absent"]], "steps": [["delete", ["amber30.csv"]]]}
+{"t": 1792977894.802, "task": "d30-t0", "event": "method_choice", "experiment_cost": 1.0, "ask_cost": 3, "user": true}
+{"t": 1792977896.183, "task": "d30-t0", "event": "experiment_resolved", "how": "analogy", "lab_actions": 1}
+{"t": 1792977897.098, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792977912.546, "task": "d30-t1", "event": "ask_check", "unknown": ["relocate", "the", "into", "northfort"], "ok": false}
+{"t": 1792977912.549, "task": "d30-t1", "event": "ask_explain", "word": "relocate", "answer": "move", "learned": false}
+{"t": 1792977912.551, "task": "d30-t1", "event": "ask_explain", "word": "the", "answer": "", "learned": true}
+{"t": 1792977913.548, "task": "d30-t1", "event": "demonstration", "pid": "d9877acc19", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "kind", "absent"]], "steps": [["mkdir", ["northfort"]], ["shove", ["northfort/nutmeg30.txt", "nutmeg30.txt"]]]}
+{"t": 1792977914.94, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 3}
+{"t": 1792977919.437, "task": "d30-t2", "event": "ask_explain", "word": "make", "answer": "copy", "learned": false}
+{"t": 1792977919.438, "task": "d30-t2", "event": "ask_explain", "word": "copy", "answer": null, "learned": false}
+{"t": 1792977921.176, "task": "d30-t2", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["westlarder"]], ["replicate", ["westlarder/amber24.json", "amber24.json"]]]}
+{"t": 1792977941.277, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792977942.255, "task": "d30-t2", "event": "rehearsal", "ok": false, "steps": 1}

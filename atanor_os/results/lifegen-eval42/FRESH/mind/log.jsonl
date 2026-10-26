@@ -1,0 +1,9 @@
+{"t": 1792977787.542, "task": "d30-t0", "event": "demonstration", "pid": "855e9bb242", "pattern": [["D", "kind", "dir"], ["D/o", "hash", "=o.hash"], ["D/o", "kind", "file"], ["o", "ext", "=o.ext", "keep"], ["o", "hash", "=o.hash", "keep"], ["o", "kind", "file", "keep"]], "steps": [["mkdir", ["cabin"]], ["copy", ["amber30.txt", "cabin/amber30.txt"]]]}
+{"t": 1792977850.894, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792977852.046, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792977854.704, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792977855.841, "task": "d30-t0", "event": "rehearsal", "ok": false, "steps": 1}
+{"t": 1792977909.366, "task": "d30-t1", "event": "ask_explain", "word": "get", "answer": "delete", "learned": false}
+{"t": 1792977909.369, "task": "d30-t1", "event": "ask_explain", "word": "rid", "answer": "delete", "learned": false}
+{"t": 1792977910.086, "task": "d30-t1", "event": "demonstration", "pid": "22204eb435", "pattern": [["o", "kind", "absent"]], "steps": [["zap", ["ember28.md"]]]}
+{"t": 1792977914.393, "task": "d30-t1", "event": "rehearsal", "ok": true, "steps": 6}
