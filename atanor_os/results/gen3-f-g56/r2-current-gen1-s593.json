@@ -1,0 +1,1880 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s593\\gen1\\desk",
+ "eval_seed": 693,
+ "learner": "current",
+ "summary": {
+  "taught": {
+   "success": 9
+  },
+  "english": {
+   "success": 84,
+   "partial": 76,
+   "part-held": 4
+  },
+  "combo": {
+   "partial": 19,
+   "success": 12,
+   "part-held": 1
+  }
+ },
+ "held_why": {},
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 5,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 0,
+   "act": 6,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 6,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 6,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 6,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 6,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 5,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 1,
+   "act": 6,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 6,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 6,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 6,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 6,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "part-held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "part-held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "part-held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "part-held"
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "part-held"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 5,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 2,
+   "act": 6,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 6,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 6,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 6,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 6,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 5,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 3,
+   "act": 6,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 6,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 6,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 6,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 6,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 5,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 6,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 6,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 6,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 6,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 6,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 1,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 2,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "partial"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 5,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 6,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 6,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 6,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 6,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 6,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 5,
+  "first": {
+   "success": 4,
+   "part-held": 1
+  },
+  "second": {
+   "part-held": 1
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 1,
+    "first": "success",
+    "second": null
+   },
+   {
+    "sel": 2,
+    "act": 1,
+    "first": "part-held",
+    "second": "part-held"
+   },
+   {
+    "sel": 3,
+    "act": 1,
+    "first": "success",
+    "second": null
+   },
+   {
+    "sel": 4,
+    "act": 1,
+    "first": "success",
+    "second": null
+   },
+   {
+    "sel": 5,
+    "act": 1,
+    "first": "success",
+    "second": null
+   }
+  ]
+ },
+ "delayed": {
+  "n": 3,
+  "carried_out": 3,
+  "resend": 0,
+  "retry_failed": 0,
+  "prevented_by_desk": 0,
+  "rows": [
+   {
+    "variant": 0,
+    "sel": 2,
+    "act": 3,
+    "n": 7,
+    "carried_out": true,
+    "prevented": 0,
+    "resend": 0,
+    "retry_failed": 0
+   },
+   {
+    "variant": 1,
+    "sel": 2,
+    "act": 3,
+    "n": 8,
+    "carried_out": true,
+    "prevented": 0,
+    "resend": 0,
+    "retry_failed": 0
+   },
+   {
+    "variant": 2,
+    "sel": 2,
+    "act": 3,
+    "n": 10,
+    "carried_out": true,
+    "prevented": 0,
+    "resend": 0,
+    "retry_failed": 0
+   }
+  ]
+ },
+ "oracle": {
+  "main": {
+   "n": 41,
+   "good": 41
+  },
+  "unseen": {
+   "n": 5,
+   "good": 5
+  },
+  "delayed": {
+   "n": 3,
+   "good": 3
+  },
+  "rows": [
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 2,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 3,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 4,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 5,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 0,
+    "act": 6,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 1,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 1,
+    "act": 2,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 1,
+    "act": 3,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 1,
+    "act": 4,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 1,
+    "act": 5,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 1,
+    "act": 6,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 0,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 2,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 4,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 5,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 2,
+    "act": 6,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 2,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 3,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 4,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 5,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 3,
+    "act": 6,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 2,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 3,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 4,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 5,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 4,
+    "act": 6,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 2,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 3,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 4,
+    "outcome": "partial"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 5,
+    "outcome": "success"
+   },
+   {
+    "part": "main",
+    "sel": 5,
+    "act": 6,
+    "outcome": "success"
+   },
+   {
+    "part": "unseen",
+    "sel": 0,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "unseen",
+    "sel": 2,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "unseen",
+    "sel": 3,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "unseen",
+    "sel": 4,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "unseen",
+    "sel": 5,
+    "act": 1,
+    "outcome": "success"
+   },
+   {
+    "part": "delayed",
+    "sel": 2,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "part": "delayed",
+    "sel": 2,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "part": "delayed",
+    "sel": 2,
+    "act": 3,
+    "outcome": "success"
+   }
+  ]
+ },
+ "synonyms": {
+  "summary": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 40,
+   "wrong_total": 0
+  },
+  "rows": []
+ },
+ "modifier": {
+  "n": 0,
+  "outcomes": {},
+  "untested": [
+   {
+    "narrow": 5,
+    "broad": 4,
+    "word": "blue"
+   }
+  ],
+  "rows": []
+ },
+ "commands": 217,
+ "wrong": 0
+}
