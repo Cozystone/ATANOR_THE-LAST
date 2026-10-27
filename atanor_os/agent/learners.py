@@ -14,6 +14,9 @@ def make(home, mind_dir, **kw):
     if name() == 'core_m':                                 # ... + the modifier-slot rule
         from .grounding import Grounder
         return Grounder(home, mind_dir, **kw, modifier_slot=True)
+    if name() == 'g57':                                    # GEN3_H1_PROTOCOL.md: the current core without H1
+        from .grounding import Grounder
+        return Grounder(home, mind_dir, **kw, same_doing=False)
     if name() == 'g35':
         from .grounding_g35 import Grounder
         kw.pop('caps', None)                               # generation 1 granted itself the body's capabilities
