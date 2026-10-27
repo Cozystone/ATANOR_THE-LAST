@@ -29,7 +29,7 @@ def _taught(tmp_path):
 def test_an_unseen_prior_state_is_held(tmp_path):
     ws, words = _taught(tmp_path)
     res = Grounder(ws, tmp_path / 'mind', person=None, caps={}).obey(words)
-    assert 'b5' in res['withheld'] and 'b5' not in res['acted'] and res.get('why') == 'unseen prior state'   # GEN2_H3
+    assert not res.get('acted') and res.get('why') == 'unseen prior state'
     assert ws.observe(ws.existing())['b5']['heat'] == 'hot'
 
 

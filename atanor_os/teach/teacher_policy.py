@@ -201,7 +201,7 @@ class Teacher:
     def log(self, activity, reason, s, a, e0, **extra):
         row = {'policy': self.policy, 'session': self.sess.state['session'], 'at': self.clock().isoformat(), 'activity': activity,
                'reason': reason, 'sel': self.sels[s] if s is not None else None, 'act': self.acts[a] if a is not None else None,
-               'truth': list(self.tut.truth), 'events': [e0, self._events()], **extra}
+               'truth': list(getattr(self.tut, 'truth', ())), 'events': [e0, self._events()], **extra}
         with open(self.root / 'teacher_log.jsonl', 'a', encoding='utf-8') as f:
             f.write(json.dumps(row, ensure_ascii=False, default=str) + '\n')
 

@@ -240,14 +240,14 @@ class Grounder:
         """Attributes the action changes on its object: a criterion over them describes the old state, not the objects."""
         return {self._attr(a) for a in effect.get('gained', []) + effect.get('lost', [])} - {None}
 
-    def apply(self, sel, effect, lesson=None, skip=()):
-        """Do the action on every object the concept picks that does not show its effect yet (but those in skip)."""
+    def apply(self, sel, effect, lesson=None):
+        """Do the action on every object the concept picks that does not show its effect yet."""
         self.refused = []
         feats = self.feats()
         ext = self.extension(sel['atoms'], feats)
         acted, failed = [], []
         for o in ext:
-            if o in skip or self._done(effect, feats, feats, o):
+            if self._done(effect, feats, feats, o):
                 continue
             args = tuple(self._arg(a, o) for a in effect['template'])
             if len(set(args)) != len(args):
@@ -633,7 +633,7 @@ class Grounder:
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone; a command held
         with nobody there is kept as an unfinished goal, to be asked about when the person is back."""
         res = self._obey(symbols, task)
-        if self.person is None and not res.get('ok') and (not res.get('acted') or res.get('withheld')) and res.get('why') in self.HELD:
+        if self.person is None and not res.get('ok') and not res.get('acted') and res.get('why') in self.HELD:
             items = [x for x in self.pending() if x['words'] != list(symbols)]
             self._set_pending(items + [{'words': list(symbols), 'why': res['why'], 'task': task, 'event': res.get('event')}])
         elif res.get('ok'):
@@ -708,13 +708,10 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
-        withheld = self._unseen_prior(act, todo(sel['atoms']), feats) if self.person is None and self.prior_bound else []
-        if withheld and len(withheld) == len(todo(sel['atoms'])):
+        if self.person is None and self.prior_bound and self._unseen_prior(act, todo(sel['atoms']), feats):
             self.counts['held_unseen_prior'] += 1            # GEN2_H1_PROTOCOL.md: never seen working from this state
             return {'ok': False, 'why': 'unseen prior state', 'event': ev}
-        if withheld:                                       # GEN2_H3_PROTOCOL.md: do the approved part, hold the rest
-            self.counts['withheld'] += len(withheld)
-        acted, failed = self.apply(sel, act, lesson=task, skip=withheld)
+        acted, failed = self.apply(sel, act, lesson=task)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
         if blocked:                                        # what it would make is already there: a block, not a counter-example
@@ -729,9 +726,8 @@ class Grounder:
                 acted += more
         if self.refused:
             self.counts['refused'] += len(self.refused)
-        return {'ok': not failed and not self.refused and not withheld, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
-                'refused': list(self.refused), 'withheld': list(withheld), 'selection': ext,
-                **({'why': 'unseen prior state'} if withheld else {}),
+        return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
+                'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
 
     def _unseen_prior(self, eff, objs, feats):
