@@ -27,13 +27,12 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True, caps=None, modifier_slot=True, bundles=True):
+                 experiment=True, transfer=True, caps=None, modifier_slot=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
         self.modifier_slot = modifier_slot         # DESK_EVAL3_PROTOCOL.md; kept or reverted by CLOSEOUT_CHECK_PROTOCOL.md
-        self.bundles = bundles                     # GEN3_D_PROTOCOL.md: compare own cases before acting alone
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -240,14 +239,14 @@ class Grounder:
         """Attributes the action changes on its object: a criterion over them describes the old state, not the objects."""
         return {self._attr(a) for a in effect.get('gained', []) + effect.get('lost', [])} - {None}
 
-    def apply(self, sel, effect, lesson=None, skip=()):
-        """Do the action on every object the concept picks that does not show its effect yet (but those in skip)."""
+    def apply(self, sel, effect, lesson=None):
+        """Do the action on every object the concept picks that does not show its effect yet."""
         self.refused = []
         feats = self.feats()
         ext = self.extension(sel['atoms'], feats)
-        acted, failed, cases = [], [], {}
+        acted, failed = [], []
         for o in ext:
-            if o in skip or self._done(effect, feats, feats, o):
+            if self._done(effect, feats, feats, o):
                 continue
             args = tuple(self._arg(a, o) for a in effect['template'])
             if len(set(args)) != len(args):
@@ -256,65 +255,13 @@ class Grounder:
                 res = self.home.execute(effect['tool'], args, self.caps)
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
-            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'),
-                                        object=o, pre=self._u(feats.get(o, ())))
+            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'))
             if res.get('blocked'):                         # not permitted: says nothing about what the tool does
-                self.refused.append(o)                     # (and no bundle: the action did not run)
+                self.refused.append(o)
                 continue
-            cases[ev] = o
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
-        if cases:                                          # GEN3_D_PROTOCOL.md: the bundle's state right after
-            after = self.feats()
-            self.mem.events.append('act_after', lesson=lesson, post={e: self._u(after.get(o, ())) for e, o in cases.items()})
         return acted, failed
-
-    @staticmethod
-    def _u(atoms):
-        return sorted(a for a in atoms if a.startswith("('U'"))
-
-    def _cases(self, eff):
-        """GEN3_D_PROTOCOL.md: own bundles of this action (same tool, same constant arguments): (before, after)."""
-        consts = [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
-        after, acts = {}, []
-        for e in self.mem.events.all():
-            if e.get('body') != self.body:
-                continue
-            if e.get('kind') == 'act_after':
-                after.update(e['post'])
-            elif (e.get('kind') == 'act' and e.get('pre') is not None and e.get('tool') == eff['tool']
-                  and len(e.get('args') or []) == len(eff['template'])
-                  and all(e['args'][i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K')):
-                acts.append(e)
-        return [(frozenset(e['pre']), frozenset(after[e['id']])) for e in acts if e['id'] in after]
-
-    @staticmethod
-    def _bundle_change(pre, post):
-        return (tuple(sorted(pre - post)), tuple(sorted(post - pre)))
-
-    def _compare(self, cases, start):
-        """The offline comparison (repr/bundles.py), over own cases: exact starts, else starts differing only in
-        attributes seen not to matter (two cases differing in that one attribute alone changed the same, non-empty
-        way). 'none' (they agree nothing changes), 'disagree', 'change', or None (no case)."""
-        attr = lambda a: self._attr(a)
-        by_attr = lambda s: {attr(a): a for a in s}
-        irrelevant = set()
-        for i, (p1, q1) in enumerate(cases):
-            for p2, q2 in cases[i + 1:]:
-                d1, d2 = by_attr(p1), by_attr(p2)
-                diff = [k for k in set(d1) | set(d2) if d1.get(k) != d2.get(k)]
-                ch = self._bundle_change(p1, q1)
-                if len(diff) == 1 and (ch[0] or ch[1]) and ch == self._bundle_change(p2, q2):
-                    irrelevant.add(diff[0])
-        s = by_attr(start)
-        use = [(p, q) for p, q in cases if p == start] or \
-              [(p, q) for p, q in cases if all(by_attr(p).get(k) == s.get(k) or k in irrelevant for k in set(by_attr(p)) | set(s))]
-        if not use:
-            return None
-        moves = {self._bundle_change(p, q) for p, q in use}
-        if len(moves) > 1:
-            return 'disagree'
-        return 'none' if moves == {((), ())} else 'change'
 
     LAB_BUDGET = 12
 
@@ -678,7 +625,7 @@ class Grounder:
         self.counts['asked_between'] += 1
         return t['defs'][win_s], t['defs'][win_a]
 
-    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word', 'cases disagree')
+    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word')
 
     def obey(self, symbols, task=None):
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone; a command held
@@ -759,22 +706,7 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
-        withheld = []
-        makes = any(isinstance(r, list) and r[0] == 'C' for r in act['template'])   # its effect lands on another object,
-        if self.person is None and self.bundles and not makes:   # which a bundle of the acted object cannot see
-            cases = self._cases(act)
-            verdicts = {o: self._compare(cases, frozenset(self._u(feats.get(o, ())))) for o in todo(sel['atoms'])} if cases else {}
-            unsure = [o for o, v in verdicts.items() if v == 'disagree']
-            if unsure:
-                self.counts['held_cases_disagree'] += 1
-                self.mem.claims.add('need', {'action': act.get('action'), 'tool': act['tool'],
-                                             'starts': sorted({tuple(self._u(feats.get(o, ()))) for o in unsure})},
-                                    [ev], 'inferred', self.scope)
-                return {'ok': False, 'why': 'cases disagree', 'event': ev}
-            withheld = [o for o, v in verdicts.items() if v == 'none']   # own cases: nothing would change from here
-            if withheld:
-                self.counts['withheld_by_cases'] += len(withheld)
-        acted, failed = self.apply(sel, act, lesson=task, skip=withheld)
+        acted, failed = self.apply(sel, act, lesson=task)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
         if blocked:                                        # what it would make is already there: a block, not a counter-example
@@ -789,8 +721,8 @@ class Grounder:
                 acted += more
         if self.refused:
             self.counts['refused'] += len(self.refused)
-        return {'ok': not failed and not self.refused and not withheld, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
-                'refused': list(self.refused), 'withheld': list(withheld), 'selection': ext,
+        return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
+                'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
 
     def _resettle(self, sel_hit, feats, task):
