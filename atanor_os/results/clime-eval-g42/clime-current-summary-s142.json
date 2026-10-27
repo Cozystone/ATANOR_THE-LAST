@@ -1,0 +1,144 @@
+{
+ "learner": "current",
+ "seed": 142,
+ "none": {
+  "summary": {
+   "taught": {
+    "success": 11,
+    "wrong": 1
+   },
+   "english": {
+    "held": 16,
+    "success": 48
+   },
+   "combo": {
+    "success": 6,
+    "wrong": 1
+   }
+  },
+  "held_why": {
+   "unresolved": 16
+  },
+  "harm": {
+   "taught": 1,
+   "english": 0,
+   "combo": 1,
+   "time": 4
+  },
+  "commands": 145,
+  "wrong": 6,
+  "unseen_change": {
+   "n": 4,
+   "first": {
+    "success": 4
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 38,
+   "outcomes": {
+    "success": 34,
+    "wrong": 4
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 19,
+    "good": 19
+   },
+   "unseen": {
+    "n": 4,
+    "good": 4
+   },
+   "time": {
+    "n": 38,
+    "good": 38
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "held": 6,
+    "success": 1
+   },
+   "alone_after": {
+    "success": 6
+   },
+   "reuse_alone": {
+    "success": 7
+   },
+   "n": 7,
+   "plain_pairs": 12,
+   "wrong_total": 0
+  }
+ },
+ "gen1": {
+  "summary": {
+   "taught": {
+    "success": 11,
+    "wrong": 1
+   },
+   "english": {
+    "held": 16,
+    "success": 48
+   },
+   "combo": {
+    "success": 6,
+    "wrong": 1
+   }
+  },
+  "held_why": {
+   "unresolved": 16
+  },
+  "harm": {
+   "taught": 1,
+   "english": 0,
+   "combo": 1,
+   "time": 4
+  },
+  "commands": 145,
+  "wrong": 6,
+  "unseen_change": {
+   "n": 4,
+   "first": {
+    "success": 4
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 38,
+   "outcomes": {
+    "success": 34,
+    "wrong": 4
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 19,
+    "good": 19
+   },
+   "unseen": {
+    "n": 4,
+    "good": 4
+   },
+   "time": {
+    "n": 38,
+    "good": 38
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "held": 6,
+    "success": 1
+   },
+   "alone_after": {
+    "success": 6
+   },
+   "reuse_alone": {
+    "success": 7
+   },
+   "n": 7,
+   "plain_pairs": 12,
+   "wrong_total": 0
+  }
+ }
+}
