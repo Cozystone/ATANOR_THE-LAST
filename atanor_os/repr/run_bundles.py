@@ -5,6 +5,7 @@ The scorer alone knows which later changes are an act's delayed effect (evaluato
 queued by a send; nothing else in these two bodies.
 Usage: python -m atanor_os.repr.run_bundles make <body> <seed> <root>
        python -m atanor_os.repr.run_bundles score <body> <out.json> <train logs ...> -- <query logs ...>
+       python -m atanor_os.repr.run_bundles seq <body> <out.json> <train logs ...> -- <query logs ...>   (GEN3_BUNDLE2)
 """
 import json
 import shutil
@@ -13,6 +14,26 @@ from collections import Counter
 from pathlib import Path
 
 from .bundles import Memory, build, change, controls, read
+
+RETIRED = {'clime': 'heat', 'desk': 'file'}                # evaluator side: the course's tool that stops (GEN3_BUNDLE2)
+CHANGE_TICK = 10
+
+
+class Growing(Memory):
+    """The same memory and comparison, grown one bundle at a time (GEN3_BUNDLE2_PROTOCOL.md): identical answers to
+    rebuilding Memory from all bundles so far, without rebuilding."""
+
+    def add(self, b):
+        key = (b['tool'], tuple(b['consts']))
+        cases = self.by_action[key]
+        for a in cases:
+            diff = [k for k in a['pre'] if a['pre'].get(k) != b['pre'].get(k)]
+            same = change(a['pre'], a['post'])
+            if len(diff) == 1 and same and same == change(b['pre'], b['post']):
+                self.irrelevant.setdefault(key, set()).add(diff[0])
+        cases.append(b)
+        self.irrelevant.setdefault(key, set())
+        self.bundles.append(b)
 
 
 def make(body, seed, root):
@@ -28,7 +49,7 @@ def truth_who(body, b):
     return 'action' if body == 'desk' and b['post'].get('status') == 'queued' else 'outside'
 
 
-def score(body, train_logs, query_logs):
+def score(body, train_logs, query_logs, sequential=False):
     train_rows = [r for p in train_logs for r in read(p)]
     train = [b for i, p in enumerate(train_logs) for b in build(read(p), source=f'T{i}')]
     ctrl = Counter()
@@ -40,6 +61,9 @@ def score(body, train_logs, query_logs):
     res = {'BUNDLE': Counter(), 'SINGLE': Counter(), 'BUNDLE_cond': Counter(), 'SINGLE_cond': Counter(),
            'later': Counter(), 'later_who': Counter()}
     examples = {'held': [], 'wrong': []}
+    if sequential:
+        mem = Growing(train, ctrl)
+        res['cross'] = Counter()
     for q in queries:
         truth = change(q['pre'], q['post'])
         key = (q['tool'], tuple(q['consts']))
@@ -55,6 +79,9 @@ def score(body, train_logs, query_logs):
             if name == 'BUNDLE' and outcome in examples and len(examples[outcome]) < 8:
                 examples[outcome].append({'query': q['id'], 'tool': q['tool'], 'cond': cond, 'answer': ans.get('answer'), 'truth': truth,
                                           'need': ans.get('need'), 'used': ans.get('used', [])[:5]})
+        if sequential and q['tool'] == RETIRED.get(body) and q['t'] >= CHANGE_TICK:
+            a = mem.ask(q['pre'], q['tool'], q['consts'])
+            res['cross']['held' if a['answer'] is None else ('right' if a['answer'] == truth else 'wrong')] += 1
         if q['later'] is not None:
             lt = change(q['post'], q['later'])
             a = mem.ask_later(q['post'], q['tool'], q['consts'])
@@ -64,6 +91,8 @@ def score(body, train_logs, query_logs):
                 res['later']['right' if a['answer'] == lt else 'wrong'] += 1
                 if lt:
                     res['later_who']['right' if a['who'] == truth_who(body, q) else 'wrong'] += 1
+        if sequential:
+            mem.add(q)                                     # the query becomes experience
     def rates(c):
         n = sum(c.values())
         ans = c['right'] + c['wrong']
@@ -82,6 +111,13 @@ def score(body, train_logs, query_logs):
               'later_who>=0.90': out['later_who']['accuracy'] >= 0.90}
     four = [checks['cond_precision>=0.95'] and checks['cond_coverage>=0.60'], checks['wrong_rate<=0.02'],
             checks['cond_precision>single'], checks['later_who>=0.90']]
+    if sequential:
+        cr = out['cross']
+        checks['cross_wrong_rate<=0.05'] = (cr['wrong_rate'] or 0) <= 0.05
+        five = four + [checks['cross_wrong_rate<=0.05']]
+        out['checks'] = checks
+        out['verdict'] = 'PASS' if all(five) else ('PARTIAL' if (b['wrong_rate'] or 0) <= 0.05 and sum(five) >= 3 else 'FAIL')
+        return out
     out['checks'] = checks
     out['verdict'] = 'PASS' if all(four) else ('PARTIAL' if (b['wrong_rate'] or 0) <= 0.05 and sum(four) >= 2 else 'FAIL')
     return out
@@ -91,9 +127,10 @@ if __name__ == '__main__':
     if sys.argv[1] == 'make':
         print(make(sys.argv[2], int(sys.argv[3]), sys.argv[4]))
     else:
+        seq = sys.argv[1] == 'seq'
         body, out_file = sys.argv[2], Path(sys.argv[3])
         rest = sys.argv[4:]
         cut = rest.index('--')
-        r = score(body, rest[:cut], rest[cut + 1:])
+        r = score(body, rest[:cut], rest[cut + 1:], sequential=seq)
         out_file.write_text(json.dumps(r, indent=1, default=str), encoding='utf-8')
         print(json.dumps({k: v for k, v in r.items() if k != 'examples'}, indent=1, default=str))
