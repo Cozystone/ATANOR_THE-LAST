@@ -1,0 +1,55 @@
+{
+ "verdict_delayed": "NOT_REUSED",
+ "threshold": 0.48,
+ "immediate_interpretation_unchanged": 0.6,
+ "hours_since_lexicon_freeze": 72.29,
+ "checks": {
+  "code": true,
+  "code_changed_files": [],
+  "lexicon": {
+   "CONCEPT": true,
+   "FLAT": true
+  },
+  "r1": true
+ },
+ "teacher_import_attempts": [],
+ "network_event_count": 0,
+ "exact_overlap_with_training": 0,
+ "CONCEPT": {
+  "interpretation": 0.467,
+  "tool": 0.533,
+  "set": 0.933,
+  "dest": 1.0,
+  "action_success": 0.5,
+  "interpretation_seen_ext": 0.444,
+  "interpretation_unseen_ext": 0.5
+ },
+ "FLAT": {
+  "interpretation": 0.467,
+  "tool": 0.533,
+  "set": 0.933,
+  "dest": 1.0,
+  "action_success": 0.5,
+  "interpretation_seen_ext": 0.444,
+  "interpretation_unseen_ext": 0.5
+ },
+ "NONE": {
+  "interpretation": 0.067,
+  "tool": 0.333,
+  "set": 0.2,
+  "dest": 0.567,
+  "action_success": 0.3,
+  "interpretation_seen_ext": 0.111,
+  "interpretation_unseen_ext": 0.0
+ },
+ "ORACLE": {
+  "interpretation": 1.0,
+  "tool": 1.0,
+  "set": 1.0,
+  "dest": 1.0,
+  "action_success": 1.0,
+  "interpretation_seen_ext": 1.0,
+  "interpretation_unseen_ext": 1.0
+ },
+ "concept_minus_flat": 0.0
+}
