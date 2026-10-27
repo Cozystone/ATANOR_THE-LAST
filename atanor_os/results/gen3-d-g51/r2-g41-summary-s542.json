@@ -1,0 +1,146 @@
+{
+ "learner": "g41",
+ "seed": 542,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-g41-s542\\none\\desk",
+  "eval_seed": 642,
+  "learner": "g41",
+  "summary": {
+   "taught": {
+    "success": 8,
+    "partial": 1
+   },
+   "english": {
+    "success": 80,
+    "partial": 84
+   },
+   "combo": {
+    "success": 12,
+    "partial": 20
+   }
+  },
+  "held_why": {},
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 5,
+   "prevented_by_desk": 17
+  },
+  "oracle": {
+   "main": {
+    "n": 41,
+    "good": 41
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 41,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 216,
+  "wrong": 0
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11
+    },
+    "english": {
+     "success": 108
+    },
+    "combo": {
+     "success": 22
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 0,
+    "first": {},
+    "second": {}
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 7
+    },
+    "english": {
+     "success": 64
+    },
+    "combo": {
+     "success": 9
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 4,
+    "first": {
+     "success": 4
+    },
+    "second": {
+     "success": 4
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "taught": {
+     "success": 7
+    },
+    "english": {
+     "success": 48
+    },
+    "combo": {
+     "success": 5
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 6
+    },
+    "second": {
+     "success": 6
+    }
+   }
+  }
+ }
+}
