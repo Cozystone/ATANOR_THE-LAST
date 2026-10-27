@@ -55,6 +55,11 @@ def world(root, eval_seed, drift, body='board'):
     return home
 
 
+def part_held(t, res):
+    """GEN2_H3_PROTOCOL.md: the learner withheld some meant objects and was right on all it did (not wrong, not success)."""
+    return bool(res.get('withheld')) and t.judge(ignore=res['withheld'])
+
+
 def evaluate(course, eval_seed, out_file, sealed=None):
     from ..agent.learners import make as Grounder         # the current learner, or the frozen copy (ATANOR_LEARNER)
     course, out_file = Path(course), Path(out_file)
@@ -105,8 +110,9 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 res = Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey(words)
                 ok = t.judge()
                 rows.append({'sel': s, 'act': a, 'kind': kind, 'why': res.get('why'),
-                             'outcome': 'success' if ok and res.get('ok') else ('wrong' if res.get('acted') else
-                                                                               ('missed' if res.get('ok') else 'held'))})
+                             'outcome': 'success' if ok and res.get('ok') else ('part-held' if part_held(t, res) else
+                                                                               ('wrong' if res.get('acted') else
+                                                                                ('missed' if res.get('ok') else 'held')))})
     revision = []                                          # a world change the course never had: one tool stops
     for s in sorted(int(k) for k in names['sel']):
         for a in sorted(int(k) for k in names['act']):
@@ -126,7 +132,8 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                 res = Grounder(h, work / 'm', person=None, source='evaluator', caps={c: True for c in set(getattr(h, 'CAPABILITY', {}).values())}).obey([names['act'][str(a)], names['sel'][str(s)]])
                 ok = t.judge()
                 seq.append('success' if ok and res.get('ok') else ('tool_failed' if res.get('failed') else
-                                                                   ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why'))))))
+                                                                   ('part-held' if part_held(t, res) else
+                                                                    ('wrong' if res.get('acted') else ('missed' if res.get('ok') else 'held:' + str(res.get('why')))))))
             revision.append({'sel': s, 'act': a, 'first': seq[0], 'second': seq[1]})
     oracle = []                                            # knows the answer: the right tool calls, done directly
     for s in sorted(int(k) for k in names['sel']):

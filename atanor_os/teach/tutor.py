@@ -300,12 +300,17 @@ class Tutor:
         self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime') else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
-    def judge(self):
-        """Every object meant shows the result; every other object is as it was."""
+    def judge(self, ignore=()):
+        """Every object meant shows the result; every other object is as it was. Objects in ignore (GEN2_H3_PROTOCOL.md:
+        withheld by the learner) need not show it, but must be as they were."""
         now = self._state()
         relative = getattr(self.spec, 'RELATIVE', False)
         for o, a in self.before.items():
             cur = now.get(o)
+            if o in ignore:
+                if cur != a:
+                    return False
+                continue
             if o in self.truth:
                 possible = getattr(self.spec, 'possible', lambda act, o, st: True)(self.act, o, self.before)
                 shown = self.spec.shows(self.act, o, now, self.before) if relative else self.spec.shows(self.act, o, now)

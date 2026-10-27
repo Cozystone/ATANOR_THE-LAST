@@ -56,8 +56,11 @@ def outcome(spec, act, tut, res):
     if ok and res.get('ok'):
         return 'success'
     failed = res.get('failed') or []
-    if ok and failed and not any(spec.possible(act, o, tut.before) for o in failed):
+    withheld = res.get('withheld') or []
+    if ok and (failed or withheld) and not any(spec.possible(act, o, tut.before) for o in failed + withheld):
         return 'partial'
+    if withheld and tut.judge(ignore=withheld):
+        return 'part-held'                                 # GEN2_H3_PROTOCOL.md: right on what it did, held the rest
     if res.get('acted'):
         return 'wrong'
     return 'missed' if res.get('ok') else 'held'

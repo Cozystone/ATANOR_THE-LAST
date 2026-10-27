@@ -351,7 +351,9 @@ class Session:
             row['outcome'] = 'tool_failed'
             self.say('기억한 행동이 이번에는 되지 않았습니다.')
         else:
-            verdict = self.person.ask('judge', acted=row['acted'], note='이 명령을 이렇게 했습니다. 맞나요?')
+            held = res.get('withheld') or []                # GEN2_H3_PROTOCOL.md: the confirmation also says what was held
+            verdict = self.person.ask('judge', acted=row['acted'], withheld=held,
+                                      note='이 명령을 이렇게 했습니다. 맞나요?' + (' (확인받지 못한 상태라 손대지 않은 것이 있습니다)' if held else ''))
             row['outcome'] = 'success' if verdict['ok'] else 'wrong'
             row['reason'] = verdict.get('reason')
             g.reply(bool(verdict['ok']), used=res.get('used') or (), reason=verdict.get('reason'))

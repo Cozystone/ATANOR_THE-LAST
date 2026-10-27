@@ -159,7 +159,7 @@ function drawControls() {
       }
     }
   } else if (p.kind === 'confirm' || p.kind === 'judge') {
-    pr.textContent = `${p.note} 바뀐 카드: ${(p.acted || []).join(', ') || '없음'}${(p.failed || []).length ? ' / 실패: ' + p.failed.join(', ') : ''}`;
+    pr.textContent = `${p.note} 바뀐 카드: ${(p.acted || []).join(', ') || '없음'}${(p.failed || []).length ? ' / 실패: ' + p.failed.join(', ') : ''}${(p.withheld || []).length ? ' / 손대지 않음: ' + p.withheld.join(', ') : ''}`;
     box.append(el('button', {class: 'ok', onclick: () => answer({ok: true})}, '맞아요'),
                el('button', {class: 'bad', onclick: () => answer({ok: false, reason: 'cards'})}, '틀렸어요: 카드가 틀림'),
                el('button', {class: 'bad', onclick: () => answer({ok: false, reason: 'result'})}, '틀렸어요: 행동 결과가 틀림'));

@@ -69,7 +69,7 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
         elif k == 'show':                                  # is this what was meant? (honest, like every confirmation)
             ans = {'ok': set(p['objects']) == set(tut.truth)}
         elif k in ('confirm', 'judge'):
-            ok = tut.judge()
+            ok = tut.judge(ignore=p.get('withheld') or ())    # the person judges what was done; held ones are asked later
             acted = set(p.get('acted') or [])
             wrong_cards = bool(acted - set(tut.truth)) or not acted   # acted on cards not meant, or on none of them
             ans = {'ok': ok, 'reason': None if ok else ('cards' if wrong_cards else 'result')}
