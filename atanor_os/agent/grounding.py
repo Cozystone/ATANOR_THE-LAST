@@ -27,13 +27,12 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True, caps=None, modifier_slot=True, prior_bound=True):
+                 experiment=True, transfer=True, caps=None, modifier_slot=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
         self.modifier_slot = modifier_slot         # DESK_EVAL3_PROTOCOL.md; kept or reverted by CLOSEOUT_CHECK_PROTOCOL.md
-        self.prior_bound = prior_bound             # GEN2_H1_PROTOCOL.md: effects are tied to the prior states seen
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -240,14 +239,14 @@ class Grounder:
         """Attributes the action changes on its object: a criterion over them describes the old state, not the objects."""
         return {self._attr(a) for a in effect.get('gained', []) + effect.get('lost', [])} - {None}
 
-    def apply(self, sel, effect, lesson=None, skip=()):
-        """Do the action on every object the concept picks that does not show its effect yet (but those in skip)."""
+    def apply(self, sel, effect, lesson=None):
+        """Do the action on every object the concept picks that does not show its effect yet."""
         self.refused = []
         feats = self.feats()
         ext = self.extension(sel['atoms'], feats)
         acted, failed = [], []
         for o in ext:
-            if o in skip or self._done(effect, feats, feats, o):
+            if self._done(effect, feats, feats, o):
                 continue
             args = tuple(self._arg(a, o) for a in effect['template'])
             if len(set(args)) != len(args):
@@ -256,8 +255,7 @@ class Grounder:
                 res = self.home.execute(effect['tool'], args, self.caps)
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
-            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'),
-                                        prior=sorted(a for a in feats.get(o, ()) if self._attr(a) in self._rewritten(effect)))
+            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'))
             if res.get('blocked'):                         # not permitted: says nothing about what the tool does
                 self.refused.append(o)
                 continue
@@ -627,7 +625,7 @@ class Grounder:
         self.counts['asked_between'] += 1
         return t['defs'][win_s], t['defs'][win_a]
 
-    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word', 'unseen prior state')
+    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word')
 
     def obey(self, symbols, task=None):
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone; a command held
@@ -708,18 +706,7 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
-        withheld = []
-        if self.prior_bound:
-            unknown, refused = self._prior_split(act, todo(sel['atoms']), feats)
-            if self.person is None and unknown:
-                self.counts['held_unseen_prior'] += 1        # GEN2_H1_PROTOCOL.md: never seen working from this state
-                return {'ok': False, 'why': 'unseen prior state', 'event': ev}
-            if self.person is not None and unknown and hasattr(self.person, 'prior'):
-                refused += self._ask_priors(act, unknown, feats, task)   # GEN2_H5_PROTOCOL.md: ask first
-            withheld = refused                             # not meant, or meant but to be left as it is
-            if withheld:
-                self.counts['withheld_refused'] += len(withheld)
-        acted, failed = self.apply(sel, act, lesson=task, skip=withheld)
+        acted, failed = self.apply(sel, act, lesson=task)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
         if blocked:                                        # what it would make is already there: a block, not a counter-example
@@ -734,85 +721,9 @@ class Grounder:
                 acted += more
         if self.refused:
             self.counts['refused'] += len(self.refused)
-        return {'ok': not failed and not self.refused and not withheld, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
-                'refused': list(self.refused), 'withheld': list(withheld), 'selection': ext,
-                **({'why': 'refused prior state'} if withheld else {}),
+        return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
+                'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
-
-    def _prior_key(self, eff, o, feats):
-        attrs = self._rewritten(eff)
-        return tuple(sorted(a for a in feats.get(o, ()) if self._attr(a) in attrs))
-
-    def _consts(self, eff):
-        return [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
-
-    def _verdicts(self, eff):
-        return [e for e in self.mem.events.all() if e.get('kind') == 'prior_verdict' and e.get('body') == self.body
-                and e.get('tool') == eff['tool'] and e.get('consts') == self._consts(eff)]
-
-    def _prior_split(self, eff, objs, feats):
-        """(objects in a state never approved nor refused, objects in a state the person said to leave as it is).
-        GEN2_H5_PROTOCOL.md: 'not one I meant' says nothing about the state."""
-        refused_keys, approved = set(), set()
-        for e in self._verdicts(eff):
-            key = tuple(e['prior'])
-            if e.get('answer') == 'leave':
-                refused_keys.add(key)
-                approved.discard(key)
-            elif e.get('answer') == 'yes':
-                approved.add(key)
-                refused_keys.discard(key)
-        refused = [o for o in objs if self._prior_key(eff, o, feats) in refused_keys]
-        unknown = [o for o in self._unseen_prior(eff, objs, feats) if o not in refused and self._prior_key(eff, o, feats) not in approved]
-        return unknown, refused
-
-    def _ask_priors(self, eff, objs, feats, task):
-        """With the person there: 'this one too?' before acting on an object in a state never confirmed. Returns the
-        objects not to act on now: not meant (asked about each), or in a state to be left as it is (asked once)."""
-        skip, by_state = [], {}
-        for o in objs:
-            key = self._prior_key(eff, o, feats)
-            if by_state.get(key) == 'leave':
-                skip.append(o)
-                continue
-            if by_state.get(key) == 'yes':
-                continue
-            ans = self.person.prior(o, eff)
-            self.mem.events.append('prior_verdict', task=task, tool=eff['tool'], consts=self._consts(eff), prior=list(key),
-                                   object=o, answer=ans)
-            self.counts['prior_questions'] += 1
-            if ans in ('yes', 'leave'):
-                by_state[key] = ans
-            if ans != 'yes':
-                skip.append(o)
-        return skip
-
-    def _unseen_prior(self, eff, objs, feats):
-        """GEN2_H1_PROTOCOL.md / GEN2_H2_PROTOCOL.md: the objects whose present value of an attribute this action changes
-        was never the value before a use the person approved: the demonstrated object's lost values, and what was
-        observed right before each act of the same tool with the same constant arguments whose result the person then
-        confirmed as right (the first confirmation after the acts, before the next command). What the tool reported
-        is not the person's verdict: an act nobody confirmed is no evidence."""
-        attrs = self._rewritten(eff)
-        if not attrs:
-            return []
-        same = lambda e: (e.get('tool') == eff['tool'] and len(e.get('args') or []) == len(eff['template'])
-                          and all(e['args'][i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
-        seen = {a for a in eff.get('lost', []) if self._attr(a) in attrs}
-        waiting = []                                       # acts since the last command, not yet judged by the person
-        for e in self.mem.events.all():
-            if e.get('body') != self.body:
-                continue
-            if e.get('kind') == 'say':
-                waiting = []
-            elif e.get('kind') == 'act' and e.get('ok') and same(e):
-                waiting.append(e)
-            elif e.get('kind') == 'confirm':
-                if e.get('answer'):
-                    for a in waiting:
-                        seen |= set(a.get('prior') or [])
-                waiting = []
-        return [o for o in objs if o in feats and any(a not in seen for a in feats[o] if self._attr(a) in attrs)]
 
     def _resettle(self, sel_hit, feats, task):
         """With the person: ask contrast questions now to choose between criteria that disagree on the present objects."""

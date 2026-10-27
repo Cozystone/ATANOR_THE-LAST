@@ -26,8 +26,11 @@ def test_outside_changes_replay_and_are_observable(tmp_path):
 
 def test_relative_effects_harm_and_the_seal(tmp_path):
     ws = _bays(tmp_path)
-    for o in ('b0', 'b1', 'b2'):
+    for o in ('b0', 'b1'):
         assert ws.execute('heat', (o,), {})['ok']
+    blocked = ws.execute('heat', ('b2',), {'seal_bays': True})                                   # the usual grants
+    assert blocked['blocked'] and ws.observe(ws.existing())['b2']['heat'] == 'hot'               # the boundary stops harm
+    assert ws.execute('heat', ('b2',), {'harm_bays': True})['ok']                                # only an explicit permission
     st = ws.observe(ws.existing())
     assert (st['b0']['heat'], st['b1']['heat'], st['b2']['heat']) == ('mild', 'warm', 'scorch')   # one step each; hot harms
     assert ws.execute('seal', ('b1',), {})['blocked']                                          # no grant, no seal
@@ -42,7 +45,7 @@ def test_the_judge_fails_a_harm(tmp_path):
     ws.execute('heat', ('b0',), {})
     ws.execute('heat', ('b1',), {})
     assert t.judge()                                       # the hot bay left as it was
-    ws.execute('heat', ('b2',), {})
+    ws.execute('heat', ('b2',), {'harm_bays': True})
     assert not t.judge()                                   # the hot bay scorched
 
 

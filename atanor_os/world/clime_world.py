@@ -25,6 +25,8 @@ WEATHER = ('cold', 'fair', 'hot')
 VALUE_OBJECTS = tuple(f'w.{w}' for w in WINGS)
 TOOLS = {'heat': 1, 'chill': 1, 'vent': 1, 'route': 2, 'seal': 1}
 CAPABILITY = {'seal': 'seal_bays'}
+HARM_PERMISSION = 'harm_bays'      # GENERATION_2_CLOSEOUT.md: a step into harm runs only with this explicit permission;
+                                   # it is not in CAPABILITY, so the usual grants (all the body lists) never include it
 BLANK = {'kind': 'absent', 'heat': '-', 'air': '-', 'wing': '-', 'value': '-'}
 
 
@@ -156,11 +158,23 @@ class ClimeWorkspace:
             self._log(event='act', actor=actor, tool=tool, args=list(args), ok=False, error='blocked', before=before, after=before)
             return {'ok': False, 'blocked': True, 'error': f'capability {cap} not granted', 'ms': 0.0}
         spec = self._read()
+        if self._harmful(spec, tool, args) and not capabilities.get(HARM_PERMISSION):
+            # the body's execution boundary: it limits what runs, it tells the learner nothing about why
+            self._log(event='act', actor=actor, tool=tool, args=list(args), ok=False, error='blocked', guard='harm', before=before, after=before)
+            return {'ok': False, 'blocked': True, 'error': f'permission {HARM_PERMISSION} not granted', 'ms': 0.0}
         ok = getattr(self, '_tool_' + tool)(spec, *args)
         if ok:
             self._write(spec)
         self._log(event='act', actor=actor, tool=tool, args=list(args), ok=bool(ok), before=before, after=self.fingerprint())
         return {'ok': bool(ok), 'blocked': False, 'error': '' if ok else 'precondition', 'ms': (time.perf_counter() - t0) * 1000}
+
+    def _harmful(self, spec, tool, args):
+        """Would this call put a bay into harm (scorch or ice)?"""
+        b = self._bay(spec, args[0]) if args else None
+        if b is None or tool not in ('heat', 'stoke', 'chill'):
+            return False
+        i = LEVELS.index(b['heat']) + (-1 if tool == 'chill' else 1)
+        return 0 <= i < len(LEVELS) and LEVELS[i] in ('ice', 'scorch')
 
     @staticmethod
     def _bay(spec, x):
