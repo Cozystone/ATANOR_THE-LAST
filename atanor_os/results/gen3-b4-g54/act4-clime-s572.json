@@ -1,0 +1,60 @@
+{
+ "body": "clime",
+ "seed": 572,
+ "eval_seed": 672,
+ "train_bundles": 1179,
+ "BUNDLE": {
+  "n": 715,
+  "right": 607,
+  "wrong": 0,
+  "held": 108,
+  "wrong_rate": 0.0,
+  "coverage": 0.849
+ },
+ "LEAVE": {
+  "n": 715,
+  "right": 715,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "SINGLE": {
+  "n": 715,
+  "right": 450,
+  "wrong": 265,
+  "held": 0,
+  "wrong_rate": 0.3706,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 715,
+  "right": 697,
+  "wrong": 18,
+  "held": 0,
+  "wrong_rate": 0.0252,
+  "coverage": 1.0
+ },
+ "needs": {
+  "a case of chill []": 87,
+  "a case of vent []": 16,
+  "a case of stoke []": 5
+ },
+ "need_claims": 108,
+ "held_truth": {
+  "leave": 108
+ },
+ "leave_act_hit": {
+  "n": 574,
+  "acted": 574,
+  "rate": 1.0
+ },
+ "examples": [],
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "fewer_wrong_than_single": true,
+  "not_more_wrong_than_last": true,
+  "act_hit>=0.90": true
+ },
+ "verdict": "PASS"
+}
