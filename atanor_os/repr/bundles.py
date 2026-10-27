@@ -147,3 +147,38 @@ class Memory:
         first = cases[0]
         values = dict(change(first['pre'], first['post']))
         return {'answer': tuple(sorted((k, v) for k, v in values.items() if pre.get(k) != v))}
+
+
+class ChainMemory(Memory):
+    """GEN3_BUNDLE5_PROTOCOL.md: an attribute does not matter to an action when two cases differ in it and otherwise only
+    in attributes already shown not to matter, and changed the same non-empty way; repeated to a fixed point. Not when a
+    pair so placed changed differently (both non-empty). The pair that showed each attribute is kept as its evidence."""
+
+    def __init__(self, bundles, control_moves):
+        self.evidence = {}
+        super().__init__(bundles, control_moves)
+
+    def _irrelevant(self, cases):
+        allowed, evidence = set(), {}
+        for _ in range(10):
+            support, against = {}, set()
+            for i, a in enumerate(cases):
+                ca = change(a['pre'], a['post'])
+                for b in cases[i + 1:]:
+                    diff = [k for k in set(a['pre']) | set(b['pre']) if a['pre'].get(k) != b['pre'].get(k)]
+                    extra = [k for k in diff if k not in allowed]
+                    if len(extra) != 1:
+                        continue
+                    cb = change(b['pre'], b['post'])
+                    if ca and cb and ca != cb:
+                        against.add(extra[0])
+                    elif ca and ca == cb:
+                        support.setdefault(extra[0], (a['id'], b['id']))
+            new = {k for k in support if k not in against} | (allowed - against)
+            if new == allowed:
+                break
+            allowed = new
+            evidence = {k: support.get(k, evidence.get(k)) for k in allowed}
+        if cases:
+            self.evidence[(cases[0]['tool'], tuple(cases[0]['consts']))] = evidence
+        return allowed

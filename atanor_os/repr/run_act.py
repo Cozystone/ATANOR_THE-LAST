@@ -2,7 +2,8 @@
 case, the current representation; LAST: the latest case, what step E used). Training is a course's world log only;
 queries are the meant objects of evaluator-built worlds (no action is run); the labels are evaluator side.
 LEAVE (GEN3_BUNDLE4): as BUNDLE, but an object without agreeing cases is left alone, its needed evidence kept as a claim.
-Usage: python -m atanor_os.repr.run_act <body> <seed> <eval_seed> <out.json> [exp4]
+BUNDLE_C, LEAVE_C (GEN3_BUNDLE5): the same with differences allowed by chains of case pairs (bundles.ChainMemory).
+Usage: python -m atanor_os.repr.run_act <body> <seed> <eval_seed> <out.json> [exp4|exp5]
 """
 import json
 import shutil
@@ -10,7 +11,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from .bundles import Memory, build, change, controls, read
+from .bundles import ChainMemory, Memory, build, change, controls, read
 from .run_bundles import make
 from ..eval.tutor_life import DRIFT, body_spec, body_targets
 from ..teach.tutor import Tutor
@@ -43,18 +44,19 @@ def decide(ans, pre):
     return 'act' if any(pre.get(k) != v for k, v in ans['answer']) else 'leave'
 
 
-def score(body, seed, eval_seed, exp4=False):
+def score(body, seed, eval_seed, exp4=False, exp5=False):
     root = WORK / f'act3-{body}-s{seed}'
     log = make(body, seed, root)
     rows = read(log)
     mem = Memory(build(rows, source='T'), controls(rows))
+    cmem = ChainMemory(build(rows, source='T'), controls(rows))
     course = root / f'{body}-s{seed}' / body
     names = json.loads((course / 'names.json').read_text(encoding='utf-8'))
     sels, acts = body_targets(body, names['seed'])
     spec, drift = body_spec(body), [DRIFT[body]]
     pairs = [(s, a) for s in sorted(int(k) for k in names['sel']) for a in sorted(int(k) for k in names['act'])]
-    res = {r: Counter() for r in ('BUNDLE', 'LEAVE', 'SINGLE', 'LAST')}
-    hit = Counter()                                        # objects to act on, and how many LEAVE acted on
+    res = {r: Counter() for r in ('BUNDLE', 'LEAVE', 'BUNDLE_C', 'LEAVE_C', 'SINGLE', 'LAST')}
+    hit, hit_c = Counter(), Counter()                      # objects to act on, and how many LEAVE (LEAVE_C) acted on
     examples, needs, held_truth = [], Counter(), Counter()
     for w, mk in enumerate(worlds(body, root / 'eval', eval_seed, drift)):
         for s, a in pairs:
@@ -69,13 +71,16 @@ def score(body, seed, eval_seed, exp4=False):
                 tool, args = spec.steps(acts[a], o, h.drift)
                 consts = [x for x in args if x != o]
                 b = mem.ask(st[o], tool, consts)
-                for name, ans in (('BUNDLE', b), ('LEAVE', b), ('SINGLE', mem.single(st[o], tool, consts)), ('LAST', last(mem, st[o], tool, consts))):
+                c = cmem.ask(st[o], tool, consts)
+                for name, ans in (('BUNDLE', b), ('LEAVE', b), ('BUNDLE_C', c), ('LEAVE_C', c), ('SINGLE', mem.single(st[o], tool, consts)),
+                                  ('LAST', last(mem, st[o], tool, consts))):
                     d = decide(ans, st[o])
-                    if name == 'LEAVE':
+                    if name.startswith('LEAVE'):
                         d = 'leave' if d == 'hold' else d          # the object alone is left; its need is a claim
                         if truth == 'act':
-                            hit['n'] += 1
-                            hit['acted'] += d == 'act'
+                            hh = hit if name == 'LEAVE' else hit_c
+                            hh['n'] += 1
+                            hh['acted'] += d == 'act'
                     out = 'held' if d == 'hold' else ('right' if d == truth else 'wrong')
                     res[name][out] += 1
                     if name == 'BUNDLE' and out == 'wrong' and len(examples) < 12:
@@ -94,6 +99,9 @@ def score(body, seed, eval_seed, exp4=False):
     out = {'body': body, 'seed': seed, 'eval_seed': eval_seed, 'train_bundles': len(mem.bundles), **{k: rates(v) for k, v in res.items()},
            'needs': dict(needs.most_common(10)), 'need_claims': sum(needs.values()), 'held_truth': dict(held_truth),
            'leave_act_hit': {'n': hit['n'], 'acted': hit['acted'], 'rate': round(hit['acted'] / hit['n'], 3) if hit['n'] else None},
+           'leave_c_act_hit': {'n': hit_c['n'], 'acted': hit_c['acted'], 'rate': round(hit_c['acted'] / hit_c['n'], 3) if hit_c['n'] else None},
+           'chain_allowed': {f'{k[0]} {list(k[1])}': sorted(v) for k, v in cmem.irrelevant.items()},
+           'chain_evidence': {f'{k[0]} {list(k[1])}': v for k, v in cmem.evidence.items()},
            'examples': examples}
     b, sg, lt = out['BUNDLE'], out['SINGLE'], out['LAST']
     checks = {'wrong_rate<=0.01': (b['wrong_rate'] or 0) <= 0.01, 'fewer_wrong_than_single': b['wrong'] < sg['wrong'],
@@ -107,11 +115,18 @@ def score(body, seed, eval_seed, exp4=False):
                          'not_more_wrong_than_last': lv['wrong'] <= lt['wrong'], 'act_hit>=0.90': rate >= 0.90}
         out['verdict'] = 'PASS' if all(out['checks'].values()) else (
             'PARTIAL' if out['checks']['wrong_rate<=0.01'] and rate >= 0.75 else 'FAIL')
+    if exp5:
+        lc, lv, rate = out['LEAVE_C'], out['LEAVE'], out['leave_c_act_hit']['rate'] or 0
+        out['checks'] = {'wrong_rate<=0.01': (lc['wrong_rate'] or 0) <= 0.01, 'fewer_wrong_than_single': lc['wrong'] < sg['wrong'],
+                         'not_more_wrong_than_last': lc['wrong'] <= lt['wrong'], 'act_hit>=0.90': rate >= 0.90,
+                         'not_more_wrong_than_leave': lc['wrong'] <= lv['wrong']}
+        out['verdict'] = 'PASS' if all(out['checks'].values()) else (
+            'PARTIAL' if out['checks']['wrong_rate<=0.01'] and rate >= 0.75 else 'FAIL')
     return out
 
 
 if __name__ == '__main__':
     body, seed, eval_seed, out_file = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), Path(sys.argv[4])
-    r = score(body, seed, eval_seed, exp4='exp4' in sys.argv[5:])
+    r = score(body, seed, eval_seed, exp4='exp4' in sys.argv[5:], exp5='exp5' in sys.argv[5:])
     out_file.write_text(json.dumps(r, indent=1, default=str), encoding='utf-8')
     print(json.dumps({k: v for k, v in r.items() if k != 'examples'}, indent=1, default=str))
