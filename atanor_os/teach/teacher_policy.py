@@ -40,7 +40,7 @@ from ..eval.en_probe import todo
 from ..eval.tutor_life import DRIFT, body_spec, body_targets, english
 from ..ui.pilot import DAYS, Clock, drive, write_names
 from ..ui.teach_server import Session
-from .tutor import Tutor, symbols
+from .tutor import Tutor, symbols, symbols_clime
 
 POLICIES = ('t1', 't2', 't4', 'c1', 'f0')
 
@@ -66,7 +66,7 @@ class Teacher:
         self.clock = Clock(datetime.datetime(2026, 11, 1, 10, 0))
         self.sess = Session(self.root, seed=seed, source='synthetic_teacher', clock=self.clock, body=body, mind=self.mind)
         self.sels, self.acts = body_targets(body, seed)
-        self.sym = symbols(seed)
+        self.sym = symbols_clime(seed) if body == 'clime' else symbols(seed)   # generation 2: names never used before
         self.tut = Tutor(self.sess.home, self.spec, f'teacher-{seed}')
         self.rng = random.Random(f'teacher-{seed}')
         self.drift_from = drift_from
@@ -424,7 +424,7 @@ if __name__ == '__main__':
     ap.add_argument('--drift-from', type=int, default=9)
     ap.add_argument('--policy', default='t2', choices=POLICIES)
     ap.add_argument('--noise', type=float, default=0.0)
-    ap.add_argument('--body', default='board', choices=('board', 'fs', 'view', 'desk'))
+    ap.add_argument('--body', default='board', choices=('board', 'fs', 'view', 'desk', 'clime'))
     a = ap.parse_args()
     t = run(a.root, a.seed, a.sessions, a.drift_from, a.policy, a.noise, a.body)
     print('slips', t.sess.state.get('pilot_slips'))

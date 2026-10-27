@@ -8,6 +8,8 @@ view:       a0..a4 = the object's five observed tokens (kind, filter, sort, grou
             no relations.
 board:      a0..a4 = the object's five observed tokens (kind, mark, tray, level, value), names removed;
             no relations.
+clime:      a0..a4 = the object's five observed tokens (kind, heat, air, wing, value), names removed;
+            no relations.
 desk:       a0..a4 = the object's five observed tokens (kind, place, status, tag, value), names removed;
             no relations.
 `to_human` is the deterministic inverse used only to hand predicted states to the planner and judge
@@ -15,8 +17,8 @@ desk:       a0..a4 = the object's five observed tokens (kind, place, status, tag
 """
 from .fs_world import parent_of
 
-IDENTITY = {'fs': ('a3',), 'view': (), 'board': (), 'desk': ()}
-KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',), 'desk': ('a0',)}       # provided: which raw attributes make up an argument's kind
+IDENTITY = {'fs': ('a3',), 'view': (), 'board': (), 'desk': (), 'clime': ()}
+KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',), 'desk': ('a0',), 'clime': ('a0',)}       # provided: which raw attributes make up an argument's kind
 
 
 def names_of(body, obj):
@@ -34,6 +36,8 @@ def raw_attrs(body, obj):
         return {'a0': obj.get('kind'), 'a1': obj.get('mark'), 'a2': obj.get('tray'), 'a3': obj.get('level'), 'a4': obj.get('value')}
     if body == 'desk':
         return {'a0': obj.get('kind'), 'a1': obj.get('place'), 'a2': obj.get('status'), 'a3': obj.get('tag'), 'a4': obj.get('value')}
+    if body == 'clime':
+        return {'a0': obj.get('kind'), 'a1': obj.get('heat'), 'a2': obj.get('air'), 'a3': obj.get('wing'), 'a4': obj.get('value')}
     return {'a0': obj.get('kind'), 'a1': obj.get('filter'), 'a2': obj.get('sort'), 'a3': obj.get('group'), 'a4': obj.get('value')}
 
 
@@ -60,6 +64,8 @@ def to_human(body, raw, old):
         return {**old, 'kind': raw['a0'], 'mark': raw['a1'], 'tray': raw['a2'], 'level': raw['a3'], 'value': raw['a4']}
     if body == 'desk':
         return {**old, 'kind': raw['a0'], 'place': raw['a1'], 'status': raw['a2'], 'tag': raw['a3'], 'value': raw['a4']}
+    if body == 'clime':
+        return {**old, 'kind': raw['a0'], 'heat': raw['a1'], 'air': raw['a2'], 'wing': raw['a3'], 'value': raw['a4']}
     return {**old, 'kind': raw['a0'], 'filter': raw['a1'], 'sort': raw['a2'], 'group': raw['a3'], 'value': raw['a4']}
 
 

@@ -10,6 +10,18 @@ from collections import Counter
 from ..world.board_world import TRAYS
 
 
+def symbols_clime(seed, n=40):
+    """Generation 2 names (NEW_BODY_DESIGN.md): consonants the generation-1 names never use, so no name can repeat."""
+    rng = random.Random(f'symbols-clime-{seed}')
+    cons, vows = 'chjqxy', 'aeiou'
+    out = set()
+    while len(out) < n:
+        out.add(rng.choice(cons) + rng.choice(vows) + rng.choice(cons) + (rng.choice(vows) if rng.random() < 0.5 else ''))
+    out = sorted(out)
+    rng.shuffle(out)
+    return out
+
+
 def symbols(seed, n=40):
     rng = random.Random(f'symbols-{seed}')
     cons, vows = 'bdfgklmnprstvwz', 'aeiou'
@@ -182,6 +194,66 @@ class DeskSpec:
         return False
 
 
+class ClimeSpec:
+    """The climate bays (NEW_BODY_DESIGN.md): heat and chill move one step (relative), so whether an object shows the
+    result is known only against its state before; a person does not expect a bay to be harmed (heating a hot one,
+    chilling a frosty one) nor a sealed one to change, and such objects must stay as they were."""
+    BODY = 'clime'
+    RELATIVE = True
+    KEEP_IMPOSSIBLE = True
+    LEVELS = ('ice', 'frost', 'chill', 'mild', 'warm', 'hot', 'scorch')
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and '.' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, v = act['tool'], act.get('second')
+        if t == 'heat':
+            return ('stoke', (o,)) if 'heat_retired' in drift else ('heat', (o,))
+        if t == 'vent':
+            return ('flush', (o,)) if 'vent_retired' in drift else ('vent', (o,))
+        if t == 'route':
+            return ('route', (o, v))
+        return (t, (o,))
+
+    @staticmethod
+    def shows(act, o, state, before=None):
+        a = state.get(o)
+        if a is None or a['kind'] != 'bay':
+            return False
+        t, v = act['tool'], act.get('second')
+        if t in ('heat', 'chill'):
+            if before is None or o not in before:
+                return False                               # a relative change shows only against the state before
+            L = ClimeSpec.LEVELS
+            if a['heat'] not in L or before[o]['heat'] not in L:
+                return False
+            return L.index(a['heat']) == L.index(before[o]['heat']) + (1 if t == 'heat' else -1)
+        if t == 'vent':
+            return a['air'] == 'fresh'
+        if t == 'route':
+            return a['wing'] == v[2:]
+        return a['value'] == 'sealed'
+
+    @staticmethod
+    def possible(act, o, state):
+        a = state.get(o) or {}
+        if a.get('value') == 'sealed':
+            return False
+        t = act['tool']
+        if t == 'heat' and a.get('heat') in ('hot', 'scorch'):
+            return False
+        if t == 'chill' and a.get('heat') in ('frost', 'ice'):
+            return False
+        return True
+
+    @staticmethod
+    def may_change(act, o, truth):
+        return False
+
+
 class Tutor:
     def __init__(self, home, spec, seed):
         self.home, self.spec = home, spec
@@ -221,20 +293,26 @@ class Tutor:
         self.help['demo'] += 1
         st = self._state()
         todo = [o for o in self.truth if not self.spec.shows(self.act, o, st)]
+        if getattr(self.spec, 'KEEP_IMPOSSIBLE', False):    # a person does not demonstrate on an object it would harm
+            todo = [o for o in todo if self.spec.possible(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
-        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY == 'desk' else {}))
+        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime') else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
     def judge(self):
         """Every object meant shows the result; every other object is as it was."""
         now = self._state()
+        relative = getattr(self.spec, 'RELATIVE', False)
         for o, a in self.before.items():
             cur = now.get(o)
             if o in self.truth:
                 possible = getattr(self.spec, 'possible', lambda act, o, st: True)(self.act, o, self.before)
-                if possible and not self.spec.shows(self.act, o, now):
+                shown = self.spec.shows(self.act, o, now, self.before) if relative else self.spec.shows(self.act, o, now)
+                if possible and not shown:
                     return False
+                if not possible and getattr(self.spec, 'KEEP_IMPOSSIBLE', False) and cur != a:
+                    return False                           # a meant object the person did not expect to change was changed
             elif cur != a and not (cur is None and a['kind'] == 'absent') and not self.spec.may_change(self.act, o, self.truth):
                 return False
         return True
