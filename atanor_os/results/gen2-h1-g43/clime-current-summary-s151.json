@@ -1,0 +1,73 @@
+{
+ "learner": "current",
+ "seed": 151,
+ "none": {
+  "summary": {
+   "taught": {
+    "success": 7,
+    "wrong": 2
+   },
+   "combo": {
+    "success": 10
+   },
+   "english": {
+    "success": 36,
+    "held": 8
+   }
+  },
+  "held_why": {
+   "unseen prior state": 8
+  },
+  "harm": {
+   "taught": 2,
+   "combo": 0,
+   "english": 0,
+   "time": 4
+  },
+  "commands": 112,
+  "wrong": 6,
+  "unseen_change": {
+   "n": 4,
+   "first": {
+    "success": 4
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 34,
+   "outcomes": {
+    "success": 30,
+    "wrong": 4
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 19,
+    "good": 19
+   },
+   "unseen": {
+    "n": 4,
+    "good": 4
+   },
+   "time": {
+    "n": 34,
+    "good": 34
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 1,
+    "held": 3
+   },
+   "alone_after": {
+    "success": 3
+   },
+   "reuse_alone": {
+    "success": 4
+   },
+   "n": 4,
+   "plain_pairs": 9,
+   "wrong_total": 0
+  }
+ }
+}
