@@ -66,6 +66,12 @@ class HumanPerson:
         self.help['contrast'] += 1
         return bool(self.ask('contrast', object=obj)['yes'])
 
+    def prior(self, obj, effect):
+        """GEN2_H4_PROTOCOL.md: before acting on an object in a state it was never confirmed for, ATANOR asks whether to
+        do this one too (a confirmation, yes or no)."""
+        self.help['prior'] += 1
+        return bool(self.ask('prior', object=obj, tool=effect['tool'], note=f"이 대상({obj})에도 할까요?")['yes'])
+
     def propose(self, effect):
         """ATANOR asks, before acting, whether a word means an action it already knows here."""
         self.help['propose'] += 1

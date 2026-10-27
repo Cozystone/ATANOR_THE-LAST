@@ -73,6 +73,10 @@ def drive(sess, tut, names, timeout=30, noise=0.0, rng=None, pointer=None):
             acted = set(p.get('acted') or [])
             wrong_cards = bool(acted - set(tut.truth)) or not acted   # acted on cards not meant, or on none of them
             ans = {'ok': ok, 'reason': None if ok else ('cards' if wrong_cards else 'result')}
+        elif k == 'prior':                                 # this one too? yes if it is meant and the person expects it to change
+            st = tut.home.observe(tut.home.existing())
+            o = p['object']
+            ans = {'yes': o in tut.truth and getattr(tut.spec, 'possible', lambda a, x, s: True)(tut.act, o, st)}
         elif k == 'propose':                               # is that the meant action? (compares the tool the person would use)
             o = next(iter(tut.truth), None)
             ans = {'yes': o is not None and tut.spec.steps(tut.act, o, getattr(tut.home, 'drift', ()))[0] == p['tool']}

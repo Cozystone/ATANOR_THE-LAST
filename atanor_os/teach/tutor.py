@@ -289,6 +289,11 @@ class Tutor:
         self.help['contrast'] += 1
         return obj in self.truth
 
+    def prior(self, obj, effect=None):
+        """GEN2_H4_PROTOCOL.md: this one too? (meant, and expected to change)"""
+        self.help['prior'] += 1
+        return obj in self.truth and getattr(self.spec, 'possible', lambda a, x, s: True)(self.act, obj, self._state())
+
     def demo(self):
         self.help['demo'] += 1
         st = self._state()

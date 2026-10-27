@@ -167,6 +167,9 @@ function drawControls() {
     pr.textContent = `${p.note} 고른 카드: ${(p.objects || []).join(', ') || '없음'}`;
     box.append(el('button', {class: 'ok', onclick: () => answer({ok: true})}, '네, 그 카드들이에요'),
                el('button', {class: 'bad', onclick: () => answer({ok: false})}, '아니요'));
+  } else if (p.kind === 'prior') {
+    pr.textContent = p.note;
+    box.append(el('button', {class: 'ok', onclick: () => answer({yes: true})}, '네, 그것도 해 주세요'), el('button', {class: 'bad', onclick: () => answer({yes: false})}, '아니요, 그건 그대로 두세요'));
   } else if (p.kind === 'propose') {
     pr.textContent = p.note;
     box.append(el('button', {class: 'ok', onclick: () => answer({yes: true})}, '네'), el('button', {class: 'bad', onclick: () => answer({yes: false})}, '아니요'));
