@@ -1,0 +1,46 @@
+{
+ "body": "clime",
+ "seed": 563,
+ "eval_seed": 663,
+ "train_bundles": 697,
+ "BUNDLE": {
+  "n": 655,
+  "right": 549,
+  "wrong": 0,
+  "held": 106,
+  "wrong_rate": 0.0,
+  "coverage": 0.838
+ },
+ "SINGLE": {
+  "n": 655,
+  "right": 524,
+  "wrong": 131,
+  "held": 0,
+  "wrong_rate": 0.2,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 655,
+  "right": 376,
+  "wrong": 279,
+  "held": 0,
+  "wrong_rate": 0.426,
+  "coverage": 1.0
+ },
+ "needs": {
+  "a case of chill []": 90,
+  "a case of vent []": 16
+ },
+ "held_truth": {
+  "leave": 104,
+  "act": 2
+ },
+ "examples": [],
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "fewer_wrong_than_single": true,
+  "not_more_wrong_than_last": true,
+  "coverage>=0.80": true
+ },
+ "verdict": "PASS"
+}

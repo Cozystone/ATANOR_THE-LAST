@@ -1,0 +1,48 @@
+{
+ "body": "desk",
+ "seed": 561,
+ "eval_seed": 661,
+ "train_bundles": 358,
+ "BUNDLE": {
+  "n": 889,
+  "right": 486,
+  "wrong": 0,
+  "held": 403,
+  "wrong_rate": 0.0,
+  "coverage": 0.547
+ },
+ "SINGLE": {
+  "n": 889,
+  "right": 484,
+  "wrong": 405,
+  "held": 0,
+  "wrong_rate": 0.4556,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 889,
+  "right": 484,
+  "wrong": 405,
+  "held": 0,
+  "wrong_rate": 0.4556,
+  "coverage": 1.0
+ },
+ "needs": {
+  "a case of send []": 107,
+  "a case of pin []": 105,
+  "a case of complete []": 97,
+  "a case of read []": 74,
+  "a case of shelve ['f.archive']": 20
+ },
+ "held_truth": {
+  "leave": 403
+ },
+ "examples": [],
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "fewer_wrong_than_single": true,
+  "not_more_wrong_than_last": true,
+  "coverage>=0.80": false
+ },
+ "verdict": "FAIL"
+}
