@@ -34,7 +34,8 @@ def test_an_unknown_modifier_is_not_dropped(tmp_path):
     ws = _taught(tmp_path)
     res = Grounder(ws, tmp_path / 'mind', person=None, caps={}).obey(['pin', 'the', 'cerulean', 'notes'])
     assert not res.get('acted') and res.get('why') == 'unknown word in place of a deciding word'
-    res = Grounder(ws, tmp_path / 'mind', person=None, caps={}).obey(['pin', 'the', 'notes', 'now'])   # a filler elsewhere
+    res = Grounder(ws, tmp_path / 'mind', person=None, caps={}, cases=False).obey(['pin', 'the', 'notes', 'now'])   # a filler
+    # elsewhere (generalizing alone: GEN3_F off; with it the notes never seen pinned are left, test_gen3_f.py)
     assert res['ok'] and res['acted']
 
 

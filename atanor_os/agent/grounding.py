@@ -27,12 +27,13 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True, caps=None, modifier_slot=True):
+                 experiment=True, transfer=True, caps=None, modifier_slot=True, cases=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
         self.modifier_slot = modifier_slot         # DESK_EVAL3_PROTOCOL.md; kept or reverted by CLOSEOUT_CHECK_PROTOCOL.md
+        self.cases = cases                         # GEN3_F_PROTOCOL.md: alone, act or leave each object as own cases say
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -183,7 +184,8 @@ class Grounder:
         same = {self._attr(a) for a in own} - {None}
         made_rel = sorted({(f"('=x', '{self._attr(a)}')" if self._attr(a) in same and a in own else a) for a in made})   # what the
         # made object took from the object acted on is recorded as such, so two demonstrations on different objects agree
-        ev = self.mem.events.append('demo', lesson=lesson, tool=demo['tool'], args=demo['args'], object=x, gained=gained, lost=lost, made=made)
+        ev = self.mem.events.append('demo', lesson=lesson, tool=demo['tool'], args=demo['args'], object=x, gained=gained, lost=lost, made=made,
+                                    pre=self._u(fb.get(x, ())), post=self._u(fa[x]) if x in fa else [self.GONE])   # GEN3_F: a case
         same = [c for c in self.mem.claims.claims('effect') if c['content']['tool'] == demo['tool']
                 and c['content']['template'] == template and c['content']['gained'] == gained]
         if same:
@@ -239,14 +241,15 @@ class Grounder:
         """Attributes the action changes on its object: a criterion over them describes the old state, not the objects."""
         return {self._attr(a) for a in effect.get('gained', []) + effect.get('lost', [])} - {None}
 
-    def apply(self, sel, effect, lesson=None):
-        """Do the action on every object the concept picks that does not show its effect yet."""
+    def apply(self, sel, effect, lesson=None, decided=None):
+        """Do the action on every object the concept picks that does not show its effect yet (or, given decided, on
+        the objects decided 'act')."""
         self.refused = []
         feats = self.feats()
         ext = self.extension(sel['atoms'], feats)
-        acted, failed = [], []
+        acted, failed, cases = [], [], {}
         for o in ext:
-            if self._done(effect, feats, feats, o):
+            if (decided.get(o) != 'act') if decided is not None else self._done(effect, feats, feats, o):
                 continue
             args = tuple(self._arg(a, o) for a in effect['template'])
             if len(set(args)) != len(args):
@@ -255,13 +258,70 @@ class Grounder:
                 res = self.home.execute(effect['tool'], args, self.caps)
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
-            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'))
+            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'),
+                                        object=o, pre=self._u(feats.get(o, ())))
             if res.get('blocked'):                         # not permitted: says nothing about what the tool does
                 self.refused.append(o)
                 continue
+            cases[ev] = o
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
+        if cases:                                          # GEN3_F_PROTOCOL.md: the case's state right after
+            after = self.feats()
+            self.mem.events.append('act_after', lesson=lesson, post={e: self._u(after[o]) if o in after else [self.GONE]
+                                                                     for e, o in cases.items()})
         return acted, failed
+
+    @staticmethod
+    def _u(atoms):
+        return sorted(a for a in atoms if a.startswith("('U'"))
+
+    def _attrs(self, atoms):
+        return {('gone' if a == self.GONE else self._attr(a)): a for a in atoms}
+
+    def _own_cases(self, eff):
+        """GEN3_F_PROTOCOL.md: cases of this action (same tool, same constant arguments) from demonstrations and own
+        acts in this body: (attributes before, attributes after)."""
+        def same(e):
+            args = e.get('args') or []
+            return (e.get('tool') == eff['tool'] and len(args) == len(eff['template'])
+                    and all(args[i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
+        after, out = {}, []
+        evs = [e for e in self.mem.events.all() if e.get('body') == self.body]
+        for e in evs:
+            if e.get('kind') == 'act_after':
+                after.update(e['post'])
+        for e in evs:
+            if e.get('pre') is None or not same(e):
+                continue
+            post = e.get('post') if e.get('kind') == 'demo' else after.get(e['id']) if e.get('kind') == 'act' else None
+            if post is not None:
+                out.append((self._attrs(e['pre']), self._attrs(post)))
+        return out
+
+    @staticmethod
+    def _case_change(pre, post):
+        return frozenset((k, v) for k, v in post.items() if pre.get(k) != v) | frozenset((k, None) for k in pre if k not in post)
+
+    def _read_cases(self, cases, start):
+        """Offline experiment 4's reading over own cases: exact starts, else starts differing only in attributes seen
+        not to matter (two cases differing in that one attribute alone changed the same non-empty way). 'act' (they
+        agree on a change this object does not show yet), 'leave' (they agree nothing changes, or it shows the result
+        already), None (no case, or they disagree)."""
+        irrelevant = set()
+        for i, (p1, q1) in enumerate(cases):
+            for p2, q2 in cases[i + 1:]:
+                diff = [k for k in set(p1) | set(p2) if p1.get(k) != p2.get(k)]
+                ch = self._case_change(p1, q1)
+                if len(diff) == 1 and ch and ch == self._case_change(p2, q2):
+                    irrelevant.add(diff[0])
+        use = [(p, q) for p, q in cases if p == start] or \
+              [(p, q) for p, q in cases if all(p.get(k) == start.get(k) or k in irrelevant for k in set(p) | set(start))]
+        moves = {self._case_change(p, q) for p, q in use}
+        if len(moves) != 1:
+            return None
+        mv = next(iter(moves))
+        return 'act' if any(start.get(k) != v for k, v in mv) else 'leave'
 
     LAB_BUDGET = 12
 
@@ -706,7 +766,18 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
-        acted, failed = self.apply(sel, act, lesson=task)
+        decided, unsure = None, []
+        makes = any(isinstance(r, list) and r[0] == 'C' for r in act['template'])   # its effect lands on another object
+        if self.person is None and self.cases and not makes:   # GEN3_F_PROTOCOL.md: alone, each object as own cases say
+            cases = self._own_cases(act)
+            decided = {o: self._read_cases(cases, self._attrs(self._u(feats.get(o, ())))) for o in self.extension(sel['atoms'], feats)}
+            unsure = [o for o, v in decided.items() if v is None]
+            if unsure:                                     # left alone; the evidence needed is kept as a claim
+                self.counts['left_by_cases'] += len(unsure)
+                self.mem.claims.add('need', {'action': act.get('action'), 'tool': act['tool'],
+                                             'starts': sorted({tuple(self._u(feats.get(o, ()))) for o in unsure})},
+                                    [ev], 'inferred', self.scope)
+        acted, failed = self.apply(sel, act, lesson=task, decided=decided)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
         if blocked:                                        # what it would make is already there: a block, not a counter-example
@@ -721,8 +792,8 @@ class Grounder:
                 acted += more
         if self.refused:
             self.counts['refused'] += len(self.refused)
-        return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
-                'refused': list(self.refused), 'selection': ext,
+        return {'ok': not failed and not self.refused and not unsure, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
+                'refused': list(self.refused), 'withheld': list(unsure), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
 
     def _resettle(self, sel_hit, feats, task):
