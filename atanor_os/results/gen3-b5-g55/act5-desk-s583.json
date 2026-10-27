@@ -1,0 +1,300 @@
+{
+ "body": "desk",
+ "seed": 583,
+ "eval_seed": 683,
+ "train_bundles": 363,
+ "BUNDLE": {
+  "n": 952,
+  "right": 518,
+  "wrong": 3,
+  "held": 431,
+  "wrong_rate": 0.0032,
+  "coverage": 0.547
+ },
+ "LEAVE": {
+  "n": 952,
+  "right": 949,
+  "wrong": 3,
+  "held": 0,
+  "wrong_rate": 0.0032,
+  "coverage": 1.0
+ },
+ "BUNDLE_C": {
+  "n": 952,
+  "right": 518,
+  "wrong": 3,
+  "held": 431,
+  "wrong_rate": 0.0032,
+  "coverage": 0.547
+ },
+ "LEAVE_C": {
+  "n": 952,
+  "right": 949,
+  "wrong": 3,
+  "held": 0,
+  "wrong_rate": 0.0032,
+  "coverage": 1.0
+ },
+ "SINGLE": {
+  "n": 952,
+  "right": 515,
+  "wrong": 437,
+  "held": 0,
+  "wrong_rate": 0.459,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 952,
+  "right": 515,
+  "wrong": 437,
+  "held": 0,
+  "wrong_rate": 0.459,
+  "coverage": 1.0
+ },
+ "needs": {
+  "a case of complete []": 121,
+  "a case of send []": 113,
+  "a case of pin []": 100,
+  "a case of read []": 74,
+  "a case of shelve ['f.archive']": 23
+ },
+ "need_claims": 431,
+ "held_truth": {
+  "leave": 431
+ },
+ "leave_act_hit": {
+  "n": 484,
+  "acted": 484,
+  "rate": 1.0
+ },
+ "leave_c_act_hit": {
+  "n": 484,
+  "acted": 484,
+  "rate": 1.0
+ },
+ "chain_allowed": {
+  "read []": [
+   "place",
+   "tag"
+  ],
+  "complete []": [
+   "place",
+   "tag"
+  ],
+  "file ['f.archive']": [
+   "status",
+   "tag"
+  ],
+  "tag ['t.green']": [
+   "kind",
+   "place",
+   "status",
+   "tag"
+  ],
+  "pin []": [
+   "place",
+   "tag"
+  ],
+  "send []": [
+   "tag"
+  ],
+  "shelve ['f.archive']": [
+   "status",
+   "tag"
+  ],
+  "purge []": [
+   "kind",
+   "place",
+   "status",
+   "tag"
+  ]
+ },
+ "chain_evidence": {
+  "read []": {
+   "tag": [
+    "T#2",
+    "T#3"
+   ],
+   "place": [
+    "T#2",
+    "T#35"
+   ]
+  },
+  "complete []": {
+   "tag": [
+    "T#6",
+    "T#8"
+   ],
+   "place": [
+    "T#45",
+    "T#47"
+   ]
+  },
+  "file ['f.archive']": {
+   "status": [
+    "T#9",
+    "T#13"
+   ],
+   "tag": [
+    "T#13",
+    "T#14"
+   ]
+  },
+  "tag ['t.green']": {
+   "kind": [
+    "T#23",
+    "T#27"
+   ],
+   "status": [
+    "T#26",
+    "T#55"
+   ],
+   "tag": [
+    "T#23",
+    "T#24"
+   ],
+   "place": [
+    "T#23",
+    "T#33"
+   ]
+  },
+  "pin []": {
+   "tag": [
+    "T#58",
+    "T#59"
+   ],
+   "place": [
+    "T#58",
+    "T#297"
+   ]
+  },
+  "send []": {
+   "tag": [
+    "T#76",
+    "T#78"
+   ]
+  },
+  "shelve ['f.archive']": {
+   "status": [
+    "T#177",
+    "T#266"
+   ],
+   "tag": [
+    "T#150",
+    "T#221"
+   ]
+  },
+  "purge []": {
+   "kind": [
+    "T#239",
+    "T#267"
+   ],
+   "status": [
+    "T#258",
+    "T#286"
+   ],
+   "tag": [
+    "T#239",
+    "T#250"
+   ],
+   "place": [
+    "T#240",
+    "T#250"
+   ]
+  }
+ },
+ "examples": [
+  {
+   "world": 1,
+   "tool": "shelve",
+   "consts": [
+    "f.archive"
+   ],
+   "pre": {
+    "kind": "message",
+    "place": "inbox",
+    "status": "locked",
+    "tag": "red",
+    "value": "-"
+   },
+   "truth": "leave",
+   "answer": [
+    [
+     "place",
+     "archive"
+    ]
+   ],
+   "used": [
+    "T#164",
+    "T#165",
+    "T#166",
+    "T#167",
+    "T#168"
+   ]
+  },
+  {
+   "world": 2,
+   "tool": "shelve",
+   "consts": [
+    "f.archive"
+   ],
+   "pre": {
+    "kind": "message",
+    "place": "inbox",
+    "status": "locked",
+    "tag": "red",
+    "value": "-"
+   },
+   "truth": "leave",
+   "answer": [
+    [
+     "place",
+     "archive"
+    ]
+   ],
+   "used": [
+    "T#164",
+    "T#165",
+    "T#166",
+    "T#167",
+    "T#168"
+   ]
+  },
+  {
+   "world": 2,
+   "tool": "shelve",
+   "consts": [
+    "f.archive"
+   ],
+   "pre": {
+    "kind": "message",
+    "place": "inbox",
+    "status": "locked",
+    "tag": "red",
+    "value": "-"
+   },
+   "truth": "leave",
+   "answer": [
+    [
+     "place",
+     "archive"
+    ]
+   ],
+   "used": [
+    "T#164",
+    "T#165",
+    "T#166",
+    "T#167",
+    "T#168"
+   ]
+  }
+ ],
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "fewer_wrong_than_single": true,
+  "not_more_wrong_than_last": true,
+  "act_hit>=0.90": true,
+  "not_more_wrong_than_leave": true
+ },
+ "verdict": "PASS"
+}

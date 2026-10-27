@@ -1,0 +1,180 @@
+{
+ "body": "clime",
+ "seed": 582,
+ "eval_seed": 682,
+ "train_bundles": 888,
+ "BUNDLE": {
+  "n": 735,
+  "right": 663,
+  "wrong": 0,
+  "held": 72,
+  "wrong_rate": 0.0,
+  "coverage": 0.902
+ },
+ "LEAVE": {
+  "n": 735,
+  "right": 735,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "BUNDLE_C": {
+  "n": 735,
+  "right": 663,
+  "wrong": 0,
+  "held": 72,
+  "wrong_rate": 0.0,
+  "coverage": 0.902
+ },
+ "LEAVE_C": {
+  "n": 735,
+  "right": 735,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "SINGLE": {
+  "n": 735,
+  "right": 601,
+  "wrong": 134,
+  "held": 0,
+  "wrong_rate": 0.1823,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 735,
+  "right": 425,
+  "wrong": 310,
+  "held": 0,
+  "wrong_rate": 0.4218,
+  "coverage": 1.0
+ },
+ "needs": {
+  "a case of chill []": 29,
+  "a case of vent []": 25,
+  "a case of stoke []": 18
+ },
+ "need_claims": 72,
+ "held_truth": {
+  "leave": 72
+ },
+ "leave_act_hit": {
+  "n": 621,
+  "acted": 621,
+  "rate": 1.0
+ },
+ "leave_c_act_hit": {
+  "n": 621,
+  "acted": 621,
+  "rate": 1.0
+ },
+ "chain_allowed": {
+  "heat []": [
+   "air",
+   "wing"
+  ],
+  "chill []": [
+   "air",
+   "wing"
+  ],
+  "vent []": [
+   "heat",
+   "wing"
+  ],
+  "route ['w.east']": [
+   "air",
+   "heat",
+   "wing"
+  ],
+  "stoke []": [
+   "air",
+   "wing"
+  ],
+  "seal []": [
+   "air",
+   "heat",
+   "wing"
+  ]
+ },
+ "chain_evidence": {
+  "heat []": {
+   "air": [
+    "T#2",
+    "T#93"
+   ],
+   "wing": [
+    "T#2",
+    "T#6"
+   ]
+  },
+  "chill []": {
+   "air": [
+    "T#20",
+    "T#124"
+   ],
+   "wing": [
+    "T#7",
+    "T#8"
+   ]
+  },
+  "vent []": {
+   "heat": [
+    "T#12",
+    "T#14"
+   ],
+   "wing": [
+    "T#12",
+    "T#81"
+   ]
+  },
+  "route ['w.east']": {
+   "heat": [
+    "T#56",
+    "T#161"
+   ],
+   "air": [
+    "T#56",
+    "T#245"
+   ],
+   "wing": [
+    "T#56",
+    "T#287"
+   ]
+  },
+  "stoke []": {
+   "air": [
+    "T#185",
+    "T#662"
+   ],
+   "wing": [
+    "T#184",
+    "T#566"
+   ]
+  },
+  "seal []": {
+   "wing": [
+    "T#288",
+    "T#344"
+   ],
+   "air": [
+    "T#288",
+    "T#289"
+   ],
+   "heat": [
+    "T#289",
+    "T#688"
+   ]
+  }
+ },
+ "examples": [],
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "fewer_wrong_than_single": true,
+  "not_more_wrong_than_last": true,
+  "act_hit>=0.90": true,
+  "not_more_wrong_than_leave": true
+ },
+ "verdict": "PASS"
+}

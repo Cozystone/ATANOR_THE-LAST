@@ -1,0 +1,179 @@
+{
+ "body": "clime",
+ "seed": 581,
+ "eval_seed": 681,
+ "train_bundles": 1172,
+ "BUNDLE": {
+  "n": 915,
+  "right": 765,
+  "wrong": 0,
+  "held": 150,
+  "wrong_rate": 0.0,
+  "coverage": 0.836
+ },
+ "LEAVE": {
+  "n": 915,
+  "right": 915,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "BUNDLE_C": {
+  "n": 915,
+  "right": 765,
+  "wrong": 0,
+  "held": 150,
+  "wrong_rate": 0.0,
+  "coverage": 0.836
+ },
+ "LEAVE_C": {
+  "n": 915,
+  "right": 915,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "SINGLE": {
+  "n": 915,
+  "right": 906,
+  "wrong": 9,
+  "held": 0,
+  "wrong_rate": 0.0098,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 915,
+  "right": 847,
+  "wrong": 68,
+  "held": 0,
+  "wrong_rate": 0.0743,
+  "coverage": 1.0
+ },
+ "needs": {
+  "a case of chill []": 127,
+  "a case of vent []": 23
+ },
+ "need_claims": 150,
+ "held_truth": {
+  "leave": 150
+ },
+ "leave_act_hit": {
+  "n": 685,
+  "acted": 685,
+  "rate": 1.0
+ },
+ "leave_c_act_hit": {
+  "n": 685,
+  "acted": 685,
+  "rate": 1.0
+ },
+ "chain_allowed": {
+  "heat []": [
+   "air",
+   "wing"
+  ],
+  "chill []": [
+   "air",
+   "wing"
+  ],
+  "vent []": [
+   "heat",
+   "wing"
+  ],
+  "seal []": [
+   "air",
+   "heat",
+   "wing"
+  ],
+  "route ['w.east']": [
+   "air",
+   "heat",
+   "wing"
+  ],
+  "stoke []": [
+   "air",
+   "wing"
+  ]
+ },
+ "chain_evidence": {
+  "heat []": {
+   "air": [
+    "T#2",
+    "T#5"
+   ],
+   "wing": [
+    "T#2",
+    "T#4"
+   ]
+  },
+  "chill []": {
+   "air": [
+    "T#34",
+    "T#37"
+   ],
+   "wing": [
+    "T#34",
+    "T#45"
+   ]
+  },
+  "vent []": {
+   "wing": [
+    "T#23",
+    "T#130"
+   ],
+   "heat": [
+    "T#23",
+    "T#166"
+   ]
+  },
+  "seal []": {
+   "air": [
+    "T#59",
+    "T#216"
+   ],
+   "wing": [
+    "T#57",
+    "T#59"
+   ],
+   "heat": [
+    "T#57",
+    "T#247"
+   ]
+  },
+  "route ['w.east']": {
+   "air": [
+    "T#182",
+    "T#310"
+   ],
+   "heat": [
+    "T#182",
+    "T#190"
+   ],
+   "wing": [
+    "T#245",
+    "T#284"
+   ]
+  },
+  "stoke []": {
+   "air": [
+    "T#267",
+    "T#273"
+   ],
+   "wing": [
+    "T#229",
+    "T#748"
+   ]
+  }
+ },
+ "examples": [],
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "fewer_wrong_than_single": true,
+  "not_more_wrong_than_last": true,
+  "act_hit>=0.90": true,
+  "not_more_wrong_than_leave": true
+ },
+ "verdict": "PASS"
+}
