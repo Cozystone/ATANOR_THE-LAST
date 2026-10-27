@@ -1,0 +1,171 @@
+{
+ "learner": "g44",
+ "seed": 291,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-g44-s291\\none\\desk",
+  "eval_seed": 391,
+  "learner": "g44",
+  "summary": {
+   "taught": {
+    "success": 11
+   },
+   "english": {
+    "success": 92,
+    "held": 76
+   },
+   "combo": {
+    "held": 19,
+    "success": 12
+   }
+  },
+  "held_why": {
+   "unseen prior state": 95
+  },
+  "unseen_change": {
+   "n": 6,
+   "first": {
+    "success": 6
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 0,
+   "prevented_by_desk": 10
+  },
+  "oracle": {
+   "main": {
+    "n": 42,
+    "good": 42
+   },
+   "unseen": {
+    "n": 6,
+    "good": 6
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 23,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 222,
+  "wrong": 0
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11,
+     "held": 1
+    },
+    "english": {
+     "held": 52,
+     "success": 80
+    },
+    "combo": {
+     "success": 16,
+     "held": 10
+    }
+   },
+   "held_why": {
+    "ambiguous generalization": 20,
+    "unseen prior state": 43
+   },
+   "unseen_change": {
+    "n": 7,
+    "first": {
+     "success": 7
+    },
+    "second": {
+     "success": 7
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 9
+    },
+    "english": {
+     "success": 84,
+     "held": 16
+    },
+    "combo": {
+     "success": 12,
+     "held": 4
+    }
+   },
+   "held_why": {
+    "unseen prior state": 20
+   },
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 6,
+     "held:unseen prior state": 4
+    },
+    "second": {
+     "success": 6,
+     "held:unseen prior state": 4
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "taught": {
+     "success": 6,
+     "held": 3
+    },
+    "english": {
+     "success": 40,
+     "held": 28
+    },
+    "combo": {
+     "success": 6,
+     "held": 2
+    }
+   },
+   "held_why": {
+    "unseen prior state": 21,
+    "unresolved": 12
+   },
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 8,
+     "held:unseen prior state": 2
+    },
+    "second": {
+     "success": 8,
+     "held:unseen prior state": 2
+    }
+   }
+  }
+ }
+}

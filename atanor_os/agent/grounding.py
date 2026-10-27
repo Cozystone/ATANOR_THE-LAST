@@ -189,19 +189,9 @@ class Grounder:
                 and c['content']['template'] == template and c['content']['gained'] == gained]
         if same:
             return self.mem.claims.revise(same[0]['id'], support=[ev], status='active')
-        # GEN2_R1_PROTOCOL.md: the same tool and argument roles changing the same attributes is the same action, even
-        # when the value it ends in differs (the change is relative): the demonstration adds an observed transition
-        changed = lambda g, l: {self._attr(a) for a in list(g) + list(l)} - {None}
-        kin = [c for c in self.mem.claims.claims('effect') if self._in_scope(c) and c['content']['tool'] == demo['tool']
-               and c['content']['template'] == template and "('gone',)" not in gained and "('gone',)" not in c['content']['gained']
-               and changed(gained, lost) and changed(c['content']['gained'], c['content']['lost']) == changed(gained, lost)]
-        if kin:
-            k = kin[0]['content']
-            trans = self._transitions(k) + [[lost, gained]]
-            return self.mem.claims.revise(kin[0]['id'], content={**k, 'transitions': trans}, support=[ev], status='active')
         aid = f'a{len(self.mem.claims.claims(usable=False))}'
         content = {'action': aid, 'tool': demo['tool'], 'template': template, 'gained': gained, 'lost': lost, 'made': made,
-                   'made_rel': made_rel, 'lesson': lesson, 'transitions': [[lost, gained]]}
+                   'made_rel': made_rel, 'lesson': lesson}
         claim = self.mem.claims.add('effect', content, [ev], 'observed', self.scope)
         g = self.mem.graph
         g.node(aid, 'action')
@@ -229,18 +219,8 @@ class Grounder:
         made = [r for r in effect['template'] if isinstance(r, list) and r[0] == 'C']
         return bool(made) and all(self._arg(r, o) in f_now for r in made) and o in f_now
 
-    @staticmethod
-    def _transitions(effect):
-        return effect.get('transitions') or [[effect.get('lost', []), effect.get('gained', [])]]
-
-    def _relative(self, effect):
-        """GEN2_R1_PROTOCOL.md: more than one result value observed for the same action."""
-        return len({tuple(sorted(t[1])) for t in self._transitions(effect)}) > 1
-
     def _done(self, effect, f_before, f_now, o):
         """The object already shows what the action produces."""
-        if self._relative(effect):
-            return False                                   # a relative change shows in no single value: each command is a step
         made = [r for r in effect['template'] if isinstance(r, list) and r[0] == 'C']
         if made and not all(self._arg(r, o) in f_now for r in made):
             return False
@@ -311,11 +291,7 @@ class Grounder:
                 self.counts['lab_actions'] += 1
                 after = self.feats(lab)
                 ev = self.mem.events.append('experiment', task=task, tool=tool, args=call, ok=res.get('ok'))
-                if self._relative(eff):                    # one of the observed transitions happened
-                    brought = o in after and any(set(t[0]) <= before.get(o, frozenset()) and set(t[1]) <= after[o]
-                                                 for t in self._transitions(eff))
-                else:
-                    brought = not self._done(eff, before, before, o) and self._done(eff, before, after, o)   # the remembered change, now
+                brought = not self._done(eff, before, before, o) and self._done(eff, before, after, o)   # the remembered change, now
                 if "('gone',)" not in eff['gained'] and o not in after:
                     brought = False                        # and nothing it never did: the object did not vanish before
                 if res.get('ok') and brought:
@@ -765,7 +741,7 @@ class Grounder:
             return []
         same = lambda e: (e.get('tool') == eff['tool'] and len(e.get('args') or []) == len(eff['template'])
                           and all(e['args'][i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
-        seen = {a for t in self._transitions(eff) for a in t[0] if self._attr(a) in attrs}   # what demonstrations started from
+        seen = {a for a in eff.get('lost', []) if self._attr(a) in attrs}
         waiting = []                                       # acts since the last command, not yet judged by the person
         for e in self.mem.events.all():
             if e.get('body') != self.body:

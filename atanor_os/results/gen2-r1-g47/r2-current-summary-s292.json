@@ -1,0 +1,251 @@
+{
+ "learner": "current",
+ "seed": 292,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s292\\none\\desk",
+  "eval_seed": 392,
+  "learner": "current",
+  "summary": {
+   "taught": {
+    "success": 10
+   },
+   "english": {
+    "success": 76,
+    "held": 84,
+    "partial": 4
+   },
+   "combo": {
+    "held": 21,
+    "partial": 1,
+    "success": 9
+   }
+  },
+  "held_why": {
+   "unseen prior state": 105
+  },
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 0,
+   "prevented_by_desk": 0
+  },
+  "oracle": {
+   "main": {
+    "n": 41,
+    "good": 41
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 20,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 216,
+  "wrong": 0
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11,
+     "held": 1
+    },
+    "english": {
+     "success": 80,
+     "held": 24
+    },
+    "combo": {
+     "held": 13,
+     "success": 13
+    }
+   },
+   "held_why": {
+    "unseen prior state": 38
+   },
+   "unseen_change": {
+    "n": 7,
+    "first": {
+     "success": 4,
+     "held:unseen prior state": 3
+    },
+    "second": {
+     "success": 4,
+     "held:unseen prior state": 3
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 9
+    },
+    "english": {
+     "success": 72,
+     "held": 28
+    },
+    "combo": {
+     "success": 9,
+     "held": 7
+    }
+   },
+   "held_why": {
+    "unseen prior state": 35
+   },
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 6,
+     "held:unseen prior state": 4
+    },
+    "second": {
+     "success": 6,
+     "held:unseen prior state": 4
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "combo": {
+     "success": 1,
+     "held": 7
+    },
+    "english": {
+     "success": 28,
+     "held": 36
+    },
+    "taught": {
+     "success": 6,
+     "held": 2
+    }
+   },
+   "held_why": {
+    "unseen prior state": 45
+   },
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 4,
+     "held:unseen prior state": 6
+    },
+    "second": {
+     "success": 4,
+     "held:unseen prior state": 6
+    }
+   }
+  }
+ },
+ "gen1": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s292\\gen1\\desk",
+  "eval_seed": 392,
+  "learner": "current",
+  "summary": {
+   "taught": {
+    "success": 10
+   },
+   "english": {
+    "success": 76,
+    "held": 84,
+    "partial": 4
+   },
+   "combo": {
+    "held": 21,
+    "partial": 1,
+    "success": 9
+   }
+  },
+  "held_why": {
+   "unseen prior state": 105
+  },
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 0,
+   "prevented_by_desk": 0
+  },
+  "oracle": {
+   "main": {
+    "n": 41,
+    "good": 41
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 20,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 216,
+  "wrong": 0
+ }
+}

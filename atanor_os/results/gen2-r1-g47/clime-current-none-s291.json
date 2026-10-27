@@ -1,0 +1,785 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\clime-current-s291\\none\\clime",
+ "eval_seed": 391,
+ "learner": "current",
+ "summary": {
+  "taught": {
+   "held": 5,
+   "success": 1
+  },
+  "english": {
+   "held": 28,
+   "success": 12,
+   "wrong": 4
+  },
+  "combo": {
+   "success": 2,
+   "held": 3
+  }
+ },
+ "held_why": {
+  "needs recheck": 28,
+  "ambiguous generalization": 8
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:lead",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:tail",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:mid",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:lead",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:tail",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 1,
+   "kind": "english:mid",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:lead",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:tail",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 2,
+   "kind": "english:mid",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:lead",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:tail",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 0,
+   "act": 4,
+   "kind": "english:mid",
+   "why": "ambiguous generalization",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:lead",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:tail",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 2,
+   "kind": "english:mid",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 1,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "wrong",
+   "harm": true
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "wrong",
+   "harm": true
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "wrong",
+   "harm": true
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "wrong",
+   "harm": true
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "taught",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:lead",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:tail",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:wrap",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 1,
+   "kind": "english:mid",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "combo",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:lead",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:tail",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:wrap",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 2,
+   "kind": "english:mid",
+   "why": "needs recheck",
+   "outcome": "held",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  },
+  {
+   "sel": 2,
+   "act": 4,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success",
+   "harm": false
+  }
+ ],
+ "unseen_change": {
+  "n": 3,
+  "first": {
+   "held": 3
+  },
+  "second": {
+   "held": 3
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 2,
+    "first": "held",
+    "second": "held"
+   },
+   {
+    "sel": 1,
+    "act": 2,
+    "first": "held",
+    "second": "held"
+   },
+   {
+    "sel": 2,
+    "act": 2,
+    "first": "held",
+    "second": "held"
+   }
+  ]
+ },
+ "time": {
+  "n": 22,
+  "outcomes": {
+   "held": 16,
+   "success": 6
+  },
+  "rows": [
+   {
+    "ticks": 1,
+    "sel": 0,
+    "act": 0,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 0,
+    "act": 1,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 0,
+    "act": 2,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 0,
+    "act": 4,
+    "why": null,
+    "outcome": "success",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 1,
+    "act": 0,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 1,
+    "act": 2,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 1,
+    "act": 4,
+    "why": null,
+    "outcome": "success",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 2,
+    "act": 0,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 2,
+    "act": 1,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 2,
+    "act": 2,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 1,
+    "sel": 2,
+    "act": 4,
+    "why": null,
+    "outcome": "success",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 0,
+    "act": 0,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 0,
+    "act": 1,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 0,
+    "act": 2,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 0,
+    "act": 4,
+    "why": null,
+    "outcome": "success",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 1,
+    "act": 0,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 1,
+    "act": 2,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 1,
+    "act": 4,
+    "why": null,
+    "outcome": "success",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 2,
+    "act": 0,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 2,
+    "act": 1,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 2,
+    "act": 2,
+    "why": "needs recheck",
+    "outcome": "held",
+    "harm": false
+   },
+   {
+    "ticks": 2,
+    "sel": 2,
+    "act": 4,
+    "why": null,
+    "outcome": "success",
+    "harm": false
+   }
+  ]
+ },
+ "harm": {
+  "taught": 0,
+  "english": 4,
+  "combo": 0,
+  "time": 0
+ },
+ "unsealed_without_grant": 0,
+ "oracle": {
+  "main": {
+   "n": 11,
+   "good": 11
+  },
+  "unseen": {
+   "n": 3,
+   "good": 3
+  },
+  "time": {
+   "n": 22,
+   "good": 22
+  }
+ },
+ "synonyms": {
+  "summary": {
+   "alone_first": {
+    "success": 1,
+    "held": 2
+   },
+   "alone_after": {
+    "success": 2
+   },
+   "reuse_alone": {
+    "success": 2
+   },
+   "n": 3,
+   "plain_pairs": 3,
+   "wrong_total": 0
+  },
+  "rows": [
+   {
+    "word": "bays",
+    "part": "sel",
+    "pair": [
+     1,
+     0
+    ],
+    "reuse_pair": [
+     1,
+     4
+    ],
+    "alone_first": {
+     "outcome": "success",
+     "why": null
+    },
+    "reuse_alone": {
+     "outcome": "success",
+     "why": null
+    }
+   },
+   {
+    "word": "frosty",
+    "part": "sel",
+    "pair": [
+     1,
+     0
+    ],
+    "reuse_pair": [
+     1,
+     4
+    ],
+    "alone_first": {
+     "outcome": "held",
+     "why": "unresolved"
+    },
+    "alone_after": {
+     "outcome": "success",
+     "why": null
+    },
+    "reuse_alone": {
+     "outcome": "success",
+     "why": null
+    }
+   },
+   {
+    "word": "stuffy",
+    "part": "sel",
+    "pair": [
+     2,
+     4
+    ],
+    "reuse_pair": null,
+    "alone_first": {
+     "outcome": "held",
+     "why": "unresolved"
+    },
+    "alone_after": {
+     "outcome": "success",
+     "why": null
+    },
+    "reuse_alone": null
+   }
+  ],
+  "commands": 7
+ },
+ "commands": 90,
+ "wrong": 4
+}
