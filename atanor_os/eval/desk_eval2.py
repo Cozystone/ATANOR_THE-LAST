@@ -175,7 +175,8 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                     cmd(h, words, mind)                    # the same command again
                 again = [json.loads(l) for l in open(h.root / 'world_log.jsonl', encoding='utf-8')][n0:]
                 sends = [r['args'][0] for r in again if r.get('event') == 'act' and r.get('tool') == 'send']
-                row = {'variant': v, 'sel': s, 'act': a, 'n': len(todo), 'carried_out': carried,
+                prevented = sum(1 for r in again if r.get('event') == 'duplicate_prevented')
+                row = {'variant': v, 'sel': s, 'act': a, 'n': len(todo), 'carried_out': carried, 'prevented': prevented,
                        'resend': sum(1 for o in sends if status.get(o) in ('queued', 'sent')),
                        'retry_failed': sum(1 for o in sends if status.get(o) == 'failed')}
                 if who == 'oracle':
@@ -217,6 +218,7 @@ def evaluate(course, eval_seed, out_file, sealed=None):
                              'second': dict(Counter(r['second'] for r in unseen if r['second'])), 'rows': unseen},
            'delayed': {'n': len(delayed), 'carried_out': sum(r['carried_out'] for r in delayed),
                        'resend': sum(r['resend'] for r in delayed), 'retry_failed': sum(r['retry_failed'] for r in delayed),
+                       'prevented_by_desk': sum(r.get('prevented', 0) for r in delayed),
                        'rows': delayed},
            'oracle': {**{p: {'n': sum(r['part'] == p for r in orc), 'good': sum(r['part'] == p and r['outcome'] in GOOD for r in orc)}
                          for p in ('main', 'unseen')},

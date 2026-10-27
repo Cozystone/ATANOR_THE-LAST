@@ -161,6 +161,12 @@ class DeskWorkspace:
             self._log(event='act', actor=actor, tool=tool, args=list(args), ok=False, error='blocked', before=before, after=before)
             return {'ok': False, 'blocked': True, 'error': f'capability {cap} not granted', 'ms': 0.0}
         spec = self._read()
+        it = spec['items'].get(args[0])
+        if tool == 'send' and it and it['kind'] == 'draft' and it['status'] in ('queued', 'sent'):
+            # the desk's own check right before sending (GENERATION_1_CLOSEOUT.md): a draft already on its way is not
+            # sent again; nothing changes, and the attempt is logged apart from real sends
+            self._log(event='duplicate_prevented', actor=actor, tool=tool, args=list(args), status=it['status'], before=before)
+            return {'ok': True, 'noop': True, 'blocked': False, 'error': '', 'ms': (time.perf_counter() - t0) * 1000}
         ok = getattr(self, '_tool_' + tool)(spec, *args)
         if ok:
             self._write(spec)

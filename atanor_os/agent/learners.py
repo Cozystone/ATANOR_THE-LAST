@@ -8,6 +8,12 @@ def name():
 
 
 def make(home, mind_dir, **kw):
+    if name() == 'core':                                   # CLOSEOUT_CHECK_PROTOCOL.md: generation 1 + the capability fix
+        from .grounding import Grounder
+        return Grounder(home, mind_dir, **kw, modifier_slot=False)
+    if name() == 'core_m':                                 # ... + the modifier-slot rule
+        from .grounding import Grounder
+        return Grounder(home, mind_dir, **kw, modifier_slot=True)
     if name() == 'g35':
         from .grounding_g35 import Grounder
         kw.pop('caps', None)                               # generation 1 granted itself the body's capabilities

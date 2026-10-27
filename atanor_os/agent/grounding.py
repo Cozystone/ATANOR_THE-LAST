@@ -27,11 +27,12 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True, caps=None):
+                 experiment=True, transfer=True, caps=None, modifier_slot=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
+        self.modifier_slot = modifier_slot         # DESK_EVAL3_PROTOCOL.md; kept or reverted by CLOSEOUT_CHECK_PROTOCOL.md
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -227,7 +228,7 @@ class Grounder:
         if made:
             return True
         gained = {a for a in effect['gained'] if a != "('gone',)"}
-        return o in f_now and (gained <= f_now[o] or any(a in f_now[o] for a in effect.get('later', ())))
+        return o in f_now and gained <= f_now[o]
 
     @staticmethod
     def _attr(atom_repr):
@@ -260,12 +261,6 @@ class Grounder:
                 continue
             (acted if res['ok'] else failed).append((o, ev))
             self.counts['actions'] += 1
-        if acted:                                          # what each changed object looked like right before and after
-            after = self.feats()
-            u = lambda f, o: sorted(a for a in f.get(o, ()) if a.startswith("('U'"))
-            self.mem.events.append('acted_state', lesson=lesson, tool=effect['tool'],
-                                   consts=[r[1] for r in effect['template'] if isinstance(r, list) and r[0] == 'K'],
-                                   states={o: u(after, o) for o, _ in acted}, before={o: u(feats, o) for o, _ in acted})
         return acted, failed
 
     LAB_BUDGET = 12
@@ -519,9 +514,7 @@ class Grounder:
             return (base, self._order_score(words, s, a)) if self.structure == 'order' else (base,)
         fresh = lambda n: (defs[n].get('claim') or {}).get('status', 'active') == 'active'
         pairs = [(s, a) for s in sel_n for a in act_n]
-        stale = []
         if any(fresh(s) and fresh(a) for s, a in pairs):     # a reading the person contradicted yields to one never contradicted
-            stale = [(s, a) for s, a in pairs if not (fresh(s) and fresh(a))]
             pairs = [(s, a) for s, a in pairs if fresh(s) and fresh(a)]
         scored = sorted(((key(s, a), s, a) for s, a in pairs), reverse=True)
         unknown = [w for w, ns in nodes.items() if not ns]
@@ -541,12 +534,6 @@ class Grounder:
         # the same objects and the same change: carry it out the way most recently shown (an older way may be retired)
         order = lambda n: int(''.join(ch for ch in (defs[n]['claim'].get('id') or 'c0') if ch.isdigit()) or 0)
         s, a = max(top, key=lambda r: (order(r[1]), order(r[0])))
-        if self.person is None:                            # DESK_EVAL6_PROTOCOL.md: a contradiction lowers trust in a
-            rival = [(x, y) for x, y in stale if key(x, y) >= scored[0][0] and does(x, y) != does(s, a)]   # reading,
-            if rival:                                      # it does not make the other one right: alone, the
-                x, y = rival[0]                            # contradicted reading stands, and is held for recheck
-                self.counts['contradicted_rival'] += 1
-                return defs[x], defs[y], unknown
         return defs[s], defs[a], unknown
 
     def _deciding_word_missing(self, words, *chosen):
@@ -701,16 +688,13 @@ class Grounder:
             self.counts['held_unresolved'] += 1
             return {'ok': False, 'why': 'unresolved', 'unknown': unknown, 'event': ev}
         sels, acts = [sel_d], [act_d]
-        if unknown and (self._deciding_word_missing(symbols, sel_d, act_d) or self._sibling_slot(symbols, unknown, sel_d, act_d)):
+        if unknown and (self._deciding_word_missing(symbols, sel_d, act_d)
+                        or (self.modifier_slot and self._sibling_slot(symbols, unknown, sel_d, act_d))):
             self.counts['held_substituted'] += 1           # an unheard word stands where the deciding word should be
             return {'ok': False, 'why': 'unknown word in place of a deciding word', 'unknown': unknown, 'event': ev}
         if any((d.get('claim') or {}).get('status') == 'needs_recheck' for d in (sel_d, act_d)):
             self.counts['held_recheck'] += 1                   # contradicted by the person: to be taught again first
             return {'ok': False, 'why': 'needs recheck', 'event': ev, 'used': [sel_d['via'], act_d['via']]}
-        if acts[0]['claim'].get('id'):
-            later = self._later_outcomes(acts[0]['claim'])
-            if later:
-                acts[0] = {**acts[0], 'claim': later}
         sel, act = sels[0]['claim']['content'], acts[0]['claim']['content']
         feats = self.feats()
         alts = sel.get('alternatives', [])
@@ -740,66 +724,6 @@ class Grounder:
         return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
                 'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
-
-    def _later_outcomes(self, claim):
-        """DESK_EVAL2_PROTOCOL.md: an action's effect may come in two steps. Objects this action changed earlier, that
-        nothing done here touched since, and whose changed attribute now holds a value neither before nor right after
-        the action: the action led there later, by itself. Those values are kept as the action's later outcomes, so a
-        later command does not do the same thing again to an object already on its way. A value that objects this
-        action never touched also show is the world's own doing, not an outcome of the action; and so is a change on an
-        object that no longer looks as it did right after the action in anything else (it was set up anew); and so is
-        a value an object of this action had right before it (DESK_EVAL4_PROTOCOL.md: an undoing, not an outcome). And a
-        two-step effect moves every such object on: if some still show the immediate result while others hold other
-        values, the values were scattered by something else. One object alone is not enough to tell. And a value that
-        objects last handled by other actions also moved to is a change of the whole world (DESK_EVAL5_PROTOCOL.md)."""
-        eff = claim['content']
-        if 'X' not in eff['template']:
-            return None
-        xi, attrs = eff['template'].index('X'), self._rewritten(eff)
-        if not attrs:
-            return None
-        def this_action(e, args):                          # the same tool with the same constant arguments
-            return (e.get('tool') == eff['tool'] and len(args) == len(eff['template'])
-                    and all(args[i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
-
-        consts = [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
-        seen, touched, by_action, right_after, before, last_other = {}, set(), set(), {}, set(), set()
-        for e in reversed(self.mem.events.all()):
-            if e.get('kind') == 'acted_state' and e.get('body') == self.body:
-                for o, st in e['states'].items():
-                    right_after.setdefault(o, st)
-                if e.get('tool') == eff['tool'] and e.get('consts') == consts:
-                    before |= {a for st in (e.get('before') or {}).values() for a in st if self._attr(a) in attrs}
-            if e.get('kind') in ('act', 'demo') and e.get('body') == self.body:
-                args = e.get('args') or []
-                objs = set(args) | ({e['object']} if e.get('object') else set())
-                if this_action(e, args):
-                    by_action.add(args[xi])
-                if (e.get('kind') == 'act' and e.get('ok') and this_action(e, args)
-                        and args[xi] not in touched and args[xi] not in seen):
-                    seen[args[xi]] = e
-                if e.get('kind') == 'act' and e.get('ok') and not this_action(e, args):
-                    last_other |= {o for o in objs if o not in touched}    # last handled by another action
-                touched |= objs
-        if not seen:
-            return None
-        feats = self.feats()
-        known = set(eff['gained']) | set(eff['lost']) | set(eff.get('later', ()))
-        rest = lambda atoms: {a for a in atoms if a.startswith("('U'") and self._attr(a) not in attrs}
-        same = [o for o in seen if o in feats and o in right_after and rest(feats[o]) == rest(right_after[o])]
-        gained = {a for a in eff['gained'] if a.startswith("('U'")}
-        if len(same) < 2 or any(gained <= feats[o] for o in same):
-            return None
-        new = {a for o in same for a in feats[o] if self._attr(a) in attrs and a not in known and a not in before}
-        new = sorted(a for a in new if not any(a in f for o, f in feats.items() if o not in by_action))
-        moved_elsewhere = {a for o in last_other if o in feats and o in right_after
-                           for a in feats[o] if self._attr(a) in attrs and a not in right_after[o]}
-        new = [a for a in new if a not in moved_elsewhere]
-        if not new:
-            return None
-        self.counts['later_outcomes'] += len(new)
-        later = sorted((known - set(eff['gained']) - set(eff['lost'])) | set(new))
-        return self.mem.claims.revise(claim['id'], content={**eff, 'later': later}, status=claim['status'], origin='observed')
 
     def _resettle(self, sel_hit, feats, task):
         """With the person: ask contrast questions now to choose between criteria that disagree on the present objects."""
