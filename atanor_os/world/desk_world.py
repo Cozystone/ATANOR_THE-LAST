@@ -69,6 +69,7 @@ class DeskWorkspace:
         """Time passes: queued drafts are sent (or fail), some sent drafts bring a reply, and the outside world locks or
         unlocks some messages and blocks or unblocks some tasks. Drawn from (seed, tick), so it replays."""
         spec = self._read()
+        seen_before = {o: self.attrs_of(spec, o) for o in spec['items']}   # GEN3_BUNDLE_PROTOCOL.md
         spec['tick'] += 1
         rng = random.Random(f"desk-{spec['seed']}-tick-{spec['tick']}")
         changes = []
@@ -88,7 +89,9 @@ class DeskWorkspace:
                 it['blocked'] = not it['blocked']
                 changes.append((iid, 'blocked' if it['blocked'] else 'unblocked'))
         self._write(spec)
-        self._log(event='tick', actor='outside', tick=spec['tick'], changes=changes, after=self.fingerprint())
+        moved = sorted({c[0] for c in changes})
+        self._log(event='tick', actor='outside', tick=spec['tick'], changes=changes, after=self.fingerprint(),
+                  obs_before={o: seen_before.get(o, dict(BLANK)) for o in moved}, obs_after={o: self.attrs_of(spec, o) for o in moved})
         return changes
 
     # ------------------------------------------------------------ observation
@@ -167,10 +170,13 @@ class DeskWorkspace:
             # sent again; nothing changes, and the attempt is logged apart from real sends
             self._log(event='duplicate_prevented', actor=actor, tool=tool, args=list(args), status=it['status'], before=before)
             return {'ok': True, 'noop': True, 'blocked': False, 'error': '', 'ms': (time.perf_counter() - t0) * 1000}
+        obs_before = {o: self.attrs_of(spec, o) for o in args}   # GEN3_BUNDLE_PROTOCOL.md
         ok = getattr(self, '_tool_' + tool)(spec, *args)
         if ok:
             self._write(spec)
-        self._log(event='act', actor=actor, tool=tool, args=list(args), ok=bool(ok), before=before, after=self.fingerprint())
+        obs_after = {o: self.attrs_of(spec, o) for o in args}
+        self._log(event='act', actor=actor, tool=tool, args=list(args), ok=bool(ok), before=before, after=self.fingerprint(),
+                  obs_before=obs_before, obs_after=obs_after)
         return {'ok': bool(ok), 'blocked': False, 'error': '' if ok else 'precondition', 'ms': (time.perf_counter() - t0) * 1000}
 
     @staticmethod

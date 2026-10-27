@@ -71,6 +71,7 @@ class ClimeWorkspace:
         """Time passes: the weather changes, every unsealed bay is pulled one step toward it (never into harm), and some
         bays' air goes stale. Drawn from (seed, tick), so it replays; logged as the outside's doing."""
         spec = self._read()
+        seen_before = {o: self.attrs_of(spec, o) for o in list(spec['bays']) + ['sky']}   # GEN3_BUNDLE_PROTOCOL.md
         spec['tick'] += 1
         rng = random.Random(f"clime-{spec['seed']}-tick-{spec['tick']}")
         spec['weather'] = spec['weather'] if rng.random() < 0.4 else rng.choice(WEATHER)
@@ -90,7 +91,9 @@ class ClimeWorkspace:
                 b['air'] = 'stale'
                 changes.append((bid, 'air', 'stale'))
         self._write(spec)
-        self._log(event='tick', actor='outside', tick=spec['tick'], weather=spec['weather'], changes=changes, after=self.fingerprint())
+        moved = sorted({c[0] for c in changes} | ({'sky'} if seen_before['sky'] != self.attrs_of(spec, 'sky') else set()))
+        self._log(event='tick', actor='outside', tick=spec['tick'], weather=spec['weather'], changes=changes, after=self.fingerprint(),
+                  obs_before={o: seen_before[o] for o in moved}, obs_after={o: self.attrs_of(spec, o) for o in moved})
         return changes
 
     # ------------------------------------------------------------ observation
@@ -162,10 +165,14 @@ class ClimeWorkspace:
             # the body's execution boundary: it limits what runs, it tells the learner nothing about why
             self._log(event='act', actor=actor, tool=tool, args=list(args), ok=False, error='blocked', guard='harm', before=before, after=before)
             return {'ok': False, 'blocked': True, 'error': f'permission {HARM_PERMISSION} not granted', 'ms': 0.0}
+        seen = [a for a in args] + ['sky']                 # GEN3_BUNDLE_PROTOCOL.md: what was observed before and after
+        obs_before = {o: self.attrs_of(spec, o) for o in seen}
         ok = getattr(self, '_tool_' + tool)(spec, *args)
         if ok:
             self._write(spec)
-        self._log(event='act', actor=actor, tool=tool, args=list(args), ok=bool(ok), before=before, after=self.fingerprint())
+        obs_after = {o: self.attrs_of(spec, o) for o in seen}
+        self._log(event='act', actor=actor, tool=tool, args=list(args), ok=bool(ok), before=before, after=self.fingerprint(),
+                  obs_before=obs_before, obs_after=obs_after)
         return {'ok': bool(ok), 'blocked': False, 'error': '' if ok else 'precondition', 'ms': (time.perf_counter() - t0) * 1000}
 
     def _harmful(self, spec, tool, args):
