@@ -731,19 +731,30 @@ class Grounder:
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
 
     def _unseen_prior(self, eff, objs, feats):
-        """GEN2_H1_PROTOCOL.md: the objects whose present value of an attribute this action changes was never the value
-        before a successful use (the demonstrated object's lost values, and what was observed right before each
-        successful act of the same tool with the same constant arguments)."""
+        """GEN2_H1_PROTOCOL.md / GEN2_H2_PROTOCOL.md: the objects whose present value of an attribute this action changes
+        was never the value before a use the person approved: the demonstrated object's lost values, and what was
+        observed right before each act of the same tool with the same constant arguments whose result the person then
+        confirmed as right (the first confirmation after the acts, before the next command). What the tool reported
+        is not the person's verdict: an act nobody confirmed is no evidence."""
         attrs = self._rewritten(eff)
         if not attrs:
             return []
-        consts = [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
+        same = lambda e: (e.get('tool') == eff['tool'] and len(e.get('args') or []) == len(eff['template'])
+                          and all(e['args'][i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K'))
         seen = {a for a in eff.get('lost', []) if self._attr(a) in attrs}
+        waiting = []                                       # acts since the last command, not yet judged by the person
         for e in self.mem.events.all():
-            if (e.get('kind') == 'act' and e.get('ok') and e.get('body') == self.body and e.get('tool') == eff['tool']
-                    and len(e.get('args') or []) == len(eff['template'])
-                    and all(e['args'][i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K')):
-                seen |= set(e.get('prior') or [])
+            if e.get('body') != self.body:
+                continue
+            if e.get('kind') == 'say':
+                waiting = []
+            elif e.get('kind') == 'act' and e.get('ok') and same(e):
+                waiting.append(e)
+            elif e.get('kind') == 'confirm':
+                if e.get('answer'):
+                    for a in waiting:
+                        seen |= set(a.get('prior') or [])
+                waiting = []
         return [o for o in objs if o in feats and any(a not in seen for a in feats[o] if self._attr(a) in attrs)]
 
     def _resettle(self, sel_hit, feats, task):

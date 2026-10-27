@@ -21,6 +21,7 @@ def _teach(ws, tmp_path, sel, act):
     g = Grounder(ws, tmp_path / 'mind', person=tut)
     sc, ac = g.learn_selection('L'), g.learn_action('L')
     g.apply(sc['content'], ac['content'], 'L')
+    g.reply(tut.confirm())                                 # the person looks and confirms, as in every lesson
     sym = symbols(1)
     g.bind(sym[0], sc['content']['concept'], 'L')
     g.bind(sym[1], ac['content']['action'], 'L')
