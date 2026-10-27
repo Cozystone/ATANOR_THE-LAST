@@ -1,0 +1,257 @@
+{
+ "learner": "current",
+ "seed": 281,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s281\\none\\desk",
+  "eval_seed": 381,
+  "learner": "current",
+  "summary": {
+   "combo": {
+    "success": 9,
+    "held": 21,
+    "partial": 1
+   },
+   "english": {
+    "success": 72,
+    "held": 88,
+    "partial": 4
+   },
+   "taught": {
+    "success": 9,
+    "held": 1
+   }
+  },
+  "held_why": {
+   "unseen prior state": 110
+  },
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 0,
+   "prevented_by_desk": 10
+  },
+  "oracle": {
+   "main": {
+    "n": 41,
+    "good": 41
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 19,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 216,
+  "wrong": 0
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11,
+     "held": 1
+    },
+    "english": {
+     "success": 88,
+     "held": 24
+    },
+    "combo": {
+     "success": 19,
+     "held": 8
+    }
+   },
+   "held_why": {
+    "unseen prior state": 33
+   },
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 3,
+     "held:unseen prior state": 3
+    },
+    "second": {
+     "success": 3,
+     "held:unseen prior state": 3
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 10
+    },
+    "english": {
+     "success": 76,
+     "held": 16,
+     "part-held": 8
+    },
+    "combo": {
+     "held": 4,
+     "success": 9,
+     "part-held": 2
+    }
+   },
+   "held_why": {
+    "unseen prior state": 20
+   },
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "held:unseen prior state": 2,
+     "success": 6,
+     "part-held": 2
+    },
+    "second": {
+     "held:unseen prior state": 2,
+     "success": 6,
+     "part-held": 2
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "combo": {
+     "success": 6,
+     "held": 1
+    },
+    "english": {
+     "success": 48,
+     "held": 8
+    },
+    "taught": {
+     "success": 6,
+     "held": 1
+    }
+   },
+   "held_why": {
+    "unseen prior state": 10
+   },
+   "unseen_change": {
+    "n": 8,
+    "first": {
+     "success": 6,
+     "held:unseen prior state": 2
+    },
+    "second": {
+     "success": 6,
+     "held:unseen prior state": 2
+    }
+   }
+  }
+ },
+ "gen1": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s281\\gen1\\desk",
+  "eval_seed": 381,
+  "learner": "current",
+  "summary": {
+   "combo": {
+    "success": 9,
+    "held": 21,
+    "partial": 1
+   },
+   "english": {
+    "success": 72,
+    "held": 88,
+    "partial": 4
+   },
+   "taught": {
+    "success": 9,
+    "held": 1
+   }
+  },
+  "held_why": {
+   "unseen prior state": 110
+  },
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 0,
+   "prevented_by_desk": 10
+  },
+  "oracle": {
+   "main": {
+    "n": 41,
+    "good": 41
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 19,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 216,
+  "wrong": 0
+ }
+}

@@ -240,14 +240,14 @@ class Grounder:
         """Attributes the action changes on its object: a criterion over them describes the old state, not the objects."""
         return {self._attr(a) for a in effect.get('gained', []) + effect.get('lost', [])} - {None}
 
-    def apply(self, sel, effect, lesson=None, skip=()):
-        """Do the action on every object the concept picks that does not show its effect yet (but those in skip)."""
+    def apply(self, sel, effect, lesson=None):
+        """Do the action on every object the concept picks that does not show its effect yet."""
         self.refused = []
         feats = self.feats()
         ext = self.extension(sel['atoms'], feats)
         acted, failed = [], []
         for o in ext:
-            if o in skip or self._done(effect, feats, feats, o):
+            if self._done(effect, feats, feats, o):
                 continue
             args = tuple(self._arg(a, o) for a in effect['template'])
             if len(set(args)) != len(args):
@@ -708,18 +708,10 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
-        withheld = []
-        if self.prior_bound:
-            unknown, refused = self._prior_split(act, todo(sel['atoms']), feats)
-            if self.person is None and unknown:
-                self.counts['held_unseen_prior'] += 1        # GEN2_H1_PROTOCOL.md: never seen working from this state
-                return {'ok': False, 'why': 'unseen prior state', 'event': ev}
-            if self.person is not None and unknown and hasattr(self.person, 'prior'):
-                refused += self._ask_priors(act, unknown, feats, task)   # GEN2_H4_PROTOCOL.md: ask first
-            withheld = refused                             # states the person does not want changed: left alone
-            if withheld:
-                self.counts['withheld_refused'] += len(withheld)
-        acted, failed = self.apply(sel, act, lesson=task, skip=withheld)
+        if self.person is None and self.prior_bound and self._unseen_prior(act, todo(sel['atoms']), feats):
+            self.counts['held_unseen_prior'] += 1            # GEN2_H1_PROTOCOL.md: never seen working from this state
+            return {'ok': False, 'why': 'unseen prior state', 'event': ev}
+        acted, failed = self.apply(sel, act, lesson=task)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
         if blocked:                                        # what it would make is already there: a block, not a counter-example
@@ -734,46 +726,9 @@ class Grounder:
                 acted += more
         if self.refused:
             self.counts['refused'] += len(self.refused)
-        return {'ok': not failed and not self.refused and not withheld, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
-                'refused': list(self.refused), 'withheld': list(withheld), 'selection': ext,
-                **({'why': 'refused prior state'} if withheld else {}),
+        return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
+                'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
-
-    def _prior_key(self, eff, o, feats):
-        attrs = self._rewritten(eff)
-        return tuple(sorted(a for a in feats.get(o, ()) if self._attr(a) in attrs))
-
-    def _consts(self, eff):
-        return [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
-
-    def _prior_split(self, eff, objs, feats):
-        """GEN2_H4_PROTOCOL.md: (objects in a state never approved nor refused, objects in a state the person refused)."""
-        unknown = self._unseen_prior(eff, objs, feats)
-        refused_keys = set()
-        for e in self.mem.events.all():
-            if (e.get('kind') == 'prior_verdict' and e.get('body') == self.body and e.get('tool') == eff['tool']
-                    and e.get('consts') == self._consts(eff)):
-                (refused_keys.add if not e.get('answer') else refused_keys.discard)(tuple(e['prior']))
-        approved = {tuple(e['prior']) for e in self.mem.events.all() if e.get('kind') == 'prior_verdict' and e.get('answer')
-                    and e.get('body') == self.body and e.get('tool') == eff['tool'] and e.get('consts') == self._consts(eff)}
-        refused = [o for o in objs if self._prior_key(eff, o, feats) in refused_keys]
-        unknown = [o for o in unknown if o not in refused and self._prior_key(eff, o, feats) not in approved]
-        return unknown, refused
-
-    def _ask_priors(self, eff, objs, feats, task):
-        """With the person there: one question per state never confirmed ('this one too?'). Returns the objects whose
-        state the person does not want changed."""
-        refused, asked = [], {}
-        for o in objs:
-            key = self._prior_key(eff, o, feats)
-            if key not in asked:
-                asked[key] = bool(self.person.prior(o, eff))
-                self.mem.events.append('prior_verdict', task=task, tool=eff['tool'], consts=self._consts(eff), prior=list(key),
-                                       object=o, answer=asked[key])
-                self.counts['prior_questions'] += 1
-            if not asked[key]:
-                refused.append(o)
-        return refused
 
     def _unseen_prior(self, eff, objs, feats):
         """GEN2_H1_PROTOCOL.md / GEN2_H2_PROTOCOL.md: the objects whose present value of an attribute this action changes

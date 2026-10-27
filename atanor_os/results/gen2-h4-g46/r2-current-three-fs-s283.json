@@ -1,0 +1,83 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s283\\gen1\\fs",
+ "eval_seed": 383,
+ "summary": {
+  "taught": {
+   "success": 4
+  }
+ },
+ "held_why": {},
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 0,
+  "first": {},
+  "second": {},
+  "rows": []
+ },
+ "double_change": {
+  "n": 0,
+  "outcomes": {},
+  "rows": []
+ },
+ "oracle": {
+  "n": 4,
+  "success": 4,
+  "rows": [
+   {
+    "sel": 0,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 0,
+    "outcome": "success"
+   }
+  ]
+ },
+ "delayed": {
+  "n": 0,
+  "carried_out": 0,
+  "resend_attempts": 0,
+  "rows": []
+ }
+}
