@@ -519,7 +519,9 @@ class Grounder:
             return (base, self._order_score(words, s, a)) if self.structure == 'order' else (base,)
         fresh = lambda n: (defs[n].get('claim') or {}).get('status', 'active') == 'active'
         pairs = [(s, a) for s in sel_n for a in act_n]
+        stale = []
         if any(fresh(s) and fresh(a) for s, a in pairs):     # a reading the person contradicted yields to one never contradicted
+            stale = [(s, a) for s, a in pairs if not (fresh(s) and fresh(a))]
             pairs = [(s, a) for s, a in pairs if fresh(s) and fresh(a)]
         scored = sorted(((key(s, a), s, a) for s, a in pairs), reverse=True)
         unknown = [w for w, ns in nodes.items() if not ns]
@@ -539,6 +541,12 @@ class Grounder:
         # the same objects and the same change: carry it out the way most recently shown (an older way may be retired)
         order = lambda n: int(''.join(ch for ch in (defs[n]['claim'].get('id') or 'c0') if ch.isdigit()) or 0)
         s, a = max(top, key=lambda r: (order(r[1]), order(r[0])))
+        if self.person is None:                            # DESK_EVAL6_PROTOCOL.md: a contradiction lowers trust in a
+            rival = [(x, y) for x, y in stale if key(x, y) >= scored[0][0] and does(x, y) != does(s, a)]   # reading,
+            if rival:                                      # it does not make the other one right: alone, the
+                x, y = rival[0]                            # contradicted reading stands, and is held for recheck
+                self.counts['contradicted_rival'] += 1
+                return defs[x], defs[y], unknown
         return defs[s], defs[a], unknown
 
     def _deciding_word_missing(self, words, *chosen):

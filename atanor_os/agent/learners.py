@@ -1,5 +1,5 @@
 """Which learner runs (DESK_EVAL2_PROTOCOL.md): the current one, or the frozen generation-1 copy for comparison.
-Chosen by the environment variable ATANOR_LEARNER ('g35' ... 'g38' for a frozen copy); one process runs one learner."""
+Chosen by the environment variable ATANOR_LEARNER ('g35' ... 'g39' for a frozen copy); one process runs one learner."""
 import os
 
 
@@ -17,6 +17,8 @@ def make(home, mind_dir, **kw):
         from .grounding_g37 import Grounder
     elif name() == 'g38':
         from .grounding_g38 import Grounder
+    elif name() == 'g39':
+        from .grounding_g39 import Grounder
     else:
         from .grounding import Grounder
     return Grounder(home, mind_dir, **kw)
