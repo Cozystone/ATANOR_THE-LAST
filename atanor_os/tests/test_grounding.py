@@ -62,7 +62,7 @@ def test_a_conjunction_is_found_by_pointing_and_contrast_and_reused_after_restar
         assert look and set(g2.extension(look['claim']['content']['atoms'], g2.feats())) >= {'n1'}
         assert 'n2' not in g2.extension(look['claim']['content']['atoms'], g2.feats()) and 'n3' not in g2.extension(look['claim']['content']['atoms'], g2.feats())
     tut.start(sel, act)
-    g3 = Grounder(ws, tmp_path / 'mind', person=None, mode='ONTO', cases=False)   # generalizing alone (GEN3_F off)
+    g3 = Grounder(ws, tmp_path / 'mind', person=None, mode='ONTO')
     res = g3.obey([sym[1], sym[0]])
     assert res['ok'] and tut.judge(), res
 
