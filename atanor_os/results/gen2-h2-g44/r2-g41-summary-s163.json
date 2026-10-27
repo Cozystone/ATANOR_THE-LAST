@@ -1,0 +1,142 @@
+{
+ "learner": "g41",
+ "seed": 163,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-g41-s163\\none\\desk",
+  "eval_seed": 263,
+  "learner": "g41",
+  "summary": {
+   "taught": {
+    "success": 11
+   },
+   "english": {
+    "success": 92,
+    "partial": 76
+   },
+   "combo": {
+    "partial": 19,
+    "success": 12
+   }
+  },
+  "held_why": {},
+  "unseen_change": {
+   "n": 6,
+   "first": {
+    "success": 6
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 1,
+   "prevented_by_desk": 18
+  },
+  "oracle": {
+   "main": {
+    "n": 42,
+    "good": 42
+   },
+   "unseen": {
+    "n": 6,
+    "good": 6
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {},
+   "alone_after": {},
+   "reuse_alone": {},
+   "redundant": {
+    "alone_first": {},
+    "alone_after": {},
+    "reuse_alone": {}
+   },
+   "n": 0,
+   "n_redundant": 0,
+   "plain_pairs": 42,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": [
+    {
+     "narrow": 5,
+     "broad": 4,
+     "word": "blue"
+    }
+   ]
+  },
+  "commands": 222,
+  "wrong": 0
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 12
+    },
+    "english": {
+     "success": 84,
+     "held": 20
+    },
+    "combo": {
+     "success": 24
+    }
+   },
+   "held_why": {
+    "ambiguous generalization": 20
+   },
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 6
+    },
+    "second": {
+     "success": 6
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 4
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 0,
+    "first": {},
+    "second": {}
+   }
+  },
+  "view": {
+   "summary": {
+    "taught": {
+     "success": 6
+    },
+    "english": {
+     "success": 48
+    },
+    "combo": {
+     "success": 6
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 6
+    },
+    "second": {
+     "success": 6
+    }
+   }
+  }
+ }
+}
