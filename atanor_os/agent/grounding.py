@@ -27,14 +27,13 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True, caps=None, modifier_slot=True, bundles=True, same_doing=True):
+                 experiment=True, transfer=True, caps=None, modifier_slot=True, bundles=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
         self.modifier_slot = modifier_slot         # DESK_EVAL3_PROTOCOL.md; kept or reverted by CLOSEOUT_CHECK_PROTOCOL.md
         self.bundles = bundles                     # GEN3_D_PROTOCOL.md: compare own cases before acting alone
-        self.same_doing = same_doing               # GEN3_E_PROTOCOL.md: readings that do the same thing are one reading
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -581,14 +580,6 @@ class Grounder:
                     json.dumps([sorted(e.get('gained') or []), sorted(e.get('made_rel', e.get('made')) or []),
                                 sorted(json.dumps(r) for r in e['template'])]))   # roles in any order: where things go
         top = [(s, a) for k, s, a in scored if k == scored[0][0]]
-        if self.same_doing:                                # GEN3_E_PROTOCOL.md: the same objects, the same tool and roles: one
-            does_ = does
-            doing = lambda s, a: (does_(s, a)[0], defs[a]['claim']['content']['tool'],      # reading, whose recorded results
-                                  json.dumps(defs[a]['claim']['content']['template']))      # are cases from different starts
-            seen = {}
-            for s, a in top:
-                seen.setdefault(doing(s, a), []).append((s, a))
-            does = lambda s, a: does_(*seen[doing(s, a)][0])
         self._tied = None
         if len({does(s, a) for s, a in top}) > 1:          # a tie is ambiguous only if the readings would end differently
             self._tied = {'readings': top, 'defs': defs, 'nodes': nodes, 'does': does}
