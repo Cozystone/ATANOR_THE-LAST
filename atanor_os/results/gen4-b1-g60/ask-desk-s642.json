@@ -1,0 +1,41 @@
+{
+ "body": "desk",
+ "seed": 642,
+ "eval_seed": 742,
+ "commands": 126,
+ "ASK": {
+  "n": 889,
+  "right": 888,
+  "wrong": 1,
+  "wrong_rate": 0.0011
+ },
+ "G": {
+  "n": 889,
+  "right": 479,
+  "wrong": 410,
+  "wrong_rate": 0.4612
+ },
+ "LEAVE": {
+  "n": 889,
+  "right": 888,
+  "wrong": 1,
+  "wrong_rate": 0.0011
+ },
+ "questions": {
+  "asked": 56,
+  "reused": 353
+ },
+ "questions_per_command": 0.444,
+ "act_hit": {
+  "n": 449,
+  "acted": 449,
+  "rate": 1.0
+ },
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "not_more_wrong_than_g_or_leave": true,
+  "act_hit>=0.90": true,
+  "questions_per_command<=2": true
+ },
+ "verdict": "PASS"
+}

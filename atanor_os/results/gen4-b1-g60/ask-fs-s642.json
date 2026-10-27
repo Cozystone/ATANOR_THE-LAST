@@ -1,0 +1,41 @@
+{
+ "body": "fs",
+ "seed": 642,
+ "eval_seed": 742,
+ "commands": 25,
+ "ASK": {
+  "n": 150,
+  "right": 150,
+  "wrong": 0,
+  "wrong_rate": 0.0
+ },
+ "G": {
+  "n": 150,
+  "right": 150,
+  "wrong": 0,
+  "wrong_rate": 0.0
+ },
+ "LEAVE": {
+  "n": 150,
+  "right": 66,
+  "wrong": 84,
+  "wrong_rate": 0.56
+ },
+ "questions": {
+  "asked": 13,
+  "reused": 71
+ },
+ "questions_per_command": 0.52,
+ "act_hit": {
+  "n": 150,
+  "acted": 150,
+  "rate": 1.0
+ },
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "not_more_wrong_than_g_or_leave": true,
+  "act_hit>=0.90": true,
+  "questions_per_command<=2": true
+ },
+ "verdict": "PASS"
+}

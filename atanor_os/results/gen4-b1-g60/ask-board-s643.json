@@ -1,0 +1,41 @@
+{
+ "body": "board",
+ "seed": 643,
+ "eval_seed": 743,
+ "commands": 48,
+ "ASK": {
+  "n": 270,
+  "right": 270,
+  "wrong": 0,
+  "wrong_rate": 0.0
+ },
+ "G": {
+  "n": 270,
+  "right": 270,
+  "wrong": 0,
+  "wrong_rate": 0.0
+ },
+ "LEAVE": {
+  "n": 270,
+  "right": 214,
+  "wrong": 56,
+  "wrong_rate": 0.2074
+ },
+ "questions": {
+  "asked": 24,
+  "reused": 45
+ },
+ "questions_per_command": 0.5,
+ "act_hit": {
+  "n": 221,
+  "acted": 221,
+  "rate": 1.0
+ },
+ "checks": {
+  "wrong_rate<=0.01": true,
+  "not_more_wrong_than_g_or_leave": true,
+  "act_hit>=0.90": true,
+  "questions_per_command<=2": true
+ },
+ "verdict": "PASS"
+}
