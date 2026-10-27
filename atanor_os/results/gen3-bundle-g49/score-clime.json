@@ -1,0 +1,339 @@
+{
+ "body": "clime",
+ "train_bundles": 2337,
+ "queries": 2141,
+ "conditional_actions": [
+  "('chill', ())",
+  "('heat', ())",
+  "('route', ('w.east',))",
+  "('stoke', ())",
+  "('vent', ())"
+ ],
+ "BUNDLE": {
+  "n": 2141,
+  "right": 2092,
+  "wrong": 9,
+  "held": 40,
+  "precision": 0.996,
+  "coverage": 0.981,
+  "wrong_rate": 0.0042
+ },
+ "SINGLE": {
+  "n": 2141,
+  "right": 1034,
+  "wrong": 1107,
+  "held": 0,
+  "precision": 0.483,
+  "coverage": 1.0,
+  "wrong_rate": 0.517
+ },
+ "BUNDLE_cond": {
+  "n": 1927,
+  "right": 1878,
+  "wrong": 9,
+  "held": 40,
+  "precision": 0.995,
+  "coverage": 0.979,
+  "wrong_rate": 0.0047
+ },
+ "SINGLE_cond": {
+  "n": 1927,
+  "right": 820,
+  "wrong": 1107,
+  "held": 0,
+  "precision": 0.426,
+  "coverage": 1.0,
+  "wrong_rate": 0.5745
+ },
+ "later": {
+  "n": 472,
+  "right": 80,
+  "wrong": 51,
+  "held": 341,
+  "precision": 0.611,
+  "coverage": 0.278,
+  "wrong_rate": 0.1081
+ },
+ "later_who": {
+  "right": 131,
+  "wrong": 0,
+  "accuracy": 1.0
+ },
+ "oracle": {
+  "precision": 1.0,
+  "coverage": 1.0
+ },
+ "examples": {
+  "held": [
+   {
+    "query": "Q0#2",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'mild'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#9",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'hot'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#12",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'hot'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#26",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'mild'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#38",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'mild'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#39",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'mild'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#158",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "need": "cases that tell apart [(), (('heat', 'mild'),)]",
+    "used": []
+   },
+   {
+    "query": "Q0#228",
+    "tool": "heat",
+    "cond": true,
+    "answer": null,
+    "truth": [],
+    "need": "cases that tell apart [(), (('heat', 'hot'),)]",
+    "used": []
+   }
+  ],
+  "wrong": [
+   {
+    "query": "Q0#14",
+    "tool": "heat",
+    "cond": true,
+    "answer": [],
+    "truth": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "need": null,
+    "used": [
+     "T1#383"
+    ]
+   },
+   {
+    "query": "Q0#15",
+    "tool": "heat",
+    "cond": true,
+    "answer": [],
+    "truth": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "need": null,
+    "used": [
+     "T1#383"
+    ]
+   },
+   {
+    "query": "Q0#219",
+    "tool": "heat",
+    "cond": true,
+    "answer": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "truth": [],
+    "need": null,
+    "used": [
+     "T1#67",
+     "T1#68",
+     "T1#69",
+     "T1#77",
+     "T2#14"
+    ]
+   },
+   {
+    "query": "Q0#235",
+    "tool": "heat",
+    "cond": true,
+    "answer": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "truth": [],
+    "need": null,
+    "used": [
+     "T1#67",
+     "T1#68",
+     "T1#69",
+     "T1#77",
+     "T2#14"
+    ]
+   },
+   {
+    "query": "Q0#236",
+    "tool": "heat",
+    "cond": true,
+    "answer": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "truth": [],
+    "need": null,
+    "used": [
+     "T0#10",
+     "T0#11",
+     "T1#73",
+     "T1#79",
+     "T2#16"
+    ]
+   },
+   {
+    "query": "Q0#237",
+    "tool": "heat",
+    "cond": true,
+    "answer": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "truth": [],
+    "need": null,
+    "used": [
+     "T0#5",
+     "T0#85",
+     "T0#87",
+     "T0#138",
+     "T0#142"
+    ]
+   },
+   {
+    "query": "Q0#238",
+    "tool": "heat",
+    "cond": true,
+    "answer": [
+     [
+      "heat",
+      "hot"
+     ]
+    ],
+    "truth": [],
+    "need": null,
+    "used": [
+     "T1#67",
+     "T1#68",
+     "T1#69",
+     "T1#77",
+     "T2#14"
+    ]
+   },
+   {
+    "query": "Q0#242",
+    "tool": "heat",
+    "cond": true,
+    "answer": [
+     [
+      "heat",
+      "mild"
+     ]
+    ],
+    "truth": [],
+    "need": null,
+    "used": [
+     "T0#5",
+     "T0#85",
+     "T0#87",
+     "T0#138",
+     "T0#142"
+    ]
+   }
+  ]
+ },
+ "checks": {
+  "cond_precision>=0.95": true,
+  "cond_coverage>=0.60": true,
+  "wrong_rate<=0.02": true,
+  "cond_precision>single": true,
+  "later_who>=0.90": true
+ },
+ "verdict": "PASS"
+}

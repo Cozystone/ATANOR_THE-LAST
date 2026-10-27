@@ -1,0 +1,91 @@
+{
+ "body": "desk",
+ "train_bundles": 971,
+ "queries": 987,
+ "conditional_actions": [
+  "('read', ())",
+  "('send', ())",
+  "('shelve', ('f.archive',))"
+ ],
+ "BUNDLE": {
+  "n": 987,
+  "right": 986,
+  "wrong": 0,
+  "held": 1,
+  "precision": 1.0,
+  "coverage": 0.999,
+  "wrong_rate": 0.0
+ },
+ "SINGLE": {
+  "n": 987,
+  "right": 956,
+  "wrong": 31,
+  "held": 0,
+  "precision": 0.969,
+  "coverage": 1.0,
+  "wrong_rate": 0.0314
+ },
+ "BUNDLE_cond": {
+  "n": 387,
+  "right": 387,
+  "wrong": 0,
+  "held": 0,
+  "precision": 1.0,
+  "coverage": 1.0,
+  "wrong_rate": 0.0
+ },
+ "SINGLE_cond": {
+  "n": 387,
+  "right": 356,
+  "wrong": 31,
+  "held": 0,
+  "precision": 0.92,
+  "coverage": 1.0,
+  "wrong_rate": 0.0801
+ },
+ "later": {
+  "n": 156,
+  "right": 65,
+  "wrong": 1,
+  "held": 90,
+  "precision": 0.985,
+  "coverage": 0.423,
+  "wrong_rate": 0.0064
+ },
+ "later_who": {
+  "right": 66,
+  "wrong": 0,
+  "accuracy": 1.0
+ },
+ "oracle": {
+  "precision": 1.0,
+  "coverage": 1.0
+ },
+ "examples": {
+  "held": [
+   {
+    "query": "Q0#55",
+    "tool": "file",
+    "cond": false,
+    "answer": null,
+    "truth": [
+     [
+      "place",
+      "archive"
+     ]
+    ],
+    "need": "a case of file ['f.archive'] starting from (('kind', 'note'), ('place', 'notes'), ('status', 'pinned'), ('tag', 'green'), ('value', '-'))",
+    "used": []
+   }
+  ],
+  "wrong": []
+ },
+ "checks": {
+  "cond_precision>=0.95": true,
+  "cond_coverage>=0.60": true,
+  "wrong_rate<=0.02": true,
+  "cond_precision>single": true,
+  "later_who>=0.90": true
+ },
+ "verdict": "PASS"
+}
