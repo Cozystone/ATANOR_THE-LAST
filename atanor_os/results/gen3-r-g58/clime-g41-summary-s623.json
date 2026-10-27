@@ -1,0 +1,150 @@
+{
+ "learner": "g41",
+ "seed": 623,
+ "none": {
+  "summary": {
+   "taught": {
+    "success": 7,
+    "missed": 1,
+    "wrong": 1,
+    "refused": 1
+   },
+   "english": {
+    "held": 12,
+    "success": 44
+   },
+   "combo": {
+    "success": 4
+   }
+  },
+  "held_why": {
+   "unresolved": 12
+  },
+  "harm": {
+   "taught": 0,
+   "english": 0,
+   "combo": 0,
+   "time": 0
+  },
+  "commands": 107,
+  "wrong": 3,
+  "unseen_change": {
+   "n": 3,
+   "first": {
+    "success": 3
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 24,
+   "outcomes": {
+    "success": 18,
+    "missed": 2,
+    "wrong": 2,
+    "refused": 2
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 14,
+    "good": 14
+   },
+   "unseen": {
+    "n": 3,
+    "good": 3
+   },
+   "time": {
+    "n": 24,
+    "good": 24
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 2,
+    "held": 2
+   },
+   "alone_after": {
+    "success": 2
+   },
+   "reuse_alone": {
+    "success": 4
+   },
+   "n": 4,
+   "plain_pairs": 11,
+   "wrong_total": 0
+  }
+ },
+ "gen1": {
+  "summary": {
+   "taught": {
+    "success": 7,
+    "missed": 1,
+    "wrong": 1,
+    "refused": 1
+   },
+   "english": {
+    "held": 12,
+    "success": 44
+   },
+   "combo": {
+    "success": 4
+   }
+  },
+  "held_why": {
+   "unresolved": 12
+  },
+  "harm": {
+   "taught": 0,
+   "english": 0,
+   "combo": 0,
+   "time": 0
+  },
+  "commands": 107,
+  "wrong": 3,
+  "unseen_change": {
+   "n": 3,
+   "first": {
+    "success": 3
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 24,
+   "outcomes": {
+    "success": 18,
+    "missed": 2,
+    "wrong": 2,
+    "refused": 2
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 14,
+    "good": 14
+   },
+   "unseen": {
+    "n": 3,
+    "good": 3
+   },
+   "time": {
+    "n": 24,
+    "good": 24
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 2,
+    "held": 2
+   },
+   "alone_after": {
+    "success": 2
+   },
+   "reuse_alone": {
+    "success": 4
+   },
+   "n": 4,
+   "plain_pairs": 11,
+   "wrong_total": 0
+  }
+ }
+}

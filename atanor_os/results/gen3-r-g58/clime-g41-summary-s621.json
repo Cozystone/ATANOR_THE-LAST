@@ -1,0 +1,163 @@
+{
+ "learner": "g41",
+ "seed": 621,
+ "none": {
+  "summary": {
+   "taught": {
+    "success": 5,
+    "held": 4,
+    "wrong": 1
+   },
+   "english": {
+    "held": 52,
+    "missed": 4,
+    "success": 16,
+    "refused": 4
+   },
+   "combo": {
+    "success": 5,
+    "refused": 1,
+    "held": 3
+   }
+  },
+  "held_why": {
+   "unresolved": 16,
+   "needs recheck": 23,
+   "ambiguous generalization": 20
+  },
+  "harm": {
+   "taught": 0,
+   "english": 0,
+   "combo": 0,
+   "time": 0
+  },
+  "commands": 146,
+  "wrong": 3,
+  "unseen_change": {
+   "n": 4,
+   "first": {
+    "held": 4
+   },
+   "second": {
+    "held": 4
+   }
+  },
+  "time": {
+   "n": 38,
+   "outcomes": {
+    "success": 20,
+    "held": 14,
+    "refused": 2,
+    "wrong": 2
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 19,
+    "good": 19
+   },
+   "unseen": {
+    "n": 4,
+    "good": 4
+   },
+   "time": {
+    "n": 38,
+    "good": 38
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 1,
+    "held": 1
+   },
+   "alone_after": {
+    "success": 1
+   },
+   "reuse_alone": {
+    "success": 2
+   },
+   "n": 2,
+   "plain_pairs": 4,
+   "wrong_total": 0
+  }
+ },
+ "gen1": {
+  "summary": {
+   "taught": {
+    "success": 5,
+    "held": 4,
+    "wrong": 1
+   },
+   "english": {
+    "held": 64,
+    "refused": 4,
+    "success": 8
+   },
+   "combo": {
+    "success": 5,
+    "refused": 1,
+    "held": 3
+   }
+  },
+  "held_why": {
+   "unresolved": 16,
+   "needs recheck": 23,
+   "ambiguous generalization": 32
+  },
+  "harm": {
+   "taught": 0,
+   "english": 0,
+   "combo": 0,
+   "time": 0
+  },
+  "commands": 146,
+  "wrong": 3,
+  "unseen_change": {
+   "n": 4,
+   "first": {
+    "held": 4
+   },
+   "second": {
+    "held": 4
+   }
+  },
+  "time": {
+   "n": 38,
+   "outcomes": {
+    "success": 20,
+    "held": 14,
+    "refused": 2,
+    "wrong": 2
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 19,
+    "good": 19
+   },
+   "unseen": {
+    "n": 4,
+    "good": 4
+   },
+   "time": {
+    "n": 38,
+    "good": 38
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 1,
+    "held": 1
+   },
+   "alone_after": {
+    "success": 1
+   },
+   "reuse_alone": {
+    "success": 2
+   },
+   "n": 2,
+   "plain_pairs": 2,
+   "wrong_total": 0
+  }
+ }
+}

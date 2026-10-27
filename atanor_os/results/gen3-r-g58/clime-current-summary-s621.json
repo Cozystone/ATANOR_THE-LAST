@@ -1,0 +1,156 @@
+{
+ "learner": "current",
+ "seed": 621,
+ "none": {
+  "summary": {
+   "taught": {
+    "success": 5,
+    "held": 1,
+    "wrong": 1,
+    "refused": 1
+   },
+   "english": {
+    "success": 48,
+    "held": 28
+   },
+   "combo": {
+    "success": 11,
+    "held": 4,
+    "refused": 1
+   }
+  },
+  "held_why": {
+   "needs recheck": 21,
+   "ambiguous generalization": 12
+  },
+  "harm": {
+   "taught": 0,
+   "english": 0,
+   "combo": 0,
+   "time": 0
+  },
+  "commands": 163,
+  "wrong": 3,
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 48,
+   "outcomes": {
+    "success": 32,
+    "held": 10,
+    "refused": 4,
+    "wrong": 2
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 24,
+    "good": 24
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "time": {
+    "n": 48,
+    "good": 48
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 2,
+    "held": 2
+   },
+   "alone_after": {
+    "success": 2
+   },
+   "reuse_alone": {
+    "success": 4
+   },
+   "n": 4,
+   "plain_pairs": 12,
+   "wrong_total": 0
+  }
+ },
+ "gen1": {
+  "summary": {
+   "taught": {
+    "success": 5,
+    "held": 1,
+    "wrong": 1,
+    "refused": 1
+   },
+   "english": {
+    "held": 44,
+    "success": 32
+   },
+   "combo": {
+    "success": 11,
+    "held": 4,
+    "refused": 1
+   }
+  },
+  "held_why": {
+   "ambiguous generalization": 28,
+   "needs recheck": 21
+  },
+  "harm": {
+   "taught": 0,
+   "english": 0,
+   "combo": 0,
+   "time": 0
+  },
+  "commands": 163,
+  "wrong": 3,
+  "unseen_change": {
+   "n": 5,
+   "first": {
+    "success": 5
+   },
+   "second": {}
+  },
+  "time": {
+   "n": 48,
+   "outcomes": {
+    "success": 32,
+    "held": 10,
+    "refused": 4,
+    "wrong": 2
+   }
+  },
+  "oracle": {
+   "main": {
+    "n": 24,
+    "good": 24
+   },
+   "unseen": {
+    "n": 5,
+    "good": 5
+   },
+   "time": {
+    "n": 48,
+    "good": 48
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 2,
+    "held": 2
+   },
+   "alone_after": {
+    "success": 2
+   },
+   "reuse_alone": {
+    "success": 4
+   },
+   "n": 4,
+   "plain_pairs": 8,
+   "wrong_total": 0
+  }
+ }
+}
