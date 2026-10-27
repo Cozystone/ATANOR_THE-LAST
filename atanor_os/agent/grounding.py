@@ -27,12 +27,13 @@ QUESTION_BUDGET = 6
 
 class Grounder:
     def __init__(self, home, mind_dir, person=None, mode='FULL', core='g1', passive=False, structure='order', source='program',
-                 experiment=True, transfer=True, caps=None, modifier_slot=True):
+                 experiment=True, transfer=True, caps=None, modifier_slot=True, prior_bound=True):
         self.home, self.person, self.mode, self.core, self.passive = home, person, mode, core, passive
         self.structure = structure                 # 'order' (phrase positions; adopted after seed 4) or None (joint explanation only)
         self.experiment = experiment               # try other tools in a lab copy when a remembered call stops working
         self.transfer = transfer                   # TRANSFER_PROTOCOL.md (PASS, narrow): another body's word for 'make it vanish'
         self.modifier_slot = modifier_slot         # DESK_EVAL3_PROTOCOL.md; kept or reverted by CLOSEOUT_CHECK_PROTOCOL.md
+        self.prior_bound = prior_bound             # GEN2_H1_PROTOCOL.md: effects are tied to the prior states seen
         self.source = source                       # whose teaching this experience comes from: 'program' (the regression
                                                    # tutor) or 'human' (a real person through the interface)
         self.body = getattr(home, 'BODY', '?')
@@ -255,7 +256,8 @@ class Grounder:
                 res = self.home.execute(effect['tool'], args, self.caps)
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
-            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'))
+            ev = self.mem.events.append('act', lesson=lesson, tool=effect['tool'], args=list(args), ok=res['ok'], error=res.get('error'),
+                                        prior=sorted(a for a in feats.get(o, ()) if self._attr(a) in self._rewritten(effect)))
             if res.get('blocked'):                         # not permitted: says nothing about what the tool does
                 self.refused.append(o)
                 continue
@@ -625,7 +627,7 @@ class Grounder:
         self.counts['asked_between'] += 1
         return t['defs'][win_s], t['defs'][win_a]
 
-    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word')
+    HELD = ('unresolved', 'ambiguous generalization', 'needs recheck', 'unknown word in place of a deciding word', 'unseen prior state')
 
     def obey(self, symbols, task=None):
         """A command made of symbols or words (in any order). Never acts on an unresolved reading alone; a command held
@@ -706,6 +708,9 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
+        if self.person is None and self.prior_bound and self._unseen_prior(act, todo(sel['atoms']), feats):
+            self.counts['held_unseen_prior'] += 1            # GEN2_H1_PROTOCOL.md: never seen working from this state
+            return {'ok': False, 'why': 'unseen prior state', 'event': ev}
         acted, failed = self.apply(sel, act, lesson=task)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
@@ -724,6 +729,22 @@ class Grounder:
         return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
                 'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
+
+    def _unseen_prior(self, eff, objs, feats):
+        """GEN2_H1_PROTOCOL.md: the objects whose present value of an attribute this action changes was never the value
+        before a successful use (the demonstrated object's lost values, and what was observed right before each
+        successful act of the same tool with the same constant arguments)."""
+        attrs = self._rewritten(eff)
+        if not attrs:
+            return []
+        consts = [r[1] for r in eff['template'] if isinstance(r, list) and r[0] == 'K']
+        seen = {a for a in eff.get('lost', []) if self._attr(a) in attrs}
+        for e in self.mem.events.all():
+            if (e.get('kind') == 'act' and e.get('ok') and e.get('body') == self.body and e.get('tool') == eff['tool']
+                    and len(e.get('args') or []) == len(eff['template'])
+                    and all(e['args'][i] == r[1] for i, r in enumerate(eff['template']) if isinstance(r, list) and r[0] == 'K')):
+                seen |= set(e.get('prior') or [])
+        return [o for o in objs if o in feats and any(a not in seen for a in feats[o] if self._attr(a) in attrs)]
 
     def _resettle(self, sel_hit, feats, task):
         """With the person: ask contrast questions now to choose between criteria that disagree on the present objects."""

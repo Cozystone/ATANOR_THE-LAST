@@ -25,6 +25,8 @@ def make(home, mind_dir, **kw):
         from .grounding_g38 import Grounder
     elif name() == 'g39':
         from .grounding_g39 import Grounder
+    elif name() == 'g41':
+        from .grounding_g41 import Grounder
     else:
         from .grounding import Grounder
     return Grounder(home, mind_dir, **kw)

@@ -2,7 +2,7 @@
 says otherwise; ORACLE is inside clime_eval).
   NONE   an empty mind taught on the climate bays (25 sessions)
   GEN1   one mind: the 75-day three-body course, the desk (25 sessions), then the climate bays (25 sessions)
-Usage: python -m atanor_os.eval.clime_run <seed> <out_dir> [sealed:<clime_sealed.json>]
+Usage: python -m atanor_os.eval.clime_run <seed> <out_dir> [sealed:<clime_sealed.json>] [nogen1]
 """
 import json
 import shutil
@@ -24,7 +24,7 @@ def short(r):
         'synonyms': r['synonyms']['summary']}
 
 
-def run(seed, out_dir, sealed=None):
+def run(seed, out_dir, sealed=None, gen1=True):
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     who = learner_name()
@@ -35,6 +35,9 @@ def run(seed, out_dir, sealed=None):
     Teacher(base / 'none' / 'clime', seed=seed, drift_from=CHANGE, body='clime', mind=base / 'none' / 'mind').run(SESSIONS)
     out['none'] = short(evaluate(base / 'none' / 'clime', 100 + seed, out_dir / f'clime-{who}-none-s{seed}.json', sealed))
     shutil.copy(base / 'none' / 'clime' / 'log.jsonl', out_dir / f'clime-{who}-none-s{seed}-course-log.jsonl')
+    if not gen1:                                           # GEN2_H1_PROTOCOL.md: the climate bays from an empty mind only
+        (out_dir / f'clime-{who}-summary-s{seed}.json').write_text(json.dumps(out, indent=1), encoding='utf-8')
+        return out
     long_course(base / 'gen1', seed, per_body=25, shared=True, change_from=CHANGE_FROM)
     Teacher(base / 'gen1' / 'desk', seed=seed, drift_from=10, body='desk', mind=base / 'gen1' / 'mind').run(25)
     Teacher(base / 'gen1' / 'clime', seed=seed, drift_from=CHANGE, body='clime', mind=base / 'gen1' / 'mind').run(SESSIONS)
@@ -46,4 +49,4 @@ def run(seed, out_dir, sealed=None):
 
 if __name__ == '__main__':
     sealed = next((a[7:] for a in sys.argv[3:] if a.startswith('sealed:')), None)
-    print(json.dumps(run(int(sys.argv[1]), sys.argv[2], sealed), indent=1))
+    print(json.dumps(run(int(sys.argv[1]), sys.argv[2], sealed, gen1='nogen1' not in sys.argv[3:]), indent=1))
