@@ -1,0 +1,101 @@
+{
+ "body": "clime",
+ "seed": 633,
+ "eval_seed": 733,
+ "train_bundles": 480,
+ "BUNDLE": {
+  "n": 950,
+  "right": 826,
+  "wrong": 0,
+  "held": 124,
+  "wrong_rate": 0.0,
+  "coverage": 0.869
+ },
+ "G": {
+  "n": 950,
+  "right": 937,
+  "wrong": 13,
+  "held": 0,
+  "wrong_rate": 0.0137,
+  "coverage": 1.0
+ },
+ "LEAVE": {
+  "n": 950,
+  "right": 937,
+  "wrong": 13,
+  "held": 0,
+  "wrong_rate": 0.0137,
+  "coverage": 1.0
+ },
+ "SINGLE": {
+  "n": 950,
+  "right": 701,
+  "wrong": 249,
+  "held": 0,
+  "wrong_rate": 0.2621,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 950,
+  "right": 671,
+  "wrong": 279,
+  "held": 0,
+  "wrong_rate": 0.2937,
+  "coverage": 1.0
+ },
+ "apart_tools": [],
+ "apart": {
+  "BUNDLE": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "G": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "LEAVE": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "SINGLE": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "LAST": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  }
+ },
+ "g_act_hit": {
+  "n": 800,
+  "acted": 787,
+  "rate": 0.984
+ },
+ "examples": [],
+ "checks": {
+  "bundle_wrong_rate<=0.01": true,
+  "g_not_more_wrong_than_single_or_last": true,
+  "g_act_hit>=0.90": true
+ },
+ "verdict": "PASS"
+}

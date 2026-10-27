@@ -1,0 +1,101 @@
+{
+ "body": "fs",
+ "seed": 632,
+ "eval_seed": 732,
+ "train_bundles": 448,
+ "BUNDLE": {
+  "n": 150,
+  "right": 42,
+  "wrong": 0,
+  "held": 108,
+  "wrong_rate": 0.0,
+  "coverage": 0.28
+ },
+ "G": {
+  "n": 150,
+  "right": 150,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "LEAVE": {
+  "n": 150,
+  "right": 42,
+  "wrong": 108,
+  "held": 0,
+  "wrong_rate": 0.72,
+  "coverage": 1.0
+ },
+ "SINGLE": {
+  "n": 150,
+  "right": 90,
+  "wrong": 60,
+  "held": 0,
+  "wrong_rate": 0.4,
+  "coverage": 1.0
+ },
+ "LAST": {
+  "n": 150,
+  "right": 150,
+  "wrong": 0,
+  "held": 0,
+  "wrong_rate": 0.0,
+  "coverage": 1.0
+ },
+ "apart_tools": [],
+ "apart": {
+  "BUNDLE": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "G": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "LEAVE": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "SINGLE": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  },
+  "LAST": {
+   "n": 0,
+   "right": 0,
+   "wrong": 0,
+   "held": 0,
+   "wrong_rate": null,
+   "coverage": null
+  }
+ },
+ "g_act_hit": {
+  "n": 150,
+  "acted": 150,
+  "rate": 1.0
+ },
+ "examples": [],
+ "checks": {
+  "bundle_wrong_rate<=0.01": true,
+  "g_not_more_wrong_than_single_or_last": true,
+  "g_act_hit>=0.90": true
+ },
+ "verdict": "PASS"
+}
