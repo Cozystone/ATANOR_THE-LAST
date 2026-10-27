@@ -1,0 +1,294 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\r2-current-s301\\gen1\\fs",
+ "eval_seed": 401,
+ "summary": {
+  "taught": {
+   "success": 5
+  },
+  "english": {
+   "success": 8
+  },
+  "combo": {
+   "held": 3,
+   "success": 1,
+   "part-held": 1
+  }
+ },
+ "held_why": {
+  "unseen prior state": 3
+ },
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 0,
+   "act": 3,
+   "kind": "combo",
+   "why": "unseen prior state",
+   "outcome": "held"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 3,
+   "kind": "combo",
+   "why": "unseen prior state",
+   "outcome": "held"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 0,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 3,
+   "act": 3,
+   "kind": "combo",
+   "why": "refused prior state",
+   "outcome": "part-held"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 3,
+   "kind": "combo",
+   "why": "unseen prior state",
+   "outcome": "held"
+  }
+ ],
+ "unseen_change": {
+  "n": 5,
+  "first": {
+   "held:unseen prior state": 3,
+   "success": 1,
+   "part-held": 1
+  },
+  "second": {
+   "held:unseen prior state": 3,
+   "held:ambiguous generalization": 1,
+   "part-held": 1
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 3,
+    "first": "held:unseen prior state",
+    "second": "held:unseen prior state"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "first": "success",
+    "second": "held:ambiguous generalization"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "first": "held:unseen prior state",
+    "second": "held:unseen prior state"
+   },
+   {
+    "sel": 3,
+    "act": 3,
+    "first": "part-held",
+    "second": "part-held"
+   },
+   {
+    "sel": 4,
+    "act": 3,
+    "first": "held:unseen prior state",
+    "second": "held:unseen prior state"
+   }
+  ]
+ },
+ "double_change": {
+  "n": 5,
+  "outcomes": {
+   "held:unseen prior state": 4,
+   "success": 1
+  },
+  "rows": [
+   {
+    "sel": 0,
+    "act": 3,
+    "tool": "move",
+    "outcome": "held:unseen prior state"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "tool": "move",
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "tool": "move",
+    "outcome": "held:unseen prior state"
+   },
+   {
+    "sel": 3,
+    "act": 3,
+    "tool": "move",
+    "outcome": "held:unseen prior state"
+   },
+   {
+    "sel": 4,
+    "act": 3,
+    "tool": "move",
+    "outcome": "held:unseen prior state"
+   }
+  ]
+ },
+ "oracle": {
+  "n": 10,
+  "success": 10,
+  "rows": [
+   {
+    "sel": 0,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 0,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 3,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 3,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 3,
+    "outcome": "success"
+   }
+  ]
+ },
+ "delayed": {
+  "n": 0,
+  "carried_out": 0,
+  "resend_attempts": 0,
+  "rows": []
+ }
+}

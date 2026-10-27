@@ -1,0 +1,201 @@
+{
+ "course": "D:\\ATANOR-experiments\\probe-work\\r2-g35-s303\\gen1\\board",
+ "eval_seed": 403,
+ "summary": {
+  "taught": {
+   "success": 8
+  },
+  "combo": {
+   "success": 3
+  },
+  "english": {
+   "success": 4
+  }
+ },
+ "held_why": {},
+ "rows": [
+  {
+   "sel": 0,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 1,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 2,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 4,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 5,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 6,
+   "act": 3,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 7,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 7,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 8,
+   "act": 0,
+   "kind": "taught",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 8,
+   "act": 3,
+   "kind": "combo",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 8,
+   "act": 3,
+   "kind": "english:lead",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 8,
+   "act": 3,
+   "kind": "english:tail",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 8,
+   "act": 3,
+   "kind": "english:wrap",
+   "why": null,
+   "outcome": "success"
+  },
+  {
+   "sel": 8,
+   "act": 3,
+   "kind": "english:mid",
+   "why": null,
+   "outcome": "success"
+  }
+ ],
+ "unseen_change": {
+  "n": 0,
+  "first": {},
+  "second": {},
+  "rows": []
+ },
+ "double_change": {
+  "n": 0,
+  "outcomes": {},
+  "rows": []
+ },
+ "oracle": {
+  "n": 11,
+  "success": 11,
+  "rows": [
+   {
+    "sel": 0,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 1,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 2,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 4,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 5,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 5,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 6,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 7,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 7,
+    "act": 3,
+    "outcome": "success"
+   },
+   {
+    "sel": 8,
+    "act": 0,
+    "outcome": "success"
+   },
+   {
+    "sel": 8,
+    "act": 3,
+    "outcome": "success"
+   }
+  ]
+ },
+ "delayed": {
+  "n": 0,
+  "carried_out": 0,
+  "resend_attempts": 0,
+  "rows": []
+ }
+}
