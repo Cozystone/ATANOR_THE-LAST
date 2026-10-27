@@ -169,7 +169,9 @@ function drawControls() {
                el('button', {class: 'bad', onclick: () => answer({ok: false})}, '아니요'));
   } else if (p.kind === 'prior') {
     pr.textContent = p.note;
-    box.append(el('button', {class: 'ok', onclick: () => answer({yes: true})}, '네, 그것도 해 주세요'), el('button', {class: 'bad', onclick: () => answer({yes: false})}, '아니요, 그건 그대로 두세요'));
+    box.append(el('button', {class: 'ok', onclick: () => answer({answer: 'yes'})}, '네, 그것도 해 주세요'),
+               el('button', {class: 'bad', onclick: () => answer({answer: 'not_meant'})}, '그건 제가 뜻한 것이 아니에요'),
+               el('button', {class: 'bad', onclick: () => answer({answer: 'leave'})}, '뜻했지만 그대로 두세요'));
   } else if (p.kind === 'propose') {
     pr.textContent = p.note;
     box.append(el('button', {class: 'ok', onclick: () => answer({yes: true})}, '네'), el('button', {class: 'bad', onclick: () => answer({yes: false})}, '아니요'));

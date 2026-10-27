@@ -292,7 +292,9 @@ class Tutor:
     def prior(self, obj, effect=None):
         """GEN2_H4_PROTOCOL.md: this one too? (meant, and expected to change)"""
         self.help['prior'] += 1
-        return obj in self.truth and getattr(self.spec, 'possible', lambda a, x, s: True)(self.act, obj, self._state())
+        if obj not in self.truth:
+            return 'not_meant'
+        return 'yes' if getattr(self.spec, 'possible', lambda a, x, s: True)(self.act, obj, self._state()) else 'leave'
 
     def demo(self):
         self.help['demo'] += 1
