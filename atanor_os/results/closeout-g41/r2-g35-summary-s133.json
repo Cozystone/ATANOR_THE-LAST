@@ -1,0 +1,154 @@
+{
+ "learner": "g35",
+ "seed": 133,
+ "none": {
+  "course": "D:\\ATANOR-experiments\\probe-work\\r2-g35-s133\\none\\desk",
+  "eval_seed": 233,
+  "learner": "g35",
+  "summary": {
+   "taught": {
+    "success": 9
+   },
+   "english": {
+    "success": 72,
+    "partial": 64
+   },
+   "combo": {
+    "success": 9,
+    "partial": 16
+   }
+  },
+  "held_why": {},
+  "unseen_change": {
+   "n": 4,
+   "first": {
+    "success": 4
+   },
+   "second": {}
+  },
+  "delayed": {
+   "n": 3,
+   "carried_out": 3,
+   "resend": 0,
+   "retry_failed": 4,
+   "prevented_by_desk": 18
+  },
+  "oracle": {
+   "main": {
+    "n": 34,
+    "good": 34
+   },
+   "unseen": {
+    "n": 4,
+    "good": 4
+   },
+   "delayed": {
+    "n": 3,
+    "good": 3
+   }
+  },
+  "synonyms": {
+   "alone_first": {
+    "success": 1
+   },
+   "alone_after": {},
+   "reuse_alone": {
+    "success": 1
+   },
+   "redundant": {
+    "alone_first": {
+     "success": 1
+    },
+    "alone_after": {},
+    "reuse_alone": {
+     "success": 1
+    }
+   },
+   "n": 1,
+   "n_redundant": 1,
+   "plain_pairs": 34,
+   "wrong_total": 0
+  },
+  "modifier": {
+   "n": 0,
+   "outcomes": {},
+   "untested": []
+  },
+  "commands": 184,
+  "wrong": 0
+ },
+ "three": {
+  "board": {
+   "summary": {
+    "taught": {
+     "success": 11
+    },
+    "english": {
+     "success": 120
+    },
+    "combo": {
+     "success": 25
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 6,
+    "first": {
+     "success": 6
+    },
+    "second": {
+     "success": 6
+    }
+   }
+  },
+  "fs": {
+   "summary": {
+    "taught": {
+     "success": 9
+    },
+    "english": {
+     "success": 100
+    },
+    "combo": {
+     "success": 16
+    }
+   },
+   "held_why": {},
+   "unseen_change": {
+    "n": 10,
+    "first": {
+     "success": 10
+    },
+    "second": {
+     "success": 10
+    }
+   }
+  },
+  "view": {
+   "summary": {
+    "taught": {
+     "success": 6
+    },
+    "english": {
+     "held": 16,
+     "success": 40
+    },
+    "combo": {
+     "success": 8
+    }
+   },
+   "held_why": {
+    "ambiguous generalization": 16
+   },
+   "unseen_change": {
+    "n": 8,
+    "first": {
+     "success": 8
+    },
+    "second": {
+     "success": 8
+    }
+   }
+  }
+ }
+}
