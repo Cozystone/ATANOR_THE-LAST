@@ -13,7 +13,7 @@
   modifier (round 3)  two English-named selections whose phrases differ by one added word: that word replaced by its
                       sealed substitute in the narrower phrase, with each English-named action, alone. Acting on the
                       broader set is wrong; holding is not.
-The learner is the current one, or the frozen generation-1 copy (agent/learners.py, ATANOR_LEARNER=g35).
+The learner is the current one (agent/learners.py); frozen copies run from their commits.
 Usage: python -m atanor_os.eval.desk_eval2 <course_dir> <eval_seed> <out.json> [sealed:<desk2_sealed.json>]
 """
 import json

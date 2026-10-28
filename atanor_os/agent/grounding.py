@@ -775,21 +775,7 @@ class Grounder:
                 self.counts['held_ambiguous'] += 1
                 return {'ok': False, 'why': 'ambiguous generalization', 'event': ev}
             sel = self._resettle({**sels[0], 'claim': {**sels[0]['claim'], 'content': {**sel, 'alternatives': alts}}}, feats, task)
-        decided, unsure = None, []
-        makes = any(isinstance(r, list) and r[0] == 'C' for r in act['template'])   # its effect lands on another object
-        if self.person is None and self.cases and not makes:   # GEN3_G_PROTOCOL.md: alone, own cases decide where they agree
-            cases = self._own_cases(act)
-            decided = {o: self._read_cases(cases, self._attrs(self._u(feats.get(o, ())))) for o in self.extension(sel['atoms'], feats)}
-            unsure = [o for o, v in decided.items() if v is None]
-            for o in unsure:                               # no agreeing case: as the core does, the evidence needed kept as a claim
-                decided[o] = 'leave' if self._done(act, feats, feats, o) else 'act'
-            self.counts['left_by_cases'] += sum(v == 'leave' and o not in unsure and not self._done(act, feats, feats, o)
-                                                for o, v in decided.items())
-            if unsure:
-                self.counts['acted_without_case'] += len(unsure)
-                self.mem.claims.add('need', {'action': act.get('action'), 'tool': act['tool'],
-                                             'starts': sorted({tuple(self._u(feats.get(o, ()))) for o in unsure})},
-                                    [ev], 'inferred', self.scope)
+        decided = self._decide(sel, act, feats, task, ev)
         acted, failed = self.apply(sel, act, lesson=task, decided=decided)
         now = self.feats()
         blocked = [(o, e) for o, e in failed if self._made_exists(act, now, o)]
@@ -808,6 +794,26 @@ class Grounder:
         return {'ok': not failed and not self.refused, 'acted': [o for o, _ in acted], 'failed': [o for o, _ in failed],
                 'refused': list(self.refused), 'selection': ext,
                 'used': [sels[0]['via'], acts[0]['via']], 'retrieved_as': [sels[0]['is'], acts[0]['is']], 'event': ev}
+
+    def _decide(self, sel, act, feats, task, ev):
+        """Which objects the concept picks to act on: None (every one not showing the effect yet, the core's rule), or
+        {object: 'act' / 'leave'}. REBUILD_PLAN.md: the hook a new decision module replaces."""
+        decided, unsure = None, []
+        makes = any(isinstance(r, list) and r[0] == 'C' for r in act['template'])   # its effect lands on another object
+        if self.person is None and self.cases and not makes:   # GEN3_G_PROTOCOL.md: alone, own cases decide where they agree
+            cases = self._own_cases(act)
+            decided = {o: self._read_cases(cases, self._attrs(self._u(feats.get(o, ())))) for o in self.extension(sel['atoms'], feats)}
+            unsure = [o for o, v in decided.items() if v is None]
+            for o in unsure:                               # no agreeing case: as the core does, the evidence needed kept as a claim
+                decided[o] = 'leave' if self._done(act, feats, feats, o) else 'act'
+            self.counts['left_by_cases'] += sum(v == 'leave' and o not in unsure and not self._done(act, feats, feats, o)
+                                                for o, v in decided.items())
+            if unsure:
+                self.counts['acted_without_case'] += len(unsure)
+                self.mem.claims.add('need', {'action': act.get('action'), 'tool': act['tool'],
+                                             'starts': sorted({tuple(self._u(feats.get(o, ()))) for o in unsure})},
+                                    [ev], 'inferred', self.scope)
+        return decided
 
     def _resettle(self, sel_hit, feats, task):
         """With the person: ask contrast questions now to choose between criteria that disagree on the present objects."""

@@ -1,0 +1,379 @@
+"""REBUILD_PLAN.md B: what an action will change, predicted from the start state, with its uncertainty.
+
+An action is identified by its tool and the arguments that stay the same objects from call to call (a tray, a wing:
+an argument used with several others and never changed, in any position);
+the result is a separate thing, predicted per output: the body's answer ('ok' / 'failed' / 'blocked') and each
+argument's attribute right after. One action can have different results from different starts; cases are never merged
+just because the tool is the same, and an action is never split into nodes just because results differ.
+
+For every output, explanations are kept as long as no case contradicts them:
+  CONST          always the same value                       (complexity 0)
+  COPY(v)        equals the start value of input v           (complexity 1; v = the output's own attribute: unchanged)
+  TABLE(S)       a lookup on the start values of inputs S    (complexity |S|, |S| <= 2; + 0.5 if a cell is a copy)
+A cell of a TABLE (or the whole of CONST) is either a constant or a copy of one input's start value, and both may
+sit in one table; a cell that fits both is ambiguous and both stay candidates until a case tells them apart. When no
+explanation fits but this very start was seen with one result, that result is the prediction.
+A prediction is given only when every explanation of the lowest complexity has seen this start (covers it), they all
+agree, and no explanation of one more complexity is left uncovered by a start value of an input that never varied in
+the cases (an untried condition); otherwise the answer is 'unknown' with the competing values. (Dev seeds 1-5: requiring
+every explanation of one more complexity to cover too lost a third of the new combinations without removing any error;
+requiring nothing of them made errors on untried conditions only.) When a later case
+contradicts an earlier one with exactly the same start, the world (not the evidence) changed: the earlier cases are
+kept as counter-examples but no longer fitted.
+Baselines on the same cases: EXACT (an identical start, else unknown), LAST (identical start, else the latest case of
+the action), CORE (the first demonstration's change applied to any start, as the baseline core's effect claim does).
+"""
+import itertools
+import json
+import math
+from collections import defaultdict
+
+MAX_S = 2
+NO = object()                                          # a cell with no single constant
+
+
+def freeze(d):
+    return json.dumps(d, sort_keys=True, default=str)
+
+
+def flat(objs):
+    """Arguments' observations -> {(position, attribute): value}."""
+    return {(i, a): v for i, o in enumerate(objs) for a, v in sorted((o or {}).items())}
+
+
+class Case:
+    __slots__ = ('x', 'y', 't', 'actor')
+
+    def __init__(self, x, y, t, actor):
+        self.x, self.y, self.t, self.actor = x, y, t, actor
+
+
+def outputs(before, after, resp):
+    y = {} if resp is None else {('r',): resp}
+    for i, (b, a) in enumerate(zip(before, after)):
+        for k in sorted(set(b or {}) | set(a or {})):
+            y[(i, k)] = (a or {}).get(k, '-')
+    return y
+
+
+class ActionModel:
+    """All cases of one action (tool + its constant arguments)."""
+
+    def __init__(self, key):
+        self.key = key
+        self.cases, self.superseded = [], []
+        self._h = {}
+
+    def add(self, case):
+        same = [c for c in self.cases if c.x == case.x and c.y != case.y]
+        if same:                                           # identical start, different result: the world changed
+            cut = max(c.t for c in same)
+            self.superseded += [c for c in self.cases if c.t <= cut]
+            self.cases = [c for c in self.cases if c.t > cut]
+        self.cases.append(case)
+        self._h = {}
+
+    tiered = True
+
+    def values(self, v):
+        if ('vals', v) not in self._h:
+            self._h[('vals', v)] = {c.x.get(v) for c in self.cases}
+        return self._h[('vals', v)]
+
+    def untried(self, v, val):
+        """A start value is an untried condition when the input never varied in the cases, or when it is absent where
+        it was always present (or present where always absent): '-' is the observation interface's 'no value' in
+        every body."""
+        seen = self.values(v)
+        if val in seen:
+            return False
+        return len(seen) < 2 or (val == '-') != any(s == '-' for s in seen) and all((s == '-') == (next(iter(seen)) == '-') for s in seen)
+
+    def inputs(self):
+        return sorted({k for c in self.cases for k in c.x})
+
+    def hypotheses(self, out):
+        """Consistent explanations of one output: [(complexity, kind, arg, table)]."""
+        if out not in self._h:
+            self._h[out] = self._hypotheses(out)
+        return self._h[out]
+
+    def _hypotheses(self, out):
+        """A TABLE cell holds the cases whose start has the same values on S; it is consistent when they all end in one
+        value (a constant) or all end in the start value of one input (a copy: unchanged, or taken from an argument).
+        Both kinds of cell may sit in one table: 'sealing a bay makes it sealed; on a wing nothing changes'."""
+        ins = self.inputs()
+        hs = []
+        whole = self._cell(self.cases, out, ins)
+        if whole is not None:
+            const, copies = whole
+            if const is not NO:
+                hs.append((0, 'CONST', None, {(): whole}))
+            for v in sorted(copies, key=str):
+                hs.append((1, 'COPY', v, None))
+        for k in range(1, MAX_S + 1):
+            for S in itertools.combinations(ins, k):
+                groups = {}
+                for c in self.cases:
+                    groups.setdefault(tuple(c.x.get(s) for s in S), []).append(c)
+                tab = {}
+                for key, cs in groups.items():
+                    cell = self._cell(cs, out, ins)
+                    if cell is None:
+                        tab = None
+                        break
+                    tab[key] = cell
+                if tab is not None:                        # a cell that can only be a copy makes the table half a step
+                    mixed = any(c[0] is NO for c in tab.values())   # more complex than one of constants
+                    hs.append((k + (0.5 if mixed else 0), 'TABLE', S, tab))
+        return hs
+
+    @staticmethod
+    def _cell(cases, out, ins):
+        ys = {freeze(c.y.get(out)) for c in cases}
+        const = json.loads(next(iter(ys))) if len(ys) == 1 else NO
+        copies = set(ins)
+        for c in cases:
+            copies &= {v for v in copies if c.x.get(v) == c.y.get(out)}
+            if not copies:
+                break
+        if const is NO and not copies:
+            return None
+        return const, frozenset(copies)
+
+    @staticmethod
+    def _candidates(cell, x):
+        """A cell's possible values for this start: its constant, and this start's own value of every input it copied."""
+        const, copies = cell
+        out = {freeze(const)} if const is not NO else set()
+        return out | {freeze(x[v]) for v in copies if v in x}
+
+    def predict_out(self, out, x, slack=1):
+        same = [c for c in self.cases if c.x == x]
+        exact = {freeze(c.y.get(out)) for c in same}
+        hs = self.hypotheses(out)
+        if not hs:
+            if len(exact) == 1:                            # nothing simple explains it, but this very start was seen
+                return {'known': True, 'value': json.loads(next(iter(exact))), 'conditions': ['identical start'], 'support': len(same)}
+            return {'known': False, 'why': 'no consistent explanation', 'competing': sorted({freeze(c.y.get(out)) for c in self.cases})}
+        low = min(h[0] for h in hs)
+        use = [h for h in hs if h[0] <= low + slack]
+        preds, uncovered = set(), []
+        for cx, kind, arg, tab in use:
+            if kind == 'CONST':
+                preds |= self._candidates(tab[()], x)
+            elif kind == 'COPY':
+                if arg in x:
+                    preds.add(freeze(x[arg]))
+                else:
+                    uncovered.append((kind, arg))
+            else:
+                key = tuple(x.get(s) for s in arg)
+                if key in tab:
+                    preds |= self._candidates(tab[key], x)
+                elif cx == low or self.tiered is False or any(self.untried(s, x.get(s)) for s in arg):
+                    uncovered.append((kind, arg))          # a simplest explanation, or a condition that never varied: unknown
+                # else: a more complex explanation, and only a new combination or a new value of an input that varied
+                # in the cases without the simplest explanations needing it: not counted
+        conds = sorted({str(h[2]) for h in hs if h[0] == low})
+        if uncovered or len(preds) != 1:
+            if len(exact) == 1:
+                return {'known': True, 'value': json.loads(next(iter(exact))), 'conditions': ['identical start'], 'support': len(same)}
+            return {'known': False, 'why': 'unseen start for a simple explanation' if uncovered else 'explanations disagree',
+                    'competing': sorted(preds), 'uncovered': [str(u) for u in uncovered][:6], 'conditions': conds}
+        return {'known': True, 'value': json.loads(next(iter(preds))), 'conditions': conds, 'support': len(self.cases)}
+
+
+def action_key(tool, args, constants):
+    if len(args) < 2:
+        return (tool, len(args), ())
+    return (tool, len(args), tuple((i, a) for i, a in enumerate(args) if a in constants))
+
+
+class Effects:
+    """The conditional effect model over all actions, plus the baselines, fed the same cases."""
+
+    def __init__(self, slack=1, tiered=True):
+        self._models, self.slack, self.tiered = {}, slack, tiered
+        self.seen_with = defaultdict(set)                  # an argument, the other arguments it was called with, and
+        self.changed = set()                               # whether it ever changed: one used with several others and
+                                                           # never changed is a constant of the action (a tray, a folder)
+        self.raw, self._grouped_by = [], None              # every case as observed; grouped into actions on demand
+        self.first_demo = {}
+
+    def constants(self):
+        return frozenset(a for a, w in self.seen_with.items() if len(w) >= 2 and a not in self.changed)
+
+    @property
+    def models(self):
+        """Cases grouped by action. When what counts as a constant argument changes, every case is grouped again, so
+        early cases of an action are never left under another identity."""
+        cs = self.constants()
+        if self._grouped_by != cs:
+            self._models, self.first_demo = {}, {}
+            for r in self.raw:
+                self._group(r, cs)
+            self._grouped_by = cs
+        return self._models
+
+    def _group(self, r, cs):
+        tool, args, before, after, resp, t, actor = r
+        key = action_key(tool, args, cs)
+        m = self._models.setdefault(key, ActionModel(key))
+        m.tiered = self.tiered
+        x = flat(before)
+        y = outputs(before, after, resp)
+        m.add(Case(x, y, t, actor))
+        if actor in ('person', 'teacher', 'unknown') and key not in self.first_demo and resp in ('ok', None):
+            self.first_demo[key] = {k: v for k, v in y.items() if k != ('r',) and x.get(k) != v}
+
+    def observe(self, e):
+        """Learn from one experience (an act with before and after observed)."""
+        act = e.get('action')
+        if not act or e.get('before') is None:
+            return False
+        args = act['args']
+        before = [e['before'].get(a) for a in args]
+        after = [(e.get('after') or {}).get(a) for a in args]
+        for i, a in enumerate(args):
+            if len(args) > 1:
+                self.seen_with[a].add(tuple(args[:i] + args[i + 1:]))
+            if before[i] != after[i]:
+                self.changed.add(a)
+        r = e.get('response')
+        resp = None if r is None else ('blocked' if r.get('guard') else ('ok' if r.get('ok') else 'failed'))   # not observed: no case for it
+        row = (act['tool'], list(args), before, after, resp, e['t'], e.get('actor'))
+        self.raw.append(row)
+        if self._grouped_by == self.constants():
+            self._group(row, self._grouped_by)
+        return True
+
+    def model(self, tool, args):
+        return self.models.get(action_key(tool, args, self.constants()))
+
+    def predict(self, tool, args, before, reader='NEW'):
+        """before: the arguments' observations now. -> {'outcome': {output: value} or None, 'why', 'unknown': [...]}"""
+        m = self.model(tool, args)
+        x = flat(before)
+        outs = sorted({k for c in m.cases for k in c.y}, key=str) if m else []
+        if not m or not m.cases:
+            return {'outcome': None, 'why': 'action never seen'}
+        if reader in ('EXACT', 'LAST'):
+            same = [c for c in m.cases if c.x == x]
+            if same:
+                return {'outcome': same[-1].y, 'seen': True}
+            if reader == 'EXACT':
+                return {'outcome': None, 'why': 'no identical start'}
+            last = max(m.cases, key=lambda c: c.t)
+            return {'outcome': {k: (x.get(k, v) if k != ('r',) and last.x.get(k) == v else v) for k, v in last.y.items()}, 'seen': False}
+        if reader == 'CORE':
+            ch = self.first_demo.get(m.key)
+            if ch is None:
+                return {'outcome': None, 'why': 'no demonstration'}
+            y = {('r',): 'ok'}
+            for k in outs:
+                if k != ('r',):
+                    y[k] = ch.get(k, x.get(k, '-'))
+            return {'outcome': y}
+        if reader.startswith('BAYES'):
+            tau = float(reader[5:] or 0.95)
+            if getattr(m, '_bayes_n', None) != (len(m.cases), tau):
+                m._bayes, m._bayes_n = BayesAction(m, tau), (len(m.cases), tau)
+            pm = m._bayes
+        y, unknown, detail = {}, [], {}
+        for o in outs:
+            p = pm.predict_out(o, x) if reader.startswith('BAYES') else m.predict_out(o, x, self.slack)
+            if not p['known']:
+                unknown.append(o)
+                detail[str(o)] = p
+            else:
+                y[o] = p['value']
+        if unknown:
+            return {'outcome': None, 'why': 'uncertain', 'unknown': [str(u) for u in unknown], 'detail': detail, 'partial': {str(k): v for k, v in y.items()}}
+        return {'outcome': y}
+
+
+class BayesAction:
+    """REBUILD_PLAN.md B, second form (one principle in place of the rule above): average over explanations.
+    An explanation is a set S of at most two inputs; the cases are split into cells by their start values on S, and
+    every cell is a constant or a copy of one input's start value. Inputs are each argument's attributes and, for
+    each, whether it has a value at all ('-' is the observation interface's 'no value').
+      prior     P(S) = 1/3 for each size 0, 1, 2, shared evenly within the size
+      evidence  per cell: 1/2 * [one value] * 1/V  +  1/2 * (#inputs it copied) / n     (V = values seen + 1)
+      predict   per S: a seen cell's posterior over constant / copy; an unseen cell's prior (spread over the V values
+                and the n copies); summed over S by posterior weight. Answer when one value reaches tau.
+    Inputs that never varied keep their share of the prior, so a start that differs from all cases in such an input is
+    uncertain without any special rule; an input that varied with no effect costs its explanations evidence."""
+
+    def __init__(self, model, tau):
+        self.m, self.tau = model, tau
+        self._cache = {}
+
+    @staticmethod
+    def feats(x):
+        f = dict(x)
+        for k, v in x.items():
+            f[('has',) + k] = v != '-'
+        return f
+
+    def _fit(self, out):
+        if out in self._cache:
+            return self._cache[out]
+        cases = [(self.feats(c.x), c.y.get(out)) for c in self.m.cases if out in c.y]
+        ins = sorted({k for f, _ in cases for k in f}, key=str)
+        n = max(len(ins), 1)
+        V = len({freeze(y) for _, y in cases}) + 1
+        sizes = [list(itertools.combinations(ins, k)) for k in range(0, MAX_S + 1)]
+        hyps = []
+        for k, group in enumerate(sizes):
+            for S in group:
+                cells = defaultdict(list)
+                for f, y in cases:
+                    cells[tuple(f.get(s) for s in S)].append((f, y))
+                logp, tab = 0.0, {}
+                for key, cs in cells.items():
+                    ys = {freeze(y) for _, y in cs}
+                    const = 0.5 / V if len(ys) == 1 else 0.0
+                    cop = [v for v in ins if all(f.get(v) == y for f, y in cs)]
+                    ev = const + 0.5 * len(cop) / n
+                    if ev == 0:
+                        logp = None
+                        break
+                    logp += math.log(ev)
+                    tab[key] = (next(iter(ys)) if len(ys) == 1 else None, const, cop)
+                if logp is None:
+                    continue
+                hyps.append((math.log(1 / 3 / len(group)) + logp, S, tab))
+        if hyps:
+            top = max(h[0] for h in hyps)
+            z = sum(math.exp(h[0] - top) for h in hyps)
+            hyps = [(math.exp(h[0] - top) / z, S, tab) for h, S, tab in [(h, h[1], h[2]) for h in hyps]]
+        self._cache[out] = (hyps, ins, n, V, {freeze(y) for _, y in cases})
+        return self._cache[out]
+
+    def predict_out(self, out, x):
+        hyps, ins, n, V, seen_vals = self._fit(out)
+        if not hyps:
+            return {'known': False, 'why': 'no consistent explanation'}
+        f = self.feats(x)
+        dist = defaultdict(float)
+        for w, S, tab in hyps:
+            key = tuple(f.get(s) for s in S)
+            if key in tab:
+                val, const, cop = tab[key]
+                tot = const + 0.5 * len(cop) / n
+                if val is not None:
+                    dist[val] += w * const / tot
+                for v in cop:
+                    dist[freeze(f.get(v))] += w * (0.5 / n) / tot
+            else:                                          # an unseen cell: anything it could be
+                for val in seen_vals:
+                    dist[val] += w * 0.5 / V
+                dist['<other>'] += w * 0.5 / V
+                for v in ins:
+                    dist[freeze(f.get(v))] += w * 0.5 / n
+        best = max(dist, key=dist.get)
+        p = dist[best]
+        if p >= self.tau and best != '<other>':
+            return {'known': True, 'value': json.loads(best), 'p': round(p, 4)}
+        return {'known': False, 'why': 'uncertain', 'p': round(p, 4), 'competing': sorted(dist, key=dist.get, reverse=True)[:3]}

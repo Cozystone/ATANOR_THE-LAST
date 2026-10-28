@@ -1,5 +1,5 @@
-"""DESK_EVAL2_PROTOCOL.md / DESK_EVAL3_PROTOCOL.md runner for one course seed and one learner (ATANOR_LEARNER: 'g35' or
-'g36' frozen, else current).
+"""DESK_EVAL2_PROTOCOL.md / DESK_EVAL3_PROTOCOL.md runner for one course seed and one learner (ATANOR_LEARNER, agent/learners.py;
+frozen copies run from their commits).
   NONE   an empty mind taught on the desk (25 sessions), evaluated by desk_eval2
   THREE  the 75-day three-body course (one mind), evaluated per body by teacher_eval (the regression check)
   GEN1   (current learner only) the THREE mind then taught on the desk, evaluated by desk_eval2

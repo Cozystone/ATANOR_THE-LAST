@@ -2,7 +2,6 @@
 keeps the reading undecided, even when a broader phrase was said whole (a constructed development case; the
 development seed's desk phrases have no such pair). The frozen round-2 learner shows the flaw."""
 from atanor_os.agent.grounding import Grounder
-from atanor_os.agent.grounding_g36 import Grounder as Grounder36
 from atanor_os.teach.tutor import DeskSpec, Tutor
 from atanor_os.world.desk_world import DeskWorkspace
 
@@ -36,9 +35,3 @@ def test_an_unknown_modifier_is_not_dropped(tmp_path):
     assert not res.get('acted') and res.get('why') == 'unknown word in place of a deciding word'
     res = Grounder(ws, tmp_path / 'mind', person=None, caps={}).obey(['pin', 'the', 'notes', 'now'])   # a filler elsewhere
     assert res['ok'] and res['acted']
-
-
-def test_the_round_2_learner_drops_it(tmp_path):
-    ws = _taught(tmp_path)
-    res = Grounder36(ws, tmp_path / 'mind', person=None, caps={}).obey(['pin', 'the', 'cerulean', 'notes'])
-    assert res.get('acted')                                # all notes, the red one too
