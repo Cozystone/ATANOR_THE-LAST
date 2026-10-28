@@ -8,7 +8,8 @@ which objects to act on (`Grounder._decide`) is replaced, and every call is kept
   4. predicted no change: left
   5. a change: is it what the person meant? a remembered or predicted answer decides; with the person there and no
      answer, ask "this one too?" (question budget per command); otherwise act as the core would
-  6. still unknown after 2: as the core would, and the open question is kept (open_issues.jsonl)
+  6. still unknown after 2: as the baseline would (its G reading alone, the core rule with the person), and the open
+     question is kept (open_issues.jsonl)
 Switches (ATANOR_LEARNER in agent/learners.py): next, next_nolab, next_noask.
 """
 import json
@@ -135,14 +136,15 @@ class NextGrounder(Grounder):
 
     def _decide(self, sel, act, feats, task, ev):
         ext = self.extension(sel['atoms'], feats)
-        decided, labs, asks = {}, 0, 0
+        base = super()._decide(sel, act, feats, task, ev)    # the baseline's own decision (G alone, the core rule with
+        decided, labs, asks = {}, 0, 0                       # the person): used wherever the new parts do not know
         concept = sel.get('concept')
         for o in ext:
             args = tuple(self._arg(r, o) for r in act['template'])
             if len(set(args)) != len(args):
                 decided[o] = 'leave'
                 continue
-            core = 'leave' if self._done(act, feats, feats, o) else 'act'
+            core = base[o] if base is not None and o in base else ('leave' if self._done(act, feats, feats, o) else 'act')
             st = self.home.observe(list(args))
             blank = _blank(st)
             before = [st.get(x, blank) for x in args]

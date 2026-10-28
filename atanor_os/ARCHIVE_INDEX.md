@@ -40,7 +40,13 @@ python D:/ATANOR-backup-2026-10-28/archive_tool.py restore <archive> <dest_root>
 | `atanor_os/runs/ollama/models` | 4.4 GB | 올라마가 실제로 쓰는 `D:/ML-models/ollama-models`와 같은 내용이다. blob 6개의 sha256이 이름과 같고, manifest도 바이트 단위로 같다 | 실제 저장소 그 자체 |
 | 학습기 동결 사본 `agent/grounding_g35`–`g44` (7개) | — | 현재 코드에 복사해 둔 이전 판본이다. 각 사본은 그 커밋에 있다 | 커밋 e7c4f12c, bundle |
 | 쓰지 않는 모듈 46개와 그 테스트 13개 (P-시리즈 루프·planner·skills·supervisor, p6–p9·h6 평가기, lang, renderer, run_ask 등) | — | 현재 코어·평가기·UI·교사·rebuild에서 import 경로가 닿지 않는다(함수 안 import까지 따라감) | 커밋 e7c4f12c, bundle |
-| `2026-09-19/` 동결 사본 폴더 | 아래 표 | 코드는 커밋으로, 그 밖의 파일은 `g1-snapshots`로 되살린다 | `g1-snapshots.tar.zst` |
+| `2026-09-19/` 동결 사본 폴더 88개 (`snap*`, `gen1-frozen`, `gen1-closeout`, `gen2-closeout`) | 파일 1,528,317개, 고유 내용 57,479개(54.9 GB) | `g1-snapshots`의 확인을 통과했다(blob 57,479개 모두 sha256 일치, 빠짐 0). 디스크의 모든 파일이 manifest에 있다(빠짐 0) | `g1-snapshots.tar.zst`(129 MB) |
+| 표현 worktree 11개 (`2026-09-17/representation-r0`–`r9`, `2026-09-19/representation-r10`) | 작음 | 커밋하지 않은 바뀜이 없다(pytest 캐시만 있음). 가지 11개는 남겼다 | 각 가지, bundle |
+| `results/lifegen-compose-eval45-90d`, `lifegen-eval46-90d`의 추적 안 되는 `LIFE/mind/episodes.jsonl` | 8.5 GB | 추적되는 `episodes.jsonl.gz`를 풀면 sha256이 같다 | `gunzip` |
+| `temp/pytest-of-anseo`, `temp/torchinductor_anseo` | 3.4 MB | 도구가 다시 만드는 캐시다 | — |
+| (진행 중) probe-work의 지난 실행 폴더, `temp/atanor_*`, p9 worktree의 `delayed_ws` | — | `g2-workdirs`로 묶는 중이다. 확인을 통과한 뒤에 지운다 | `g2-workdirs.tar.zst` |
+
+정리 뒤 D:의 빈 공간: 5 GB → 69 GB(g2 정리 전).
 
 테스트: 지운 뒤 `pytest atanor_os/tests` 결과는 71 통과, 1 xfail이다(지우기 전에는 121 통과였고, 그 차이는 지운 테스트들이다).
 기준 코어의 `_decide` 분리(행동 대상 결정을 함수 하나로 옮김)는 동작을 바꾸지 않았다. 기후실 시드 1 과정의 로그와 사건이 바이트 단위로 같았다.

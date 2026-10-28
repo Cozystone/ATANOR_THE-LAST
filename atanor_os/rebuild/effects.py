@@ -295,15 +295,17 @@ class Effects:
 
 class BayesAction:
     """REBUILD_PLAN.md B, second form (one principle in place of the rule above): average over explanations.
-    An explanation is a set S of at most two inputs; the cases are split into cells by their start values on S, and
+    An explanation is a set S of at most three inputs; the cases are split into cells by their start values on S, and
     every cell is a constant or a copy of one input's start value. Inputs are each argument's attributes and, for
     each, whether it has a value at all ('-' is the observation interface's 'no value').
-      prior     P(S) = 1/3 for each size 0, 1, 2, shared evenly within the size
+      prior     P(S) = 1/4 for each size 0-3, shared evenly within the size
       evidence  per cell: 1/2 * [one value] * 1/V  +  1/2 * (#inputs it copied) / n     (V = values seen + 1)
       predict   per S: a seen cell's posterior over constant / copy; an unseen cell's prior (spread over the V values
                 and the n copies); summed over S by posterior weight. Answer when one value reaches tau.
     Inputs that never varied keep their share of the prior, so a start that differs from all cases in such an input is
     uncertain without any special rule; an input that varied with no effect costs its explanations evidence."""
+
+    max_s = 3                                          # dev: two inputs could not explain the climate bays' heat (kind, level, sealed)
 
     def __init__(self, model, tau):
         self.m, self.tau = model, tau
@@ -323,7 +325,7 @@ class BayesAction:
         ins = sorted({k for f, _ in cases for k in f}, key=str)
         n = max(len(ins), 1)
         V = len({freeze(y) for _, y in cases}) + 1
-        sizes = [list(itertools.combinations(ins, k)) for k in range(0, MAX_S + 1)]
+        sizes = [list(itertools.combinations(ins, k)) for k in range(0, self.max_s + 1)]
         hyps = []
         for k, group in enumerate(sizes):
             for S in group:
@@ -343,7 +345,7 @@ class BayesAction:
                     tab[key] = (next(iter(ys)) if len(ys) == 1 else None, const, cop)
                 if logp is None:
                     continue
-                hyps.append((math.log(1 / 3 / len(group)) + logp, S, tab))
+                hyps.append((math.log(1 / len(sizes) / len(group)) + logp, S, tab))
         if hyps:
             top = max(h[0] for h in hyps)
             z = sum(math.exp(h[0] - top) for h in hyps)
