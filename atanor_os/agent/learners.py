@@ -5,8 +5,14 @@ each is at its commit (snapshot FROZEN.txt) and in git history up to e7c4f12c.""
 import os
 
 
+# REBUILD_RESULTS.md stage 5 (2026-11-08): the default is the new decision module without questions (next_noask).
+# It passed stages 2-4 of REBUILD_PLAN.md on the final seeds 931-933; questions had no measured effect, so they stay off.
+# The baseline core is still ATANOR_LEARNER=current.
+DEFAULT = 'next_noask'
+
+
 def name():
-    return os.environ.get('ATANOR_LEARNER', 'current')
+    return os.environ.get('ATANOR_LEARNER', DEFAULT)
 
 
 def make(home, mind_dir, **kw):
