@@ -230,7 +230,7 @@ class Effects:
     def observe(self, e):
         """Learn from one experience (an act with before and after observed)."""
         act = e.get('action')
-        if not act or e.get('before') is None:
+        if not act or e.get('before') is None or e.get('after') is None:   # nothing guessed for what was not observed
             return False
         args = act['args']
         before = [e['before'].get(a) for a in args]
@@ -319,61 +319,85 @@ class BayesAction:
         return f
 
     def _fit(self, out):
+        """Explanations are enumerated over the inputs that varied in the cases only. An input that never varied (one
+        value in every case) splits no cell, so a set S = R + K (K such inputs) has the evidence of R, and for a query
+        it either matches K (then it predicts as R) or puts the query in an unseen cell. Those sets are counted in
+        closed form (the same posterior as enumerating them, at a fraction of the cost)."""
         if out in self._cache:
             return self._cache[out]
         cases = [(self.feats(c.x), c.y.get(out)) for c in self.m.cases if out in c.y]
         ins = sorted({k for f, _ in cases for k in f}, key=str)
         n = max(len(ins), 1)
         V = len({freeze(y) for _, y in cases}) + 1
-        sizes = [list(itertools.combinations(ins, k)) for k in range(0, self.max_s + 1)]
-        hyps = []
-        for k, group in enumerate(sizes):
-            for S in group:
-                cells = defaultdict(list)
-                for f, y in cases:
-                    cells[tuple(f.get(s) for s in S)].append((f, y))
+        vals = {v: {freeze(f.get(v)) for f, _ in cases} for v in ins}
+        fixed = {v: json.loads(next(iter(vals[v]))) for v in ins if len(vals[v]) == 1}
+        vary = [v for v in ins if v not in fixed]
+        memo, hyps = {}, []
+        for k in range(0, self.max_s + 1):
+            for R in itertools.combinations(vary, k):
+                groups = defaultdict(list)
+                for i, (f, _) in enumerate(cases):
+                    groups[tuple(f.get(s) for s in R)].append(i)
                 logp, tab = 0.0, {}
-                for key, cs in cells.items():
-                    ys = {freeze(y) for _, y in cs}
-                    const = 0.5 / V if len(ys) == 1 else 0.0
-                    cop = [v for v in ins if all(f.get(v) == y for f, y in cs)]
-                    ev = const + 0.5 * len(cop) / n
-                    if ev == 0:
+                for key, idx in groups.items():
+                    t = tuple(idx)
+                    if t not in memo:
+                        cs = [cases[i] for i in idx]
+                        ys = {freeze(y) for _, y in cs}
+                        const = 0.5 / V if len(ys) == 1 else 0.0
+                        cop = [v for v in ins if all(f.get(v) == y for f, y in cs)]
+                        ev = const + 0.5 * len(cop) / n
+                        memo[t] = None if ev == 0 else (next(iter(ys)) if len(ys) == 1 else None, const, cop, math.log(ev))
+                    cell = memo[t]
+                    if cell is None:
                         logp = None
                         break
-                    logp += math.log(ev)
-                    tab[key] = (next(iter(ys)) if len(ys) == 1 else None, const, cop)
-                if logp is None:
-                    continue
-                hyps.append((math.log(1 / len(sizes) / len(group)) + logp, S, tab))
+                    logp += cell[3]
+                    tab[key] = cell[:3]
+                if logp is not None:
+                    hyps.append((logp, R, tab))
+        P = self.max_s + 1
+        prior = lambda s: 1 / P / math.comb(n, s) if s <= n else 0.0
+        nc = len(fixed)
         if hyps:
             top = max(h[0] for h in hyps)
-            z = sum(math.exp(h[0] - top) for h in hyps)
-            hyps = [(math.exp(h[0] - top) / z, S, tab) for h, S, tab in [(h, h[1], h[2]) for h in hyps]]
-        self._cache[out] = (hyps, ins, n, V, {freeze(y) for _, y in cases})
+            hyps = [(math.exp(h[0] - top), R, tab) for h in hyps for R, tab in [(h[1], h[2])]]
+            z = sum(w * sum(math.comb(nc, j) * prior(len(R) + j) for j in range(0, self.max_s - len(R) + 1)) for w, R, _ in hyps)
+            hyps = [(w / z, R, tab) for w, R, tab in hyps]
+        self._cache[out] = (hyps, ins, n, V, {freeze(y) for _, y in cases}, fixed, prior)
         return self._cache[out]
 
     def predict_out(self, out, x):
-        hyps, ins, n, V, seen_vals = self._fit(out)
+        hyps, ins, n, V, seen_vals, fixed, prior = self._fit(out)
         if not hyps:
             return {'known': False, 'why': 'no consistent explanation'}
         f = self.feats(x)
+        nc = len(fixed)
+        miss = sum(f.get(v) != c for v, c in fixed.items())     # never-varied inputs this start differs in
         dist = defaultdict(float)
-        for w, S, tab in hyps:
-            key = tuple(f.get(s) for s in S)
+
+        def spread(mass):                                      # an unseen cell: anything it could be
+            for val in seen_vals:
+                dist[val] += mass * 0.5 / V
+            dist['<other>'] += mass * 0.5 / V
+            for v in ins:
+                dist[freeze(f.get(v))] += mass * 0.5 / n
+        for w, R, tab in hyps:
+            js = range(0, self.max_s - len(R) + 1)
+            match = w * sum(math.comb(nc - miss, j) * prior(len(R) + j) for j in js)
+            other = w * sum((math.comb(nc, j) - math.comb(nc - miss, j)) * prior(len(R) + j) for j in js)
+            key = tuple(f.get(s) for s in R)
             if key in tab:
                 val, const, cop = tab[key]
                 tot = const + 0.5 * len(cop) / n
                 if val is not None:
-                    dist[val] += w * const / tot
+                    dist[val] += match * const / tot
                 for v in cop:
-                    dist[freeze(f.get(v))] += w * (0.5 / n) / tot
-            else:                                          # an unseen cell: anything it could be
-                for val in seen_vals:
-                    dist[val] += w * 0.5 / V
-                dist['<other>'] += w * 0.5 / V
-                for v in ins:
-                    dist[freeze(f.get(v))] += w * 0.5 / n
+                    dist[freeze(f.get(v))] += match * (0.5 / n) / tot
+            else:
+                spread(match)
+            if other:
+                spread(other)
         best = max(dist, key=dist.get)
         p = dist[best]
         if p >= self.tau and best != '<other>':

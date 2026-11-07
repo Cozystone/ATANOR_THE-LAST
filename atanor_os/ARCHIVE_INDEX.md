@@ -44,9 +44,12 @@ python D:/ATANOR-backup-2026-10-28/archive_tool.py restore <archive> <dest_root>
 | 표현 worktree 11개 (`2026-09-17/representation-r0`–`r9`, `2026-09-19/representation-r10`) | 작음 | 커밋하지 않은 바뀜이 없다(pytest 캐시만 있음). 가지 11개는 남겼다 | 각 가지, bundle |
 | `results/lifegen-compose-eval45-90d`, `lifegen-eval46-90d`의 추적 안 되는 `LIFE/mind/episodes.jsonl` | 8.5 GB | 추적되는 `episodes.jsonl.gz`를 풀면 sha256이 같다 | `gunzip` |
 | `temp/pytest-of-anseo`, `temp/torchinductor_anseo` | 3.4 MB | 도구가 다시 만드는 캐시다 | — |
-| (진행 중) probe-work의 지난 실행 폴더, `temp/atanor_*`, p9 worktree의 `delayed_ws` | — | `g2-workdirs`로 묶는 중이다. 확인을 통과한 뒤에 지운다 | `g2-workdirs.tar.zst` |
+| probe-work의 지난 실행 폴더 417개, `temp/atanor_*` 28개, p9 worktree의 `delayed_ws` | 파일 191,106개, 고유 내용 22,970개(415 MB) | `g2-workdirs` 확인을 통과했다(빠짐·불일치 0). 지우기 직전에 다시 검사했다: 디스크의 모든 파일이 manifest에 같은 크기로 있었다 | `g2-workdirs.tar.zst`(18 MB) |
+| probe-work 바로 아래의 낱개 파일 26개 | 146 KB | 처음 묶을 때 빠졌다. 도구가 폴더만 훑었기 때문이다. 이것을 찾아, 도구가 낱개 파일도 묶도록 고친 뒤 따로 묶었다. 확인을 통과한 다음에 지웠다 | `g3-files.tar.zst` |
+| p9 worktree (`2026-09-19/p9-delayed-frozen`) | 1.4 GB | 추적 안 되는 결과 파일 4개가 본 저장소와 바이트 단위로 같다. 무시된 `delayed_ws`는 g2에 담았다. 가지는 남겼다 | 가지 `atanor-os/p9-delayed-frozen`, g2 |
 
-정리 뒤 D:의 빈 공간: 5 GB → 69 GB(g2 정리 전).
+정리 뒤 D:의 빈 공간: 5 GB → 185 GB.
+남긴 것: `probe-work/next-dev`(재설계 개발 자료)와 진행 중 평가의 작업 폴더.
 
 테스트: 지운 뒤 `pytest atanor_os/tests` 결과는 71 통과, 1 xfail이다(지우기 전에는 121 통과였고, 그 차이는 지운 테스트들이다).
 기준 코어의 `_decide` 분리(행동 대상 결정을 함수 하나로 옮김)는 동작을 바꾸지 않았다. 기후실 시드 1 과정의 로그와 사건이 바이트 단위로 같았다.

@@ -52,7 +52,7 @@ def main(d, seeds):
         out[b] = {}
         for L, c in sorted(per.items()):
             if b.startswith('_cost'):
-                keep = ('lab_tests', 'asked_prior', 'avoided_predicted_block', 'left_predicted_no_change', 'predicted_fail',
+                keep = ('lab_tests', 'asked_prior', 'avoided_predicted_block', 'left_predicted_no_change', 'avoided_predicted_fail',
                         'acted_as_core_unknown', 'left_as_core_unknown', 'acted_goal_unknown', 'goal_yes', 'goal_not_meant', 'goal_leave',
                         'refused', 'blocked', 'actions')
                 out[b][L] = {k: c[k] for k in keep if c[k]}
