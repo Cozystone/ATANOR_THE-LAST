@@ -15,7 +15,7 @@ from pathlib import Path
 
 from .bundles import Memory, build, change, controls, read
 
-RETIRED = {'clime': 'heat', 'desk': 'file'}                # evaluator side: the course's tool that stops (GEN3_BUNDLE2)
+RETIRED = {'clime': 'heat', 'desk': 'file', 'dye': 'hang'}                # evaluator side: the course's tool that stops (GEN3_BUNDLE2)
 CHANGE_TICK = 10
 
 

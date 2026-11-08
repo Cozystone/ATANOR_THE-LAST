@@ -20,9 +20,13 @@ WORK = Path(__file__).resolve().parents[3].parent / 'probe-work'
 
 
 def worlds(body, root, eval_seed, drift):
-    """The evaluator's worlds for this body: the climate bays after 0, 1 and 2 outside changes, the desk's three."""
+    """The evaluator's worlds for this body: the climate bays (and the dye works) after 0, 1 and 2 outside changes, the
+    desk's three."""
     if body == 'clime':
         from ..eval.clime_eval import world
+        return [lambda k=k: world(root, eval_seed, drift, ticks=k) for k in (0, 1, 2)]
+    if body == 'dye':                                      # SIXTH_BODY_DESIGN.md: the dye works after 0, 1 and 2 more days
+        from ..eval.dye_eval import world
         return [lambda k=k: world(root, eval_seed, drift, ticks=k) for k in (0, 1, 2)]
     from ..eval.desk_eval2 import WORLD_DAYS, world
     return [lambda v=v: world(root, eval_seed, drift, variant=v) for v in range(len(WORLD_DAYS))]

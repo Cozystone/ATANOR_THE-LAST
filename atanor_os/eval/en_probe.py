@@ -50,6 +50,8 @@ def todo(spec, home, tut, act):
         return []
     if spec.BODY == 'view' and act['tool'] == 'group' and any(st[o]['filter'] != 'all' for o in rest):
         return []
+    if not getattr(spec, 'enough', lambda a, r, s: True)(act, rest, st):
+        return []                                      # the dye works: no more dips than the vat has stock for
     return rest
 
 

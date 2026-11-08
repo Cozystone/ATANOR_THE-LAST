@@ -22,6 +22,19 @@ def symbols_clime(seed, n=40):
     return out
 
 
+def symbols_dye(seed, n=40):
+    """Sixth-body names (SIXTH_BODY_DESIGN.md): another syllable shape. Every name starts with a vowel (vowel, consonant,
+    vowel, consonant); the earlier generators always start with a consonant, so no name can repeat theirs."""
+    rng = random.Random(f'symbols-dye-{seed}')
+    vows, cons = 'aeiou', 'lmnrst'
+    out = set()
+    while len(out) < n:
+        out.add(rng.choice(vows) + rng.choice(cons) + rng.choice(vows) + rng.choice(cons))
+    out = sorted(out)
+    rng.shuffle(out)
+    return out
+
+
 def symbols(seed, n=40):
     rng = random.Random(f'symbols-{seed}')
     cons, vows = 'bdfgklmnprstvwz', 'aeiou'
@@ -254,6 +267,73 @@ class ClimeSpec:
         return False
 
 
+class DyeSpec:
+    """The dye works (SIXTH_BODY_DESIGN.md): the objects meant are bolts. dip takes a vat (a stateful second argument):
+    a dipped bolt shows the dye the vat holds at that moment, and the vat's stock goes down (the vat may change). A
+    person does not expect a wet bolt to take dye, a spent vat to dye, silk to bleach, or a fixed bolt to change; and
+    does not ask for more dips than the vat has stock for (enough)."""
+    BODY = 'dye'
+    KEEP_IMPOSSIBLE = True
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and '.' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, v = act['tool'], act.get('second')
+        if t == 'dip':
+            return ('dip', (o, v))
+        if t == 'hang':
+            return ('peg', (o,)) if 'hang_retired' in drift else ('hang', (o,))
+        if t == 'bleach':
+            return ('scour', (o,)) if 'bleach_retired' in drift else ('bleach', (o,))
+        return (t, (o,))
+
+    @staticmethod
+    def shows(act, o, state):
+        a = state.get(o)
+        if a is None or a['kind'] != 'bolt':
+            return False
+        t, v = act['tool'], act.get('second')
+        if t == 'dip':
+            vat = state.get(v) or {}
+            return vat.get('kind') == 'vat' and a['hue'] == vat.get('hue')
+        if t == 'hang':
+            return a['state'] == 'dry'
+        if t == 'bleach':
+            return a['hue'] == 'ecru'
+        return a['value'] == 'fixed'
+
+    @staticmethod
+    def possible(act, o, state):
+        a = state.get(o) or {}
+        if a.get('kind') != 'bolt' or a.get('value') == 'fixed':
+            return False
+        t = act['tool']
+        if t == 'dip':
+            vat = state.get(act.get('second')) or {}
+            return a.get('state') == 'dry' and vat.get('kind') == 'vat' and vat.get('state', '0') != '0'
+        if t == 'hang':
+            return a.get('state') == 'wet'
+        if t == 'bleach':
+            return a.get('fibre') != 'silk'
+        return True
+
+    @staticmethod
+    def enough(act, todo, state):
+        """A person asks for a dip only if the vat has stock for every bolt still to do."""
+        if act['tool'] != 'dip':
+            return True
+        vat = state.get(act.get('second')) or {}
+        return vat.get('kind') == 'vat' and int(vat.get('state', '0')) >= len(todo)
+
+    @staticmethod
+    def may_change(act, o, truth):
+        """The vat a dip uses loses stock."""
+        return act['tool'] == 'dip' and o == act.get('second')
+
+
 class Tutor:
     def __init__(self, home, spec, seed):
         self.home, self.spec = home, spec
@@ -304,7 +384,7 @@ class Tutor:
             todo = [o for o in todo if self.spec.possible(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
-        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime') else {}))
+        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye') else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
     def judge(self, ignore=()):

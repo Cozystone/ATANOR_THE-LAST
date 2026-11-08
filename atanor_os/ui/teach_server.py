@@ -86,11 +86,11 @@ class HumanPerson:
             args = tuple(a for a in d['args'] if a)
             try:
                 res = self.home.execute(d['tool'], args, {c: True for c in set(self.home.CAPABILITY.values())},
-                                        **({'actor': 'person'} if getattr(self.home, 'BODY', '') in ('desk', 'clime') else {}))
+                                        **({'actor': 'person'} if getattr(self.home, 'BODY', '') in ('desk', 'clime', 'dye') else {}))
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             if res['ok']:
-                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file', 'panel', 'message', 'draft', 'task', 'note', 'bay')), args[0])   # the object acted on
+                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file', 'panel', 'message', 'draft', 'task', 'note', 'bay', 'bolt')), args[0])   # the object acted on
                 return {'tool': d['tool'], 'args': list(args), 'object': card}
             err = f"그 행동은 되지 않았습니다 ({res.get('error')}). 다른 카드나 값으로 다시 보여 주세요."
         raise Cancelled()
@@ -152,6 +152,9 @@ class Session:
         elif body == 'clime':
             from ..world.clime_world import ClimeWorkspace
             self.home = ClimeWorkspace(self.root / 'clime', create=not (self.root / 'clime').exists(), seed=seed)
+        elif body == 'dye':
+            from ..world.dye_world import DyeWorkspace
+            self.home = DyeWorkspace(self.root / 'dye', create=not (self.root / 'dye').exists(), seed=seed)
         else:
             from ..eval.tutor_life import FS_FOLDERS
             from ..world.fs_world import Workspace
@@ -203,6 +206,10 @@ class Session:
         elif self.body == 'clime':                         # new bays arrive; the weather moves (outside changes)
             from ..eval.tutor_life import clime_inflow
             self.home.add_bays(clime_inflow(self.state['seed'], 100 + n))
+            self.home.tick()
+        elif self.body == 'dye':                           # new bolts arrive; a day passes (vats refilled, old bolts shipped)
+            from ..eval.tutor_life import dye_inflow
+            self.home.add_bolts(dye_inflow(self.state['seed'], 100 + n))
             self.home.tick()
         elif self.body == 'desk':                          # new items arrive; time passes (outside changes, sent drafts)
             from ..eval.tutor_life import desk_inflow

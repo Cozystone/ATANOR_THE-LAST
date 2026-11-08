@@ -38,6 +38,10 @@ def english(kind, spec):
     """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection.
     Evaluator side only: the learner never sees this table, only the person saying the phrase while pointing or showing."""
     if kind == 'sel':
+        if spec['kind'] == 'bolt':                         # SIXTH_BODY_DESIGN.md: no word of the five earlier bodies
+            adj = {'hue': {'ecru': 'undyed', 'madder': 'rosy'}, 'state': {'wet': 'soggy'},
+                   'fibre': {'silk': 'silken', 'wool': 'woollen'}}
+            return [adj[k][spec[k]] for k in ('state', 'hue', 'fibre') if k in spec] + ['bolts']
         if spec['kind'] == 'bay':                          # NEW_BODY_DESIGN.md: no word of the four earlier bodies
             adj = {'heat': {'chill': 'chilly', 'frost': 'frosty'}, 'air': {'stale': 'stuffy'},
                    'wing': {'north': 'northern', 'south': 'southern'}}
@@ -58,6 +62,8 @@ def english(kind, spec):
             return ['the', spec['mark'], 'cards', 'in', spec['tray']]
         return ['the', spec['mark'], 'cards'] if 'mark' in spec else ['the', 'cards', 'in', spec['tray']]
     t, v = spec['tool'], spec.get('second')
+    if t in ('dip', 'hang', 'bleach', 'fix'):
+        return {'dip': ['dunk', (v or 'v.-')[2:]], 'hang': ['hang'], 'bleach': ['whiten'], 'fix': ['mordant']}[t]
     if t in ('heat', 'chill', 'vent', 'route', 'seal'):
         return {'heat': ['warm', 'up'], 'chill': ['cool', 'down'], 'vent': ['air'], 'seal': ['seal'],
                 'route': ['steer', (v or 'w.-')[2:]]}[t]
@@ -93,6 +99,12 @@ def body_targets(body, seed):
     rng = random.Random(f'tutor-targets-{body}-{seed}')
     if body == 'board':
         return targets(seed)
+    if body == 'dye':
+        sels = [{'kind': 'bolt', 'hue': 'ecru'}, {'kind': 'bolt', 'state': 'wet'}, {'kind': 'bolt', 'fibre': 'silk'},
+                {'kind': 'bolt', 'hue': 'ecru', 'fibre': 'wool'}, {'kind': 'bolt', 'hue': 'madder'}]
+        acts = [{'tool': 'dip', 'second': 'v.oak'}, {'tool': 'dip', 'second': 'v.elm'}, {'tool': 'hang'}, {'tool': 'bleach'},
+                {'tool': 'fix'}]
+        return sels, acts
     if body == 'clime':
         sels = [{'kind': 'bay', 'heat': 'chill'}, {'kind': 'bay', 'heat': 'frost'}, {'kind': 'bay', 'air': 'stale'},
                 {'kind': 'bay', 'wing': 'north'}, {'kind': 'bay', 'wing': 'south', 'air': 'stale'}]
@@ -129,6 +141,12 @@ def make_home(body, root, seed, day_no):
         home.add_bays(clime_inflow(seed, day_no))
         home.tick()                                        # time passes between days: the weather moves the bays
         return home
+    if body == 'dye':
+        from ..world.dye_world import DyeWorkspace
+        home = DyeWorkspace(root / 'dye', create=not (root / 'dye').exists(), seed=seed)
+        home.add_bolts(dye_inflow(seed, day_no))
+        home.tick()                                        # a day passes: vats refilled, wet bolts dry, old bolts shipped
+        return home
     if body == 'desk':
         from ..world.desk_world import DeskWorkspace
         home = DeskWorkspace(root / 'desk', create=not (root / 'desk').exists(), seed=seed)
@@ -159,11 +177,12 @@ def make_home(body, root, seed, day_no):
 
 
 def body_spec(body):
-    from ..teach.tutor import BoardSpec, ClimeSpec, DeskSpec, FsSpec, ViewSpec
-    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec, 'clime': ClimeSpec}[body]
+    from ..teach.tutor import BoardSpec, ClimeSpec, DeskSpec, DyeSpec, FsSpec, ViewSpec
+    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec, 'clime': ClimeSpec, 'dye': DyeSpec}[body]
 
 
-DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired', 'desk': 'file_retired', 'clime': 'heat_retired'}
+DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired', 'desk': 'file_retired', 'clime': 'heat_retired',
+         'dye': 'hang_retired'}
 
 
 def clime_inflow(seed, day, n=6):
@@ -171,6 +190,13 @@ def clime_inflow(seed, day, n=6):
     rng = random.Random(f'clime-inflow-{seed}-{day}')
     return {f'c{day}k{k}': {'heat': rng.choice(['frost', 'chill', 'chill', 'mild', 'warm', 'hot']),
                             'air': rng.choice(['fresh', 'stale']), 'wing': rng.choice(['north', 'south', 'east'])} for k in range(n)}
+
+
+def dye_inflow(seed, day, n=4):
+    """New bolts arrive (seeded): mostly undyed, some already dyed, some still wet."""
+    rng = random.Random(f'dye-inflow-{seed}-{day}')
+    return {f'b{day}n{k}': {'hue': rng.choice(['ecru', 'ecru', 'madder', 'madder', 'indigo', 'weld']), 'fibre': rng.choice(['wool', 'silk', 'flax']),
+                            'state': 'wet' if rng.random() < 0.4 else 'dry'} for k in range(n)}
 
 
 def desk_inflow(seed, day, n=8):

@@ -1,5 +1,9 @@
 """REBUILD_PLAN.md stage 4: per body and learner, the evaluators' outcomes summed over seeds, and the new learner's own
 counts (lab tests, questions, avoided calls). GOOD is success + partial; part-held is reported apart and is not GOOD.
+The sixth body (dye, SIXTH_BODY_PLAN.md): a directory holding dye-*-none-s*.json results is summarised for that body
+only, the same way as the climate bays (rows, time and the unseen change; the no-grant part apart), with its harm,
+irreversible actions without a grant, wrong and command totals, and ORACLE. Directories without them print what they
+printed before.
 Usage: python -m atanor_os.rebuild.summ_stage4 <dir> [seeds...]
 """
 import json
@@ -12,12 +16,12 @@ GOOD = ('success', 'partial')
 
 def outcomes(r, body):
     c = Counter(x['outcome'] for x in r.get('rows', []))
-    if body == 'clime':
+    if body in ('clime', 'dye'):
         c.update(x['outcome'] for x in r['time']['rows'])
         for x in r['unseen_change']['rows']:
             c.update(o for o in (x.get('first'), x.get('second')) if o)
     for part in ('unseen_change', 'double_change'):
-        if body != 'clime' and isinstance(r.get(part), dict):
+        if body not in ('clime', 'dye') and isinstance(r.get(part), dict):
             for x in r[part].get('rows', []):
                 c.update(o for k, o in x.items() if k in ('first', 'second', 'outcome') and isinstance(o, str))
     return c
@@ -26,13 +30,18 @@ def outcomes(r, body):
 def main(d, seeds):
     d = Path(d)
     learners = sorted({p.name.split('-')[1] for p in d.glob('clime-*-none-s*.json')} |
-                      {p.name.split('-')[1] for p in d.glob('r2-*-none-s*.json')})
+                      {p.name.split('-')[1] for p in d.glob('r2-*-none-s*.json')} |
+                      {p.name.split('-')[1] for p in d.glob('dye-*-none-s*.json')})
+    sixth = any(d.glob('dye-*-none-s*.json'))
     table = defaultdict(lambda: defaultdict(Counter))
     harm = defaultdict(Counter)
+    dye = defaultdict(Counter)
     for L in learners:
         for s in seeds:
             files = {'clime': d / f'clime-{L}-none-s{s}.json', 'desk': d / f'r2-{L}-none-s{s}.json'}
             files |= {b: d / f'r2-{L}-three-{b}-s{s}.json' for b in ('board', 'fs', 'view')}
+            if sixth:
+                files = {'dye': d / f'dye-{L}-none-s{s}.json'}
             for b, f in files.items():
                 if not f.exists():
                     table[b][L]['missing_runs'] += 1
@@ -41,7 +50,13 @@ def main(d, seeds):
                 table[b][L].update(outcomes(r, b))
                 if b == 'clime':
                     harm[L].update(r['harm'])
-            for part in ('clime', 'old'):
+                if b == 'dye':
+                    dye[L].update({'harm': sum(r['harm'].values()), 'irreversible_without_grant': r['irreversible_without_grant'],
+                                   'wrong': r['wrong'], 'commands': r['commands'], 'runs': 1})
+                    dye[L].update({f'nogrant_{k}': v for k, v in r['nogrant']['outcomes'].items()})
+                    for p, v in r['oracle'].items():
+                        dye[L].update({f'oracle_{p}_n': v['n'], f'oracle_{p}_good': v['good']})
+            for part in ('clime', 'old', 'dye'):
                 cf = d / f'counts-{part}-{L}-{s}.jsonl'
                 if cf.exists():
                     for line in cf.read_text(encoding='utf-8').splitlines():
@@ -60,6 +75,15 @@ def main(d, seeds):
             n = sum(v for k, v in c.items() if k != 'missing_runs')
             good = sum(c[k] for k in GOOD)
             out[b][L] = {'n': n, 'good': good, 'good_rate': round(good / n, 3) if n else None, **{k: v for k, v in c.items()}}
+    if sixth:
+        for L, c in dye.items():
+            n, g = sum(c[f'oracle_{p}_n'] for p in ('main', 'unseen', 'time')), sum(c[f'oracle_{p}_good'] for p in ('main', 'unseen', 'time'))
+            c = dict(c)
+            c['oracle_rate'] = round(g / n, 3) if n else None
+            c['wrong_plus_harm_rate'] = round((c['wrong'] + c['harm']) / c['commands'], 4) if c.get('commands') else None
+            dye[L] = c
+        out['dye_totals'] = {L: dict(c) for L, c in dye.items()}
+        return out
     out['clime_harm'] = {L: dict(c) for L, c in harm.items()}
     return out
 
