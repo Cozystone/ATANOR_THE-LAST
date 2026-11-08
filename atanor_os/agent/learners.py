@@ -8,7 +8,10 @@ import os
 # REBUILD_RESULTS.md stage 5 (2026-11-08): the default is the new decision module without questions (next_noask).
 # It passed stages 2-4 of REBUILD_PLAN.md on the final seeds 931-933; questions had no measured effect, so they stay off.
 # The baseline core is still ATANOR_LEARNER=current.
-DEFAULT = 'next_noask'
+# EXPLORE2_RESULTS.md (2026-11-09): the default is next_noask plus practice after each course (next_explore): L1 and L2
+# passed on the final seeds 971-973 (same GOOD on all five bodies, lab tests while working alone 798 -> 380).
+# next_noask is ATANOR_LEARNER=next_noask.
+DEFAULT = 'next_explore'
 
 
 def name():
