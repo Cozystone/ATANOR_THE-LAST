@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from .clime_eval import evaluate
-from ..agent.learners import name as learner_name
+from ..agent.learners import after_course, name as learner_name
 from ..teach.long_course import CHANGE_FROM, run as long_course
 from ..teach.teacher_policy import Teacher
 
@@ -33,6 +33,7 @@ def run(seed, out_dir, sealed=None, gen1=True):
         shutil.rmtree(base)
     out = {'learner': who, 'seed': seed}
     Teacher(base / 'none' / 'clime', seed=seed, drift_from=CHANGE, body='clime', mind=base / 'none' / 'mind').run(SESSIONS)
+    out['practice_none'] = after_course(base / 'none' / 'clime', base / 'none' / 'mind', 'clime', seed)
     out['none'] = short(evaluate(base / 'none' / 'clime', 100 + seed, out_dir / f'clime-{who}-none-s{seed}.json', sealed))
     shutil.copy(base / 'none' / 'clime' / 'log.jsonl', out_dir / f'clime-{who}-none-s{seed}-course-log.jsonl')
     if not gen1:                                           # GEN2_H1_PROTOCOL.md: the climate bays from an empty mind only
@@ -41,6 +42,7 @@ def run(seed, out_dir, sealed=None, gen1=True):
     long_course(base / 'gen1', seed, per_body=25, shared=True, change_from=CHANGE_FROM)
     Teacher(base / 'gen1' / 'desk', seed=seed, drift_from=10, body='desk', mind=base / 'gen1' / 'mind').run(25)
     Teacher(base / 'gen1' / 'clime', seed=seed, drift_from=CHANGE, body='clime', mind=base / 'gen1' / 'mind').run(SESSIONS)
+    out['practice_gen1'] = {b: after_course(base / 'gen1' / b, base / 'gen1' / 'mind', b, seed) for b in ('board', 'fs', 'view', 'desk', 'clime')}
     out['gen1'] = short(evaluate(base / 'gen1' / 'clime', 100 + seed, out_dir / f'clime-{who}-gen1-s{seed}.json', sealed))
     shutil.copy(base / 'gen1' / 'clime' / 'log.jsonl', out_dir / f'clime-{who}-gen1-s{seed}-course-log.jsonl')
     (out_dir / f'clime-{who}-summary-s{seed}.json').write_text(json.dumps(out, indent=1), encoding='utf-8')

@@ -15,6 +15,15 @@ def name():
     return os.environ.get('ATANOR_LEARNER', DEFAULT)
 
 
+def after_course(world_dir, mind_dir, body, seed):
+    """What a learner does between a course and its evaluation: next_explore practises in lab copies of a practice world
+    of its body (rebuild/practice.py, EXPLORE_PLAN.md next stage); every other learner does nothing."""
+    if name() != 'next_explore':
+        return None
+    from ..rebuild.practice import practice
+    return practice(world_dir, mind_dir, body, seed)
+
+
 def make(home, mind_dir, **kw):
     from .grounding import Grounder
     if name() == 'core':                                   # CLOSEOUT_CHECK_PROTOCOL.md: generation 1 + the capability fix
@@ -23,9 +32,9 @@ def make(home, mind_dir, **kw):
         return Grounder(home, mind_dir, **kw, modifier_slot=True)
     if name() == 'g57':                                    # GEN3_H1_PROTOCOL.md: the current core without H1
         return Grounder(home, mind_dir, **kw, same_doing=False)
-    if name() in ('next', 'next_nolab', 'next_noask'):       # REBUILD_PLAN.md stage 4: the new decision module
+    if name() in ('next', 'next_nolab', 'next_noask', 'next_explore'):       # REBUILD_PLAN.md stage 4: the new decision module
         from ..rebuild.learner import NextGrounder
-        return NextGrounder(home, mind_dir, **kw, lab=name() != 'next_nolab', ask=name() != 'next_noask')
+        return NextGrounder(home, mind_dir, **kw, lab=name() != 'next_nolab', ask=name() not in ('next_noask', 'next_explore'))
     if name() != 'current':
         raise ValueError(f'unknown learner {name()!r}: frozen copies live at their commits (ARCHIVE_INDEX.md)')
     return Grounder(home, mind_dir, **kw)

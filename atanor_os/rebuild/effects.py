@@ -65,8 +65,9 @@ class ActionModel:
         self._h = {}
 
     def add(self, case):
-        same = [c for c in self.cases if c.x == case.x and c.y != case.y]
-        if same:                                           # identical start, different result: the world changed
+        same = [c for c in self.cases if c.x == case.x and any(c.y[k] != case.y[k] for k in c.y.keys() & case.y.keys())]
+        if same:                                           # identical start, different result: the world changed (only
+                                                           # what both observed counts: a demonstration has no answer)
             cut = max(c.t for c in same)
             self.superseded += [c for c in self.cases if c.t <= cut]
             self.cases = [c for c in self.cases if c.t > cut]

@@ -71,3 +71,13 @@ def test_an_answer_stays_within_its_action_and_concept():
     assert g.predict('send', [], 'k1', {'kind': 'note', 'tag': 'blue'}) == 'not_meant'
     assert g.predict('send', [], 'k2', {'kind': 'note', 'tag': 'blue'}) is None   # another concept: not widened
     assert g.predict('pin', [], 'k1', {'kind': 'note', 'tag': 'blue'}) is None    # another action: not widened
+
+def test_a_demonstration_without_an_answer_does_not_mean_the_world_changed():
+    eff = Effects()
+    for t in range(1, 5):
+        eff.observe(act(t, 'heat', f'b{t}', bay('mild'), bay('warm')))
+    demo = experience(t=9, actor='person', action={'tool': 'heat', 'args': ['b9'], 'granted': None}, executed=True,
+                      response=None, before={'b9': bay('mild')}, after={'b9': bay('warm')})   # the answer was not observed
+    eff.observe(demo)
+    m = eff.model('heat', ['b1'])
+    assert m.superseded == [] and len(m.cases) == 5

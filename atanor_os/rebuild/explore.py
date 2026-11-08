@@ -9,6 +9,8 @@ start differs most from every case of that action (most attributes whose value t
 trials cover the most new values; after each trial the model is refitted. RANDOM (ablation): the same budget, any call,
 uniformly. RANDOM with `counts` (matched ablation): per action, as many random trials as CHOOSE made.
 Budget: `per_action` trials per action at most; CHOOSE stops earlier when nothing it can call is unknown.
+RETEST (selector 'RETEST'): as CHOOSE, and when nothing is unknown, the call whose prediction is confident but whose
+start holds values the action never met (most of them first): a confident guess about a new value is tested too.
 """
 import random
 from pathlib import Path
@@ -44,8 +46,9 @@ def _newness(m, x):
     return sum(v not in seen.get(k, ()) for k, v in x.items())
 
 
-def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOSE', t0=10 ** 6, counts=None):
-    """Adds trials to eff (actor 'self'); returns the list of trials (tool, args, before, response, after)."""
+def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOSE', t0=10 ** 6, counts=None, keep=None):
+    """Adds trials to eff (actor 'self'); returns the list of trials (tool, args, before, response, after).
+    keep(e): how a trial is learned (default eff.observe; the learner also stores it, practice.py)."""
     work = Path(work)
     drift = [DRIFT[body]]
     trials, t = [], t0
@@ -70,18 +73,20 @@ def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOS
                     st = h.observe(h.existing())
                     blank = {k: '-' for k in next(iter(st.values()), {})} | {'kind': 'absent'}
                     before = [st.get(x, blank) for x in args]
-                    if selector == 'CHOOSE':
-                        if eff.predict(tool, args, before, reader=READER)['outcome'] is not None:
-                            continue
-                        cands.append((-_newness(m, flat(before)), len(cands), tool, args, st))
+                    if selector in ('CHOOSE', 'RETEST'):
+                        nw = _newness(m, flat(before))
+                        if eff.predict(tool, args, before, reader=READER)['outcome'] is None:
+                            cands.append((0, -nw, len(cands), tool, args, st))
+                        elif selector == 'RETEST' and nw:                  # confident, but about values never met
+                            cands.append((1, -nw, len(cands), tool, args, st))
                     else:
-                        cands.append((0, len(cands), tool, args, st))
+                        cands.append((0, 0, len(cands), tool, args, st))
                 if not cands:
                     continue
-                if selector == 'CHOOSE':
-                    _, _, tool, args, st = min(cands)
+                if selector in ('CHOOSE', 'RETEST'):
+                    _, _, _, tool, args, st = min(cands)
                 else:
-                    _, _, tool, args, st = rng.choice(cands)
+                    _, _, _, tool, args, st = rng.choice(cands)
                 r, after_obs = run_lab(h, work / 'lab', tool, args)
                 if r.get('blocked'):                       # the lab answers blocked as 'blocked'; experiences mark it 'guard'
                     r = dict(r, guard=True)
@@ -90,7 +95,7 @@ def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOS
                 e = {'t': t, 'actor': 'self', 'action': {'tool': tool, 'args': list(args)},
                      'before': {x: st.get(x, blank) for x in args}, 'after': {x: after_obs.get(x, blank) for x in args},
                      'response': r}
-                eff.observe(e)
+                (keep or eff.observe)(e)
                 trials.append((tool, list(args), [st.get(x, blank) for x in args], r, [after_obs.get(x, blank) for x in args]))
                 budget[a] = budget.get(a, 0) + 1
     explore.counts = budget

@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 from . import desk_eval2, teacher_eval
-from ..agent.learners import name as learner_name
+from ..agent.learners import after_course, name as learner_name
 from ..teach.long_course import CHANGE_FROM, run as long_course
 from ..teach.teacher_policy import Teacher
 
@@ -33,11 +33,13 @@ def run(seed, out_dir, sealed=None, en=None):
         shutil.rmtree(base)
     out = {'learner': who, 'seed': seed}
     Teacher(base / 'none' / 'desk', seed=seed, drift_from=DESK_CHANGE_FROM, body='desk', mind=base / 'none' / 'mind').run(DESK_SESSIONS)
+    out['practice_none'] = after_course(base / 'none' / 'desk', base / 'none' / 'mind', 'desk', seed)
     r = desk_eval2.evaluate(base / 'none' / 'desk', 100 + seed, out_dir / f'r2-{who}-none-s{seed}.json', sealed)
     out['none'] = {k: v for k, v in r.items() if k not in ('rows',)} | {'synonyms': r['synonyms']['summary']}
     out['none']['modifier'] = {k: v for k, v in r['modifier'].items() if k != 'rows'}
     shutil.copy(base / 'none' / 'desk' / 'log.jsonl', out_dir / f'r2-{who}-none-s{seed}-course-log.jsonl')
     long_course(base / 'gen1', seed, per_body=25, shared=True, change_from=CHANGE_FROM)
+    out['practice_three'] = {b: after_course(base / 'gen1' / b, base / 'gen1' / 'mind', b, seed) for b in ('board', 'fs', 'view')}
     out['three'] = {}
     for b in ('board', 'fs', 'view'):
         r = teacher_eval.evaluate(base / 'gen1' / b, 100 + seed, out_dir / f'r2-{who}-three-{b}-s{seed}.json', en)

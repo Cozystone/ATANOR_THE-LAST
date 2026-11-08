@@ -22,7 +22,8 @@ PRACTICE = 300                                          # dev practice worlds: c
 
 
 def _eff(c, rd):
-    """'BAYES0.99' or 'BAYES0.99+X3' (after 3 chosen trials per action) / '+R3' (3 random trials per action)."""
+    """'BAYES0.99' or 'BAYES0.99+X3' (after 3 chosen trials per action) / '+C3' (chosen, confident new values
+    retested too) / '+R3' (3 random trials per action) / '+RM3' (random, as many as X3 made)."""
     eff, _ = train(c['body'], c['course'], slack=1, tiered=True)
     if '+' in rd:
         from .explore import explore
@@ -33,8 +34,8 @@ def _eff(c, rd):
         if spec.startswith('RM'):                          # random, as many trials per action as CHOOSE made
             explore(train(c['body'], c['course'], slack=1, tiered=True)[0], c['body'], names, ps, wd, per_action=int(spec[2:]))
             counts = dict(explore.counts)
-        tr = explore(eff, c['body'], names, ps, wd, per_action=int(spec.lstrip('XRM')),
-                     selector='CHOOSE' if spec[0] == 'X' else 'RANDOM', counts=counts)
+        tr = explore(eff, c['body'], names, ps, wd, per_action=int(spec.lstrip('XRMC')),
+                     selector={'X': 'CHOOSE', 'C': 'RETEST'}.get(spec[0], 'RANDOM'), counts=counts)
         eff._trials = len(tr)
     return eff
 
