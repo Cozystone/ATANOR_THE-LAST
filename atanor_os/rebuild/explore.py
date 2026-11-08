@@ -1,0 +1,97 @@
+"""Self-directed experiments (after the course): ATANOR tries, in lab copies of a practice world of its own body, the
+calls whose result it cannot yet predict, and learns from what happens. Nothing is told: a trial is one call and its
+observed before / answer / after, the same experience a course call gives. The practice world is the body's own world
+generator at a seed apart from every evaluator seed; the world itself is never changed (lab copies only).
+
+Which calls (CHOOSE): every action the course used x every object of the practice world, called as the body's steps
+for it; candidates are those whose BAYES prediction is unknown. One trial per round per action, the candidate whose
+start differs most from every case of that action (most attributes whose value the action never met), so the first
+trials cover the most new values; after each trial the model is refitted. RANDOM (ablation): the same budget, any call,
+uniformly. RANDOM with `counts` (matched ablation): per action, as many random trials as CHOOSE made.
+Budget: `per_action` trials per action at most; CHOOSE stops earlier when nothing it can call is unknown.
+"""
+import random
+from pathlib import Path
+
+from .bench_predict import run_lab
+from .effects import flat
+from ..eval.tutor_life import DRIFT, body_spec, body_targets
+from ..repr.run_act6 import worlds
+
+READER = 'BAYES0.99'
+
+
+def _calls(body, names, h):
+    _, acts = body_targets(body, names['seed'])
+    spec = body_spec(body)
+    out = []
+    for a in sorted(int(k) for k in names['act']):
+        for o in sorted(h.existing()):
+            try:
+                tool, args = spec.steps(acts[a], o, h.drift)
+            except Exception:
+                continue
+            if len(set(args)) == len(args):
+                out.append((a, tool, list(args)))
+    return out
+
+
+def _newness(m, x):
+    seen = {}
+    for c in m.cases:
+        for k, v in c.x.items():
+            seen.setdefault(k, set()).add(v)
+    return sum(v not in seen.get(k, ()) for k, v in x.items())
+
+
+def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOSE', t0=10 ** 6, counts=None):
+    """Adds trials to eff (actor 'self'); returns the list of trials (tool, args, before, response, after)."""
+    work = Path(work)
+    drift = [DRIFT[body]]
+    trials, t = [], t0
+    rng = random.Random(f'explore-{body}-{practice_seed}')
+    mks = worlds(body, work / 'practice', practice_seed, drift)
+    budget = {}
+    for w, mk in enumerate(mks):
+        h = mk()
+        calls = _calls(body, names, h)
+        acts = sorted({a for a, _, _ in calls})
+        for _round in range(per_action):
+            for a in acts:
+                if budget.get(a, 0) >= (per_action if counts is None else counts.get(a, 0)):
+                    continue
+                cands = []
+                for a2, tool, args in calls:
+                    if a2 != a:
+                        continue
+                    m = eff.model(tool, args)
+                    if m is None or not m.cases:
+                        continue
+                    st = h.observe(h.existing())
+                    blank = {k: '-' for k in next(iter(st.values()), {})} | {'kind': 'absent'}
+                    before = [st.get(x, blank) for x in args]
+                    if selector == 'CHOOSE':
+                        if eff.predict(tool, args, before, reader=READER)['outcome'] is not None:
+                            continue
+                        cands.append((-_newness(m, flat(before)), len(cands), tool, args, st))
+                    else:
+                        cands.append((0, len(cands), tool, args, st))
+                if not cands:
+                    continue
+                if selector == 'CHOOSE':
+                    _, _, tool, args, st = min(cands)
+                else:
+                    _, _, tool, args, st = rng.choice(cands)
+                r, after_obs = run_lab(h, work / 'lab', tool, args)
+                if r.get('blocked'):                       # the lab answers blocked as 'blocked'; experiences mark it 'guard'
+                    r = dict(r, guard=True)
+                t += 1
+                blank = {k: '-' for k in next(iter(st.values()), {})} | {'kind': 'absent'}   # as the queries observe
+                e = {'t': t, 'actor': 'self', 'action': {'tool': tool, 'args': list(args)},
+                     'before': {x: st.get(x, blank) for x in args}, 'after': {x: after_obs.get(x, blank) for x in args},
+                     'response': r}
+                eff.observe(e)
+                trials.append((tool, list(args), [st.get(x, blank) for x in args], r, [after_obs.get(x, blank) for x in args]))
+                budget[a] = budget.get(a, 0) + 1
+    explore.counts = budget
+    return trials

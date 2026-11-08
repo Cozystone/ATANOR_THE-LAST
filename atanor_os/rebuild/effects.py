@@ -235,8 +235,8 @@ class Effects:
         args = act['args']
         before = [e['before'].get(a) for a in args]
         after = [(e.get('after') or {}).get(a) for a in args]
-        for i, a in enumerate(args):
-            if len(args) > 1:
+        for i, a in enumerate(args if e.get('actor') != 'self' else ()):   # an action's identity comes from the
+            if len(args) > 1:                                                 # course; own trials probe it (explore.py)
                 self.seen_with[a].add(tuple(args[:i] + args[i + 1:]))
             if before[i] != after[i]:
                 self.changed.add(a)

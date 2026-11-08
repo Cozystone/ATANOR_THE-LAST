@@ -1,6 +1,6 @@
 """SLM_COMPARE_PROTOCOL.md: ATANOR (BAYES tau 0.99) and local small language models predict, from the same experiences,
 what one call will do. The SLMs are evaluation opponents only: nothing here is imported by the learner.
-  make  <body> <course_dir> <eval_seed> <out.json> [n_sample]   queries (stage-2 queries, truth from lab copies) + ATANOR
+  make  <body> <course_dir> <eval_seed> <out.json> [n_sample|-] [practice_seed]   queries (stage-2 queries, truth from lab copies) + ATANOR
   ask   <model> <queries.json> <out.jsonl>                      one SLM, temperature 0, one try per query (resumable)
   score <dir>                                                   per body and model, over every queries/answers in <dir>
 Each query carries every course experience of the same action (tool + constant arguments), oldest first; if they do not
@@ -80,10 +80,23 @@ def describe(key):
     return f'{tool}(' + ', '.join(f'{cs[i]!r} (always this object)' if i in cs else f'arg{i + 1}' for i in range(n)) + ')'
 
 
-def make(body, course_dir, eval_seed, out, n_sample=None):
+def make(body, course_dir, eval_seed, out, n_sample=None, practice_seed=None, per_action=10):
+    """With practice_seed: ATANOR first makes its own trials (rebuild/explore.py, CHOOSE) in lab copies of that practice
+    world; the trials become cases of their actions, so the SLMs get them too. 'atanor_course' is the course-only
+    prediction, 'atanor_rm' the prediction after as many random trials per action; novelty is against the course."""
     from ..rebuild.bench_predict import judge, novelty, queries, train
     from ..rebuild.effects import flat
-    eff, _ = train(body, course_dir, slack=1, tiered=True)
+    base, _ = train(body, course_dir, slack=1, tiered=True)
+    eff, rm, n_trials = base, None, 0
+    if practice_seed is not None:
+        from ..rebuild.explore import explore
+        names = json.loads((Path(course_dir) / body / 'names.json').read_text(encoding='utf-8'))
+        wd = Path(out).with_suffix('.practice')
+        eff = train(body, course_dir, slack=1, tiered=True)[0]
+        n_trials = len(explore(eff, body, names, practice_seed, wd, per_action=per_action))
+        counts = dict(explore.counts)
+        rm = train(body, course_dir, slack=1, tiered=True)[0]
+        explore(rm, body, names, practice_seed, wd, per_action=per_action, selector='RANDOM', counts=counts)
     qs = queries(body, course_dir, eval_seed, Path(out).with_suffix('.work'))
     idx = list(range(len(qs)))
     if n_sample is not None and n_sample < len(idx):
@@ -91,16 +104,23 @@ def make(body, course_dir, eval_seed, out, n_sample=None):
     rows = []
     for i in idx:
         w, tool, args, before, truth, _ = qs[i]
-        m = eff.model(tool, args)
-        if m is None or not m.cases:
+        m0 = base.model(tool, args)
+        if m0 is None or not m0.cases:
             continue
+        m = eff.model(tool, args)
+        if m is None or not m.cases:                       # trials regrouped the action (a new constant): ATANOR has no
+            m = m0                                         # case under its identity; the SLMs still get the course's
         p = eff.predict(tool, args, before, reader='BAYES0.99')['outcome']
         cases = [_case(c, len(args)) for c in sorted(m.cases + m.superseded, key=lambda c: c.t)]
         rows.append({'id': f'{body}-{eval_seed}-{i}', 'body': body, 'eval_seed': eval_seed, 'action': describe(m.key),
-                     'n_args': len(args), 'before': before, 'novelty': novelty(m, flat(before)),
+                     'regrouped': m is m0 and eff is not base,
+                     'n_args': len(args), 'before': before, 'novelty': novelty(m0, flat(before)),
                      'cases': cases,
                      'truth': [[list(k), v] for k, v in truth.items()],
-                     'atanor': judge(p, truth)})
+                     'atanor': judge(p, truth),
+                     'atanor_course': judge(base.predict(tool, args, before, reader='BAYES0.99')['outcome'], truth),
+                     'atanor_rm': None if rm is None else judge(rm.predict(tool, args, before, reader='BAYES0.99')['outcome'], truth),
+                     'trials': n_trials})
     rows.sort(key=lambda r: r['action'])                   # same action in a row: the same prompt prefix
     Path(out).write_text(json.dumps(rows), encoding='utf-8')
     return rows
@@ -189,6 +209,9 @@ def score(d):
     for q in qs.values():
         for part in ('all', q['novelty']):
             tab[(q['body'], 'ATANOR')][part][q['atanor']] += 1
+            for k, name in (('atanor_course', 'ATANOR-course'), ('atanor_rm', 'ATANOR-RM')):
+                if q.get(k) is not None:
+                    tab[(q['body'], name)][part][q[k]] += 1
     for f in sorted(d.glob('a-*.jsonl')):
         for l in f.read_text(encoding='utf-8').splitlines():
             a = json.loads(l)
@@ -218,7 +241,9 @@ def score(d):
 if __name__ == '__main__':
     cmd = sys.argv[1]
     if cmd == 'make':
-        rows = make(sys.argv[2], sys.argv[3], int(sys.argv[4]), sys.argv[5], int(sys.argv[6]) if len(sys.argv) > 6 else None)
+        a = sys.argv
+        rows = make(a[2], a[3], int(a[4]), a[5], int(a[6]) if len(a) > 6 and a[6] != '-' else None,
+                    int(a[7]) if len(a) > 7 else None)
         print(len(rows), 'queries')
     elif cmd == 'ask':
         ask(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else None)
