@@ -21,7 +21,12 @@ text in 4 formats (table, key=value, shuffled key:value with empties omitted, pr
 actions, plus mutual exclusivity. Right rate near the given fields on all fixed formats and most shuffled ones (board .56-.59 vs .64, clime .69 vs .69,
 desk .42 vs .43, fs .88 vs .88, view .23 vs .24), weak on dye shuffled (.35 vs .52); ordinal-position control collapses when shuffled (0-.18).
 Wrong above 1% in 2 of 24 cells' bodies: dye shuffled 43/1095, clime shuffled 93/2535 (given fields: 9 and 0). Still given: one line per object, the typed
-name, clean words, ok/failed. Next: fix criteria before a separately written, unseen format on fresh seeds; do not tune further on these.
+name, clean words, ok/failed. Held-out check pre-registered in atanor_os/BIRTH_PLAN.md (ce83c263), running; no result yet.
+B three tries, dev seeds 1-5, leave one body out, all NO-GO by the criterion set before try 3 (k 0-3: right up, wrong not up, above shuffled, 4 of 6 bodies):
+schema_probe (explanation size and cell kind prior), schema2_probe (per outcome kind), schema3_probe (whole action pattern, which input roles mattered). Best: try 3,
+life beat none and shuffled cleanly only at k=3 on desk (.738->.755) and view (.509->.545); wrong rose on clime and dye at low k; right fell at k=10 in tries 1-2.
+Forms are shared (seed 1: 17/37 actions same full form elsewhere, 31/37 same roles), so material exists; the route of adjusting the predictor's prior is closed.
+No life = none result is overturned. Next route: compounding through reusable procedures measured on composite goals, not per-call prediction.
 
 ## CURRENT PRIORITY OVERRIDE — minimal persistent cognition, not meta-learning
 Latest completed unit: subject-loopv1 frozen ee69378, one trial,
