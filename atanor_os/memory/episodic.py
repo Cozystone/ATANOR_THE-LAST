@@ -48,6 +48,27 @@ class Episode:
         rows += tok_rows(query, 'query', len(examples))
         self.rows = rows
         self.n_q = len(query.toks)
+        # a value not among the query's own tokens may still be in the episode (an example's state after): the answer may
+        # point there. Else it is a bucket. -> per query token: a row index in the whole episode, or None (bucket/blank)
+        self.src = []
+        n = self.n_q
+        for p, t in enumerate(query.tg):
+            if t < n:
+                self.src.append(self.q0 + t)
+            elif t == n:
+                self.src.append(None)
+            else:
+                want = self._new_value(p, examples)
+                k_attr = query.toks[p][1]
+                cands = [i for i, r in enumerate(rows[:self.q0]) if r[0] == 'ex_after' and r[4] == want and r[3] == k_attr] or                         [i for i, r in enumerate(rows[:self.q0]) if r[0] in ('ex_after', 'ex_before') and r[4] == want]
+                self.src.append(cands[0] if cands else None)
+
+    def _new_value(self, p, examples):
+        """The query token's true value after, when it is not in the query (known only when the query has a truth)."""
+        return getattr(self.query, 'after_values', None) and self.query.after_values[p]
+
+    def query_new_value(self, t):
+        return getattr(self.query, 'after_values', None) and None
 
 
 class Episodic(nn.Module):
@@ -111,9 +132,10 @@ class Episodic(nn.Module):
         for b, e in enumerate(eps):
             a, c = e.q0, e.q0 + e.n_q
             qz = z[b, a:c]                                  # [n_q, d]
-            pointer = att[b, a:c, a:c]                      # a query token's value after: from a query token
+            m = len(e.rows)
+            pointer = att[b, a:c, :m]                       # a query token's value after: from any token of the episode
             logits = torch.cat([pointer, self.blank(qz), self.bucket(qz)], -1)
-            tg = torch.tensor([t if t < e.n_q else (e.n_q if t == e.n_q else e.n_q + 1 + (t - e.n_q - 1)) for t in e.query.tg], device=device)
+            tg = torch.tensor([s_ if s_ is not None else (m if t == e.n_q else m + 1 + (t - e.n_q - 1)) for s_, t in zip(e.src, e.query.tg)], device=device)
             tot = tot + F.cross_entropy(logits, tg, reduction='sum')
             cnt += e.n_q
             rl.append(qz.mean(0))
@@ -129,15 +151,16 @@ class Episodic(nn.Module):
         for b, e in enumerate(eps):
             a, c = e.q0, e.q0 + e.n_q
             qz = z[b, a:c]
-            logits = torch.cat([att[b, a:c, a:c], self.blank(qz), self.bucket(qz)], -1)
+            m = len(e.rows)
+            logits = torch.cat([att[b, a:c, :m], self.blank(qz), self.bucket(qz)], -1)
             P = logits.softmax(-1)
             vals, conf = [], []
             n = e.n_q
             for p in range(n):
-                row = P[p, :n].tolist() + [P[p, n].item(), P[p, n + 1:].max().item()]
+                row = P[p, :m].tolist() + [P[p, m].item(), P[p, m + 1:].max().item()]
                 j = max(range(len(row)), key=row.__getitem__)
                 conf.append(row[j])
-                vals.append(e.query.toks[j][2] if j < n else (BLANK if j == n else ('<bucket>', int(P[p, n + 1:].argmax()))))
+                vals.append(e.rows[j][4] if j < m else (BLANK if j == m else ('<bucket>', int(P[p, m + 1:].argmax()))))
             pr = self.resp(qz.mean(0, keepdim=True)).softmax(-1)[0]
             ans = RESP[int(pr.argmax())]
             cmin = min(conf + [pr.max().item()])

@@ -84,7 +84,7 @@ def targets(toks, args, after, resp):
 
 
 class Scene:
-    __slots__ = ('tool', 'args', 'toks', 'X', 'tg', 'resp', 'body')
+    __slots__ = ('tool', 'args', 'toks', 'X', 'tg', 'resp', 'body', 'after_values')
 
     def __init__(self, body, tool, args, before, after=None, resp=None):
         self.body, self.tool, self.args = body, tool, list(args)
@@ -92,8 +92,9 @@ class Scene:
         self.X = features(self.toks)
         if after is not None:
             self.tg, self.resp = targets(self.toks, self.args, after, resp)
+            self.after_values = [str(((after.get(a_) if isinstance(after, dict) else after[i]) or {}).get(k, BLANK)) for i, k, _ in self.toks for a_ in [self.args[i]]]
         else:
-            self.tg, self.resp = None, None
+            self.tg, self.resp, self.after_values = None, None, None
 
 
 def scene_of(e):
@@ -116,6 +117,7 @@ def cipher(scenes, rng):
         c = Scene.__new__(Scene)
         c.body, c.tool, c.args, c.tg, c.resp = s.body, w(s.tool), s.args, s.tg, s.resp
         c.toks = [(i, w(k), w(v)) for i, k, v in s.toks]
+        c.after_values = None if s.after_values is None else [w(v) for v in s.after_values]
         c.X = s.X
         out.append(c)
     return out
@@ -212,7 +214,7 @@ def right(s, vals, ans):
     for p, (t, v) in enumerate(zip(s.tg, vals)):
         n = len(s.toks)
         truth = s.toks[t][2] if t < n else (BLANK if t == n else ('<bucket>', t - n - 1))
-        if v != truth:
+        if v != truth and not (t > n and s.after_values is not None and v == s.after_values[p]):   # the word itself, pointed to
             return 'wrong'
     return 'right'
 
