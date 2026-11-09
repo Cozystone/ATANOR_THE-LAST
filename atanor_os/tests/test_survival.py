@@ -77,3 +77,16 @@ def test_genomes_stay_in_bounds_and_inheritance_is_read_not_lived(tmp_path):
     birth(c, 1, ['board'], 1, random_genome(rng), parents=[p])
     items = [json.loads(l) for l in (c / 'mind' / 'experiences.jsonl').read_text(encoding='utf-8').splitlines()]
     assert len(items) == 1 and items[0]['source'] == 'read' and 'intent' not in items[0] and items[0]['inherited_from'] == 'parent'
+
+
+def test_measure_runs_on_a_newborn_and_a_lived_self(tmp_path):
+    from atanor_os.life.lineage import measure
+    d = tmp_path / 'm'
+    birth(d, 1, ['board'], 1, clamp(dict(zip(GENOME, (0.99, 6, 10, 30.0, 90.0, 1.0, 0)))))
+    m = measure(d, 1, 'board', d / 'eval.json')
+    assert m['dead'] is False and m['stages'] == 0 and m['good_teacher'] is None and m['fitness'] == (1, 0.0)
+    life = _life(d, None)
+    life.journal.append('PREDICTION', body='board', tool='t', args=[], reader='x', before={}, outcome=None, why='x')
+    life.close()
+    m = measure(d, 1, 'board', d / 'eval.json')
+    assert m['fitness'][0] == 1 and m['E'] is not None
