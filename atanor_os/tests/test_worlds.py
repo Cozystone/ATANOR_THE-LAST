@@ -3,7 +3,6 @@ fails leaves the state as it was."""
 import random
 
 from atanor_os.memory.worlds import World, generate
-from atanor_os.rebuild.learner import TAU  # noqa: F401  (import check only: the generator must not depend on any body)
 
 
 def test_worlds_are_deterministic_and_within_the_grammar():
