@@ -12,6 +12,10 @@ DEV_SEEDS = range(1, 6)
 
 
 def one_stage(a):
+    from pathlib import Path
+    if (Path(a.self_dir) / '.dead').exists():
+        print('dead', flush=True)
+        return 0
     life = Life(a.self_dir, a.seed, list(a.bodies), a.sessions)
     n = life.next
     if a.until_stage is None or n < a.until_stage:
@@ -41,7 +45,7 @@ def main(argv=None):
         if p.returncode:
             sys.stderr.write(p.stderr)
             return p.returncode
-        if p.stdout.strip() in ('over', ''):
+        if p.stdout.strip() in ('over', 'dead', ''):
             return 0
         print(p.stdout.strip(), flush=True)
 

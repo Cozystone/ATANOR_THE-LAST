@@ -10,6 +10,7 @@ from pathlib import Path
 from .effects import Effects
 from .experience import Store, experience
 from .explore import explore
+from ..life import metabolism
 
 PRACTICE = 300
 PER_ACTION = 10
@@ -37,6 +38,15 @@ def practice(world_dir, mind_dir, body, seed, selector='CHOOSE', per_action=PER_
         eff.observe(x)
 
     work = mind_dir / f'practice-{body}'
+    m = metabolism.CURRENT
+    if m is not None:                                   # in a life: the genome's budget, and each trial must be worth its price
+        per_action = int(m.g['per_action'])
+
+        def gated(model, tool, args, before, y):
+            if y is not None or not m.allow(metabolism.PRICES['SELF_TRIAL'], True):
+                return None
+            return (0, 0)
+        selector = gated
     trials = explore(eff, body, names, seed + PRACTICE, work, per_action=per_action, selector=selector, keep=keep)
     shutil.rmtree(work, ignore_errors=True)
     practice.live = eff                                # the models as learned here (life/host.py checks them against the disk)

@@ -31,6 +31,8 @@ from ..rebuild.experience import Store, experience
 from ..rebuild.learner import call_experience, rebuild, seed_fitted
 from ..teach.teacher_policy import Teacher
 from .autobiography import Autobiography
+from . import metabolism as metab
+from .metabolism import GAIN, PRICES, Death, Metabolism
 
 BODIES = ('board', 'fs', 'view', 'desk', 'clime', 'dye')
 TEACHER_NOTES = ('named_s', 'named_a', 'en', 'used_pairs', 'last_used', 'said')
@@ -59,21 +61,31 @@ def _seen(home):
 
 
 class Life:
-    def __init__(self, root, seed, bodies=BODIES, sessions=15):
+    def __init__(self, root, seed, bodies=BODIES, sessions=15, genome=None):
         if learner_name() != 'next_explore':
             raise ValueError('a life is lived by the default learner (next_explore)')
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
+        if (self.root / '.dead').exists():
+            raise Death('this life is over')
         self.lock_file = self._lock()
-        self.identity = self._identity(seed, list(bodies), sessions)
+        self.identity = self._identity(seed, list(bodies), sessions, genome)
+        self.metab = Metabolism(self.identity.get('genome'), enabled='genome' in self.identity)   # G: only a life born with a genome eats and dies
+        metab.CURRENT = self.metab
         self.seed, self.bodies, self.sessions = seed, bodies, sessions
         self.stages = schedule(bodies, sessions)
         self.mind = self.root / 'mind'
         self.mind.mkdir(exist_ok=True)
         self.journal = Autobiography(self.root / 'autobiography.jsonl')
+        self._raw_append = self.journal.append
+        self.journal.append = self._append                 # every record that costs is paid for as it is written
         Store.autobiography = self.journal
         self._repair_files()
         self.rows = self.journal.rows()
+        self.metab.replay(self.rows)
+        if self.metab.dead:
+            (self.root / '.dead').touch()
+            raise Death('this life is over')
         self.journal.append('HOST', event='process_start', self_id=self.identity['id'], pid=os.getpid(), records=len(self.rows))
         self._restore_experiences()
         self._reconcile()
@@ -93,12 +105,13 @@ class Life:
             fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
         return f
 
-    def _identity(self, seed, bodies, sessions):
+    def _identity(self, seed, bodies, sessions, genome=None):
         p = self.root / 'self.json'
         if not p.exists():
             if (self.root / 'autobiography.jsonl').exists():
                 raise ValueError('an autobiography with no self.json: a new identity is never made for an old life')
-            atomic_write(p, json.dumps({'id': uuid.uuid4().hex, 'seed': seed, 'bodies': bodies, 'sessions': sessions}))
+            atomic_write(p, json.dumps({'id': uuid.uuid4().hex, 'seed': seed, 'bodies': bodies, 'sessions': sessions,
+                                        **({'genome': genome} if genome is not None else {})}))
         me = json.loads(p.read_text(encoding='utf-8'))
         if (me['seed'], me['bodies'], me['sessions']) != (seed, bodies, sessions):
             raise ValueError(f'this life was set up as {me}; its schedule does not change')
@@ -114,6 +127,27 @@ class Life:
                 shutil.rmtree(d, ignore_errors=True)
         for d in (self.root / 'worlds').glob('*/teacher_lab'):
             shutil.rmtree(d, ignore_errors=True)
+
+    # ------------------------------------------------------------ energy (G_SURVIVAL_PLAN.md)
+    def _append(self, kind, **data):
+        seq = self._raw_append(kind, **data)
+        price = self.metab.price_of(kind, data)
+        if price:
+            self._charge(kind, -price)
+        return seq
+
+    def _charge(self, why, delta):
+        """The balance moves and is on the record; at zero the life ends here, on the record, for good."""
+        if not self.metab.enabled:
+            return
+        try:
+            self.metab.charge(why, delta)
+        except Death:
+            self._raw_append('INTEROCEPTION', E=round(self.metab.E, 4), why=why, delta=delta)
+            self._raw_append('HOST', event='death', E=round(self.metab.E, 4), why=why, records=self.journal.seq)
+            (self.root / '.dead').write_text(json.dumps({'E': self.metab.E, 'why': why}), encoding='utf-8')
+            raise
+        self._raw_append('INTEROCEPTION', E=round(self.metab.E, 4), why=why, delta=delta)
 
     # ------------------------------------------------------------ after a kill
     def _store(self):
@@ -224,6 +258,8 @@ class Life:
         def activity(*a, **kw):
             tlog(*a, **kw)
             self._save_teacher(t, notes)
+            if a and a[0] == 'command' and GAIN.get(kw.get('outcome'), 0.0):   # what the person's scoring is worth to the body
+                self._charge(f"outcome:{kw['outcome']}", GAIN[kw['outcome']])
         t.sess.person.ask, t.sess.log, t.log = said, logged, activity
 
     @staticmethod
@@ -246,6 +282,7 @@ class Life:
             return None
         s = self.stages[n]
         self.journal.append('HOST', event='stage_begin', stage=n, stage_kind=s['kind'], body=s['body'], session=s.get('i'))
+        self._charge('stage', -PRICES['STAGE'])            # time passes whether or not it acts
         live = None
         if s['kind'] == 'session':
             t = self._teacher(s['body'])
@@ -275,5 +312,6 @@ class Life:
 
     def close(self):
         Store.autobiography = None
+        metab.CURRENT = None
         self.journal.close()
         self.lock_file.close()

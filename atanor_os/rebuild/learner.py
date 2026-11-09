@@ -24,9 +24,26 @@ from ..agent.grounding import QUESTION_BUDGET, Grounder
 from .effects import Effects, flat
 from .experience import Store, experience
 from .goals import Goals
+from ..life import metabolism
 
 TAU = 0.99
 LAB_TESTS = 6
+
+
+def _tau():
+    m = metabolism.CURRENT
+    return m.g['tau'] if m else TAU
+
+
+def _lab_budget():
+    m = metabolism.CURRENT
+    return int(m.g['lab_tests']) if m else LAB_TESTS
+
+
+def _may_pay(cost, unknown):
+    """Outside a life everything may be tried; inside one, the metabolism's one rule decides."""
+    m = metabolism.CURRENT
+    return True if m is None else m.allow(cost, unknown)
 _FITTED = {}
 
 
@@ -114,8 +131,8 @@ class NextGrounder(Grounder):
         first, so a kill from here on cannot lose that the action may have happened."""
         blank = _blank(c['before'])
         c['b'] = {x: c['before'].get(x, blank) for x in c['args']}
-        p = self.eff.predict(c['tool'], c['args'], [c['b'][x] for x in c['args']], reader=f'BAYES{TAU}')
-        life.append('PREDICTION', body=self.body, tool=c['tool'], args=c['args'], reader=f'BAYES{TAU}', before=c['b'],
+        p = self.eff.predict(c['tool'], c['args'], [c['b'][x] for x in c['args']], reader=f'BAYES{_tau()}')
+        life.append('PREDICTION', body=self.body, tool=c['tool'], args=c['args'], reader=f'BAYES{_tau()}', before=c['b'],
                     outcome=None if p['outcome'] is None else {str(k): v for k, v in p['outcome'].items()}, why=p.get('why'))
         c['intent'] = life.append('ACTION_INTENT', body=self.body, source=self.source, actor='learner', tool=c['tool'], args=c['args'],
                                   caps=c['caps'], before=c['b'])
@@ -282,13 +299,13 @@ class NextGrounder(Grounder):
             st = st_all
             blank = _blank(st)
             before = [st.get(x, blank) for x in args]
-            p = self.eff.predict(act['tool'], args, before, reader=f'BAYES{TAU}')
+            p = self.eff.predict(act['tool'], args, before, reader=f'BAYES{_tau()}')
             tested = False
-            if p['outcome'] is None and self.lab and labs < LAB_TESTS:
+            if p['outcome'] is None and self.lab and labs < _lab_budget() and _may_pay(metabolism.PRICES['LAB'], True):
                 labs += 1
                 tested = True
                 self._lab_test(act['tool'], args)
-                p = self.eff.predict(act['tool'], args, before, reader=f'BAYES{TAU}')
+                p = self.eff.predict(act['tool'], args, before, reader=f'BAYES{_tau()}')
             y = p['outcome']
             if y is None:
                 decided[o] = core

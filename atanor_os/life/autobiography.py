@@ -11,7 +11,8 @@ from pathlib import Path
 
 from ..core.durable import repair_jsonl
 
-KINDS = ('OBSERVATION', 'PREDICTION', 'ACTION_INTENT', 'ACTION_RESULT', 'EXTERNAL_EVENT', 'TESTIMONY', 'SELF_TRIAL', 'HOST')
+KINDS = ('OBSERVATION', 'PREDICTION', 'ACTION_INTENT', 'ACTION_RESULT', 'EXTERNAL_EVENT', 'TESTIMONY', 'SELF_TRIAL', 'HOST',
+         'INTEROCEPTION')                               # what the Self feels of itself (energy): not the world, not a prediction
 GENESIS = '0' * 64
 
 
