@@ -1,4 +1,17 @@
-# ATANOR research state — 2026-09-20
+# ATANOR research state — 2026-11-09
+
+## CURRENT PRIORITY OVERRIDE 2026-11-09 — back to one Self (founder correction)
+Authority: goal-objective.md (below). `atanor_os/rebuild/` is one organ (per-call effect prediction), not ATANOR.
+Sixth-body test PARTIAL (`atanor_os/SIXTH_BODY_RESULTS.md`, 21da991e). SLM beating is a side metric now.
+Blockers found by audit: (1) GEN1 = NONE: a shared mind over bodies gave no gain, life does not compound;
+(2) objects/attributes always come from an adapter, no representation birth ever; (3) explore.py's call menu comes from
+the evaluator-side body_spec.steps/body_targets, so 'self-directed experiments' are choices inside a supplied menu (R10 again).
+Order: A one life host (six bodies, one autobiography, kill/resume, body-qualified action key) -> B compounding judge
+(same mind with the past ablated; new-body learning cost) -> C remove the menu -> D representation birth from unformatted
+output -> E language (Korean first, Claude as caretaker through speech/UI events only, words stored as testimony,
+read vs lived kept apart) -> F self-model, verified self-improvement. Real-person sessions need the founder.
+Scoreboard: capability vs life; learning cost down; retained capability; developer-authored cognition down.
+Open: VARIED/SUPPORT experiment rule (explore.py, dev only, uncommitted until recorded) is a side result; do not polish.
 
 ## CURRENT PRIORITY OVERRIDE — minimal persistent cognition, not meta-learning
 Latest completed unit: subject-loopv1 frozen ee69378, one trial,
