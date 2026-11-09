@@ -93,17 +93,22 @@ def birth(self_dir, seed, bodies, S, genome, parents=()):
     (self_dir / 'self.json').write_text(json.dumps({'id': uuid.uuid4().hex, 'seed': seed, 'bodies': bodies, 'sessions': S, 'genome': genome,
                                                      'parents': [str(p) for p in parents]}), encoding='utf-8')
     if parents:
-        items, n = [], 0
+        items, n, seen = [], 0, set()
         for p in parents:
             f = Path(p) / 'mind' / 'experiences.jsonl'
             if not f.exists():
                 continue
             for line in f.read_text(encoding='utf-8').splitlines():
                 e = json.loads(line)
-                if e.get('source') == 'read' or not e.get('action'):
-                    continue                           # read once is read; what was told is not inherited as testimony
+                if not e.get('action'):
+                    continue                           # what was told is not inherited as testimony
+                key = json.dumps([e.get('body'), e['action'], e.get('before'), e.get('after'), (e.get('response') or {}).get('ok')], sort_keys=True, default=str)
+                if key in seen:
+                    continue                           # the same case through two parents, or through a grandparent, once
+                seen.add(key)
+                depth = int(e.get('inherited_depth', 0)) + 1
                 e = {k: v for k, v in e.items() if k not in ('id', 'intent', 'jseq')}
-                e.update(id=f'x{n}', t=n, source='read', inherited_from=Path(p).name)
+                e.update(id=f'x{n}', t=n, source='read', inherited_from=Path(p).name, inherited_depth=depth)   # a lineage's memory: read, never lived
                 items.append(e)
                 n += 1
         (self_dir / 'mind').mkdir(exist_ok=True)
