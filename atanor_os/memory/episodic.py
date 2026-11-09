@@ -72,8 +72,9 @@ class Episode:
 
 
 class Episodic(nn.Module):
-    def __init__(self, d=160, layers=4, heads=8):
+    def __init__(self, d=160, layers=4, heads=8, use_pos=False):
         super().__init__()
+        self.use_pos = use_pos
         self.word = nn.Embedding(N_HASH, 32)
         self.role = nn.Embedding(4, 16)
         self.ex = nn.Embedding(34, 16)
@@ -107,7 +108,8 @@ class Episodic(nn.Module):
             role[b, :m] = torch.tensor([ROLE.get(r[0], 3) for r in e.rows], device=device)
             exid[b, :m] = torch.tensor([min(r[1], 33) for r in e.rows], device=device)
             arg[b, :m] = torch.tensor([r[2] for r in e.rows], device=device)
-            pos[b, :m] = torch.tensor([min(max(r[7], 0), 63) for r in e.rows], device=device)
+            if self.use_pos:                            # off by default: a token's place in its object let the model memorise
+                pos[b, :m] = torch.tensor([min(max(r[7], 0), 63) for r in e.rows], device=device)   # per-body patterns by position
             flags[b, :m, 0] = torch.tensor([float(r[5]) for r in e.rows], device=device)
             flags[b, :m, 1] = torch.tensor([float(r[6]) for r in e.rows], device=device)
             mask[b, :m] = False

@@ -56,16 +56,17 @@ def run(a):
         held_tr_c, held_q_c = both[:len(held_tr)], both[len(held_tr):]
         for k in a.ks:
             for cond, model, shots, qs in (('LIFE', life, held_tr, held_q), ('LIFE-CIPHER', life, held_tr_c, held_q_c), ('ALONE', alone, held_tr, held_q)):
-                r = score(model, shots, qs, device, k, random.Random(k), a.tau)
-                say(held, cond, 'k', k, r)
-                rows.append({'held': held, 'cond': cond, 'k': k, **r})
+                for tau in sorted({a.tau, 0.9, 0.99}):     # H2 is judged with abstention: the same answers, held back below tau
+                    r = score(model, shots, qs, device, k, random.Random(k), tau)
+                    say(held, cond, 'k', k, 'tau', tau, r)
+                    rows.append({'held': held, 'cond': cond, 'k': k, 'tau': tau, **r})
         (out / 'rows.json').write_text(json.dumps(rows), encoding='utf-8')
     for held in a.bodies:
         say('==', held)
         for r in rows:
             if r['held'] == held:
                 n = sum(v for kk, v in r.items() if kk in ('right', 'wrong', 'unknown', 'never_seen'))
-                say(f"  {r['cond']:12s} k={r['k']!s:5s} R {r.get('right', 0) / max(n, 1):.3f} W {r.get('wrong', 0) / max(n, 1):.3f} n={n}")
+                say(f"  {r['cond']:12s} k={r['k']!s:5s} tau={r.get('tau', '-')!s:5s} R {r.get('right', 0) / max(n, 1):.3f} W {r.get('wrong', 0) / max(n, 1):.3f} n={n}")
 
 
 if __name__ == '__main__':
