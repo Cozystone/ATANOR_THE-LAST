@@ -63,6 +63,40 @@ class Episode:
                 cands = [i for i, r in enumerate(rows[:self.q0]) if r[0] == 'ex_after' and r[4] == want and r[3] == k_attr] or                         [i for i, r in enumerate(rows[:self.q0]) if r[0] in ('ex_after', 'ex_before') and r[4] == want]
                 self.src.append(cands[0] if cands else None)
 
+        self.prior = self._prior()
+
+    def _prior(self):
+        """What the examples say, counted, for each query token: how often this attribute of this argument ended equal to
+        each query token's start value (itself: kept), to each example's own outcome value, or blank; and how often the
+        body answered failed. Words are compared only for equality; nothing is named. -> ([n_q, len(rows)], [n_q], float)"""
+        import torch
+        rows, nq, q0 = self.rows, self.n_q, self.q0
+        P = torch.zeros(nq, len(rows))
+        blank = torch.zeros(nq)
+        ok = [e for e in self.examples if e.resp == 0]
+        failed = 1.0 - len(ok) / max(1, len(self.examples))
+        if not ok:
+            return P, blank, failed
+        after = {}                                         # (ex index, arg, attr) -> value after
+        before = {}
+        for j, e in enumerate(ok):
+            for (i, k, v), av in zip(e.toks, e.after_values):
+                before[(j, i, k)] = v
+                after[(j, i, k)] = av
+        for p, (i, k, v) in enumerate(self.query.toks):
+            outs = [after.get((j, i, k)) for j in range(len(ok))]
+            outs = [o for o in outs if o is not None]
+            if not outs:
+                continue
+            m = len(outs)
+            blank[p] = sum(o == BLANK for o in outs) / m
+            for q, (i2, k2, v2) in enumerate(self.query.toks):
+                P[p, q0 + q] = sum(after.get((j, i, k)) == before.get((j, i2, k2)) for j in range(len(ok)) if (j, i, k) in after and (j, i2, k2) in before) / m
+            for r, row in enumerate(rows[:q0]):
+                if row[0] == 'ex_after' and row[4] != BLANK:
+                    P[p, r] = sum(o == row[4] for o in outs) / m
+        return P, blank, failed
+
     def _new_value(self, p, examples):
         """The query token's true value after, when it is not in the query (known only when the query has a truth)."""
         return getattr(self.query, 'after_values', None) and self.query.after_values[p]
@@ -88,6 +122,8 @@ class Episodic(nn.Module):
         self.blank = nn.Linear(d, 1)
         self.bucket = nn.Linear(d, N_BUCKET)
         self.resp = nn.Linear(d, len(RESP))
+        self.gain = nn.Parameter(torch.tensor(4.0))        # how much the counted prior is trusted (learned)
+        self.fail_gain = nn.Parameter(torch.tensor(2.0))
         self.d = d
 
     def encode(self, eps, device):
@@ -123,6 +159,20 @@ class Episodic(nn.Module):
         att = att.masked_fill(mask[:, None, :], -1e9)
         return z, att, mask
 
+    def _with_prior(self, e, pointer, blank, bucket, device):
+        Pm, Pb, _ = e.prior
+        pointer = pointer + self.gain * Pm.to(device)
+        blank = blank + self.gain * Pb.to(device)[:, None]
+        return torch.cat([pointer, blank, bucket], -1)
+
+    def _resp_logits(self, eps, pooled):
+        r = self.resp(pooled)
+        f = torch.tensor([e.prior[2] for e in eps], device=pooled.device)
+        r = r.clone()
+        r[:, 1] = r[:, 1] + self.fail_gain * f               # the counted share of failed answers
+        r[:, 0] = r[:, 0] + self.fail_gain * (1 - f)
+        return r
+
     def _query_slices(self, eps):
         return [(e.q0, e.q0 + e.n_q) for e in eps]
 
@@ -136,13 +186,13 @@ class Episodic(nn.Module):
             qz = z[b, a:c]                                  # [n_q, d]
             m = len(e.rows)
             pointer = att[b, a:c, :m]                       # a query token's value after: from any token of the episode
-            logits = torch.cat([pointer, self.blank(qz), self.bucket(qz)], -1)
+            logits = self._with_prior(e, pointer, self.blank(qz), self.bucket(qz), device)
             tg = torch.tensor([s_ if s_ is not None else (m if t == e.n_q else m + 1 + (t - e.n_q - 1)) for s_, t in zip(e.src, e.query.tg)], device=device)
             tot = tot + F.cross_entropy(logits, tg, reduction='sum')
             cnt += e.n_q
             rl.append(qz.mean(0))
             rt.append(e.query.resp)
-        lr = F.cross_entropy(self.resp(torch.stack(rl)), torch.tensor(rt, device=device))
+        lr = F.cross_entropy(self._resp_logits(eps, torch.stack(rl)), torch.tensor(rt, device=device))
         return tot / max(cnt, 1) + lr
 
     @torch.no_grad()
@@ -154,7 +204,7 @@ class Episodic(nn.Module):
             a, c = e.q0, e.q0 + e.n_q
             qz = z[b, a:c]
             m = len(e.rows)
-            logits = torch.cat([att[b, a:c, :m], self.blank(qz), self.bucket(qz)], -1)
+            logits = self._with_prior(e, att[b, a:c, :m], self.blank(qz), self.bucket(qz), device)
             P = logits.softmax(-1)
             vals, conf = [], []
             n = e.n_q
@@ -163,7 +213,7 @@ class Episodic(nn.Module):
                 j = max(range(len(row)), key=row.__getitem__)
                 conf.append(row[j])
                 vals.append(e.rows[j][4] if j < m else (BLANK if j == m else ('<bucket>', int(P[p, m + 1:].argmax()))))
-            pr = self.resp(qz.mean(0, keepdim=True)).softmax(-1)[0]
+            pr = self._resp_logits([e], qz.mean(0, keepdim=True)).softmax(-1)[0]
             ans = RESP[int(pr.argmax())]
             cmin = min(conf + [pr.max().item()])
             out.append((vals if cmin >= tau else None, ans if cmin >= tau else None, cmin))
