@@ -14,6 +14,7 @@ start holds values the action never met (most of them first): a confident guess 
 SUPPORT (selector 'SUPPORT'): as CHOOSE, and when nothing is unknown, the call whose confident prediction rests on no
 case of its own answer holding this start's values ('ok' predicted, but no 'ok' case ever had this value), most first.
 """
+import itertools
 import random
 from pathlib import Path
 
@@ -40,6 +41,25 @@ def _calls(body, names, h):
     return out
 
 
+def _own_calls(eff, body, h, rng, cap=400):
+    """The menu without the evaluator (GOAL_STATE step C): every action this mind has done, called on what is in this world;
+    an argument it has always done with the same object keeps that object. Nothing about the body is known here."""
+    out = []
+    objs = sorted(h.existing())
+    for key in sorted(eff.models, key=str):
+        b, tool, n, consts = key
+        if b != body or not eff.models[key].cases:
+            continue
+        fixed = dict(consts)
+        free = [i for i in range(n) if i not in fixed]
+        slots = [[fixed[i]] if i in fixed else objs for i in range(n)]
+        calls = [list(c) for c in itertools.product(*slots) if len(set(c)) == n]
+        if len(calls) > cap:
+            calls = rng.sample(calls, cap)
+        out += [(str(key), tool, c) for c in calls]
+    return out
+
+
 def _newness(m, x):
     seen = {}
     for c in m.cases:
@@ -59,7 +79,7 @@ def _unsupported(m, x, y, never_varied=False):
     return sum(v not in seen.get(k, ()) and (not never_varied or len(seen.get(k, ())) == 1) for k, v in x.items())
 
 
-def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOSE', t0=10 ** 6, counts=None, keep=None):
+def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOSE', t0=10 ** 6, counts=None, keep=None, menu='body'):
     """Adds trials to eff (actor 'self'); returns the list of trials (tool, args, before, response, after).
     keep(e): how a trial is learned (default eff.observe; the learner also stores it, practice.py)."""
     work = Path(work)
@@ -70,7 +90,7 @@ def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOS
     budget = {}
     for w, mk in enumerate(mks):
         h = mk()
-        calls = _calls(body, names, h)
+        calls = _calls(body, names, h) if menu == 'body' else _own_calls(eff, body, h, rng)
         acts = sorted({a for a, _, _ in calls})
         for _round in range(per_action):
             for a in acts:

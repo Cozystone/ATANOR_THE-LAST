@@ -276,6 +276,8 @@ class Effects:
         self.raw.append(row)
         if self._grouped_by == self._qualified():
             self._group(row, self._grouped_by)
+        else:                                              # what counts as a constant changed: group everything again
+            self._grouped_by = None                        # (it may change back before the next look; no case may be lost)
         return True
 
     def digest(self):

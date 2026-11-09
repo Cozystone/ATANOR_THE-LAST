@@ -81,3 +81,23 @@ def test_a_demonstration_without_an_answer_does_not_mean_the_world_changed():
     eff.observe(demo)
     m = eff.model('heat', ['b1'])
     assert m.superseded == [] and len(m.cases) == 5
+
+
+def test_no_case_is_lost_when_what_counts_as_a_constant_changes_and_changes_back():
+    from atanor_os.rebuild.effects import Effects
+
+    class Flicker(Effects):
+        def _qualified(self):
+            return getattr(self, 'now', frozenset())
+    eff = Flicker()
+    def see(t, arg):
+        eff.observe({'t': t, 'action': {'tool': 'copy', 'args': [arg]}, 'actor': 'person', 'body': 'b',
+                     'before': {arg: {'kind': 'f'}}, 'after': {arg: {'kind': 'f'}}, 'response': {'ok': True}})
+    see(0, 'a')
+    assert sum(len(m.cases) for m in eff.models.values()) == 1
+    eff.now = frozenset([('b', 'zz')])
+    see(1, 'b')                       # not grouped now: what counts as a constant is different
+    eff.now = frozenset()
+    see(2, 'c')                       # back as it was: the case before must not be gone
+    assert sum(len(m.cases) for m in eff.models.values()) == 3
+
