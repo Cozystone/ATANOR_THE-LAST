@@ -300,7 +300,7 @@ def score(model, shots, queries, device, k, rng, tau=0.0):
     c = Counter()
     eps = []
     for q in queries:
-        same = pool.get((q.body, q.tool, len(q.args)), [])
+        same = [x for x in pool.get((q.body, q.tool, len(q.args)), []) if x is not q]   # never its own example
         ex = same if len(same) <= k else rng.sample(same, k)
         if not ex:
             c['never_seen'] += 1
