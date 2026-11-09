@@ -169,9 +169,18 @@ def measure(self_dir, seed, target, out):
         except Exception as ex:                            # a dead Self may leave a world no evaluator can read
             good = None
             Path(out).with_suffix('.error.txt').write_text(repr(ex), encoding='utf-8')
-    fit = (0 if dead else 1, stages, (good or 0.0) / max(spent, 1.0), E or 0.0)
+    cmd = Counter()                                        # the person's own scoring of the Self's work in the new body, every body alike
+    tl = Path(self_dir) / 'worlds' / target / 'teacher_log.jsonl'
+    if tl.exists():
+        for line in tl.read_text(encoding='utf-8').splitlines():
+            r = json.loads(line)
+            if r.get('activity') == 'command':
+                cmd[r.get('outcome')] += 1
+    n_cmd = sum(cmd.values())
+    good_t = (cmd['success'] + cmd['partial']) / n_cmd if n_cmd else None
+    fit = (0 if dead else 1, E or 0.0)                     # setting 5: what nature ranks by, nothing of mine (alive, then what is left)
     return {'dead': dead, 'stages': stages, 'E': E, 'spent_target': round(spent, 3), 'predictions_target': preds, 'good': good,
-            'lived': lived, 'read': read, 'fitness': fit}
+            'good_teacher': good_t, 'commands_target': n_cmd, 'wrong_target': cmd['wrong'], 'lived': lived, 'read': read, 'fitness': fit}
 
 
 # ------------------------------------------------------------ generations
@@ -229,9 +238,12 @@ def summ(out):
             r = [m for m in ms if m['condition'] == c]
             alive = [m for m in r if not m['dead']]
             good = [m['good'] for m in r if m['good'] is not None]
-            eff = [m['fitness'][2] for m in r]
-            print(f.stem, r[0].get('target', ''), c, f"alive {len(alive)}/{len(r)}", f"GOOD {sum(good) / len(good):.3f}" if good else 'GOOD -',
-                  f"GOOD/E {sum(eff) / len(eff):.4f}", f"preds {sum(m['predictions_target'] for m in r) / len(r):.0f}",
+            gt = [m['good_teacher'] for m in r if m.get('good_teacher') is not None]
+            E = [m['E'] or 0 for m in r]
+            print(f.stem, r[0].get('target', ''), c, f"alive {len(alive)}/{len(r)}", f"E {sum(E) / len(E):.1f}",
+                  f"teacherGOOD {sum(gt) / len(gt):.3f}" if gt else 'teacherGOOD -', f"evalGOOD {sum(good) / len(good):.3f}" if good else 'evalGOOD -',
+                  f"spent {sum(m['spent_target'] for m in r) / len(r):.1f}", f"wrong {sum(m.get('wrong_target', 0) for m in r)}",
+                  f"guide {sum(m['genome'].get('guide', 0) for m in r)}/{len(r)}",
                   f"read {sum(m['read'] for m in r) / len(r):.0f} lived {sum(m['lived'] for m in r) / len(r):.0f}")
 
 
