@@ -106,7 +106,11 @@ def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOS
                     st = h.observe(h.existing())
                     blank = {k: '-' for k in next(iter(st.values()), {})} | {'kind': 'absent'}
                     before = [st.get(x, blank) for x in args]
-                    if selector in ('CHOOSE', 'RETEST', 'SUPPORT', 'VARIED'):
+                    if callable(selector):                              # dev hook: a priority (rank, tiebreak) or None
+                        pr = selector(m, tool, args, before, eff.predict(tool, args, before, reader=READER)['outcome'])
+                        if pr is not None:
+                            cands.append((pr[0], pr[1], len(cands), tool, args, st))
+                    elif selector in ('CHOOSE', 'RETEST', 'SUPPORT', 'VARIED'):
                         nw = _newness(m, flat(before))
                         y = eff.predict(tool, args, before, reader=READER)['outcome']
                         if y is None:
@@ -121,7 +125,7 @@ def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOS
                         cands.append((0, 0, len(cands), tool, args, st))
                 if not cands:
                     continue
-                if selector in ('CHOOSE', 'RETEST', 'SUPPORT', 'VARIED'):
+                if callable(selector) or selector in ('CHOOSE', 'RETEST', 'SUPPORT', 'VARIED'):
                     _, _, _, tool, args, st = min(cands)
                 else:
                     _, _, _, tool, args, st = rng.choice(cands)
