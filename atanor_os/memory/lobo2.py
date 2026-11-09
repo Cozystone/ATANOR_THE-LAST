@@ -1,5 +1,5 @@
 """H_LEARNED_MEMORY_PLAN.md, second form: leave one body out with the episodic model (no weight update in the new body).
-  LIFE         trained on five bodies' episodes; the sixth body's queries answered with k of its course experiences as examples
+  LIFE         trained on five bodies' episodes (--augment: words ciphered afresh per episode, so only structure is learnable); the sixth body's queries answered with k of its course experiences as examples
   LIFE-CIPHER  the same, every word of the sixth body replaced consistently (structure only)
   ALONE        the same model trained on the sixth body's own course episodes only (what the body alone can teach)
   EMPTY        the symbolic predictor from the sixth body's course only (today's core)
@@ -44,7 +44,7 @@ def run(a):
         rows.append({'held': held, 'cond': 'EMPTY', 'k': None, **ea})
         torch.manual_seed(0)
         t0 = time.time()
-        life = train(Episodic(), others, device, steps=a.steps, k=max(a.ks), seed=0, log=lambda s: say(held, 'LIFE', s))
+        life = train(Episodic(), others, device, steps=a.steps, k=max(a.ks), seed=0, log=lambda s: say(held, 'LIFE', s), augment=a.augment)
         say(held, 'LIFE trained', len(others), 'scenes', f'{time.time() - t0:.0f}s')
         torch.manual_seed(0)
         alone = train(Episodic(), held_tr, device, steps=a.steps, k=max(a.ks), seed=0)
@@ -74,6 +74,7 @@ if __name__ == '__main__':
     ap.add_argument('--ks', nargs='+', type=int, default=[1, 3, 10])
     ap.add_argument('--steps', type=int, default=3000)
     ap.add_argument('--tau', type=float, default=0.0)
+    ap.add_argument('--augment', action='store_true', help='LIFE trains on word-ciphered episodes (structure only)')
     a = ap.parse_args()
     if any(s > 5 for s in a.seeds):
         ap.error('development: seeds 1-5 only')

@@ -13,7 +13,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from .relational import BLANK, MAX_ARGS, N_BUCKET, N_HASH, RESP, Scene, h
+from .relational import BLANK, MAX_ARGS, N_BUCKET, N_HASH, RESP, Scene, cipher, h
 
 ROLE = {'ex_before': 0, 'ex_after': 1, 'query': 2}
 
@@ -152,8 +152,10 @@ def by_tool(scenes):
     return d
 
 
-def episodes(scenes, rng, k, n, with_truth=True):
-    """n training episodes: k examples and a query of one body and tool."""
+def episodes(scenes, rng, k, n, augment=False):
+    """n training episodes: k examples and a query of one body and tool. augment: every word of the episode replaced by a
+    nonsense word drawn afresh for that episode, so words carry nothing between episodes and only the equalities inside
+    the episode can be used - the form the model must have in a body whose words it has never seen."""
     pool = {key: v for key, v in by_tool(scenes).items() if len(v) >= 2}
     keys = list(pool)
     out = []
@@ -163,18 +165,21 @@ def episodes(scenes, rng, k, n, with_truth=True):
         kk = min(rng.randint(1, k), len(v) - 1)
         q = rng.choice(v)
         ex = rng.sample([s for s in v if s is not q], kk)
+        if augment:
+            c = cipher(ex + [q], rng)
+            ex, q = c[:-1], c[-1]
         out.append(Episode(ex, q))
     return out
 
 
-def train(model, scenes, device, steps=3000, k=8, batch=32, lr=3e-4, seed=0, log=None):
+def train(model, scenes, device, steps=3000, k=8, batch=32, lr=3e-4, seed=0, log=None, augment=False):
     rng = random.Random(seed)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=lr, total_steps=steps)
     model.to(device)
     for step in range(steps):
         model.train()
-        eps = episodes(scenes, rng, k, batch)
+        eps = episodes(scenes, rng, k, batch, augment)
         loss = model.loss(eps, device)
         opt.zero_grad()
         loss.backward()
