@@ -1,5 +1,21 @@
 # ATANOR research state — 2026-11-09
 
+## CURRENT PRIORITY OVERRIDE 2026-11-09 (evening) — step G: survival, death, lineages (founder decision)
+Founder redefined the route after B's three NO-GOs and the literature survey (reports/전이 복리 최신 연구 조사.md: no no-LLM
+learner got faster on a different domain after June 2026; only content-free role structure transfers; carried statistics raise wrong).
+Compounding is no longer sought in the predictor's prior. It is sought in SELECTION under survival: one life + energy paid by every
+costly record, fed only by the person's 'success', one irreversible death; the one rule for paying to learn is expected free energy
+(preference = energy in [E_low, E_high]; nothing else says when to explore); lineages over six genome numbers with FULL (genes +
+parents' experiences inherited as READ, apart from lived) / GENES / RANDOM. Criteria S1-S5 in atanor_os/G_SURVIVAL_PLAN.md, fixed before
+code. No consciousness claim; S1-S5 are precursors of self-related regulation only. The substrate (symbolic core vs a small learnable
+net) is to be decided by selection in the same world later, not by preference. Runtime LLM ban stands.
+Status: code committed (metabolism.py, lineage.py, hooks; 9 tests). First dev run: seed 1, prior board+clime, target dye, 4 sessions,
+N=6, 3 generations, 3 conditions - running. D held-out check (BIRTH_PLAN.md): NOT COMPLETED - the frozen perception was not computable on the held-out formats (16-19
+words per line became attributes; workers grew to 7-8 GB and died); F3 also hid the typed name in 65/120 lines. Recorded as a
+perception defect; next round needs new formats and seeds; deferred behind G.
+G runs: setting 1 everyone starved (18/18); setting 2 everyone lived (54/54), FULL gen1 spent 44 vs 50-58 energy at equal GOOD;
+setting 3 (stage 9, read inheritance down the lineage, 2 target sessions, N=8, 5 generations) running.
+
 ## CURRENT PRIORITY OVERRIDE 2026-11-09 — back to one Self (founder correction)
 Authority: goal-objective.md (below). `atanor_os/rebuild/` is one organ (per-call effect prediction), not ATANOR.
 Sixth-body test PARTIAL (`atanor_os/SIXTH_BODY_RESULTS.md`, 21da991e). SLM beating is a side metric now.
