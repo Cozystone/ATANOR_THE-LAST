@@ -61,6 +61,15 @@ class Episode:
                         or [r for r, row in enumerate(rows[:self.q0]) if row[0] in ('ex_after', 'ex_before') and row[4] == want]
                     self.src.append(cands[0] if cands else None)
         self.prior, self.seen = self._prior()
+        self.row_vals = np.array([r[4] for r in rows], dtype=object)
+        self.tmask = None                                  # [n_q, rows + 2]: every place the true word can be read
+        if query.tg is not None:                           # from (any row holding it, 'blank', 'not in the episode')
+            want = np.array(query.after_values, dtype=object)
+            M = np.zeros((n, len(rows) + 2), dtype=bool)
+            M[:, :len(rows)] = self.row_vals[None, :] == want[:, None]
+            M[:, len(rows)] = want == BLANK
+            M[:, len(rows) + 1] = ~M[:, :len(rows) + 1].any(1)
+            self.tmask = torch.from_numpy(M)
 
     def _prior(self):
         """What the examples say, counted (words compared only for equality, nothing named), per query token p:
@@ -117,9 +126,10 @@ class Episode:
 
 
 class Episodic(nn.Module):
-    def __init__(self, d=160, layers=4, heads=8, use_pos=False):
+    def __init__(self, d=160, layers=4, heads=8, use_pos=False, n_bucket=1):
         super().__init__()
         self.use_pos = use_pos
+        self.n_bucket = n_bucket                           # 1: 'the word is not in the episode' (older readers: 1024 hash buckets)
         self.word = nn.Embedding(N_HASH, 32)
         self.role = nn.Embedding(4, 16)
         self.ex = nn.Embedding(34, 16)
@@ -131,7 +141,7 @@ class Episodic(nn.Module):
         self.q = nn.Linear(d, d)
         self.k = nn.Linear(d, d)
         self.blank = nn.Linear(d, 1)
-        self.bucket = nn.Linear(d, N_BUCKET)
+        self.bucket = nn.Linear(d, n_bucket)
         self.resp = nn.Linear(d, len(RESP))
         self.gain = nn.Parameter(torch.tensor(4.0))        # how much the counted prior is trusted (learned)
         self.gain_c = nn.Parameter(torch.tensor(4.0))      # ... and the prior read by the query's own start value
@@ -190,18 +200,20 @@ class Episodic(nn.Module):
         return [(e.q0, e.q0 + e.n_q) for e in eps]
 
     def loss(self, eps, device):
+        """Every place the true word can be read from counts (the same word is usually in several rows)."""
         z, att, mask = self(eps, device)
-        B, n, _ = att.shape
         tot, cnt = 0.0, 0
         rl, rt = [], []
         for b, e in enumerate(eps):
             a, c = e.q0, e.q0 + e.n_q
             qz = z[b, a:c]                                  # [n_q, d]
             m = len(e.rows)
-            pointer = att[b, a:c, :m]                       # a query token's value after: from any token of the episode
-            logits = self._with_prior(e, pointer, self.blank(qz), self.bucket(qz), device)
-            tg = torch.tensor([s_ if s_ is not None else (m if t == e.n_q else m + 1 + (t - e.n_q - 1)) for s_, t in zip(e.src, e.query.tg)], device=device)
-            tot = tot + F.cross_entropy(logits, tg, reduction='sum')
+            logits = self._with_prior(e, att[b, a:c, :m], self.blank(qz), self.bucket(qz), device)
+            M = e.tmask.to(device)
+            if self.n_bucket > 1:
+                M = torch.cat([M[:, :m + 1], M[:, m + 1:].expand(-1, self.n_bucket)], -1)
+            lp = logits.masked_fill(~M, -1e9).logsumexp(-1) - logits.logsumexp(-1)
+            tot = tot - lp.sum()
             cnt += e.n_q
             rl.append(qz.mean(0))
             rt.append(e.query.resp)
@@ -210,25 +222,35 @@ class Episodic(nn.Module):
 
     @torch.no_grad()
     def predict(self, eps, device, tau=0.0):
+        """-> per episode (values after or None, answer or None, confidence). A value's probability is summed over every
+        row holding that word; 'not in the episode' wins -> that token is ('<elsewhere>',), which no scorer counts right."""
         self.eval()
         z, att, mask = self(eps, device)
         out = []
         for b, e in enumerate(eps):
             a, c = e.q0, e.q0 + e.n_q
+            if e.n_q == 0:
+                out.append((None, None, 0.0))
+                continue
             qz = z[b, a:c]
             m = len(e.rows)
-            logits = self._with_prior(e, att[b, a:c, :m], self.blank(qz), self.bucket(qz), device)
-            P = logits.softmax(-1)
-            vals, conf = [], []
-            n = e.n_q
-            for p in range(n):
-                row = P[p, :m].tolist() + [P[p, m].item(), P[p, m + 1:].max().item()]
-                j = max(range(len(row)), key=row.__getitem__)
-                conf.append(row[j])
-                vals.append(e.rows[j][4] if j < m else (BLANK if j == m else ('<bucket>', int(P[p, m + 1:].argmax()))))
+            P = self._with_prior(e, att[b, a:c, :m], self.blank(qz), self.bucket(qz), device).softmax(-1)
+            names, inv = np.unique(e.row_vals.astype(str), return_inverse=True)
+            G = torch.zeros(m, len(names), device=device)
+            G[torch.arange(m, device=device), torch.from_numpy(inv).to(device)] = 1.0
+            Pv = P[:, :m] @ G                                # [n_q, words]
+            names = list(names)
+            if BLANK in names:
+                Pv[:, names.index(BLANK)] += P[:, m]
+                extra = P[:, m + 1:].sum(-1, keepdim=True)
+                Pall, labels = torch.cat([Pv, extra], -1), names + [('<elsewhere>',)]
+            else:
+                Pall, labels = torch.cat([Pv, P[:, m:m + 1], P[:, m + 1:].sum(-1, keepdim=True)], -1), names + [BLANK, ('<elsewhere>',)]
+            conf, idx = Pall.max(-1)
+            vals = [labels[i] for i in idx.tolist()]
             pr = self._resp_logits([e], qz.mean(0, keepdim=True)).softmax(-1)[0]
             ans = RESP[int(pr.argmax())]
-            cmin = min(conf + [pr.max().item()])
+            cmin = min(conf.min().item(), pr.max().item())
             out.append((vals if cmin >= tau else None, ans if cmin >= tau else None, cmin))
         return out
 
@@ -240,13 +262,17 @@ def by_tool(scenes):
     return d
 
 
-def episodes(scenes, rng, k, n, augment=False, biased=0.0):
+def task_pool(scenes):
+    return {key: v for key, v in by_tool(scenes).items() if len(v) >= 2}
+
+
+def episodes(scenes, rng, k, n, augment=False, biased=0.0, pool=None):
     """n training episodes: k examples and a query of one body and tool. augment: every word of the episode replaced by a
     nonsense word drawn afresh for that episode, so words carry nothing between episodes and only the equalities inside
     the episode can be used - the form the model must have in a body whose words it has never seen. biased: with that
     chance the examples are successes only, as a teacher's course mostly is, while the query is any start: whether a
     start unlike every example will be refused must then be judged, not counted."""
-    pool = {key: v for key, v in by_tool(scenes).items() if len(v) >= 2}
+    pool = pool if pool is not None else task_pool(scenes)
     keys = list(pool)
     out = []
     while len(out) < n:
@@ -267,12 +293,13 @@ def episodes(scenes, rng, k, n, augment=False, biased=0.0):
 
 def train(model, scenes, device, steps=3000, k=8, batch=32, lr=3e-4, seed=0, log=None, augment=False, biased=0.0):
     rng = random.Random(seed)
+    pool = task_pool(scenes)                               # once: rebuilding it every step cost more than the step
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=lr, total_steps=steps)
     model.to(device)
     for step in range(steps):
         model.train()
-        eps = episodes(scenes, rng, k, batch, augment, biased)
+        eps = episodes(scenes, rng, k, batch, augment, biased, pool)
         loss = model.loss(eps, device)
         opt.zero_grad()
         loss.backward()
@@ -285,17 +312,25 @@ def train(model, scenes, device, steps=3000, k=8, batch=32, lr=3e-4, seed=0, log
 
 
 def right(e, vals, ans):
-    from .relational import right as r
-    return r(e.query, vals, ans)
+    """right / wrong / unknown on the whole outcome: the answer and every token's word after. Abstained, or a word that is
+    not in the episode (nothing produced), is unknown."""
+    if vals is None or any(isinstance(v, tuple) for v in vals):
+        return 'unknown'
+    q = e.query
+    if ans != RESP[q.resp]:
+        return 'wrong'
+    return 'right' if list(vals) == list(q.after_values) else 'wrong'
 
 
-def score(model, shots, queries, device, k, rng, tau=0.0):
+def score(model, shots, queries, device, k, rng, tau=0.0, ok_only=False):
     """Queries of the new body answered with k of its course experiences as examples (same tool when there are any)."""
     pool = by_tool(shots)
     c = Counter()
     eps = []
     for q in queries:
         same = [x for x in pool.get((q.body, q.tool, len(q.args)), []) if x is not q]   # never its own example
+        if ok_only:                                       # as a course is: successes shown, any start asked
+            same = [x for x in same if x.resp == 0] or same
         ex = same if len(same) <= k else rng.sample(same, k)
         if not ex:
             c['never_seen'] += 1

@@ -44,7 +44,7 @@ def run(a):
     taus = sorted(set(a.tau) | {0.0})
     for k in a.ks:
         for tau in taus:
-            r = score(model, held, held[: min(len(held), 3000)], device, k, random.Random(k), tau)
+            r = score(model, held, held[: min(len(held), 3000)], device, k, random.Random(k), tau, ok_only=True)   # the regime a course gives
             say('HELD-GENERATED', 'k', k, 'tau', tau, r)
             rows.append({'held': 'generated', 'cond': 'META', 'k': k, 'tau': tau, **r})
     # H2's threshold is chosen on generated worlds only, never on a real body: the smallest tau at which wrong <= 1% there

@@ -21,26 +21,20 @@ import torch
 
 from ..rebuild.bench_predict import judge
 from ..rebuild.effects import Effects
-from .episodic import Episode, Episodic, by_tool, score
+from .episodic import Episode, Episodic, by_tool, right, score
 from .lobo import BODIES, CACHE, load
 from .relational import BLANK, RESP
 from .worlds import generate
 
 
 def reader(path, device):
-    m = Episodic()
-    m.load_state_dict(torch.load(path, map_location=device))
+    sd = torch.load(path, map_location=device)
+    m = Episodic(n_bucket=sd['bucket.weight'].shape[0])    # older readers have hash buckets
+    m.load_state_dict(sd)
     return m.to(device).eval()
 
 
-def strict(e, vals, ans):
-    """right / wrong / unknown on the whole outcome; a bucket (no word produced) is an abstention."""
-    if vals is None or any(isinstance(v, tuple) for v in vals):
-        return 'unknown'
-    q = e.query
-    if ans != RESP[q.resp]:
-        return 'wrong'
-    return 'right' if list(vals) == list(q.after_values) else 'wrong'
+strict = right
 
 
 def prior_only(pool, qs, k, rng):
@@ -73,7 +67,8 @@ def ask(model, pool, qs, device, k, tau, votes, rng):
             same = [x for x in pool.get((q.body, q.tool, len(q.args)), []) if x is not q]
             if not same:
                 continue
-            ex = same if len(same) <= k else rng.sample(same, k)
+            kk = min(k, len(same)) if votes == 1 else min(k, max(1, (2 * len(same) + 2) // 3))   # votes must see different examples
+            ex = same if len(same) <= kk else rng.sample(same, kk)
             eps.append(Episode(ex, q))
             idx.append(i)
         res = {}
@@ -144,9 +139,10 @@ def family(path):
     held = generate(300, 12, seed=2)                        # worlds never trained on (training used seed 1)
     for k in (1, 3, 10):
         for tau in (0.0, 0.5, 0.7, 0.9):
-            r = score(model, held, held[:3000], device, k, random.Random(k), tau)
-            n = sum(r.values())
-            print(f"family k={k} tau={tau} R {r.get('right', 0) / n:.3f} W {r.get('wrong', 0) / n:.4f} n={n}", flush=True)
+            for ok_only in (False, True):
+                r = score(model, held, held[:3000], device, k, random.Random(k), tau, ok_only)
+                n = sum(r.values())
+                print(f"family k={k} tau={tau} {'successes-only examples' if ok_only else 'any examples'} R {r.get('right', 0) / n:.3f} W {r.get('wrong', 0) / n:.4f} n={n}", flush=True)
 
 
 if __name__ == '__main__':
