@@ -41,10 +41,23 @@ def run(a):
     say('trained', f'{time.time() - t0:.0f}s')
     torch.save(model.state_dict(), out / 'reader.pt')
     rows = []
+    taus = sorted(set(a.tau) | {0.0})
     for k in a.ks:
-        r = score(model, held, held[: min(len(held), 3000)], device, k, random.Random(k), 0.0)
-        say('HELD-GENERATED', 'k', k, r)
-        rows.append({'held': 'generated', 'cond': 'META', 'k': k, 'tau': 0.0, **r})
+        for tau in taus:
+            r = score(model, held, held[: min(len(held), 3000)], device, k, random.Random(k), tau)
+            say('HELD-GENERATED', 'k', k, 'tau', tau, r)
+            rows.append({'held': 'generated', 'cond': 'META', 'k': k, 'tau': tau, **r})
+    # H2's threshold is chosen on generated worlds only, never on a real body: the smallest tau at which wrong <= 1% there
+    cal = None
+    for tau in taus:
+        rs = [r for r in rows if r['held'] == 'generated' and r['tau'] == tau]
+        n = sum(sum(v for kk, v in r.items() if kk in ('right', 'wrong', 'unknown')) for r in rs)
+        if n and sum(r.get('wrong', 0) for r in rs) / n <= 0.01:
+            cal = tau
+            break
+    say('CALIBRATED tau (wrong <= 1% on generated worlds):', cal)
+    if cal is not None and cal not in a.tau:
+        a.tau = list(a.tau) + [cal]
     for body in a.bodies:
         ea = Counter()
         tr, qs = [], []
