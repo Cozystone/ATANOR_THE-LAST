@@ -60,6 +60,23 @@ def space(effs):
     return sp
 
 
+def space_from_items(items, exclude=None):
+    """The role space of a mind's experiences by body (every body but `exclude`), lived and read alike."""
+    from ..rebuild.effects import Effects
+    by = defaultdict(list)
+    for e in items:
+        if e.get('action') and e.get('body') and e.get('body') != exclude:
+            by[e['body']].append(e)
+    effs = []
+    for b, es in sorted(by.items()):
+        eff = Effects()
+        eff.body = b
+        for e in es:
+            eff.observe(e)
+        effs.append(eff)
+    return space(effs)
+
+
 def shuffled(sp, rng):
     pats = sorted(sp)
     vals = [sp[p] for p in pats]

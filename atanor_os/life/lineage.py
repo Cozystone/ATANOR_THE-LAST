@@ -23,8 +23,9 @@ from . import host
 from .judge import blocks, evaluate
 from .metabolism import DEFAULT_GENOME, GENOME, Death
 
-BOUNDS = {'tau': (0.90, 0.999), 'lab_tests': (0, 12), 'per_action': (0, 20), 'E_low': (5.0, 80.0), 'E_high': (20.0, 100.0), 'w_epi': (0.1, 5.0)}
-INTS = ('lab_tests', 'per_action')
+BOUNDS = {'tau': (0.90, 0.999), 'lab_tests': (0, 12), 'per_action': (0, 20), 'E_low': (5.0, 80.0), 'E_high': (20.0, 100.0), 'w_epi': (0.1, 5.0),
+          'guide': (0, 1)}
+INTS = ('lab_tests', 'per_action', 'guide')
 
 
 # ------------------------------------------------------------ genomes
@@ -55,6 +56,8 @@ def mutate(g, rng, sigma=0.2):
         if k == 'tau':
             miss = (1 - g[k]) * math.exp(rng.gauss(0, sigma * 2))
             out[k] = 1 - miss
+        elif k == 'guide':
+            out[k] = 1 - g[k]
         elif k in INTS:
             out[k] = g[k] + rng.choice((-2, -1, 1, 2))
         else:
@@ -176,11 +179,15 @@ def run(a):
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     rng = random.Random(f'lineage-{a.seed}')
-    prior, target, S, T = a.prior, a.target, a.sessions, a.target_sessions
-    bodies = prior + [target]
+    S, T = a.sessions, a.target_sessions
     pops = {c: [random_genome(rng) for _ in range(a.n)] for c in a.conditions}
     parents = {c: [() for _ in range(a.n)] for c in a.conditions}
     for gen in range(a.generations):
+        if a.rotate:                                    # each generation meets a body no ancestor lived: the real new body
+            prior, target = [a.rotate[gen]], a.rotate[gen + 1]
+        else:
+            prior, target = a.prior, a.target
+        bodies = prior + [target]
         jobs = []
         for c in a.conditions:
             for i, g in enumerate(pops[c]):
@@ -192,7 +199,7 @@ def run(a):
             c, i, d = job
             end = live(d, a.seed, target, S, T, prior, d / 'life.log')
             m = measure(d, a.seed, target, d / f'eval-{c}-g{gen}-i{i}.json')   # a name of its own: the evaluator works under it
-            m.update(condition=c, gen=gen, i=i, end=end, genome=pops[c][i])
+            m.update(condition=c, gen=gen, i=i, end=end, genome=pops[c][i], target=target, prior=prior)
             (d / 'measure.json').write_text(json.dumps(m), encoding='utf-8')
             return m
         with ThreadPoolExecutor(a.jobs) as ex:
@@ -223,7 +230,7 @@ def summ(out):
             alive = [m for m in r if not m['dead']]
             good = [m['good'] for m in r if m['good'] is not None]
             eff = [m['fitness'][2] for m in r]
-            print(f.stem, c, f"alive {len(alive)}/{len(r)}", f"GOOD {sum(good) / len(good):.3f}" if good else 'GOOD -',
+            print(f.stem, r[0].get('target', ''), c, f"alive {len(alive)}/{len(r)}", f"GOOD {sum(good) / len(good):.3f}" if good else 'GOOD -',
                   f"GOOD/E {sum(eff) / len(eff):.4f}", f"preds {sum(m['predictions_target'] for m in r) / len(r):.0f}",
                   f"read {sum(m['read'] for m in r) / len(r):.0f} lived {sum(m['lived'] for m in r) / len(r):.0f}")
 
@@ -247,6 +254,7 @@ if __name__ == '__main__':
     ap.add_argument('--generations', type=int, default=3)
     ap.add_argument('--conditions', nargs='+', default=['FULL', 'GENES', 'RANDOM'])
     ap.add_argument('--jobs', type=int, default=8)
+    ap.add_argument('--rotate', nargs='*', default=None, help='bodies in order; generation k lives rotate[k] then meets rotate[k+1]')
     a = ap.parse_args()
     if a.seed not in range(1, 6):
         ap.error('development: seeds 1-5 only')

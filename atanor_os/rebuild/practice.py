@@ -42,10 +42,15 @@ def practice(world_dir, mind_dir, body, seed, selector='CHOOSE', per_action=PER_
     if m is not None:                                   # in a life: the genome's budget, and each trial must be worth its price
         per_action = int(m.g['per_action'])
 
+        pick = None
+        if m.g.get('guide'):                            # the other bodies' role space, lived and read alike
+            from ..life.role_space_probe import guided, space_from_items
+            pick = guided(space_from_items(store.items, exclude=body))
+
         def gated(model, tool, args, before, y):
             if y is not None or not m.allow(metabolism.PRICES['SELF_TRIAL'], True):
                 return None
-            return (0, 0)
+            return pick(model, tool, args, before, y) if pick else (0, 0)
         selector = gated
     trials = explore(eff, body, names, seed + PRACTICE, work, per_action=per_action, selector=selector, keep=keep)
     shutil.rmtree(work, ignore_errors=True)

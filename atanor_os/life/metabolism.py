@@ -14,14 +14,17 @@ Nothing else in the code says when to explore. The genome holds only the six num
 import json
 from pathlib import Path
 
-GENOME = ('tau', 'lab_tests', 'per_action', 'E_low', 'E_high', 'w_epi')
-DEFAULT_GENOME = {'tau': 0.99, 'lab_tests': 6, 'per_action': 10, 'E_low': 30.0, 'E_high': 90.0, 'w_epi': 1.0}
+GENOME = ('tau', 'lab_tests', 'per_action', 'E_low', 'E_high', 'w_epi', 'guide')
+# guide (0/1): in practice, try first the starts that put a never-met value on a role that this mind's OTHER bodies (lived or
+# read) found decisive for that kind of outcome (life/role_space_probe.py). A cross-body carrier for selection to keep or drop.
+DEFAULT_GENOME = {'tau': 0.99, 'lab_tests': 6, 'per_action': 10, 'E_low': 30.0, 'E_high': 90.0, 'w_epi': 1.0, 'guide': 0}
 E0 = 100.0
 # Environment, second setting (G_SURVIVAL_PLAN.md): under the first (stage 8, success 3) every Self of every condition starved
 # before its third body (18/18, dev seed 1), so there was nothing to select. The teacher gives 2-3 commands a session.
 # Third setting: under the second (stage 7) all 54 Selves of three generations lived with energy to spare (ending 70-144 of 100),
 # so death never selected. Stage 9: a Self that succeeds at nearly every command just lives; one at GOOD ~0.7 does not.
-PRICES = {'PREDICTION': 0.02, 'ACTION_INTENT': 0.3, 'SELF_TRIAL': 0.3, 'LAB': 0.3, 'QUESTION': 1.0, 'STAGE': 9.0}
+# Fourth setting: under the third (stage 9) still 120/120 lived (ending 34-91). Stage 11.
+PRICES = {'PREDICTION': 0.02, 'ACTION_INTENT': 0.3, 'SELF_TRIAL': 0.3, 'LAB': 0.3, 'QUESTION': 1.0, 'STAGE': 11.0}
 GAIN = {'success': 10.0, 'partial': 5.0, 'wrong': -5.0, 'held': 0.0}
 TEACHER_GIVES = (None, 'point', 'contrast', 'demo', 'confirm', 'name', 'recall', 'judge')   # the teacher's events at the interface: free
 

@@ -57,5 +57,5 @@ def test_outcomes_feed_and_harm():
     assert m.E == 10 + GAIN['success']
     m.outcome('wrong')
     assert m.E == 10 + GAIN['success'] + GAIN['wrong']
-    assert set(DEFAULT_GENOME) == {'tau', 'lab_tests', 'per_action', 'E_low', 'E_high', 'w_epi'}
+    assert set(DEFAULT_GENOME) == {'tau', 'lab_tests', 'per_action', 'E_low', 'E_high', 'w_epi', 'guide'}
     json.dumps(m.state())
