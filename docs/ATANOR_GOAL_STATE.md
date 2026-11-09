@@ -9,7 +9,8 @@ only on ATANOR's own experiences (no human text, no pretrained weights, no API) 
 layer, which keeps verification, record, safety (no act without confidence) and provenance. Plan and criteria H1-H3 fixed in
 atanor_os/H_LEARNED_MEMORY_PLAN.md before code. Word-free relational encoding + hashed word embeddings; leave-one-body-out, 0/k-shot,
 word-cipher control, against the empty symbolic mind. Expect within-family transfer; far transfer across structures is unproven anywhere.
-G (energy, death, lineage) stays as the life's condition; 5th setting runs on seeds 1-3 are finishing and will be recorded.
+G closed as FAIL on S4 (setting 5, seeds 1-3, 360 Selves, all alive): on a body no ancestor lived FULL = GENES = RANDOM in every seed;
+'guide' never selected; energy, death and lineage stay as the life's condition (G_SURVIVAL_PLAN.md).
 
 ## CURRENT PRIORITY OVERRIDE 2026-11-09 (evening) — step G: survival, death, lineages (founder decision)
 Founder redefined the route after B's three NO-GOs and the literature survey (reports/전이 복리 최신 연구 조사.md: no no-LLM
