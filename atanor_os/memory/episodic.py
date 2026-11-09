@@ -77,6 +77,29 @@ class Episode:
         failed = 1.0 - len(ok) / max(1, len(self.examples))
         if not ok:
             return P, blank, failed
+        layout = [(i, k) for i, k, _ in self.query.toks]
+        if all([(i, k) for i, k, _ in e.toks] == layout for e in ok):      # the usual case: one layout -> vectorised
+            import numpy as np
+            codes = {}
+            code = lambda w: codes.setdefault(w, len(codes))
+            A = np.array([[code(v) for v in e.after_values] for e in ok])          # [k, nq] after
+            Bx = np.array([[code(v) for _, _, v in e.toks] for e in ok])           # [k, nq] before
+            m = len(ok)
+            blank[:] = torch.from_numpy((A == code(BLANK)).mean(0)).float()
+            P[:, q0:q0 + nq] = torch.from_numpy((A[:, :, None] == Bx[:, None, :]).mean(0)).float()
+            # examples' outcome rows: row index of ex_after token q of example j
+            idx = {}
+            for r, row in enumerate(rows[:q0]):
+                if row[0] == 'ex_after':
+                    idx[(row[1], row[7])] = r
+            okj = [j for j, e in enumerate(self.examples) if e.resp == 0]
+            freq = (A[:, :, None, None] == A[None, None, :, :]).mean(0)             # [nq(p), k(j), nq(q)] : how often p's outcome equals example j's outcome at q
+            for jj, j in enumerate(okj):
+                for q in range(nq):
+                    r = idx.get((j, q))
+                    if r is not None and rows[r][4] != BLANK:
+                        P[:, r] = torch.from_numpy(freq[:, jj, q]).float()
+            return P, blank, failed
         after = {}                                         # (ex index, arg, attr) -> value after
         before = {}
         for j, e in enumerate(ok):
