@@ -11,7 +11,7 @@ def test_worlds_are_deterministic_and_within_the_grammar():
     for p in a.tools.values():
         assert p['nargs'] in (1, 2)
         for (i, attr), op in p['ops'].items():
-            assert i < p['nargs'] and attr in a.attrs and op[0] in ('set', 'copy', 'blank', 'step')
+            assert i < p['nargs'] and attr in a.attrs and op[0] in ('set', 'copy', 'blank', 'step', 'map')
             if op[0] == 'copy':
                 assert op[1] == 1 - i and p['nargs'] == 2
 

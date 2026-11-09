@@ -31,12 +31,12 @@ def run(a):
         log.write(' '.join(map(str, x)) + '\n')
         log.flush()
     t0 = time.time()
-    gen = generate(a.worlds, a.per_tool, seed=1)
+    gen = generate(a.worlds, a.per_tool, seed=1, rich=not a.plain)
     say('generated', len(gen), 'scenes from', a.worlds, 'worlds', f'{time.time() - t0:.0f}s')
-    held = generate(200, a.per_tool, seed=2)                 # worlds never trained on, same family
+    held = generate(200, a.per_tool, seed=2, rich=not a.plain)   # worlds never trained on, same family
     torch.manual_seed(0)
     t0 = time.time()
-    model = train(Episodic(), gen, device, steps=a.steps, k=max(a.ks), batch=a.batch, augment=a.augment, seed=0,
+    model = train(Episodic(), gen, device, steps=a.steps, k=max(a.ks), batch=a.batch, augment=a.augment, biased=a.biased, seed=0,
                   log=lambda s: say('META', s))
     say('trained', f'{time.time() - t0:.0f}s')
     torch.save(model.state_dict(), out / 'reader.pt')
@@ -98,6 +98,8 @@ if __name__ == '__main__':
     ap.add_argument('--steps', type=int, default=6000)
     ap.add_argument('--batch', type=int, default=16)
     ap.add_argument('--augment', action='store_true')
+    ap.add_argument('--biased', type=float, default=0.5, help='share of training episodes whose examples are successes only')
+    ap.add_argument('--plain', action='store_true', help='the first grammar (no value maps, single preconditions)')
     a = ap.parse_args()
     if any(s > 5 for s in a.seeds):
         ap.error('development: seeds 1-5 only')

@@ -9,6 +9,7 @@ import math
 import random
 from collections import Counter, defaultdict
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -19,15 +20,11 @@ ROLE = {'ex_before': 0, 'ex_after': 1, 'query': 2}
 
 
 def tok_rows(scene, role, ex_id):
-    """Tokens of one scene in a role: (role, ex_id, arg, attr, value, same-attr-equal-to-other-arg, blank)."""
+    """Tokens of one scene in a role: (role, ex_id, arg, attr, value, same-attr-equal-to-other-arg, equal-in-object, place)."""
     rows = []
     toks = scene.toks
-    if role == 'ex_after':
-        n = len(toks)
-        vals = []
-        for t in scene.tg:
-            vals.append(toks[t][2] if t < n else (BLANK if t == n else f'#{t - n - 1}'))
-        toks = [(i, k, v) for (i, k, _), v in zip(scene.toks, vals)]
+    if role == 'ex_after':                                 # the words as they were observed after the call
+        toks = [(i, k, v) for (i, k, _), v in zip(scene.toks, scene.after_values)]
     for p, (i, k, v) in enumerate(toks):
         eq_other = any(i2 != i and k2 == k and v2 == v for (i2, k2, v2) in toks) and v != BLANK
         eq_same = any(q != p and i2 == i and v2 == v for q, (i2, k2, v2) in enumerate(toks)) and v != BLANK
@@ -47,85 +44,76 @@ class Episode:
         self.q0 = len(rows)
         rows += tok_rows(query, 'query', len(examples))
         self.rows = rows
-        self.n_q = len(query.toks)
+        self.n_q = n = len(query.toks)
         # a value not among the query's own tokens may still be in the episode (an example's state after): the answer may
         # point there. Else it is a bucket. -> per query token: a row index in the whole episode, or None (bucket/blank)
-        self.src = []
-        n = self.n_q
-        for p, t in enumerate(query.tg):
-            if t < n:
-                self.src.append(self.q0 + t)
-            elif t == n:
-                self.src.append(None)
-            else:
-                want = self._new_value(p, examples)
-                k_attr = query.toks[p][1]
-                cands = [i for i, r in enumerate(rows[:self.q0]) if r[0] == 'ex_after' and r[4] == want and r[3] == k_attr] or                         [i for i, r in enumerate(rows[:self.q0]) if r[0] in ('ex_after', 'ex_before') and r[4] == want]
-                self.src.append(cands[0] if cands else None)
-
-        self.prior = self._prior()
+        self.src = None
+        if query.tg is not None:
+            self.src = []
+            for p, t in enumerate(query.tg):
+                if t < n:
+                    self.src.append(self.q0 + t)
+                elif t == n:
+                    self.src.append(None)
+                else:
+                    want, k_attr = query.after_values[p], query.toks[p][1]
+                    cands = [r for r, row in enumerate(rows[:self.q0]) if row[0] == 'ex_after' and row[4] == want and row[3] == k_attr] \
+                        or [r for r, row in enumerate(rows[:self.q0]) if row[0] in ('ex_after', 'ex_before') and row[4] == want]
+                    self.src.append(cands[0] if cands else None)
+        self.prior, self.seen = self._prior()
 
     def _prior(self):
-        """What the examples say, counted, for each query token: how often this attribute of this argument ended equal to
-        each query token's start value (itself: kept), to each example's own outcome value, or blank; and how often the
-        body answered failed. Words are compared only for equality; nothing is named. -> ([n_q, len(rows)], [n_q], float)"""
-        import torch
+        """What the examples say, counted (words compared only for equality, nothing named), per query token p:
+          P       how often, over the successful examples, this argument's attribute ended equal to each query token's
+                  start value (itself: kept) and to each example's own outcome value;  blank: how often it ended blank
+          Pc      the same over only the examples that STARTED with the value the query has there (a table read by key)
+          failed  the share of examples the body refused
+          seen    per query token: was its start value met there in a successful example / in a refused one
+        -> (P [n_q, rows], blank [n_q], failed, Pc, blank_c), seen [rows, 2]"""
         rows, nq, q0 = self.rows, self.n_q, self.q0
-        P = torch.zeros(nq, len(rows))
-        blank = torch.zeros(nq)
+        P, Pc = torch.zeros(nq, len(rows)), torch.zeros(nq, len(rows))
+        blank, blank_c = torch.zeros(nq), torch.zeros(nq)
+        seen = torch.zeros(len(rows), 2)
         ok = [e for e in self.examples if e.resp == 0]
+        bad = [e for e in self.examples if e.resp != 0]
         failed = 1.0 - len(ok) / max(1, len(self.examples))
-        if not ok:
-            return P, blank, failed
         layout = [(i, k) for i, k, _ in self.query.toks]
-        if all([(i, k) for i, k, _ in e.toks] == layout for e in ok):      # the usual case: one layout -> vectorised
-            import numpy as np
-            codes = {}
-            code = lambda w: codes.setdefault(w, len(codes))
-            A = np.array([[code(v) for v in e.after_values] for e in ok])          # [k, nq] after
-            Bx = np.array([[code(v) for _, _, v in e.toks] for e in ok])           # [k, nq] before
-            m = len(ok)
-            blank[:] = torch.from_numpy((A == code(BLANK)).mean(0)).float()
-            P[:, q0:q0 + nq] = torch.from_numpy((A[:, :, None] == Bx[:, None, :]).mean(0)).float()
-            # examples' outcome rows: row index of ex_after token q of example j
-            idx = {}
-            for r, row in enumerate(rows[:q0]):
-                if row[0] == 'ex_after':
-                    idx[(row[1], row[7])] = r
-            okj = [j for j, e in enumerate(self.examples) if e.resp == 0]
-            freq = (A[:, :, None, None] == A[None, None, :, :]).mean(0)             # [nq(p), k(j), nq(q)] : how often p's outcome equals example j's outcome at q
-            for jj, j in enumerate(okj):
-                for q in range(nq):
-                    r = idx.get((j, q))
-                    if r is not None and rows[r][4] != BLANK:
-                        P[:, r] = torch.from_numpy(freq[:, jj, q]).float()
-            return P, blank, failed
-        after = {}                                         # (ex index, arg, attr) -> value after
-        before = {}
-        for j, e in enumerate(ok):
-            for (i, k, v), av in zip(e.toks, e.after_values):
-                before[(j, i, k)] = v
-                after[(j, i, k)] = av
-        for p, (i, k, v) in enumerate(self.query.toks):
-            outs = [after.get((j, i, k)) for j in range(len(ok))]
-            outs = [o for o in outs if o is not None]
-            if not outs:
-                continue
-            m = len(outs)
-            blank[p] = sum(o == BLANK for o in outs) / m
-            for q, (i2, k2, v2) in enumerate(self.query.toks):
-                P[p, q0 + q] = sum(after.get((j, i, k)) == before.get((j, i2, k2)) for j in range(len(ok)) if (j, i, k) in after and (j, i2, k2) in before) / m
-            for r, row in enumerate(rows[:q0]):
-                if row[0] == 'ex_after' and row[4] != BLANK:
-                    P[p, r] = sum(o == row[4] for o in outs) / m
-        return P, blank, failed
-
-    def _new_value(self, p, examples):
-        """The query token's true value after, when it is not in the query (known only when the query has a truth)."""
-        return getattr(self.query, 'after_values', None) and self.query.after_values[p]
-
-    def query_new_value(self, t):
-        return getattr(self.query, 'after_values', None) and None
+        same_layout = lambda es: all([(i, k) for i, k, _ in e.toks] == layout for e in es)
+        qv = [v for _, _, v in self.query.toks]
+        if bad and same_layout(bad):
+            for p in range(nq):
+                seen[q0 + p, 1] = float(any(e.toks[p][2] == qv[p] for e in bad))
+        if not ok or not same_layout(ok):
+            return (P, blank, failed, Pc, blank_c), seen
+        codes = {}
+        code = lambda w: codes.setdefault(w, len(codes))
+        A = np.array([[code(v) for v in e.after_values] for e in ok])          # [k, nq] after
+        Bx = np.array([[code(v) for _, _, v in e.toks] for e in ok])           # [k, nq] before
+        Qb = np.array([code(v) for v in qv])
+        bl = code(BLANK)
+        R = -np.ones((len(ok), nq), dtype=np.int64)                            # row of example jj's outcome token q
+        okj = {j: jj for jj, j in enumerate(j for j, e in enumerate(self.examples) if e.resp == 0)}
+        for r, row in enumerate(rows[:q0]):
+            if row[0] == 'ex_after' and row[4] != BLANK and row[1] in okj:
+                R[okj[row[1]], row[7]] = r
+        valid = R >= 0
+        cols = torch.from_numpy(R[valid])
+        blank[:] = torch.from_numpy((A == bl).mean(0)).float()
+        P[:, q0:q0 + nq] = torch.from_numpy((A[:, :, None] == Bx[:, None, :]).mean(0)).float()
+        freq = (A[:, :, None, None] == A[None, None, :, :]).mean(0)            # [nq(p), k, nq(q)]
+        if len(cols):
+            P[:, cols] = torch.from_numpy(freq[:, valid]).float()
+        for p in range(nq):
+            msk = Bx[:, p] == Qb[p]
+            seen[q0 + p, 0] = float(msk.any())
+            if msk.any():
+                As = A[msk]
+                Pc[p, q0:q0 + nq] = torch.from_numpy((As[:, p, None] == Bx[msk]).mean(0)).float()
+                blank_c[p] = float((As[:, p] == bl).mean())
+                if len(cols):
+                    f = (As[:, p][:, None, None] == A[None, :, :]).mean(0)      # [k, nq]
+                    Pc[p, cols] = torch.from_numpy(f[valid]).float()
+        return (P, blank, failed, Pc, blank_c), seen
 
 
 class Episodic(nn.Module):
@@ -137,7 +125,7 @@ class Episodic(nn.Module):
         self.ex = nn.Embedding(34, 16)
         self.arg = nn.Embedding(MAX_ARGS, 8)
         self.pos = nn.Embedding(64, 8)
-        self.inp = nn.Linear(32 * 2 + 16 + 16 + 8 + 8 + 2, d)
+        self.inp = nn.Linear(32 * 2 + 16 + 16 + 8 + 8 + 4, d)
         enc = nn.TransformerEncoderLayer(d, heads, 4 * d, dropout=0.1, batch_first=True)
         self.enc = nn.TransformerEncoder(enc, layers)
         self.q = nn.Linear(d, d)
@@ -146,6 +134,7 @@ class Episodic(nn.Module):
         self.bucket = nn.Linear(d, N_BUCKET)
         self.resp = nn.Linear(d, len(RESP))
         self.gain = nn.Parameter(torch.tensor(4.0))        # how much the counted prior is trusted (learned)
+        self.gain_c = nn.Parameter(torch.tensor(4.0))      # ... and the prior read by the query's own start value
         self.fail_gain = nn.Parameter(torch.tensor(2.0))
         self.d = d
 
@@ -158,7 +147,7 @@ class Episodic(nn.Module):
         exid = torch.zeros(B, n, dtype=torch.long, device=device)
         arg = torch.zeros(B, n, dtype=torch.long, device=device)
         pos = torch.zeros(B, n, dtype=torch.long, device=device)
-        flags = torch.zeros(B, n, 2, device=device)
+        flags = torch.zeros(B, n, 4, device=device)
         mask = torch.ones(B, n, dtype=torch.bool, device=device)
         for b, e in enumerate(eps):
             m = len(e.rows)
@@ -171,6 +160,7 @@ class Episodic(nn.Module):
                 pos[b, :m] = torch.tensor([min(max(r[7], 0), 63) for r in e.rows], device=device)   # per-body patterns by position
             flags[b, :m, 0] = torch.tensor([float(r[5]) for r in e.rows], device=device)
             flags[b, :m, 1] = torch.tensor([float(r[6]) for r in e.rows], device=device)
+            flags[b, :m, 2:4] = e.seen.to(device)
             mask[b, :m] = False
         z = torch.cat([self.word(names), self.word(vals), self.role(role), self.ex(exid), self.arg(arg), self.pos(pos), flags], -1)
         return self.enc(self.inp(z), src_key_padding_mask=mask), mask
@@ -183,9 +173,9 @@ class Episodic(nn.Module):
         return z, att, mask
 
     def _with_prior(self, e, pointer, blank, bucket, device):
-        Pm, Pb, _ = e.prior
-        pointer = pointer + self.gain * Pm.to(device)
-        blank = blank + self.gain * Pb.to(device)[:, None]
+        Pm, Pb, _, Pc, Pbc = e.prior
+        pointer = pointer + self.gain * Pm.to(device) + self.gain_c * Pc.to(device)
+        blank = blank + self.gain * Pb.to(device)[:, None] + self.gain_c * Pbc.to(device)[:, None]
         return torch.cat([pointer, blank, bucket], -1)
 
     def _resp_logits(self, eps, pooled):
@@ -250,19 +240,24 @@ def by_tool(scenes):
     return d
 
 
-def episodes(scenes, rng, k, n, augment=False):
+def episodes(scenes, rng, k, n, augment=False, biased=0.0):
     """n training episodes: k examples and a query of one body and tool. augment: every word of the episode replaced by a
     nonsense word drawn afresh for that episode, so words carry nothing between episodes and only the equalities inside
-    the episode can be used - the form the model must have in a body whose words it has never seen."""
+    the episode can be used - the form the model must have in a body whose words it has never seen. biased: with that
+    chance the examples are successes only, as a teacher's course mostly is, while the query is any start: whether a
+    start unlike every example will be refused must then be judged, not counted."""
     pool = {key: v for key, v in by_tool(scenes).items() if len(v) >= 2}
     keys = list(pool)
     out = []
     while len(out) < n:
         key = rng.choice(keys)
         v = pool[key]
-        kk = min(rng.randint(1, k), len(v) - 1)
         q = rng.choice(v)
-        ex = rng.sample([s for s in v if s is not q], kk)
+        rest = [s for s in v if s is not q]
+        if biased and rng.random() < biased:
+            okr = [s for s in rest if s.resp == 0]
+            rest = okr or rest
+        ex = rng.sample(rest, min(rng.randint(1, k), len(rest)))
         if augment:
             c = cipher(ex + [q], rng)
             ex, q = c[:-1], c[-1]
@@ -270,14 +265,14 @@ def episodes(scenes, rng, k, n, augment=False):
     return out
 
 
-def train(model, scenes, device, steps=3000, k=8, batch=32, lr=3e-4, seed=0, log=None, augment=False):
+def train(model, scenes, device, steps=3000, k=8, batch=32, lr=3e-4, seed=0, log=None, augment=False, biased=0.0):
     rng = random.Random(seed)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=lr, total_steps=steps)
     model.to(device)
     for step in range(steps):
         model.train()
-        eps = episodes(scenes, rng, k, batch, augment)
+        eps = episodes(scenes, rng, k, batch, augment, biased)
         loss = model.loss(eps, device)
         opt.zero_grad()
         loss.backward()

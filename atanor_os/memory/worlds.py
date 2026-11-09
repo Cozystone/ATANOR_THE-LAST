@@ -1,8 +1,8 @@
 """H_LEARNED_MEMORY_PLAN.md, the diversity the five bodies cannot give: a family of generated worlds to learn HOW TO READ
 EXAMPLES from. Nothing here is a real body's rule: every world draws its attributes, words, tools and effects at random
 from a small grammar of what an action can do to an argument's attribute (keep, set a word, copy another argument's
-attribute, blank, step a digit) under an optional precondition (an attribute must or must not hold a value, else the body
-answers 'failed' and nothing changes). A model trained on thousands of these can only succeed by reading the examples in
+attribute, blank, step a digit, send each value to a value of its own) under optional preconditions (one or two
+attributes must or must not hold a value, else the body answers 'failed' and nothing changes). A model trained on thousands of these can only succeed by reading the examples in
 front of it, and is then met with the six real bodies as worlds it has never seen.
 """
 import random
@@ -18,7 +18,8 @@ def word(rng, n=2):
 
 
 class World:
-    def __init__(self, seed):
+    def __init__(self, seed, rich=True):
+        self.rich = rich
         rng = self.rng = random.Random(seed)
         self.name = f'w{seed}'
         n_attr = rng.randint(3, 6)
@@ -42,7 +43,8 @@ class World:
         for _ in range(n_eff):
             i = rng.randrange(nargs)
             a = rng.choice(self.attrs)
-            kind = rng.choices(['set', 'copy_same', 'copy_other', 'blank', 'step'], [4, 3 if nargs == 2 else 0, 2 if nargs == 2 else 0, 2, 3 if self.digit[a] else 0])[0]
+            kind = rng.choices(['set', 'copy_same', 'copy_other', 'blank', 'step', 'map'],
+                               [4, 3 if nargs == 2 else 0, 2 if nargs == 2 else 0, 2, 3 if self.digit[a] else 0, 3 if self.rich else 0])[0]
             if kind == 'set':
                 ops[(i, a)] = ('set', rng.choice(self.vocab[a]))
             elif kind == 'copy_same':
@@ -51,13 +53,20 @@ class World:
                 ops[(i, a)] = ('copy', 1 - i, rng.choice(self.attrs))
             elif kind == 'blank':
                 ops[(i, a)] = ('blank',)
+            elif kind == 'map':                            # each value goes to a value of its own (a scale, a cycle, a table)
+                voc = sorted(set(self.vocab[a]))
+                to = voc[:]
+                rng.shuffle(to)
+                ops[(i, a)] = ('map', dict(zip(voc, to)))
             else:
                 ops[(i, a)] = ('step', rng.choice((-1, 1)))
         pre = None
-        if rng.random() < 0.5:
-            i = rng.randrange(nargs)
-            a = rng.choice(self.attrs)
-            pre = (i, a, rng.choice(self.vocab[a] + [BLANK]), rng.random() < 0.5)      # (arg, attr, value, must_equal)
+        if rng.random() < (0.65 if self.rich else 0.5):
+            pre = []
+            for _ in range(2 if self.rich and rng.random() < 0.3 else 1):
+                i = rng.randrange(nargs)
+                a = rng.choice(self.attrs)
+                pre.append((i, a, rng.choice(self.vocab[a] + [BLANK]), rng.random() < 0.5))   # (arg, attr, value, must_equal)
         return {'nargs': nargs, 'ops': ops, 'pre': pre}
 
     def state(self, rng):
@@ -66,8 +75,7 @@ class World:
     def apply(self, tool, before):
         p = self.tools[tool]
         after = [dict(o) for o in before]
-        if p['pre'] is not None:
-            i, a, v, eq = p['pre']
+        for i, a, v, eq in p['pre'] or ():
             if (before[i][a] == v) != eq:
                 return after, False
         for (i, a), op in p['ops'].items():
@@ -77,6 +85,8 @@ class World:
                 after[i][a] = before[op[1]][op[2]]
             elif op[0] == 'blank':
                 after[i][a] = BLANK
+            elif op[0] == 'map':
+                after[i][a] = op[1].get(before[i][a], before[i][a])
             elif op[0] == 'step':
                 v = before[i][a]
                 after[i][a] = str(min(9, max(0, int(v) + op[1]))) if v.isdigit() else v
@@ -95,12 +105,12 @@ class World:
         return out
 
 
-def generate(n_worlds, per_tool, seed=0):
+def generate(n_worlds, per_tool, seed=0, rich=True):
     """-> list of scenes over n_worlds worlds."""
     rng = random.Random(f'gen-{seed}')
     out = []
     for w in range(n_worlds):
-        world = World(seed * 1000003 + w)
+        world = World(seed * 1000003 + w, rich)
         for tool in world.tools:
             out += world.scenes(tool, per_tool, rng)
     return out
