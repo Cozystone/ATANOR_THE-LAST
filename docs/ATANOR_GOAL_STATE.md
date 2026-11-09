@@ -11,7 +11,17 @@ Order: A one life host (six bodies, one autobiography, kill/resume, body-qualifi
 output -> E language (Korean first, Claude as caretaker through speech/UI events only, words stored as testimony,
 read vs lived kept apart) -> F self-model, verified self-improvement. Real-person sessions need the founder.
 Scoreboard: capability vs life; learning cost down; retained capability; developer-authored cognition down.
-Open: VARIED/SUPPORT experiment rule (explore.py, dev only, uncommitted until recorded) is a side result; do not polish.
+Open: VARIED/SUPPORT experiment rule (explore.py, dev only) is a side result; do not polish.
+Status (dev seeds only, 011b3eb2): A done (b7237742). B judge built: life = none at every k on dye and clime (GOOD identical), GEN1 still NONE.
+Transfer probe NO-GO: a marginal never-met-value statistic carries nothing (curriculum-biased); next candidate carrier is relational structure.
+C first form: menu='own' (own actions x objects in view) instead of body_spec: 4 of 6 bodies unchanged, wrong unchanged, dye .805->.777,
+fs 1.000->.906, trials up 1.2-17x. Action vocabulary and objects still come from the course and the adapter, so C is only partly done.
+D first probe (life/birth_probe.py, dev seeds 1-5, course only, renderers and perception written together, NOT a result): observations shown only as
+text in 4 formats (table, key=value, shuffled key:value with empties omitted, prose); attributes = classes of tokens that replaced each other under own
+actions, plus mutual exclusivity. Right rate near the given fields on all fixed formats and most shuffled ones (board .56-.59 vs .64, clime .69 vs .69,
+desk .42 vs .43, fs .88 vs .88, view .23 vs .24), weak on dye shuffled (.35 vs .52); ordinal-position control collapses when shuffled (0-.18).
+Wrong above 1% in 2 of 24 cells' bodies: dye shuffled 43/1095, clime shuffled 93/2535 (given fields: 9 and 0). Still given: one line per object, the typed
+name, clean words, ok/failed. Next: fix criteria before a separately written, unseen format on fresh seeds; do not tune further on these.
 
 ## CURRENT PRIORITY OVERRIDE — minimal persistent cognition, not meta-learning
 Latest completed unit: subject-loopv1 frozen ee69378, one trial,
