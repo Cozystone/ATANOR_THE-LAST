@@ -11,6 +11,8 @@ uniformly. RANDOM with `counts` (matched ablation): per action, as many random t
 Budget: `per_action` trials per action at most; CHOOSE stops earlier when nothing it can call is unknown.
 RETEST (selector 'RETEST'): as CHOOSE, and when nothing is unknown, the call whose prediction is confident but whose
 start holds values the action never met (most of them first): a confident guess about a new value is tested too.
+SUPPORT (selector 'SUPPORT'): as CHOOSE, and when nothing is unknown, the call whose confident prediction rests on no
+case of its own answer holding this start's values ('ok' predicted, but no 'ok' case ever had this value), most first.
 """
 import random
 from pathlib import Path
@@ -46,6 +48,17 @@ def _newness(m, x):
     return sum(v not in seen.get(k, ()) for k, v in x.items())
 
 
+def _unsupported(m, x, y, never_varied=False):
+    """How many of this start's values no case with the predicted answer ever held (never_varied: only on attributes
+    that had one value in every such case; an attribute already seen to vary under this answer says little)."""
+    seen = {}
+    for c in m.cases:
+        if c.y.get(('r',)) == y.get(('r',)):
+            for k, v in c.x.items():
+                seen.setdefault(k, set()).add(v)
+    return sum(v not in seen.get(k, ()) and (not never_varied or len(seen.get(k, ())) == 1) for k, v in x.items())
+
+
 def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOSE', t0=10 ** 6, counts=None, keep=None):
     """Adds trials to eff (actor 'self'); returns the list of trials (tool, args, before, response, after).
     keep(e): how a trial is learned (default eff.observe; the learner also stores it, practice.py)."""
@@ -73,17 +86,22 @@ def explore(eff, body, names, practice_seed, work, per_action=3, selector='CHOOS
                     st = h.observe(h.existing())
                     blank = {k: '-' for k in next(iter(st.values()), {})} | {'kind': 'absent'}
                     before = [st.get(x, blank) for x in args]
-                    if selector in ('CHOOSE', 'RETEST'):
+                    if selector in ('CHOOSE', 'RETEST', 'SUPPORT', 'VARIED'):
                         nw = _newness(m, flat(before))
-                        if eff.predict(tool, args, before, reader=READER)['outcome'] is None:
+                        y = eff.predict(tool, args, before, reader=READER)['outcome']
+                        if y is None:
                             cands.append((0, -nw, len(cands), tool, args, st))
                         elif selector == 'RETEST' and nw:                  # confident, but about values never met
                             cands.append((1, -nw, len(cands), tool, args, st))
+                        elif selector == 'SUPPORT' and _unsupported(m, flat(before), y):   # no case of this answer held them
+                            cands.append((1, -_unsupported(m, flat(before), y), len(cands), tool, args, st))
+                        elif selector == 'VARIED' and _unsupported(m, flat(before), y, True):   # ... on an attribute that never varied under it
+                            cands.append((1, -_unsupported(m, flat(before), y, True), len(cands), tool, args, st))
                     else:
                         cands.append((0, 0, len(cands), tool, args, st))
                 if not cands:
                     continue
-                if selector in ('CHOOSE', 'RETEST'):
+                if selector in ('CHOOSE', 'RETEST', 'SUPPORT', 'VARIED'):
                     _, _, _, tool, args, st = min(cands)
                 else:
                     _, _, _, tool, args, st = rng.choice(cands)

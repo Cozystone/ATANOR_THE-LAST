@@ -23,6 +23,8 @@ import json
 from collections import defaultdict, deque
 from pathlib import Path
 
+from ..core.durable import atomic_write
+
 ACTIVE = ('active', 'needs_recheck')
 
 
@@ -110,7 +112,7 @@ class Ontology:
 
     def save(self):
         if self.path:
-            self.path.write_text(json.dumps({'nodes': self.nodes, 'edges': self.edges}), encoding='utf-8')
+            atomic_write(self.path, json.dumps({'nodes': self.nodes, 'edges': self.edges}))
 
     def node(self, nid, ntype):
         self.nodes.setdefault(nid, {'type': ntype})

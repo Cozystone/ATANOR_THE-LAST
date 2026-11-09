@@ -14,6 +14,7 @@ import shutil
 import time
 from pathlib import Path
 
+from ..core.durable import atomic_write
 from ..eval.en_probe import todo
 from ..eval.tutor_life import english, targets
 from ..teach.tutor import BoardSpec, Tutor, symbols
@@ -172,7 +173,7 @@ def write_names(root, seed, named, en_pairs, sym, body='board', mind=None):
     """What the teaching side meant by each name it gave (read only by the evaluator, never by the learner)."""
     out = {'seed': seed, 'body': body, 'mind': str(mind) if mind else None, 'sel': {str(x): sym[x] for k, x in named if k == 's'}, 'act': {str(x): sym[20 + x] for k, x in named if k == 'a'},
            'en_sel': sorted({s for s, _ in en_pairs}), 'en_act': sorted({a for _, a in en_pairs})}
-    (Path(root) / 'names.json').write_text(json.dumps(out, indent=1), encoding='utf-8')
+    atomic_write(Path(root) / 'names.json', json.dumps(out, indent=1))
 
 
 if __name__ == '__main__':

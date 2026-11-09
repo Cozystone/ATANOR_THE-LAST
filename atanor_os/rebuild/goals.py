@@ -6,7 +6,7 @@ explanation averaging as the effect model predicts an answer for a new start; it
 never widened to another action or another concept; within one, it reaches another start only when the evidence says
 the deciding attributes are the same.
 """
-from .effects import ActionModel, BayesAction, Case, flat
+from .effects import ActionModel, BayesAction, Case, flat, model_digest
 
 
 class Goals:
@@ -18,6 +18,9 @@ class Goals:
         m = self.models.setdefault(key, ActionModel(key))
         m.add(Case(flat([start]), {('goal',): answer}, t, 'person'))
         m._bayes = None
+
+    def digest(self):
+        return model_digest(self.models)
 
     def predict(self, tool, consts, concept, start):
         m = self.models.get((tool, tuple(consts), concept))

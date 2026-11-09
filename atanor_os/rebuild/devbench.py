@@ -34,8 +34,8 @@ def _eff(c, rd):
         if spec.startswith('RM'):                          # random, as many trials per action as CHOOSE made
             explore(train(c['body'], c['course'], slack=1, tiered=True)[0], c['body'], names, ps, wd, per_action=int(spec[2:]))
             counts = dict(explore.counts)
-        tr = explore(eff, c['body'], names, ps, wd, per_action=int(spec.lstrip('XRMC')),
-                     selector={'X': 'CHOOSE', 'C': 'RETEST'}.get(spec[0], 'RANDOM'), counts=counts)
+        tr = explore(eff, c['body'], names, ps, wd, per_action=int(spec.lstrip('XRMCSV')),
+                     selector={'X': 'CHOOSE', 'C': 'RETEST', 'S': 'SUPPORT', 'V': 'VARIED'}.get(spec[0], 'RANDOM'), counts=counts)
         eff._trials = len(tr)
     return eff
 

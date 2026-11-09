@@ -1,7 +1,8 @@
 """REBUILD_PLAN.md B: what an action will change, predicted from the start state, with its uncertainty.
 
-An action is identified by its tool and the arguments that stay the same objects from call to call (a tray, a wing:
-an argument used with several others and never changed, in any position);
+An action is identified by its body, its tool and the arguments that stay the same objects from call to call (a tray, a
+wing: an argument used with several others and never changed, in any position); two bodies never share an action, even
+with the same tool and object names;
 the result is a separate thing, predicted per output: the body's answer ('ok' / 'failed' / 'blocked') and each
 argument's attribute right after. One action can have different results from different starts; cases are never merged
 just because the tool is the same, and an action is never split into nodes just because results differ.
@@ -23,6 +24,7 @@ kept as counter-examples but no longer fitted.
 Baselines on the same cases: EXACT (an identical start, else unknown), LAST (identical start, else the latest case of
 the action), CORE (the first demonstration's change applied to any start, as the baseline core's effect claim does).
 """
+import hashlib
 import itertools
 import json
 import math
@@ -185,10 +187,22 @@ class ActionModel:
         return {'known': True, 'value': json.loads(next(iter(preds))), 'conditions': conds, 'support': len(self.cases)}
 
 
-def action_key(tool, args, constants):
+def action_key(body, tool, args, constants):
+    """constants: (body, argument) pairs."""
     if len(args) < 2:
-        return (tool, len(args), ())
-    return (tool, len(args), tuple((i, a) for i, a in enumerate(args) if a in constants))
+        return (body, tool, len(args), ())
+    return (body, tool, len(args), tuple((i, a) for i, a in enumerate(args) if (body, a) in constants))
+
+
+def _digest(d):
+    return hashlib.sha256(json.dumps(d, ensure_ascii=False, sort_keys=True, default=str).encode('utf-8')).hexdigest()
+
+
+def model_digest(models):
+    """A fingerprint of every model's cases, in the order learned."""
+    case = lambda c: [sorted(c.x.items(), key=str), sorted(c.y.items(), key=str), c.t, c.actor]
+    return _digest([[str(k), [case(c) for c in m.cases], [case(c) for c in m.superseded]]
+                    for k, m in sorted(models.items(), key=lambda kv: str(kv[0]))])
 
 
 class Effects:
@@ -196,20 +210,33 @@ class Effects:
 
     def __init__(self, slack=1, tiered=True):
         self._models, self.slack, self.tiered = {}, slack, tiered
-        self.seen_with = defaultdict(set)                  # an argument, the other arguments it was called with, and
+        self.body = None                                   # the body queries are about (a mind may live in several)
+        self.bodies = set()
+        self.seen_with = defaultdict(set)                  # (body, argument), the other arguments it was called with, and
         self.changed = set()                               # whether it ever changed: one used with several others and
                                                            # never changed is a constant of the action (a tray, a folder)
         self.raw, self._grouped_by = [], None              # every case as observed; grouped into actions on demand
         self.first_demo = {}
 
-    def constants(self):
+    def scope(self, body=None):
+        """Which body a query is about: as said, else self.body, else the only one seen (a single-body run says nothing)."""
+        body = body if body is not None else self.body
+        if body is not None or len(self.bodies) <= 1:
+            return body if body is not None else next(iter(self.bodies), None)
+        raise ValueError(f'this mind has lived in {sorted(map(str, self.bodies))}: say which body')
+
+    def _qualified(self):
         return frozenset(a for a, w in self.seen_with.items() if len(w) >= 2 and a not in self.changed)
+
+    def constants(self, body=None):
+        body = self.scope(body)
+        return frozenset(a for b, a in self._qualified() if b == body)
 
     @property
     def models(self):
         """Cases grouped by action. When what counts as a constant argument changes, every case is grouped again, so
         early cases of an action are never left under another identity."""
-        cs = self.constants()
+        cs = self._qualified()
         if self._grouped_by != cs:
             self._models, self.first_demo = {}, {}
             for r in self.raw:
@@ -218,8 +245,8 @@ class Effects:
         return self._models
 
     def _group(self, r, cs):
-        tool, args, before, after, resp, t, actor = r
-        key = action_key(tool, args, cs)
+        body, tool, args, before, after, resp, t, actor = r
+        key = action_key(body, tool, args, cs)
         m = self._models.setdefault(key, ActionModel(key))
         m.tiered = self.tiered
         x = flat(before)
@@ -234,27 +261,35 @@ class Effects:
         if not act or e.get('before') is None or e.get('after') is None:   # nothing guessed for what was not observed
             return False
         args = act['args']
+        body = e.get('body') or self.scope()               # a trial that does not name its body is in the one this is about
+        self.bodies.add(body)
         before = [e['before'].get(a) for a in args]
         after = [(e.get('after') or {}).get(a) for a in args]
         for i, a in enumerate(args if e.get('actor') != 'self' else ()):   # an action's identity comes from the
             if len(args) > 1:                                                 # course; own trials probe it (explore.py)
-                self.seen_with[a].add(tuple(args[:i] + args[i + 1:]))
+                self.seen_with[(body, a)].add(tuple(args[:i] + args[i + 1:]))
             if before[i] != after[i]:
-                self.changed.add(a)
+                self.changed.add((body, a))
         r = e.get('response')
         resp = None if r is None else ('blocked' if r.get('guard') else ('ok' if r.get('ok') else 'failed'))   # not observed: no case for it
-        row = (act['tool'], list(args), before, after, resp, e['t'], e.get('actor'))
+        row = (body, act['tool'], list(args), before, after, resp, e['t'], e.get('actor'))
         self.raw.append(row)
-        if self._grouped_by == self.constants():
+        if self._grouped_by == self._qualified():
             self._group(row, self._grouped_by)
         return True
 
-    def model(self, tool, args):
-        return self.models.get(action_key(tool, args, self.constants()))
+    def digest(self):
+        """A fingerprint of everything learned (equal for models learned live and rebuilt from the same experiences)."""
+        models = self.models
+        return _digest([model_digest(models), sorted((str(k), sorted(v)) for k, v in self.seen_with.items()),
+                        sorted(map(str, self.changed)), sorted((str(k), sorted(v.items(), key=str)) for k, v in self.first_demo.items())])
 
-    def predict(self, tool, args, before, reader='NEW'):
+    def model(self, tool, args, body=None):
+        return self.models.get(action_key(self.scope(body), tool, args, self._qualified()))
+
+    def predict(self, tool, args, before, reader='NEW', body=None):
         """before: the arguments' observations now. -> {'outcome': {output: value} or None, 'why', 'unknown': [...]}"""
-        m = self.model(tool, args)
+        m = self.model(tool, args, body)
         x = flat(before)
         outs = sorted({k for c in m.cases for k in c.y}, key=str) if m else []
         if not m or not m.cases:

@@ -27,6 +27,7 @@ from pathlib import Path
 
 from ..agent.learners import make as make_learner
 from ..agent.memory import ClaimLedger, Memory
+from ..core.durable import atomic_write
 from ..world.board_world import LEVELS, MARKS, TRAYS, BoardWorkspace
 
 PAGE = Path(__file__).with_name('teach.html')
@@ -173,7 +174,7 @@ class Session:
 
     # ------------------------------------------------------------ bookkeeping
     def save(self):
-        self.sp.write_text(json.dumps(self.state, ensure_ascii=False, indent=1), encoding='utf-8')
+        atomic_write(self.sp, json.dumps(self.state, ensure_ascii=False, indent=1))
 
     def log(self, **row):
         row = {'at': self.clock().isoformat(timespec='seconds'), 'session': self.state['session'], 'source': self.source, **row}

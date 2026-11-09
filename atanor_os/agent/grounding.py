@@ -18,6 +18,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
+from ..core.durable import atomic_write
 from .concepts import FAMILIES_ALL, atoms
 from .memory import ClaimLedger, Memory
 
@@ -734,7 +735,7 @@ class Grounder:
         return json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
 
     def _set_pending(self, items):
-        (self.dir / 'pending.json').write_text(json.dumps(items, ensure_ascii=False), encoding='utf-8')
+        atomic_write(self.dir / 'pending.json', json.dumps(items, ensure_ascii=False))
 
     def drop_pending(self, symbols):
         items = self.pending()

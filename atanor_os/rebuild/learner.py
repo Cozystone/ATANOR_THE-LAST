@@ -35,6 +35,30 @@ def _blank(obs):
     return {k: '-' for k in keys} | {'kind': 'absent'}
 
 
+def call_experience(body, source, actor, tool, args, caps, res, before, after):
+    """One call as an experience; before / after: the arguments' observations (after None: never observed)."""
+    return experience(body=body, source=source, actor=actor,
+                      action={'tool': tool, 'args': list(args), 'granted': sorted(k for k, v in caps.items() if v)},
+                      executed=not res.get('blocked') and res.get('error') != 'invalid',
+                      response={'ok': bool(res.get('ok')), 'error': res.get('error'), 'guard': 'blocked' if res.get('blocked') else None},
+                      before=before, after=before if res.get('blocked') else after, unobserved=['later'] + (['after'] if after is None else []))
+
+
+def rebuild(items):
+    """The models of these experiences, learned from nothing."""
+    eff, goals = Effects(), Goals(TAU)
+    for e in items:
+        NextGrounder._learn(e, eff, goals)
+    return eff, goals
+
+
+def seed_fitted(mind_dir, eff, goals, n):
+    """A process that already rebuilt the models from the disk hands them to its learners (no second refit)."""
+    p = Path(mind_dir) / 'experiences.jsonl'
+    raw = p.read_bytes() if p.exists() else b''
+    _FITTED['last'] = (len(raw), hash(raw), eff, goals, n)
+
+
 class NextGrounder(Grounder):
     def __init__(self, home, mind_dir, *a, lab=True, ask=True, **kw):
         super().__init__(home, mind_dir, *a, **kw)
@@ -42,6 +66,8 @@ class NextGrounder(Grounder):
         self.store = Store(self.dir / 'experiences.jsonl')
         self.issues = self.dir / 'open_issues.jsonl'
         self.eff, self.goals = self._fitted()
+        self.eff.body = self.body                          # a mind may have lived in several bodies; this one is here
+        _FITTED['live'] = self                             # the last learner holds the models as learned (life/host.py)
 
     # ------------------------------------------------------------ experience
     def _fitted(self):
@@ -63,7 +89,7 @@ class NextGrounder(Grounder):
     @staticmethod
     def _learn(e, eff, goals):
         if e.get('kind') == 'answer':
-            goals.add(e['tool'], e['consts'], e['concept'], e['start'], e['answer'], e['t'])
+            goals.add((e.get('body'), e['tool']), e['consts'], e['concept'], e['start'], e['answer'], e['t'])
         elif e.get('action'):
             eff.observe(e)
 
@@ -80,12 +106,30 @@ class NextGrounder(Grounder):
     def _exp(self, actor, tool, args, caps, res, before_st, after_st):
         blank = _blank(before_st or after_st or {})
         b = {x: before_st.get(x, blank) for x in args}
-        a = None if after_st is None else (b if res.get('blocked') else {x: after_st.get(x, blank) for x in args})
-        self._keep(experience(body=self.body, source=self.source, actor=actor,
-                              action={'tool': tool, 'args': list(args), 'granted': sorted(k for k, v in caps.items() if v)},
-                              executed=not res.get('blocked') and res.get('error') != 'invalid',
-                              response={'ok': bool(res.get('ok')), 'error': res.get('error'), 'guard': 'blocked' if res.get('blocked') else None},
-                              before=b, after=a, unobserved=['later'] + (['after'] if a is None else [])))
+        a = None if after_st is None else {x: after_st.get(x, blank) for x in args}
+        self._keep(call_experience(self.body, self.source, actor, tool, args, caps, res, b, a))
+
+    def _intend(self, life, c):
+        """Before the world is touched: what this call is predicted to do, and that it is about to be made. On the record
+        first, so a kill from here on cannot lose that the action may have happened."""
+        blank = _blank(c['before'])
+        c['b'] = {x: c['before'].get(x, blank) for x in c['args']}
+        p = self.eff.predict(c['tool'], c['args'], [c['b'][x] for x in c['args']], reader=f'BAYES{TAU}')
+        life.append('PREDICTION', body=self.body, tool=c['tool'], args=c['args'], reader=f'BAYES{TAU}', before=c['b'],
+                    outcome=None if p['outcome'] is None else {str(k): v for k, v in p['outcome'].items()}, why=p.get('why'))
+        c['intent'] = life.append('ACTION_INTENT', body=self.body, source=self.source, actor='learner', tool=c['tool'], args=c['args'],
+                                  caps=c['caps'], before=c['b'])
+
+    def _conclude(self, life, c):
+        """The body answered: the result is on the record, then what is seen right after, and only then is it learned."""
+        res = c['res']
+        life.append('ACTION_RESULT', intent=c['intent'], response={k: res.get(k) for k in ('ok', 'blocked', 'error')})
+        after = c['after'] if c['after'] is not None else self._obs(self.home)
+        blank = _blank(c['before'] or after)
+        a = {x: after.get(x, blank) for x in c['args']}
+        life.append('OBSERVATION', intent=c['intent'], body=self.body, after=a)
+        self._keep({**call_experience(self.body, self.source, 'learner', c['tool'], c['args'], c['caps'], res, c['b'], a), 'intent': c['intent']})
+        c['kept'] = True
 
     def _call(self, actor, home, tool, args, caps, *a, real=None, **kw):
         """A call on a lab copy: observed right before and right after."""
@@ -104,6 +148,7 @@ class NextGrounder(Grounder):
         earlier call of this command touched, the world is observed then, which is both that earlier call's 'after' and
         this call's 'before'. Constant arguments (never changed) do not count as touched."""
         real = self.home.execute
+        life = Store.autobiography                         # in a life, each call goes on the record as it is made
         snap, buf, consts = self._obs(self.home), [], self.eff.constants()
 
         def rec(tool, args, caps, *a, **kw):
@@ -116,19 +161,26 @@ class NextGrounder(Grounder):
                         c['after'] = snap
             row = {'tool': tool, 'args': list(args), 'caps': caps, 'before': snap, 'after': None, 'mine': mine}
             buf.append(row)
+            if life is not None:
+                self._intend(life, row)
             try:
                 row['res'] = real(tool, args, caps, *a, **kw)
             except ValueError:
                 row['res'], row['after'] = {'ok': False, 'error': 'invalid'}, snap
+                if life is not None:
+                    self._conclude(life, row)
                 raise
+            if life is not None:
+                self._conclude(life, row)
             return row['res']
         self.home.execute = rec
         try:
             return super().apply(sel, effect, lesson, decided)
         finally:
             del self.home.execute
-            end = self._obs(self.home) if buf else None
-            for c in buf:
+            rest = [c for c in buf if not c.get('kept')]
+            end = self._obs(self.home) if rest else None
+            for c in rest:
                 self._exp('learner', c['tool'], c['args'], c['caps'], c['res'], c['before'], c['after'] or end)
 
     def learn_action(self, lesson):

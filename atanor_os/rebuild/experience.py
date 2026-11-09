@@ -33,13 +33,18 @@ def response_class(resp):
 
 
 class Store:
-    """Append-only experiences on disk (one JSON line each); survives restarts."""
+    """Append-only experiences on disk (one JSON line each); survives restarts. In a life (life/host.py) an experience is
+    in the autobiography before it is here; a call's own experience is, as its intent, result and observation."""
+
+    autobiography = None
 
     def __init__(self, path):
         self.path = Path(path)
         self.items = [json.loads(l) for l in self.path.read_text(encoding='utf-8').splitlines()] if self.path.exists() else []
 
     def add(self, e):
+        if Store.autobiography is not None and 'intent' not in e and 'jseq' not in e:   # told or tried: on the record first
+            e = {**e, 'jseq': Store.autobiography.append('TESTIMONY' if e.get('actor') == 'person' else 'SELF_TRIAL', experience=e)}
         e = {'id': f'x{len(self.items)}', **e}
         self.items.append(e)
         self.path.parent.mkdir(parents=True, exist_ok=True)

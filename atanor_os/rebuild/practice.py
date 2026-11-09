@@ -21,6 +21,7 @@ def practice(world_dir, mind_dir, body, seed, selector='CHOOSE', per_action=PER_
     names = json.loads((world_dir / 'names.json').read_text(encoding='utf-8'))
     store = Store(mind_dir / 'experiences.jsonl')
     eff = Effects()
+    eff.body = body                                    # the mind may have lived in other bodies too; this practice is in this one
     for e in store.items:
         if e.get('action'):
             eff.observe(e)
@@ -38,4 +39,5 @@ def practice(world_dir, mind_dir, body, seed, selector='CHOOSE', per_action=PER_
     work = mind_dir / f'practice-{body}'
     trials = explore(eff, body, names, seed + PRACTICE, work, per_action=per_action, selector=selector, keep=keep)
     shutil.rmtree(work, ignore_errors=True)
+    practice.live = eff                                # the models as learned here (life/host.py checks them against the disk)
     return len(trials)
