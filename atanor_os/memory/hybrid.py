@@ -43,6 +43,26 @@ def strict(e, vals, ans):
     return 'right' if list(vals) == list(q.after_values) else 'wrong'
 
 
+def prior_only(pool, qs, k, rng):
+    """No learned model: the counted priors' own best guess (ablation: what the learning must add to). -> right/wrong/unknown"""
+    out = []
+    for q in qs:
+        same = [x for x in pool.get((q.body, q.tool, len(q.args)), []) if x is not q]
+        if not same:
+            out.append('unknown')
+            continue
+        e = Episode(same if len(same) <= k else rng.sample(same, k), q)
+        P, b, failed, Pc, bc = e.prior
+        S, sb = P + Pc, b + bc
+        vals = []
+        for p in range(e.n_q):
+            j = int(S[p].argmax())
+            vals.append(BLANK if float(sb[p]) > float(S[p, j]) else e.rows[j][4])
+        ans = 'failed' if failed > 0.5 else 'ok'
+        out.append('right' if ans == RESP[q.resp] and vals == list(q.after_values) else 'wrong')
+    return out
+
+
 def ask(model, pool, qs, device, k, tau, votes, rng):
     """-> per query: 'right' / 'wrong' / 'unknown' from the reader (unknown also when it has no example)."""
     out = ['unknown'] * len(qs)
