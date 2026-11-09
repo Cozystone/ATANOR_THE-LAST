@@ -43,7 +43,8 @@ def test_a_life_with_a_genome_pays_dies_once_and_never_reopens(tmp_path):
             life.journal.append('ACTION_INTENT', body='board', source='x', actor='learner', tool='t', args=[], caps=None, before={})
     rows = life.journal.rows()
     assert rows[-1]['kind'] == 'HOST' and rows[-1]['data']['event'] == 'death'
-    assert (d / '.dead').exists() and n == int(E0 / PRICES['ACTION_INTENT'])
+    import math
+    assert (d / '.dead').exists() and n == math.ceil((E0 - PRICES['PREDICTION']) / PRICES['ACTION_INTENT'])
     life.close()
     with pytest.raises(Death):
         host.Life(d, 1, ['board'], 1)                      # over for good
