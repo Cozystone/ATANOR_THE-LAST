@@ -12,6 +12,7 @@ Scored on the text: a prediction is right if the set of tokens it says the argum
 """
 import difflib
 import glob
+import importlib.util
 import json
 import os
 import pickle
@@ -26,7 +27,8 @@ from ..rebuild.bench_predict import judge
 from ..rebuild.effects import Effects
 from ..rebuild.experience import load_course
 
-CACHE = 'D:/ATANOR-experiments/probe-work/stage1-dev/cache'
+CACHE = os.environ.get('BIRTH_CACHE', 'D:/ATANOR-experiments/probe-work/stage1-dev/cache')
+PUNCT = r'''\s=:;,|@"'(){}\[\]<>'''                # what separates words, for any text
 FORMATS = ('TABLE', 'KV', 'KVS', 'PROSE')
 METHODS = tuple(os.environ.get('BIRTH_METHODS', 'POS,BIRTH').split(','))                                 # BAG is far slower (368 s for one world) and answered nothing there
 
@@ -45,6 +47,13 @@ def line(fmt, name, obs, rng):
     return f'{name} shows ' + ', '.join(f'{v} for {k}' if i % 2 else f'{k} of {v}' for i, (k, v) in enumerate(items))
 
 
+if os.environ.get('BIRTH_FORMATS_FILE'):                  # a held-out renderer, written elsewhere
+    _spec = importlib.util.spec_from_file_location('held_out_formats', os.environ['BIRTH_FORMATS_FILE'])
+    _mod = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
+    FORMATS, line = tuple(_mod.FORMATS), _mod.line
+
+
 def screen(fmt, world, rng):
     ls = [line(fmt, n, o, rng) for n, o in world.items() if o is not None]
     rng.shuffle(ls)
@@ -54,10 +63,10 @@ def screen(fmt, world, rng):
 # ---- the mind's side: text in, attributes out ----
 def tokens(text, name):
     """The line that holds what the mind typed, without it. None if no line does."""
-    pat = r'(^|[\s:@|])' + re.escape(name) + r'($|[\s:@|])'
-    for l in text.split('\n'):
+    pat = r'(?<![^' + PUNCT + r'])' + re.escape(name) + r'(?![^' + PUNCT + r'])'
+    for l in text.split(chr(10)):
         if re.search(pat, l):
-            return re.findall(r'[^\s=:,|@]+', re.sub(pat, ' ', l, count=1))
+            return re.findall(r'[^' + PUNCT + r']+', re.sub(pat, ' ', l, count=1))
     return None
 
 
