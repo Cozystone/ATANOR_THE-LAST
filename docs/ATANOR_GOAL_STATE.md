@@ -1,5 +1,16 @@
 # ATANOR research state — 2026-11-09
 
+## CURRENT PRIORITY OVERRIDE 2026-11-09 (night) — step H: a learned relational world model from own experience only
+Founder decision after G: every attempt to get cross-body capability on the symbolic core failed (priors x3, role space, survival
+selection x4 settings: on a body no ancestor lived, FULL = RANDOM; selection found thrift, not competence; death never balanced by hand).
+Common cause: the developer fixes the representation and memory is stored in each body's words, so there is no channel across bodies.
+Decision: the runtime ban on external LLMs/sLLMs stands and is NOT a ban on learned representation. A small relational model trained
+only on ATANOR's own experiences (no human text, no pretrained weights, no API) becomes the effect-memory organ beside the symbolic
+layer, which keeps verification, record, safety (no act without confidence) and provenance. Plan and criteria H1-H3 fixed in
+atanor_os/H_LEARNED_MEMORY_PLAN.md before code. Word-free relational encoding + hashed word embeddings; leave-one-body-out, 0/k-shot,
+word-cipher control, against the empty symbolic mind. Expect within-family transfer; far transfer across structures is unproven anywhere.
+G (energy, death, lineage) stays as the life's condition; 5th setting runs on seeds 1-3 are finishing and will be recorded.
+
 ## CURRENT PRIORITY OVERRIDE 2026-11-09 (evening) — step G: survival, death, lineages (founder decision)
 Founder redefined the route after B's three NO-GOs and the literature survey (reports/전이 복리 최신 연구 조사.md: no no-LLM
 learner got faster on a different domain after June 2026; only content-free role structure transfers; carried statistics raise wrong).
