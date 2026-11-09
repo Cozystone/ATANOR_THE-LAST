@@ -62,7 +62,7 @@ def run(a):
         print(*x, flush=True)
         log.write(' '.join(map(str, x)) + '\n')
         log.flush()
-    data = {(b, s): load(b, s) for b in a.bodies for s in a.seeds}
+    data = {(b, s): load(b, s) for b in BODIES for s in a.seeds}     # every body is lived; --bodies says which are held out
     rows = []
     for held in a.bodies:
         others = [sc for (b, s), (_, tr, _) in data.items() if b != held for sc in tr]
