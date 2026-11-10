@@ -498,6 +498,8 @@ def make_handler(sess):
                 if kind == 'session':
                     if sess.job and sess.job.is_alive():
                         return self._send(409, {'error': 'busy'})
+                    if body.get('days') and getattr(sess, 'shift', None) is not None:   # --sim-days: the teacher says how many days passed
+                        sess.shift[0] += float(body['days'])
                     sess.new_session()
                     return self._send(200, {'ok': True})
                 if kind not in ('teach', 'name', 'command', 'recall'):
@@ -512,8 +514,13 @@ def main(argv=None):
     ap.add_argument('--root', default=str(DEFAULT_ROOT))
     ap.add_argument('--port', type=int, default=8765)
     ap.add_argument('--seed', type=int, default=1)
+    ap.add_argument('--source', default='human', help="'human' only for a real person; any other teacher gets its own label (e.g. 'claude')")
+    ap.add_argument('--sim-days', action='store_true', help='simulated days: a new session may say how many days passed')
     a = ap.parse_args(argv)
-    sess = Session(a.root, a.seed)
+    shift = [0.0]
+    clock = (lambda: datetime.datetime.now() + datetime.timedelta(days=shift[0])) if a.sim_days else None
+    sess = Session(a.root, a.seed, source=a.source, clock=clock)
+    sess.shift = shift if a.sim_days else None
     srv = ThreadingHTTPServer(('127.0.0.1', a.port), make_handler(sess))
     print(f'ATANOR board tutor on http://127.0.0.1:{a.port}  sandbox: {a.root}', flush=True)
     srv.serve_forever()
