@@ -14,7 +14,7 @@ import torch
 from ..rebuild.bench_predict import judge
 from ..rebuild.effects import Effects, outputs
 from .episodic import by_tool
-from .hybrid import ask, reader
+from .hybrid import ask, reader, self_check
 from .relational import RESP
 from .worlds import World
 
@@ -26,14 +26,14 @@ def as_lists(s):
     return args, before, after
 
 
-def check(model, device, fam_seed, n_worlds, n_course, n_query, tau, votes, k):
+def check(model, device, fam_seed, n_worlds, n_course, n_query, tau, votes, k, kinds=False, cal=None):
     tot = {'EMPTY': Counter(), 'HYBRID': Counter()}
     for w in range(n_worlds):
-        world = World(fam_seed * 1000003 + w, True)
+        world = World(fam_seed * 1000003 + w, True, kinds and w % 2 == 0)
         rng = random.Random(f'fam-{fam_seed}-{w}')
         course, queries = [], []
         for tool in world.tools:
-            course += world.scenes(tool, n_course, rng)
+            course += world.scenes(tool, n_course, rng, teacher=kinds)
             queries += world.scenes(tool, n_query, rng)
         eff = Effects(slack=1, tiered=True)
         for t, s in enumerate(course):
@@ -47,7 +47,9 @@ def check(model, device, fam_seed, n_worlds, n_course, n_query, tau, votes, k):
             truth = outputs(before, after, RESP[q.resp])
             sym.append('never_seen' if m is None or not m.cases else judge(eff.predict(q.tool, args, before, reader='BAYES0.99')['outcome'], truth))
         open_i = [i for i, s in enumerate(sym) if s == 'unknown']
-        r = ask(model, by_tool(course), [queries[i] for i in open_i], device, k, tau, votes, random.Random(w))
+        pool = by_tool(course)
+        trust = self_check(model, pool, device, k, random.Random(f'sc{w}')) if cal else None
+        r = ask(model, pool, [queries[i] for i in open_i], device, k, tau, votes, random.Random(w), trust, *(cal or (None, None)))
         hyb = list(sym)
         for i, x in zip(open_i, r):
             hyb[i] = x
@@ -67,6 +69,8 @@ def main():
     ap.add_argument('--votes', type=int, default=3)
     ap.add_argument('--k', type=int, default=10)
     ap.add_argument('--out', default=None)
+    ap.add_argument('--kinds', action='store_true')
+    ap.add_argument('--cal', nargs=2, type=float, default=None, help='tau_trusted min_acc')
     a = ap.parse_args()
     if a.family_seed == 1:
         ap.error('family seed 1 is the reader training family')
@@ -74,7 +78,7 @@ def main():
     model = reader(a.reader, device)
     res = {}
     for n in a.course:
-        tot = check(model, device, a.family_seed, a.worlds, n, a.queries, a.tau, a.votes, a.k)
+        tot = check(model, device, a.family_seed, a.worlds, n, a.queries, a.tau, a.votes, a.k, a.kinds, a.cal)
         res[n] = {k: dict(v) for k, v in tot.items()}
         for name, c in tot.items():
             m = sum(c.values())

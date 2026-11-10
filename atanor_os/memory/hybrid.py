@@ -59,7 +59,30 @@ def prior_only(pool, qs, k, rng):
     return out
 
 
-def ask(model, pool, qs, device, k, tau, votes, rng):
+def self_check(model, pool, device, k, rng, n=20):
+    """How well the reader reads THIS world, tool by tool, from the world's own course: each of up to n course experiences
+    predicted from k others (leave one out, no abstention). -> {(body, tool, nargs): share right}. Nothing outside the
+    course is used; this is the Self testing its own reading where it can check it."""
+    acc = {}
+    for key, same in pool.items():
+        if len(same) < 3:
+            continue
+        probe = same if len(same) <= n else rng.sample(same, n)
+        eps = []
+        for q in probe:
+            rest = [x for x in same if x is not q]
+            eps.append(Episode(rest if len(rest) <= k else rng.sample(rest, k), q))
+        got = []
+        for j in range(0, len(eps), 64):
+            bs = eps[j:j + 64]
+            got += [right(e, v, a) == 'right' for e, (v, a, c) in zip(bs, model.predict(bs, device, 0.0))]
+        acc[key] = sum(got) / len(got)
+    return acc
+
+
+def ask(model, pool, qs, device, k, tau, votes, rng, trust=None, tau_trusted=None, min_acc=None):
+    """trust: {(body, tool, nargs): share right in self_check}; a tool read at least min_acc right is answered at
+    tau_trusted, every other tool at tau."""
     """-> per query: 'right' / 'wrong' / 'unknown' from the reader (unknown also when it has no example)."""
     out = ['unknown'] * len(qs)
     draws = []
@@ -76,8 +99,12 @@ def ask(model, pool, qs, device, k, tau, votes, rng):
         res = {}
         for j in range(0, len(eps), 64):
             bs = eps[j:j + 64]
-            for e, i, (vals, ans, conf) in zip(bs, idx[j:j + 64], model.predict(bs, device, tau)):
-                res[i] = (e, vals, ans)
+            for e, i, (vals, ans, conf) in zip(bs, idx[j:j + 64], model.predict(bs, device, 0.0)):
+                q = e.query
+                t = tau
+                if trust is not None and trust.get((q.body, q.tool, len(q.args)), 0.0) >= min_acc:
+                    t = tau_trusted
+                res[i] = (e, vals, ans) if conf >= t else (e, None, None)
         draws.append(res)
     for i in draws[0]:
         got = [d.get(i) for d in draws]
@@ -111,6 +138,7 @@ def run(a):
             open_i = [i for i, s in enumerate(sym) if s == 'unknown']
             tot.setdefault('EMPTY', Counter()).update(sym)
             for k in a.ks:
+                trust = self_check(model, pool, device, k, random.Random(f'sc-{seed}')) if a.selfcal else None
                 for tau in a.taus:
                     for votes in a.votes:
                         r = ask(model, pool, [qs[i] for i in open_i], device, k, tau, votes, random.Random(f'{seed}-{k}-{votes}'))
@@ -118,7 +146,13 @@ def run(a):
                         for i, x in zip(open_i, r):
                             h[i] = x
                         tot.setdefault(f'HYBRID k{k} tau{tau} v{votes}', Counter()).update(h)
-                        tot.setdefault(f'reader-on-unknowns k{k} tau{tau} v{votes}', Counter()).update(r)
+                        for ma in (a.selfcal or []):
+                            for tt in a.tau_trusted:
+                                r2 = ask(model, pool, [qs[i] for i in open_i], device, k, tau, votes, random.Random(f'{seed}-{k}-{votes}'), trust, tt, ma)
+                                h2 = list(sym)
+                                for i, x in zip(open_i, r2):
+                                    h2[i] = x
+                                tot.setdefault(f'SELFCAL k{k} tau{tau}/{tt}@{ma} v{votes}', Counter()).update(h2)
         for name, cnt in tot.items():
             n = sum(cnt.values())
             row = {'body': body, 'cond': name, 'n': n, **cnt}
@@ -159,6 +193,8 @@ if __name__ == '__main__':
     ap.add_argument('--ks', nargs='+', type=int, default=[10])
     ap.add_argument('--taus', nargs='+', type=float, default=[0.5, 0.7, 0.9])
     ap.add_argument('--votes', nargs='+', type=int, default=[1, 3])
+    ap.add_argument('--selfcal', nargs='*', type=float, default=None, help='min self-check accuracy values; tau_trusted from --tau-trusted')
+    ap.add_argument('--tau-trusted', nargs='+', type=float, default=[0.5, 0.7])
     a = ap.parse_args()
     if any(s > 5 for s in a.seeds):
         ap.error('development: seeds 1-5 only')

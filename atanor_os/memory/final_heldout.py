@@ -19,7 +19,7 @@ import torch
 from ..rebuild.bench_predict import judge
 from ..rebuild.effects import Effects, outputs
 from .episodic import by_tool
-from .hybrid import ask, prior_only, reader
+from .hybrid import ask, prior_only, reader, self_check
 from .relational import Scene
 
 
@@ -30,7 +30,7 @@ def load_module(path):
     return mod
 
 
-def world_run(mod, world, seed, model, device, k, tau, votes):
+def world_run(mod, world, seed, model, device, k, tau, votes, tau_trusted=None, min_acc=None):
     d = mod.data(world, seed)
     eff = Effects(slack=1, tiered=True)
     scenes = []
@@ -49,7 +49,8 @@ def world_run(mod, world, seed, model, device, k, tau, votes):
         qs.append(Scene(world, e['tool'], args, e['before'], e['after'], 'ok' if e['ok'] else 'failed'))
     pool = by_tool(scenes)
     open_i = [i for i, s in enumerate(sym) if s == 'unknown']
-    r = ask(model, pool, [qs[i] for i in open_i], device, k, tau, votes, random.Random(f'{world}-{seed}'))
+    trust = self_check(model, pool, device, k, random.Random(f'sc-{world}-{seed}')) if min_acc is not None else None
+    r = ask(model, pool, [qs[i] for i in open_i], device, k, tau, votes, random.Random(f'{world}-{seed}'), trust, tau_trusted, min_acc)
     hyb = list(sym)
     for i, x in zip(open_i, r):
         hyb[i] = x
@@ -66,6 +67,8 @@ def main():
     ap.add_argument('--votes', type=int, required=True)
     ap.add_argument('--k', type=int, default=10)
     ap.add_argument('--seeds', nargs='+', type=int, default=[1, 2, 3])
+    ap.add_argument('--tau-trusted', type=float, default=None)
+    ap.add_argument('--min-acc', type=float, default=None)
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -78,7 +81,7 @@ def main():
     for w in mod.WORLDS:
         tot = {'EMPTY': Counter(), 'HYBRID': Counter(), 'READER': Counter(), 'PRIOR': Counter()}
         for s in a.seeds:
-            e, h, r, pr = world_run(mod, w, s, model, device, a.k, a.tau, a.votes)
+            e, h, r, pr = world_run(mod, w, s, model, device, a.k, a.tau, a.votes, a.tau_trusted, a.min_acc)
             tot['EMPTY'].update(e), tot['HYBRID'].update(h), tot['READER'].update(r), tot['PRIOR'].update(pr)
         res[w] = {k: dict(v) for k, v in tot.items()}
         for name, c in tot.items():
@@ -96,7 +99,7 @@ def main():
     f1, f2 = added_wrong <= 0.01, gain >= 0.03 and worlds_up >= 3
     verdict = 'PASS' if f1 and f2 else ('PARTIAL' if f2 and added_wrong <= 0.03 else 'FAIL')
     summary = {'verdict': verdict, 'gain': round(gain, 4), 'added_wrong': round(added_wrong, 4), 'worlds_up': worlds_up, 'F1': f1, 'F2': f2,
-               'tau': a.tau, 'votes': a.votes, 'k': a.k, 'seeds': a.seeds, 'all': {k: dict(v) for k, v in allc.items()}, 'worlds': res}
+               'tau': a.tau, 'votes': a.votes, 'k': a.k, 'tau_trusted': a.tau_trusted, 'min_acc': a.min_acc, 'seeds': a.seeds, 'all': {k: dict(v) for k, v in allc.items()}, 'worlds': res}
     (out / 'result.json').write_text(json.dumps(summary, indent=1), encoding='utf-8')
     print(json.dumps({k: summary[k] for k in ('verdict', 'gain', 'added_wrong', 'worlds_up', 'F1', 'F2')}))
 
