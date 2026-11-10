@@ -31,12 +31,17 @@ def run(a):
         log.write(' '.join(map(str, x)) + '\n')
         log.flush()
     t0 = time.time()
-    gen = generate(a.worlds, a.per_tool, seed=1, rich=not a.plain)
+    gen = generate(a.worlds, a.per_tool, seed=a.family, rich=not a.plain, kinds=a.kinds)
     say('generated', len(gen), 'scenes from', a.worlds, 'worlds', f'{time.time() - t0:.0f}s')
-    held = generate(200, a.per_tool, seed=2, rich=not a.plain)   # worlds never trained on, same family
+    held = generate(200, a.per_tool, seed=a.family + 1, rich=not a.plain, kinds=a.kinds)   # worlds never trained on, same family
     torch.manual_seed(0)
     t0 = time.time()
-    model = train(Episodic(), gen, device, steps=a.steps, k=max(a.ks), batch=a.batch, augment=a.augment, biased=a.biased, seed=0,
+    model0 = Episodic()
+    if a.init:
+        sd = torch.load(a.init, map_location='cpu')
+        if sd['bucket.weight'].shape[0] == 1:
+            model0.load_state_dict(sd)
+    model = train(model0, gen, device, steps=a.steps, k=max(a.ks), batch=a.batch, augment=a.augment, biased=a.biased, seed=0,
                   log=lambda s: say('META', s))
     say('trained', f'{time.time() - t0:.0f}s')
     torch.save(model.state_dict(), out / 'reader.pt')
@@ -58,7 +63,7 @@ def run(a):
     say('CALIBRATED tau (wrong <= 1% on generated worlds):', cal)
     if cal is not None and cal not in a.tau:
         a.tau = list(a.tau) + [cal]
-    for body in a.bodies:
+    for body in ([] if a.real_bodies else a.bodies):
         ea = Counter()
         tr, qs = [], []
         for s in a.seeds:
@@ -100,6 +105,10 @@ if __name__ == '__main__':
     ap.add_argument('--augment', action='store_true')
     ap.add_argument('--biased', type=float, default=0.5, help='share of training episodes whose examples are successes only')
     ap.add_argument('--plain', action='store_true', help='the first grammar (no value maps, single preconditions)')
+    ap.add_argument('--kinds', action='store_true', help='half the worlds have object kinds (kind-specific attributes, tools for one kind, effects by kind)')
+    ap.add_argument('--family', type=int, default=1, help='generator seed of the training family (held-out worlds: family + 1)')
+    ap.add_argument('--init', default=None, help='start from this reader')
+    ap.add_argument('--real-bodies', action='store_true', help='skip: real-body scoring is done by hybrid.py')
     a = ap.parse_args()
     if any(s > 5 for s in a.seeds):
         ap.error('development: seeds 1-5 only')

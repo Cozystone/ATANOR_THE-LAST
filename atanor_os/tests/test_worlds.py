@@ -39,3 +39,22 @@ def test_no_real_body_word_is_in_the_family():
     words = {w for s in sc for _, k, v in s.toks for w in (k, v)} | {s.tool for s in sc}
     assert not (words & real)
     assert any(s.resp == 1 for s in sc) and any(t != p for s in sc for p, t in enumerate(s.tg))
+
+
+def test_kinds_worlds_blank_by_kind_and_refuse_other_kinds():
+    seen_pre = seen_alt = False
+    for seed in range(40):
+        w = World(seed, True, True)
+        if not w.kind_attr:
+            continue
+        rng = random.Random(seed)
+        for _ in range(20):
+            st = w.state(rng)
+            kd = st[w.kind_attr]
+            assert all(st[a] == '-' for a in w.attrs[1:] if a not in w.kind_of[kd])
+        for p in w.tools.values():
+            seen_pre |= any(c[1] == w.kind_attr for c in (p['pre'] or []))
+            seen_alt |= bool(p.get('alt'))
+    assert seen_pre and seen_alt
+    sc = generate(30, 8, seed=4, kinds=True)
+    assert sc and all(len(s.toks) == len(s.after_values) for s in sc)
