@@ -8,9 +8,13 @@ import json
 import os
 import random
 
-TAU = float(os.environ.get('ATANOR_KNOW_TAU', '0.95'))   # P_KNOW_LIFE_PLAN.md: dev may try 0.9 (recorded)
+TAU = float(os.environ.get('ATANOR_KNOW_TAU', '0.9'))    # R_GATE_PLAN.md / T_LIVED_PLAN.md: 0.9 with the gate
 K = 10
-GATE = float(os.environ.get('ATANOR_KNOW_GATE', '0'))   # R_GATE_PLAN.md: answer only on tools read at least this well here
+GATE = float(os.environ.get('ATANOR_KNOW_GATE', '0.8'))  # R_GATE_PLAN.md: answer only on tools read at least this well here
+
+
+def available():
+    return os.path.exists(os.environ.get('ATANOR_KNOW_READER', DEFAULT))
 DEFAULT = 'D:/ATANOR-experiments/probe-work/authors/reader-all5.pt'
 
 

@@ -25,7 +25,10 @@ def after_course(world_dir, mind_dir, body, seed):
         return None
     from ..rebuild.practice import practice
     import os
-    know = name() == 'next_know' or os.environ.get('ATANOR_PRACTICE_KNOW') == '1'   # T_LIVED_PLAN.md (dev switch)
+    from ..memory import know as kn
+    # T_LIVED_PLAN.md (passed 2026-11-10, 13fe70dc): by default practice skips what the gated reader is sure of, when the
+    # reader file exists. ATANOR_PRACTICE_KNOW=0 turns it off (the earlier practice).
+    know = name() == 'next_know' or (os.environ.get('ATANOR_PRACTICE_KNOW', '1') == '1' and kn.available())
     return practice(world_dir, mind_dir, body, seed, know=know)
 
 
