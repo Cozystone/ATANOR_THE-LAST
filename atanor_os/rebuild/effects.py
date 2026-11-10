@@ -265,7 +265,7 @@ class Effects:
         self.bodies.add(body)
         before = [e['before'].get(a) for a in args]
         after = [(e.get('after') or {}).get(a) for a in args]
-        for i, a in enumerate(args if e.get('actor') != 'self' else ()):   # an action's identity comes from the
+        for i, a in enumerate(args if e.get('actor') not in ('self', 'other') else ()):   # (another Self's watched trials are probes too)   # an action's identity comes from the
             if len(args) > 1:                                                 # course; own trials probe it (explore.py)
                 self.seen_with[(body, a)].add(tuple(args[:i] + args[i + 1:]))
             if before[i] != after[i]:
