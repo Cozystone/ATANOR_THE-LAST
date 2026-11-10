@@ -290,6 +290,24 @@ class Effects:
         return self.models.get(action_key(self.scope(body), tool, args, self._qualified()))
 
     def predict(self, tool, args, before, reader='NEW', body=None):
+        """A BAYES reader name ending in 'G' (W_GUARD_PLAN.md) holds a confident answer when this start has a value never met
+        on an attribute that had one single value in every case with that answer: nothing ever showed that the attribute
+        does not matter."""
+        if reader.startswith('BAYES') and reader.endswith('G'):
+            p = self._predict(tool, args, before, reader[:-1], body)
+            y = p.get('outcome')
+            if y is not None:
+                m, x, seen = self.model(tool, args, body), flat(before), {}
+                for c in m.cases:
+                    if c.y.get(('r',)) == y.get(('r',)):
+                        for k, v in c.x.items():
+                            seen.setdefault(k, set()).add(v)
+                if any(v not in seen.get(k, ()) and len(seen.get(k, ())) == 1 for k, v in x.items()):
+                    return {'outcome': None, 'why': 'a new value on an attribute never seen to vary'}
+            return p
+        return self._predict(tool, args, before, reader, body)
+
+    def _predict(self, tool, args, before, reader='NEW', body=None):
         """before: the arguments' observations now. -> {'outcome': {output: value} or None, 'why', 'unknown': [...]}"""
         m = self.model(tool, args, body)
         x = flat(before)
