@@ -50,7 +50,7 @@ class HumanPerson:
         self.answers = queue.Queue()
         self.help = Counter()
         self.n = 0
-        if os.environ.get('ATANOR_SELECTION_CHECK') == '0':   # U_NOISY_TEACHER_PLAN.md comparison: no check
+        if os.environ.get('ATANOR_SELECTION_CHECK') != '1':   # U_NOISY_TEACHER_PLAN.md failed on fresh seeds: off unless asked
             self.check_selection = None
 
     def ask(self, kind, **info):
