@@ -59,7 +59,7 @@ class Grounder:
         home = home or self.home
         objs = home.existing()
         st = home.observe(objs)
-        fam = FAMILIES_ALL + (('H',) if os.environ.get('ATANOR_HAS_ATOMS') == '1' else ())   # X_HAS_VALUE_PLAN.md (dev switch)
+        fam = FAMILIES_ALL + (('H',) if os.environ.get('ATANOR_HAS_ATOMS', '1' if getattr(self.person, 'has_value_atoms', False) else '0') == '1' else ())   # X_HAS_VALUE_PLAN.md: on at the real-person interface
         return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), fam) if a[0] != 'E') for o in objs}
 
     @staticmethod

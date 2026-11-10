@@ -50,6 +50,7 @@ class HumanPerson:
         self.answers = queue.Queue()
         self.help = Counter()
         self.n = 0
+        self.has_value_atoms = True                        # X_HAS_VALUE_PLAN.md (passed): 'this attribute has some value' can be a criterion here
         if os.environ.get('ATANOR_SELECTION_CHECK') != '1':   # U_NOISY_TEACHER_PLAN.md failed on fresh seeds: off unless asked
             self.check_selection = None
 
