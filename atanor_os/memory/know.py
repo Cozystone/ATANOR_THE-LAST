@@ -8,7 +8,7 @@ import json
 import os
 import random
 
-TAU = 0.95
+TAU = float(os.environ.get('ATANOR_KNOW_TAU', '0.95'))   # P_KNOW_LIFE_PLAN.md: dev may try 0.9 (recorded)
 K = 10
 DEFAULT = 'D:/ATANOR-experiments/probe-work/authors/reader-all5.pt'
 
