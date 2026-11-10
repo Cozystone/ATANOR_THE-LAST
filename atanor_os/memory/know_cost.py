@@ -20,7 +20,7 @@ from ..rebuild.experience import load_course
 from ..rebuild.explore import READER, _newness, explore
 from ..rebuild.effects import flat
 from .episodic import Episode, by_tool
-from .hybrid import ask, reader as load_reader
+from .hybrid import ask, reader as load_reader, self_check
 from .relational import Scene, scene_of
 
 BODIES = ('board', 'clime', 'desk', 'dye', 'fs', 'view')
@@ -31,8 +31,9 @@ TAU = 0.95
 class Skip:
     """CHOOSE's order (unknown calls, most new values first), except that a call the reader is sure of is not tried."""
 
-    def __init__(self, model, scenes, body, device, k=10, seed=0):
+    def __init__(self, model, scenes, body, device, k=10, seed=0, gate=None):
         self.model, self.scenes, self.body, self.device, self.k = model, scenes, body, device, k
+        self.gate = gate                                   # R_GATE_PLAN.md: (trust, min_acc, tau) or None
         self.rng = random.Random(seed)
         self.memo, self.skipped = {}, 0
 
@@ -45,7 +46,9 @@ class Skip:
             ex = same if len(same) <= self.k else self.rng.sample(same, self.k)
             q = Scene(self.body, tool, list(args), dict(zip(args, before)))
             vals, ans, conf = self.model.predict([Episode(ex, q)], self.device, 0.0)[0]
-            self.memo[key] = conf >= TAU and vals is not None and not any(isinstance(v, tuple) for v in vals)
+            tau = TAU if self.gate is None else self.gate[2]
+            ok = self.gate is None or self.gate[0].get((self.body, tool, len(args)), 0.0) >= self.gate[1]
+            self.memo[key] = ok and conf >= tau and vals is not None and not any(isinstance(v, tuple) for v in vals)
         return self.memo[key]
 
     def __call__(self, m, tool, args, before, y):
@@ -57,7 +60,7 @@ class Skip:
         return (0, -_newness(m, flat(before)))
 
 
-def bench(c, eff, model, scenes, device, seed):
+def bench(c, eff, model, scenes, device, seed, gate=None):
     sym, qs = [], []
     for w, tool, args, before, truth, after in c['qs']:
         m = eff.model(tool, args)
@@ -65,7 +68,12 @@ def bench(c, eff, model, scenes, device, seed):
         qs.append(Scene(c['body'], tool, args, dict(zip(args, before)), dict(zip(args, after)), truth[('r',)]))
     if model is not None:
         open_i = [i for i, x in enumerate(sym) if x == 'unknown']
-        r = ask(model, by_tool(scenes), [qs[i] for i in open_i], device, 10, TAU, 1, random.Random(seed))
+        if gate is None:
+            r = ask(model, by_tool(scenes), [qs[i] for i in open_i], device, 10, TAU, 1, random.Random(seed))
+        else:
+            pool = by_tool(scenes)
+            trust = self_check(model, pool, device, 10, random.Random(f'sc-{seed}'))
+            r = ask(model, pool, [qs[i] for i in open_i], device, 10, 1.01, 1, random.Random(seed), trust, gate[1], gate[0])
         for i, x in zip(open_i, r):
             sym[i] = x
     return dict(Counter(sym))
@@ -90,7 +98,10 @@ def one(a):
             scenes = list(course)
             trials, skipped = 0, 0
             if k:
-                sel = 'CHOOSE' if model is None else Skip(model, scenes, a.body, device, seed=a.seed)
+                g = None
+                if model is not None and a.gate:
+                    g = (self_check(model, by_tool(scenes), device, 10, random.Random(f'sc0-{a.seed}')), a.gate[0], a.gate[1])
+                sel = 'CHOOSE' if model is None else Skip(model, scenes, a.body, device, seed=a.seed, gate=g)
 
                 def keep(e, eff=eff, scenes=scenes):
                     eff.observe(e)
@@ -99,7 +110,7 @@ def one(a):
                 explore(eff, c['body'], names, ps, wd / f'{name}-{k}', per_action=k, selector=sel, keep=keep)
                 trials = sum(explore.counts.values())
                 skipped = getattr(sel, 'skipped', 0)
-            res[f'{name}:{k}'] = bench(c, eff, model, scenes, device, a.seed)
+            res[f'{name}:{k}'] = bench(c, eff, model, scenes, device, a.seed, a.gate)
             res[f'{name}:{k}:trials'] = trials
             res[f'{name}:{k}:skipped'] = skipped
     Path(a.out).write_text(json.dumps(res), encoding='utf-8')
@@ -153,4 +164,5 @@ if __name__ == '__main__':
     ap.add_argument('seed', type=int)
     ap.add_argument('out')
     ap.add_argument('--readers', nargs='+', default=[])
+    ap.add_argument('--gate', nargs=2, type=float, default=None, help='min_acc tau (R_GATE_PLAN.md)')
     one(ap.parse_args())
