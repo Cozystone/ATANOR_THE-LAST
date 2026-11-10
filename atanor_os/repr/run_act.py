@@ -28,6 +28,9 @@ def worlds(body, root, eval_seed, drift):
     if body == 'dye':                                      # SIXTH_BODY_DESIGN.md: the dye works after 0, 1 and 2 more days
         from ..eval.dye_eval import world
         return [lambda k=k: world(root, eval_seed, drift, ticks=k) for k in (0, 1, 2)]
+    if body == 'crumb':                                    # seventh body: the oven line after 0, 1 and 2 more days
+        from ..eval.crumb_eval import world
+        return [lambda k=k: world(root, eval_seed, drift, ticks=k) for k in (0, 1, 2)]
     from ..eval.desk_eval2 import WORLD_DAYS, world
     return [lambda v=v: world(root, eval_seed, drift, variant=v) for v in range(len(WORLD_DAYS))]
 

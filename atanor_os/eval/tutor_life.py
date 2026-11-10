@@ -38,6 +38,10 @@ def english(kind, spec):
     """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection.
     Evaluator side only: the learner never sees this table, only the person saying the phrase while pointing or showing."""
     if kind == 'sel':
+        if spec['kind'] == 'loaf':                         # seventh body: no word of the six earlier bodies
+            adj = {'proof': {'slack': 'sunken', 'risen': 'puffy'}, 'crust': {'doughy': 'unbaked', 'blond': 'pallid'},
+                   'grain': {'rye': 'rustic', 'spelt': 'heirloom'}}
+            return [adj[k][spec[k]] for k in ('proof', 'crust', 'grain') if k in spec] + ['loaves']
         if spec['kind'] == 'bolt':                         # SIXTH_BODY_DESIGN.md: no word of the five earlier bodies
             adj = {'hue': {'ecru': 'undyed', 'madder': 'rosy'}, 'state': {'wet': 'soggy'},
                    'fibre': {'silk': 'silken', 'wool': 'woollen'}}
@@ -62,6 +66,8 @@ def english(kind, spec):
             return ['the', spec['mark'], 'cards', 'in', spec['tray']]
         return ['the', spec['mark'], 'cards'] if 'mark' in spec else ['the', 'cards', 'in', spec['tray']]
     t, v = spec['tool'], spec.get('second')
+    if t in ('bake', 'prove', 'knock', 'box'):
+        return {'bake': ['roast', (v or 'o.-')[2:]], 'prove': ['ferment'], 'knock': ['deflate'], 'box': ['crate']}[t]
     if t in ('dip', 'hang', 'bleach', 'fix'):
         return {'dip': ['dunk', (v or 'v.-')[2:]], 'hang': ['hang'], 'bleach': ['whiten'], 'fix': ['mordant']}[t]
     if t in ('heat', 'chill', 'vent', 'route', 'seal'):
@@ -99,6 +105,12 @@ def body_targets(body, seed):
     rng = random.Random(f'tutor-targets-{body}-{seed}')
     if body == 'board':
         return targets(seed)
+    if body == 'crumb':
+        sels = [{'kind': 'loaf', 'proof': 'slack'}, {'kind': 'loaf', 'crust': 'doughy'}, {'kind': 'loaf', 'grain': 'rye'},
+                {'kind': 'loaf', 'grain': 'spelt', 'proof': 'risen'}, {'kind': 'loaf', 'crust': 'blond'}]
+        acts = [{'tool': 'bake', 'second': 'o.brick'}, {'tool': 'bake', 'second': 'o.stone'}, {'tool': 'prove'}, {'tool': 'knock'},
+                {'tool': 'box'}]
+        return sels, acts
     if body == 'dye':
         sels = [{'kind': 'bolt', 'hue': 'ecru'}, {'kind': 'bolt', 'state': 'wet'}, {'kind': 'bolt', 'fibre': 'silk'},
                 {'kind': 'bolt', 'hue': 'ecru', 'fibre': 'wool'}, {'kind': 'bolt', 'hue': 'madder'}]
@@ -147,6 +159,12 @@ def make_home(body, root, seed, day_no):
         home.add_bolts(dye_inflow(seed, day_no))
         home.tick()                                        # a day passes: vats refilled, wet bolts dry, old bolts shipped
         return home
+    if body == 'crumb':
+        from ..world.crumb_world import CrumbWorkspace
+        home = CrumbWorkspace(root / 'crumb', create=not (root / 'crumb').exists(), seed=seed)
+        home.add_loaves(crumb_inflow(seed, day_no))
+        home.tick()                                        # a day passes: dials turned, some dough rises, old loaves sold
+        return home
     if body == 'desk':
         from ..world.desk_world import DeskWorkspace
         home = DeskWorkspace(root / 'desk', create=not (root / 'desk').exists(), seed=seed)
@@ -177,12 +195,13 @@ def make_home(body, root, seed, day_no):
 
 
 def body_spec(body):
-    from ..teach.tutor import BoardSpec, ClimeSpec, DeskSpec, DyeSpec, FsSpec, ViewSpec
-    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec, 'clime': ClimeSpec, 'dye': DyeSpec}[body]
+    from ..teach.tutor import BoardSpec, ClimeSpec, CrumbSpec, DeskSpec, DyeSpec, FsSpec, ViewSpec
+    return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec, 'clime': ClimeSpec, 'dye': DyeSpec,
+            'crumb': CrumbSpec}[body]
 
 
 DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired', 'desk': 'file_retired', 'clime': 'heat_retired',
-         'dye': 'hang_retired'}
+         'dye': 'hang_retired', 'crumb': 'prove_retired'}
 
 
 def clime_inflow(seed, day, n=6):
@@ -197,6 +216,17 @@ def dye_inflow(seed, day, n=4):
     rng = random.Random(f'dye-inflow-{seed}-{day}')
     return {f'b{day}n{k}': {'hue': rng.choice(['ecru', 'ecru', 'madder', 'madder', 'indigo', 'weld']), 'fibre': rng.choice(['wool', 'silk', 'flax']),
                             'state': 'wet' if rng.random() < 0.4 else 'dry'} for k in range(n)}
+
+
+def crumb_inflow(seed, day, n=5):
+    """New loaves arrive (seeded): mostly unbaked dough, slack or risen; some already part baked (risen)."""
+    rng = random.Random(f'crumb-inflow-{seed}-{day}')
+    out = {}
+    for k in range(n):
+        crust = rng.choice(['doughy', 'doughy', 'doughy', 'doughy', 'blond', 'blond', 'golden'])
+        proof = rng.choice(['slack', 'risen']) if crust == 'doughy' else 'risen'
+        out[f'q{day}z{k}'] = {'crust': crust, 'grain': rng.choice(['rye', 'spelt', 'barley']), 'proof': proof}
+    return out
 
 
 def desk_inflow(seed, day, n=8):

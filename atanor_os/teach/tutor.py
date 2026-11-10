@@ -35,6 +35,20 @@ def symbols_dye(seed, n=40):
     return out
 
 
+def symbols_crumb(seed, n=40):
+    """Seventh-body names (the bakery oven line): another syllable shape. Every name is vowel, consonant, consonant,
+    vowel; the first two generators always start with a consonant and the sixth body's names have a vowel third, so no
+    name can repeat theirs."""
+    rng = random.Random(f'symbols-crumb-{seed}')
+    vows, cons = 'aeiou', 'bdgkp'
+    out = set()
+    while len(out) < n:
+        out.add(rng.choice(vows) + rng.choice(cons) + rng.choice(cons) + rng.choice(vows))
+    out = sorted(out)
+    rng.shuffle(out)
+    return out
+
+
 def symbols(seed, n=40):
     rng = random.Random(f'symbols-{seed}')
     cons, vows = 'bdfgklmnprstvwz', 'aeiou'
@@ -334,6 +348,77 @@ class DyeSpec:
         return act['tool'] == 'dip' and o == act.get('second')
 
 
+class CrumbSpec:
+    """The bakery oven line (seventh body): the objects meant are loaves. bake takes an oven (a stateful second
+    argument): the crust moves up the ordered scale by as many steps as the oven's dial gives at that moment (relative,
+    as the climate bays' heat), so whether a loaf shows the result is known only against its state before. A person
+    does not expect slack dough or a loaf in an unlit oven to bake, a loaf to be baked to charred, baked bread to be
+    proved or knocked back, or a boxed loaf to change; such loaves must stay as they were."""
+    BODY = 'crumb'
+    RELATIVE = True
+    KEEP_IMPOSSIBLE = True
+    CRUSTS = ('doughy', 'blond', 'golden', 'brown', 'charred')
+    STEP = {'gentle': 1, 'fierce': 2}
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and '.' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, v = act['tool'], act.get('second')
+        if t == 'bake':
+            return ('bake', (o, v))
+        if t == 'prove':
+            return ('leaven', (o,)) if 'prove_retired' in drift else ('prove', (o,))
+        if t == 'knock':
+            return ('punch', (o,)) if 'knock_retired' in drift else ('knock', (o,))
+        return (t, (o,))
+
+    @staticmethod
+    def _baked_to(act, o, state):
+        """The crust a bake of o gives on this state, or None if it gives none a person expects."""
+        a, oven = state.get(o) or {}, state.get(act.get('second')) or {}
+        L = CrumbSpec.CRUSTS
+        if oven.get('kind') != 'oven' or a.get('crust') not in L:
+            return None
+        k = L.index(a['crust']) + CrumbSpec.STEP.get(oven.get('proof'), 0)
+        return L[k] if k != L.index(a['crust']) and k < len(L) - 1 else None
+
+    @staticmethod
+    def shows(act, o, state, before=None):
+        a = state.get(o)
+        if a is None or a['kind'] != 'loaf':
+            return False
+        t = act['tool']
+        if t == 'bake':
+            if before is None or o not in before:
+                return False                               # a relative change shows only against the state before
+            want = CrumbSpec._baked_to(act, o, before)
+            return want is not None and a['crust'] == want
+        if t == 'prove':
+            return a['proof'] == 'risen'
+        if t == 'knock':
+            return a['proof'] == 'slack'
+        return a['value'] == 'boxed'
+
+    @staticmethod
+    def possible(act, o, state):
+        a = state.get(o) or {}
+        if a.get('kind') != 'loaf' or a.get('value') == 'boxed':
+            return False
+        t = act['tool']
+        if t == 'bake':
+            return a.get('proof') == 'risen' and CrumbSpec._baked_to(act, o, state) is not None
+        if t in ('prove', 'knock'):
+            return a.get('crust') == 'doughy'
+        return True
+
+    @staticmethod
+    def may_change(act, o, truth):
+        return False
+
+
 class Tutor:
     def __init__(self, home, spec, seed):
         self.home, self.spec = home, spec
@@ -384,7 +469,7 @@ class Tutor:
             todo = [o for o in todo if self.spec.possible(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
-        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye') else {}))
+        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye', 'crumb') else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
     def judge(self, ignore=()):
