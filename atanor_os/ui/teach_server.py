@@ -50,7 +50,7 @@ class HumanPerson:
         self.answers = queue.Queue()
         self.help = Counter()
         self.n = 0
-        self.has_value_atoms = True                        # X_HAS_VALUE_PLAN.md (passed): 'this attribute has some value' can be a criterion here
+        self.has_value_atoms = False                       # X_HAS_VALUE_PLAN.md: turned on by the interactive server only (main)
         if os.environ.get('ATANOR_SELECTION_CHECK') != '1':   # U_NOISY_TEACHER_PLAN.md failed on fresh seeds: off unless asked
             self.check_selection = None
 
@@ -533,6 +533,7 @@ def main(argv=None):
     clock = (lambda: datetime.datetime.now() + datetime.timedelta(days=shift[0])) if a.sim_days else None
     sess = Session(a.root, a.seed, source=a.source, clock=clock)
     sess.shift = shift if a.sim_days else None
+    sess.person.has_value_atoms = True                     # X_HAS_VALUE_PLAN.md (passed): on for a person at the screen
     srv = ThreadingHTTPServer(('127.0.0.1', a.port), make_handler(sess))
     print(f'ATANOR board tutor on http://127.0.0.1:{a.port}  sandbox: {a.root}', flush=True)
     srv.serve_forever()

@@ -30,4 +30,5 @@ Claude가 가르친 세션(출처 `claude`)에서 틀림 1건의 원인: "바구
 | 대본 교사 시드 41–43: 명령 성공 / 보류 / 틀림 | 136 / 1 / 0 | 136 / 1 / 0 |
 
 - 새 시드에서는 대본 교사 결과가 완전히 같았다(개발 시드의 −3%p는 재현되지 않음).
-- 채택: 사람용 교수 화면(`HumanPerson`)에서 기본으로 켠다. 프로그램 교사 평가(`teach/tutor.py`)는 그대로다. `ATANOR_HAS_ATOMS=0`으로 끈다.
+- 채택: **교수 서버(`python -m atanor_os.ui.teach_server`)를 띄울 때만** 켠다. `ATANOR_HAS_ATOMS=0`으로 끈다.
+- 정정: 처음에는 `HumanPerson` 전체에서 켰는데(`09e0112c`), 프로그램 교사(`teach/teacher_policy.py`)와 삶 관리자도 같은 통로를 쓰므로 그 평가들이 바뀌었고 `test_life_host`의 강제 종료 시험이 실패했다. 서버 실행 때만 켜도록 고쳤다.
