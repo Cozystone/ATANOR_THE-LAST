@@ -57,8 +57,12 @@ def practice(world_dir, mind_dir, body, seed, selector='CHOOSE', per_action=PER_
             from ..life.role_space_probe import guided, space_from_items
             pick = guided(space_from_items(store.items, exclude=body))
 
+        known = selector if know else None             # T_LIVED_PLAN.md: a call the reader is sure of is not tried, and costs nothing
+
         def gated(model, tool, args, before, y):
-            if y is not None or not m.allow(metabolism.PRICES['SELF_TRIAL'], True):
+            if y is not None or (known is not None and known(model, tool, args, before, y) is None):
+                return None
+            if not m.allow(metabolism.PRICES['SELF_TRIAL'], True):
                 return None
             return pick(model, tool, args, before, y) if pick else (0, 0)
         selector = gated

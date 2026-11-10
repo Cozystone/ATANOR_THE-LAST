@@ -24,7 +24,9 @@ def after_course(world_dir, mind_dir, body, seed):
     if name() not in ('next_explore', 'next_know'):
         return None
     from ..rebuild.practice import practice
-    return practice(world_dir, mind_dir, body, seed, know=name() == 'next_know')
+    import os
+    know = name() == 'next_know' or os.environ.get('ATANOR_PRACTICE_KNOW') == '1'   # T_LIVED_PLAN.md (dev switch)
+    return practice(world_dir, mind_dir, body, seed, know=know)
 
 
 def make(home, mind_dir, **kw):
