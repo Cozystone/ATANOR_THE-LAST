@@ -117,7 +117,7 @@ def summ(d):
     conds = sorted({k.split(':')[0] for _, k in T}, key=lambda x: (x != 'NONE', x))
     rate = lambda c, x: c[x] / (sum(c.values()) or 1)
     cost, verdict = {}, {}
-    for b in BODIES:
+    for b in list(BODIES) + sorted({k[0] for k in T} - set(BODIES)):
         if not any(k[0] == b for k in T):
             continue
         goal = 0.95 * rate(T[(b, 'NONE:10')], 'right')
@@ -138,7 +138,7 @@ def summ(d):
     print('per body', verdict)
     print('total cost (bodies that reached)', tot)
     o2 = all(v['safe'] for v in verdict.values())
-    print(json.dumps({'O1': n1 >= 4, 'O2': o2, 'O3': n1 > 0 and n3 * 2 >= n1, 'bodies_O1': n1,
+    print(json.dumps({'cost': {b: {n: cost[(b, n)] for n in conds} for b in verdict}, 'O1': n1 >= 4, 'O2': o2, 'O3': n1 > 0 and n3 * 2 >= n1, 'bodies_O1': n1,
                       'PASS': bool(n1 >= 4 and o2 and n3 * 2 >= n1)}))
 
 

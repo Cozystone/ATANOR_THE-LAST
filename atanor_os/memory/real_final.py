@@ -16,6 +16,7 @@ def main():
     ap.add_argument('--readers', nargs='+', required=True)
     ap.add_argument('--seeds', nargs='+', type=int, required=True)
     ap.add_argument('--tau', type=float, default=0.95)
+    ap.add_argument('--bodies', nargs='+', default=None)
     a = ap.parse_args()
     out = Path(a.out)
     if out.exists():
@@ -25,7 +26,7 @@ def main():
     for spec in a.readers:
         name, path = spec.split('=', 1)
         print('== reader', name, flush=True)
-        hybrid.run(argparse.Namespace(reader=path, out=str(out / name), bodies=list(lobo.BODIES), seeds=a.seeds, ks=[10],
+        hybrid.run(argparse.Namespace(reader=path, out=str(out / name), bodies=a.bodies or list(lobo.BODIES), seeds=a.seeds, ks=[10],
                                       taus=[a.tau], votes=[1], selfcal=None, tau_trusted=[]))
 
 
