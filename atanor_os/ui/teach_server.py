@@ -87,11 +87,11 @@ class HumanPerson:
             args = tuple(a for a in d['args'] if a)
             try:
                 res = self.home.execute(d['tool'], args, {c: True for c in set(self.home.CAPABILITY.values())},
-                                        **({'actor': 'person'} if getattr(self.home, 'BODY', '') in ('desk', 'clime', 'dye', 'crumb') else {}))
+                                        **({'actor': 'person'} if getattr(self.home, 'BODY', '') in ('desk', 'clime', 'dye', 'crumb', 'spoke') else {}))
             except ValueError:
                 res = {'ok': False, 'error': 'invalid action'}
             if res['ok']:
-                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file', 'panel', 'message', 'draft', 'task', 'note', 'bay', 'bolt', 'loaf')), args[0])   # the object acted on
+                card = d.get('object') or next((a for a in args if self.home.kind(a) in ('card', 'file', 'panel', 'message', 'draft', 'task', 'note', 'bay', 'bolt', 'loaf', 'bike')), args[0])   # the object acted on
                 return {'tool': d['tool'], 'args': list(args), 'object': card}
             err = f"그 행동은 되지 않았습니다 ({res.get('error')}). 다른 카드나 값으로 다시 보여 주세요."
         raise Cancelled()
@@ -159,6 +159,9 @@ class Session:
         elif body == 'crumb':
             from ..world.crumb_world import CrumbWorkspace
             self.home = CrumbWorkspace(self.root / 'crumb', create=not (self.root / 'crumb').exists(), seed=seed)
+        elif body == 'spoke':
+            from ..world.spoke_world import SpokeWorkspace
+            self.home = SpokeWorkspace(self.root / 'spoke', create=not (self.root / 'spoke').exists(), seed=seed)
         else:
             from ..eval.tutor_life import FS_FOLDERS
             from ..world.fs_world import Workspace
@@ -218,6 +221,10 @@ class Session:
         elif self.body == 'crumb':                         # new loaves arrive; a day passes (dials turned, old loaves sold)
             from ..eval.tutor_life import crumb_inflow
             self.home.add_loaves(crumb_inflow(self.state['seed'], 100 + n))
+            self.home.tick()
+        elif self.body == 'spoke':                         # new bikes come in; a day passes (gauges turned, old bikes collected)
+            from ..eval.tutor_life import spoke_inflow
+            self.home.add_bikes(spoke_inflow(self.state['seed'], 100 + n))
             self.home.tick()
         elif self.body == 'desk':                          # new items arrive; time passes (outside changes, sent drafts)
             from ..eval.tutor_life import desk_inflow

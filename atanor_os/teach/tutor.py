@@ -49,6 +49,20 @@ def symbols_crumb(seed, n=40):
     return out
 
 
+def symbols_spoke(seed, n=40):
+    """Eighth-body names (the bike repair shop): another syllable shape. Every name is consonant, l or r, vowel,
+    consonant; the first two generators always have a vowel second and the sixth and seventh bodies' names start with a
+    vowel, so no name can repeat theirs."""
+    rng = random.Random(f'symbols-spoke-{seed}')
+    first, second, vows, last = 'bdgkpt', 'lr', 'aeiou', 'fvxz'
+    out = set()
+    while len(out) < n:
+        out.add(rng.choice(first) + rng.choice(second) + rng.choice(vows) + rng.choice(last))
+    out = sorted(out)
+    rng.shuffle(out)
+    return out
+
+
 def symbols(seed, n=40):
     rng = random.Random(f'symbols-{seed}')
     cons, vows = 'bdfgklmnprstvwz', 'aeiou'
@@ -419,6 +433,82 @@ class CrumbSpec:
         return False
 
 
+class SpokeSpec:
+    """The bike repair shop (eighth body): the objects meant are bikes. inflate takes a pump (a stateful second
+    argument): the pressure moves up the ordered scale by as many steps as the pump's gauge gives at that moment, and
+    release lets one step out (both relative, as the climate bays' heat), so whether a bike shows the result is known
+    only against its state before. A person does not expect a tyre to be inflated to burst, a burst or limp tyre to give
+    air, a shut pump to inflate, a steel frame's brakes to be bled, or a delivered bike to change; such bikes must stay
+    as they were."""
+    BODY = 'spoke'
+    RELATIVE = True
+    KEEP_IMPOSSIBLE = True
+    PRESSURES = ('limp', 'soft', 'firm', 'taut', 'burst')
+    STEP = {'trickle': 1, 'gust': 2}
+
+    @staticmethod
+    def member(o, a, sel):
+        return a is not None and '.' not in o and all(a.get(k) == v for k, v in sel.items())
+
+    @staticmethod
+    def steps(act, o, drift):
+        t, v = act['tool'], act.get('second')
+        if t == 'inflate':
+            return ('inflate', (o, v))
+        if t == 'bleed':
+            return ('prime', (o,)) if 'bleed_retired' in drift else ('bleed', (o,))
+        if t == 'release':
+            return ('drop', (o,)) if 'release_retired' in drift else ('release', (o,))
+        return (t, (o,))
+
+    @staticmethod
+    def _moved_to(act, o, state):
+        """The pressure the act gives o on this state, or None if it gives none a person expects."""
+        a = state.get(o) or {}
+        L = SpokeSpec.PRESSURES
+        if a.get('pressure') not in L[:-1]:
+            return None
+        i = L.index(a['pressure'])
+        if act['tool'] == 'release':
+            return L[i - 1] if i > 0 else None
+        pump = state.get(act.get('second')) or {}
+        if pump.get('kind') != 'pump':
+            return None
+        k = i + SpokeSpec.STEP.get(pump.get('pressure'), 0)
+        return L[k] if k != i and k < len(L) - 1 else None
+
+    @staticmethod
+    def shows(act, o, state, before=None):
+        a = state.get(o)
+        if a is None or a['kind'] != 'bike':
+            return False
+        t = act['tool']
+        if t in ('inflate', 'release'):
+            if before is None or o not in before:
+                return False                               # a relative change shows only against the state before
+            want = SpokeSpec._moved_to(act, o, before)
+            return want is not None and a['pressure'] == want
+        if t == 'bleed':
+            return a['brake'] == 'sharp'
+        return a['value'] == 'delivered'
+
+    @staticmethod
+    def possible(act, o, state):
+        a = state.get(o) or {}
+        if a.get('kind') != 'bike' or a.get('value') == 'delivered':
+            return False
+        t = act['tool']
+        if t in ('inflate', 'release'):
+            return SpokeSpec._moved_to(act, o, state) is not None
+        if t == 'bleed':
+            return a.get('frame') != 'steel'
+        return True
+
+    @staticmethod
+    def may_change(act, o, truth):
+        return False
+
+
 class Tutor:
     def __init__(self, home, spec, seed):
         self.home, self.spec = home, spec
@@ -469,7 +559,7 @@ class Tutor:
             todo = [o for o in todo if self.spec.possible(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
-        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye', 'crumb') else {}))
+        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye', 'crumb', 'spoke') else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
     def judge(self, ignore=()):

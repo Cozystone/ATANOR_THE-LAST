@@ -38,6 +38,10 @@ def english(kind, spec):
     """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection.
     Evaluator side only: the learner never sees this table, only the person saying the phrase while pointing or showing."""
     if kind == 'sel':
+        if spec['kind'] == 'bike':                         # eighth body: no word of the seven earlier bodies
+            adj = {'brake': {'spongy': 'mushy', 'sharp': 'crisp'}, 'pressure': {'limp': 'floppy', 'soft': 'squashy'},
+                   'frame': {'alloy': 'metallic', 'bamboo': 'cane'}}
+            return [adj[k][spec[k]] for k in ('brake', 'pressure', 'frame') if k in spec] + ['bicycles']
         if spec['kind'] == 'loaf':                         # seventh body: no word of the six earlier bodies
             adj = {'proof': {'slack': 'sunken', 'risen': 'puffy'}, 'crust': {'doughy': 'unbaked', 'blond': 'pallid'},
                    'grain': {'rye': 'rustic', 'spelt': 'heirloom'}}
@@ -66,6 +70,9 @@ def english(kind, spec):
             return ['the', spec['mark'], 'cards', 'in', spec['tray']]
         return ['the', spec['mark'], 'cards'] if 'mark' in spec else ['the', 'cards', 'in', spec['tray']]
     t, v = spec['tool'], spec.get('second')
+    if t in ('inflate', 'release', 'bleed', 'deliver'):
+        return {'inflate': ['pressurize', (v or 'p.-')[2:]], 'release': ['depressurize'], 'bleed': ['debubble'],
+                'deliver': ['handover']}[t]
     if t in ('bake', 'prove', 'knock', 'box'):
         return {'bake': ['roast', (v or 'o.-')[2:]], 'prove': ['ferment'], 'knock': ['deflate'], 'box': ['crate']}[t]
     if t in ('dip', 'hang', 'bleach', 'fix'):
@@ -105,6 +112,12 @@ def body_targets(body, seed):
     rng = random.Random(f'tutor-targets-{body}-{seed}')
     if body == 'board':
         return targets(seed)
+    if body == 'spoke':
+        sels = [{'kind': 'bike', 'brake': 'spongy'}, {'kind': 'bike', 'pressure': 'limp'}, {'kind': 'bike', 'frame': 'alloy'},
+                {'kind': 'bike', 'frame': 'bamboo', 'brake': 'spongy'}, {'kind': 'bike', 'pressure': 'soft'}]
+        acts = [{'tool': 'inflate', 'second': 'p.track'}, {'tool': 'inflate', 'second': 'p.foot'}, {'tool': 'release'},
+                {'tool': 'bleed'}, {'tool': 'deliver'}]
+        return sels, acts
     if body == 'crumb':
         sels = [{'kind': 'loaf', 'proof': 'slack'}, {'kind': 'loaf', 'crust': 'doughy'}, {'kind': 'loaf', 'grain': 'rye'},
                 {'kind': 'loaf', 'grain': 'spelt', 'proof': 'risen'}, {'kind': 'loaf', 'crust': 'blond'}]
@@ -165,6 +178,12 @@ def make_home(body, root, seed, day_no):
         home.add_loaves(crumb_inflow(seed, day_no))
         home.tick()                                        # a day passes: dials turned, some dough rises, old loaves sold
         return home
+    if body == 'spoke':
+        from ..world.spoke_world import SpokeWorkspace
+        home = SpokeWorkspace(root / 'spoke', create=not (root / 'spoke').exists(), seed=seed)
+        home.add_bikes(spoke_inflow(seed, day_no))
+        home.tick()                                        # a day passes: gauges turned, some tyres leak, old bikes collected
+        return home
     if body == 'desk':
         from ..world.desk_world import DeskWorkspace
         home = DeskWorkspace(root / 'desk', create=not (root / 'desk').exists(), seed=seed)
@@ -195,13 +214,13 @@ def make_home(body, root, seed, day_no):
 
 
 def body_spec(body):
-    from ..teach.tutor import BoardSpec, ClimeSpec, CrumbSpec, DeskSpec, DyeSpec, FsSpec, ViewSpec
+    from ..teach.tutor import BoardSpec, ClimeSpec, CrumbSpec, DeskSpec, DyeSpec, FsSpec, SpokeSpec, ViewSpec
     return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec, 'clime': ClimeSpec, 'dye': DyeSpec,
-            'crumb': CrumbSpec}[body]
+            'crumb': CrumbSpec, 'spoke': SpokeSpec}[body]
 
 
 DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired', 'desk': 'file_retired', 'clime': 'heat_retired',
-         'dye': 'hang_retired', 'crumb': 'prove_retired'}
+         'dye': 'hang_retired', 'crumb': 'prove_retired', 'spoke': 'bleed_retired'}
 
 
 def clime_inflow(seed, day, n=6):
@@ -226,6 +245,18 @@ def crumb_inflow(seed, day, n=5):
         crust = rng.choice(['doughy', 'doughy', 'doughy', 'doughy', 'blond', 'blond', 'golden'])
         proof = rng.choice(['slack', 'risen']) if crust == 'doughy' else 'risen'
         out[f'q{day}z{k}'] = {'crust': crust, 'grain': rng.choice(['rye', 'spelt', 'barley']), 'proof': proof}
+    return out
+
+
+def spoke_inflow(seed, day, n=5):
+    """New bikes come in for repair (seeded): mostly limp or soft tyres, some firm; every day brings each frame (in a
+    seeded order); spongy or sharp brakes."""
+    rng = random.Random(f'spoke-inflow-{seed}-{day}')
+    frames = rng.sample(['steel', 'alloy', 'bamboo'], 3)
+    out = {}
+    for k in range(n):
+        out[f'k{day}y{k}'] = {'pressure': rng.choice(['limp', 'limp', 'soft', 'soft', 'soft', 'firm']), 'frame': frames[k % 3],
+                              'brake': 'spongy' if rng.random() < 0.55 else 'sharp'}
     return out
 
 
