@@ -53,6 +53,8 @@ def prior_only(pool, qs, k, rng):
             j = int(S[p].argmax())
             vals.append(BLANK if float(sb[p]) > float(S[p, j]) else e.rows[j][4])
         ans = 'failed' if failed > 0.5 else 'ok'
+        if ans == 'failed':                                # a refused call leaves everything as it was
+            vals = [v for _, _, v in q.toks]
         out.append('right' if ans == RESP[q.resp] and vals == list(q.after_values) else 'wrong')
     return out
 
