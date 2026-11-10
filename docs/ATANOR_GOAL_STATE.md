@@ -9,6 +9,10 @@ only on ATANOR's own experiences (no human text, no pretrained weights, no API) 
 layer, which keeps verification, record, safety (no act without confidence) and provenance. Plan and criteria H1-H3 fixed in
 atanor_os/H_LEARNED_MEMORY_PLAN.md before code. Word-free relational encoding + hashed word embeddings; leave-one-body-out, 0/k-shot,
 word-cipher control, against the empty symbolic mind. Expect within-family transfer; far transfer across structures is unproven anywhere.
+H first sealed check (4 worlds written separately, seeds 1-3, once, 4cd0dfa7): FAIL. Reader trained on generated worlds, added on the symbolic
+mind's unknowns (tau .9, 3 votes): right +0.53 points (needed 3), wrong +0.03, up in 4/4 worlds; reader alone about 10 points above no-learning
+counts, below the symbolic mind. Unknowns on dev bodies are 96% refusals, so this metric mostly asks for refusal prediction. Training data was a
+grammar written by the developer, not ATANOR's life, so this is no evidence of compounding. Next: measure on work in a life, learn from own experience.
 G closed as FAIL on S4 (setting 5, seeds 1-3, 360 Selves, all alive): on a body no ancestor lived FULL = GENES = RANDOM in every seed;
 'guide' never selected; energy, death and lineage stay as the life's condition (G_SURVIVAL_PLAN.md).
 
