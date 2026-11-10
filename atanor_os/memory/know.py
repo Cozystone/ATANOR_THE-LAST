@@ -10,11 +10,13 @@ import random
 
 TAU = float(os.environ.get('ATANOR_KNOW_TAU', '0.95'))   # P_KNOW_LIFE_PLAN.md: dev may try 0.9 (recorded)
 K = 10
+GATE = float(os.environ.get('ATANOR_KNOW_GATE', '0'))   # R_GATE_PLAN.md: answer only on tools read at least this well here
 DEFAULT = 'D:/ATANOR-experiments/probe-work/authors/reader-all5.pt'
 
 
 class Knower:
     _model = None
+    _trust = {}                                            # (body, tool, nargs, size band) -> share right in self-check
 
     def __init__(self, store, body, seed=0):
         import torch
@@ -39,6 +41,24 @@ class Knower:
                     pass
         self.seen = len(items)
 
+    def _acc(self, tool, nargs, same):
+        """Leave-one-out on this body's own experiences of this tool (up to 20 probes, K examples each): share right."""
+        from .episodic import Episode, right
+        tkey = (self.body, tool, nargs, len(same) // 10)
+        if tkey not in Knower._trust:
+            if len(same) < 3:
+                Knower._trust[tkey] = 0.0
+            else:
+                rng = random.Random(f'gate-{self.body}-{tool}-{len(same) // 10}')
+                probe = same if len(same) <= 20 else rng.sample(same, 20)
+                eps = []
+                for q in probe:
+                    rest = [x for x in same if x is not q]
+                    eps.append(Episode(rest if len(rest) <= K else rng.sample(rest, K), q))
+                got = [right(e, v, a) == 'right' for e, (v, a, c) in zip(eps, Knower._model.predict(eps, Knower.device, 0.0))]
+                Knower._trust[tkey] = sum(got) / len(got)
+        return Knower._trust[tkey]
+
     def predict(self, tool, args, before):
         """-> an outcome dict as the symbolic mind gives ({('r',): answer, (i, attr): value after}) when the reader is sure,
         else None. before: list of per-argument dicts."""
@@ -49,6 +69,8 @@ class Knower:
         self._sync()
         same = [s for s in self.scenes if s.tool == tool and len(s.args) == len(args)]
         if not same:
+            return None
+        if GATE > 0 and self._acc(tool, len(args), same) < GATE:
             return None
         key = (tool, tuple(args), json.dumps(before, sort_keys=True, default=str), len(same))
         if key not in self.memo:
