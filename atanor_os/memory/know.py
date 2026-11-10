@@ -63,4 +63,8 @@ class Knower:
                     y[(i, k)] = str(v)
                 self.counts['sure'] += 1
             self.memo[key] = y
+            if os.environ.get('ATANOR_KNOW_LOG'):            # development diagnosis only
+                with open(os.environ['ATANOR_KNOW_LOG'], 'a', encoding='utf-8') as f:
+                    f.write(json.dumps({'body': self.body, 'tool': tool, 'n': len(same), 'conf': round(float(conf), 3), 'ans': ans,
+                                        'unk': vals is None or any(isinstance(v, tuple) for v in vals)}) + chr(10))
         return self.memo[key]
