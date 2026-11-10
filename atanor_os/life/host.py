@@ -52,7 +52,8 @@ def open_world(body, world):
         from ..world.fs_world import Workspace
         return Workspace(world / 'home', create=False)
     mod, cls, sub = {'board': ('board_world', 'BoardWorkspace', 'board'), 'desk': ('desk_world', 'DeskWorkspace', 'desk'),
-                     'clime': ('clime_world', 'ClimeWorkspace', 'clime'), 'dye': ('dye_world', 'DyeWorkspace', 'dye')}[body]
+                     'clime': ('clime_world', 'ClimeWorkspace', 'clime'), 'dye': ('dye_world', 'DyeWorkspace', 'dye'),
+                     'crumb': ('crumb_world', 'CrumbWorkspace', 'crumb'), 'spoke': ('spoke_world', 'SpokeWorkspace', 'spoke')}[body]
     return getattr(__import__(f'atanor_os.world.{mod}', fromlist=[cls]), cls)(world / sub, create=False)
 
 

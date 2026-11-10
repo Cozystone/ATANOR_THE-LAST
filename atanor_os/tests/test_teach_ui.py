@@ -35,7 +35,11 @@ def test_a_lesson_from_the_screen_is_reused_alone_in_a_later_session(tmp_path):
     while True:                                            # contrast questions until the demonstration is asked for
         while sess.person.pending is None:
             time.sleep(0.01)
-        if sess.person.pending['kind'] != 'contrast':
+        k = sess.person.pending['kind']
+        if k == 'show':                                    # the learner shows what it understood (U_NOISY_TEACHER_PLAN.md)
+            answer(sess, lambda p: {'ok': set(p['objects']) == meant})
+            continue
+        if k != 'contrast':
             break
         answer(sess, lambda p: {'yes': p['object'] in meant})
     target = next(c for c in sorted(meant) if cards[c]['tray'] != 't3')

@@ -16,6 +16,7 @@ import argparse
 import ast
 import datetime
 import json
+import os
 import queue
 import random
 import threading
@@ -49,6 +50,8 @@ class HumanPerson:
         self.answers = queue.Queue()
         self.help = Counter()
         self.n = 0
+        if os.environ.get('ATANOR_SELECTION_CHECK') == '0':   # U_NOISY_TEACHER_PLAN.md comparison: no check
+            self.check_selection = None
 
     def ask(self, kind, **info):
         self.n += 1
@@ -77,6 +80,12 @@ class HumanPerson:
         """ATANOR asks, before acting, whether a word means an action it already knows here."""
         self.help['propose'] += 1
         return bool(self.ask('propose', tool=effect['tool'], note=f"이 낱말은 '{effect['tool']}' 행동을 말하나요?")['yes'])
+
+    def check_selection(self, objects):
+        """U_NOISY_TEACHER_PLAN.md: before the action is shown, the person sees which cards ATANOR took the pointing to
+        mean and says whether that is right (a confirmation, like every other one at the interface)."""
+        self.help['check'] += 1
+        return bool(self.ask('show', objects=sorted(objects), note='이 카드들을 말씀하신 건가요?')['ok'])
 
     def demo(self):
         """The person does the action once on one card; the board executes it as the person's own action."""

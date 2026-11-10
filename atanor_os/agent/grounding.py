@@ -121,6 +121,17 @@ class Grounder:
         self.counts['point'] += 1
         ev = self.mem.events.append('point', lesson=lesson, objects=pts, feats={o: sorted(feats[o]) for o in pts})
         crit, evs = self.settle(set(pts), set(), feats, lesson=lesson)
+        check = getattr(self.person, 'check_selection', None) if not self.passive else None
+        if check is not None and crit is not None:          # U_NOISY_TEACHER_PLAN.md: the person sees what was understood;
+            ext = self.extension(crit['atoms'], feats)      # a no means the pointing or an answer slipped: point once more
+            ok = check(ext)
+            evs.append(self.mem.events.append('check', lesson=lesson, objects=sorted(ext), answer=ok))
+            if not ok:
+                pts = self.person.point()
+                self.counts['point'] += 1
+                ev = self.mem.events.append('point', lesson=lesson, objects=pts, feats={o: sorted(feats[o]) for o in pts})
+                crit, evs2 = self.settle(set(pts), set(), feats, lesson=lesson)
+                evs += evs2
         if crit is None:
             return None
         # two lessons whose evidence could not be told apart are still two concepts (the person may name them apart);
