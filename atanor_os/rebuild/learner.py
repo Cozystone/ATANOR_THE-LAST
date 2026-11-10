@@ -77,10 +77,14 @@ def seed_fitted(mind_dir, eff, goals, n):
 
 
 class NextGrounder(Grounder):
-    def __init__(self, home, mind_dir, *a, lab=True, ask=True, **kw):
+    def __init__(self, home, mind_dir, *a, lab=True, ask=True, know=False, **kw):
         super().__init__(home, mind_dir, *a, **kw)
         self.lab, self.ask = lab, ask
         self.store = Store(self.dir / 'experiences.jsonl')
+        self.knower = None
+        if know:                                           # P_KNOW_LIFE_PLAN.md: the reader, from this body's own experiences
+            from ..memory.know import Knower
+            self.knower = Knower(self.store, self.body)
         self.issues = self.dir / 'open_issues.jsonl'
         self.eff, self.goals = self._fitted()
         self.eff.body = self.body                          # a mind may have lived in several bodies; this one is here
@@ -301,6 +305,11 @@ class NextGrounder(Grounder):
             before = [st.get(x, blank) for x in args]
             p = self.eff.predict(act['tool'], args, before, reader=f'BAYES{_tau()}')
             tested = False
+            if p['outcome'] is None and self.knower is not None:
+                y = self.knower.predict(act['tool'], list(args), before)
+                if y is not None:
+                    p = {'outcome': y, 'why': 'reader'}
+                    self.counts['known_by_reader'] += 1
             if p['outcome'] is None and self.lab and labs < _lab_budget() and _may_pay(metabolism.PRICES['LAB'], True):
                 labs += 1
                 tested = True
