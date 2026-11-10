@@ -137,6 +137,8 @@ def readable_atom(a):
         return a
     if isinstance(t, tuple) and len(t) == 4 and t[0] == 'U':
         return f"{ATTR.get(t[2], t[2])}={t[3]}"
+    if isinstance(t, tuple) and len(t) == 3 and t[0] == 'H':
+        return f"{ATTR.get(t[2], t[2])} 있음"
     return a
 
 

@@ -47,6 +47,8 @@ def atoms(body, state, args, families=FAMILIES_ALL, concepts=None):
             for k, v in r.items():
                 if k not in ident:
                     out.add(('U', i, k, _hashable(v)))
+                    if 'H' in families and v not in (None, '-', ''):      # X_HAS_VALUE_PLAN.md: the attribute has some value
+                        out.add(('H', i, k))
         if 'S' in families or 'N' in families:
             nb = neighbours(body, state, args[i])
             if not nb and 'N' in families:

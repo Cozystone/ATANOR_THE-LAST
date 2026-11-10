@@ -13,6 +13,7 @@ Nothing here knows a word, a body name or an attribute meaning: objects are comp
 Memory modes (for comparison): FULL (events readable, claims kept), ONTO (claims and graph kept, past events not
 readable after a restart), RAW (only events kept; concepts are re-derived from the retrieved raw events when needed).
 """
+import os
 import itertools
 import json
 from collections import Counter
@@ -58,7 +59,8 @@ class Grounder:
         home = home or self.home
         objs = home.existing()
         st = home.observe(objs)
-        return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), FAMILIES_ALL) if a[0] != 'E') for o in objs}
+        fam = FAMILIES_ALL + (('H',) if os.environ.get('ATANOR_HAS_ATOMS') == '1' else ())   # X_HAS_VALUE_PLAN.md (dev switch)
+        return {o: frozenset(repr(a) for a in atoms(self.body, st, (o,), fam) if a[0] != 'E') for o in objs}
 
     @staticmethod
     def extension(cond, feats):
