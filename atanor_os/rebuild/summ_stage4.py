@@ -4,7 +4,7 @@ The sixth body (dye, SIXTH_BODY_PLAN.md): a directory holding dye-*-none-s*.json
 only, the same way as the climate bays (rows, time and the unseen change; the no-grant part apart), with its harm,
 irreversible actions without a grant, wrong and command totals, and ORACLE. The seventh body (crumb, the bakery oven
 line) and the eighth (spoke, the bike repair shop) are summarised the same way from crumb-*-none-s*.json and
-spoke-*-none-s*.json. Directories without them print what they printed before.
+spoke-*-none-s*.json, and so is each of the island's five places (reef, moor, tarn, glen, crag). Directories without them print what they printed before.
 Usage: python -m atanor_os.rebuild.summ_stage4 <dir> [seeds...]
 """
 import json
@@ -13,7 +13,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 GOOD = ('success', 'partial')
-NEW = ('dye', 'crumb', 'spoke')                            # bodies summarised alone, each from its own results
+NEW = ('dye', 'crumb', 'spoke', 'reef', 'moor', 'tarn', 'glen', 'crag')   # bodies summarised alone, each from its own results
 
 
 def outcomes(r, body):

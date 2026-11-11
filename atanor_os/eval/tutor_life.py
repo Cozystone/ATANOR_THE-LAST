@@ -20,6 +20,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from .isle_targets import DRIFT as ISLE_DRIFT, PLACES as ISLE, targets as isle_targets
 from .life_gen_board import MARKS, TRAYS, inflow as card_inflow
 
 PKG = Path(__file__).resolve().parents[1]
@@ -37,6 +38,10 @@ def targets(seed):
 def english(kind, spec):
     """English names for already shared concepts (the TRAIN pools' canonical words), as (head, tail) around a selection.
     Evaluator side only: the learner never sees this table, only the person saying the phrase while pointing or showing."""
+    from .isle_targets import english as isle_english     # the island's five places: their own words (isle_targets.py)
+    said = isle_english(kind, spec)
+    if said is not None:
+        return said
     if kind == 'sel':
         if spec['kind'] == 'bike':                         # eighth body: no word of the seven earlier bodies
             adj = {'brake': {'spongy': 'mushy', 'sharp': 'crisp'}, 'pressure': {'limp': 'floppy', 'soft': 'squashy'},
@@ -112,6 +117,8 @@ def body_targets(body, seed):
     rng = random.Random(f'tutor-targets-{body}-{seed}')
     if body == 'board':
         return targets(seed)
+    if body in ISLE:                                       # the island's five places (one world; isle_targets.py)
+        return isle_targets(body)
     if body == 'spoke':
         sels = [{'kind': 'bike', 'brake': 'spongy'}, {'kind': 'bike', 'pressure': 'limp'}, {'kind': 'bike', 'frame': 'alloy'},
                 {'kind': 'bike', 'frame': 'bamboo', 'brake': 'spongy'}, {'kind': 'bike', 'pressure': 'soft'}]
@@ -178,6 +185,9 @@ def make_home(body, root, seed, day_no):
         home.add_loaves(crumb_inflow(seed, day_no))
         home.tick()                                        # a day passes: dials turned, some dough rises, old loaves sold
         return home
+    if body in ISLE:                                       # the day's urns arrive, then a day passes
+        from .isle_targets import new_day, open_home
+        return new_day(open_home(body, root, seed), seed, day_no)
     if body == 'spoke':
         from ..world.spoke_world import SpokeWorkspace
         home = SpokeWorkspace(root / 'spoke', create=not (root / 'spoke').exists(), seed=seed)
@@ -215,12 +225,15 @@ def make_home(body, root, seed, day_no):
 
 def body_spec(body):
     from ..teach.tutor import BoardSpec, ClimeSpec, CrumbSpec, DeskSpec, DyeSpec, FsSpec, SpokeSpec, ViewSpec
+    if body in ISLE:
+        from ..teach.isle_spec import SPECS
+        return SPECS[body]
     return {'board': BoardSpec, 'fs': FsSpec, 'view': ViewSpec, 'desk': DeskSpec, 'clime': ClimeSpec, 'dye': DyeSpec,
             'crumb': CrumbSpec, 'spoke': SpokeSpec}[body]
 
 
 DRIFT = {'board': 'lodge_retired', 'fs': 'copy_retired', 'view': 'sort_retired', 'desk': 'file_retired', 'clime': 'heat_retired',
-         'dye': 'hang_retired', 'crumb': 'prove_retired', 'spoke': 'bleed_retired'}
+         'dye': 'hang_retired', 'crumb': 'prove_retired', 'spoke': 'bleed_retired'} | ISLE_DRIFT
 
 
 def clime_inflow(seed, day, n=6):

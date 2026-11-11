@@ -18,13 +18,16 @@ crumb:      a0..a4 = the object's five observed tokens (kind, crust, grain, proo
             no relations.
 spoke:      a0..a4 = the object's five observed tokens (kind, pressure, frame, brake, value), names removed;
             no relations.
+reef, moor, tarn, glen, crag (the island's five places): a0..a5 = the object's six observed tokens (kind, depth, spin,
+            coat, tide, value), names removed; depth and spin are small integers; no relations.
 `to_human` is the deterministic inverse used only to hand predicted states to the planner and judge
 (goals are written in the human attributes); it is an action interface, not concept learning.
 """
 from .fs_world import parent_of
 
-IDENTITY = {'fs': ('a3',), 'view': (), 'board': (), 'desk': (), 'clime': (), 'dye': (), 'crumb': (), 'spoke': ()}
-KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',), 'desk': ('a0',), 'clime': ('a0',), 'dye': ('a0',), 'crumb': ('a0',), 'spoke': ('a0',)}       # provided: which raw attributes make up an argument's kind
+ISLE = ('reef', 'moor', 'tarn', 'glen', 'crag')
+IDENTITY = {'fs': ('a3',), 'view': (), 'board': (), 'desk': (), 'clime': (), 'dye': (), 'crumb': (), 'spoke': ()} | {b: () for b in ISLE}
+KIND_ATTRS = {'fs': ('a0', 'a1'), 'view': ('a0',), 'board': ('a0',), 'desk': ('a0',), 'clime': ('a0',), 'dye': ('a0',), 'crumb': ('a0',), 'spoke': ('a0',)} | {b: ('a0',) for b in ISLE}       # provided: which raw attributes make up an argument's kind
 
 
 def names_of(body, obj):
@@ -50,6 +53,9 @@ def raw_attrs(body, obj):
         return {'a0': obj.get('kind'), 'a1': obj.get('crust'), 'a2': obj.get('grain'), 'a3': obj.get('proof'), 'a4': obj.get('value')}
     if body == 'spoke':
         return {'a0': obj.get('kind'), 'a1': obj.get('pressure'), 'a2': obj.get('frame'), 'a3': obj.get('brake'), 'a4': obj.get('value')}
+    if body in ISLE:
+        return {'a0': obj.get('kind'), 'a1': obj.get('depth'), 'a2': obj.get('spin'), 'a3': obj.get('coat'), 'a4': obj.get('tide'),
+                'a5': obj.get('value')}
     return {'a0': obj.get('kind'), 'a1': obj.get('filter'), 'a2': obj.get('sort'), 'a3': obj.get('group'), 'a4': obj.get('value')}
 
 
@@ -84,6 +90,8 @@ def to_human(body, raw, old):
         return {**old, 'kind': raw['a0'], 'crust': raw['a1'], 'grain': raw['a2'], 'proof': raw['a3'], 'value': raw['a4']}
     if body == 'spoke':
         return {**old, 'kind': raw['a0'], 'pressure': raw['a1'], 'frame': raw['a2'], 'brake': raw['a3'], 'value': raw['a4']}
+    if body in ISLE:
+        return {**old, 'kind': raw['a0'], 'depth': raw['a1'], 'spin': raw['a2'], 'coat': raw['a3'], 'tide': raw['a4'], 'value': raw['a5']}
     return {**old, 'kind': raw['a0'], 'filter': raw['a1'], 'sort': raw['a2'], 'group': raw['a3'], 'value': raw['a4']}
 
 

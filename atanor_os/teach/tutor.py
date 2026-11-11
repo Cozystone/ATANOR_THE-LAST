@@ -559,7 +559,7 @@ class Tutor:
             todo = [o for o in todo if self.spec.possible(self.act, o, st)]
         o = self.rng.choice(todo or self.truth)
         tool, args = self.spec.steps(self.act, o, getattr(self.home, 'drift', ()))
-        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye', 'crumb', 'spoke') else {}))
+        self.home.execute(tool, args, self.grants(), **({'actor': 'teacher'} if self.spec.BODY in ('desk', 'clime', 'dye', 'crumb', 'spoke', 'reef', 'moor', 'tarn', 'glen', 'crag') else {}))
         return {'tool': tool, 'args': list(args), 'object': o}
 
     def judge(self, ignore=()):

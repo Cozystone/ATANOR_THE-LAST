@@ -15,7 +15,8 @@ from pathlib import Path
 
 from .bundles import Memory, build, change, controls, read
 
-RETIRED = {'clime': 'heat', 'desk': 'file', 'dye': 'hang', 'crumb': 'prove', 'spoke': 'bleed'}                # evaluator side: the course's tool that stops (GEN3_BUNDLE2)
+RETIRED = {'clime': 'heat', 'desk': 'file', 'dye': 'hang', 'crumb': 'prove', 'spoke': 'bleed',
+           'reef': 'timbal', 'moor': 'mebrin', 'tarn': 'yonker', 'glen': 'tulsk', 'crag': 'ulmar'}                # evaluator side: the course's tool that stops (GEN3_BUNDLE2)
 CHANGE_TICK = 10
 
 
