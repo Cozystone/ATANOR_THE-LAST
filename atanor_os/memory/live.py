@@ -23,7 +23,7 @@ import os
 SUPPORT = 2
 FIT = int(os.environ.get('ATANOR_LIVE_FIT', '2'))          # a law of the memory must answer this many of the Self's own tries
 SIBS = os.environ.get('ATANOR_LIVE_SIBS', '1') == '1'
-CONDS = os.environ.get('ATANOR_LIVE_CONDS', '0') == '1'   # the world's refusal conditions from memory
+CONDS = os.environ.get('ATANOR_LIVE_CONDS', '1') == '1'   # the world's refusal conditions from memory
 
 
 class Knows:
