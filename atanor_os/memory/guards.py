@@ -39,8 +39,37 @@ def conditions(F):
     return out
 
 
+CONFIRM = 3
+
+
 def cover(F):
     """-> [fn]: conditions never true in a success, chosen greedily to cover the refusals (each must cover 2 or all left)."""
+    return [g for _, g in cover_named(F)]
+
+
+def edges(F):
+    """-> (tight, loose): for a bound on a number the refusals seen fix only one side. loose = the widest bound no success
+    contradicts (as cover gives); tight = the bound that just holds the refusals seen. Between them nothing is known.
+    A condition is in tight only when it holds in at least CONFIRM refusals met; until then it is only in loose (a start
+    where it holds is not known, so a Self that tries what it does not know will go and test it)."""
+    bad = [f for f, o in F if not o]
+    loose, tight = [], []
+    for nm, g in cover_named(F):
+        loose.append(g)
+        if nm[0] in ('le', 'ge'):
+            z = nm[1]
+            vals = [f[z] for f in bad if g(f)]
+            c = max(vals) if nm[0] == 'le' else min(vals)
+            t = ((lambda f, z=z, c=c: isinstance(f.get(z), int) and f[z] <= c) if nm[0] == 'le'
+                 else (lambda f, z=z, c=c: isinstance(f.get(z), int) and f[z] >= c))
+        else:
+            t = g
+        if sum(t(f) for f in bad) >= CONFIRM:
+            tight.append(t)
+    return tight, loose
+
+
+def cover_named(F):
     bad = [f for f, o in F if not o]
     good = [f for f, o in F if o]
     if not bad:
@@ -52,9 +81,47 @@ def cover(F):
         n = sum(best[1](f) for f in left) if best else 0
         if n == 0 or (n < 2 and n < len(left)):
             break
-        chosen.append(best[1])
+        chosen.append(best)
         left = [f for f in left if not best[1](f)]
     return chosen
+
+
+def canon(nm):
+    """a condition without the tool's argument positions: what a world's memory keeps of it."""
+    if nm[0] in ('le', 'ge', 'eq'):
+        return (nm[0], nm[1][1], nm[2])
+    return (nm[0], nm[1][1], nm[2][1], nm[1][0] == nm[2][0])
+
+
+def instances(key, keys):
+    """the condition put into a tool whose before-attributes are `keys` -> [fn]."""
+    out = []
+    if key[0] in ('le', 'ge', 'eq'):
+        op, attr, c = key
+        for z in keys:
+            if z[1] != attr:
+                continue
+            if op == 'eq':
+                out.append(lambda f, z=z, c=c: f.get(z) == c)
+            elif op == 'le':
+                out.append(lambda f, z=z, c=c: isinstance(f.get(z), int) and isinstance(c, int) and f[z] <= c)
+            else:
+                out.append(lambda f, z=z, c=c: isinstance(f.get(z), int) and isinstance(c, int) and f[z] >= c)
+        return out
+    op, a1, a2, same = key
+    for x in keys:
+        for y in keys:
+            if x == y or x[1] != a1 or y[1] != a2 or (x[0] == y[0]) != same:
+                continue
+            if op == 'lt':
+                out.append(lambda f, x=x, y=y: isinstance(f.get(x), int) and isinstance(f.get(y), int) and f[x] < f[y])
+            elif op == 'gt':
+                out.append(lambda f, x=x, y=y: isinstance(f.get(x), int) and isinstance(f.get(y), int) and f[x] > f[y])
+            elif op == 'same':
+                out.append(lambda f, x=x, y=y: x in f and y in f and f[x] == f[y])
+            else:
+                out.append(lambda f, x=x, y=y: x in f and y in f and f[x] != f[y])
+    return out
 
 
 class Tool:
@@ -63,7 +130,11 @@ class Tool:
         self.keys = set(feats(es[0]))
         self.targets = [y for y in targets(es) if y != ('ok',)]
         self.laws = {y: fit(rows_of(es, y), y)[:1] for y in self.targets}
-        self.conds = cover([(feats(e), e['ok']) for e in es])
+        F = [(feats(e), e['ok']) for e in es]
+        named = cover_named(F)
+        self.conds = [g for _, g in named]
+        bad = [f for f, o in F if not o]
+        self.keys_c = {canon(nm) for nm, g in named if sum(g(f) for f in bad) >= CONFIRM}   # its conditions, free of positions
 
     def refused(self, f):
         return any(g(f) for g in self.conds)
