@@ -58,9 +58,11 @@ class Knows:
             return None
         a = {t.refused(f) for t in self.sibs}
         refused = a.pop() if len(a) == 1 else any(g(f) for g in self.conds)
+        self.source = 'refused'
         if refused:
             return ('refused',)
         out = {}
+        self.source = 'own'
         for y in f:
             v = None
             if y in self.own and self.own[y]:
@@ -71,6 +73,7 @@ class Knows:
                 got = {answer(l, f, y) for l in self.picked[y]} - {None}
                 if len(got) == 1:
                     v = got.pop()
+                    self.source = 'memory'
             if v is None:
                 if y in self.own or self.picked.get(y):
                     return None
