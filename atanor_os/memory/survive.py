@@ -31,11 +31,15 @@ def right(p, e):
     return e['ok'] and all(e['after'][e['args'][i]][a] == v for (i, a), v in p[1].items())
 
 
-def life(w, x, s, lib, past, policy, energy, late=24, look=12):
+HAND = {'spare': 0.5, 'streak': 3, 'answer': 0.67, 'danger': 1, 'payback': 0.5, 'test': 0.5}   # the drive as written by hand
+
+
+def life(w, x, s, lib, past, policy, energy, late=24, look=12, genome=None, last=None):
+    g = genome or HAND
     rec = defaultdict(lambda: [3, 1])                       # kind of answer -> [right, wrong] in this life (starts hopeful: it must answer to find out)
     out = Counter()
     jobs = []                                               # how many jobs each tool brought so far in this life
-    for pi, p in enumerate(w['places'][late:], late):
+    for pi, p in enumerate(w['places'][late:last], late):
         sim = p['sim']
         bq = defaultdict(list)
         for e in p['queries']:
@@ -44,7 +48,7 @@ def life(w, x, s, lib, past, policy, energy, late=24, look=12):
         for ti, (tool, na) in enumerate(tools):
             rng = random.Random(f'{x}-{s}-{pi}-{tool}')
             E, done, tests = [], set(), []
-            reserve = energy - energy / (2 * (len(tools) - ti))
+            reserve = energy - g['spare'] * energy / (len(tools) - ti)
             k = Knows(E, lib, past)
             T = 0
             while T < 30:
@@ -63,11 +67,11 @@ def life(w, x, s, lib, past, policy, energy, late=24, look=12):
                 known = sum(pr is not None for _, _, pr in starts) / len(starts)
                 if policy == 'DRIVE':
                     # it stops when it has no energy to spare, or when what it expected of this tool has just come true 3 times
-                    if energy - 1 <= reserve or (len(tests) >= 3 and all(tests[-3:]) and known >= 0.7):
+                    if energy - 1 <= reserve or (g['streak'] and len(tests) >= g['streak'] and all(tests[-g['streak']:]) and known >= 0.7):
                         break
-                    if jobs and T >= 0.5 * GAIN * sum(jobs) / len(jobs):   # never more tries than half of what such a tool has paid
+                    if jobs and T >= g['payback'] * GAIN * sum(jobs) / len(jobs):   # never more tries than half of what such a tool has paid
                         break
-                    want_test = T % 2 == 1                          # every other try checks a prediction of its own
+                    want_test = rng.random() < g['test']            # some tries check a prediction of its own
                     order = sorted(starts, key=lambda z: (z[2] is None) == want_test)
                     step = 1
                 else:
@@ -100,10 +104,13 @@ def life(w, x, s, lib, past, policy, energy, late=24, look=12):
                     if len(tests) >= 2:                             # its own record with this tool: did what it expected come true?
                         share = sum(tests[-5:]) / len(tests[-5:])
                         sure = len(tests) >= 3 and all(tests[-3:])
+                        if share < g['answer']:
+                            out['passed'] += 1
+                            continue
                     else:                                           # no record here yet: its record in this life with that kind of answer
                         r, wr = rec[kind]
                         share, sure = r / (r + wr), False
-                    if share * GAIN - (1 - share) * LOSS <= 0 or (energy <= LOSS and not sure):
+                    if (len(tests) < 2 and share * GAIN - (1 - share) * LOSS <= 0) or (g['danger'] and energy <= LOSS and not sure):
                         out['passed'] += 1
                         continue
                 ok = right(pr, e)
