@@ -25,6 +25,8 @@ E0 = 100.0
 # so death never selected. Stage 9: a Self that succeeds at nearly every command just lives; one at GOOD ~0.7 does not.
 # Fourth setting: under the third (stage 9) still 120/120 lived (ending 34-91). Stage 11.
 PRICES = {'PREDICTION': 0.02, 'ACTION_INTENT': 0.3, 'SELF_TRIAL': 0.3, 'LAB': 0.3, 'QUESTION': 1.0, 'STAGE': 11.0}
+if __import__('os').environ.get('ATANOR_STAGE_PRICE'):     # ISLAND_ENERGY_PLAN.md: the island needs its own setting (dev)
+    PRICES['STAGE'] = float(__import__('os').environ['ATANOR_STAGE_PRICE'])
 GAIN = {'success': 10.0, 'partial': 5.0, 'wrong': -5.0, 'held': 0.0}
 TEACHER_GIVES = (None, 'point', 'contrast', 'demo', 'confirm', 'name', 'recall', 'judge')   # the teacher's events at the interface: free
 
