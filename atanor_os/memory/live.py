@@ -23,7 +23,7 @@ import os
 SUPPORT = 2
 FIT = int(os.environ.get('ATANOR_LIVE_FIT', '2'))          # a law of the memory must answer this many of the Self's own tries
 SIBS = os.environ.get('ATANOR_LIVE_SIBS', '1') == '1'
-CONDS = os.environ.get('ATANOR_LIVE_CONDS', '0') == '1'   # the world's refusal conditions from memory (dev: more wrong; off)
+CONDS = os.environ.get('ATANOR_LIVE_CONDS', '0') == '1'   # the world's refusal conditions from memory
 
 
 class Knows:
@@ -56,13 +56,25 @@ class Knows:
             keys = Counter(c for t in past for c in t.keys_c)
             good = [f for f, o in ((feats(e), e['ok']) for e in E) if o]
             bad = [f for f, o in ((feats(e), e['ok']) for e in E) if not o]
+            cands = []
             for key, n in keys.items():
                 if n < 2:
                     continue
                 for g in instances(key, f0):
-                    if any(g(f) for f in good):
-                        continue
-                    (self.conds if any(g(f) for f in bad) else self.loose).append(g)
+                    if not any(g(f) for f in good):
+                        cands.append((n, g))
+            # the fewest of the world's conditions that explain the refusals met here are believed (those met in more
+            # earlier tools first); the others that could still hold are to be tested, not believed
+            left, chosen = list(bad), []
+            while left and cands:
+                n, g = max(cands, key=lambda c: (sum(c[1](f) for f in left), c[0]))
+                if not any(g(f) for f in left):
+                    break
+                chosen.append(g)
+                left = [f for f in left if not g(f)]
+            own_t, own_l = edges([(f, False) for f in left] + [(f, True) for f in good]) if left else ([], [])
+            self.conds = chosen + own_t
+            self.loose = own_l + [g for _, g in cands if g not in chosen]
         if past is not None and SIBS:
             self.sibs = [t for t in past if t.agrees(E)]
 

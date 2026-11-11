@@ -74,20 +74,39 @@ def cover_named(F):
     good = [f for f, o in F if o]
     if not bad:
         return []
-    pure = [(nm, g) for nm, g in conditions(F) if not any(g(f) for f in good)]
+    cands = conditions(F)
+    pure = [(nm, g) for nm, g in cands if not any(g(f) for f in good)]
     left, chosen = list(bad), []
-    while left:
-        best = max(pure, key=lambda p: sum(p[1](f) for f in left), default=None)
-        n = sum(best[1](f) for f in left) if best else 0
-        if n == 0 or (n < 2 and n < len(left)):
-            break
-        chosen.append(best)
-        left = [f for f in left if not best[1](f)]
+
+    def greedy(pool):
+        nonlocal left
+        while left:
+            best = max(pool, key=lambda p: sum(p[1](f) for f in left), default=None)
+            n = sum(best[1](f) for f in left) if best else 0
+            if n == 0 or (n < 2 and n < len(left)):
+                break
+            chosen.append(best)
+            left = [f for f in left if not best[1](f)]
+    greedy(pure)
+    if left and len(left) >= 2:
+        # what no single condition explains: two conditions that hold together (each alone also holds in successes)
+        part = sorted((c for c in cands if c[0][0] in ('le', 'ge', 'eq') and sum(c[1](f) for f in left) >= 2 and any(c[1](f) for f in good)),
+                      key=lambda c: -sum(c[1](f) for f in left))[:24]
+        both = []
+        for (n1, g1), (n2, g2) in combinations(part, 2):
+            if n1[1] == n2[1]:
+                continue
+            g = lambda f, g1=g1, g2=g2: g1(f) and g2(f)
+            if sum(g(f) for f in left) >= 2 and not any(g(f) for f in good):
+                both.append((('and', n1, n2), g))
+        greedy(both)
     return chosen
 
 
 def canon(nm):
     """a condition without the tool's argument positions: what a world's memory keeps of it."""
+    if nm[0] == 'and':
+        return ('and',) + tuple(sorted((canon(nm[1]), canon(nm[2])), key=str))
     if nm[0] in ('le', 'ge', 'eq'):
         return (nm[0], nm[1][1], nm[2])
     return (nm[0], nm[1][1], nm[2][1], nm[1][0] == nm[2][0])
@@ -96,6 +115,8 @@ def canon(nm):
 def instances(key, keys):
     """the condition put into a tool whose before-attributes are `keys` -> [fn]."""
     out = []
+    if key[0] == 'and':
+        return [lambda f, g1=g1, g2=g2: g1(f) and g2(f) for g1 in instances(key[1], keys) for g2 in instances(key[2], keys)][:8]
     if key[0] in ('le', 'ge', 'eq'):
         op, attr, c = key
         for z in keys:
