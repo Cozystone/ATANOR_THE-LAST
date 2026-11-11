@@ -43,7 +43,7 @@ def make(home, mind_dir, **kw):
     if name() in ('next', 'next_nolab', 'next_noask', 'next_explore', 'next_know'):   # REBUILD_PLAN.md stage 4: the new decision module
         from ..rebuild.learner import NextGrounder                         # next_know: P_KNOW_LIFE_PLAN.md (dev)
         return NextGrounder(home, mind_dir, **kw, lab=name() != 'next_nolab', ask=name() not in ('next_noask', 'next_explore', 'next_know'),
-                            know=name() == 'next_know')
+                            know=name() == 'next_know' or os.environ.get('ATANOR_WORK_KNOW') == '1')   # CONTINUOUS_LIFE_PLAN.md (dev)
     if name() != 'current':
         raise ValueError(f'unknown learner {name()!r}: frozen copies live at their commits (ARCHIVE_INDEX.md)')
     return Grounder(home, mind_dir, **kw)

@@ -83,8 +83,8 @@ class NextGrounder(Grounder):
         self.store = Store(self.dir / 'experiences.jsonl')
         self.knower = None
         if know:                                           # P_KNOW_LIFE_PLAN.md: the reader, from this body's own experiences
-            from ..memory.know import Knower
-            self.knower = Knower(self.store, self.body)
+            from ..memory.know import knower
+            self.knower = knower(self.store, self.body)
         self.issues = self.dir / 'open_issues.jsonl'
         self.eff, self.goals = self._fitted()
         self.eff.body = self.body                          # a mind may have lived in several bodies; this one is here

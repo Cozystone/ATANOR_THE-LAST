@@ -14,7 +14,7 @@ GATE = float(os.environ.get('ATANOR_KNOW_GATE', '0.8'))  # R_GATE_PLAN.md: answe
 
 
 def available():
-    return os.path.exists(os.environ.get('ATANOR_KNOW_READER', DEFAULT))
+    return os.environ.get('ATANOR_KNOW_KIND') == 'law' or os.path.exists(os.environ.get('ATANOR_KNOW_READER', DEFAULT))
 DEFAULT = 'D:/ATANOR-experiments/probe-work/authors/reader-all5.pt'
 
 
@@ -94,3 +94,12 @@ class Knower:
                     f.write(json.dumps({'body': self.body, 'tool': tool, 'n': len(same), 'conf': round(float(conf), 3), 'ans': ans,
                                         'unk': vals is None or any(isinstance(v, tuple) for v in vals)}) + chr(10))
         return self.memo[key]
+
+
+def knower(store, body, seed=0):
+    """the organ asked before trying: the reader (default) or, with ATANOR_KNOW_KIND=law, the law memory from the Self's
+    own lived experiences (CONTINUOUS_LIFE_PLAN.md)."""
+    if os.environ.get('ATANOR_KNOW_KIND') == 'law':
+        from .lawknow import LawKnower
+        return LawKnower(store, body, seed)
+    return Knower(store, body, seed)

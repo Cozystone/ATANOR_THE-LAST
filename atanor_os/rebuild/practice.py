@@ -40,8 +40,8 @@ def practice(world_dir, mind_dir, body, seed, selector='CHOOSE', per_action=PER_
     if know:                                            # P_KNOW_LIFE_PLAN.md: CHOOSE, but a call the reader is sure of is not tried
         from .effects import flat
         from .explore import _newness
-        from ..memory.know import Knower
-        kn = Knower(store, body, seed)
+        from ..memory.know import knower
+        kn = knower(store, body, seed)
 
         def selector(model, tool, args, before, y):
             if y is not None or kn.predict(tool, list(args), before) is not None:
